@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphs of Exponential Functions · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<!-- Desmos demo API key — dev-only per Desmos's own docs. Swap for a registered key
+     from desmos.com/my-api once Mike hears back on personal-project/production pricing. -->
+<script defer src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">MX <span>Algebra</span></a>
+  <span class="crumb">Graphs of Exponential Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 6.2</span>Graphs of Exponential Functions</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Graph exponential functions (IA 10.2.1).</li><li>Function transformations (exponential) (CA 3.5.1-3.5.5).</li></ul>
+<h3 id="objective-1-graph-exponential-functions-ia-10-2-1">Objective 1: Graph exponential functions (IA 10.2.1).</h3>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><p>Graph exponential functions.</p>
+<div class="ex-body"><p>On the same coordinate system graph \(f(x)={2}^{x}\) and \(g(x)={2}^{x+1}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will use point plotting to graph the functions.</p>
+<p><br> Looking at the graphs of the functions \(f(x)={2}^{x}\) and \(g(x)={2}^{x+1}\) above, we see that adding one in the exponent caused a horizontal shift of one unit to the left. We can use this pattern to graph other functions using horizontal shifts.</p>
+</div></div><div class="ex-body"><p>On the same coordinate system graph \(f(x)={3}^{x}\) and \(g(x)={3}^{x}-2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will use point plotting to graph the functions.</p>
+<p><br> Looking at the graphs of the functions \(f(x)={3}^{x}\) and \(g(x)={3}^{x}-2\) , we see that subtracting 2 caused vertical shift of down two units. Notice that the horizontal asymptote also shifted down 2 units. We can use this pattern to help graph other functions with a vertical shift.</p>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<div class="exercise warmup"><div class="n">P1</div><div class="body"><p>On the same coordinate system graph \(f(x)={3}^{x}\) and \(g(x)={3}^{x-1}.\)</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P2</div><div class="body"><p>On the same coordinate system graph \(f(x)={3}^{x}\) and \(g(x)={3}^{x}+1.\)</p>
+</div></div>
+<h3 id="objective-2-function-transformations-exponential-ca-3-5-1-3-5-5">Objective 2: Function transformations (exponential). (CA 3.5.1-3.5.5)</h3>
+<p>Vertical and Horizontal Shifts:Given a function \(f(x)\) , a new function \(g(x)=f(x)+k\) where \(k\) is a constant, is a <strong>vertical shift</strong> of the function \(f(x)\) . All the output values change by <strong>k</strong> units. If <strong>k</strong> is a positive, the graph will shift up. If <strong>k</strong> is negative, the graph will shift down.</p>
+<p>Given a function \(f(x)\) , a new function \(g(x)=f(x-h)\) , where <strong>h</strong> is a constant, is a <strong>horizontal shift</strong> of the function \(f(x)\) . If <strong>h</strong> is positive, the graph will shift right. If <strong>h</strong> is negative, the graph will shift left.</p>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a function and both a vertical and a horizontal shift, sketch the graph.</strong></p>
+<ul class="tight"><li>Identify the vertical and horizontal shifts from the formula.</li><li>The vertical shift results from a constant added to the output. Move the graph up for a positive constant and down for a negative constant.</li><li>The horizontal shift results from a constant added to the input. Move the graph left for a positive constant and right for a negative constant.</li><li>Note the order of the shifts, transformations, and reflections follow the order of operations.</li></ul>
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><p>Function transformations (exponential).</p>
+<div class="ex-body"><p>Graph \(f(x)={3}^{x+2}-3\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Make a table for \(f(x)={3}^{x}\)</li><li>Add a column on the left for \(x+2\) , by subtracting 2 from all the input values</li><li>Add a column on the right by subtracting 3 from all the y-value</li><li>Two outside columns have the points for the new graph</li></ul>
+</div></div></div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a function, reflect the graph both vertically and horizontally.</strong></p>
+<ul class="tight"><li>Multiply all outputs by –1 for a vertical reflection. The new graph is a reflection of the original graph about the <strong>x</strong>-axis.</li><li>Multiply all inputs by –1 for a horizontal reflection. The new graph is a reflection of the original graph about the <strong>y</strong>-axis.</li></ul>
+</div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<p>Function transformations (exponential).</p>
+<div class="exercise warmup"><div class="n">P3</div><div class="body"><p>Graph \(f(x)={2}^{x-3}-1\)</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P4</div><div class="body"><ul class="tight"><li>ⓐ Given \(f(x)={3}^{x}\) , reflect it about y-axis and write an equation of a new function below.</li><li>ⓑ Given \(f(x)={3}^{x}\) , reflect it about x-axis and write an equation of a new function below.</li><li>ⓒ Given \(f(x)={3}^{x}\) , shift the graph up 4 units and write an equation of a new function below.</li><li>ⓓ Graph the equations found in parts a, b, and c on the coordinate system provided and check your work using a graphing utility.</li></ul>
+</div></div>
+</div></details>
+<p>As we discussed in the previous section, exponential functions are used for many real-world applications such as finance, forensics, computer science, and most of the life sciences. Working with an equation that describes a real-world situation gives us a method for making predictions. Most of the time, however, the equation itself is not enough. We learn a lot about things by seeing their pictorial representations, and that is exactly why graphing exponential equations is a powerful tool. It gives us another layer of insight for predicting future events.</p>
+<h2 id="graphing-exponential-functions">Graphing Exponential Functions</h2>
+<p>Before we begin graphing, it is helpful to review the behavior of exponential growth. Recall the table of values for a function of the form \(f(x)={b}^{x}\) whose base is greater than one. We’ll use the function \(f(x)={2}^{x}.\) Observe how the output values in (see original) change as the input increases by \(1.\)</p>
+<div class="tablewrap"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>\(x\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td><strong>\(f(x)={2}^{x}\)</strong></td><td>\(\frac{1}{8}\)</td><td>\(\frac{1}{4}\)</td><td>\(\frac{1}{2}\)</td><td>\(1\)</td><td>\(2\)</td><td>\(4\)</td><td>\(8\)</td></tr></tbody></table></div>
+<p>Each output value is the product of the previous output and the base, \(2.\) We call the base \(2\) the <strong>constant ratio</strong>. In fact, for any exponential function with the form \(f(x)=a{b}^{x},\) \(b\) is the constant ratio of the function. This means that as the input increases by 1, the output value will be the product of the base and the previous output, regardless of the value of \(a.\)</p>
+<p>Notice from the table that</p>
+<ul class="tight"><li>the output values are positive for all values of \(x;\)</li><li>as \(x\) increases, the output values increase without bound; and</li><li>as \(x\) decreases, the output values grow smaller, approaching zero.</li></ul>
+<p>(see original) shows the exponential growth function \(f(x)={2}^{x}.\)</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_001.jpg" alt="Graph of the exponential function, 2^(x), with labeled points at (-3, 1/8), (-2, ¼), (-1, ½), (0, 1), (1, 2), (2, 4), and (3, 8). The graph notes that the x-axis is an asymptote." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Notice that the graph gets close to the <strong>x</strong>-axis, but never touches it.</figcaption></figure>
+<p>The domain of \(f(x)={2}^{x}\) is all real numbers, the range is \((0,\infty),\) and the horizontal asymptote is \(y=0.\)</p>
+<p>To get a sense of the behavior of <strong>exponential decay</strong>, we can create a table of values for a function of the form \(f(x)={b}^{x}\) whose base is between zero and one. We’ll use the function \(g(x)={(\frac{1}{2})}^{x}.\) Observe how the output values in (see original) change as the input increases by \(1.\)</p>
+<div class="tablewrap"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>\(x\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td>\(g(x)=(\frac{1}{2}{)}^{x}\)</td><td>\(8\)</td><td>\(4\)</td><td>\(2\)</td><td>\(1\)</td><td>\(\frac{1}{2}\)</td><td>\(\frac{1}{4}\)</td><td>\(\frac{1}{8}\)</td></tr></tbody></table></div>
+<p>Again, because the input is increasing by 1, each output value is the product of the previous output and the base, or constant ratio \(\frac{1}{2}.\)</p>
+<p>Notice from the table that</p>
+<ul class="tight"><li>the output values are positive for all values of \(x;\)</li><li>as \(x\) increases, the output values grow smaller, approaching zero; and</li><li>as \(x\) decreases, the output values grow without bound.</li></ul>
+<p>(see original) shows the exponential decay function, \(g(x)={(\frac{1}{2})}^{x}.\)</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_002.jpg" alt="Graph of decreasing exponential function, (1/2)^x, with labeled points at (-3, 8), (-2, 4), (-1, 2), (0, 1), (1, 1/2), (2, 1/4), and (3, 1/8). The graph notes that the x-axis is an asymptote." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>The domain of \(g(x)={(\frac{1}{2})}^{x}\) is all real numbers, the range is \((0,\infty),\) and the horizontal asymptote is \(y=0.\)</p>
+<div class="card definition"><span class="chip">Characteristics of the Graph of the Parent Function \(\ f(x)={b}^{x}\)</span><p>An exponential function with the form \(f(x)={b}^{x},\) \(b>0,\) \(b\ne1,\) has these characteristics:</p>
+<ul class="tight"><li><strong>one-to-one</strong> function</li><li>horizontal asymptote: \(y=0\)</li><li>domain: \((-\infty,\infty)\)</li><li>range: \((0,\infty)\)</li><li><strong>x-</strong>intercept: none</li><li><strong>y-</strong>intercept: \((0,1)\)</li><li>increasing if \(b>1\)</li><li>decreasing if \(b<1\)</li></ul>
+<p>Drag the slider below to compare the graphs of <strong>exponential growth</strong> and decay functions — watch what happens as \(b\) crosses \(1.\)</p>
+<figure class="plot" data-desmos data-spec='{"bounds":{"left":-3,"right":3,"bottom":-1,"top":9},"sliders":[{"var":"b","min":0.2,"max":4,"step":0.1,"value":2,"color":"#cf003d"}],"curves":[{"latex":"y=b^{x}","color":"#cf003d"}],"alt":"Interactive graph of f(x)=b^x — drag b to compare growth (b>1) and decay (0<b<1)"}'>
+  <figcaption>Figure 3 — Drag <em>b</em> to compare growth (\(b>1\)) and decay (\(0&lt;b&lt;1\)).</figcaption>
+</figure>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given an exponential function of the form \(f(x)={b}^{x},\) graph the function.</strong></p>
+<ul class="tight"><li>Create a table of points.</li><li>Plot at least \(3\) point from the table, including the <strong>y</strong>-intercept \((0,1).\)</li><li>Draw a smooth curve through the points.</li><li>State the domain, \((-\infty,\infty),\) the range, \((0,\infty),\) and the horizontal asymptote, \(y=0.\)</li></ul>
+</div>
+<div class="card example"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Sketch a graph of \(f(x)={0.25}^{x}.\) State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Before graphing, identify the behavior and create a table of points for the graph.</p>
+<ul class="tight"><li>Since \(b=0.25\) is between zero and one, we know the function is decreasing. The left tail of the graph will increase without bound, and the right tail will approach the asymptote \(y=0.\)</li><li>Create a table of points as in (see original).<div class="tablewrap"><table class="data"><caption>Table 3</caption><tbody><tr><td><strong>\(x\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td><strong>\(f(x)={0.25}^{x}\)</strong></td><td>\(64\)</td><td>\(16\)</td><td>\(4\)</td><td>\(1\)</td><td>\(0.25\)</td><td>\(0.0625\)</td><td>\(0.015625\)</td></tr></tbody></table></div>
+</li><li>Plot the <strong>y</strong>-intercept, \((0,1),\) along with two other points. We can use \((-1,4)\) and \((1,0.25).\)</li></ul>
+<p>Draw a smooth curve connecting the points as in (see original).</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_004.jpg" alt="Graph of the decaying exponential function f(x) = 0.25^x with labeled points at (-1, 4), (0, 1), and (1, 0.25)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p>The domain is \((-\infty,\infty);\) the range is \((0,\infty);\) the horizontal asymptote is \(y=0.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Sketch the graph of \(f(x)={4}^{x}.\) State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The domain is \((-\infty,\infty);\) the range is \((0,\infty);\) the horizontal asymptote is \(y=0.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_005.jpg" alt="Graph of the increasing exponential function f(x) = 4^x with labeled points at (-1, 0.25), (0, 1), and (1, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-transformations-of-exponential-functions">Graphing Transformations of Exponential Functions</h2>
+<p>Transformations of exponential graphs behave similarly to those of other functions. Just as with other parent functions, we can apply the four types of transformations—shifts, reflections, stretches, and compressions—to the parent function \(f(x)={b}^{x}\) without loss of shape. For instance, just as the quadratic function maintains its parabolic shape when shifted, reflected, stretched, or compressed, the exponential function also maintains its general shape regardless of the transformations applied.</p>
+<h3 id="graphing-a-vertical-shift">Graphing a Vertical Shift</h3>
+<p>The first transformation occurs when we add a constant \(d\) to the parent function \(f(x)={b}^{x},\) giving us a <strong>vertical shift</strong> \(d\) units in the same direction as the sign. For example, if we begin by graphing a parent function, \(f(x)={2}^{x},\) we can then graph two vertical shifts alongside it, using \(d=3:\) the upward shift, \(g(x)={2}^{x}+3\) and the downward shift, \(h(x)={2}^{x}-3.\) Drag \(d\) below to see both vertical shifts (and everything in between) against the parent function.</p>
+<figure class="plot" data-desmos data-spec='{"bounds":{"left":-4,"right":4,"bottom":-6,"top":12},"sliders":[{"var":"d","min":-5,"max":5,"step":0.5,"value":3,"color":"#cf003d"}],"curves":[{"latex":"y=2^{x}","color":"#5a5656"},{"latex":"y=2^{x}+d","color":"#cf003d"}],"alt":"Interactive graph of f(x)=2^x+d — drag d to shift the parent function vertically"}'>
+  <figcaption>Figure 5 — The grey curve is the parent \(f(x)={2}^{x};\) drag \(d\) to shift it vertically.</figcaption>
+</figure>
+<p>Observe the results of shifting \(f(x)={2}^{x}\) vertically:</p>
+<ul class="tight"><li>The domain, \((-\infty,\infty)\) remains unchanged.</li><li>When the function is shifted up \(3\) units to \(g(x)={2}^{x}+3:\)<ul class="tight"><li>The <strong>y-</strong>intercept shifts up \(3\) units to \((0,4).\)</li><li>The asymptote shifts up \(3\) units to \(y=3.\)</li><li>The range becomes \((3,\infty).\)</li></ul>
+</li><li>When the function is shifted down \(3\) units to \(h(x)={2}^{x}-3:\)<ul class="tight"><li>The <strong>y-</strong>intercept shifts down \(3\) units to \((0,-2).\)</li><li>The asymptote also shifts down \(3\) units to \(y=-3.\)</li><li>The range becomes \((-3,\infty).\)</li></ul>
+</li></ul>
+<h3 id="graphing-a-horizontal-shift">Graphing a Horizontal Shift</h3>
+<p>The next transformation occurs when we add a constant \(c\) to the input of the parent function \(f(x)={b}^{x},\) giving us a <strong>horizontal shift</strong> \(c\) units in the <strong>opposite</strong> direction of the sign. For example, if we begin by graphing the parent function \(f(x)={2}^{x},\) we can then graph two horizontal shifts alongside it, using \(c=3:\) the shift left, \(g(x)={2}^{x+3},\) and the shift right, \(h(x)={2}^{x-3}.\) Drag \(c\) below to see both horizontal shifts against the parent function.</p>
+<figure class="plot" data-desmos data-spec='{"bounds":{"left":-6,"right":6,"bottom":-1,"top":9},"sliders":[{"var":"c","min":-5,"max":5,"step":0.5,"value":3,"color":"#cf003d"}],"curves":[{"latex":"y=2^{x}","color":"#5a5656"},{"latex":"y=2^{x+c}","color":"#cf003d"}],"alt":"Interactive graph of f(x)=2^(x+c) — drag c to shift the parent function horizontally"}'>
+  <figcaption>Figure 6 — The grey curve is the parent \(f(x)={2}^{x};\) drag \(c\) to shift it horizontally.</figcaption>
+</figure>
+<p>Observe the results of shifting \(f(x)={2}^{x}\) horizontally:</p>
+<ul class="tight"><li>The domain, \((-\infty,\infty),\) remains unchanged.</li><li>The asymptote, \(y=0,\) remains unchanged.</li><li>The <strong>y-</strong>intercept shifts such that:<ul class="tight"><li>When the function is shifted left \(3\) units to \(g(x)={2}^{x+3},\) the <strong>y</strong>-intercept becomes \((0,8).\) This is because \({2}^{x+3}=(8){2}^{x},\) so the initial value of the function is \(8.\)</li><li>When the function is shifted right \(3\) units to \(h(x)={2}^{x-3},\) the <strong>y</strong>-intercept becomes \((0,\frac{1}{8}).\) Again, see that \({2}^{x-3}=(\frac{1}{8}){2}^{x},\) so the initial value of the function is \(\frac{1}{8}.\)</li></ul>
+</li></ul>
+<div class="card definition"><span class="chip">Shifts of the Parent Function <strong>f</strong>(<strong>x</strong>) = <strong>b</strong><sup><strong>x</strong></sup></span><p>For any constants \(c\) and \(d,\) the function \(f(x)={b}^{x+c}+d\) shifts the parent function \(f(x)={b}^{x}\)</p>
+<ul class="tight"><li>vertically \(d\) units, in the <strong>same</strong> direction of the sign of \(d.\)</li><li>horizontally \(c\) units, in the <strong>opposite</strong> direction of the sign of \(c.\)</li><li>The <strong>y</strong>-intercept becomes \((0,{b}^{c}+d).\)</li><li>The horizontal asymptote becomes \(y=d.\)</li><li>The range becomes \((d,\infty).\)</li><li>The domain, \((-\infty,\infty),\) remains unchanged.</li></ul>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given an exponential function with the form \(f(x)={b}^{x+c}+d,\) graph the translation.</strong></p>
+<ul class="tight"><li>Draw the horizontal asymptote \(y=d.\)</li><li>Identify the shift as \((-c,d).\) Shift the graph of \(f(x)={b}^{x}\) left \(c\) units if \(c\) is positive, and right \(c\) units if \(c\) is negative.</li><li>Shift the graph of \(f(x)={b}^{x}\) up \(d\) units if \(d\) is positive, and down \(d\) units if \(d\) is negative.</li><li>State the domain, \((-\infty,\infty),\) the range, \((d,\infty),\) and the horizontal asymptote \(y=d.\)</li></ul>
+</div>
+<div class="card example"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Graph \(f(x)={2}^{x+1}-3.\) State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have an exponential equation of the form \(f(x)={b}^{x+c}+d,\) with \(b=2,\) \(c=1,\) and \(d=-3.\)</p>
+<p>Draw the horizontal asymptote \(y=d\) , so draw \(y=-3.\)</p>
+<p>Identify the shift as \((-c,d),\) so the shift is \((-1,-3).\)</p>
+<p>Shift the graph of \(f(x)={b}^{x}\) left 1 units and down 3 units.</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_008.jpg" alt="Graph of the function, f(x) = 2^(x+1)-3, with an asymptote at y=-3. Labeled points in the graph are (-1, -2), (0, -1), and (1, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+<p>The domain is \((-\infty,\infty);\) the range is \((-3,\infty);\) the horizontal asymptote is \(y=-3.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Graph \(f(x)={2}^{x-1}+3.\) State domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The domain is \((-\infty,\infty);\) the range is \((3,\infty);\) the horizontal asymptote is \(y=3.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_009.jpg" alt="Graph of the function, f(x) = 2^(x-1)+3, with an asymptote at y=3. Labeled points in the graph are (-1, 3.25), (0, 3.5), and (1, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given an equation of the form \(f(x)={b}^{x+c}+d\) for \(x,\) use a graphing calculator to approximate the solution.</strong></p>
+<ul class="tight"><li>Press <strong>[Y=]</strong>. Enter the given exponential equation in the line headed “<strong>Y<sub>1</sub>=</strong>”.</li><li>Enter the given value for \(f(x)\) in the line headed “<strong>Y<sub>2</sub>=</strong>”.</li><li>Press <strong>[WINDOW]</strong>. Adjust the <strong>y</strong>-axis so that it includes the value entered for “<strong>Y<sub>2</sub>=</strong>”.</li><li>Press <strong>[GRAPH]</strong> to observe the graph of the exponential function along with the line for the specified value of \(f(x).\)</li><li>To find the value of \(x,\) we compute the point of intersection. Press <strong>[2ND]</strong>then <strong>[CALC]</strong>. Select “intersect” and press <strong>[ENTER]</strong> three times. The point of intersection gives the value of <strong>x</strong>for the indicated value of the function.</li></ul>
+</div>
+<div class="card example"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Solve \(42=1.2{(5)}^{x}+2.8\) graphically. Round to the nearest thousandth.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Press <strong>[Y=]</strong> and enter \(1.2{(5)}^{x}+2.8\) next to <strong>Y<sub>1</sub></strong>=. Then enter 42 next to <strong>Y2=</strong>. For a window, use the values –3 to 3 for \(x\) and –5 to 55 for \(y.\) Press <strong>[GRAPH]</strong>. The graphs should intersect somewhere near \(x=2.\)</p>
+<p>For a better approximation, press <strong>[2ND]</strong>then <strong>[CALC]</strong>. Select <strong>[5: intersect]</strong> and press <strong>[ENTER]</strong> three times. The <strong>x</strong>-coordinate of the point of intersection is displayed as 2.1661943. (Your answer may be different if you use a different window or use a different value for <strong>Guess?</strong>) To the nearest thousandth, \(x\approx2.166.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Solve \(4=7.85{(1.15)}^{x}-2.27\) graphically. Round to the nearest thousandth.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x\approx-1.608\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="graphing-a-stretch-or-compression">Graphing a Stretch or Compression</h3>
+<p>While horizontal and vertical shifts involve adding constants to the input or to the function itself, a <strong>stretch</strong> or <strong>compression</strong> occurs when we multiply the parent function \(f(x)={b}^{x}\) by a constant \(|a|>0.\) For example, if we begin by graphing the parent function \(f(x)={2}^{x},\) we can then graph the stretch, using \(a=3,\) to get \(g(x)=3{(2)}^{x}\) as shown on the left in (see original), and the compression, using \(a=\frac{1}{3},\) to get \(h(x)=\frac{1}{3}{(2)}^{x}\) as a compression. Drag \(a\) below to move continuously between stretching and compressing the parent function.</p>
+<figure class="plot" data-desmos data-spec='{"bounds":{"left":-4,"right":3,"bottom":-2,"top":20},"sliders":[{"var":"a","min":0.1,"max":5,"step":0.1,"value":3,"color":"#cf003d"}],"curves":[{"latex":"y=2^{x}","color":"#5a5656"},{"latex":"y=a\\cdot 2^{x}","color":"#cf003d"}],"alt":"Interactive graph of f(x)=a*2^x — drag a to stretch or compress the parent function vertically"}'>
+  <figcaption>Figure 8 — The grey curve is the parent \(f(x)={2}^{x};\) drag \(a\) to stretch (\(|a|&gt;1\)) or compress (\(|a|&lt;1\)) it vertically.</figcaption>
+</figure>
+<div class="card definition"><span class="chip">Stretches and Compressions of the Parent Function \(\ f(x)={b}^{x}\)</span><p>For any factor \(a>0,\) the function \(f(x)=a{(b)}^{x}\)</p>
+<ul class="tight"><li>is stretched vertically by a factor of \(a\) if \(|a|>1.\)</li><li>is compressed vertically by a factor of \(a\) if \(|a|<1.\)</li><li>has a <strong>y</strong>-intercept of \((0,a).\)</li><li>has a horizontal asymptote at \(y=0,\) a range of \((0,\infty),\) and a domain of \((-\infty,\infty),\) which are unchanged from the parent function.</li></ul>
+</div>
+<div class="card example"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Graphing the Stretch of an Exponential Function</p>
+<p>Sketch a graph of \(f(x)=4{(\frac{1}{2})}^{x}.\) State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Before graphing, identify the behavior and key points on the graph.</p>
+<ul class="tight"><li>Since \(b=\frac{1}{2}\) is between zero and one, the left tail of the graph will increase without bound as \(x\) decreases, and the right tail will approach the <strong>x</strong>-axis as \(x\) increases.</li><li>Since \(a=4,\) the graph of \(f(x)={(\frac{1}{2})}^{x}\) will be stretched by a factor of \(4.\)</li><li>Create a table of points as shown in (see original).<div class="tablewrap"><table class="data"><caption>Table 4</caption><tbody><tr><td><strong>\(x\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td>\(f(x)=4(\frac{1}{2}{)}^{x}\)</td><td>\(32\)</td><td>\(16\)</td><td>\(8\)</td><td>\(4\)</td><td>\(2\)</td><td>\(1\)</td><td>\(0.5\)</td></tr></tbody></table></div>
+</li><li>Plot the <strong>y-</strong>intercept, \((0,4),\) along with two other points. We can use \((-1,8)\) and \((1,2).\)</li></ul>
+<p>Draw a smooth curve connecting the points, as shown in (see original).</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_011.jpg" alt="Graph of the function, f(x) = 4(1/2)^(x), with an asymptote at y=0. Labeled points in the graph are (-1, 8), (0, 4), and (1, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+<p>The domain is \((-\infty,\infty);\) the range is \((0,\infty);\) the horizontal asymptote is \(y=0.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Sketch the graph of \(f(x)=\frac{1}{2}{(4)}^{x}.\) State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The domain is \((-\infty,\infty);\) the range is \((0,\infty);\) the horizontal asymptote is \(y=0.\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_012.jpg" alt="Graph of the function, f(x) = (1/2)(4)^(x), with an asymptote at y=0. Labeled points in the graph are (-1, 0.125), (0, 0.5), and (1, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="graphing-reflections">Graphing Reflections</h3>
+<p>In addition to shifting, compressing, and stretching a graph, we can also reflect it about the <strong>x</strong>-axis or the <strong>y</strong>-axis. When we multiply the parent function \(f(x)={b}^{x}\) by \(-1,\) we get a reflection about the <strong>x</strong>-axis. When we multiply the input by \(-1,\) we get a <strong>reflection</strong> about the <strong>y</strong>-axis. For example, if we begin by graphing the parent function \(f(x)={2}^{x},\) we can then graph the two reflections alongside it. The reflection about the <strong>x</strong>-axis, \(g(x)={-2}^{x},\) and the reflection about the <strong>y</strong>-axis \(h(x)={2}^{-x}.\) Set each slider to \(-1\) or \(1\) below to toggle each reflection independently.</p>
+<figure class="plot" data-desmos data-spec='{"bounds":{"left":-4,"right":4,"bottom":-9,"top":9},"sliders":[{"var":"s_{x}","min":-1,"max":1,"step":2,"value":1,"color":"#5a5656"},{"var":"s_{y}","min":-1,"max":1,"step":2,"value":1,"color":"#cf003d"}],"curves":[{"latex":"y=2^{x}","color":"#5a5656"},{"latex":"y=s_{y}\\cdot 2^{s_{x}\\cdot x}","color":"#cf003d"}],"alt":"Interactive graph reflecting f(x)=2^x — set sx=-1 to flip about the y-axis, sy=-1 to flip about the x-axis"}'>
+  <figcaption>Figure 10 — \(s_x=-1\) reflects about the <strong>y</strong>-axis (\(h(x)={2}^{-x}\)); \(s_y=-1\) reflects about the <strong>x</strong>-axis (\(g(x)=-{2}^{x}\)).</figcaption>
+</figure>
+<div class="card definition"><span class="chip">Reflections of the Parent Function \(\ f(x)={b}^{x}\)</span><p>The function \(f(x)=-{b}^{x}\)</p>
+<ul class="tight"><li>reflects the parent function \(f(x)={b}^{x}\) about the <strong>x</strong>-axis.</li><li>has a <strong>y</strong>-intercept of \((0,-1).\)</li><li>has a range of \((-\infty,0).\)</li><li>has a horizontal asymptote at \(y=0\) and domain of \((-\infty,\infty),\) which are unchanged from the parent function.</li></ul>
+<p>The function \(f(x)={b}^{-x}\)</p>
+<ul class="tight"><li>reflects the parent function \(f(x)={b}^{x}\) about the <strong>y</strong>-axis.</li><li>has a <strong>y</strong>-intercept of \((0,1),\) a horizontal asymptote at \(y=0,\) a range of \((0,\infty),\) and a domain of \((-\infty,\infty),\) which are unchanged from the parent function.</li></ul>
+</div>
+<div class="card example"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find and graph the equation for a function, \(g(x),\) that reflects \(f(x)={(\frac{1}{4})}^{x}\) about the <strong>x</strong>-axis. State its domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since we want to reflect the parent function \(f(x)={(\frac{1}{4})}^{x}\) about the <strong>x-</strong>axis, we multiply \(f(x)\) by \(-1\) to get, \(g(x)=-{(\frac{1}{4})}^{x}.\) Next we create a table of points as in (see original).</p>
+<div class="tablewrap"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>\(x\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td>\(g(x)=-(\frac{1}{4}{)}^{x}\)</td><td>\(-64\)</td><td>\(-16\)</td><td>\(-4\)</td><td>\(-1\)</td><td>\(-0.25\)</td><td>\(-0.0625\)</td><td>\(-0.0156\)</td></tr></tbody></table></div>
+<p>Plot the <strong>y-</strong>intercept, \((0,-1),\) along with two other points. We can use \((-1,-4)\) and \((1,-0.25).\)</p>
+<p>Draw a smooth curve connecting the points:</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_014.jpg" alt="Graph of the function, g(x) = -(0.25)^(x), with an asymptote at y=0. Labeled points in the graph are (-1, -4), (0, -1), and (1, -0.25)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+<p>The domain is \((-\infty,\infty);\) the range is \((-\infty,0);\) the horizontal asymptote is \(y=0.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Find and graph the equation for a function, \(g(x),\) that reflects \(f(x)={1.25}^{x}\) about the <strong>y</strong>-axis. State its domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The domain is \((-\infty,\infty);\) the range is \((0,\infty);\) the horizontal asymptote is \(y=0.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_02_015.jpg" alt="Graph of the function, g(x) = -(1.25)^(-x), with an asymptote at y=0. Labeled points in the graph are (-1, 1.25), (0, 1), and (1, 0.8)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="summarizing-translations-of-the-exponential-function">Summarizing Translations of the Exponential Function</h3>
+<p>Now that we have worked with each type of translation for the exponential function, we can summarize them in (see original) to arrive at the general equation for translating exponential functions.</p>
+<div class="tablewrap"><table class="data"><caption>Table 6</caption><tbody><tr><td>Transformations of the Parent Function \(f(x)={b}^{x}\)</td></tr><tr><td>Transformation</td><td>Form</td></tr><tr><td>Shift<ul class="tight"><li>Horizontally \(c\) units to the left</li><li>Vertically \(d\) units up</li></ul>
+</td><td>\(f(x)={b}^{x+c}+d\)</td></tr><tr><td>Stretch and Compress<ul class="tight"><li>Stretch if \(|a|>1\)</li><li>Compression if \(0<|a|<1\)</li></ul>
+</td><td>\(f(x)=a{b}^{x}\)</td></tr><tr><td>Reflect about the <strong>x</strong>-axis</td><td>\(f(x)=-{b}^{x}\)</td></tr><tr><td>Reflect about the <strong>y</strong>-axis</td><td>\(f(x)={b}^{-x}={(\frac{1}{b})}^{x}\)</td></tr><tr><td>General equation for all transformations</td><td>\(f(x)=a{b}^{x+c}+d\)</td></tr></tbody></table></div>
+<div class="card definition"><span class="chip">Translations of Exponential Functions</span><p>A translation of an exponential function has the form</p>
+<p>\[f(x)=a{b}^{x+c}+d\]</p>
+<p>Where the parent function, \(y={b}^{x},\) \(b>1,\) is</p>
+<ul class="tight"><li>shifted horizontally \(c\) units to the left.</li><li>stretched vertically by a factor of \(|a|\) if \(|a|>0.\)</li><li>compressed vertically by a factor of \(|a|\) if \(0<|a|<1.\)</li><li>shifted vertically \(d\) units.</li><li>reflected about the <strong>x-</strong>axis when \(a<0.\)</li></ul>
+<p>Note the order of the shifts, transformations, and reflections follow the order of operations.</p>
+</div>
+<figure class="plot" data-desmos data-spec='{"bounds":{"left":-6,"right":6,"bottom":-6,"top":14},"sliders":[{"var":"a","min":-5,"max":5,"step":0.5,"value":1,"color":"#5a5656"},{"var":"b","min":0.2,"max":4,"step":0.1,"value":2,"color":"#cf003d"},{"var":"c","min":-5,"max":5,"step":0.5,"value":0,"color":"#5a5656"},{"var":"d","min":-5,"max":5,"step":0.5,"value":0,"color":"#5a5656"}],"curves":[{"latex":"y=a\\cdot b^{x+c}+d","color":"#cf003d"}],"alt":"Interactive graph of the general translation f(x)=ab^(x+c)+d — drag a, b, c, d to see every transformation combined"}'>
+  <figcaption>All four transformations together: drag \(a,\) \(b,\) \(c,\) and \(d\) in \(f(x)=a{b}^{x+c}+d.\)</figcaption>
+</figure>
+<div class="card example"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Writing a Function from a Description</p>
+<p>Write the equation for the function described below. Give the horizontal asymptote, the domain, and the range.</p>
+<ul class="tight"><li>\(f(x)={e}^{x}\) is vertically stretched by a factor of \(2\) , reflected across the <strong>y</strong>-axis, and then shifted up \(4\) units.</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We want to find an equation of the general form \(\ f(x)=a{b}^{x+c}+d.\) We use the description provided to find \(a,\) \(b,\) \(c,\) and \(d.\)</p>
+<ul class="tight"><li>We are given the parent function \(f(x)={e}^{x},\) so \(b=e.\)</li><li>The function is stretched by a factor of \(2\) , so \(a=2.\)</li><li>The function is reflected about the <strong>y</strong>-axis. We replace \(x\) with \(-x\) to get: \({e}^{-x}.\)</li><li>The graph is shifted vertically 4 units, so \(d=4.\)</li></ul>
+<p>Substituting in the general form we get,</p>
+<p>\[\begin{array}{l}f(x) & =a{b}^{x+c}+d \\ & =2{e}^{-x+0}+4 \\ & =2{e}^{-x}+4\end{array}\]</p>
+<p>The domain is \((-\infty,\infty);\) the range is \((4,\infty);\) the horizontal asymptote is \(y=4.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Write the equation for function described below. Give the horizontal asymptote, the domain, and the range.</p>
+<ul class="tight"><li>\(f(x)={e}^{x}\) is compressed vertically by a factor of \(\frac{1}{3},\) reflected across the <strong>x</strong>-axis and then shifted down \(2\) units.</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(x)=-\frac{1}{3}{e}^{x}-2;\) the domain is \((-\infty,\infty);\) the range is \((-\infty,-2);\) the horizontal asymptote is \(y=-2.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with graphing exponential functions.</p>
+<ul class="tight"><li>Graph Exponential Functions</li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap"><table class="data"><caption>Table 7</caption><tbody><tr><td>General Form for the Translation of the Parent Function \(\ f(x)={b}^{x}\)</td><td>\(f(x)=a{b}^{x+c}+d\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The graph of the function \(f(x)={b}^{x}\) has a <strong>y-</strong>intercept at \((0,1),\) domain \((-\infty,\infty),\) range \((0,\infty),\) and horizontal asymptote \(y=0.\) See (see original).</li><li>If \(b>1,\) the function is increasing. The left tail of the graph will approach the asymptote \(y=0,\) and the right tail will increase without bound.</li><li>If \(0<b<1,\) the function is decreasing. The left tail of the graph will increase without bound, and the right tail will approach the asymptote \(y=0.\)</li><li>The equation \(f(x)={b}^{x}+d\) represents a vertical shift of the parent function \(f(x)={b}^{x}.\)</li><li>The equation \(f(x)={b}^{x+c}\) represents a horizontal shift of the parent function \(f(x)={b}^{x}.\) See (see original).</li><li>Approximate solutions of the equation \(f(x)={b}^{x+c}+d\) can be found using a graphing calculator. See (see original).</li><li>The equation \(f(x)=a{b}^{x},\) where \(a>0,\) represents a vertical stretch if \(|a|>1\) or compression if \(0<|a|<1\) of the parent function \(f(x)={b}^{x}.\) See (see original).</li><li>When the parent function \(f(x)={b}^{x}\) is multiplied by \(-1,\) the result, \(f(x)=-{b}^{x},\) is a reflection about the <strong>x</strong>-axis. When the input is multiplied by \(-1,\) the result, \(f(x)={b}^{-x},\) is a reflection about the <strong>y</strong>-axis. See (see original).</li><li>All translations of the exponential function can be summarized by the general equation \(f(x)=a{b}^{x+c}+d.\) See (see original).</li><li>Using the general equation \(f(x)=a{b}^{x+c}+d,\) we can write the equation of a function given its description. See (see original).</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise"><div class="n">1</div><div class="body"><p>What role does the horizontal asymptote of an exponential function play in telling us about the end behavior of the graph?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>An asymptote is a line that the graph of a function approaches, as \(x\) either increases or decreases without bound. The horizontal asymptote of an exponential function tells us the limit of the function’s values as the independent variable gets either extremely large or extremely small.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">2</div><div class="body"><p>What is the advantage of knowing how to recognize transformations of the graph of a parent function algebraically?</p>
+</div></div>
+<h3 id="algebraic">Algebraic</h3>
+<div class="exercise"><div class="n">3</div><div class="body"><p>The graph of \(f(x)={3}^{x}\) is reflected about the <strong>y</strong>-axis and stretched vertically by a factor of \(4.\) What is the equation of the new function, \(g(x)?\) State its <strong>y</strong>-intercept, domain, and range.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=4{(3)}^{-x};\) <strong>y</strong>-intercept: \((0,4);\) Domain: all real numbers; Range: all real numbers greater than \(0.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">4</div><div class="body"><p>The graph of \(f(x)={(\frac{1}{2})}^{-x}\) is reflected about the <strong>y</strong>-axis and compressed vertically by a factor of \(\frac{1}{5}.\) What is the equation of the new function, \(g(x)?\) State its <strong>y</strong>-intercept, domain, and range.</p>
+</div></div>
+<div class="exercise"><div class="n">5</div><div class="body"><p>The graph of \(f(x)={10}^{x}\) is reflected about the <strong>x</strong>-axis and shifted upward \(7\) units. What is the equation of the new function, \(g(x)?\) State its <strong>y</strong>-intercept, domain, and range.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=-{10}^{x}+7;\) <strong>y</strong>-intercept: \((0,6);\) Domain: all real numbers; Range: all real numbers less than \(7.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">6</div><div class="body"><p>The graph of \(f(x)={(1.68)}^{x}\) is shifted right \(3\) units, stretched vertically by a factor of \(2,\) reflected about the <strong>x</strong>-axis, and then shifted downward \(3\) units. What is the equation of the new function, \(g(x)?\) State its <strong>y</strong>-intercept (to the nearest thousandth), domain, and range.</p>
+</div></div>
+<div class="exercise"><div class="n">7</div><div class="body"><p>The graph of \(f\left(x\right)=-\frac{1}{2}{(\frac{1}{4})}^{x-2}+4\) is shifted downward \(4\) units, and then shifted left \(2\) units, stretched vertically by a factor of \(4,\) and reflected about the <strong>x</strong>-axis. What is the equation of the new function, \(g(x)?\) State its <strong>y</strong>-intercept, domain, and range.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=2{(\frac{1}{4})}^{x};\) <strong>y</strong>-intercept: \((0,\ \text{2});\) Domain: all real numbers; Range: all real numbers greater than \(0.\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, graph the function and its reflection about the <strong>y</strong>-axis on the same axes, and give the <strong>y</strong>-intercept.</p>
+<div class="exercise"><div class="n">8</div><div class="body"><p>\(f(x)=3{(\frac{1}{2})}^{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">9</div><div class="body"><p>\(g(x)=-2{(0.25)}^{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_02_202.jpg" alt="Graph of two functions, g(-x)=-2(0.25)^(-x) in blue and g(x)=-2(0.25)^x in orange." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0"><p><strong>y</strong>-intercept: \((0,-2)\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">10</div><div class="body"><p>\(h(x)=6{(1.75)}^{-x}\)</p>
+</div></div>
+<p>For the following exercises, graph each set of functions on the same axes.</p>
+<div class="exercise"><div class="n">11</div><div class="body"><p>\(f(x)=3{(\frac{1}{4})}^{x},\) \(g(x)=3{(2)}^{x},\) and \(h(x)=3{(4)}^{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_02_204.jpg" alt="Graph of three functions, g(x)=3(2)^(x) in blue, h(x)=3(4)^(x) in green, and f(x)=3(1/4)^(x) in orange." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0"></div></div></div></div>
+<div class="exercise"><div class="n">12</div><div class="body"><p>\(f(x)=\frac{1}{4}{(3)}^{x},\) \(g(x)=2{(3)}^{x},\) and \(h(x)=4{(3)}^{x}\)</p>
+</div></div>
+<p>For the following exercises, match each function with one of the graphs in (see original).</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_02_206.jpg" alt="Graph of six exponential functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+<div class="exercise"><div class="n">13</div><div class="body"><p>\(f(x)=2{(0.69)}^{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>B</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">14</div><div class="body"><p>\(f(x)=2{(1.28)}^{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">15</div><div class="body"><p>\(f(x)=2{(0.81)}^{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">16</div><div class="body"><p>\(f(x)=4{(1.28)}^{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">17</div><div class="body"><p>\(f(x)=2{(1.59)}^{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>E</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">18</div><div class="body"><p>\(f(x)=4{(0.69)}^{x}\)</p>
+</div></div>
+<p>For the following exercises, use the graphs shown in (see original). All have the form \(f(x)=a{b}^{x}.\)</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_02_207.jpg" alt="Graph of six exponential functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+<div class="exercise"><div class="n">19</div><div class="body"><p>Which graph has the largest value for \(b?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>D</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">20</div><div class="body"><p>Which graph has the smallest value for \(b?\)</p>
+</div></div>
+<div class="exercise"><div class="n">21</div><div class="body"><p>Which graph has the largest value for \(a?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>C</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">22</div><div class="body"><p>Which graph has the smallest value for \(a?\)</p>
+</div></div>
+<p>For the following exercises, graph the function and its reflection about the <strong>x</strong>-axis on the same axes.</p>
+<div class="exercise"><div class="n">23</div><div class="body"><p>\(f(x)=\frac{1}{2}{(4)}^{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_02_208.jpg" alt="Graph of two functions, f(x)=(1/2)(4)^(x) in blue and -f(x)=(-1/2)(4)^x in orange." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0"></div></div></div></div>
+<div class="exercise"><div class="n">24</div><div class="body"><p>\(f(x)=3{(0.75)}^{x}-1\)</p>
+</div></div>
+<div class="exercise"><div class="n">25</div><div class="body"><p>\(f(x)=-4{(2)}^{x}+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_02_210.jpg" alt="Graph of two functions, -f(x)=(4)(2)^(x)-2 in blue and f(x)=(-4)(2)^x+1 in orange." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0"></div></div></div></div>
+<p>For the following exercises, graph the transformation of \(f(x)={2}^{x}.\) Give the horizontal asymptote, the domain, and the range.</p>
+<div class="exercise"><div class="n">26</div><div class="body"><p>\(f(x)={2}^{-x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">27</div><div class="body"><p>\(h(x)={2}^{x}+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_02_212.jpg" alt="Graph of h(x)=2^(x)+3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0"><p>Horizontal asymptote: \(h(x)=3;\) Domain: all real numbers; Range: all real numbers strictly greater than \(3.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">28</div><div class="body"><p>\(f(x)={2}^{x-2}\)</p>
+</div></div>
+<p>For the following exercises, describe the end behavior of the graphs of the functions.</p>
+<div class="exercise"><div class="n">29</div><div class="body"><p>\(f(x)=-5{(4)}^{x}-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>As \(x\to\infty\) , \(f(x)\to-\infty\) ; <br>As \(x\to-\infty\) , \(f(x)\to-1\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">30</div><div class="body"><p>\(f(x)=3{(\frac{1}{2})}^{x}-2\)</p>
+</div></div>
+<div class="exercise"><div class="n">31</div><div class="body"><p>\(f(x)=3{(4)}^{-x}+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>As \(x\to\infty\) , \(f(x)\to2\) ; <br>As \(x\to-\infty\) , \(f(x)\to\infty\)</p>
+</div></div></div></div>
+<p>For the following exercises, start with the graph of \(f(x)={4}^{x}.\) Then write a function that results from the given transformation.</p>
+<div class="exercise"><div class="n">32</div><div class="body"><p>Shift \(f(x)\) 4 units upward</p>
+</div></div>
+<div class="exercise"><div class="n">33</div><div class="body"><p>Shift \(f(x)\) 3 units downward</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={4}^{x}-3\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">34</div><div class="body"><p>Shift \(f(x)\) 2 units left</p>
+</div></div>
+<div class="exercise"><div class="n">35</div><div class="body"><p>Shift \(f(x)\) 5 units right</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={4}^{x-5}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">36</div><div class="body"><p>Reflect \(f(x)\) about the <strong>x</strong>-axis</p>
+</div></div>
+<div class="exercise"><div class="n">37</div><div class="body"><p>Reflect \(f(x)\) about the <strong>y</strong>-axis</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={4}^{-x}\)</p>
+</div></div></div></div>
+<p>For the following exercises, each graph is a transformation of \(y={2}^{x}.\) Write an equation describing the transformation.</p>
+<div class="exercise"><div class="n">38</div><div class="body"><p><br></p>
+</div></div>
+<div class="exercise"><div class="n">39</div><div class="body"><p><br></p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-{2}^{x}+3\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">40</div><div class="body"><p><br></p>
+</div></div>
+<p>For the following exercises, find an exponential equation for the graph.</p>
+<div class="exercise"><div class="n">41</div><div class="body"><p><br></p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-2{(3)}^{x}+7\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">42</div><div class="body"><p><br></p>
+</div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, evaluate the exponential functions for the indicated value of \(x.\)</p>
+<div class="exercise"><div class="n">43</div><div class="body"><p>\(g(x)=\frac{1}{3}{(7)}^{x-2}\) for \(g(6).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(6)=800+\frac{1}{3}\approx800.3333\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">44</div><div class="body"><p>\(f(x)=4{(2)}^{x-1}-2\) for \(f(5).\)</p>
+</div></div>
+<div class="exercise"><div class="n">45</div><div class="body"><p>\(h(x)=-\frac{1}{2}{(\frac{1}{2})}^{x}+6\) for \(h(-7).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(h(-7)=-58\)</p>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a graphing calculator to approximate the solutions of the equation. Round to the nearest thousandth.</p>
+<div class="exercise"><div class="n">46</div><div class="body"><p>\(-50=-{(\frac{1}{2})}^{-x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">47</div><div class="body"><p>\(116=\frac{1}{4}{(\frac{1}{8})}^{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\approx-2.953\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">48</div><div class="body"><p>\(12=2{(3)}^{x}+1\)</p>
+</div></div>
+<div class="exercise"><div class="n">49</div><div class="body"><p>\(5=3{(\frac{1}{2})}^{x-1}-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\approx-0.222\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">50</div><div class="body"><p>\(-30=-4{(2)}^{x+2}+2\)</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise"><div class="n">51</div><div class="body"><p>Explore and discuss the graphs of \(F(x)={(b)}^{x}\) and \(G(x)={(\frac{1}{b})}^{x}.\) Then make a conjecture about the relationship between the graphs of the functions \({b}^{x}\) and \({(\frac{1}{b})}^{x}\) for any real number \(b>0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(G(x)={(\frac{1}{b})}^{x}\) is the refelction about the <strong>y</strong>-axis of the graph of \(F(x)={b}^{x};\) For any real number \(b>0\) and function \(f(x)={b}^{x},\) the graph of \({(\frac{1}{b})}^{x}\) is the the reflection about the <strong>y</strong>-axis, \(F(-x).\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">52</div><div class="body"><p>Prove the conjecture made in the previous exercise.</p>
+</div></div>
+<div class="exercise"><div class="n">53</div><div class="body"><p>Explore and discuss the graphs of \(f(x)={4}^{x},\) \(g(x)={4}^{x-2},\) and \(h(x)=(\frac{1}{16}){4}^{x}.\) Then make a conjecture about the relationship between the graphs of the functions \({b}^{x}\) and \((\frac{1}{{b}^{n}}){b}^{x}\) for any real number <strong>n</strong>and real number \(b>0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graphs of \(g(x)\) and \(h(x)\) are the same and are a horizontal shift to the right of the graph of \(f(x);\) For any real number <strong>n</strong>, real number \(b>0,\) and function \(f(x)={b}^{x},\) the graph of \((\frac{1}{{b}^{n}}){b}^{x}\) is the horizontal shift \(f(x-n).\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">54</div><div class="body"><p>Prove the conjecture made in the previous exercise.</p>
+</div></div>
+</div>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/college-algebra-2e">OpenStax College Algebra 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

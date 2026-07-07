@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.1 Exponential Functions · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<!-- Desmos demo API key — dev-only per Desmos's own docs. Swap for a registered key
+     from desmos.com/my-api once Mike hears back on personal-project/production pricing. -->
+<script defer src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">MX <span>Algebra</span></a>
+  <span class="crumb">Ch. 6 · Exponential &amp; Logarithmic Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+
+<h1><span class="kicker">Section 6.1</span>Exponential Functions</h1>
+
+<div class="card objectives">
+  <span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Learning objectives</span>
+  <p style="margin:0">In this section, you will:</p>
+  <ul>
+    <li>Evaluate exponential functions.</li>
+    <li>Find the equation of an exponential function.</li>
+    <li>Use compound interest formulas.</li>
+    <li>Evaluate exponential functions with base \(e\).</li>
+  </ul>
+</div>
+
+<details class="bigfold">
+  <summary>Corequisite Skills review — evaluating and graphing exponential functions (optional warm-up)</summary>
+  <div class="fold-body">
+    <h3>Objective 1: Find the value of a function (exponential). (IA 3.5.3)</h3>
+    <p>For the function \(y=f(x)\), ________ is the <strong>independent variable</strong> as it can be any value in the domain, and ________ is the <strong>dependent variable</strong> as its value depends on ________.</p>
+    <p>Many natural events and real-life applications can be modeled using exponential functions. For example, the growth of populations, the spread of viruses, radioactive decay, and compounding interest all follow exponential patterns.</p>
+    <p><strong>Examples:</strong> \(f(x)={5}^{x},\; f(x)={\left(\tfrac{1}{3}\right)}^{x},\; f(x)=2.13^{x}\)</p>
+    <p>Notice that in the exponential function, the variable is the exponent. In our functions so far, the variables were the base. <strong>Evaluating a function</strong> is the process of finding the value of \(f(x)\) for a given value of \(x\).</p>
+
+    <div class="card example">
+      <div class="ex-head"><span class="num">Warm-up Example</span><span class="t">Evaluate \(f(x)={3}^{x}\) for the given values</span></div>
+      <div class="ex-body">
+        <p>ⓐ \(f(2)\) &emsp; ⓑ \(f(-1)\) &emsp; ⓒ \(f(2h)\)</p>
+      </div>
+      <div class="solution">
+        <button class="sol-toggle">Show solution</button>
+        <div class="sol-body">
+          <p>ⓐ Replace \(x\) with 2: \(f(2)={3}^{2}=9\)</p>
+          <p>ⓑ Replace \(x\) with −1: \(f(-1)={3}^{-1}=\frac{1}{3}\)</p>
+          <p>ⓒ Replace \(x\) with \(2h\) and simplify if possible: \(f(2h)={3}^{2h}\)</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Practice makes perfect</h3>
+    <p><strong>1.</strong> Evaluate the function \(f(x)={\left(\frac{3}{2}\right)}^{x}\) for: ⓐ \(f(2)\) &nbsp; ⓑ \(f(-2)\) &nbsp; ⓒ \(f(a)\)</p>
+    <p><strong>2.</strong> <em>Medicare Premiums.</em> The monthly Medicare Part B health-care premium for most beneficiaries ages 65 and older has increased significantly since 1975. The monthly premium has increased from about $7 in 1975 to $110.50 in 2011 (Source: Centers for Medicare and Medicaid Services). The following exponential function models the premium increases: \(M(x)=7{(1.080)}^{x}\), where \(x\) is the number of years since 1975. Estimate the monthly Medicare Part B premium in 1985, in 1992, and in 2002. (Note that \(x\) is the number of years since 1975, so for 1985, \(x=10\).) Round to the nearest dollar.</p>
+    <p><strong>3.</strong> We can find <strong>compound interest</strong> using \(A=P{\left(1+\frac{r}{n}\right)}^{nt}\), where \(A\) is the amount of money, \(P\) is the principal, \(t\) is the number of years, \(r\) is the interest rate, and \(n\) is the number of times the interest was compounded per year. Suppose that $960 is invested at 7% interest, compounded semiannually. ⓐ Find the function for the amount to which the investment grows after \(t\) years. ⓑ Find the amount of money in the account at \(t\) = 1, 6, 10, 15, and 20 years.</p>
+
+    <h3>Objective 2: Graph exponential functions. (IA 10.2.1)</h3>
+    <p><strong>4.</strong> Graph the exponential function \(f(x)={2}^{x}\) by making a table.</p>
+    <p><strong>5.</strong> Graph the exponential function \(f(x)={\left(\frac{1}{2}\right)}^{x}\) by making a table. How does it compare with the graph of \(f(x)={2}^{x}\)?</p>
+    <p><strong>6.</strong> Graph \(f(x)={3}^{x}\), \(f(x)={4}^{x}\), \(f(x)={2.5}^{x}\) in the same viewing window using a graphing calculator or program. What is the relationship between the base \(a\) and the shape of the graph?</p>
+    <p><strong>7.</strong> Graph \(f(x)={0.2}^{x}\), \(f(x)={0.4}^{x}\), \(f(x)={0.7}^{x}\) in the same viewing window using a graphing calculator or program. What is the relationship between the base \(a\) and the shape of the graph?</p>
+    <p><strong>8.</strong> Fill in the <strong>properties of an exponential function</strong>: For \(f(x)={a}^{x},\ a&gt;0,\ a\ne 1\) — Is it continuous? Is it one-to-one? Domain, Range, Increasing if, Decreasing if, Asymptotes, Intercepts.</p>
+    <p>The number <strong>e</strong>, \(e\approx 2.718281827\), is like the number \(\pi\) in that we use a symbol to represent it because its decimal representation never stops or repeats. The irrational number \(e\) is called the natural base, or Euler's number, after the Swiss mathematician Leonhard Euler.</p>
+    <p>The exponential function whose base is \(e\), \(f(x)={e}^{x}\), is called the <strong>natural exponential function</strong>.</p>
+    <p><strong>9.</strong> Graph the exponential function \(f(x)={e}^{x}\) by making a table. What is the domain of \(f(x)\)? What is the range of \(f(x)\)?</p>
+  </div>
+</details>
+
+<p class="lede">India is the second most populous country in the world with a population of about 1.39 billion people in 2021. The population is growing at a rate of about 1.2% each year.<sup><a href="#fn2" id="fnref2">2</a></sup> If this rate continues, the population of India will exceed China’s population by the year 2027. When populations grow rapidly, we often say that the growth is “exponential,” meaning that something is growing very rapidly. To a mathematician, however, the term <em>exponential growth</em> has a very specific meaning. In this section, we will take a look at <em>exponential functions</em>, which model this kind of rapid growth.</p>
+
+<h2 id="identifying">Identifying Exponential Functions</h2>
+
+<p>When exploring linear growth, we observed a constant rate of change—a constant number by which the output increased for each unit increase in input. For example, in the equation \(f(x)=3x+4,\) the slope tells us the output increases by 3 each time the input increases by 1. The scenario in the India population example is different because we have a <em>percent</em> change per unit time (rather than a constant change) in the number of people.</p>
+
+<h3>Defining an Exponential Function</h3>
+
+<p>A study found that the percent of the population who are vegans in the United States doubled from 2009 to 2011. In 2011, 2.5% of the population was vegan, adhering to a diet that does not include any animal products—no meat, poultry, fish, dairy, or eggs. If this rate continues, vegans will make up 10% of the U.S. population in 2015, 40% in 2019, and 80% in 2021.</p>
+
+<p>What exactly does it mean to <em>grow exponentially</em>? What does the word <em>double</em> have in common with <em>percent increase</em>? People toss these words around errantly. Are these words used correctly? The words certainly appear frequently in the media.</p>
+
+<ul class="tight">
+  <li><strong>Percent change</strong> refers to a <em>change</em> based on a <em>percent</em> of the original amount.</li>
+  <li><strong>Exponential growth</strong> refers to an <em>increase</em> based on a constant multiplicative rate of change over equal increments of time, that is, a <em>percent</em> increase of the original amount over time.</li>
+  <li><strong>Exponential decay</strong> refers to a <em>decrease</em> based on a constant multiplicative rate of change over equal increments of time, that is, a <em>percent</em> decrease of the original amount over time.</li>
+</ul>
+
+<p>For us to gain a clear understanding of exponential growth, let us contrast exponential growth with linear growth. We will construct two functions. The first function is exponential. We will start with an input of 0, and increase each input by 1. We will double the corresponding consecutive outputs. The second function is linear. We will start with an input of 0, and increase each input by 1. We will add 2 to the corresponding consecutive outputs. See <a href="#table1">Table 1</a>.</p>
+
+<div class="tablewrap" id="table1">
+<table class="data">
+  <caption>Table 1</caption>
+  <thead><tr><th>\(x\)</th><th>\(f(x)={2}^{x}\)</th><th>\(g(x)=2x\)</th></tr></thead>
+  <tbody>
+    <tr><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>1</td><td>2</td><td>2</td></tr>
+    <tr><td>2</td><td>4</td><td>4</td></tr>
+    <tr><td>3</td><td>8</td><td>6</td></tr>
+    <tr><td>4</td><td>16</td><td>8</td></tr>
+    <tr><td>5</td><td>32</td><td>10</td></tr>
+    <tr><td>6</td><td>64</td><td>12</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>From <a href="#table1">Table 1</a> we can infer that for these two functions, exponential growth dwarfs linear growth.</p>
+<ul class="tight">
+  <li><strong>Exponential growth</strong> refers to the original value from the range increasing by the <em>same percentage</em> over equal increments found in the domain.</li>
+  <li><strong>Linear growth</strong> refers to the original value from the range increasing by the <em>same amount</em> over equal increments found in the domain.</li>
+</ul>
+
+<p>Apparently, the difference between “the same percentage” and “the same amount” is quite significant. For exponential growth, over equal increments, the constant multiplicative rate of change resulted in doubling the output whenever the input increased by one. For linear growth, the constant additive rate of change over equal increments resulted in adding 2 to the output whenever the input was increased by one.</p>
+
+<p>The general form of the exponential function is \(f(x)=a{b}^{x},\) where \(a\) is any nonzero number, \(b\) is a positive real number not equal to 1.</p>
+<ul class="tight">
+  <li>If \(b&gt;1,\) the function grows at a rate proportional to its size.</li>
+  <li>If \(0&lt;b&lt;1,\) the function decays at a rate proportional to its size.</li>
+</ul>
+
+<p>Let’s look at the function \(f(x)={2}^{x}\) from our example. We will create a table (<a href="#table2">Table 2</a>) to determine the corresponding outputs over an interval in the domain from \(-3\) to \(3.\)</p>
+
+<div class="tablewrap" id="table2">
+<table class="data">
+  <caption>Table 2</caption>
+  <tbody>
+    <tr><th class="rowhead">\(x\)</th><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr>
+    <tr><th class="rowhead">\(f(x)={2}^{x}\)</th><td>\({2}^{-3}=\frac{1}{8}\)</td><td>\({2}^{-2}=\frac{1}{4}\)</td><td>\({2}^{-1}=\frac{1}{2}\)</td><td>\({2}^{0}=1\)</td><td>\({2}^{1}=2\)</td><td>\({2}^{2}=4\)</td><td>\({2}^{3}=8\)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Let us examine the graph of \(f\) by plotting the ordered pairs we observe on the table in <a href="#fig1">Figure 1</a>, and then make a few observations.</p>
+
+<figure class="plot" id="fig1" data-plot data-spec='{"xmin":-3.5,"xmax":3.5,"ymin":-1,"ymax":9,"xstep":1,"ystep":1,"alt":"Graph of f(x)=2^x with plotted points from the table","curves":[{"fn":"Math.pow(2,x)","label":"f(x)=2^x","labelAt":[2.1,5.2]}],"points":[[-3,0.125],[-2,0.25],[-1,0.5],[0,1],[1,2],[2,4],[3,8]],"xlabel":"x","ylabel":"f(x)"}'>
+  <figcaption>Figure 1</figcaption>
+</figure>
+
+<p>Let’s define the behavior of the graph of the exponential function \(f(x)={2}^{x}\) and highlight some of its key characteristics.</p>
+<ul class="tight">
+  <li>the domain is \((-\infty,\infty),\)</li>
+  <li>the range is \((0,\infty),\)</li>
+  <li>as \(x\to\infty, f(x)\to\infty,\)</li>
+  <li>as \(x\to-\infty, f(x)\to 0,\)</li>
+  <li>\(f(x)\) is always increasing,</li>
+  <li>the graph of \(f(x)\) will never touch the <em>x</em>-axis because base two raised to any exponent never has the result of zero.</li>
+  <li>\(y=0\) is the horizontal asymptote.</li>
+  <li>the <em>y</em>-intercept is 1.</li>
+</ul>
+
+<div class="card definition">
+  <span class="chip">Definition · Exponential Function</span>
+  <p>For any real number \(x,\) an exponential function is a function with the form</p>
+  <p>\[f(x)=a{b}^{x}\]</p>
+  <p>where</p>
+  <ul class="tight">
+    <li>\(a\) is a non-zero real number called the initial value and</li>
+    <li>\(b\) is any positive real number such that \(b\ne 1.\)</li>
+    <li>The domain of \(f\) is all real numbers.</li>
+    <li>The range of \(f\) is all positive real numbers if \(a&gt;0.\)</li>
+    <li>The range of \(f\) is all negative real numbers if \(a&lt;0.\)</li>
+    <li>The <em>y</em>-intercept is \((0,a),\) and the horizontal asymptote is \(y=0.\)</li>
+  </ul>
+</div>
+
+<figure class="plot" id="fig-ab" data-desmos data-spec='{"bounds":{"left":-3,"right":3,"bottom":-1,"top":9},"sliders":[{"var":"a","min":0.2,"max":5,"step":0.1,"value":1,"color":"#5a5656"},{"var":"b","min":0.2,"max":4,"step":0.1,"value":2,"color":"#cf003d"}],"curves":[{"latex":"y=a\\cdot b^{x}","color":"#cf003d"}],"alt":"Interactive graph of f(x)=ab^x — drag the a and b sliders to see how the initial value and base change the curve"}'>
+  <figcaption>Drag <em>a</em> and <em>b</em> to see how each one shapes \(f(x)=a{b}^{x}.\)</figcaption>
+</figure>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 1</span><span class="t">Identifying Exponential Functions</span></div>
+  <div class="ex-body">
+    <p>Which of the following equations are <em>not</em> exponential functions?</p>
+    <ul class="tight">
+      <li>\(f(x)={4}^{3(x-2)}\)</li>
+      <li>\(g(x)={x}^{3}\)</li>
+      <li>\(h(x)={\left(\frac{1}{3}\right)}^{x}\)</li>
+      <li>\(j(x)={(-2)}^{x}\)</li>
+    </ul>
+  </div>
+  <p class="sol-hint">Try it yourself first, then check your reasoning.</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>By definition, an exponential function has a constant as a base and an independent variable as an exponent. Thus, \(g(x)={x}^{3}\) does not represent an exponential function because the base is an independent variable. In fact, \(g(x)={x}^{3}\) is a power function.</p>
+      <p>Recall that the base \(b\) of an exponential function is always a positive constant, and \(b\ne 1.\) Thus, \(j(x)={(-2)}^{x}\) does not represent an exponential function because the base, \(-2,\) is less than \(0.\)</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-1">
+  <div class="ex-head"><span class="num">Try It #1</span></div>
+  <div class="ex-body">
+    <p>Which of the following equations represent exponential functions?</p>
+    <ul class="tight">
+      <li>\(f(x)=2{x}^{2}-3x+1\)</li>
+      <li>\(g(x)={0.875}^{x}\)</li>
+      <li>\(h(x)=1.75x+2\)</li>
+      <li>\(j(x)={1095.6}^{-2x}\)</li>
+    </ul>
+  </div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>\(g(x)={0.875}^{x}\) and \(j(x)={1095.6}^{-2x}\) represent exponential functions.</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<h2 id="evaluating">Evaluating Exponential Functions</h2>
+
+<p>Recall that the base of an exponential function must be a positive real number other than \(1.\) Why do we limit the base \(b\) to positive values? To ensure that the outputs will be real numbers. Observe what happens if the base is not positive:</p>
+<ul class="tight"><li>Let \(b=-9\) and \(x=\frac{1}{2}.\) Then \(f(x)=f\left(\frac{1}{2}\right)={(-9)}^{\frac{1}{2}}=\sqrt{-9},\) which is not a real number.</li></ul>
+
+<p>Why do we limit the base to positive values other than \(1?\) Because base \(1\) results in the constant function. Observe what happens if the base is \(1:\)</p>
+<ul class="tight"><li>Let \(b=1.\) Then \(f(x)={1}^{x}=1\) for any value of \(x.\)</li></ul>
+
+<p>To evaluate an exponential function with the form \(f(x)={b}^{x},\) we simply substitute \(x\) with the given value, and calculate the resulting power. For example:</p>
+<p>Let \(f(x)={2}^{x}.\) What is \(f(3)?\)</p>
+<p>\[\begin{aligned} f(x)&amp;={2}^{x} &amp; \\ f(3)&amp;={2}^{3} &amp;&amp; \text{Substitute } x=3. \\ &amp;=8 &amp;&amp; \text{Evaluate the power.}\end{aligned}\]</p>
+
+<p>To evaluate an exponential function with a form other than the basic form, it is important to follow the order of operations. For example:</p>
+<p>Let \(f(x)=30{(2)}^{x}.\) What is \(f(3)?\)</p>
+<p>\[\begin{aligned} f(x)&amp;=30{(2)}^{x} &amp; \\ f(3)&amp;=30{(2)}^{3} &amp;&amp; \text{Substitute } x=3. \\ &amp;=30(8) &amp;&amp; \text{Simplify the power first.} \\ &amp;=240 &amp;&amp; \text{Multiply.}\end{aligned}\]</p>
+
+<p>Note that if the order of operations were not followed, the result would be incorrect:</p>
+<p>\[f(3)=30{(2)}^{3}\ne{60}^{3}=216{,}000\]</p>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 2</span><span class="t">Evaluating Exponential Functions</span></div>
+  <div class="ex-body"><p>Let \(f(x)=5{(3)}^{x+1}.\) Evaluate \(f(2)\) without using a calculator.</p></div>
+  <p class="sol-hint">Watch the order of operations — try it before peeking.</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>Follow the order of operations. Be sure to pay attention to the parentheses.</p>
+      <p>\[\begin{aligned} f(x)&amp;=5{(3)}^{x+1} &amp; \\ f(2)&amp;=5{(3)}^{2+1} &amp;&amp; \text{Substitute } x=2. \\ &amp;=5{(3)}^{3} &amp;&amp; \text{Add the exponents.} \\ &amp;=5(27) &amp;&amp; \text{Simplify the power.} \\ &amp;=135 &amp;&amp; \text{Multiply.}\end{aligned}\]</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-2">
+  <div class="ex-head"><span class="num">Try It #2</span></div>
+  <div class="ex-body"><p>Let \(f(x)=8{(1.2)}^{x-5}.\) Evaluate \(f(3)\) using a calculator. Round to four decimal places.</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>\(5.5556\)</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<h3>Defining Exponential Growth</h3>
+
+<p>Because the output of exponential functions increases very rapidly, the term “exponential growth” is often used in everyday language to describe anything that grows or increases rapidly. However, exponential growth can be defined more precisely in a mathematical sense. If the growth rate is proportional to the amount present, the function models exponential growth.</p>
+
+<div class="card definition">
+  <span class="chip">Definition · Exponential Growth</span>
+  <p>A function that models <strong>exponential growth</strong> grows by a rate proportional to the amount present. For any real number \(x\) and any positive real numbers \(a\) and \(b\) such that \(b\ne 1,\) an exponential growth function has the form</p>
+  <p>\[f(x)=a{b}^{x}\]</p>
+  <p>where</p>
+  <ul class="tight">
+    <li>\(a\) is the initial or starting value of the function.</li>
+    <li>\(b\) is the growth factor or growth multiplier per unit \(x\).</li>
+  </ul>
+</div>
+
+<p>In more general terms, we have an <em>exponential function</em>, in which a constant base is raised to a variable exponent. To differentiate between linear and exponential functions, let’s consider two companies, A and B. Company A has 100 stores and expands by opening 50 new stores a year, so its growth can be represented by the function \(A(x)=100+50x.\) Company B has 100 stores and expands by increasing the number of stores by 50% each year, so its growth can be represented by the function \(B(x)=100{(1+0.5)}^{x}.\)</p>
+
+<p>A few years of growth for these companies are illustrated in <a href="#table3">Table 3</a>.</p>
+
+<div class="tablewrap" id="table3">
+<table class="data">
+  <caption>Table 3</caption>
+  <thead><tr><th>Year, \(x\)</th><th>Stores, Company A</th><th>Stores, Company B</th></tr></thead>
+  <tbody>
+    <tr><td>\(0\)</td><td>\(100+50(0)=100\)</td><td>\(100{(1+0.5)}^{0}=100\)</td></tr>
+    <tr><td>\(1\)</td><td>\(100+50(1)=150\)</td><td>\(100{(1+0.5)}^{1}=150\)</td></tr>
+    <tr><td>\(2\)</td><td>\(100+50(2)=200\)</td><td>\(100{(1+0.5)}^{2}=225\)</td></tr>
+    <tr><td>\(3\)</td><td>\(100+50(3)=250\)</td><td>\(100{(1+0.5)}^{3}=337.5\)</td></tr>
+    <tr><td>\(x\)</td><td>\(A(x)=100+50x\)</td><td>\(B(x)=100{(1+0.5)}^{x}\)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The graphs comparing the number of stores for each company over a five-year period are shown in <a href="#fig2">Figure 2</a>. We can see that, with exponential growth, the number of stores increases much more rapidly than with linear growth.</p>
+
+<figure class="plot" id="fig2" data-plot data-spec='{"xmin":0,"xmax":5,"ymin":0,"ymax":800,"xstep":1,"ystep":100,"alt":"Graph of Company A (linear) and Company B (exponential) store counts over five years","curves":[{"fn":"100+50*x","cls":"alt","label":"A(x)=100+50x","labelAt":[3.1,215]},{"fn":"100*Math.pow(1.5,x)","label":"B(x)=100(1+0.5)^x","labelAt":[3.5,560]}],"xlabel":"Years","ylabel":"Number of stores"}'>
+  <figcaption>Figure 2 — The graph shows the numbers of stores Companies A and B opened over a five-year period.</figcaption>
+</figure>
+
+<p>Notice that the domain for both functions is \([0,\infty),\) and the range for both functions is \([100,\infty).\) After year 1, Company B always has more stores than Company A.</p>
+
+<p>Now we will turn our attention to the function representing the number of stores for Company B, \(B(x)=100{(1+0.5)}^{x}.\) In this exponential function, 100 represents the initial number of stores, 0.50 represents the growth rate, and \(1+0.5=1.5\) represents the growth factor. Generalizing further, we can write this function as \(B(x)=100{(1.5)}^{x},\) where 100 is the initial value, \(1.5\) is called the <em>base</em>, and \(x\) is called the <em>exponent</em>.</p>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 3</span><span class="t">Evaluating a Real-World Exponential Model</span></div>
+  <div class="ex-body">
+    <p>At the beginning of this section, we learned that the population of India was about \(1.25\) billion in the year 2013, with an annual growth rate of about \(1.2\%.\) This situation is represented by the growth function \(P(t)=1.25{(1.012)}^{t},\) where \(t\) is the number of years since \(2013.\) To the nearest thousandth, what will the population of India be in \(2031?\)</p>
+  </div>
+  <p class="sol-hint">Set up the input value first: how many years is 2031 after 2013?</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>To estimate the population in 2031, we evaluate the models for \(t=18,\) because 2031 is \(18\) years after 2013. Rounding to the nearest thousandth,</p>
+      <p>\[P(18)=1.25{(1.012)}^{18}\approx 1.549\]</p>
+      <p>There will be about 1.549 billion people in India in the year 2031.</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-3">
+  <div class="ex-head"><span class="num">Try It #3</span></div>
+  <div class="ex-body"><p>The population of China was about 1.39 billion in the year 2013, with an annual growth rate of about \(0.6\%.\) This situation is represented by the growth function \(P(t)=1.39{(1.006)}^{t},\) where \(t\) is the number of years since \(2013.\) To the nearest thousandth, what will the population of China be for the year 2031? How does this compare to the population prediction we made for India in Example 3?</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>About \(1.548\) billion people; by the year 2031, India’s population will exceed China’s by about 0.001 billion, or 1 million people.</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<h2 id="finding-equations">Finding Equations of Exponential Functions</h2>
+
+<p>In the previous examples, we were given an exponential function, which we then evaluated for a given input. Sometimes we are given information about an exponential function without knowing the function explicitly. We must use the information to first write the form of the function, then determine the constants \(a\) and \(b,\) and evaluate the function.</p>
+
+<div class="card howto">
+  <span class="chip">How To</span>
+  <p><strong>Given two data points, write an exponential model.</strong></p>
+  <ol>
+    <li>If one of the data points has the form \((0,a),\) then \(a\) is the initial value. Using \(a,\) substitute the second point into the equation \(f(x)=a{(b)}^{x},\) and solve for \(b.\)</li>
+    <li>If neither of the data points have the form \((0,a),\) substitute both points into two equations with the form \(f(x)=a{(b)}^{x}.\) Solve the resulting system of two equations in two unknowns to find \(a\) and \(b.\)</li>
+    <li>Using the \(a\) and \(b\) found in the steps above, write the exponential function in the form \(f(x)=a{(b)}^{x}.\)</li>
+  </ol>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 4</span><span class="t">Writing an Exponential Model When the Initial Value Is Known</span></div>
+  <div class="ex-body">
+    <p>In 2006, 80 deer were introduced into a wildlife refuge. By 2012, the population had grown to 180 deer. The population was growing exponentially. Write an exponential function \(N(t)\) representing the population \((N)\) of deer over time \(t.\)</p>
+  </div>
+  <p class="sol-hint">Hint: let \(t\) be years after 2006 — then you know the initial value.</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>We let our independent variable \(t\) be the number of years after 2006. Thus, the information given in the problem can be written as input-output pairs: (0, 80) and (6, 180). Notice that by choosing our input variable to be measured as years after 2006, we have given ourselves the initial value for the function, \(a=80.\) We can now substitute the second point into the equation \(N(t)=80{b}^{t}\) to find \(b:\)</p>
+      <p>\[\begin{aligned} N(t)&amp;=80{b}^{t} &amp; \\ 180&amp;=80{b}^{6} &amp;&amp; \text{Substitute using point } (6,180). \\ \tfrac{9}{4}&amp;={b}^{6} &amp;&amp; \text{Divide and write in lowest terms.} \\ b&amp;={\left(\tfrac{9}{4}\right)}^{\frac{1}{6}} &amp;&amp; \text{Isolate } b \text{ using properties of exponents.} \\ b&amp;\approx 1.1447 &amp;&amp; \text{Round to 4 decimal places.}\end{aligned}\]</p>
+      <p><strong>NOTE: Unless otherwise stated, do not round any intermediate calculations. Then round the final answer to four places for the remainder of this section.</strong></p>
+      <p>The exponential model for the population of deer is \(N(t)=80{(1.1447)}^{t}.\) (Note that this exponential function models short-term growth. As the inputs gets large, the output will get increasingly larger, so much so that the model may not be useful in the long term.)</p>
+      <p>We can graph our model to observe the population growth of deer in the refuge over time. Notice that the graph in <a href="#fig3">Figure 3</a> passes through the initial points given in the problem, \((0,80)\) and \((6,180).\) We can also see that the domain for the function is \([0,\infty),\) and the range for the function is \([80,\infty).\)</p>
+      <figure class="plot" id="fig3" data-plot data-spec='{"xmin":0,"xmax":10,"ymin":0,"ymax":400,"xstep":1,"ystep":50,"alt":"Graph of N(t)=80(1.1447)^t with labeled points at (0,80) and (6,180)","curves":[{"fn":"80*Math.pow(1.1447,x)","label":"N(t)=80(1.1447)^t","labelAt":[6.4,300]}],"points":[[0,80,"(0, 80)"],[6,180,"(6, 180)"]],"xlabel":"Years","ylabel":"Deer population"}'>
+        <figcaption>Figure 3 — Graph showing the population of deer over time, \(N(t)=80{(1.1447)}^{t},\) \(t\) years after 2006</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-4">
+  <div class="ex-head"><span class="num">Try It #4</span></div>
+  <div class="ex-body"><p>A wolf population is growing exponentially. In 2011, \(129\) wolves were counted. By \(2013,\) the population had reached 236 wolves. What two points can be used to derive an exponential equation modeling this situation? Write the equation representing the population \(N\) of wolves over time \(t.\)</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>\((0,129)\) and \((2,236);\) \(N(t)=129{(1.3526)}^{t}\)</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 5</span><span class="t">Writing an Exponential Model When the Initial Value is Not Known</span></div>
+  <div class="ex-body">
+    <p>Find an exponential function that passes through the points \((-2,6)\) and \((2,1).\)</p>
+  </div>
+  <p class="sol-hint">Neither point gives you \(a\) directly — you'll need a small system of equations.</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>Because we don’t have the initial value, we substitute both points into an equation of the form \(f(x)=a{b}^{x},\) and then solve the system for \(a\) and \(b.\)</p>
+      <ul class="tight">
+        <li>Substituting \((-2,6)\) gives \(6=a{b}^{-2}\)</li>
+        <li>Substituting \((2,1)\) gives \(1=a{b}^{2}\)</li>
+      </ul>
+      <p>Use the first equation to solve for \(a\) in terms of \(b:\)</p>
+      <p>\[\begin{aligned} 6&amp;=a{b}^{-2} \\ 6{b}^{2}&amp;=a &amp;&amp; \text{Multiply both sides by } {b}^{2}. \end{aligned}\]</p>
+      <p>Substitute \(a\) in the second equation, and solve for \(b:\)</p>
+      <p>\[\begin{aligned} 1&amp;=a{b}^{2} \\ 1&amp;=6{b}^{2}{b}^{2}=6{b}^{4} &amp;&amp; \text{Substitute } a. \\ b&amp;={\left(\tfrac{1}{6}\right)}^{\frac{1}{4}}\approx 0.6389 &amp;&amp; \text{Round 4 decimal places.} \end{aligned}\]</p>
+      <p>Use the value of \(b\) in the first equation to solve for the value of \(a:\)</p>
+      <p>\[a=6{b}^{2}\approx 6{(0.6389)}^{2}\approx 2.4492\]</p>
+      <p>Thus, the equation is \(f(x)=2.4492{(0.6389)}^{x}.\)</p>
+      <p>We can graph our model to check our work. Notice that the graph in <a href="#fig4">Figure 4</a> passes through the initial points given in the problem, \((-2,6)\) and \((2,1).\) The graph is an example of an <strong>exponential decay</strong> function.</p>
+      <figure class="plot" id="fig4" data-plot data-spec='{"xmin":-3,"xmax":3,"ymin":0,"ymax":8,"xstep":1,"ystep":1,"alt":"Graph of f(x)=2.4492(0.6389)^x with labeled points at (-2,6) and (2,1)","curves":[{"fn":"2.4492*Math.pow(0.6389,x)","label":"f(x)=2.4492(0.6389)^x","labelAt":[-1.4,6.6]}],"points":[[-2,6,"(-2, 6)"],[2,1,"(2, 1)"]],"xlabel":"x","ylabel":"f(x)"}'>
+        <figcaption>Figure 4 — The graph of \(f(x)=2.4492{(0.6389)}^{x}\) models exponential decay.</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-5">
+  <div class="ex-head"><span class="num">Try It #5</span></div>
+  <div class="ex-body"><p>Given the two points \((1,3)\) and \((2,4.5),\) find the equation of the exponential function that passes through these two points.</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>\(f(x)=2{(1.5)}^{x}\)</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<div class="card qa">
+  <span class="chip">Q&amp;A</span>
+  <p class="q">Do two points always determine a unique exponential function?</p>
+  <p>Yes, provided the two points are either both above the <em>x</em>-axis or both below the <em>x</em>-axis and have different <em>x</em>-coordinates. But keep in mind that we also need to know that the graph is, in fact, an exponential function. Not every graph that looks exponential really is exponential. We need to know the graph is based on a model that shows the same percent growth with each unit increase in \(x,\) which in many real world cases involves time.</p>
+</div>
+
+<div class="card howto">
+  <span class="chip">How To</span>
+  <p><strong>Given the graph of an exponential function, write its equation.</strong></p>
+  <ol>
+    <li>First, identify two points on the graph. Choose the <em>y</em>-intercept as one of the two points whenever possible. Try to choose points that are as far apart as possible to reduce round-off error.</li>
+    <li>If one of the data points is the <em>y</em>-intercept \((0,a),\) then \(a\) is the initial value. Using \(a,\) substitute the second point into the equation \(f(x)=a{(b)}^{x},\) and solve for \(b.\)</li>
+    <li>If neither of the data points have the form \((0,a),\) substitute both points into two equations with the form \(f(x)=a{(b)}^{x}.\) Solve the resulting system of two equations in two unknowns to find \(a\) and \(b.\)</li>
+    <li>Write the exponential function, \(f(x)=a{(b)}^{x}.\)</li>
+  </ol>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 6</span><span class="t">Writing an Exponential Function Given Its Graph</span></div>
+  <div class="ex-body">
+    <p>Find an equation for the exponential function graphed in <a href="#fig5">Figure 5</a>.</p>
+    <figure class="plot" id="fig5" data-plot data-spec='{"xmin":-3,"xmax":3,"ymin":-2,"ymax":26,"xstep":1,"ystep":4,"alt":"Graph of an increasing exponential function with notable points at (0,3) and (2,12)","curves":[{"fn":"3*Math.pow(2,x)"}],"points":[[0,3,"(0, 3)"],[2,12,"(2, 12)"]],"xlabel":"x","ylabel":"f(x)"}'>
+      <figcaption>Figure 5</figcaption>
+    </figure>
+  </div>
+  <p class="sol-hint">Two nice points are marked on the graph — start from the <em>y</em>-intercept.</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>We can choose the <em>y</em>-intercept of the graph, \((0,3),\) as our first point. This gives us the initial value, \(a=3.\) Next, choose a point on the curve some distance away from \((0,3)\) that has integer coordinates. One such point is \((2,12).\)</p>
+      <p>\[\begin{aligned} y&amp;=a{b}^{x} &amp;&amp; \text{Write the general form of an exponential equation.} \\ y&amp;=3{b}^{x} &amp;&amp; \text{Substitute the initial value 3 for } a. \\ 12&amp;=3{b}^{2} &amp;&amp; \text{Substitute in 12 for } y \text{ and 2 for } x. \\ 4&amp;={b}^{2} &amp;&amp; \text{Divide by 3.} \\ b&amp;=\pm 2 &amp;&amp; \text{Take the square root.}\end{aligned}\]</p>
+      <p>Because we restrict ourselves to positive values of \(b,\) we will use \(b=2.\) Substitute \(a\) and \(b\) into the standard form to yield the equation \(f(x)=3{(2)}^{x}.\)</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-6">
+  <div class="ex-head"><span class="num">Try It #6</span></div>
+  <div class="ex-body">
+    <p>Find an equation for the exponential function graphed in <a href="#fig6">Figure 6</a>.</p>
+    <figure class="plot" id="fig6" data-plot data-spec='{"xmin":-3,"xmax":3,"ymin":-1,"ymax":6,"xstep":1,"ystep":1,"alt":"Graph of an increasing exponential function with a labeled point at (0, 1.4142)","curves":[{"fn":"Math.SQRT2*Math.pow(Math.SQRT2,x)"}],"points":[[0,1.4142,"(0, √2)"]],"xlabel":"x","ylabel":"f(x)"}'>
+      <figcaption>Figure 6</figcaption>
+    </figure>
+  </div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>\(f(x)=\sqrt{2}{(\sqrt{2})}^{x}.\) Answers may vary due to round-off error. The answer should be very close to \(1.4142{(1.4142)}^{x}.\)</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<div class="card howto">
+  <span class="chip">How To</span>
+  <p><strong>Given two points on the curve of an exponential function, use a graphing calculator to find the equation.</strong></p>
+  <ol>
+    <li>Press <strong>[STAT]</strong>.</li>
+    <li>Clear any existing entries in columns <strong>L1</strong> or <strong>L2</strong>.</li>
+    <li>In <strong>L1</strong>, enter the <em>x</em>-coordinates given.</li>
+    <li>In <strong>L2</strong>, enter the corresponding <em>y</em>-coordinates.</li>
+    <li>Press <strong>[STAT]</strong> again. Cursor right to <strong>CALC</strong>, scroll down to <strong>ExpReg (Exponential Regression)</strong>, and press <strong>[ENTER]</strong>.</li>
+    <li>The screen displays the values of <em>a</em> and <em>b</em> in the exponential equation \(y=a\cdot{b}^{x}\).</li>
+  </ol>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 7</span><span class="t">Using a Graphing Calculator to Find an Exponential Function</span></div>
+  <div class="ex-body"><p>Use a graphing calculator to find the exponential equation that includes the points \((2,24.8)\) and \((5,198.4).\)</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>Follow the guidelines above. First press <strong>[STAT]</strong>, <strong>[EDIT]</strong>, <strong>[1: Edit…]</strong>, and clear the lists <strong>L1</strong> and <strong>L2</strong>. Next, in the <strong>L1</strong> column, enter the <em>x</em>-coordinates, 2 and 5. Do the same in the <strong>L2</strong> column for the <em>y</em>-coordinates, 24.8 and 198.4.</p>
+      <p>Now press <strong>[STAT]</strong>, <strong>[CALC]</strong>, <strong>[0: ExpReg]</strong> and press <strong>[ENTER]</strong>. The values \(a=6.2\) and \(b=2\) will be displayed. The exponential equation is \(y=6.2\cdot{2}^{x}.\)</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-7">
+  <div class="ex-head"><span class="num">Try It #7</span></div>
+  <div class="ex-body"><p>Use a graphing calculator to find the exponential equation that includes the points (3, 75.98) and (6, 481.07).</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>\(y\approx 12\cdot{1.85}^{x}\)</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<h2 id="compound-interest">Applying the Compound-Interest Formula</h2>
+
+<p>Savings instruments in which earnings are continually reinvested, such as mutual funds and retirement accounts, use <strong>compound interest</strong>. The term <em>compounding</em> refers to interest earned not only on the original value, but on the accumulated value of the account.</p>
+
+<p>The <strong>annual percentage rate (APR)</strong> of an account, also called the <strong>nominal rate</strong>, is the yearly interest rate earned by an investment account. The term <em>nominal</em> is used when the compounding occurs a number of times other than once per year. In fact, when interest is compounded more than once a year, the effective interest rate ends up being <em>greater</em> than the nominal rate! This is a powerful tool for investing.</p>
+
+<p>We can calculate the compound interest using the compound interest formula, which is an exponential function of the variables time \(t,\) principal \(P,\) APR \(r,\) and number of compounding periods in a year \(n:\)</p>
+<p>\[A(t)=P{\left(1+\frac{r}{n}\right)}^{nt}\]</p>
+
+<p>For example, observe <a href="#table4">Table 4</a>, which shows the result of investing $1,000 at 10% for one year. Notice how the value of the account increases as the compounding frequency increases.</p>
+
+<div class="tablewrap" id="table4">
+<table class="data">
+  <caption>Table 4</caption>
+  <thead><tr><th>Frequency</th><th>Value after 1 year</th></tr></thead>
+  <tbody>
+    <tr><td>Annually</td><td>$1100</td></tr>
+    <tr><td>Semiannually</td><td>$1102.50</td></tr>
+    <tr><td>Quarterly</td><td>$1103.81</td></tr>
+    <tr><td>Monthly</td><td>$1104.71</td></tr>
+    <tr><td>Daily</td><td>$1105.16</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card definition">
+  <span class="chip">Definition · Compound Interest</span>
+  <p><strong>Compound interest</strong> can be calculated using the formula</p>
+  <p>\[A(t)=P{\left(1+\frac{r}{n}\right)}^{nt}\]</p>
+  <p>where</p>
+  <ul class="tight">
+    <li>\(A(t)\) is the account value,</li>
+    <li>\(t\) is measured in years,</li>
+    <li>\(P\) is the starting amount of the account, often called the principal, or more generally present value,</li>
+    <li>\(r\) is the annual percentage rate (APR) expressed as a decimal, and</li>
+    <li>\(n\) is the number of compounding periods in one year.</li>
+  </ul>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 8</span><span class="t">Calculating Compound Interest</span></div>
+  <div class="ex-body"><p>If we invest $3,000 in an investment account paying 3% interest compounded quarterly, how much will the account be worth in 10 years?</p></div>
+  <p class="sol-hint">Identify \(P\), \(r\), \(n\), and \(t\) before plugging in.</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>Because we are starting with $3,000, \(P=3000.\) Our interest rate is 3%, so \(r=0.03.\) Because we are compounding quarterly, we are compounding 4 times per year, so \(n=4.\) We want to know the value of the account in 10 years, so we are looking for \(A(10),\) the value when \(t=10.\)</p>
+      <p>\[\begin{aligned} A(t)&amp;=P{\left(1+\tfrac{r}{n}\right)}^{nt} &amp;&amp; \text{Use the compound interest formula.} \\ A(10)&amp;=3000{\left(1+\tfrac{0.03}{4}\right)}^{4\cdot 10} &amp;&amp; \text{Substitute using given values.} \\ &amp;\approx \$4045.05 &amp;&amp; \text{Round to two decimal places.}\end{aligned}\]</p>
+      <p>The account will be worth about $4,045.05 in 10 years.</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-8">
+  <div class="ex-head"><span class="num">Try It #8</span></div>
+  <div class="ex-body"><p>An initial investment of $100,000 at 12% interest is compounded weekly (use 52 weeks in a year). What will the investment be worth in 30 years?</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>about $3,644,675.88</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 9</span><span class="t">Using the Compound Interest Formula to Solve for the Principal</span></div>
+  <div class="ex-body"><p>A 529 Plan is a college-savings plan that allows relatives to invest money to pay for a child’s future college tuition; the account grows tax-free. Lily wants to set up a 529 account for her new granddaughter and wants the account to grow to $40,000 over 18 years. She believes the account will earn 6% compounded semi-annually (twice a year). To the nearest dollar, how much will Lily need to invest in the account now?</p></div>
+  <p class="sol-hint">This time you know \(A(t)\) — solve for \(P\).</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>The nominal interest rate is 6%, so \(r=0.06.\) Interest is compounded twice a year, so \(n=2.\)</p>
+      <p>We want to find the initial investment, \(P,\) needed so that the value of the account will be worth $40,000 in \(18\) years. Substitute the given values into the compound interest formula, and solve for \(P.\)</p>
+      <p>\[\begin{aligned} A(t)&amp;=P{\left(1+\tfrac{r}{n}\right)}^{nt} &amp;&amp; \text{Use the compound interest formula.} \\ 40{,}000&amp;=P{\left(1+\tfrac{0.06}{2}\right)}^{2(18)} &amp;&amp; \text{Substitute using given values } A, r, n, \text{ and } t. \\ 40{,}000&amp;=P{(1.03)}^{36} &amp;&amp; \text{Simplify.} \\ \tfrac{40{,}000}{{(1.03)}^{36}}&amp;=P &amp;&amp; \text{Isolate } P. \\ P&amp;\approx \$13{,}801 &amp;&amp; \text{Divide and round to the nearest dollar.}\end{aligned}\]</p>
+      <p>Lily will need to invest $13,801 to have $40,000 in 18 years.</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-9">
+  <div class="ex-head"><span class="num">Try It #9</span></div>
+  <div class="ex-body"><p>Refer to Example 9. To the nearest dollar, how much would Lily need to invest if the account is compounded quarterly?</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>$13,693</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<h2 id="base-e">Evaluating Functions with Base <em>e</em></h2>
+
+<p>As we saw earlier, the amount earned on an account increases as the compounding frequency increases. <a href="#table5">Table 5</a> shows that the increase from annual to semi-annual compounding is larger than the increase from monthly to daily compounding. This might lead us to ask whether this pattern will continue.</p>
+
+<p>Examine the value of $1 invested at 100% interest for 1 year, compounded at various frequencies, listed in <a href="#table5">Table 5</a>.</p>
+
+<div class="tablewrap" id="table5">
+<table class="data">
+  <caption>Table 5</caption>
+  <thead><tr><th>Frequency</th><th>\(A(n)={\left(1+\frac{1}{n}\right)}^{n}\)</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Annually</td><td>\({\left(1+\frac{1}{1}\right)}^{1}\)</td><td>$2</td></tr>
+    <tr><td>Semiannually</td><td>\({\left(1+\frac{1}{2}\right)}^{2}\)</td><td>$2.25</td></tr>
+    <tr><td>Quarterly</td><td>\({\left(1+\frac{1}{4}\right)}^{4}\)</td><td>$2.441406</td></tr>
+    <tr><td>Monthly</td><td>\({\left(1+\frac{1}{12}\right)}^{12}\)</td><td>$2.613035</td></tr>
+    <tr><td>Daily</td><td>\({\left(1+\frac{1}{365}\right)}^{365}\)</td><td>$2.714567</td></tr>
+    <tr><td>Hourly</td><td>\({\left(1+\frac{1}{8760}\right)}^{8760}\)</td><td>$2.718127</td></tr>
+    <tr><td>Once per minute</td><td>\({\left(1+\frac{1}{525600}\right)}^{525600}\)</td><td>$2.718279</td></tr>
+    <tr><td>Once per second</td><td>\({\left(1+\frac{1}{31536000}\right)}^{31536000}\)</td><td>$2.718282</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>These values appear to be approaching a limit as \(n\) increases without bound. In fact, as \(n\) gets larger and larger, the expression \({\left(1+\frac{1}{n}\right)}^{n}\) approaches a number used so frequently in mathematics that it has its own name: the letter \(e.\) This value is an irrational number, which means that its decimal expansion goes on forever without repeating. Its approximation to six decimal places is shown below.</p>
+
+<div class="card definition">
+  <span class="chip">Definition · The Number e</span>
+  <p>The letter <em>e</em> represents the irrational number</p>
+  <p>\[{\left(1+\frac{1}{n}\right)}^{n}, \text{ as } n \text{ increases without bound}\]</p>
+  <p>The letter <em>e</em> is used as a base for many real-world exponential models. To work with base <em>e</em>, we use the approximation, \(e\approx 2.718282.\) The constant was named by the Swiss mathematician Leonhard Euler (1707–1783) who first investigated and discovered many of its properties.</p>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 10</span><span class="t">Using a Calculator to Find Powers of e</span></div>
+  <div class="ex-body"><p>Calculate \({e}^{3.14}.\) Round to five decimal places.</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>On a calculator, press the button labeled \([{e}^{x}].\) The window shows \([e^{(}].\) Type \(3.14\) and then close parenthesis, \([)].\) Press [ENTER]. Rounding to \(5\) decimal places, \({e}^{3.14}\approx 23.10387.\) Caution: Many scientific calculators have an “Exp” button, which is used to enter numbers in scientific notation. It is not used to find powers of \(e.\)</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-10">
+  <div class="ex-head"><span class="num">Try It #10</span></div>
+  <div class="ex-body"><p>Use a calculator to find \({e}^{-0.5}.\) Round to five decimal places.</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>\({e}^{-0.5}\approx 0.60653\)</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<h2 id="continuous">Investigating Continuous Growth</h2>
+
+<p>So far we have worked with rational bases for exponential functions. For most real-world phenomena, however, <em>e</em> is used as the base for exponential functions. Exponential models that use \(e\) as the base are called <em>continuous growth or decay models</em>. We see these models in finance, computer science, and most of the sciences, such as physics, toxicology, and fluid dynamics.</p>
+
+<div class="card definition">
+  <span class="chip">Definition · The Continuous Growth/Decay Formula</span>
+  <p>For all real numbers \(t,\) and all positive numbers \(a\) and \(r,\) continuous growth or decay is represented by the formula</p>
+  <p>\[A(t)=a{e}^{rt}\]</p>
+  <p>where</p>
+  <ul class="tight">
+    <li>\(a\) is the initial value,</li>
+    <li>\(r\) is the continuous growth rate per unit time,</li>
+    <li>and \(t\) is the elapsed time.</li>
+  </ul>
+  <p>If \(r&gt;0\), then the formula represents continuous growth. If \(r&lt;0\), then the formula represents continuous decay.</p>
+  <p>For business applications, the continuous growth formula is called the continuous compounding formula and takes the form</p>
+  <p>\[A(t)=P{e}^{rt}\]</p>
+  <p>where</p>
+  <ul class="tight">
+    <li>\(P\) is the principal or the initial invested,</li>
+    <li>\(r\) is the growth or interest rate per unit time,</li>
+    <li>and \(t\) is the period or term of the investment.</li>
+  </ul>
+</div>
+
+<div class="card howto">
+  <span class="chip">How To</span>
+  <p><strong>Given the initial value, rate of growth or decay, and time \(t,\) solve a continuous growth or decay function.</strong></p>
+  <ol>
+    <li>Use the information in the problem to determine \(a\), the initial value of the function.</li>
+    <li>Use the information in the problem to determine the growth rate \(r.\) If the problem refers to continuous growth, then \(r&gt;0.\) If the problem refers to continuous decay, then \(r&lt;0.\)</li>
+    <li>Use the information in the problem to determine the time \(t.\)</li>
+    <li>Substitute the given information into the continuous growth formula and solve for \(A(t).\)</li>
+  </ol>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 11</span><span class="t">Calculating Continuous Growth</span></div>
+  <div class="ex-body"><p>A person invested $1,000 in an account earning a nominal 10% per year compounded continuously. How much was in the account at the end of one year?</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>Since the account is growing in value, this is a continuous compounding problem with growth rate \(r=0.10.\) The initial investment was $1,000, so \(P=1000.\) We use the continuous compounding formula to find the value after \(t=1\) year:</p>
+      <p>\[\begin{aligned} A(t)&amp;=P{e}^{rt} &amp;&amp; \text{Use the continuous compounding formula.} \\ &amp;=1000{(e)}^{0.1} &amp;&amp; \text{Substitute known values for } P, r, \text{ and } t. \\ &amp;\approx 1105.17 &amp;&amp; \text{Use a calculator to approximate.}\end{aligned}\]</p>
+      <p>The account is worth $1,105.17 after one year.</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-11">
+  <div class="ex-head"><span class="num">Try It #11</span></div>
+  <div class="ex-body"><p>A person invests $100,000 at a nominal 12% interest per year compounded continuously. What will be the value of the investment in 30 years?</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>$3,659,823.44</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<div class="card example">
+  <div class="ex-head"><span class="num">Example 12</span><span class="t">Calculating Continuous Decay</span></div>
+  <div class="ex-body"><p>Radon-222 decays at a continuous rate of 17.3% per day. How much will 100 mg of Radon-222 decay to in 3 days?</p></div>
+  <p class="sol-hint">Decay means the rate is negative.</p>
+  <div class="solution">
+    <button class="sol-toggle">Show solution</button>
+    <div class="sol-body">
+      <p>Since the substance is decaying, the rate, \(17.3\%\), is negative. So, \(r=-0.173.\) The initial amount of radon-222 was \(100\) mg, so \(a=100.\) We use the continuous decay formula to find the value after \(t=3\) days:</p>
+      <p>\[\begin{aligned} A(t)&amp;=a{e}^{rt} &amp;&amp; \text{Use the continuous growth formula.} \\ &amp;=100{e}^{-0.173(3)} &amp;&amp; \text{Substitute known values for } a, r, \text{ and } t. \\ &amp;\approx 59.5115 &amp;&amp; \text{Use a calculator to approximate.}\end{aligned}\]</p>
+      <p>So 59.5115 mg of radon-222 will remain.</p>
+    </div>
+  </div>
+</div>
+
+<div class="tryit" id="tryit-12">
+  <div class="ex-head"><span class="num">Try It #12</span></div>
+  <div class="ex-body"><p>Using the data in Example 12, how much radon-222 will remain after one year?</p></div>
+  <div class="solution">
+    <button class="sol-toggle">Show answer</button>
+    <div class="sol-body"><p>3.77E-26 (This is calculator notation for the number written as \(3.77\times{10}^{-26}\) in scientific notation. While the output of an exponential function is never zero, this number is so close to zero that for all practical purposes we can accept zero as the answer.)</p></div>
+  </div>
+  <div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div>
+</div>
+
+<div class="card callout">
+  <span class="chip">Media</span>
+  <p>Access these online resources for additional instruction and practice with exponential functions, linked from the <a href="https://openstax.org/books/college-algebra-2e/pages/6-1-exponential-functions">original OpenStax section</a>: <em>Exponential Growth Function</em> and <em>Compound Interest</em>.</p>
+</div>
+
+<h2 id="key-equations">Key Equations</h2>
+
+<div class="tablewrap">
+<table class="data">
+  <tbody>
+    <tr><th class="rowhead">definition of the exponential function</th><td>\(f(x)={b}^{x}\text{, where } b&gt;0,\ b\ne 1\)</td></tr>
+    <tr><th class="rowhead">definition of exponential growth</th><td>\(f(x)=a{b}^{x},\ \text{where } a&gt;0, b&gt;0, b\ne 1\)</td></tr>
+    <tr><th class="rowhead">compound interest formula</th><td>\(A(t)=P{\left(1+\frac{r}{n}\right)}^{nt},\) where \(A(t)\) is the account value at time \(t\), \(t\) is the number of years, \(P\) is the initial investment, often called the principal, \(r\) is the annual percentage rate (APR), or nominal rate, and \(n\) is the number of compounding periods in one year</td></tr>
+    <tr><th class="rowhead">continuous growth formula</th><td>\(A(t)=a{e}^{rt},\) where \(t\) is the number of unit time periods of growth, \(a\) is the starting amount (in the continuous compounding formula \(a\) is replaced with \(P\), the principal), and \(e\) is the mathematical constant, \(e\approx 2.718282\)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="key-concepts">Key Concepts</h2>
+
+<ul class="tight">
+  <li>An exponential function is defined as a function with a positive constant other than \(1\) raised to a variable exponent. See <a href="#tryit-1">Example 1</a>.</li>
+  <li>A function is evaluated by solving at a specific value. See <a href="#tryit-2">Example 2</a> and <a href="#tryit-3">Example 3</a>.</li>
+  <li>An exponential model can be found when the growth rate and initial value are known. See <a href="#tryit-4">Example 4</a>.</li>
+  <li>An exponential model can be found when the two data points from the model are known. See <a href="#tryit-5">Example 5</a>.</li>
+  <li>An exponential model can be found using two data points from the graph of the model. See <a href="#tryit-6">Example 6</a>.</li>
+  <li>An exponential model can be found using two data points from the graph and a calculator. See <a href="#tryit-7">Example 7</a>.</li>
+  <li>The value of an account at any time \(t\) can be calculated using the compound interest formula when the principal, annual interest rate, and compounding periods are known. See <a href="#tryit-8">Example 8</a>.</li>
+  <li>The initial investment of an account can be found using the compound interest formula when the value of the account, annual interest rate, compounding periods, and life span of the account are known. See <a href="#tryit-9">Example 9</a>.</li>
+  <li>The number \(e\) is a mathematical constant often used as the base of real world exponential growth and decay models. Its decimal approximation is \(e\approx 2.718282.\)</li>
+  <li>Scientific and graphing calculators have the key \([{e}^{x}]\) or \([\exp(x)]\) for calculating powers of \(e.\) See <a href="#tryit-10">Example 10</a>.</li>
+  <li>Continuous growth or decay models are exponential models that use \(e\) as the base. Continuous growth and decay models can be found when the initial value and growth or decay rate are known. See <a href="#tryit-11">Example 11</a> and <a href="#tryit-12">Example 12</a>.</li>
+</ul>
+
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<div class="ex-toolbar"><span class="count">68 exercises · odd-numbered answers included</span></div>
+
+<h3>Verbal</h3>
+
+<div class="exercise"><div class="n">1</div><div class="body">
+  <p>Explain why the values of an increasing exponential function will eventually overtake the values of an increasing linear function.</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>Linear functions have a constant rate of change. Exponential functions increase based on a percent of the original.</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">2</div><div class="body">
+  <p>Given a formula for an exponential function, is it possible to determine whether the function grows or decays exponentially just by looking at the formula? Explain.</p>
+</div></div>
+
+<div class="exercise"><div class="n">3</div><div class="body">
+  <p>The Oxford Dictionary defines the word <em>nominal</em> as a value that is “stated or expressed but not necessarily corresponding exactly to the real value.” Develop a reasonable argument for why the term <em>nominal rate</em> is used to describe the annual percentage rate of an investment account that compounds interest.</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>When interest is compounded, the percentage of interest earned to principal ends up being greater than the annual percentage rate for the investment account. Thus, the annual percentage rate does not necessarily correspond to the real interest earned, which is the very definition of <em>nominal</em>.</p></div></div>
+</div></div>
+
+<h3>Algebraic</h3>
+
+<p class="groupnote">For the following exercises, identify whether the statement represents an exponential function. Explain.</p>
+
+<div class="exercise"><div class="n">4</div><div class="body"><p>The average annual population increase of a pack of wolves is 25.</p></div></div>
+
+<div class="exercise"><div class="n">5</div><div class="body">
+  <p>A population of bacteria decreases by a factor of \(\frac{1}{8}\) every \(24\) hours.</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>exponential; the population decreases by a proportional rate.</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">6</div><div class="body"><p>The value of a coin collection has increased by \(3.25\%\) annually over the last \(20\) years.</p></div></div>
+
+<div class="exercise"><div class="n">7</div><div class="body">
+  <p>For each training session, a personal trainer charges his clients \($5\) less than the previous training session.</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>not exponential; the charge decreases by a constant amount each visit, so the statement represents a linear function.</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">8</div><div class="body"><p>The height of a projectile at time \(t\) is represented by the function \(h(t)=-4.9{t}^{2}+18t+40.\)</p></div></div>
+
+<p class="groupnote">For the following exercises, consider this scenario: For each year \(t,\) the population of a forest of trees is represented by the function \(A(t)=115{(1.025)}^{t}.\) In a neighboring forest, the population of the same type of tree is represented by the function \(B(t)=82{(1.029)}^{t}.\) (Round answers to the nearest whole number.)</p>
+
+<div class="exercise"><div class="n">9</div><div class="body">
+  <p>Which forest’s population is growing at a faster rate?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>The forest represented by the function \(B(t)=82{(1.029)}^{t}.\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">10</div><div class="body"><p>Which forest had a greater number of trees initially? By how many?</p></div></div>
+
+<div class="exercise"><div class="n">11</div><div class="body">
+  <p>Assuming the population growth models continue to represent the growth of the forests, which forest will have a greater number of trees after \(20\) years? By how many?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>After \(t=20\) years, forest A will have \(43\) more trees than forest B.</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">12</div><div class="body"><p>Assuming the population growth models continue to represent the growth of the forests, which forest will have a greater number of trees after \(100\) years? By how many?</p></div></div>
+
+<div class="exercise"><div class="n">13</div><div class="body">
+  <p>Discuss the above results from the previous four exercises. Assuming the population growth models continue to represent the growth of the forests, which forest will have the greater number of trees in the long run? Why? What are some factors that might influence the long-term validity of the exponential growth model?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary. Sample response: For a number of years, the population of forest A will increasingly exceed forest B, but because forest B actually grows at a faster rate, the population will eventually become larger than forest A and will remain that way as long as the population growth models hold. Some factors that might influence the long-term validity of the exponential growth model are drought, an epidemic that culls the population, and other environmental and biological factors.</p></div></div>
+</div></div>
+
+<p class="groupnote">For the following exercises, determine whether the equation represents exponential growth, exponential decay, or neither. Explain.</p>
+
+<div class="exercise"><div class="n">14</div><div class="body"><p>\(y=300{(1-t)}^{5}\)</p></div></div>
+
+<div class="exercise"><div class="n">15</div><div class="body">
+  <p>\(y=220{(1.06)}^{x}\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>exponential growth; The growth factor, \(1.06,\) is greater than \(1.\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">16</div><div class="body"><p>\(y=16.5{(1.025)}^{\frac{1}{x}}\)</p></div></div>
+
+<div class="exercise"><div class="n">17</div><div class="body">
+  <p>\(y=11{,}701{(0.97)}^{t}\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>exponential decay; The decay factor, \(0.97,\) is between \(0\) and \(1.\)</p></div></div>
+</div></div>
+
+<p class="groupnote">For the following exercises, find the formula for an exponential function that passes through the two points given.</p>
+
+<div class="exercise"><div class="n">18</div><div class="body"><p>\((0,6)\) and \((3,750)\)</p></div></div>
+
+<div class="exercise"><div class="n">19</div><div class="body">
+  <p>\((0,2000)\) and \((2,20)\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=2000{(0.1)}^{x}\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">20</div><div class="body"><p>\(\left(-1,\frac{3}{2}\right)\) and \((3,24)\)</p></div></div>
+
+<div class="exercise"><div class="n">21</div><div class="body">
+  <p>\((-2,6)\) and \((3,1)\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={\left(\frac{1}{6}\right)}^{-\frac{3}{5}}{\left(\frac{1}{6}\right)}^{\frac{x}{5}}\approx 2.93{(0.699)}^{x}\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">22</div><div class="body"><p>\((3,1)\) and \((5,4)\)</p></div></div>
+
+<p class="groupnote">For the following exercises, determine whether the table could represent a function that is linear, exponential, or neither. If it appears to be exponential, find a function that passes through the points.</p>
+
+<div class="exercise"><div class="n">23</div><div class="body">
+  <div class="tablewrap"><table class="data"><tbody>
+    <tr><th class="rowhead">\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th class="rowhead">\(f(x)\)</th><td>70</td><td>40</td><td>10</td><td>−20</td></tr>
+  </tbody></table></div>
+  <div class="answer"><button>Show answer</button><div class="a"><p>Linear</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">24</div><div class="body">
+  <div class="tablewrap"><table class="data"><tbody>
+    <tr><th class="rowhead">\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th class="rowhead">\(h(x)\)</th><td>70</td><td>49</td><td>34.3</td><td>24.01</td></tr>
+  </tbody></table></div>
+</div></div>
+
+<div class="exercise"><div class="n">25</div><div class="body">
+  <div class="tablewrap"><table class="data"><tbody>
+    <tr><th class="rowhead">\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th class="rowhead">\(m(x)\)</th><td>80</td><td>61</td><td>42.9</td><td>25.61</td></tr>
+  </tbody></table></div>
+  <div class="answer"><button>Show answer</button><div class="a"><p>Neither</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">26</div><div class="body">
+  <div class="tablewrap"><table class="data"><tbody>
+    <tr><th class="rowhead">\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th class="rowhead">\(f(x)\)</th><td>10</td><td>20</td><td>40</td><td>80</td></tr>
+  </tbody></table></div>
+</div></div>
+
+<div class="exercise"><div class="n">27</div><div class="body">
+  <div class="tablewrap"><table class="data"><tbody>
+    <tr><th class="rowhead">\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th class="rowhead">\(g(x)\)</th><td>−3.25</td><td>2</td><td>7.25</td><td>12.5</td></tr>
+  </tbody></table></div>
+  <div class="answer"><button>Show answer</button><div class="a"><p>Linear</p></div></div>
+</div></div>
+
+<p class="groupnote">For the following exercises, use the compound interest formula, \(A(t)=P{\left(1+\frac{r}{n}\right)}^{nt}.\)</p>
+
+<div class="exercise"><div class="n">28</div><div class="body"><p>After a certain number of years, the value of an investment account is represented by the equation \(A=10{,}250{\left(1+\frac{0.04}{12}\right)}^{120}.\) What is the value of the account?</p></div></div>
+
+<div class="exercise"><div class="n">29</div><div class="body">
+  <p>What was the initial deposit made to the account in the previous exercise?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>$10,250</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">30</div><div class="body"><p>How many years had the account from the previous exercise been accumulating interest?</p></div></div>
+
+<div class="exercise"><div class="n">31</div><div class="body">
+  <p>An account is opened with an initial deposit of $6,500 and earns \(3.6\%\) interest compounded semi-annually. What will the account be worth in \(20\) years?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>$13,268.58</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">32</div><div class="body"><p>How much more would the account in the previous exercise have been worth if the interest were compounding weekly?</p></div></div>
+
+<div class="exercise"><div class="n">33</div><div class="body">
+  <p>Solve the compound interest formula for the principal, \(P\).</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(P=A(t)\cdot{\left(1+\frac{r}{n}\right)}^{-nt}\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">34</div><div class="body"><p>Use the formula found in the previous exercise to calculate the initial deposit of an account that is worth \($14{,}472.74\) after earning \(5.5\%\) interest compounded monthly for \(5\) years. (Round to the nearest dollar.)</p></div></div>
+
+<div class="exercise"><div class="n">35</div><div class="body">
+  <p>How much more would the account in the previous two exercises be worth if it were earning interest for \(5\) more years?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>$4,572.56</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">36</div><div class="body"><p>Use properties of rational exponents to solve the compound interest formula for the interest rate, \(r.\)</p></div></div>
+
+<div class="exercise"><div class="n">37</div><div class="body">
+  <p>Use the formula found in the previous exercise to calculate the interest rate for an account that was compounded semi-annually, had an initial deposit of $9,000 and was worth $13,373.53 after 10 years.</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(4\%\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">38</div><div class="body"><p>Use the formula found in the previous exercise to calculate the interest rate for an account that was compounded monthly, had an initial deposit of $5,500, and was worth $38,455 after 30 years.</p></div></div>
+
+<p class="groupnote">For the following exercises, determine whether the equation represents continuous growth, continuous decay, or neither. Explain.</p>
+
+<div class="exercise"><div class="n">39</div><div class="body">
+  <p>\(y=3742{(e)}^{0.75t}\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>continuous growth; the growth rate is greater than \(0.\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">40</div><div class="body"><p>\(y=150{(e)}^{\frac{3.25}{t}}\)</p></div></div>
+
+<div class="exercise"><div class="n">41</div><div class="body">
+  <p>\(y=2.25{(e)}^{-2t}\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>continuous decay; the growth rate is less than \(0.\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">42</div><div class="body"><p>Suppose an investment account is opened with an initial deposit of \($12{,}000\) earning \(7.2\%\) interest compounded continuously. How much will the account be worth after \(30\) years?</p></div></div>
+
+<div class="exercise"><div class="n">43</div><div class="body">
+  <p>How much less would the account from Exercise 42 be worth after \(30\) years if it were compounded monthly instead?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>$669.42</p></div></div>
+</div></div>
+
+<h3>Numeric</h3>
+
+<p class="groupnote">For the following exercises, evaluate each function. Round answers to four decimal places, if necessary.</p>
+
+<div class="exercise"><div class="n">44</div><div class="body"><p>\(f(x)=2{(5)}^{x},\) for \(f(-3)\)</p></div></div>
+
+<div class="exercise"><div class="n">45</div><div class="body">
+  <p>\(f(x)=-{4}^{2x+3},\) for \(f(-1)\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(f(-1)=-4\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">46</div><div class="body"><p>\(f(x)={e}^{x},\) for \(f(3)\)</p></div></div>
+
+<div class="exercise"><div class="n">47</div><div class="body">
+  <p>\(f(x)=-2{e}^{x-1},\) for \(f(-1)\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(f(-1)\approx -0.2707\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">48</div><div class="body"><p>\(f(x)=2.7{(4)}^{-x+1}+1.5,\) for \(f(-2)\)</p></div></div>
+
+<div class="exercise"><div class="n">49</div><div class="body">
+  <p>\(f(x)=1.2{e}^{2x}-0.3,\) for \(f(3)\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(f(3)\approx 483.8146\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">50</div><div class="body"><p>\(f(x)=-\frac{3}{2}{(3)}^{-x}+\frac{3}{2},\) for \(f(2)\)</p></div></div>
+
+<h3>Technology</h3>
+
+<p class="groupnote">For the following exercises, use a graphing calculator to find the equation of an exponential function given the points on the curve.</p>
+
+<div class="exercise"><div class="n">51</div><div class="body">
+  <p>\((0,3)\) and \((3,375)\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(y=3\cdot{5}^{x}\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">52</div><div class="body"><p>\((3,222.62)\) and \((10,77.456)\)</p></div></div>
+
+<div class="exercise"><div class="n">53</div><div class="body">
+  <p>\((20,29.495)\) and \((150,730.89)\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(y\approx 18\cdot{1.025}^{x}\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">54</div><div class="body"><p>\((5,2.909)\) and \((13,0.005)\)</p></div></div>
+
+<div class="exercise"><div class="n">55</div><div class="body">
+  <p>\((11,310.035)\) and \((25,356365.2)\)</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(y\approx 0.2\cdot{1.95}^{x}\)</p></div></div>
+</div></div>
+
+<h3>Extensions</h3>
+
+<div class="exercise"><div class="n">56</div><div class="body"><p>The <strong>annual percentage yield</strong> (APY) of an investment account is a representation of the actual interest rate earned on a compounding account. It is based on a compounding period of one year. Show that the APY of an account that compounds monthly can be found with the formula \(\text{APY}={\left(1+\frac{r}{12}\right)}^{12}-1.\)</p></div></div>
+
+<div class="exercise"><div class="n">57</div><div class="body">
+  <p>Repeat the previous exercise to find the formula for the APY of an account that compounds daily. Use the results from this and the previous exercise to develop a function \(I(n)\) for the APY of any account that compounds \(n\) times per year.</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(\text{APY}=\frac{A(t)-a}{a}=\frac{a{\left(1+\frac{r}{365}\right)}^{365(1)}-a}{a}=\frac{a\left[{\left(1+\frac{r}{365}\right)}^{365}-1\right]}{a}={\left(1+\frac{r}{365}\right)}^{365}-1;\) \(I(n)={\left(1+\frac{r}{n}\right)}^{n}-1\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">58</div><div class="body"><p>Recall that an exponential function is any equation written in the form \(f(x)=a\cdot{b}^{x}\) such that \(a\) and \(b\) are positive numbers and \(b\ne 1.\) Any positive number \(b\) can be written as \(b={e}^{n}\) for some value of \(n\). Use this fact to rewrite the formula for an exponential function that uses the number \(e\) as a base.</p></div></div>
+
+<div class="exercise"><div class="n">59</div><div class="body">
+  <p>In an exponential decay function, the base of the exponent is a value between 0 and 1. Thus, for some number \(b&gt;1,\) the exponential decay function can be written as \(f(x)=a\cdot{\left(\frac{1}{b}\right)}^{x}.\) Use this formula, along with the fact that \(b={e}^{n},\) to show that an exponential decay function takes the form \(f(x)=a{(e)}^{-nx}\) for some positive number \(n\).</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>Let \(f\) be the exponential decay function \(f(x)=a\cdot{\left(\frac{1}{b}\right)}^{x}\) such that \(b&gt;1.\) Then for some number \(n&gt;0,\) \(f(x)=a\cdot{\left(\frac{1}{b}\right)}^{x}=a{\left({b}^{-1}\right)}^{x}=a{\left({\left({e}^{n}\right)}^{-1}\right)}^{x}=a{\left({e}^{-n}\right)}^{x}=a{(e)}^{-nx}.\)</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">60</div><div class="body"><p>The formula for the amount \(A\) in an investment account with a nominal interest rate \(r\) at any time \(t\) is given by \(A(t)=a{(e)}^{rt},\) where \(a\) is the amount of principal initially deposited into an account that compounds continuously. Prove that the percentage of interest earned to principal at any time \(t\) can be calculated with the formula \(I(t)={e}^{rt}-1.\)</p></div></div>
+
+<h3>Real-World Applications</h3>
+
+<div class="exercise"><div class="n">61</div><div class="body">
+  <p>The fox population in a certain region has an annual growth rate of 9% per year. In the year 2012, there were 23,900 fox counted in the area. What is the fox population predicted to be in the year 2020?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(47{,}622\) fox</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">62</div><div class="body"><p>A scientist begins with 100 milligrams of a radioactive substance that decays exponentially. After 35 hours, 50mg of the substance remains. How many milligrams will remain after 54 hours?</p></div></div>
+
+<div class="exercise"><div class="n">63</div><div class="body">
+  <p>In the year 1985, a house was valued at $110,000. By the year 2005, the value had appreciated to $145,000. What was the annual growth rate between 1985 and 2005? Assume that the value continued to grow by the same percentage. What was the value of the house in the year 2010?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>\(1.39\%;\) $155,368.09</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">64</div><div class="body"><p>A car was valued at $38,000 in the year 2007. By 2013, the value had depreciated to $11,000. If the car’s value continues to drop by the same percentage, what will it be worth by 2017?</p></div></div>
+
+<div class="exercise"><div class="n">65</div><div class="body">
+  <p>Jaylen wants to save $54,000 for a down payment on a home. How much will he need to invest in an account with 8.2% APR, compounding daily, in order to reach his goal in 5 years?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>$35,838.76</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">66</div><div class="body"><p>Kyoko has $10,000 that she wants to invest. Her bank has several investment accounts to choose from, all compounding daily. Her goal is to have $15,000 by the time she finishes graduate school in 6 years. To the nearest hundredth of a percent, what should her minimum annual interest rate be in order to reach her goal? (<em>Hint</em>: solve the compound interest formula for the interest rate.)</p></div></div>
+
+<div class="exercise"><div class="n">67</div><div class="body">
+  <p>Alyssa opened a retirement account with 7.25% APR in the year 2000. Her initial deposit was $13,500. How much will the account be worth in 2025 if interest compounds monthly? How much more would she make if interest compounded continuously?</p>
+  <div class="answer"><button>Show answer</button><div class="a"><p>$82,247.78; $449.75</p></div></div>
+</div></div>
+
+<div class="exercise"><div class="n">68</div><div class="body"><p>An investment account with an annual interest rate of 7% was opened with an initial deposit of $4,000. Compare the values of the account after 9 years when the interest is compounded annually, quarterly, monthly, and continuously.</p></div></div>
+
+</div>
+
+<h2 id="glossary">Glossary</h2>
+
+<dl class="glossary">
+  <dt>annual percentage rate (APR)</dt><dd>the yearly interest rate earned by an investment account, also called <em>nominal rate</em></dd>
+  <dt>compound interest</dt><dd>interest earned on the total balance, not just the principal</dd>
+  <dt>exponential growth</dt><dd>a model that grows by a rate proportional to the amount present</dd>
+  <dt>nominal rate</dt><dd>the yearly interest rate earned by an investment account, also called <em>annual percentage rate</em></dd>
+</dl>
+
+<hr>
+<p id="fn2" style="font-size:.85rem;color:var(--ink-faint)"><sup>2</sup> http://www.worldometers.info/world-population/. Accessed February 24, 2014. <a href="#fnref2">↩</a></p>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/college-algebra-2e/pages/6-1-exponential-functions">OpenStax College Algebra 2e, Section 6.1 Exponential Functions</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>. Figures re-drawn as interactive SVG from the same function definitions.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+
+</main>
+</div>
+</body>
+</html>

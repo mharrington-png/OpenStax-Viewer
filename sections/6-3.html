@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logarithmic Functions · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">MX <span>Algebra</span></a>
+  <span class="crumb">Logarithmic Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 6.3</span>Logarithmic Functions</h1>
+
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body">
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Convert between exponential and logarithmic form. (IA 10.3.1)</li><li>Evaluate logarithmic functions. (IA 10.3.2)</li></ul>
+
+<h3 id="objective-1-convert-between-exponential-and-logarithmic-form-ia-10-3-1">Objective 1: Convert between exponential and logarithmic form. (IA 10.3.1)</h3>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<div class="exercise warmup"><div class="n">P1</div><div class="body"><p>Graph the exponential function \(f(x)={2}^{x}\) by making a table.</p>
+<div class="tablewrap"><table class="data"><caption>Table (fill in)</caption><tbody><tr><td>\(x\)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>\(y=f(x)\)</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankplot5.5.png" alt="A blank Cartesian coordinate system with labeled x and y axes ranging from -10 to 10, complete with grid lines." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<ul class="tight"><li>ⓐ Is it one-to-one?</li><li>ⓑ Domain?</li><li>ⓒ Range?</li><li>ⓓ Graph the inverse of \(f(x)={2}^{x}\) on the grid above by interchanging <em>x</em> and <em>y</em> coordinates in the table.</li><li>ⓔ Is the inverse a one-to-one function?</li><li>ⓕ Domain?</li><li>ⓖ Range?</li></ul>
+</div></div>
+
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find the inverse of \(f(x)={2}^{x}\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Rewrite with \(y=f(x)\): \(y={2}^{x}\)</li><li>Interchange the variables \(x\) and \(y\): \(x={2}^{y}\)</li><li>Solve for \(y\): Oops! We have no way to solve for \(y\).</li></ul>
+<p>We give <em>y</em> a new notation:</p>
+<p>\[y=\log_2 x\]</p>
+<p>"\(y=\log_2 x\)" read "<strong>the logarithm, base 2, of <em>x</em></strong>," means "the power to which we raise 2 to get <em>x</em>."</p>
+<p>The function \(y=\log_a x\) <strong>is equivalent to</strong> \(a^y=x\) <strong>is the logarithmic function with base</strong> \(a\), where \(a>0\), \(x>0\).</p>
+</div></div></div>
+
+<p>Since the equations \(y=\log_a x\) and \(x=a^y\) are equivalent, we can go back and forth between them. This will often be the method to solve some exponential and logarithmic equations. To help with converting back and forth, let's take a close look at the equations. Notice the positions of the exponent and base.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_10_03_001.jpg" alt="This figure shows the expression y equals log sub a of x, where y is the exponent and a is the base. Next to this expression we have x equals a to the y, where again y is the exponent and a is the base." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>If we remember the logarithm is the exponent, it makes the conversion easier. You may want to repeat, "base to the exponent gives us the number."</p>
+
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><p>Convert between exponential and logarithmic form.</p>
+<div class="ex-body"><p>ⓐ Convert to logarithmic form: \(2^3=8\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Identify the base and the exponent: the base is 2 and the exponent is 3.</p>
+<p>Then we have \(3=\log_2 8\).</p>
+</div></div><div class="ex-body"><p>ⓑ Convert to exponential form: \(\log_b m=a\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Identify the base and the exponent: the base is <em>b</em> and the exponent is <em>a</em>.</p>
+<p>Then we have \(b^a=m\).</p>
+</div></div></div>
+
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<p>Convert between exponential and logarithmic form.</p>
+<p>Remember these logarithmic notations to help complete the following:<br>
+<strong>Common Logarithm</strong> \(\log x=\log_{10} x\)<br>
+<strong>Natural Logarithm</strong> \(\ln x=\log_e x\)</p>
+<div class="exercise warmup"><div class="n">P2</div><div class="body"><p>Convert to logarithmic form.</p>
+<ul class="tight"><li>ⓐ \(8=2^x\)</li><li>ⓑ \(10^{-2}=0.01\)</li><li>ⓒ \(e^x=40\)</li></ul>
+</div></div>
+<div class="exercise warmup"><div class="n">P3</div><div class="body"><p>Convert to exponential form.</p>
+<ul class="tight"><li>ⓐ \(\log_{81} 3=4\)</li><li>ⓑ \(\ln 1=0\)</li><li>ⓒ \(\log 10000=4\)</li></ul>
+</div></div>
+
+<h3 id="objective-2-evaluate-logarithmic-functions-ia-10-3-2">Objective 2: Evaluate logarithmic functions (IA 10.3.2).</h3>
+<p>We can solve and evaluate logarithmic equations by using the technique of converting the equation to its equivalent exponential form.</p>
+
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the value of <em>x</em>: ⓐ \(\log_x 36=2\), ⓑ \(\log_4 x=3\), and ⓒ \(\log_{1/2} \frac{1}{8}=x.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body">
+<p>ⓐ<br>
+\(\log_x 36=2\)<br>
+Convert to exponential form: \(x^2=36\)<br>
+Solve the quadratic: \(x=6,\ \cancel{x=-6}\)<br>
+The base of a logarithmic function must be positive, so we eliminate \(x=-6\). \(x=6\). Therefore, \(\log_6 36=2\).</p>
+<p>ⓑ<br>
+\(\log_4 x=3\)<br>
+Convert to exponential form: \(4^3=x\)<br>
+Simplify: \(x=64\). Therefore, \(\log_4 64=3\).</p>
+<p>ⓒ<br>
+\(\log_{1/2} \frac{1}{8}=x\)<br>
+Convert to exponential form: \(\left(\frac{1}{2}\right)^x=\frac{1}{8}\)<br>
+Rewrite \(\frac{1}{8}\) as \(\left(\frac{1}{2}\right)^3\): \(\left(\frac{1}{2}\right)^x=\left(\frac{1}{2}\right)^3\)<br>
+With the same base, the exponents must be equal: \(x=3\). Therefore, \(\log_{1/2} \frac{1}{8}=3\).</p>
+</div></div></div>
+
+<h4 id="practice-makes-perfect-3">Practice Makes Perfect</h4>
+<div class="exercise warmup"><div class="n">P4</div><div class="body"><p>Find the value of <em>x</em>.</p>
+<ul class="tight"><li>ⓐ \(\log_{25} x=2\)</li><li>ⓑ \(\log_x 4=2\)</li><li>ⓒ \(\log_x \frac{1}{3}=2\)</li></ul>
+</div></div>
+<div class="exercise warmup"><div class="n">P5</div><div class="body"><p>Evaluate each of the following.</p>
+<ul class="tight"><li>ⓐ \(\log_{100} 10\)</li><li>ⓑ \(\log 0.1\)</li><li>ⓒ \(\log_2 4\)</li><li>ⓓ \(\log_1 20\)</li><li>ⓔ \(\log_4 4\)</li><li>ⓕ \(\log_{1/9} 3\)</li><li>ⓖ \(\log_{\sqrt2} 2\)</li><li>ⓗ \(\ln e^{-5}\)</li></ul>
+</div></div>
+</div></details>
+
+<p>In 2010, a major earthquake struck Haiti, destroying or damaging over 285,000 homes. One year later, another, stronger earthquake devastated Honshu, Japan, destroying or damaging over 332,000 buildings, like those shown in Figure 1. Even though both caused substantial damage, the earthquake in 2011 was 100 times stronger than the earthquake in Haiti. How do we know? The magnitudes of earthquakes are measured on a scale known as the Richter Scale. The Haitian earthquake registered a 7.0 on the Richter Scale whereas the Japanese earthquake registered a 9.0.</p>
+<figure class="plot"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_03_001.jpg" alt="Photo of the aftermath of the earthquake in Japan with a focus on the Japanese flag." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Devastation of March 11, 2011 earthquake in Honshu, Japan. (credit: Daniel Pierce)</figcaption></figure>
+<p>The Richter Scale is a base-ten logarithmic scale. In other words, an earthquake of magnitude 8 is not twice as great as an earthquake of magnitude 4. It is</p>
+<p>\[10^{8-4}=10^4=10{,}000\]</p>
+<p>times as great! In this lesson, we will investigate the nature of the Richter Scale and the base-ten function upon which it depends.</p>
+
+<h2 id="converting-from-logarithmic-to-exponential-form">Converting from Logarithmic to Exponential Form</h2>
+<p>In order to analyze the magnitude of earthquakes or compare the magnitudes of two different earthquakes, we need to be able to convert between logarithmic and exponential form. For example, suppose the amount of energy released from one earthquake were 500 times greater than the amount of energy released from another. We want to calculate the difference in magnitude. The equation that represents this problem is \(10^x=500\), where \(x\) represents the difference in magnitudes on the Richter Scale. How would we solve for \(x\)?</p>
+<p>We have not yet learned a method for solving exponential equations. None of the algebraic tools discussed so far is sufficient to solve \(10^x=500\). We know that \(10^2=100\) and \(10^3=1000\), so it is clear that \(x\) must be some value between 2 and 3, since \(y=10^x\) is increasing. We can examine a graph, as in Figure 2, to better estimate the solution.</p>
+<figure class="plot" id="fig1" data-plot data-spec='{"xmin":-1,"xmax":3.4,"ymin":-60,"ymax":1100,"xstep":1,"ystep":200,"alt":"Graph of y=10^x and the horizontal line y=500, intersecting near x=2.699","curves":[{"fn":"Math.pow(10,x)","label":"y=10^x","labelAt":[1.85,110]},{"fn":"500","cls":"alt","label":"y=500","labelAt":[-0.95,545]}],"points":[[2.699,500,"(2.699, 500)"]],"xlabel":"x","ylabel":"y"}'>
+  <figcaption>Figure 2</figcaption>
+</figure>
+<p>Estimating from a graph, however, is imprecise. To find an algebraic solution, we must introduce a new function. Observe that the graph in Figure 2 passes the horizontal line test. The exponential function \(y=b^x\) is one-to-one, so its inverse, \(x=b^y\) is also a function. As is the case with all inverse functions, we simply interchange \(x\) and \(y\) and solve for \(y\) to find the inverse function. To represent \(y\) as a function of \(x\), we use a logarithmic function of the form \(y=\log_b(x)\). The base \(b\) <strong>logarithm</strong> of a number is the exponent by which we must raise \(b\) to get that number.</p>
+<p>We read a logarithmic expression as, "The logarithm with base \(b\) of \(x\) is equal to \(y\)," or, simplified, "log base \(b\) of \(x\) is \(y\)." We can also say, "\(b\) raised to the power of \(y\) is \(x\)," because logs are exponents. For example, the base 2 logarithm of 32 is 5, because 5 is the exponent we must apply to 2 to get 32. Since \(2^5=32\), we can write \(\log_2 32=5\). We read this as "log base 2 of 32 is 5."</p>
+<p>We can express the relationship between logarithmic form and its corresponding exponential form as follows:</p>
+<p>\[\log_b(x)=y \Leftrightarrow b^y=x,\quad b>0,\ b\ne1\]</p>
+<p>Note that the base \(b\) is always positive.</p>
+<p>Because logarithm is a function, it is most correctly written as \(\log_b(x)\), using parentheses to denote function evaluation, just as we would with \(f(x)\). However, when the input is a single variable or number, it is common to see the parentheses dropped and the expression written without parentheses, as \(\log_b x\). Note that many calculators require parentheses around the \(x\).</p>
+<p>We can illustrate the notation of logarithms as follows:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_03_003.jpg" alt="This image shows the fundamental relationship between logarithms and exponents, stating that log_b(c) = a is equivalent to b^a = c, visually guided by orange circular arrows." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Notice that, comparing the logarithm function and the exponential function, the input and the output are switched. This means \(y=\log_b(x)\) and \(y=b^x\) are inverse functions.</p>
+
+<div class="card definition"><span class="chip">Definition of the Logarithmic Function</span>
+<p>A logarithm base \(b\) of a positive number \(x\) satisfies the following definition.</p>
+<p>For \(x>0\), \(b>0\), \(b\ne1\),</p>
+<p>\[y=\log_b(x) \text{ is equivalent to } b^y=x\]</p>
+<p>where,</p>
+<ul class="tight"><li>we read \(\log_b(x)\) as, "the logarithm with base \(b\) of \(x\)" or the "log base \(b\) of \(x\)."</li><li>the logarithm \(y\) is the exponent to which \(b\) must be raised to get \(x\).</li></ul>
+<p>Also, since the logarithmic and exponential functions switch the \(x\) and \(y\) values, the domain and range of the exponential function are interchanged for the logarithmic function. Therefore,</p>
+<ul class="tight"><li>the domain of the logarithm function with base \(b\) is \((0,\infty)\).</li><li>the range of the logarithm function with base \(b\) is \((-\infty,\infty)\).</li></ul>
+</div>
+
+<div class="card qa"><span class="chip">Q&amp;A</span><p><strong>Can we take the logarithm of a negative number?</strong></p>
+<p>No. Because the base of an exponential function is always positive, no power of that base can ever be negative. We can never take the logarithm of a negative number. Also, we cannot take the logarithm of zero. Calculators may output a log of a negative number when in complex mode, but the log of a negative number is not a real number.</p>
+</div>
+
+<div class="card howto"><span class="chip">How To</span><p><strong>Given an equation in logarithmic form \(\log_b(x)=y\), convert it to exponential form.</strong></p>
+<ul class="tight"><li>Examine the equation \(y=\log_b x\) and identify \(b\), \(y\), and \(x\).</li><li>Rewrite \(\log_b x=y\) as \(b^y=x\).</li></ul>
+</div>
+
+<div class="card example"><div class="ex-head"><span class="num">Example 1</span><span class="t">Converting from Logarithmic Form to Exponential Form</span></div><div class="ex-body"><p>Write the following logarithmic equations in exponential form.</p>
+<ul class="tight"><li>ⓐ \(\log_6(\sqrt6)=\frac{1}{2}\)</li><li>ⓑ \(\log_3(9)=2\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, identify the values of \(b\), \(y\), and \(x\). Then, write the equation in the form \(b^y=x\).</p>
+<p>ⓐ \(\log_6(\sqrt6)=\frac{1}{2}\). Here, \(b=6\), \(y=\frac{1}{2}\), and \(x=\sqrt6\). Therefore, the equation \(\log_6(\sqrt6)=\frac{1}{2}\) is equivalent to \(6^{1/2}=\sqrt6\).</p>
+<p>ⓑ \(\log_3(9)=2\). Here, \(b=3\), \(y=2\), and \(x=9\). Therefore, the equation \(\log_3(9)=2\) is equivalent to \(3^2=9\).</p>
+</div></div></div>
+
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Write the following logarithmic equations in exponential form.</p>
+<ul class="tight"><li>ⓐ \(\log_{10}(1{,}000{,}000)=6\)</li><li>ⓑ \(\log_5(25)=2\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ⓐ \(\log_{10}(1{,}000{,}000)=6\) is equivalent to \(10^6=1{,}000{,}000\)</p>
+<p>ⓑ \(\log_5(25)=2\) is equivalent to \(5^2=25\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+
+<h2 id="converting-from-exponential-to-logarithmic-form">Converting from Exponential to Logarithmic Form</h2>
+<p>To convert from exponents to logarithms, we follow the same steps in reverse. We identify the base \(b\), exponent \(x\), and output \(y\). Then we write \(x=\log_b(y)\).</p>
+
+<div class="card example"><div class="ex-head"><span class="num">Example 2</span><span class="t">Converting from Exponential Form to Logarithmic Form</span></div><div class="ex-body"><p>Write the following exponential equations in logarithmic form.</p>
+<ul class="tight"><li>ⓐ \(2^3=8\)</li><li>ⓑ \(5^2=25\)</li><li>ⓒ \(10^{-4}=\frac{1}{10{,}000}\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, identify the values of \(b\), \(y\), and \(x\). Then, write the equation in the form \(x=\log_b(y)\).</p>
+<p>ⓐ \(2^3=8\). Here, \(b=2\), \(x=3\), and \(y=8\). Therefore, the equation \(2^3=8\) is equivalent to \(\log_2(8)=3\).</p>
+<p>ⓑ \(5^2=25\). Here, \(b=5\), \(x=2\), and \(y=25\). Therefore, the equation \(5^2=25\) is equivalent to \(\log_5(25)=2\).</p>
+<p>ⓒ \(10^{-4}=\frac{1}{10{,}000}\). Here, \(b=10\), \(x=-4\), and \(y=\frac{1}{10{,}000}\). Therefore, the equation \(10^{-4}=\frac{1}{10{,}000}\) is equivalent to \(\log_{10}\left(\frac{1}{10{,}000}\right)=-4\).</p>
+</div></div></div>
+
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Write the following exponential equations in logarithmic form.</p>
+<ul class="tight"><li>ⓐ \(3^2=9\)</li><li>ⓑ \(5^3=125\)</li><li>ⓒ \(2^{-1}=\frac{1}{2}\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ⓐ \(3^2=9\) is equivalent to \(\log_3(9)=2\)</p>
+<p>ⓑ \(5^3=125\) is equivalent to \(\log_5(125)=3\)</p>
+<p>ⓒ \(2^{-1}=\frac{1}{2}\) is equivalent to \(\log_2\left(\frac{1}{2}\right)=-1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+
+<h2 id="evaluating-logarithms">Evaluating Logarithms</h2>
+<p>Knowing the squares, cubes, and roots of numbers allows us to evaluate many logarithms mentally. For example, consider \(\log_2 8\). We ask, "To what exponent must 2 be raised in order to get 8?" Because we already know \(2^3=8\), it follows that \(\log_2 8=3\).</p>
+<p>Now consider solving \(\log_7 49\) and \(\log_3 27\) mentally.</p>
+<ul class="tight"><li>We ask, "To what exponent must 7 be raised in order to get 49?" We know \(7^2=49\). Therefore, \(\log_7 49=2\)</li><li>We ask, "To what exponent must 3 be raised in order to get 27?" We know \(3^3=27\). Therefore, \(\log_3 27=3\)</li></ul>
+<p>Even some seemingly more complicated logarithms can be evaluated without a calculator. For example, let's evaluate \(\log_{2/3}\frac{4}{9}\) mentally.</p>
+<ul class="tight"><li>We ask, "To what exponent must \(\frac{2}{3}\) be raised in order to get \(\frac{4}{9}\)?" We know \(2^2=4\) and \(3^2=9\), so \(\left(\frac{2}{3}\right)^2=\frac{4}{9}\). Therefore, \(\log_{2/3}\left(\frac{4}{9}\right)=2\).</li></ul>
+
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a logarithm of the form \(y=\log_b(x)\), evaluate it mentally.</strong></p>
+<ul class="tight"><li>Rewrite the argument \(x\) as a power of \(b\): \(b^y=x\).</li><li>Use previous knowledge of powers of \(b\) identify \(y\) by asking, "To what exponent should \(b\) be raised in order to get \(x\)?"</li></ul>
+</div>
+
+<div class="card example"><div class="ex-head"><span class="num">Example 3</span><span class="t">Solving Logarithms Mentally</span></div><div class="ex-body"><p>Solve \(y=\log_4(64)\) without using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we rewrite the logarithm in exponential form: \(4^y=64\). Next, we ask, "To what exponent must 4 be raised in order to get 64?"</p>
+<p>We know \(4^3=64\)</p>
+<p>Therefore, \(\log_4(64)=3\)</p>
+</div></div></div>
+
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Solve \(y=\log_{121}(11)\) without using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\log_{121}(11)=\frac{1}{2}\) (recalling that \(\sqrt{121}=(121)^{1/2}=11\))</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+
+<div class="card example"><div class="ex-head"><span class="num">Example 4</span><span class="t">Evaluating the Logarithm of a Reciprocal</span></div><div class="ex-body"><p>Evaluate \(y=\log_3\left(\frac{1}{27}\right)\) without using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we rewrite the logarithm in exponential form: \(3^y=\frac{1}{27}\). Next, we ask, "To what exponent must 3 be raised in order to get \(\frac{1}{27}\)?"</p>
+<p>We know \(3^3=27\), but what must we do to get the reciprocal, \(\frac{1}{27}\)? Recall from working with exponents that \(b^{-a}=\frac{1}{b^a}\). We use this information to write</p>
+<p>\[3^{-3}=\frac{1}{3^3}=\frac{1}{27}\]</p>
+<p>Therefore, \(\log_3\left(\frac{1}{27}\right)=-3\).</p>
+</div></div></div>
+
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Evaluate \(y=\log_2\left(\frac{1}{32}\right)\) without using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\log_2\left(\frac{1}{32}\right)=-5\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+
+<h2 id="using-common-logarithms">Using Common Logarithms</h2>
+<p>Sometimes you may see a logarithm written without a base. When you see one written this way, you need to look at the expression before evaluating it. It may be that the base you use doesn't matter. If you find it in computer science, it often means \(\log_2(x)\). However, in mathematics it almost always means the common logarithm of 10. In other words, the expression \(\log(x)\) often means \(\log_{10}(x)\).</p>
+
+<div class="card definition"><span class="chip">Definition of the Common Logarithm</span>
+<p>A common logarithm is a logarithm with base 10. We can also write \(\log_{10}(x)\) simply as \(\log(x)\). The common logarithm of a positive number \(x\) satisfies the following definition.</p>
+<p>For \(x>0\),</p>
+<p>\[y=\log(x) \text{ is equivalent to } 10^y=x\]</p>
+<p>We read \(\log(x)\) as, "the logarithm with base 10 of \(x\)" or "log base 10 of \(x\)."</p>
+<p>The logarithm \(y\) is the exponent to which 10 must be raised to get \(x\).</p>
+<p>Currently, we use \(\log_b(x)\), \(\lg(x)\) as the common logarithm, \(\text{lb}(x)\) as the binary logarithm, and \(\ln(x)\) as the natural logarithm. Writing \(\lg(x)\) without specifying a base is now considered bad form, despite being frequently found in older materials.</p>
+</div>
+
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a common logarithm of the form \(y=\log(x)\), evaluate it mentally.</strong></p>
+<ul class="tight"><li>Rewrite the argument \(x\) as a power of 10: \(10^y=x\).</li><li>Use previous knowledge of powers of 10 to identify \(y\) by asking, "To what exponent must 10 be raised in order to get \(x\)?"</li></ul>
+</div>
+
+<div class="card example"><div class="ex-head"><span class="num">Example 5</span><span class="t">Finding the Value of a Common Logarithm Mentally</span></div><div class="ex-body"><p>Evaluate \(y=\log(1000)\) without using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we rewrite the logarithm in exponential form: \(10^y=1000\). Next, we ask, "To what exponent must 10 be raised in order to get 1000?" We know</p>
+<p>\(10^3=1000\)</p>
+<p>Therefore, \(\log(1000)=3\).</p>
+</div></div></div>
+
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Evaluate \(y=\log(1{,}000{,}000)\).</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\log(1{,}000{,}000)=6\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a common logarithm with the form \(y=\log(x)\), evaluate it using a calculator.</strong></p>
+<ul class="tight"><li>Press <strong>[LOG]</strong>.</li><li>Enter the value given for \(x\), followed by <strong>[ ) ]</strong>.</li><li>Press <strong>[ENTER]</strong>.</li></ul>
+</div>
+
+<div class="card example"><div class="ex-head"><span class="num">Example 6</span><span class="t">Finding the Value of a Common Logarithm Using a Calculator</span></div><div class="ex-body"><p>Evaluate \(y=\log(321)\) to four decimal places using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Press <strong>[LOG]</strong>.</li><li>Enter 321, followed by <strong>[ ) ]</strong>.</li><li>Press <strong>[ENTER]</strong>.</li></ul>
+<p>Rounding to four decimal places, \(\log(321)\approx2.5065\).</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that \(10^2=100\) and that \(10^3=1000\). Since 321 is between 100 and 1000, we know that \(\log(321)\) must be between \(\log(100)\) and \(\log(1000)\). This gives us the following:</p>
+<p>\(100<321<1000\)</p>
+<p>\(2<2.5065<3\)</p>
+</div></div>
+
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Evaluate \(y=\log(123)\) to four decimal places using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\log(123)\approx2.0899\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+
+<div class="card example"><div class="ex-head"><span class="num">Example 7</span><span class="t">Rewriting and Solving a Real-World Exponential Model</span></div><div class="ex-body"><p>The amount of energy released from one earthquake was 500 times greater than the amount of energy released from another. The equation \(10^x=500\) represents this situation, where \(x\) is the difference in magnitudes on the Richter Scale. To the nearest thousandth, what was the difference in magnitudes?</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We begin by rewriting the exponential equation in logarithmic form.</p>
+<p>\(10^x=500\)</p>
+<p>\(\log(500)=x\) Use the definition of the common log.</p>
+<p>Next we evaluate the logarithm using a calculator:</p>
+<ul class="tight"><li>Press <strong>[LOG]</strong>.</li><li>Enter 500, followed by <strong>[ ) ]</strong>.</li><li>Press <strong>[ENTER]</strong>.</li><li>To the nearest thousandth, \(\log(500)\approx2.699\).</li></ul>
+<p>The difference in magnitudes was about 2.699.</p>
+</div></div></div>
+
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>The amount of energy released from one earthquake was 8,500 times greater than the amount of energy released from another. The equation \(10^x=8500\) represents this situation, where \(x\) is the difference in magnitudes on the Richter Scale. To the nearest thousandth, what was the difference in magnitudes?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The difference in magnitudes was about 3.929.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+
+<h2 id="using-natural-logarithms">Using Natural Logarithms</h2>
+<p>The most frequently used base for logarithms is \(e\), the value of which is approximately 2.71828. Base \(e\) logarithms are important in calculus and some scientific applications; they are called <strong>natural logarithms</strong>. The base \(e\) logarithm, \(\log_e(x)\), has its own notation, \(\ln(x)\).</p>
+<p>Most values of \(\ln(x)\) can be found only using a calculator. The major exception is that, because the logarithm of 1 is always 0 in any base, \(\ln1=0\). For other natural logarithms, we can use the <strong>ln</strong> key that can be found on most scientific calculators. We can also find the natural logarithm of any power of \(e\) using the inverse property of logarithms.</p>
+
+<div class="card definition"><span class="chip">Definition of the Natural Logarithm</span>
+<p>A natural logarithm is a logarithm with base \(e\). We write \(\log_e(x)\) simply as \(\ln(x)\). The natural logarithm of a positive number \(x\) satisfies the following definition.</p>
+<p>For \(x>0\),</p>
+<p>\(y=\ln(x)\) is equivalent to \(e^y=x\)</p>
+<p>We read \(\ln(x)\) as, "the logarithm with base \(e\) of \(x\)" or "the natural logarithm of \(x\)."</p>
+<p>The logarithm \(y\) is the exponent to which \(e\) must be raised to get \(x\).</p>
+<p>Since the functions \(y=e^x\) and \(y=\ln(x)\) are inverse functions, \(\ln(e^x)=x\) for all \(x\) and \(e^{\ln(x)}=x\) for \(x>0\).</p>
+</div>
+
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a natural logarithm with the form \(y=\ln(x)\), evaluate it using a calculator.</strong></p>
+<ul class="tight"><li>Press <strong>[LN]</strong>.</li><li>Enter the value given for \(x\), followed by <strong>[ ) ]</strong>.</li><li>Press <strong>[ENTER]</strong>.</li></ul>
+</div>
+
+<div class="card example"><div class="ex-head"><span class="num">Example 8</span><span class="t">Evaluating a Natural Logarithm Using a Calculator</span></div><div class="ex-body"><p>Evaluate \(y=\ln(500)\) to four decimal places using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Press <strong>[LN]</strong>.</li><li>Enter 500, followed by <strong>[ ) ]</strong>.</li><li>Press <strong>[ENTER]</strong>.</li></ul>
+<p>Rounding to four decimal places, \(\ln(500)\approx6.2146\)</p>
+</div></div></div>
+
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Evaluate \(\ln(-500)\).</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>It is not possible to take the logarithm of a negative number in the set of real numbers.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+
+<div class="card callout"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with logarithms.</p>
+<ul class="tight"><li>Introduction to Logarithms</li></ul>
+</div>
+
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap"><table class="data"><caption>Table 1</caption><tbody>
+<tr><td>Definition of the logarithmic function</td><td>For \(x>0\), \(b>0\), \(b\ne1\), \(y=\log_b(x)\) if and only if \(b^y=x\).</td></tr>
+<tr><td>Definition of the common logarithm</td><td>For \(x>0\), \(y=\log(x)\) if and only if \(10^y=x\).</td></tr>
+<tr><td>Definition of the natural logarithm</td><td>For \(x>0\), \(y=\ln(x)\) if and only if \(e^y=x\).</td></tr>
+</tbody></table></div>
+
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The inverse of an exponential function is a logarithmic function, and the inverse of a logarithmic function is an exponential function.</li><li>Logarithmic equations can be written in an equivalent exponential form, using the definition of a logarithm. See Example 1.</li><li>Exponential equations can be written in their equivalent logarithmic form using the definition of a logarithm. See Example 2.</li><li>Logarithmic functions with base \(b\) can be evaluated mentally using previous knowledge of powers of \(b\). See Example 3 and Example 4.</li><li>Common logarithms can be evaluated mentally using previous knowledge of powers of 10. See Example 5.</li><li>When common logarithms cannot be evaluated mentally, a calculator can be used. See Example 6.</li><li>Real-world exponential problems with base 10 can be rewritten as a common logarithm and then evaluated using a calculator. See Example 7.</li><li>Natural logarithms can be evaluated using a calculator. See Example 8.</li></ul>
+
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise"><div class="n">1</div><div class="body"><p>What is a base \(b\) logarithm? Discuss the meaning by interpreting each part of the equivalent equations \(b^y=x\) and \(\log_b x=y\) for \(b>0, b\ne1\).</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A logarithm is an exponent. Specifically, it is the exponent to which a base \(b\) is raised to produce a given value. In the expressions given, the base \(b\) has the same value. The exponent, \(y\), in the expression \(b^y\) can also be written as the logarithm, \(\log_b x\), and the value of \(x\) is the result of raising \(b\) to the power of \(y\).</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">2</div><div class="body"><p>How is the logarithmic function \(f(x)=\log_b x\) related to the exponential function \(g(x)=b^x\)? What is the result of composing these two functions?</p>
+</div></div>
+<div class="exercise"><div class="n">3</div><div class="body"><p>How can the logarithmic equation \(\log_b x=y\) be solved for \(x\) using the properties of exponents?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Since the equation of a logarithm is equivalent to an exponential equation, the logarithm can be converted to the exponential equation \(b^y=x\), and then properties of exponents can be applied to solve for \(x\).</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">4</div><div class="body"><p>Discuss the meaning of the common logarithm. What is its relationship to a logarithm with base \(b\), and how does the notation differ?</p>
+</div></div>
+<div class="exercise"><div class="n">5</div><div class="body"><p>Discuss the meaning of the natural logarithm. What is its relationship to a logarithm with base \(b\), and how does the notation differ?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The natural logarithm is a special case of the logarithm with base \(b\) in that the natural log always has base \(e\). Rather than notating the natural logarithm as \(\log_e(x)\), the notation used is \(\ln(x)\).</p>
+</div></div></div></div>
+
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, rewrite each equation in exponential form.</p>
+<div class="exercise"><div class="n">6</div><div class="body"><p>\(\log_4(q)=m\)</p>
+</div></div>
+<div class="exercise"><div class="n">7</div><div class="body"><p>\(\log_a(b)=c\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a^c=b\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">8</div><div class="body"><p>\(\log_{16}(y)=x\)</p>
+</div></div>
+<div class="exercise"><div class="n">9</div><div class="body"><p>\(\log_x(64)=y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x^y=64\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">10</div><div class="body"><p>\(\log_y(x)=-11\)</p>
+</div></div>
+<div class="exercise"><div class="n">11</div><div class="body"><p>\(\log_{15}(a)=b\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(15^b=a\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">12</div><div class="body"><p>\(\log_y(137)=x\)</p>
+</div></div>
+<div class="exercise"><div class="n">13</div><div class="body"><p>\(\log_{13}(142)=a\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(13^a=142\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">14</div><div class="body"><p>\(\log(v)=t\)</p>
+</div></div>
+<div class="exercise"><div class="n">15</div><div class="body"><p>\(\ln(w)=n\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(e^n=w\)</p>
+</div></div></div></div>
+<p>For the following exercises, rewrite each equation in logarithmic form.</p>
+<div class="exercise"><div class="n">16</div><div class="body"><p>\(4^x=y\)</p>
+</div></div>
+<div class="exercise"><div class="n">17</div><div class="body"><p>\(c^d=k\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\log_c(k)=d\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">18</div><div class="body"><p>\(m^{-7}=n\)</p>
+</div></div>
+<div class="exercise"><div class="n">19</div><div class="body"><p>\(19^x=y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\log_{19}y=x\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">20</div><div class="body"><p>\(x^{-\frac{10}{13}}=y\)</p>
+</div></div>
+<div class="exercise"><div class="n">21</div><div class="body"><p>\(n^4=103\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\log_n(103)=4\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">22</div><div class="body"><p>\(\left(\dfrac{7}{5}\right)^m=n\)</p>
+</div></div>
+<div class="exercise"><div class="n">23</div><div class="body"><p>\(y^x=\dfrac{39}{100}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\log_y\left(\dfrac{39}{100}\right)=x\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">24</div><div class="body"><p>\(10^a=b\)</p>
+</div></div>
+<div class="exercise"><div class="n">25</div><div class="body"><p>\(e^k=h\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\ln(h)=k\)</p>
+</div></div></div></div>
+<p>For the following exercises, solve for \(x\) by converting the logarithmic equation to exponential form.</p>
+<div class="exercise"><div class="n">26</div><div class="body"><p>\(\log_3(x)=2\)</p>
+</div></div>
+<div class="exercise"><div class="n">27</div><div class="body"><p>\(\log_2(x)=-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=2^{-3}=\dfrac{1}{8}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">28</div><div class="body"><p>\(\log_5(x)=2\)</p>
+</div></div>
+<div class="exercise"><div class="n">29</div><div class="body"><p>\(\log_3(x)=3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=3^3=27\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">30</div><div class="body"><p>\(\log_2(x)=6\)</p>
+</div></div>
+<div class="exercise"><div class="n">31</div><div class="body"><p>\(\log_9(x)=\dfrac{1}{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=9^{1/2}=3\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">32</div><div class="body"><p>\(\log_{18}(x)=2\)</p>
+</div></div>
+<div class="exercise"><div class="n">33</div><div class="body"><p>\(\log_6(x)=-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=6^{-3}=\dfrac{1}{216}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">34</div><div class="body"><p>\(\log(x)=3\)</p>
+</div></div>
+<div class="exercise"><div class="n">35</div><div class="body"><p>\(\ln(x)=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=e^2\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the definition of common and natural logarithms to simplify.</p>
+<div class="exercise"><div class="n">36</div><div class="body"><p>\(\log\!\left(100^8\right)\)</p>
+</div></div>
+<div class="exercise"><div class="n">37</div><div class="body"><p>\(10^{\log(32)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>32</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">38</div><div class="body"><p>\(2\log(.0001)\)</p>
+</div></div>
+<div class="exercise"><div class="n">39</div><div class="body"><p>\(e^{\ln(1.06)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1.06</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">40</div><div class="body"><p>\(\ln\!\left(e^{-5.03}\right)\)</p>
+</div></div>
+<div class="exercise"><div class="n">41</div><div class="body"><p>\(e^{\ln(10.125)}+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>14.125</p>
+</div></div></div></div>
+
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, evaluate the base \(b\) logarithmic expression without using a calculator.</p>
+<div class="exercise"><div class="n">42</div><div class="body"><p>\(\log_3\!\left(\dfrac{1}{27}\right)\)</p>
+</div></div>
+<div class="exercise"><div class="n">43</div><div class="body"><p>\(\log_6\!\left(\sqrt6\right)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\dfrac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">44</div><div class="body"><p>\(\log_2\!\left(\dfrac{1}{8}\right)+4\)</p>
+</div></div>
+<div class="exercise"><div class="n">45</div><div class="body"><p>\(6\log_8(4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the common logarithmic expression without using a calculator.</p>
+<div class="exercise"><div class="n">46</div><div class="body"><p>\(\log(10{,}000)\)</p>
+</div></div>
+<div class="exercise"><div class="n">47</div><div class="body"><p>\(\log(0.001)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-3\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">48</div><div class="body"><p>\(\log(1)+7\)</p>
+</div></div>
+<div class="exercise"><div class="n">49</div><div class="body"><p>\(2\log\!\left(100^{-3}\right)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-12\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the natural logarithmic expression without using a calculator.</p>
+<div class="exercise"><div class="n">50</div><div class="body"><p>\(\ln\!\left(e^{\frac{1}{3}}\right)\)</p>
+</div></div>
+<div class="exercise"><div class="n">51</div><div class="body"><p>\(\ln(1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">52</div><div class="body"><p>\(\ln\!\left(e^{-0.225}\right)-3\)</p>
+</div></div>
+<div class="exercise"><div class="n">53</div><div class="body"><p>\(25\ln\!\left(e^{\frac{2}{5}}\right)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>10</p>
+</div></div></div></div>
+
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, evaluate each expression using a calculator. Round to the nearest thousandth.</p>
+<div class="exercise"><div class="n">54</div><div class="body"><p>\(\log(0.04)\)</p>
+</div></div>
+<div class="exercise"><div class="n">55</div><div class="body"><p>\(\ln(15)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2.708</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">56</div><div class="body"><p>\(\ln\!\left(\dfrac{4}{5}\right)\)</p>
+</div></div>
+<div class="exercise"><div class="n">57</div><div class="body"><p>\(\log\!\left(\sqrt2\right)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.151</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">58</div><div class="body"><p>\(\ln\!\left(\sqrt2\right)\)</p>
+</div></div>
+
+<h3 id="extensions">Extensions</h3>
+<div class="exercise"><div class="n">59</div><div class="body"><p>Is \(x=0\) in the domain of the function \(f(x)=\log(x)\)? If so, what is the value of the function when \(x=0\)? Verify the result.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>No, the function has no defined value for \(x=0\). To verify, suppose \(x=0\) is in the domain of the function \(f(x)=\log(x)\). Then there is some number \(n\) such that \(n=\log(0)\). Rewriting as an exponential equation gives: \(10^n=0\), which is impossible since no such real number \(n\) exists. Therefore, \(x=0\) is not in the domain of the function \(f(x)=\log(x)\).</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">60</div><div class="body"><p>Is \(f(x)=0\) in the range of the function \(f(x)=\log(x)\)? If so, for what value of \(x\)? Verify the result.</p>
+</div></div>
+<div class="exercise"><div class="n">61</div><div class="body"><p>Is there a number \(x\) such that \(\ln x=2\)? If so, what is that number? Verify the result.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes. Suppose there exists a real number \(x\) such that \(\ln x=2\). Rewriting as an exponential equation gives \(x=e^2\), which is a real number. To verify, let \(x=e^2\). Then, by definition, \(\ln(x)=\ln(e^2)=2\).</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">62</div><div class="body"><p>Is the following true: \(\dfrac{\log_3(27)}{\log_4\left(\frac{1}{64}\right)}=-1\)? Verify the result.</p>
+</div></div>
+<div class="exercise"><div class="n">63</div><div class="body"><p>Is the following true: \(\dfrac{\ln\!\left(e^{1.725}\right)}{\ln(1)}=1.725\)? Verify the result.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>No; \(\ln(1)=0\), so \(\dfrac{\ln\!\left(e^{1.725}\right)}{\ln(1)}\) is undefined.</p>
+</div></div></div></div>
+
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise"><div class="n">64</div><div class="body"><p>The exposure index \(EI\) for a camera is a measurement of the amount of light that hits the image receptor. It is determined by the equation \(EI=\log_2\!\left(\dfrac{f^2}{t}\right)\), where \(f\) is the "f-stop" setting on the camera, and \(t\) is the exposure time in seconds. Suppose the f-stop setting is 8 and the desired exposure time is 2 seconds. What will the resulting exposure index be?</p>
+</div></div>
+<div class="exercise"><div class="n">65</div><div class="body"><p>Refer to the previous exercise. Suppose the light meter on a camera indicates an \(EI\) of \(-2\), and the desired exposure time is 16 seconds. What should the f-stop setting be?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">66</div><div class="body"><p>The intensity levels \(I\) of two earthquakes measured on a seismograph can be compared by the formula \(\log\dfrac{I_1}{I_2}=M_1-M_2\) where \(M\) is the magnitude given by the Richter Scale. In August 2009, an earthquake of magnitude 6.1 hit Honshu, Japan. In March 2011, that same region experienced yet another, more devastating earthquake, this time with a magnitude of 9.0. How many times greater was the intensity of the 2011 earthquake? Round to the nearest whole number.</p>
+</div></div>
+</div>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/college-algebra-2e">OpenStax College Algebra 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>
