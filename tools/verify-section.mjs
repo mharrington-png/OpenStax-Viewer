@@ -64,12 +64,22 @@ const warnings = [];
 })();
 
 /* 2. KaTeX render check ------------------------------------------------ */
+// Snippets are pulled straight from the HTML source, which still has entities like
+// &gt;/&lt;/&amp; escaped (build-section.mjs's esc() does this deliberately so a literal
+// "<"/">" inside math text, e.g. an inequality "b>0", can't be misparsed as an HTML tag —
+// see the esc() comment in build-section.mjs). The browser's HTML parser decodes these
+// back to literal characters in the DOM text nodes before KaTeX's auto-render ever sees
+// them, so the real page renders fine — but katex.renderToString() here operates on the
+// raw, still-escaped source string, so &gt;/&lt; look like a stray "&" to KaTeX and throw
+// a false positive. Decode the handful of entities that can legally appear inside math
+// text before rendering, to match what the browser actually does. Found building 6-6.
+const decodeEntities = s => s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 let katexChecked = 0;
 for (const re of [/\\\((.+?)\\\)/gs, /\\\[(.+?)\\\]/gs]) {
   let m;
   while ((m = re.exec(html))) {
     katexChecked++;
-    try { katex.renderToString(m[1], { throwOnError: true }); }
+    try { katex.renderToString(decodeEntities(m[1]), { throwOnError: true }); }
     catch (e) { errors.push(`KaTeX: "${m[1].slice(0, 70).replace(/\s+/g, " ")}" -> ${e.message}`); }
   }
 }

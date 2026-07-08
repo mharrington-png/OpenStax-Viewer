@@ -19,7 +19,7 @@ const BOOK = {
       { id: "6-3", title: "6.3 Logarithmic Functions", file: "6-3.html", ready: true },
       { id: "6-4", title: "6.4 Graphs of Logarithmic Functions", file: "6-4.html", ready: true },
       { id: "6-5", title: "6.5 Logarithmic Properties", file: "6-5.html", ready: true },
-      { id: "6-6", title: "6.6 Exponential and Logarithmic Equations", module: "m49366" },
+      { id: "6-6", title: "6.6 Exponential and Logarithmic Equations", file: "6-6.html", ready: true },
       { id: "6-7", title: "6.7 Exponential and Logarithmic Models", module: "m49367" },
       { id: "6-8", title: "6.8 Fitting Exponential Models to Data", module: "m49368" },
     ]},

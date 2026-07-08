@@ -72,3 +72,40 @@ meant for the host-visible scratch dir must be written explicitly under `mnt/out
 Confirmed with an explicit marker-file test in both directions before trusting the bridge
 again. Something for the next unattended session to watch for if `cp`/`Read` of a
 just-written file comes back stale or missing.
+
+### 6-6 — done — 2026-07-07
+
+Built by a scheduled overnight-pipeline run. Collision check clear (manifest had `6-6`
+as module-only, no `ready: true`; no matching entry in this log; `session_info` showed
+no other running session targeting this section). CNXML fetched via shallow sparse git
+clone of `osbooks-college-algebra-bundle` module m49366 (5,972 lines, well-formed,
+proper closing `</document>` tag) — web_fetch was not used, per runbook. Built with
+`build-section.mjs --file=`. First verify pass reported 7 false-positive KaTeX errors
+(`M&gt;0,N&gt;0`, `2(-5)+5&lt;0`, etc.) — not a page bug: `esc()` in `build-section.mjs`
+deliberately HTML-entity-escapes literal `<`/`>` inside math text so it can't be
+misparsed as a stray tag, and the browser decodes those entities back to literal
+characters in the DOM text nodes before KaTeX's auto-render ever sees them, so the real
+page renders fine. `verify-section.mjs` was feeding the raw, still-escaped source string
+to `katex.renderToString()` instead, so it saw a bare `&` and threw. Fixed permanently in
+`verify-section.mjs` (now checked into the real project): decode `&amp;`/`&lt;`/`&gt;`
+before the KaTeX render check, matching what the browser actually does. Re-verify passed
+clean: 364 KaTeX snippets, 2 figure specs, counts match (13 examples, 17 try-its, 81
+exercises, 41 answers; plus 4 warm-up examples / 5 warm-up exercises excluded per the
+corequisite-skills convention).
+
+Figures: 3 total in this module. Fig 1 (wild rabbits in Australia) is purely
+illustrative — left as the auto-generated hotlinked image. Figs 2 and 3 are fixed
+worked-example graphs (not parameter families) — converted to `data-plot` SVGs: fig 2
+shows \(y=3^{x+1}\) and \(y=-2\) never crossing (Example 4, no solution), fig 3 shows
+\(y=\ln x\) and \(y=3\) crossing at \((e^3,3)\approx(20.09,3)\) (Example 11). Also left
+9 bare `<media>` answer-key graphics (in Section Exercises graphical-solution answers,
+e.g. exercises 51/53/55/57/59/61/63/65/67) as hotlinked images per CLAUDE.md
+convention 6 — these are graphing-calculator answer keys without a wrapping `<figure>`,
+and redrawing them accurately isn't possible without seeing the source JPGs. Added 13
+sol-hints, one per non-warmup example.
+
+Delivered: `sections/6-6.html` written to the real project, `assets/app.js` manifest
+entry flipped to `{ id: "6-6", title: "6.6 Exponential and Logarithmic Equations",
+file: "6-6.html", ready: true }`, `index.html` placeholder `<span>` swapped for a link.
+No bash/host sync issues this run (verified the `outputs` scratch copy was visible to
+the host `Read` tool before delivering).

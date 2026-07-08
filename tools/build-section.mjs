@@ -156,14 +156,31 @@ function inline(n) { // serialize inline content of a para/entry/item
   for (const c of n.children || []) {
     if (c.tag === "#text") { out += esc(c.text); continue; }
     switch (c.tag) {
-      case "math": out += ` \\(${m2l(c).replace(/\s+/g, " ").trim()}\\) `; break;
+      // esc() here is required: m2l() can emit literal "<", ">", "&" (inequality signs,
+      // \begin{array} column separators, etc.) straight from the MathML text. Left
+      // unescaped, a stray "<letter" (e.g. "0<b<1") is parsed by the browser as the start
+      // of an HTML tag and corrupts the page. KaTeX's auto-render reads decoded
+      // textContent, so escaping here is transparent to it. Found in 6.2/6.4 Key Concepts.
+      case "math": out += ` \\(${esc(m2l(c).replace(/\s+/g, " ").trim())}\\) `; break;
       case "term": case "emphasis": out += `<strong>${inline(c)}</strong>`; break;
       case "sub": out += `<sub>${inline(c)}</sub>`; break;
       case "sup": out += `<sup>${inline(c)}</sup>`; break;
       case "link": {
         const tid = c.attrs["target-id"];
         if (tid && figIdMap.has(tid)) out += `<a href="#fig${figIdMap.get(tid)}">Figure ${figIdMap.get(tid)}</a>`;
-        else out += inline(c) || "(see original)";
+        else if (tid && tabIdMap.has(tid)) out += `<a href="#tab${tabIdMap.get(tid)}">Table ${tabIdMap.get(tid)}</a>`;
+        else if (tid && exampleIdMap.has(tid)) out += `<a href="#example${exampleIdMap.get(tid)}">Example ${exampleIdMap.get(tid)}</a>`;
+        else {
+          const fallback = inline(c);
+          if (fallback) { out += fallback; break; }
+          // Only figures/tables/non-coreq examples are resolvable — a link to anything
+          // else (an exercise, a glossary term, another module) still falls back to this
+          // placeholder. Surface it loudly so a human catches it during hand-polish
+          // instead of it silently shipping as "(see original)" — this was the bug behind
+          // the 6.2/6.4/6.5 Key Concepts links.
+          console.warn(`⚠ unresolved <link target-id="${tid}"> — no matching figure/table/example; emitting "(see original)" placeholder, fix by hand`);
+          out += "(see original)";
+        }
         break;
       }
       case "newline": out += "<br>"; break;
@@ -175,7 +192,10 @@ function inline(n) { // serialize inline content of a para/entry/item
   return out.replace(/\s+/g, " ").trim();
 }
 let exN = 0, tryN = 0, exampleN = 0, figN = 0, tabN = 0, warmN = 0, warmExN = 0;
-let figIdMap = new Map(); // CNXML figure id -> assigned figure number, for resolving <link target-id> refs
+// CNXML id -> assigned number, for resolving <link target-id> refs. Figures/tables number
+// sequentially regardless of coreq context (matches the unconditional figN++/tabN++ below);
+// examples only count outside the coreq warm-up (matches the exampleN++ in case "example").
+let figIdMap = new Map(), tabIdMap = new Map(), exampleIdMap = new Map();
 const seenIds = new Map();
 function uniqueId(base) {
   const n = (seenIds.get(base) || 0) + 1;
@@ -198,7 +218,8 @@ function blocks(n, ctx = {}) { // serialize block children
         break;
       case "equation": {
         const m = q(c, "math");
-        out += `<p>\\[${m ? m2l(m).replace(/\s+/g, " ") : esc(textOf(c))}\\]</p>\n`;
+        // esc() the LaTeX here too — same reasoning as the inline "math" case above.
+        out += `<p>\\[${m ? esc(m2l(m).replace(/\s+/g, " ")) : esc(textOf(c))}\\]</p>\n`;
         break;
       }
       case "figure": {
@@ -225,16 +246,16 @@ function blocks(n, ctx = {}) { // serialize block children
         tabN++;
         const rows = [];
         (function collect(x) { for (const y of x.children || []) { if (y.tag === "row") rows.push(y); else collect(y); } })(c);
-        out += `<div class="tablewrap"><table class="data"><caption>Table ${tabN}</caption><tbody>` +
+        out += `<div class="tablewrap" id="tab${tabN}"><table class="data"><caption>Table ${tabN}</caption><tbody>` +
           rows.map(r => `<tr>${(r.children || []).filter(e => e.tag === "entry").map(e => `<td>${inline(e)}${blocks(e, ctx)}</td>`).join("")}</tr>`).join("") +
           `</tbody></table></div>\n`;
         break;
       }
       case "example": {
-        let label;
+        let label, idAttr = "";
         if (ctx.inCoreq) { warmExN++; label = `Warm-up Example ${warmExN}`; }
-        else { exampleN++; label = `Example ${exampleN}`; }
-        out += `<div class="card example${ctx.inCoreq ? " warmup" : ""}"><div class="ex-head"><span class="num">${label}</span><span class="t">${inline(qd(c, "title") || { children: [] })}</span></div>` +
+        else { exampleN++; label = `Example ${exampleN}`; idAttr = ` id="example${exampleN}"`; }
+        out += `<div class="card example${ctx.inCoreq ? " warmup" : ""}"${idAttr}><div class="ex-head"><span class="num">${label}</span><span class="t">${inline(qd(c, "title") || { children: [] })}</span></div>` +
                blocks(c, { ...ctx, inExample: true }) + `</div>\n`;
         break;
       }
@@ -302,10 +323,13 @@ function blocks(n, ctx = {}) { // serialize block children
 
 const root = parseXML(xmlText);
 const doc = q(root, "document");
-(function collectFigureIds(n) { // pre-pass: number figures in document order before rendering, so forward <link> refs resolve
+(function collectIds(n, ctx = {}) { // pre-pass: number figures/tables/examples in document order before rendering, so forward <link> refs resolve
   for (const c of n.children || []) {
     if (c.tag === "figure" && c.attrs.id) figIdMap.set(c.attrs.id, figIdMap.size + 1);
-    collectFigureIds(c);
+    if (c.tag === "table" && c.attrs.id) tabIdMap.set(c.attrs.id, tabIdMap.size + 1);
+    if (c.tag === "example" && !ctx.inCoreq && c.attrs.id) exampleIdMap.set(c.attrs.id, exampleIdMap.size + 1);
+    const childCtx = (c.tag === "section" && /coreq/.test(c.attrs.class || "")) ? { ...ctx, inCoreq: true } : ctx;
+    collectIds(c, childCtx);
   }
 })(doc);
 const body = blocks(doc, { depth: 2 });
