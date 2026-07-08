@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Composition of Functions · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">MX <span>Algebra</span></a>
+  <span class="crumb">Composition of Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.4</span>Composition of Functions</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Find the value of a function (IA 3.5.3), (CA 3.1.2)</li></ul>
+<h3 id="objective-1-find-the-value-of-a-function-ia-3-5-3-ca-3-1-2">Objective 1: Find the value of a function (IA 3.5.3), (CA 3.1.2)</h3>
+<p>A <strong>function</strong> is a relation that assigns to each element in its domain exactly one element in the range. For each ordered pair in the relation, each \(x\) -value is matched with only one \(y\) -value. The notation \(y=f(x)\) defines a function named \(f\) . This is read as “ \(y\) is a function of \(x\) .” The letter \(x\) represents the input value, or independent variable. The letter \(y\) , or \(f(x)\) , represents the output value, or dependent variable.</p>
+<div class="card definition"><span class="chip">Function Notation</span><p>For the function \(y=f(x)\)</p>
+<p>\(f\) is the name of the function. <br> \(x\) is the input value, the collection of possible input values make up the domain.<br> \(f(x)\) is the output value, the collection of possible output values make up the range.</p>
+<p>We read \(f(x)\) as <strong>f</strong> of <strong>x</strong> or the value of <strong>f</strong> at <strong>x</strong> .</p>
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t">Evaluating and Solving a Function Represented in Table Form</span></div><div class="ex-body"><ul class="tight"><li>ⓐ Evaluate \(g(3)\)</li><li>ⓑ Solve \(g(n)=6\)</li></ul>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\(n\)</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>\(g(n)\)</td><td>8</td><td>6</td><td>7</td><td>6</td><td>8</td></tr></tbody></table></div>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ Evaluating <strong>g</strong>(3) means determining the output value of the function <strong>g</strong> for the input value of <strong>n</strong>=3. The table output value corresponding to <strong>n</strong>=3 is 7, so <strong>g</strong>(3)=7.</li><li>ⓑ Solving <strong>g</strong>(<strong>n</strong>)=6 means identifying the input values, <strong>n</strong>, that produce an output value of 6. The table shows two values where <strong>g</strong>(<strong>n</strong>) = 6 at <strong>x</strong>=2 and 4.</li></ul>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Find the value of a function.</p>
+<div class="exercise warmup"><div class="n">P1</div><div class="body"><p>Given the function \(k(t)=2t-1\) :</p>
+<ul class="tight"><li>ⓐ Evaluate \(k(2)\)</li><li>ⓑ Solve \(k(t)=7\)</li></ul>
+</div></div>
+<div class="exercise warmup"><div class="n">P2</div><div class="body"><p>Given the function \(f(x)=\sqrt{x+2}\) :</p>
+<ul class="tight"><li>ⓐ Evaluate \(f(7)\)</li><li>ⓑ Solve \(f(x)=4\)</li></ul>
+</div></div>
+<div class="exercise warmup"><div class="n">P3</div><div class="body"><p>For the function \(f(x)=2{x}^{2}+3x+1\) , find</p>
+<ul class="tight"><li>ⓐ \(f(3)\)</li><li>ⓑ \(f(-2)\)</li><li>ⓒ \(f(t)\)</li><li>ⓓ The value(s) of <strong>x</strong> that make \(f(x)=1\)</li></ul>
+</div></div>
+<div class="exercise warmup"><div class="n">P4</div><div class="body"><p>Use the table below to help answer the following:</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>x</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>\(g(x)\)</td><td>5</td><td>12</td><td>21</td><td>32</td><td>45</td></tr></tbody></table></div>
+<ul class="tight"><li>ⓐ Evaluate \(g(4)\)</li><li>ⓑ Solve \(g(x)=32\)</li></ul>
+</div></div>
+<p>A <strong>composite</strong> function is a two-step function and can have numerical or variable inputs.</p>
+<p>\(x\to g\to g(x)\to f\to f(g(x))\)</p>
+<p>\((f∘g)(x)=f(g(x))\) is read as “<strong>f</strong> of <strong>g</strong> of <strong>x</strong>”</p>
+<p>To evaluate a composite function, we always start evaluating the inner function and then evaluate the outer function in terms of the inner function.</p>
+<p>Let’s use a table to help us organize our work in evaluating a two-step (composition) function in terms of some numerical inputs.</p>
+<p>First evaluate <strong>g</strong> in terms of <strong>x</strong>, the <strong>f</strong> in terms of <strong>g</strong>(<strong>x</strong>).</p>
+<p>Given that: \(g(x)=3x-1\) , and \(f(x)={x}^{2}+1\) , complete the table below. Remember the output of <strong>g</strong>(<strong>x</strong>) becomes the input of <strong>f</strong>(<strong>x</strong>)!</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td><strong>x</strong></td><td>\(g(x)=3x-1\)</td><td>\(f(g(x))={(g(x))}^{2}+1\)</td></tr><tr><td>–1</td><td></td><td></td></tr><tr><td>–3</td><td></td><td></td></tr><tr><td>0</td><td></td><td></td></tr><tr><td>4</td><td></td><td></td></tr><tr><td>10</td><td></td><td></td></tr></tbody></table></div>
+<h3 id="practice-makes-perfect-2">Practice Makes Perfect</h3>
+<div class="exercise warmup"><div class="n">P5</div><div class="body"><p>Use the table below showing values of \(f(x)\) and \(g(x)\) to find each of the following. Remember when working with composition functions we always evaluate the inner function first.</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>\(x\)</td><td>–3</td><td>–2</td><td>–1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td>\(f(x)\)</td><td>11</td><td>9</td><td>7</td><td>5</td><td>3</td><td>1</td><td>–1</td></tr><tr><td>\(g(x)\)</td><td>–8</td><td>–3</td><td>0</td><td>1</td><td>0</td><td>–3</td><td>–8</td></tr></tbody></table></div>
+<ul class="tight"><li>ⓐ \(f(1)=\)</li><li>ⓑ \(g(f(1))=\)</li><li>ⓒ \(g(0)=\)</li><li>ⓓ \(f(g(0))=\)</li><li>ⓔ \(f(g(2))=\)</li><li>ⓕ \(f(f(3))=\)</li></ul>
+</div></div>
+</div></details>
+<p>Suppose we want to calculate how much it costs to heat a house on a particular day of the year. The cost to heat a house will depend on the average daily temperature, and in turn, the average daily temperature depends on the particular day of the year. Notice how we have just defined two relationships: The cost depends on the temperature, and the temperature depends on the day.</p>
+<p>Using descriptive variables, we can notate these two functions. The function \(C(T)\) gives the cost \(C\) of heating a house for a given average daily temperature in \(T\) degrees Celsius. The function \(T(d)\) gives the average daily temperature on day \(d\) of the year. For any given day, \(\text{Cost}=C(T(d))\) means that the cost depends on the temperature, which in turns depends on the day of the year. Thus, we can evaluate the cost function at the temperature \(T(d).\) For example, we could evaluate \(T(5)\) to determine the average daily temperature on the 5th day of the year. Then, we could evaluate the <strong>cost function</strong> at that temperature. We would write \(C(T(5)).\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_006.jpg" alt="Explanation of C(T(5)), which is the cost for the temperature and T(5) is the temperature on day 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>By combining these two relationships into one function, we have performed function composition, which is the focus of this section.</p>
+<h2 id="combining-functions-using-algebraic-operations">Combining Functions Using Algebraic Operations</h2>
+<p>Function composition is only one way to combine existing functions. Another way is to carry out the usual algebraic operations on functions, such as addition, subtraction, multiplication and division. We do this by performing the operations with the function outputs, defining the result as the output of our new function.</p>
+<p>Suppose we need to add two columns of numbers that represent a husband and wife’s separate annual incomes over a period of years, with the result being their total household income. We want to do this for every year, adding only that year’s incomes and then collecting all the data in a new column. If \(w(y)\) is the wife’s income and \(h(y)\) is the husband’s income in year \(y,\) and we want \(T\) to represent the total income, then we can define a new function.</p>
+<p>\[T(y)=h(y)+w(y)\]</p>
+<p>If this holds true for every year, then we can focus on the relation between the functions without reference to a year and write</p>
+<p>\[T=h+w\]</p>
+<p>Just as for this sum of two functions, we can define difference, product, and ratio functions for any pair of functions that have the same kinds of inputs (not necessarily numbers) and also the same kinds of outputs (which do have to be numbers so that the usual operations of algebra can apply to them, and which also must have the same units or no units when we add and subtract). In this way, we can think of adding, subtracting, multiplying, and dividing functions.</p>
+<p>For two functions \(f(x)\) and \(g(x)\) with real number outputs, we define new functions \(f+g,\,f-g,\,fg,\) and \(\frac{f}{g}\) by the relations</p>
+<p>\[\begin{array}{llll}(f+g)(x) &amp; = &amp; f(x)+g(x) &amp; \\ (f-g)(x) &amp; = &amp; f(x)-g(x) &amp; \\ (fg)(x) &amp; = &amp; f(x)g(x) &amp; \\ (\frac{f}{g})(x) &amp; = &amp; \frac{f(x)}{g(x)} &amp; \text{where}\,g(x)\,\ne \,0\end{array}\]</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find and simplify the functions \((g-f)(x)\) and \((\frac{g}{f})(x),\) given \(f(x)=x-1\) and \(g(x)={x}^{2}-1.\) Are they the same function?</p>
+<p class="sol-hint">Write \((g-f)(x)\) and \((\frac{g}{f})(x)\) in general form first, then substitute the given \(f\) and \(g\) before simplifying.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Begin by writing the general form, and then substitute the given functions.</p>
+<p>\[\begin{array}{llll}(g-f)(x) &amp; = &amp; g(x)-f(x) &amp; \\ (g-f)(x) &amp; = &amp; {x}^{2}-1-(x-1) &amp; \\ (g-f)(x) &amp; = &amp; {x}^{2}-x &amp; \\ (g-f)(x) &amp; = &amp; x(x-1) &amp; \\ &amp; &amp; &amp; \\ &amp; &amp; &amp; \\ \,(\frac{g}{f})(x) &amp; = &amp; \frac{g(x)}{f(x)} &amp; \\ (\frac{g}{f})(x) &amp; = &amp; \frac{{x}^{2}-1}{x-1} &amp; \\ \,(\frac{g}{f})(x) &amp; = &amp; \frac{(x+1)(x-1)}{x-1} &amp; \text{where }x\ne 1 \\ \,(\frac{g}{f})(x) &amp; = &amp; x+1 &amp; \end{array}\]</p>
+<p>No, the functions are not the same.</p>
+<p>Note: For \((\frac{g}{f})(x),\) the condition \(x\ne 1\) is necessary because when \(x=1,\) the denominator is equal to 0, which makes the function undefined.</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Find and simplify the functions \((fg)(x)\) and \((f-g)(x).\)</p>
+<p>\[f(x)=x-1\,\text{ and }g(x)={x}^{2}-1\]</p>
+<p>Are they the same function?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}(fg)(x)=f(x)g(x)=(x-1)({x}^{2}-1)={x}^{3}-{x}^{2}-x+1 \\ (f-g)(x)=f(x)-g(x)=(x-1)-({x}^{2}-1)=x-{x}^{2}\end{array}\)</p>
+<p>No, the functions are not the same.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="create-a-function-by-composition-of-functions">Create a Function by Composition of Functions</h2>
+<p>Performing algebraic operations on functions combines them into a new function, but we can also create functions by composing functions. When we wanted to compute a heating cost from a day of the year, we created a new function that takes a day as input and yields a cost as output. The process of <strong>combining functions</strong> so that the output of one function becomes the input of another is known as a <strong>composition of functions</strong><strong>.</strong> The resulting function is known as a <strong>composite function</strong>. We represent this combination by the following notation:</p>
+<p>\[(f∘g)(x)=f(g(x))\]</p>
+<p>We read the left-hand side as \(\text{“}f\) composed with \(g\) at \(x,\text{”}\) and the right-hand side as \(\text{“}f\) of \(g\) of \(x.\text{”}\) The two sides of the equation have the same mathematical meaning and are equal. The open circle symbol \(∘\) is called the composition operator. We use this operator mainly when we wish to emphasize the relationship between the functions themselves without referring to any particular input value. Composition is a binary operation that takes two functions and forms a new function, much as addition or multiplication takes two numbers and gives a new number. However, it is important not to confuse function composition with multiplication because, as we learned above, in most cases \(f(g(x))\ne f(x)g(x).\)</p>
+<p>It is also important to understand the order of operations in evaluating a composite function. We follow the usual convention with parentheses by starting with the innermost parentheses first, and then working to the outside. In the equation above, the function \(g\) takes the input \(x\) first and yields an output \(g(x).\) Then the function \(f\) takes \(g(x)\) as an input and yields an output \(f(g(x)).\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_001.jpg" alt="Explanation of the composite function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>In general, \(f∘g\) and \(g∘f\) are different functions. In other words, in many cases \(f(g(x))\ne g(f(x))\) for all \(x.\) We will also see that sometimes two functions can be composed only in one specific order.</p>
+<p>For example, if \(f(x)={x}^{2}\) and \(g(x)=x+2,\) then</p>
+<p>\[\begin{array}{lll}f(g(x)) &amp; = &amp; f(x+2) \\ &amp; = &amp; {(x+2)}^{2} \\ &amp; = &amp; {x}^{2}+4x+4\end{array}\]</p>
+<p>but</p>
+<p>\[\begin{array}{lll}g(f(x)) &amp; = &amp; g({x}^{2}) \\ &amp; = &amp; {x}^{2}+2\end{array}\]</p>
+<p>These expressions are not equal for all values of \(x,\) so the two functions are not equal. It is irrelevant that the expressions happen to be equal for the single input value \(x=-\frac{1}{2}.\)</p>
+<p>Note that the range of the inside function (the first function to be evaluated) needs to be within the domain of the outside function. Less formally, the composition has to make sense in terms of inputs and outputs.</p>
+<div class="card definition"><span class="chip">Composition of Functions</span><p>When the output of one function is used as the input of another, we call the entire operation a composition of functions. For any input \(x\) and functions \(f\) and \(g,\) this action defines a <strong>composite function</strong>, which we write as \(f∘g\) such that</p>
+<p>\[(f∘g)(x)=f(g(x))\]</p>
+<p>The domain of the composite function \(f∘g\) is all \(x\) such that \(x\) is in the domain of \(g\) and \(g(x)\) is in the domain of \(f.\)</p>
+<p>It is important to realize that the product of functions \(fg\) is not the same as the function composition \(f(g(x)),\) because, in general, \(f(x)g(x)\ne f(g(x)).\)</p>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Using the functions provided, find \(f(g(x))\) and \(g(f(x)).\) Determine whether the composition of the functions is <strong>commutative</strong>.</p>
+<p>\[f(x)=2x+1\,\,\,\,\,\,\,\,\,\,\,\,\,g(x)=3-x\]</p>
+<p class="sol-hint">Substitute one whole function into the other, working from the inside out, then compare the two results.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let’s begin by substituting \(g(x)\) into \(f(x).\)</p>
+<p>\[\begin{array}{lll}f(g(x)) &amp; = &amp; 2(3-x)+1 \\ &amp; = &amp; 6-2x+1 \\ &amp; = &amp; 7-2x\end{array}\]</p>
+<p>Now we can substitute \(f(x)\) into \(g(x).\)</p>
+<p>\[\begin{array}{lll}g(f(x)) &amp; = &amp; 3-(2x+1) \\ &amp; = &amp; 3-2x-1 \\ &amp; = &amp; -2x+2\end{array}\]</p>
+<p>We find that \(g(f(x))\ne f(g(x)),\) so the operation of function composition is not commutative.</p>
+</div></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>The function \(c(s)\) gives the number of calories burned completing \(s\) sit-ups, and \(s(t)\) gives the number of sit-ups a person can complete in \(t\) minutes. Interpret \(c(s(3)).\)</p>
+<p class="sol-hint">Work from the inside out: figure out what \(s(3)\) means in context before deciding what \(c\) of that value means.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The inside expression in the composition is \(s(3).\) Because the input to the <strong>s</strong>-function is time, \(t=3\) represents 3 minutes, and \(s(3)\) is the number of sit-ups completed in 3 minutes.</p>
+<p>Using \(s(3)\) as the input to the function \(c(s)\) gives us the number of calories burned during the number of sit-ups that can be completed in 3 minutes, or simply the number of calories burned in 3 minutes (by doing sit-ups).</p>
+</div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Suppose \(f(x)\) gives miles that can be driven in \(x\) hours and \(g(y)\) gives the gallons of gas used in driving \(y\) miles. Which of these expressions is meaningful: \(f(g(y))\) or \(g(f(x))?\)</p>
+<p class="sol-hint">Check whether the outer function's expected input units actually match the units the inner function outputs.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The function \(y=f(x)\) is a function whose output is the number of miles driven corresponding to the number of hours driven.</p>
+<p>\[\text{number of miles }=f\,(\text{number of hours})\]</p>
+<p>The function \(g(y)\) is a function whose output is the number of gallons used corresponding to the number of miles driven. This means:</p>
+<p>\[\text{number of gallons }=g\,(\text{number of miles})\]</p>
+<p>The expression \(g(y)\) takes miles as the input and a number of gallons as the output. The function \(f(x)\) requires a number of hours as the input. Trying to input a number of gallons does not make sense. The expression \(f(g(y))\) is meaningless.</p>
+<p>The expression \(f(x)\) takes hours as input and a number of miles driven as the output. The function \(g(y)\) requires a number of miles as the input. Using \(f(x)\) (miles driven) as an input value for \(g(y),\) where gallons of gas depends on miles driven, does make sense. The expression \(g(f(x))\) makes sense, and will yield the number of gallons of gas used, \(g,\) driving a certain number of miles, \(f(x),\) in \(x\) hours.</p>
+</div></div></div>
+<div class="card qa"><span class="chip">Q&amp;A</span><p>Are there any situations where \(f(g(y))\) and \(g(f(x))\) would both be meaningful or useful expressions?</p>
+<p><strong>Yes. For many pure mathematical functions, both compositions make sense, even though they usually produce different new functions. In real-world problems, functions whose inputs and outputs have the same units also may give compositions that are meaningful in either order.</strong></p>
+</div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>The gravitational force on a planet a distance <strong>r</strong> from the sun is given by the function \(G(r).\) The acceleration of a planet subjected to any force \(F\) is given by the function \(a(F).\) Form a meaningful composition of these two functions, and explain what it means.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>A gravitational force is still a force, so \(a(G(r))\) makes sense as the acceleration of a planet at a distance <strong>r</strong> from the Sun (due to gravity), but \(G(a(F))\) does not make sense.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="evaluating-composite-functions">Evaluating Composite Functions</h2>
+<p>Once we compose a new function from two existing functions, we need to be able to evaluate it for any input in its domain. We will do this with specific numerical inputs for functions expressed as tables, graphs, and formulas and with variables as inputs to functions expressed as formulas. In each case, we evaluate the inner function using the starting input and then use the inner function’s output as the input for the outer function.</p>
+<h3 id="evaluating-composite-functions-using-tables">Evaluating Composite Functions Using Tables</h3>
+<p>When working with functions given as tables, we read input and output values from the table entries and always work from the inside to the outside. We evaluate the inside function first and then use the output of the inside function as the input to the outside function.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Using <a href="#tab5">Table 5</a>, evaluate \(f(g(3))\) and \(g(f(3)).\)</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>\(x\)</td><td>\(f(x)\)</td><td>\(g(x)\)</td></tr><tr><td>1</td><td>6</td><td>3</td></tr><tr><td>2</td><td>8</td><td>5</td></tr><tr><td>3</td><td>3</td><td>2</td></tr><tr><td>4</td><td>1</td><td>7</td></tr></tbody></table></div>
+<p class="sol-hint">Look up the inner function's value in the table first, then use that output as the input row for the outer function.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To evaluate \(f(g(3)),\) we start from the inside with the input value 3. We then evaluate the inside expression \(g(3)\) using the table that defines the function \(g:\) \(g(3)=2.\) We can then use that result as the input to the function \(f,\) so \(g(3)\) is replaced by 2 and we get \(f(2).\) Then, using the table that defines the function \(f,\) we find that \(f(2)=8.\)</p>
+<p>\[\begin{array}{lll}g(3) &amp; = &amp; 2 \\ f(g(3)) &amp; = &amp; f(2)=8\end{array}\]</p>
+<p>To evaluate \(g(f(3)),\) we first evaluate the inside expression \(f(3)\) using the first table: \(f(3)=3.\) Then, using the table for \(g\text{, }\) we can evaluate</p>
+<p>\[g(f(3))=g(3)=2\]</p>
+<p><a href="#tab6">Table 6</a> shows the composite functions \(f∘g\) and \(g∘f\) as tables.</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>\(x\)</td><td>\(g(x)\)</td><td>\(f(g(x))\)</td><td>\(f(x)\)</td><td>\(g(f(x))\)</td></tr><tr><td>3</td><td>2</td><td>8</td><td>3</td><td>2</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Using <a href="#tab5">Table 5</a>, evaluate \(f(g(1))\) and \(g(f(4)).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(g(1))=f(3)=3\) and \(g(f(4))=g(1)=3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="evaluating-composite-functions-using-graphs">Evaluating Composite Functions Using Graphs</h3>
+<p>When we are given individual functions as graphs, the procedure for evaluating composite functions is similar to the process we use for evaluating tables. We read the input and output values, but this time, from the \(x\text{-}\) and \(y\text{-}\) axes of the graphs.</p>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a composite function and graphs of its individual functions, evaluate it using the information provided by the graphs.</strong></p>
+<ul class="tight"><li>Locate the given input to the inner function on the \(x\text{-}\) axis of its graph.</li><li>Read off the output of the inner function from the \(y\text{-}\) axis of its graph.</li><li>Locate the inner function output on the \(x\text{-}\) axis of the graph of the outer function.</li><li>Read the output of the outer function from the \(y\text{-}\) axis of its graph. This is the output of the composite function.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Using <a href="#fig1">Figure 1</a>, evaluate \(f(g(1)).\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_002ab.jpg" alt="Explanation of the composite function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<p class="sol-hint">Trace the input through the graph of the inner function first, then carry that output over as the input to the outer function's graph.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To evaluate \(f(g(1)),\) we start with the inside evaluation. See <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_004-1a4f.jpg" alt="Two graphs of a positive parabola (g(x)) and a negative parabola (f(x)). The following points are plotted: g(1)=3 and f(3)=6." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>We evaluate \(g(1)\) using the graph of \(g(x),\) finding the input of 1 on the \(x\text{-}\) axis and finding the output value of the graph at that input. Here, \(g(1)=3.\) We use this value as the input to the function \(f.\)</p>
+<p>\[f(g(1))=f(3)\]</p>
+<p>We can then evaluate the composite function by looking to the graph of \(f(x),\) finding the input of 3 on the \(x\text{-}\) axis and reading the output value of the graph at this input. Here, \(f(3)=6,\) so \(f(g(1))=6.\)</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p><a href="#fig3">Figure 3</a> shows how we can mark the graphs with arrows to trace the path from the input value to the output value.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_005-1e36.jpg" alt="Two graphs of a positive and negative parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Using <a href="#fig1">Figure 1</a>, evaluate \(g(f(2)).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(g(f(2))=g(5)=3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="evaluating-composite-functions-using-formulas">Evaluating Composite Functions Using Formulas</h3>
+<p>When evaluating a composite function where we have either created or been given formulas, the rule of working from the inside out remains the same. The input value to the outer function will be the output of the inner function, which may be a numerical value, a variable name, or a more complicated expression.</p>
+<p>While we can compose the functions for each individual input value, it is sometimes helpful to find a single formula that will calculate the result of a composition \(f(g(x)).\) To do this, we will extend our idea of function evaluation. Recall that, when we evaluate a function like \(f(t)={t}^{2}-t,\) we substitute the value inside the parentheses into the formula wherever we see the input variable.</p>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a formula for a composite function, evaluate the function.</strong></p>
+<ul class="tight"><li>Evaluate the inside function using the input value or variable provided.</li><li>Use the resulting output as the input to the outside function.</li></ul>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Given \(f(t)={t}^{2}-t\) and \(h(x)=3x+2,\) evaluate \(f(h(1)).\)</p>
+<p class="sol-hint">Evaluate the inside function at the given input first, then plug that single number into the outside function.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because the inside expression is \(h(1),\) we start by evaluating \(h(x)\) at 1.</p>
+<p>\[\begin{array}{lll}h(1) &amp; = &amp; 3(1)+2 \\ h(1) &amp; = &amp; 5\end{array}\]</p>
+<p>Then \(f(h(1))=f(5),\) so we evaluate \(f(t)\) at an input of 5.</p>
+<p>\[\begin{array}{lll}f(h(1)) &amp; = &amp; f(5) \\ f(h(1)) &amp; = &amp; {5}^{2}-5 \\ f(h(1)) &amp; = &amp; 20\end{array}\]</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>It makes no difference what the input variables \(t\) and \(x\) were called in this problem because we evaluated for specific numerical values.</p>
+</div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Given \(f(t)={t}^{2}-t\) and \(h(x)=3x+2,\) evaluate</p>
+<ul class="tight"><li>ⓐ \(h(f(2))\)</li><li>ⓑ \(h(f(-2))\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ 8</li><li>ⓑ 20</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-the-domain-of-a-composite-function">Finding the Domain of a Composite Function</h2>
+<p>As we discussed previously, the <strong>domain of a composite function</strong> such as \(f∘g\) is dependent on the domain of \(g\) and the domain of \(f.\) It is important to know when we can apply a composite function and when we cannot, that is, to know the domain of a function such as \(f∘g.\) Let us assume we know the domains of the functions \(f\) and \(g\) separately. If we write the composite function for an input \(x\) as \(f(g(x)),\) we can see right away that \(x\) must be a member of the domain of \(g\) in order for the expression to be meaningful, because otherwise we cannot complete the inner function evaluation. However, we also see that \(g(x)\) must be a member of the domain of \(f,\) otherwise the second function evaluation in \(f(g(x))\) cannot be completed, and the expression is still undefined. Thus the domain of \(f∘g\) consists of only those inputs in the domain of \(g\) that produce outputs from \(g\) belonging to the domain of \(f.\) Note that the domain of \(f\) composed with \(g\) is the set of all \(x\) such that \(x\) is in the domain of \(g\) and \(g(x)\) is in the domain of \(f.\)</p>
+<div class="card definition"><span class="chip">Domain of a Composite Function</span><p>The domain of a composite function \(f(g(x))\) is the set of those inputs \(x\) in the domain of \(g\) for which \(g(x)\) is in the domain of \(f.\)</p>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a function composition \(f(g(x)),\) determine its domain.</strong></p>
+<ul class="tight"><li>Find the domain of \(g.\)</li><li>Find the domain of \(f.\)</li><li>Find those inputs \(x\) in the domain of \(g\) for which \(g(x)\) is in the domain of \(f.\) That is, exclude those inputs \(x\) from the domain of \(g\) for which \(g(x)\) is not in the domain of \(f.\) The resulting set is the domain of \(f∘g.\)</li></ul>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find the domain of</p>
+<p>\[(f∘g)(x)\,\text{where}\,\,\,\,\,\,f(x)=\frac{5}{x-1}\,\text{and}\,\,g(x)=\frac{4}{3x-2}\]</p>
+<p class="sol-hint">Find the domain of \(g\) and \(f\) separately first, then also exclude any input where \(g(x)\) hits the value excluded from \(f\)'s domain.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The domain of \(g(x)\) consists of all real numbers except \(x=\frac{2}{3},\) since that input value would cause us to divide by 0. Likewise, the domain of \(f\) consists of all real numbers except 1. So we need to exclude from the domain of \(g(x)\) that value of \(x\) for which \(g(x)=1.\)</p>
+<p>\[\begin{array}{lll}\frac{4}{3x-2} &amp; = &amp; 1 \\ 4 &amp; = &amp; 3x-2 \\ 6 &amp; = &amp; 3x \\ x &amp; = &amp; 2\end{array}\]</p>
+<p>So the domain of \(f∘g\) is the set of all real numbers except \(\frac{2}{3}\) and \(2.\) This means that</p>
+<p>\[x\ne \frac{2}{3}\,\text{or}\,x\ne 2\]</p>
+<p>We can write this in interval notation as</p>
+<p>\[(-\infty ,\frac{2}{3})∪(\frac{2}{3},2)∪(2,\infty )\]</p>
+</div></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Find the domain of</p>
+<p>\[(f∘g)(x)\,\text{ where}\,\,\,\,\,\,f(x)=\sqrt{x+2}\,\text{ and }\,g(x)=\sqrt{3-x}\]</p>
+<p class="sol-hint">Since \(g\) already restricts the domain by requiring a nonnegative radicand, check whether that restriction alone also keeps the outer square root's radicand nonnegative.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because we cannot take the square root of a negative number, the domain of \(g\) is \((-\infty ,3].\) Now we check the domain of the composite function</p>
+<p>\[(f∘g)(x)=\sqrt{\sqrt{3-x}+2}\]</p>
+<p>For \((f∘g)(x)=\sqrt{\sqrt{3-x}+2},\sqrt{3-x}+2\ge 0,\) since the radicand of a square root must be positive. Since square roots are positive, \(\,\sqrt{3-x}\ge 0,\,\) or, \(3-x\ge 0,\,\) which gives a domain of \((-\infty ,3]\) .</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>This example shows that knowledge of the range of functions (specifically the inner function) can also be helpful in finding the domain of a composite function. It also shows that the domain of \(f∘g\) can contain values that are not in the domain of \(f,\) though they must be in the domain of \(g.\)</p>
+</div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Find the domain of</p>
+<p>\[(f∘g)(x)\,\text{ where}\,\,\,\,\,\,f(x)=\frac{1}{x-2}\,\text{ and }\,g(x)=\sqrt{x+4}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\([-4,0)∪(0,\infty )\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="decomposing-a-composite-function-into-its-component-functions">Decomposing a Composite Function into its Component Functions</h2>
+<p>In some cases, it is necessary to decompose a complicated function. In other words, we can write it as a composition of two simpler functions. There may be more than one way to <strong>decompose a composite function</strong>, so we may choose the decomposition that appears to be most expedient.</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Write \(f(x)=\sqrt{5-{x}^{2}}\) as the composition of two functions.</p>
+<p class="sol-hint">Look for an inner expression that's being fed into a simpler outer operation — here, what's under the square root.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We are looking for two functions, \(g\) and \(h,\) so \(f(x)=g(h(x)).\) To do this, we look for a function inside a function in the formula for \(f(x).\) As one possibility, we might notice that the expression \(5-{x}^{2}\) is the inside of the square root. We could then decompose the function as</p>
+<p>\[h(x)=5-{x}^{2}\,\text{and }g(x)=\sqrt{x}\]</p>
+<p>We can check our answer by recomposing the functions.</p>
+<p>\[g(h(x))=g(5-{x}^{2})=\sqrt{5-{x}^{2}}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Write \(f(x)=\frac{4}{3-\sqrt{4+{x}^{2}}}\) as the composition of two functions.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Possible answer:<br></p>
+<p>\(\begin{array}{l}g(x)=\sqrt{4+{x}^{2}} \\ h(x)=\frac{4}{3-x} \\ f=h∘g\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with composite functions.</p>
+<ul class="tight"><li>Composite Functions</li><li>Composite Function Notation Application</li><li>Composite Functions Using Graphs</li><li>Decompose Functions</li><li>Composite Function Values</li></ul>
+</div>
+<h2 id="key-equation">Key Equation</h2>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>Composite function</td><td>\((f∘g)(x)=f(g(x))\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>We can perform algebraic operations on functions. See <a href="#example1">Example 1</a>.</li><li>When functions are composed, the output of the first (inner) function becomes the input of the second (outer) function.</li><li>The function produced by composing two functions is a composite function. See <a href="#example2">Example 2</a> and <a href="#example3">Example 3</a>.</li><li>The order of function composition must be considered when interpreting the meaning of composite functions. See <a href="#example4">Example 4</a>.</li><li>A composite function can be evaluated by evaluating the inner function using the given input value and then evaluating the outer function taking as its input the output of the inner function.</li><li>A composite function can be evaluated from a table. See <a href="#example5">Example 5</a>.</li><li>A composite function can be evaluated from a graph. See <a href="#example6">Example 6</a>.</li><li>A composite function can be evaluated from a formula. See <a href="#example7">Example 7</a>.</li><li>The domain of a composite function consists of those inputs in the domain of the inner function that correspond to outputs of the inner function that are in the domain of the outer function. See <a href="#example8">Example 8</a> and <a href="#example9">Example 9</a>.</li><li>Just as functions can be combined to form a composite function, composite functions can be decomposed into simpler functions.</li><li>Functions can often be decomposed in more than one way. See <a href="#example10">Example 10</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise"><div class="n">1</div><div class="body"><p>How does one find the domain of the quotient of two functions, \(\frac{f}{g}?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Find the numbers that make the function in the denominator \(g\) equal to zero, and check for any other domain restrictions on \(f\) and \(g,\) such as an even-indexed root or zeros in the denominator.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">2</div><div class="body"><p>What is the composition of two functions, \(f∘g?\)</p>
+</div></div>
+<div class="exercise"><div class="n">3</div><div class="body"><p>If the order is reversed when composing two functions, can the result ever be the same as the answer in the original order of the composition? If yes, give an example. If no, explain why not.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes. Sample answer: Let \(f(x)=x+1\,\text{and }g(x)=x-1.\) Then \(f(g(x))=f(x-1)=(x-1)+1=x\) and \(g(f(x))=g(x+1)=(x+1)-1=x.\) So \(f∘g=g∘f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">4</div><div class="body"><p>How do you find the domain for the composition of two functions, \(f∘g?\)</p>
+</div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, determine the domain for each function in interval notation.</p>
+<div class="exercise"><div class="n">5</div><div class="body"><p>Given \(f(x)={x}^{2}+2x\) and \(g(x)=6-{x}^{2},\) find \(f+g,\,f-g,\,fg,\) and \(\,\,\frac{f}{g}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f+g)(x)=2x+6,\) domain: \((-\infty ,\infty )\)</p>
+<p>\((f-g)(x)=2{x}^{2}+2x-6,\) domain: \((-\infty ,\infty )\)</p>
+<p>\((fg)(x)=-{x}^{4}-2{x}^{3}+6{x}^{2}+12x,\) domain: \((-\infty ,\infty )\)</p>
+<p>\((\frac{f}{g})(x)=\frac{{x}^{2}+2x}{6-{x}^{2}},\) domain: \((-\infty ,-\sqrt{6})∪(-\sqrt{6},\sqrt{6})∪(\sqrt{6},\infty )\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">6</div><div class="body"><p>Given \(f(x)=-3{x}^{2}+x\) and \(\,g(x)=5,\) find \(f+g,\,f-g,\,fg,\) and \(\,\,\frac{f}{g}.\)</p>
+</div></div>
+<div class="exercise"><div class="n">7</div><div class="body"><p>Given \(f(x)=2{x}^{2}+4x\) and \(\,g(x)=\frac{1}{2x},\) find \(f+g,\,f-g,\,fg,\) and \(\,\frac{f}{g}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f+g)(x)=\frac{4{x}^{3}+8{x}^{2}+1}{2x},\) domain: \((-\infty ,0)∪(0,\infty )\)</p>
+<p>\((f-g)(x)=\frac{4{x}^{3}+8{x}^{2}-1}{2x},\) domain: \((-\infty ,0)∪(0,\infty )\)</p>
+<p>\((fg)(x)=x+2,\) domain: \((-\infty ,0)∪(0,\infty )\)</p>
+<p>\((\frac{f}{g})(x)=4{x}^{3}+8{x}^{2},\) domain: \((-\infty ,0)∪(0,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">8</div><div class="body"><p>Given \(f(x)=\frac{1}{x-4}\) and \(g(x)=\frac{1}{6-x},\) find \(f+g,\,f-g,\,fg,\) and \(\,\frac{f}{g}.\)</p>
+</div></div>
+<div class="exercise"><div class="n">9</div><div class="body"><p>Given \(f(x)=3{x}^{2}\) and \(g(x)=\sqrt{x-5},\) find \(f+g,\,f-g,\,fg,\) and \(\,\frac{f}{g}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f+g)(x)=3{x}^{2}+\sqrt{x-5},\) domain: \([5,\infty )\)</p>
+<p>\((f-g)(x)=3{x}^{2}-\sqrt{x-5},\) domain: \([5,\infty )\)</p>
+<p>\((fg)(x)=3{x}^{2}\sqrt{x-5},\) domain: \([5,\infty )\)</p>
+<p>\((\frac{f}{g})(x)=\frac{3{x}^{2}}{\sqrt{x-5}},\) domain: \((5,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">10</div><div class="body"><p>Given \(f(x)=\sqrt{x}\) and \(g(x)=|x-3|,\) find \(\frac{g}{f}.\)</p>
+</div></div>
+<div class="exercise"><div class="n">11</div><div class="body"><p>For the following exercise, find the indicated function given \(f(x)=2{x}^{2}+1\) and \(g(x)=3x-5.\)</p>
+<ul class="tight"><li>ⓐ \(f(g(2))\)</li><li>ⓑ \(f(g(x))\)</li><li>ⓒ \(g(f(x))\)</li><li>ⓓ \((g∘g)(x)\)</li><li>ⓔ \((f∘f)(-2)\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(3= 2(9{x}^{2} - 30x + 25) + 1 = 18{x}^{2} - 60x + 51\)</li><li>ⓑ \(f(g(x))=2{(3x-5)}^{2}+1\)</li><li>ⓒ \(g(f(x))=3(2{x}^{2}+1)-5=6{x}^{2}-2\)</li><li>ⓓ \((g∘g)(x)=3(3x-5)-5=9x-20\)</li><li>ⓔ \((f∘f)(-2)=163\)</li></ul>
+</div></div></div></div>
+<p>For the following exercises, use each pair of functions to find \(f(g(x))\) and \(g(f(x)).\) Simplify your answers.</p>
+<div class="exercise"><div class="n">12</div><div class="body"><p>\(f(x)={x}^{2}+1,\,g(x)=\sqrt{x+2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">13</div><div class="body"><p>\(f(x)=\sqrt{x}+2,\,g(x)={x}^{2}+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(g(x))=\sqrt{{x}^{2}+3}+2,\,g(f(x))=x+4\sqrt{x}+7\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">14</div><div class="body"><p>\(f(x)=|x|,\,g(x)=5x+1\)</p>
+</div></div>
+<div class="exercise"><div class="n">15</div><div class="body"><p>\(f(x)=\sqrt[3]{x},\,g(x)=\frac{x+1}{{x}^{3}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(g(x))=\sqrt[3]{\frac{x+1}{{x}^{3}}}=\frac{\sqrt[3]{x+1}}{x},\,g(f(x))=\frac{\sqrt[3]{x}+1}{x}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">16</div><div class="body"><p>\(f(x)=\frac{1}{x-6},\,g(x)=\frac{7}{x}+6\)</p>
+</div></div>
+<div class="exercise"><div class="n">17</div><div class="body"><p>\(f(x)=\frac{1}{x-4},\,g(x)=\frac{2}{x}+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f∘g)(x)=\frac{1}{\frac{2}{x}+4-4}=\frac{x}{2},\,\,(g∘f)(x)=2x-4\)</p>
+</div></div></div></div>
+<p>For the following exercises, use each set of functions to find \(f(g(h(x))).\) Simplify your answers.</p>
+<div class="exercise"><div class="n">18</div><div class="body"><p>\(f(x)={x}^{4}+6,\) \(g(x)=x-6,\) and \(h(x)=\sqrt{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">19</div><div class="body"><p>\(f(x)={x}^{2}+1,\) \(g(x)=\frac{1}{x},\) and \(h(x)=x+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(g(h(x)))={(\frac{1}{x+3})}^{2}+1\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">20</div><div class="body"><p>Given \(f(x)=\frac{1}{x}\) and \(g(x)=x-3,\) find the following:</p>
+<ul class="tight"><li>ⓐ \((f∘g)(x)\)</li><li>ⓑthe domain of \((f∘g)(x)\) in interval notation</li><li>ⓒ \((g∘f)(x)\)</li><li>ⓓthe domain of \((g∘f)(x)\)</li><li>ⓔ \((\frac{f}{g})(x)\)</li></ul>
+</div></div>
+<div class="exercise"><div class="n">21</div><div class="body"><p>Given \(f(x)=\sqrt{2-4x}\) and \(g(x)=-\frac{3}{x},\) find the following:</p>
+<ul class="tight"><li>ⓐ \((g∘f)(x)\)</li><li>ⓑ the domain of \((g∘f)(x)\) in interval notation</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \((g∘f)(x)=-\frac{3}{\sqrt{2-4x}}\)</li><li>ⓑ \((-\infty ,\frac{1}{2})\)</li></ul>
+</div></div></div></div>
+<div class="exercise"><div class="n">22</div><div class="body"><p>Given the functions \(f(x)=\frac{1-x}{x}\,\text{and}\,g(x)=\frac{1}{1+{x}^{2}},\) find the following:</p>
+<ul class="tight"><li>ⓐ \((g∘f)(x)\)</li><li>ⓑ \((g∘f)(\text{2})\)</li></ul>
+</div></div>
+<div class="exercise"><div class="n">23</div><div class="body"><p>Given functions \(p(x)=\frac{1}{\sqrt{x}}\) and \(m(x)={x}^{2}-4,\) state the domain of each of the following functions using interval notation:</p>
+<ul class="tight"><li>ⓐ \(\frac{p(x)}{m(x)}\)</li><li>ⓑ \(p(m(x))\)</li><li>ⓒ \(m(p(x))\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \((0,2)∪(2,\infty );\)</li><li>ⓑ \((-\infty ,-2)∪(2,\infty );\)</li><li>ⓒ \((0,\infty )\)</li></ul>
+</div></div></div></div>
+<div class="exercise"><div class="n">24</div><div class="body"><p>Given functions \(q(x)=\frac{1}{\sqrt{x}}\) and \(h(x)={x}^{2}-9,\) state the domain of each of the following functions using interval notation.</p>
+<ul class="tight"><li>ⓐ \(\frac{q(x)}{h(x)}\)</li><li>ⓑ \(q(h(x))\)</li><li>ⓒ \(h(q(x))\)</li></ul>
+</div></div>
+<div class="exercise"><div class="n">25</div><div class="body"><p>For \(f(x)=\frac{1}{x}\) and \(g(x)=\sqrt{x-1},\) write the domain of \((f∘g)(x)\) in interval notation.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((1,\infty )\)</p>
+</div></div></div></div>
+<p>For the following exercises, find functions \(f(x)\) and \(g(x)\) so the given function can be expressed as \(h(x)=f(g(x)).\)</p>
+<div class="exercise"><div class="n">26</div><div class="body"><p>\(h(x)={(x+2)}^{2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">27</div><div class="body"><p>\(h(x)={(x-5)}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(\begin{array}{l}f(x)={x}^{3} \\ g(x)=x-5\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">28</div><div class="body"><p>\(h(x)=\frac{3}{x-5}\)</p>
+</div></div>
+<div class="exercise"><div class="n">29</div><div class="body"><p>\(h(x)=\frac{4}{{(x+2)}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(\begin{array}{l}f(x)=\frac{4}{x} \\ g(x)={(x+2)}^{2}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">30</div><div class="body"><p>\(h(x)=4+\sqrt[3]{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">31</div><div class="body"><p>\(h(x)=\sqrt[3]{\frac{1}{2x-3}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(\begin{array}{l}f(x)=\sqrt[3]{x} \\ g(x)=\frac{1}{2x-3}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">32</div><div class="body"><p>\(h(x)=\frac{1}{{(3{x}^{2}-4)}^{-3}}\)</p>
+</div></div>
+<div class="exercise"><div class="n">33</div><div class="body"><p>\(h(x)=\sqrt[4]{\frac{3x-2}{x+5}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(\begin{array}{l}f(x)=\sqrt[4]{x} \\ g(x)=\frac{3x-2}{x+5}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">34</div><div class="body"><p>\(h(x)={(\frac{8+{x}^{3}}{8-{x}^{3}})}^{4}\)</p>
+</div></div>
+<div class="exercise"><div class="n">35</div><div class="body"><p>\(h(x)=\sqrt{2x+6}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(\begin{array}{l}\,f(x)=\sqrt{x}\, \\ \,g(x)=2x+6\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">36</div><div class="body"><p>\(h(x)={(5x-1)}^{3}\)</p>
+</div></div>
+<div class="exercise"><div class="n">37</div><div class="body"><p>\(h(x)=\sqrt[3]{x-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(\begin{array}{l}\,f(x)=\sqrt[3]{x} \\ \,g(x)=(x-1)\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">38</div><div class="body"><p>\(h(x)=|{x}^{2}+7|\)</p>
+</div></div>
+<div class="exercise"><div class="n">39</div><div class="body"><p>\(h(x)=\frac{1}{{(x-2)}^{3}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(\begin{array}{l}\,f(x)={x}^{3} \\ \,g(x)=\frac{1}{x-2}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">40</div><div class="body"><p>\(h(x)={(\frac{1}{2x-3})}^{2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">41</div><div class="body"><p>\(h(x)=\sqrt{\frac{2x-1}{3x+4}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(\begin{array}{l}\,f(x)=\sqrt{x} \\ \,g(x)=\frac{2x-1}{3x+4}\end{array}\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, use the graphs of \(f,\) shown in <a href="#fig4">Figure 4</a>, and \(g,\) shown in <a href="#fig5">Figure 5</a>, to evaluate the expressions.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_201.jpg" alt="Graph of a function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_202.jpg" alt="Graph of a function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<div class="exercise"><div class="n">42</div><div class="body"><p>\(f(g(3))\)</p>
+</div></div>
+<div class="exercise"><div class="n">43</div><div class="body"><p>\(f(g(1))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">44</div><div class="body"><p>\(g(f(1))\)</p>
+</div></div>
+<div class="exercise"><div class="n">45</div><div class="body"><p>\(g(f(0))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>5</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">46</div><div class="body"><p>\(f(f(5))\)</p>
+</div></div>
+<div class="exercise"><div class="n">47</div><div class="body"><p>\(f(f(4))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">48</div><div class="body"><p>\(g(g(2))\)</p>
+</div></div>
+<div class="exercise"><div class="n">49</div><div class="body"><p>\(g(g(0))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<p>For the following exercises, use graphs of \(f(x),\) shown in <a href="#fig6">Figure 6</a>, \(g(x),\) shown in <a href="#fig7">Figure 7</a>, and \(h(x),\) shown in <a href="#fig8">Figure 8</a>, to evaluate the expressions.</p>
+<figure class="plot" id="fig6" data-plot data-spec='{"xmin":-4,"xmax":4,"ymin":-1,"ymax":17,"xstep":1,"ystep":2,"alt":"Graph of f(x)=x^2, an upward parabola with vertex at the origin, passing through (-2,4) and (2,4)","curves":[{"fn":"x*x","label":"f(x)=x^2","labelAt":[2.3,10]}],"points":[[-2,4,"(-2, 4)"],[2,4,"(2, 4)"]],"xlabel":"x","ylabel":"f(x)"}'><figcaption>Figure 6</figcaption></figure>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_204.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_04_205.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+<div class="exercise"><div class="n">50</div><div class="body"><p>\(g(f(1))\)</p>
+</div></div>
+<div class="exercise"><div class="n">51</div><div class="body"><p>\(g(f(2))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">52</div><div class="body"><p>\(f(g(4))\)</p>
+</div></div>
+<div class="exercise"><div class="n">53</div><div class="body"><p>\(f(g(1))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">54</div><div class="body"><p>\(f(h(2))\)</p>
+</div></div>
+<div class="exercise"><div class="n">55</div><div class="body"><p>\(h(f(2))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">56</div><div class="body"><p>\(f(g(h(4)))\)</p>
+</div></div>
+<div class="exercise"><div class="n">57</div><div class="body"><p>\(f(g(f(-2)))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4</p>
+</div></div></div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, use the function values for \(f\,\text{and }g\) shown in <a href="#tab8">Table 8</a> to evaluate each expression.</p>
+<div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td><strong>\(x\)</strong></td><td><strong>\(f(x)\)</strong></td><td><strong>\(g(x)\)</strong></td></tr><tr><td>0</td><td>7</td><td>9</td></tr><tr><td>1</td><td>6</td><td>5</td></tr><tr><td>2</td><td>5</td><td>6</td></tr><tr><td>3</td><td>8</td><td>2</td></tr><tr><td>4</td><td>4</td><td>1</td></tr><tr><td>5</td><td>0</td><td>8</td></tr><tr><td>6</td><td>2</td><td>7</td></tr><tr><td>7</td><td>1</td><td>3</td></tr><tr><td>8</td><td>9</td><td>4</td></tr><tr><td>9</td><td>3</td><td>0</td></tr></tbody></table></div>
+<div class="exercise"><div class="n">58</div><div class="body"><p>\(f(g(8))\)</p>
+</div></div>
+<div class="exercise"><div class="n">59</div><div class="body"><p>\(f(g(5))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>9</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">60</div><div class="body"><p>\(g(f(5))\)</p>
+</div></div>
+<div class="exercise"><div class="n">61</div><div class="body"><p>\(g(f(3))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">62</div><div class="body"><p>\(f(f(4))\)</p>
+</div></div>
+<div class="exercise"><div class="n">63</div><div class="body"><p>\(f(f(1))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">64</div><div class="body"><p>\(g(g(2))\)</p>
+</div></div>
+<div class="exercise"><div class="n">65</div><div class="body"><p>\(g(g(6))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>3</p>
+</div></div></div></div>
+<p>For the following exercises, use the function values for \(f\,\text{and }g\) shown in <a href="#tab9">Table 9</a> to evaluate the expressions.</p>
+<div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td><strong>\(x\)</strong></td><td><strong>\(f(x)\)</strong></td><td><strong>\(g(x)\)</strong></td></tr><tr><td>\(-3\)</td><td>11</td><td>\(-8\)</td></tr><tr><td>\(-2\)</td><td>9</td><td>\(-3\)</td></tr><tr><td>\(-1\)</td><td>7</td><td>0</td></tr><tr><td>0</td><td>5</td><td>1</td></tr><tr><td>1</td><td>3</td><td>0</td></tr><tr><td>2</td><td>1</td><td>\(-3\)</td></tr><tr><td>3</td><td>\(-1\)</td><td>\(-8\)</td></tr></tbody></table></div>
+<div class="exercise"><div class="n">66</div><div class="body"><p>\((f∘g)(1)\)</p>
+</div></div>
+<div class="exercise"><div class="n">67</div><div class="body"><p>\((f∘g)(2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>11</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">68</div><div class="body"><p>\((g∘f)(2)\)</p>
+</div></div>
+<div class="exercise"><div class="n">69</div><div class="body"><p>\((g∘f)(3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">70</div><div class="body"><p>\((g∘g)(1)\)</p>
+</div></div>
+<div class="exercise"><div class="n">71</div><div class="body"><p>\((f∘f)(3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>7</p>
+</div></div></div></div>
+<p>For the following exercises, use each pair of functions to find \(f(g(0))\) and \(g(f(0)).\)</p>
+<div class="exercise"><div class="n">72</div><div class="body"><p>\(f(x)=4x+8,\,g(x)=7-{x}^{2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">73</div><div class="body"><p>\(f(x)=5x+7,\,g(x)=4-2{x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(g(0))=27,\,g(f(0))=-94\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">74</div><div class="body"><p>\(f(x)=\sqrt{x+4},\,g(x)=12-{x}^{3}\)</p>
+</div></div>
+<div class="exercise"><div class="n">75</div><div class="body"><p>\(f(x)=\frac{1}{x+2},\,g(x)=4x+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(g(0))=\frac{1}{5},\,g(f(0))=5\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the functions \(f(x)=2{x}^{2}+1\) and \(g(x)=3x+5\) to evaluate or find the composite function as indicated.</p>
+<div class="exercise"><div class="n">76</div><div class="body"><p>\(f(g(2))\)</p>
+</div></div>
+<div class="exercise"><div class="n">77</div><div class="body"><p>\(f(g(x))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(18{x}^{2}+60x+51\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">78</div><div class="body"><p>\(g(f(-3))\)</p>
+</div></div>
+<div class="exercise"><div class="n">79</div><div class="body"><p>\((g∘g)(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g∘g(x)=9x+20\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, use \(f(x)={x}^{3}+1\) and \(g(x)=\sqrt[3]{x-1}.\)</p>
+<div class="exercise"><div class="n">80</div><div class="body"><p>Find \((f∘g)(x)\) and \((g∘f)(x).\) Compare the two answers.</p>
+</div></div>
+<div class="exercise"><div class="n">81</div><div class="body"><p>Find \((f∘g)(2)\) and \((g∘f)(2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">82</div><div class="body"><p>What is the domain of \((g∘f)(x)?\)</p>
+</div></div>
+<div class="exercise"><div class="n">83</div><div class="body"><p>What is the domain of \((f∘g)(x)?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-\infty ,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">84</div><div class="body"><p>Let \(f(x)=\frac{1}{x}.\)</p>
+<ul class="tight"><li>ⓐFind \((f∘f)(x).\)</li><li>ⓑIs \((f∘f)(x)\) for any function \(f\) the same result as the answer to part (a) for any function? Explain.</li></ul>
+</div></div>
+<p>For the following exercises, let \(F(x)={(x+1)}^{5},\) \(f(x)={x}^{5},\) and \(g(x)=x+1.\)</p>
+<div class="exercise"><div class="n">85</div><div class="body"><p>True or False: \((g∘f)(x)=F(x).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>False</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">86</div><div class="body"><p>True or False: \((f∘g)(x)=F(x).\)</p>
+</div></div>
+<p>For the following exercises, find the composition when \(f(x)={x}^{2}+2\) for all \(x\ge 0\) and \(g(x)=\sqrt{x-2}.\)</p>
+<div class="exercise"><div class="n">87</div><div class="body"><p>\((f∘g)(6);\,(g∘f)(6)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f∘g)(6)=6\) ; \((g∘f)(6)=6\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">88</div><div class="body"><p>\((g∘f)(a);\,(f∘g)(a)\)</p>
+</div></div>
+<div class="exercise"><div class="n">89</div><div class="body"><p>\((f∘g)(11);\,(g∘f)(11)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f∘g)(11)=11\,,\,(g∘f)(11)=11\)</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise"><div class="n">90</div><div class="body"><p>The function \(D(p)\) gives the number of items that will be demanded when the price is \(p.\) The production cost \(C(x)\) is the cost of producing \(x\) items. To determine the cost of production when the price is $6, you would do which of the following?</p>
+<ul class="tight"><li>ⓐEvaluate \(D(C(6)).\)</li><li>ⓑEvaluate \(C(D(6)).\)</li><li>ⓒSolve \(D(C(x))=6.\)</li><li>ⓓSolve \(C(D(p))=6.\)</li></ul>
+</div></div>
+<div class="exercise"><div class="n">91</div><div class="body"><p>The function \(A(d)\) gives the pain level on a scale of 0 to 10 experienced by a patient with \(d\) milligrams of a pain-reducing drug in her system. The milligrams of the drug in the patient’s system after \(t\) minutes is modeled by \(m(t).\) Which of the following would you do in order to determine when the patient will be at a pain level of 4?</p>
+<ul class="tight"><li>ⓐEvaluate \(A(m(4)).\)</li><li>ⓑEvaluate \(m(A(4)).\)</li><li>ⓒSolve \(A(m(t))=4.\)</li><li>ⓓSolve \(m(A(d))=4.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>c</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">92</div><div class="body"><p>A store offers customers a 30% discount on the price \(x\) of selected items. Then, the store takes off an additional 15% at the cash register. Write a price function \(P(x)\) that computes the final price of the item in terms of the original price \(x.\) (Hint: Use function composition to find your answer.)</p>
+</div></div>
+<div class="exercise"><div class="n">93</div><div class="body"><p>A rain drop hitting a lake makes a circular ripple. If the radius, in inches, grows as a function of time in minutes according to \(r(t)=25\sqrt{t+2},\) find the area of the ripple as a function of time. Find the area of the ripple at \(t=2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(A(t)=\pi {(25\sqrt{t+2})}^{2}\) and \(A(2)=\pi {(25\sqrt{4})}^{2}=2500\pi\) square inches</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">94</div><div class="body"><p>A forest fire leaves behind an area of grass burned in an expanding circular pattern. If the radius of the circle of burning grass is increasing with time according to the formula \(r(t)=2t+1,\) express the area burned as a function of time, \(t\) (minutes).</p>
+</div></div>
+<div class="exercise"><div class="n">95</div><div class="body"><p>Use the function you found in the previous exercise to find the total area burned after 5 minutes.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(A(5)=\pi {(2(5)+1)}^{2}=121\pi\) square units</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">96</div><div class="body"><p>The radius \(r,\) in inches, of a spherical balloon is related to the volume, \(V,\) by \(r(V)=\sqrt[3]{\frac{3V}{4\pi }}.\) Air is pumped into the balloon, so the volume after \(t\) seconds is given by \(V(t)=10+20t.\)</p>
+<ul class="tight"><li>ⓐFind the composite function \(r(V(t)).\)</li><li>ⓑFind the <strong>exact</strong> time when the radius reaches 10 inches.</li></ul>
+</div></div>
+<div class="exercise"><div class="n">97</div><div class="body"><p>The number of bacteria in a refrigerated food product is given by \(N(T)=23{T}^{2}-56T+1,\) \(3&lt;T&lt;33,\) where \(T\) is the temperature of the food. When the food is removed from the refrigerator, the temperature is given by \(T(t)=5t+1.5,\) where \(t\) is the time in hours.</p>
+<ul class="tight"><li>ⓐFind the composite function \(N(T(t)).\)</li><li>ⓑFind the time (round to two decimal places) when the bacteria count reaches 6752.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(N(T(t))=23{(5t+1.5)}^{2}-56(5t+1.5)+1\)</li><li>ⓑ 3.38 hours</li></ul>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>composite function</dt><dd>the new function formed by function composition, when the output of one function is used as the input of another</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/college-algebra-2e">OpenStax College Algebra 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

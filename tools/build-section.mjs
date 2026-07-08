@@ -68,6 +68,13 @@ function parseXML(s) {
         const text = s.slice(i, nxt === -1 ? s.length : nxt);
         if (text) out.push({ tag: "#text", text: text
           .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+          // Decimal (&#160;) AND hex (&#xA0;) numeric character references both appear in
+          // OpenStax source (e.g. non-breaking space &#xA0; and en dash &#x2013; used as
+          // manual spacing inside <mo> math nodes) — the old regex only matched decimal,
+          // so hex entities passed through as literal text, then got double-escaped by
+          // esc() into visible "&amp;#xA0;" garbage in exercise answers. Found in 3-4
+          // (m51265), Example 8/Exercise 11.
+          .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
           .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(+d)) });
         i = nxt === -1 ? s.length : nxt;
       }
@@ -95,7 +102,23 @@ const OPS = { "−": "-", "–": "-", "×": "\\times ", "⋅": "\\cdot ", "≈":
   // LaTeX-reserved ASCII characters that sometimes show up as literal text (e.g. "$" for
   // currency, "%" for percent) inside <mi>/<mn>/<mo> — must be escaped or KaTeX either
   // errors (stray $) or silently eats the rest of the line as a comment (stray %).
-  "$": "\\$", "#": "\\#", "%": "\\%", "&": "\\&" };
+  "$": "\\$", "#": "\\#", "%": "\\%", "&": "\\&",
+  // Capital delta (rate-of-change notation "Δy/Δx", central to 3.3) has no KaTeX-mapped
+  // glyph for the bare Unicode character — renders as an "unknown symbol" warning/tofu
+  // box unless mapped to \Delta. Zero-width space (U+200B) shows up as an empty
+  // placeholder superscript in some OpenStax figure captions (e.g. the "∪" between
+  // increasing/decreasing intervals) and has no KaTeX character metrics at all — strip
+  // it outright. Found building 3-3 (m51263).
+  "Δ": "\\Delta ", "​": "",
+  // Curly quotes appear as literal characters inside <mo>/<mi> nodes when OpenStax's
+  // editor stylistically quotes a symbol *inside* math mode itself (e.g. "read the
+  // left side as “f composed with g at x,”" — the quote marks are literal MathML
+  // operator/identifier text, not surrounding prose). KaTeX has no font glyph for the
+  // bare Unicode curly-quote characters ("Unrecognized Unicode character" warning,
+  // strict-mode warn not throw, but visually risks a tofu box) — wrapping them in
+  // \text{} routes them through KaTeX's text-mode renderer, which does have the glyph.
+  // Found building 3-4 (m51265).
+  "“": "\\text{“}", "”": "\\text{”}" };
 // NOTE: deliberately does NOT .trim() the mapped result — several OPS entries (\cdot ,
 // \approx , \pi , \times , etc.) carry an intentional trailing space so the next token
 // doesn't get glued onto the command name (e.g. "\cdotx", "\approxP", or a bare "\" when
@@ -110,12 +133,39 @@ function m2l(n) {
   const g = k => (K[k] ? m2l(K[k]) : "");
   switch (n.tag) {
     case "semantics": return K.length ? m2l(K[0]) : "";
-    case "math": case "mrow": case "mstyle": case "mpadded": return j();
+    case "mrow": {
+      // Piecewise-function idiom: MathML represents "f(x) = { <cases table> " with a lone
+      // opening <mo>{</mo> and NO matching closing brace (the "}" is implied, never
+      // written) — this is how OpenStax's editor emits every piecewise definition/exercise
+      // in this module. A literal, unescaped "{" with no closing counterpart is an
+      // unbalanced LaTeX group and KaTeX throws "Expected '}', got EOF" on it. Detect the
+      // lone-open-brace pattern and wrap the rest of the row in \left\{ ... \right. instead
+      // (the standard LaTeX idiom for a one-sided fence). Found building 3-2 (m51262).
+      if (K.length && K[0].tag === "mo" && textOf(K[0]) === "{" && !K.some(k => k.tag === "mo" && textOf(k) === "}")) {
+        return `\\left\\{${K.slice(1).map(m2l).join("")}\\right.`;
+      }
+      return j();
+    }
+    case "math": case "mstyle": case "mpadded": return j();
     case "mi": case "mn": case "mo": return mtxt(textOf(n));
     case "mtext": {
-      const raw = textOf(n);
-      const t = raw.replace(/[$#%&_{}]/g, m => "\\" + m);
-      return /^\s*$/.test(raw) ? "\\," : `\\text{${t}}`;
+      // Strip zero-width spaces (no KaTeX character metrics, invisible anyway) before
+      // anything else. Found building 3-3 (m51263) — see the msup/OPS comments above.
+      // Also normalize the real Unicode minus sign (−, U+2212) to an ASCII hyphen: OpenStax
+      // sometimes puts a lone negation sign in its own <mtext> (e.g. "f(−x)") rather than an
+      // <mo>, and \text{} has no glyph for U+2212 (unknownSymbol warning, same class of bug
+      // as the Δ/curly-quote fixes below) — the OPS table already does this same "−"→"-"
+      // mapping for the mi/mn/mo path. Found building 3-5 (m51266).
+      const raw = textOf(n).replace(/​/g, "").replace(/−/g, "-");
+      if (/^\s*$/.test(raw)) return "\\,";
+      // "Δ" (capital delta, rate-of-change notation) has no glyph inside KaTeX's \text{}
+      // mode ("Undefined control sequence: \Delta") — \text{} only supports literal
+      // characters, not math commands. Split the run on Δ and drop bare \Delta (valid
+      // here since mtext content is always reached from inside an outer math-mode
+      // context) between \text{}-wrapped literal segments instead of embedding it.
+      // Found building 3-3.
+      return raw.split("Δ").map(seg => seg.replace(/[$#%&_{}]/g, m => "\\" + m))
+        .map(seg => seg ? `\\text{${seg}}` : "").join("\\Delta ");
     }
     // "\\," (thin space) rather than "\\ " (control space) — self-contained, so it
     // survives being the sole content of a math node even after the outer
@@ -123,7 +173,18 @@ function m2l(n) {
     // trailing literal space. "\\ " alone would trim down to a bare "\", which KaTeX
     // rejects. Found building 6-5 — see AUTOBUILD_LOG.md.
     case "mspace": return "\\,";
-    case "msup": return `{${g(0)}}^{${g(1)}}`;
+    case "msup": {
+      // OpenStax's editor sometimes wraps a symbol in an msup with an empty (zero-width
+      // space) exponent purely for visual kerning (seen around "∪" joining interval
+      // notation, e.g. "(-∞,-2) ∪ (2,∞)" in figure captions) — not a real superscript.
+      // An empty "^{}" is harmless to KaTeX, but emitting it is pointless and the
+      // zero-width space that used to fill it had no character metrics at all. Unwrap to
+      // just the base when the exponent is empty (or maps to nothing but a thin space —
+      // the mtext case above turns an all-zero-width-space run into "\," rather than "")
+      // after mapping. Found building 3-3.
+      const sup = g(1);
+      return sup.replace(/\\,/g, "").trim() ? `{${g(0)}}^{${sup}}` : g(0);
+    }
     case "msub": return `{${g(0)}}_{${g(1)}}`;
     case "msubsup": return `{${g(0)}}_{${g(1)}}^{${g(2)}}`;
     case "mfrac": return `\\frac{${g(0)}}{${g(1)}}`;
@@ -191,7 +252,12 @@ function inline(n) { // serialize inline content of a para/entry/item
   }
   return out.replace(/\s+/g, " ").trim();
 }
-let exN = 0, tryN = 0, exampleN = 0, figN = 0, tabN = 0, warmN = 0, warmExN = 0;
+let exN = 0, tryN = 0, exampleN = 0, figN = 0, tabN = 0, warmN = 0, warmExN = 0, reviewExN = 0, practiceExN = 0;
+// reviewExN/practiceExN: chapter-end modules (the last section of a chapter) bundle
+// "Chapter Review Exercises" and "Practice Test" content after the section's own Section
+// Exercises. OpenStax always restarts numbering to 1 for each of those, independently of
+// the Section Exercises count and of each other — matching the published book. Found
+// building 6-8 (m49368 bundles both after its Section Exercises).
 // CNXML id -> assigned number, for resolving <link target-id> refs. Figures/tables number
 // sequentially regardless of coreq context (matches the unconditional figN++/tabN++ below);
 // examples only count outside the coreq warm-up (matches the exampleN++ in case "example").
@@ -276,6 +342,14 @@ function blocks(n, ctx = {}) { // serialize block children
           warmN++;
           out += `<div class="exercise warmup"><div class="n">P${warmN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
             (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
+        } else if (ctx.inReview) {
+          reviewExN++;
+          out += `<div class="exercise"><div class="n">${reviewExN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
+            (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
+        } else if (ctx.inPracticeTest) {
+          practiceExN++;
+          out += `<div class="exercise"><div class="n">${practiceExN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
+            (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
         } else {
           exN++;
           out += `<div class="exercise"><div class="n">${exN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
@@ -302,6 +376,19 @@ function blocks(n, ctx = {}) { // serialize block children
           out += `<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body">${blocks(c, { ...ctx, depth: 3, inCoreq: true })}</div></details>\n`;
         } else if (/section-exercises/.test(cls)) {
           out += `<div id="exercise-panel-content">\n<h2 id="exercises">Section Exercises</h2>\n` + blocks(c, { ...ctx, depth: 3 }) + `</div>\n`;
+        } else if (/review-exercises/.test(cls)) {
+          out += `<h${depth} id="${id}">${t ? inline(t) : "Chapter Review Exercises"}</h${depth}>\n` + blocks(c, { ...ctx, depth: Math.min(depth + 1, 4), inReview: true });
+        } else if (/practice-test/.test(cls)) {
+          out += `<h${depth} id="${id}">${t ? inline(t) : "Practice Test"}</h${depth}>\n` + blocks(c, { ...ctx, depth: Math.min(depth + 1, 4), inPracticeTest: true });
+        } else if (!t && !cls) {
+          // A bare <section> with no <title> and no meaningful class is just a grouping
+          // wrapper in the source (e.g. OpenStax sometimes splits prose into an untitled
+          // <section> right before the next titled one) — emitting a heading for it
+          // produces a visible, anchor-less empty <h3></h3> bar in the page. Skip the
+          // heading entirely and inline its content at the *same* depth (no new heading
+          // level was actually introduced). Found in 3-4 (m51265), the untitled section
+          // wrapping the "composite function is a two-step function" intro prose.
+          out += blocks(c, { ...ctx, depth });
         } else {
           out += `<h${depth} id="${id}">${t ? inline(t) : ""}</h${depth}>\n` + blocks(c, { ...ctx, depth: Math.min(depth + 1, 4) });
         }
@@ -374,5 +461,6 @@ ${body}
 
 const outPath = new URL(`../sections/${slug}.html`, import.meta.url).pathname;
 writeFileSync(outPath, page);
-console.log(`Wrote sections/${slug}.html (${page.length.toLocaleString()} chars, ${exN} exercises, ${tryN} try-its, ${exampleN} examples)`);
+console.log(`Wrote sections/${slug}.html (${page.length.toLocaleString()} chars, ${exN} exercises, ${tryN} try-its, ${exampleN} examples)` +
+  (reviewExN || practiceExN ? ` [+ ${reviewExN} chapter-review exercises, ${practiceExN} practice-test exercises]` : ""));
 console.log(`Now open assets/app.js and set ready: true for "${slug}" in the BOOK manifest.`);

@@ -48,7 +48,7 @@ redrawn interactive SVG graphs.)
 |---|---|
 | 1 Prerequisites | m51240 m51239 m51241 m51242 m51246 m51247 m51248 |
 | 2 Equations and Inequalities | m51251 m51252 m51253 m51254 m51255 m51256 m51258 m51259 |
-| 3 Functions | m51260 m51261 m51262 m51263 m51265 m51266 m51267 m51268 |
+| 3 Functions | m51260 (intro) m51261 m51262 m51263 m51265 m51266 m51267 m51268 |
 | 4 Linear Functions | m51269 m51270 m51271 m51272 |
 | 5 Polynomial and Rational Functions | m51273 m51274 m51275 m51276 m51277 m51278 m51279 m51280 m51281 |
 | 6 Exponential and Logarithmic Functions | m49356 (intro) m49361 m49362 m49363 m49364 m49365 m49366 m49367 m49368 |

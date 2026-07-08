@@ -5,13 +5,13 @@ const BOOK = {
   title: "College Algebra",
   chapters: [
     { n: 3, title: "Functions", sections: [
-      { id: "3-1", title: "3.1 Functions and Function Notation", module: "m51260" },
-      { id: "3-2", title: "3.2 Domain and Range", module: "m51261" },
-      { id: "3-3", title: "3.3 Rates of Change and Behavior of Graphs", module: "m51262" },
-      { id: "3-4", title: "3.4 Composition of Functions", module: "m51263" },
-      { id: "3-5", title: "3.5 Transformation of Functions", module: "m51265" },
-      { id: "3-6", title: "3.6 Absolute Value Functions", module: "m51266" },
-      { id: "3-7", title: "3.7 Inverse Functions", module: "m51267" },
+      { id: "3-1", title: "3.1 Functions and Function Notation", file: "3-1.html", ready: true },
+      { id: "3-2", title: "3.2 Domain and Range", file: "3-2.html", ready: true },
+      { id: "3-3", title: "3.3 Rates of Change and Behavior of Graphs", file: "3-3.html", ready: true },
+      { id: "3-4", title: "3.4 Composition of Functions", file: "3-4.html", ready: true },
+      { id: "3-5", title: "3.5 Transformation of Functions", file: "3-5.html", ready: true },
+      { id: "3-6", title: "3.6 Absolute Value Functions", file: "3-6.html", ready: true },
+      { id: "3-7", title: "3.7 Inverse Functions", module: "m51268" },
     ]},
     { n: 6, title: "Exponential and Logarithmic Functions", sections: [
       { id: "6-1", title: "6.1 Exponential Functions", file: "6-1.html", ready: true },
@@ -20,8 +20,8 @@ const BOOK = {
       { id: "6-4", title: "6.4 Graphs of Logarithmic Functions", file: "6-4.html", ready: true },
       { id: "6-5", title: "6.5 Logarithmic Properties", file: "6-5.html", ready: true },
       { id: "6-6", title: "6.6 Exponential and Logarithmic Equations", file: "6-6.html", ready: true },
-      { id: "6-7", title: "6.7 Exponential and Logarithmic Models", module: "m49367" },
-      { id: "6-8", title: "6.8 Fitting Exponential Models to Data", module: "m49368" },
+      { id: "6-7", title: "6.7 Exponential and Logarithmic Models", file: "6-7.html", ready: true },
+      { id: "6-8", title: "6.8 Fitting Exponential Models to Data", file: "6-8.html", ready: true },
     ]},
   ],
 };

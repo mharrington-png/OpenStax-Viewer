@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transformation of Functions · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">MX <span>Algebra</span></a>
+  <span class="crumb">Transformation of Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.5</span>Transformation of Functions</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Identify graphs of basic functions, (IA 3.6.2)</li><li>Graph quadratic functions using transformations, (IA 9.7.4)</li></ul>
+<h3 id="objective-1-identify-graphs-of-basic-functions-ia-3-6-2">Objective 1: Identify graphs of basic functions, (IA 3.6.2)</h3>
+<p>Basic functions have unique shapes, characteristics, and algebraic equations. It will be helpful to recognize and identify these basic or “toolkit functions” in our work in algebra, precalculus and calculus. Remember functions can be represented in many ways including by name, equation, graph, and basic tables of values.</p>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Use a graphing program to help complete the following. Then, choose three values of x to evaluate for each. Add the x and y to the table for each exercise.</p>
+<div class="exercise warmup"><div class="n">P1</div><div class="body"><div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Constant</td><td><strong>y</strong>=<strong>c</strong>, where <strong>c</strong> is a constant</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P2</div><div class="body"><div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Identity</td><td><strong>y</strong>=<strong>x</strong></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P3</div><div class="body"><div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Absolute Value</td><td><strong>y</strong>=|<strong>x</strong>|</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P4</div><div class="body"><div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Quadratic</td><td><strong>y</strong>=<strong>x</strong><sup>2</sup></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P5</div><div class="body"><div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Cubic</td><td><strong>y</strong>=<strong>x</strong><sup>3</sup></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab10"><table class="data"><caption>Table 10</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P6</div><div class="body"><div class="tablewrap" id="tab11"><table class="data"><caption>Table 11</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Reciprocal</td><td>\(y=\frac{1}{x}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab12"><table class="data"><caption>Table 12</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P7</div><div class="body"><div class="tablewrap" id="tab13"><table class="data"><caption>Table 13</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Square Root</td><td>\(y=\sqrt{x}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab14"><table class="data"><caption>Table 14</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P8</div><div class="body"><div class="tablewrap" id="tab15"><table class="data"><caption>Table 15</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Cube Root</td><td>\(y=\sqrt[3]{x}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab16"><table class="data"><caption>Table 16</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P9</div><div class="body"><div class="tablewrap" id="tab17"><table class="data"><caption>Table 17</caption><tbody><tr><td>Name</td><td>Equation</td><td>Graph</td></tr><tr><td>Exponential</td><td>\(y={e}^{x}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<p>Choose 3 values of x to evaluate for each.</p>
+<div class="tablewrap" id="tab18"><table class="data"><caption>Table 18</caption><tbody><tr><td><strong>x</strong></td><td><strong>y</strong></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<h3 id="objective-2-graph-quadratic-functions-using-transformations-ia-9-7-4">Objective 2: Graph quadratic functions using transformations (IA 9.7.4)</h3>
+<p>When we modify basic functions by adding, subtracting, or multiplying constants to the equation, very systematic changes take place. We call these <strong>transformations</strong> of basic functions. Here we will investigate the effects of vertical shifts, horizontal shifts, vertical stretches or compressions, and reflections on quadratic functions. We could use any basic function to illustrate transformations, but quadratics work nicely because we can easily keep track of a point called the vertex.</p>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<p>The graphs of quadratic functions are called parabolas. Use a graphing program to graph each of the following quadratic functions. For each graph find the vertex (the minimum or maximum value) of the parabola and list its coordinates. Most importantly use the patterns observed to answer each of the given questions.</p>
+<div class="exercise warmup"><div class="n">P10</div><div class="body"><p>In general, what effect does adding or subtracting a constant have on the graph of \(f(x)={x}^{2}\) ?</p>
+<div class="tablewrap" id="tab19"><table class="data"><caption>Table 19</caption><tbody><tr><td><br> \(f(x)={x}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)={x}^{2}+2\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)={x}^{2}-4\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P11</div><div class="body"><p>In general, what effect does adding or subtracting a value to x before it is squared have on the graph of \(f(x)={x}^{2}\) ?</p>
+<div class="tablewrap" id="tab20"><table class="data"><caption>Table 20</caption><tbody><tr><td><br> \(f(x)={(x-2)}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)={(x-4)}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)={(x+3)}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P12</div><div class="body"><p>In general, what effect does multiplying by a constant have on the graph of \(f(x)={x}^{2}\) ?</p>
+<div class="tablewrap" id="tab21"><table class="data"><caption>Table 21</caption><tbody><tr><td><br> \(f(x)=2{x}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)=5{x}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)=\frac{1}{10}{x}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P13</div><div class="body"><p>In general, what effect does multiplying by a negative constant have on the graph of \(f(x)={x}^{2}\) ?</p>
+<div class="tablewrap" id="tab22"><table class="data"><caption>Table 22</caption><tbody><tr><td><br> \(f(x)=-{x}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)=-3{x}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(y={(x-2)}^{2}\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P14</div><div class="body"><div class="tablewrap" id="tab23"><table class="data"><caption>Table 23</caption><tbody><tr><td><br> \(f(x)={(x+3)}^{2}+2\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)={(x+3)}^{2}-2\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)={(x-3)}^{2}+2\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><br> \(f(x)={(x-3)}^{2}-2\) <br> vertex: ________<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup"><div class="n">P15</div><div class="body"><p>Answer each of the following based on the changes you saw in the graphs above.</p>
+<p>ⓐ Based on your observations from the previous graphs, what are the coordinates of the vertex of the parabola \(f(x)={(x+200)}^{2}-67\) ? Do not attempt to graph!</p>
+<p>ⓑ Based on your observations from the previous graphs, what are the coordinates of the vertex of the parabola \(f(x)=12{(x+6)}^{2}+111\) ? Do not attempt to graph!</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P16</div><div class="body"><p>Fill in the blanks:</p>
+<p>ⓐ If <strong>c</strong> &gt; 0, the graph of \(y=f(x)+c\) is obtained by shifting the graph of \(y=f(x)\) to the ________ a distance of <strong>c</strong> units. The graph of \(y=f(x)-c\) is obtained by shifting the graph of \(y=f(x)\) to the ________ a distance of <strong>c</strong> units.</p>
+<p>ⓑ If <strong>c</strong> &gt; 0, the graph of \(y=f(x)-c\) is obtained by shifting the graph of \(y=f(x)\) to the ________ a distance of <strong>c</strong> units. The graph of \(y=f(x)+c\) is obtained by shifting the graph of \(y=f(x)\) to the ________ a distance of <strong>c</strong> units.</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P17</div><div class="body"><p>Apply what you have learned in this skill sheet regarding transformations. Write the equation of a quadratic function that has been transformed in the each of the ways described in parts ⓐ and ⓑ below. Write equations in <strong>f</strong>(<strong>x</strong>) = form. After writing an equation check your answer using a graphing program and graph below. Be sure to label the vertex as an ordered pair. Does your graph match the description?</p>
+<p>ⓐ Flipped upside down and shifted to the right 3 units and down 2 units.<br> <strong>f</strong>(<strong>x</strong>) = <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>ⓑ Stretched vertically by a factor of 4 and shifted left 6 units and up 5 units.<br> <strong>f</strong>(<strong>x</strong>) = <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise warmup"><div class="n">P18</div><div class="body"><p>Remember the basic transformations investigated in this activity apply to all basic functions. Apply what you have learned in this lab about transformations. Write the equation of a function that has been transformed in the following ways. Write equations in <strong>f</strong>(<strong>x</strong>) = form. After writing an equation check your answer using a graphing program and graph below. Be sure to label a point on the graph. Does your graph match the description?</p>
+<p>ⓐ Begin with a basic square root function. Reflect the graph over the x-axis and shift it to the right 2 units and down 1 unit.<br> <strong>f</strong>(<strong>x</strong>) = <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>ⓑ Begin with an absolute value function. Stretch the graph vertically by a factor of 3 and shift it left 4 units and up 5 units.<br> <strong>f</strong>(<strong>x</strong>) = <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankgraph.png" alt="A blank Cartesian coordinate system with clearly defined horizontal x-axis and vertical y-axis, both featuring small tick marks along their lengths. The two axes intersect at the origin, dividing the plane into four quadrants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+</div></details>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_038n.jpg" alt="A photograph of two children staring at themselves in a distorting mirror." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — (credit: "Misko"/Flickr)</figcaption></figure>
+<p>We all know that a flat mirror enables us to see an accurate image of ourselves and whatever is behind us. When we tilt the mirror, the images we see may shift horizontally or vertically. But what happens when we bend a flexible mirror? Like a carnival funhouse mirror, it presents us with a distorted image of ourselves, stretched or compressed horizontally or vertically. In a similar way, we can distort or transform mathematical functions to better adapt them to describing objects or processes in the real world. In this section, we will take a look at several kinds of transformations.</p>
+<h2 id="graphing-functions-using-vertical-and-horizontal-shifts">Graphing Functions Using Vertical and Horizontal Shifts</h2>
+<p>Often when given a problem, we try to model the scenario using mathematics in the form of words, tables, graphs, and equations. One method we can employ is to adapt the basic graphs of the toolkit functions to build new models for a given scenario. There are systematic ways to alter functions to construct appropriate models for the problems we are trying to solve.</p>
+<h3 id="identifying-vertical-shifts">Identifying Vertical Shifts</h3>
+<p>One simple kind of <strong>transformation</strong> involves shifting the entire graph of a function up, down, right, or left. The simplest shift is a <strong>vertical shift</strong>, moving the graph up or down, because this transformation involves adding a positive or negative constant to the function. In other words, we add the same constant to the output value of the function regardless of the input. For a function \(g(x)=f(x)+k,\) the function \(f(x)\) is shifted vertically \(k\) units. See <a href="#fig2">Figure 2</a> for an example.</p>
+<figure class="plot" id="fig2" data-desmos data-spec='{"bounds":{"left":-3,"right":3,"bottom":-3,"top":3},"sliders":[{"var":"k","min":-5,"max":5,"step":0.5,"value":1,"color":"#cf003d"}],"curves":[{"latex":"y=\\sqrt[3]{x}","color":"#5a5656"},{"latex":"y=\\sqrt[3]{x}+k","color":"#cf003d"}],"alt":"Interactive graph of the cube root function f(x)=cube root of x and its vertical shift g(x)=f(x)+k -- drag k"}'><figcaption>Figure 2 — Vertical shift by \(k=1\) of the cube root function \(f(x)=\sqrt[3]{x}.\)</figcaption></figure>
+<p>To help you visualize the concept of a vertical shift, consider that \(y=f(x).\) Therefore, \(f(x)+k\) is equivalent to \(y+k.\) Every unit of \(y\) is replaced by \(y+k,\) so the <strong>y</strong>-value increases or decreases depending on the value of \(k.\) The result is a shift upward or downward.</p>
+<div class="card definition"><span class="chip">Vertical Shift</span><p>Given a function \(f(x),\) a new function \(g(x)=f(x)+k,\) where \(k\) is a constant, is a <strong>vertical shift</strong> of the function \(f(x).\) All the output values change by \(k\) units. If \(k\) is positive, the graph will shift up. If \(k\) is negative, the graph will shift down.</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>To regulate temperature in a green building, airflow vents near the roof open and close throughout the day. <a href="#fig3">Figure 3</a> shows the area of open vents \(V\) (in square feet) throughout the day in hours after midnight, \(t.\) During the summer, the facilities manager decides to try to better regulate temperature by increasing the amount of open vents by 20 square feet throughout the day and night. Sketch a graph of this new function.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_002.jpg" alt="A blue graph is shown on a set of t and v axes. The scale is minus four to plus twenty-four for t and minus four to three hundred for v. The graph lies along the t axis from the origin to eight, then rises as a straight line to ten, two hundred twenty. Then it is a horizontal straight line to seventeen, two hundred twenty. It then is a straight line to the t axis at nineteen. It is then a straight line along the t axis until t equals twenty four." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div><p class="sol-hint">First identify: is this a change to the output (vertical) or the input (horizontal)?</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can sketch a graph of this new function by adding 20 to each of the output values of the original function. This will have the effect of shifting the graph vertically up, as shown in <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_003a.jpg" alt="A blue graph is shown on a set of t and v axes. The scale is minus four to plus twenty-four for t and minus four to three hundred for v. The graph lies along the t axis from the origin to eight, then rises as a straight line to ten, two hundred twenty. Then it is a horizontal straight line to seventeen, two hundred twenty. It then is a straight line to the t axis at nineteen. It is then a straight line along the t axis until t equals twenty four. There is also an orange graph identical to the blue graph but shifted up by twenty units." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p>Notice that in <a href="#fig4">Figure 4</a>, for each input value, the output value has increased by 20, so if we call the new function \(S(t),\) we could write</p>
+<p>\[S(t)=V(t)+20\]</p>
+<p>This notation tells us that, for any value of \(t,S(t)\) can be found by evaluating the function \(V\) at the same input and then adding 20 to the result. This defines \(S\) as a transformation of the function \(V,\) in this case a vertical shift up 20 units. Notice that, with a vertical shift, the input values stay the same and only the output values change. See <a href="#tab24">Table 24</a>.</p>
+<div class="tablewrap" id="tab24"><table class="data"><caption>Table 24</caption><tbody><tr><td><strong>\(t\)</strong></td><td>0</td><td>8</td><td>10</td><td>17</td><td>19</td><td>24</td></tr><tr><td><strong>\(V(t)\)</strong></td><td>0</td><td>0</td><td>220</td><td>220</td><td>0</td><td>0</td></tr><tr><td><strong>\(S(t)\)</strong></td><td>20</td><td>20</td><td>240</td><td>240</td><td>20</td><td>20</td></tr></tbody></table></div>
+</div></div></div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a tabular function, create a new row to represent a vertical shift.</strong></p>
+<ul class="tight"><li>Identify the output row or column.</li><li>Determine the <strong>magnitude</strong> of the shift.</li><li>Add the shift to the value in each output cell. Add a positive value for up or a negative value for down.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>A function \(f(x)\) is given in <a href="#tab25">Table 25</a>. Create a table for the function \(g(x)=f(x)-3.\)</p>
+<div class="tablewrap" id="tab25"><table class="data"><caption>Table 25</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr></tbody></table></div>
+</div><p class="sol-hint">Add the same amount to every output value in the table — nothing else changes.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The formula \(g(x)=f(x)-3\) tells us that we can find the output values of \(g\) by subtracting 3 from the output values of \(f.\) For example:</p>
+<p>\[\begin{array}{llll}f(2) &amp; = &amp; 1 &amp; \text{Given} \\ g(x) &amp; = &amp; f(x)-3 &amp; \text{Given transformation} \\ g(2) &amp; = &amp; f(2)-3 &amp; \\ &amp; = &amp; 1-3 &amp; \\ &amp; = &amp; -2 &amp; \end{array}\]</p>
+<p>Subtracting 3 from each \(f(x)\) value, we can complete a table of values for \(g(x)\) as shown in <a href="#tab26">Table 26</a>.</p>
+<div class="tablewrap" id="tab26"><table class="data"><caption>Table 26</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr><tr><td><strong>\(g(x)\)</strong></td><td>−2</td><td>0</td><td>4</td><td>8</td></tr></tbody></table></div>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>As with the earlier vertical shift, notice the input values stay the same and only the output values change.</p>
+</div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>The function \(h(t)=-4.9{t}^{2}+30t\) gives the height \(h\) of a ball (in meters) thrown upward from the ground after \(t\) seconds. Suppose the ball was instead thrown from the top of a 10-m building. Relate this new height function \(b(t)\) to \(h(t),\) and then find a formula for \(b(t).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\[b(t)=h(t)+10=-4.9{t}^{2}+30t+10\]</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="identifying-horizontal-shifts">Identifying Horizontal Shifts</h3>
+<p>We just saw that the vertical shift is a change to the output, or outside, of the function. We will now look at how changes to input, on the inside of the function, change its graph and meaning. A shift to the input results in a movement of the graph of the function left or right in what is known as a <strong>horizontal shift</strong>, shown in <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5" data-desmos data-spec='{"bounds":{"left":-3,"right":3,"bottom":-3,"top":3},"sliders":[{"var":"h","min":-5,"max":5,"step":0.5,"value":-1,"color":"#cf003d"}],"curves":[{"latex":"y=\\sqrt[3]{x}","color":"#5a5656"},{"latex":"y=\\sqrt[3]{x-h}","color":"#cf003d"}],"alt":"Interactive graph of the cube root function f(x)=cube root of x and its horizontal shift g(x)=f(x-h) -- drag h"}'><figcaption>Figure 5 — Horizontal shift of the function \(f(x)=\sqrt[3]{x}.\) Note that \((x+1)\) means \(h=-1\) , which shifts the graph to the left, that is, towards <strong>negative</strong> values of \(x.\)</figcaption></figure>
+<p>For example, if \(f(x)={x}^{2},\) then \(g(x)={(x-2)}^{2}\) is a new function. Each input is reduced by 2 prior to squaring the function. The result is that the graph is shifted 2 units to the right, because we would need to increase the prior input by 2 units to yield the same output value as given in \(f.\)</p>
+<div class="card definition"><span class="chip">Horizontal Shift</span><p>Given a function \(f,\) a new function \(g(x)=f(x-h),\) where \(h\) is a constant, is a <strong>horizontal shift</strong> of the function \(f.\) If \(h\) is positive, the graph will shift right. If \(h\) is negative, the graph will shift left.</p>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Returning to our building airflow example from <a href="#fig3">Figure 3</a>, suppose that in autumn the facilities manager decides that the original venting plan starts too late, and wants to begin the entire venting program 2 hours earlier. Sketch a graph of the new function.</p>
+</div><p class="sol-hint">A negative h means the graph moves the opposite way you might expect — check the sign rule.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can set \(V(t)\) to be the original program and \(F(t)\) to be the revised program.</p>
+<p>\[\begin{array}{lll}V(t) &amp; = &amp; \text{the original venting plan} \\ F(t) &amp; = &amp; \text{starting 2 hrs sooner}\end{array}\]</p>
+<p>In the new graph, at each time, the airflow is the same as the original function \(V\) was 2 hours later. For example, in the original function \(V,\) the airflow starts to change at 8 a.m., whereas for the function \(F,\) the airflow starts to change at 6 a.m. The comparable function values are \(V(8)=F(6).\) See <a href="#fig6">Figure 6</a>. Notice also that the vents first opened to \(220{\,\text{ft}}^{2}\) at 10 a.m. under the original plan, while under the new plan the vents reach \(220{\,\text{ft}}^{\text{2}}\) at <br>8 a.m., so \(V(10)=F(8).\)</p>
+<p>In both cases, we see that, because \(F(t)\) starts 2 hours sooner, \(h=-2.\) That means that the same output values are reached when \(F(t)=V(t-(-2))=V(t+2).\)</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_005a.jpg" alt="A blue graph is shown on a set of t and v axes. The scale is minus four to plus twenty-four for t and minus four to three hundred for v. The graph lies along the t axis from the origin to eight, then rises as a straight line to ten, two hundred twenty. Then it is a horizontal straight line to seventeen, two hundred twenty. It then is a straight line to the t axis at nineteen. It is then a straight line along the t axis until t equals twenty four. There is also an orange graph identical to the blue graph but shifted left by two units." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that \(V(t+2)\) has the effect of shifting the graph to the <strong>left</strong>.</p>
+<p>Horizontal changes or “inside changes” affect the domain of a function (the input) instead of the range and often seem counterintuitive. The new function \(F(t)\) uses the same outputs as \(V(t),\) but matches those outputs to inputs 2 hours earlier than those of \(V(t).\) Said another way, we must add 2 hours to the input of \(V\) to find the corresponding output for \(F:F(t)=V(t+2).\)</p>
+</div></div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a tabular function, create a new row to represent a horizontal shift.</strong></p>
+<ul class="tight"><li>Identify the input row or column.</li><li>Determine the magnitude of the shift.</li><li>Add the shift to the value in each input cell.</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>A function \(f(x)\) is given in <a href="#tab27">Table 27</a>. Create a table for the function \(g(x)=f(x-3).\)</p>
+<div class="tablewrap" id="tab27"><table class="data"><caption>Table 27</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr></tbody></table></div>
+</div><p class="sol-hint">Subtracting from the input shifts x-values, not y-values — rebuild the table input by input.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The formula \(g(x)=f(x-3)\) tells us that the output values of \(g\) are the same as the output value of \(f\) when the input value is 3 less than the original value. For example, we know that \(f(2)=1.\) To get the same output from the function \(g,\) we will need an input value that is 3 <strong>larger</strong>. We input a value that is 3 larger for \(g(x)\) because the function takes 3 away before evaluating the function \(f.\)</p>
+<p>\[\begin{array}{lll}g(5) &amp; = &amp; f(5-3) \\ &amp; = &amp; f(2) \\ &amp; = &amp; 1\end{array}\]</p>
+<p>We continue with the other values to create <a href="#tab28">Table 28</a>.</p>
+<div class="tablewrap" id="tab28"><table class="data"><caption>Table 28</caption><tbody><tr><td><strong>\(x\)</strong></td><td>5</td><td>7</td><td>9</td><td>11</td></tr><tr><td><strong>\(x-3\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(f(x-3)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr><tr><td><strong>\(g(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr></tbody></table></div>
+<p>The result is that the function \(g(x)\) has been shifted to the right by 3. Notice the output values for \(g(x)\) remain the same as the output values for \(f(x),\) but the corresponding input values, \(x,\) have shifted to the right by 3. Specifically, 2 shifted to 5, 4 shifted to 7, 6 shifted to 9, and 8 shifted to 11.</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p><a href="#fig7">Figure 7</a> represents both of the functions. We can see the horizontal shift in each point.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_006.png" alt="Graph of the points from the previous table for f(x) and g(x)=f(x-3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p><a href="#fig8">Figure 8</a> represents a transformation of the toolkit function \(f(x)={x}^{2}.\) Relate this new function \(g(x)\) to \(f(x),\) and then find a formula for \(g(x).\)</p>
+<figure class="plot" id="fig8" data-plot data-spec='{"xmin":-2,"xmax":6,"ymin":-1,"ymax":9,"xstep":1,"ystep":1,"alt":"Graph of f(x)=x^2 and its horizontal shift g(x)=(x-2)^2","curves":[{"fn":"x*x","cls":"alt","label":"f(x)=x^2","labelAt":[-1.6,3.2]},{"fn":"(x-2)*(x-2)","label":"g(x)=(x-2)^2","labelAt":[4.3,3.2]}],"points":[[0,0,"(0,0)"],[2,0,"(2,0)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 8</figcaption></figure>
+</div><p class="sol-hint">Compare the vertex of the new graph to the vertex of the toolkit parabola to find the shift.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Notice that the graph is identical in shape to the \(f(x)={x}^{2}\) function, but the <strong>x-</strong>values are shifted to the right 2 units. The vertex used to be at (0,0), but now the vertex is at (2,0). The graph is the basic quadratic function shifted 2 units to the right, so</p>
+<p>\[g(x)=f(x-2)\]</p>
+<p>Notice how we must input the value \(x=2\) to get the output value \(y=0;\) the<strong>x</strong>-values must be 2 units larger because of the shift to the right by 2 units. We can then use the definition of the \(f(x)\) function to write a formula for \(g(x)\) by evaluating \(f(x-2).\)</p>
+<p>\[\begin{array}{lll}f(x) &amp; = &amp; {x}^{2} \\ g(x) &amp; = &amp; f(x-2) \\ g(x) &amp; = &amp; f(x-2)={(x-2)}^{2}\end{array}\]</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>To determine whether the shift is \(+2\) or \(-2\) , consider a single reference point on the graph. For a quadratic, looking at the vertex point is convenient. In the original function, \(f(0)=0.\) In our shifted function, \(g(2)=0.\) To obtain the output value of 0 from the function \(f,\) we need to decide whether a plus or a minus sign will work to satisfy \(g(2)=f(x-2)=f(0)=0.\) For this to work, we will need to <strong>subtract</strong> 2 units from our input values.</p>
+</div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>The function \(G(m)\) gives the number of gallons of gas required to drive \(m\) miles. Interpret \(G(m)+10\) and \(G(m+10).\)</p>
+</div><p class="sol-hint">Track what happens to a single reference point under each function to see the difference.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>\(G(m)+10\) can be interpreted as adding 10 to the output, gallons. This is the gas required to drive \(m\) miles, plus another 10 gallons of gas. The graph would indicate a vertical shift.</p>
+<p>\(G(m+10)\) can be interpreted as adding 10 to the input, miles. So this is the number of gallons of gas required to drive 10 miles more than \(m\) miles. The graph would indicate a horizontal shift.</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Given the function \(f(x)=\sqrt{x},\) graph the original function \(f(x)\) and the transformation \(g(x)=f(x+2)\) on the same axes. Is this a horizontal or a vertical shift? Which way is the graph shifted and by how many units?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The graphs of \(f(x)\) and \(g(x)\) are shown below. The transformation is a horizontal shift. The function is shifted to the left by 2 units.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_008.jpg" alt="Graph of a square root function and a horizontally shift square foot function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="combining-vertical-and-horizontal-shifts">Combining Vertical and Horizontal Shifts</h3>
+<p>Now that we have two transformations, we can combine them. Vertical shifts are outside changes that affect the output (<strong>y</strong>-) values and shift the function up or down. Horizontal shifts are inside changes that affect the input (<strong>x</strong>-) values and shift the function left or right. Combining the two types of shifts will cause the graph of a function to shift up or down <strong>and</strong> left or right.</p>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a function and both a vertical and a horizontal shift, sketch the graph.</strong></p>
+<ul class="tight"><li>Identify the vertical and horizontal shifts from the formula.</li><li>The vertical shift results from a constant added to the output. Move the graph up for a positive constant and down for a negative constant.</li><li>The horizontal shift results from a constant added to the input. Move the graph left for a positive constant and right for a negative constant.</li><li>Apply the shifts to the graph in either order.</li></ul>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Given \(f(x)=|x|,\) sketch a graph of \(h(x)=f(x+1)-3.\)</p>
+</div><p class="sol-hint">Apply the horizontal shift and vertical shift as two separate, independent moves.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The function \(f\) is our toolkit absolute value function. We know that this graph has a V shape, with the point at the origin. The graph of \(h\) has transformed \(f\) in two ways: \(f(x+1)\) is a change on the inside of the function, giving a horizontal shift left by 1, and the subtraction by 3 in \(f(x+1)-3\) is a change to the outside of the function, giving a vertical shift down by 3. The transformation of the graph is illustrated in <a href="#fig9">Figure 9</a>.</p>
+<p>Let us follow one point of the graph of \(f(x)=|x|.\)</p>
+<ul class="tight"><li>The point \((0,0)\) is transformed first by shifting left 1 unit: \((0,0)\to (-1,0)\)</li><li>The point \((-1,0)\) is transformed next by shifting down 3 units: \((-1,0)\to (-1,-3)\)</li></ul>
+<figure class="plot" id="fig9" data-plot data-spec='{"xmin":-6,"xmax":4,"ymin":-4,"ymax":4,"xstep":1,"ystep":1,"alt":"Graph of f(x)=|x| and its combined shift h(x)=|x+1|-3","curves":[{"fn":"Math.abs(x)","cls":"alt","label":"f(x)=|x|","labelAt":[1.6,2.4]},{"fn":"Math.abs(x+1)-3","label":"h(x)=|x+1|-3","labelAt":[-5.5,-1.2]}],"points":[[0,0,"(0,0)"],[-1,-3,"(-1,-3)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 9</figcaption></figure>
+<p><a href="#fig10">Figure 10</a> shows the graph of \(h.\)</p>
+<figure class="plot" id="fig10" data-plot data-spec='{"xmin":-6,"xmax":4,"ymin":-4,"ymax":4,"xstep":1,"ystep":1,"alt":"Graph of h(x)=|x+1|-3, vertex at (-1,-3)","curves":[{"fn":"Math.abs(x+1)-3","label":"h(x)=|x+1|-3","labelAt":[-5.5,-1.2]}],"points":[[-1,-3,"(-1,-3)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 10</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Given \(f(x)=|x|,\) sketch a graph of \(h(x)=f(x-2)+4.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_010.jpg" alt="Graph of h(x)=|x-2|+4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Write a formula for the graph shown in <a href="#fig11">Figure 11</a>, which is a transformation of the toolkit square root function.</p>
+<figure class="plot" id="fig11" data-plot data-spec='{"xmin":-1,"xmax":8,"ymin":-1,"ymax":6,"xstep":1,"ystep":1,"alt":"Graph of f(x)=square root of x and its combined shift h(x)=square root of (x-1) + 2","curves":[{"fn":"x>=0?Math.sqrt(x):NaN","cls":"alt","label":"f(x)=\u221ax","labelAt":[4.2,2.5]},{"fn":"x>=1?Math.sqrt(x-1)+2:NaN","label":"h(x)=\u221a(x-1)+2","labelAt":[5.3,4.2]}],"points":[[0,0,"(0,0)"],[1,2,"(1,2)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 11</figcaption></figure>
+</div><p class="sol-hint">Start from where the toolkit function begins, then read off how far it moved in each direction.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The graph of the toolkit function starts at the origin, so this graph has been shifted 1 to the right and up 2. In function notation, we could write that as</p>
+<p>\[h(x)=f(x-1)+2\]</p>
+<p>Using the formula for the square root function, we can write</p>
+<p>\[h(x)=\sqrt{x-1}+2\]</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that this transformation has changed the domain and range of the function. This new graph has domain \([1,\infty )\) and range \([2,\infty ).\)</p>
+</div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Write a formula for a transformation of the toolkit reciprocal function \(f(x)=\frac{1}{x}\) that shifts the function’s graph one unit to the right and one unit up.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(g(x)=\frac{1}{x-1}+1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-functions-using-reflections-about-the-axes">Graphing Functions Using Reflections about the Axes</h2>
+<p>Another transformation that can be applied to a function is a reflection over the <strong>x</strong>- or <strong>y</strong>-axis. A <strong>vertical reflection</strong> reflects a graph vertically across the <strong>x</strong>-axis, while a <strong>horizontal reflection</strong> reflects a graph horizontally across the <strong>y</strong>-axis. The reflections are shown in <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig12" data-desmos data-spec='{"bounds":{"left":-6,"right":6,"bottom":-4,"top":4},"sliders":[{"var":"a","min":-1,"max":1,"step":2,"value":1,"color":"#cf003d"},{"var":"b","min":-1,"max":1,"step":2,"value":1,"color":"#cf003d"}],"curves":[{"latex":"y=\\sqrt{x}","color":"#5a5656"},{"latex":"y=a\\sqrt{bx}","color":"#cf003d"}],"alt":"Interactive graph of s(t)=square root of t -- toggle a for a vertical reflection and b for a horizontal reflection"}'><figcaption>Figure 12 — Vertical and horizontal reflections of a function.</figcaption></figure>
+<p>Notice that the vertical reflection produces a new graph that is a mirror image of the base or original graph about the <strong>x</strong>-axis. The horizontal reflection produces a new graph that is a mirror image of the base or original graph about the <strong>y</strong>-axis.</p>
+<div class="card definition"><span class="chip">Reflections</span><p>Given a function \(f(x),\) a new function \(g(x)=-f(x)\) is a <strong>vertical reflection</strong> of the function \(f(x),\) sometimes called a reflection about (or over, or through) the <strong>x</strong>-axis.</p>
+<p>Given a function \(f(x),\) a new function \(g(x)=f(-x)\) is a <strong>horizontal reflection</strong> of the function \(f(x),\) sometimes called a reflection about the <strong>y</strong>-axis.</p>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a function, reflect the graph both vertically and horizontally.</strong></p>
+<ul class="tight"><li>Multiply all outputs by –1 for a vertical reflection. The new graph is a reflection of the original graph about the <strong>x</strong>-axis.</li><li>Multiply all inputs by –1 for a horizontal reflection. The new graph is a reflection of the original graph about the <strong>y</strong>-axis.</li></ul>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Reflect the graph of \(s(t)=\sqrt{t}\) (a) vertically and (b) horizontally.</p>
+</div><p class="sol-hint">Multiply outputs by −1 for one reflection, inputs by −1 for the other — don't mix them up.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐReflecting the graph vertically means that each output value will be reflected over the horizontal <strong>t-</strong>axis as shown in <a href="#fig13">Figure 13</a>. Because each output value is the opposite of the original output value, we can write Notice that this is an outside change, or vertical shift, that affects the output \(s(t)\) values, so the negative sign belongs outside of the function.<p>Reflecting the graph vertically means that each output value will be reflected over the horizontal <strong>t-</strong>axis as shown in <a href="#fig13">Figure 13</a>.</p>
+<figure class="plot" id="fig13" data-plot data-spec='{"xmin":-1,"xmax":8,"ymin":-4,"ymax":4,"xstep":1,"ystep":1,"alt":"Graph of s(t)=square root of t and its vertical reflection V(t)=-square root of t","curves":[{"fn":"x>=0?Math.sqrt(x):NaN","cls":"alt","label":"s(t)=\u221at","labelAt":[4.2,2.6]},{"fn":"x>=0?-Math.sqrt(x):NaN","label":"V(t)=-\u221at","labelAt":[4.2,-2.9]}],"xlabel":"t","ylabel":"y"}'><figcaption>Figure 13 — Vertical reflection of the square root function</figcaption></figure>
+<p>Because each output value is the opposite of the original output value, we can write</p>
+<p>\[V(t)=-s(t)\,\text{or }V(t)=-\sqrt{t}\]</p>
+<p>Notice that this is an outside change, or vertical shift, that affects the output \(s(t)\) values, so the negative sign belongs outside of the function.</p>
+</li><li>ⓑ Reflecting horizontally means that each input value will be reflected over the vertical axis as shown in <a href="#fig14">Figure 14</a>. Because each input value is the opposite of the original input value, we can write Notice that this is an inside change or horizontal change that affects the input values, so the negative sign is on the inside of the function. Note that these transformations can affect the domain and range of the functions. While the original square root function has domain \([0,\infty )\) and range \([0,\infty ),\) the vertical reflection gives the \(V(t)\) function the range \((-\infty ,\,0]\) and the horizontal reflection gives the \(H(t)\) function the domain \((-\infty ,\,0].\)<p>Reflecting horizontally means that each input value will be reflected over the vertical axis as shown in <a href="#fig14">Figure 14</a>.</p>
+<figure class="plot" id="fig14" data-plot data-spec='{"xmin":-8,"xmax":1,"ymin":-1,"ymax":4,"xstep":1,"ystep":1,"alt":"Graph of s(t)=square root of t and its horizontal reflection H(t)=square root of -t","curves":[{"fn":"x>=0?Math.sqrt(x):NaN","cls":"alt","label":"s(t)=\u221at","labelAt":[0.2,2.4]},{"fn":"x<=0?Math.sqrt(-x):NaN","label":"H(t)=\u221a(-t)","labelAt":[-6.2,2.6]}],"xlabel":"t","ylabel":"y"}'><figcaption>Figure 14 — Horizontal reflection of the square root function</figcaption></figure>
+<p>Because each input value is the opposite of the original input value, we can write</p>
+<p>\[H(t)=s(-t)\,\text{or }H(t)=\sqrt{-t}\]</p>
+<p>Notice that this is an inside change or horizontal change that affects the input values, so the negative sign is on the inside of the function.</p>
+<p>Note that these transformations can affect the domain and range of the functions. While the original square root function has domain \([0,\infty )\) and range \([0,\infty ),\) the vertical reflection gives the \(V(t)\) function the range \((-\infty ,\,0]\) and the horizontal reflection gives the \(H(t)\) function the domain \((-\infty ,\,0].\)</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Reflect the graph of \(f(x)=|x-1|\) (a) vertically and (b) horizontally.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_015a.jpg" alt="Graph of a vertically reflected absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>ⓑ<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_015b.jpg" alt="Graph of an absolute function translated one unit left." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>A function \(f(x)\) is given as <a href="#tab29">Table 29</a>. Create a table for the functions below.</p>
+<ul class="tight"><li>ⓐ \(g(x)=-f(x)\)</li><li>ⓑ \(h(x)=f(-x)\)</li></ul>
+<div class="tablewrap" id="tab29"><table class="data"><caption>Table 29</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr></tbody></table></div>
+</div><p class="sol-hint">Flip the sign of the column you're reflecting; leave the other column untouched.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ For \(g(x),\) the negative sign outside the function indicates a vertical reflection, so the <strong>x</strong>-values stay the same and each output value will be the opposite of the original output value. See <a href="#tab30">Table 30</a>.<p>For \(g(x),\) the negative sign outside the function indicates a vertical reflection, so the <strong>x</strong>-values stay the same and each output value will be the opposite of the original output value. See <a href="#tab30">Table 30</a>.</p>
+<div class="tablewrap" id="tab30"><table class="data"><caption>Table 30</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(g(x)\)</strong></td><td>–1</td><td>–3</td><td>–7</td><td>–11</td></tr></tbody></table></div>
+</li><li>ⓑFor \(h(x),\) the negative sign inside the function indicates a horizontal reflection, so each input value will be the opposite of the original input value and the \(h(x)\) values stay the same as the \(f(x)\) values. See <a href="#tab31">Table 31</a>.<p>For \(h(x),\) the negative sign inside the function indicates a horizontal reflection, so each input value will be the opposite of the original input value and the \(h(x)\) values stay the same as the \(f(x)\) values. See <a href="#tab31">Table 31</a>.</p>
+<div class="tablewrap" id="tab31"><table class="data"><caption>Table 31</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−2</td><td>−4</td><td>−6</td><td>−8</td></tr><tr><td><strong>\(h(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr></tbody></table></div>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>A function \(f(x)\) is given as <a href="#tab32">Table 32</a>. Create a table for the functions below.</p>
+<ul class="tight"><li>ⓐ \(g(x)=-f(x)\)</li><li>ⓑ \(h(x)=f(-x)\)</li></ul>
+<div class="tablewrap" id="tab32"><table class="data"><caption>Table 32</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−2</td><td>0</td><td>2</td><td>4</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>5</td><td>10</td><td>15</td><td>20</td></tr></tbody></table></div>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ\(g(x)=-f(x)\)<p>\(g(x)=-f(x)\)</p>
+<div class="tablewrap" id="tab33"><table class="data"><caption>Table 33</caption><tbody><tr><td>\(x\)</td><td>-2</td><td>0</td><td>2</td><td>4</td></tr><tr><td>\(g(x)\)</td><td>\(-5\)</td><td>\(-10\)</td><td>\(-15\)</td><td>\(-20\)</td></tr></tbody></table></div>
+</li><li>ⓑ \(h(x)=f(\text{-}x)\)<p>\(h(x)=f(\text{-}x)\)</p>
+<div class="tablewrap" id="tab34"><table class="data"><caption>Table 34</caption><tbody><tr><td>\(x\)</td><td>-2</td><td>0</td><td>2</td><td>4</td></tr><tr><td>\(h(x)\)</td><td>15</td><td>10</td><td>5</td><td>unknown</td></tr></tbody></table></div>
+</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>A common model for learning has an equation similar to \(k(t)=-{2}^{-t}+1,\) where \(k\) is the percentage of mastery that can be achieved after \(t\) practice sessions. This is a transformation of the function \(f(t)={2}^{t}\) shown in <a href="#fig15">Figure 15</a>. Sketch a graph of \(k(t).\)</p>
+<figure class="plot" id="fig15" data-plot data-spec='{"xmin":-5,"xmax":5,"ymin":-1,"ymax":8,"xstep":1,"ystep":1,"alt":"Graph of f(t)=2^t, passing through (0,1)","curves":[{"fn":"Math.pow(2,x)","label":"f(t)=2^t","labelAt":[1.8,5.4]}],"points":[[0,1,"(0,1)"]],"xlabel":"t","ylabel":"f(t)"}'><figcaption>Figure 15</figcaption></figure>
+</div><p class="sol-hint">Break the equation into its three transformations one at a time before graphing.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This equation combines three transformations into one equation.</p>
+<ul class="tight"><li>A horizontal reflection: \(f(\text{-}t)={2}^{-t}\)</li><li>A vertical reflection: \(-f(\text{-}t)=-{2}^{-t}\)</li><li>A vertical shift: \(-f(\text{-}t)+1=-{2}^{-t}+1\)</li></ul>
+<p>We can sketch a graph by applying these transformations one at a time to the original function. Let us follow two points through each of the three transformations. We will choose the points (0, 1) and (1, 2).</p>
+<ul class="tight"><li>First, we apply a horizontal reflection: (0, 1) (–1, 2).</li><li>Then, we apply a vertical reflection: (0, -1) (-1, –2)</li><li>Finally, we apply a vertical shift: (0, 0) (-1, -1)).</li></ul>
+<p>This means that the original points, (0,1) and (1,2) become (0,0) and (-1,-1) after we apply the transformations.</p>
+<p>In <a href="#fig16">Figure 16</a>, the first graph results from a horizontal reflection. The second results from a vertical reflection. The third results from a vertical shift up 1 unit.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_017abc-cc59.jpg" alt="Graphs of all the transformations." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16</figcaption></figure>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>As a model for learning, this function would be limited to a domain of \(t\ge 0,\) with corresponding range \([0,1).\)</p>
+</div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Given the toolkit function \(f(x)={x}^{2},\) graph \(g(x)=-f(x)\) and \(h(x)=f(-x).\) Take note of any surprising behavior for these functions.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_020.jpg" alt="Graph of x^2 and its reflections." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Notice: \(g(x)=f(-x)\) looks the same as \(f(x)\) .</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="determining-even-and-odd-functions">Determining Even and Odd Functions</h2>
+<p>Some functions exhibit symmetry so that reflections result in the original graph. For example, horizontally reflecting the toolkit functions \(f(x)={x}^{2}\) or \(f(x)=|x|\) will result in the original graph. We say that these types of graphs are symmetric about the <strong>y</strong>-axis. A function whose graph is symmetric about the <strong>y</strong>-axis is called an <strong>even function.</strong></p>
+<p>If the graphs of \(f(x)={x}^{3}\) or \(f(x)=\frac{1}{x}\) were reflected over <strong>both</strong> axes, the result would be the original graph, as shown in <a href="#fig17">Figure 17</a>.</p>
+<figure class="plot" id="fig17" data-desmos data-spec='{"bounds":{"left":-3,"right":3,"bottom":-8,"top":8},"sliders":[{"var":"a","min":-1,"max":1,"step":2,"value":1,"color":"#cf003d"},{"var":"b","min":-1,"max":1,"step":2,"value":1,"color":"#cf003d"}],"curves":[{"latex":"y=x^{3}","color":"#5a5656"},{"latex":"y=a\\left(bx\\right)^{3}","color":"#cf003d"}],"alt":"Interactive graph of f(x)=x^3 -- toggle a for a vertical reflection and b for a horizontal reflection; both together reproduce the original odd function"}'><figcaption>Figure 17 — (a) The cubic toolkit function (b) Horizontal reflection of the cubic toolkit function (c) Horizontal and vertical reflections reproduce the original cubic function.</figcaption></figure>
+<p>We say that these graphs are symmetric about the origin. A function with a graph that is symmetric about the origin is called an <strong>odd function</strong>.</p>
+<p>Note: A function can be neither even nor odd if it does not exhibit either symmetry. For example, \(f(x)={2}^{x}\) is neither even nor odd. Also, the only function that is both even and odd is the constant function \(f(x)=0.\)</p>
+<div class="card definition"><span class="chip">Even and Odd Functions</span><p>A function is called an <strong>even function</strong> if for every input \(x\)</p>
+<p>\[f(x)=f(-x)\]</p>
+<p>The graph of an even function is symmetric about the \(y\text{-}\) axis.</p>
+<p>A function is called an <strong>odd function</strong> if for every input \(x\)</p>
+<p>\[f(x)=-f(-x)\]</p>
+<p>The graph of an odd function is symmetric about the origin.</p>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given the formula for a function, determine if the function is even, odd, or neither.</strong></p>
+<ul class="tight"><li>Determine whether the function satisfies \(f(x)=f(-x).\) If it does, it is even.</li><li>Determine whether the function satisfies \(f(x)=-f(-x).\) If it does, it is odd.</li><li>If the function does not satisfy either rule, it is neither even nor odd.</li></ul>
+</div>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Is the function \(f(x)={x}^{3}+2x\) even, odd, or neither?</p>
+</div><p class="sol-hint">Test both f(−x)=f(x) and f(−x)=−f(x) — a function can fail both.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Without looking at a graph, we can determine whether the function is even or odd by finding formulas for the reflections and determining if they return us to the original function. Let’s begin with the rule for even functions.</p>
+<p>\[f(-x)={(-x)}^{3}+2(-x)=-{x}^{3}-2x\]</p>
+<p>This does not return us to the original function, so this function is not even. We can now test the rule for odd functions.</p>
+<p>\[-f(-x)=-(-{x}^{3}-2x)={x}^{3}+2x\]</p>
+<p>Because \(-f(-x)=f(x),\) this is an odd function.</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>Consider the graph of \(f\) in <a href="#fig18">Figure 18</a>. Notice that the graph is symmetric about the origin. For every point \((x,y)\) on the graph, the corresponding point \((-x,-y)\) is also on the graph. For example, (1, 3) is on the graph of \(f,\) and the corresponding point \((-1,-3)\) is also on the graph.</p>
+<figure class="plot" id="fig18" data-plot data-spec='{"xmin":-1.8,"xmax":1.8,"ymin":-5,"ymax":5,"xstep":0.5,"ystep":1,"alt":"Graph of f(x)=x^3+2x with labeled points at (1,3) and (-1,-3)","curves":[{"fn":"x*x*x+2*x","label":"f(x)=x^3+2x","labelAt":[1.1,4.2]}],"points":[[1,3,"(1,3)"],[-1,-3,"(-1,-3)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 18</figcaption></figure>
+</div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Is the function \(f(s)={s}^{4}+3{s}^{2}+7\) even, odd, or neither?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>even</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-functions-using-stretches-and-compressions">Graphing Functions Using Stretches and Compressions</h2>
+<p>Adding a constant to the inputs or outputs of a function changed the position of a graph with respect to the axes, but it did not affect the shape of a graph. We now explore the effects of multiplying the inputs or outputs by some quantity.</p>
+<p>We can transform the inside (input values) of a function or we can transform the outside (output values) of a function. Each change has a specific effect that can be seen graphically.</p>
+<h3 id="vertical-stretches-and-compressions">Vertical Stretches and Compressions</h3>
+<p>When we multiply a function by a positive constant, we get a function whose graph is stretched or compressed vertically in relation to the graph of the original function. If the constant is greater than 1, we get a <strong>vertical stretch</strong>; if the constant is between 0 and 1, we get a<strong>vertical compression</strong>. <a href="#fig19">Figure 19</a> shows a function multiplied by constant factors 2 and 0.5 and the resulting vertical stretch and compression.</p>
+<figure class="plot" id="fig19" data-desmos data-spec='{"bounds":{"left":-3,"right":3,"bottom":-1,"top":9},"sliders":[{"var":"a","min":0.2,"max":4,"step":0.1,"value":2,"color":"#cf003d"}],"curves":[{"latex":"y=x^{2}","color":"#5a5656"},{"latex":"y=a\\cdot x^{2}","color":"#cf003d"}],"alt":"Interactive graph of f(x)=x^2 and a vertical stretch/compression g(x)=a times f(x) -- drag a"}'><figcaption>Figure 19 — Vertical stretch and compression</figcaption></figure>
+<div class="card definition"><span class="chip">Vertical Stretches and Compressions</span><p>Given a function \(f(x),\) a new function \(g(x)=af(x),\) where \(a\) is a constant, is a <strong>vertical stretch</strong> or <strong>vertical compression</strong> of the function \(f(x).\)</p>
+<ul class="tight"><li>If \(a&gt;1,\) then the graph will be stretched.</li><li>If \(0&lt;a&lt;1,\) then the graph will be compressed.</li><li>If \(a&lt;0,\) then there will be combination of a vertical stretch or compression with a vertical reflection.</li></ul>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a function, graph its vertical stretch.</strong></p>
+<ul class="tight"><li>Identify the value of \(a.\)</li><li>Multiply all range values by \(a.\)</li><li>If \(a&gt;1,\) the graph is stretched by a factor of \(a.\) If \(0&lt;a&lt;1,\) the graph is compressed by a factor of \(a.\) If \(a&lt;0,\) the graph is either stretched or compressed and also reflected about the <strong>x</strong>-axis.<p>If \(a&gt;1,\) the graph is stretched by a factor of \(a.\)</p>
+<p>If \(0&lt;a&lt;1,\) the graph is compressed by a factor of \(a.\)</p>
+<p>If \(a&lt;0,\) the graph is either stretched or compressed and also reflected about the <strong>x</strong>-axis.</p>
+</li></ul>
+</div>
+<div class="card example" id="example13"><div class="ex-head"><span class="num">Example 13</span><span class="t"></span></div><div class="ex-body"><p>A function \(P(t)\) models the population of fruit flies. The graph is shown in <a href="#fig20">Figure 20</a>.</p>
+<figure class="plot" id="fig20"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_025.jpg" alt="Graph to represent the growth of the population of fruit flies." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 20</figcaption></figure>
+<p>A scientist is comparing this population to another population, \(Q,\) whose growth follows the same pattern, but is twice as large. Sketch a graph of this population.</p>
+</div><p class="sol-hint">Find one clear point on the graph and compare its output to the toolkit function at the same input.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because the population is always twice as large, the new population’s output values are always twice the original function’s output values. Graphically, this is shown in <a href="#fig21">Figure 21</a>.</p>
+<p>If we choose four reference points, (0, 1), (3, 3), (6, 2) and (7, 0) we will multiply all of the outputs by 2.</p>
+<p>The following shows where the new points for the new graph will be located.</p>
+<p>\[\begin{array}{l}(0,\,\,1)\to (0,\,\,2) \\ (3,\,\,3)\to (3,\,\,6) \\ (6,\,\,2)\to (6,\,\,4) \\ (7,\,\,0)\to (7,\,\,0)\end{array}\]</p>
+<figure class="plot" id="fig21"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_026.jpg" alt="Graph of the population function doubled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 21</figcaption></figure>
+<p>Symbolically, the relationship is written as</p>
+<p>\[Q(t)=2P(t)\]</p>
+<p>This means that for any input \(t,\) the value of the function \(Q\) is twice the value of the function \(P.\) Notice that the effect on the graph is a vertical stretching of the graph, where every point doubles its distance from the horizontal axis. The input values, \(t,\) stay the same while the output values are twice as large as before.</p>
+</div></div></div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a tabular function and assuming that the transformation is a vertical stretch or compression, create a table for a vertical compression.</strong></p>
+<ul class="tight"><li>Determine the value of \(a.\)</li><li>Multiply all of the output values by \(a.\)</li></ul>
+</div>
+<div class="card example" id="example14"><div class="ex-head"><span class="num">Example 14</span><span class="t"></span></div><div class="ex-body"><p>A function \(f\) is given as <a href="#tab35">Table 35</a>. Create a table for the function \(g(x)=\frac{1}{2}f(x).\)</p>
+<div class="tablewrap" id="tab35"><table class="data"><caption>Table 35</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr></tbody></table></div>
+</div><p class="sol-hint">Multiply every output in the table by the same constant.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The formula \(g(x)=\frac{1}{2}f(x)\) tells us that the output values of \(g\) are half of the output values of \(f\) with the same inputs. For example, we know that \(f(4)=3.\) Then</p>
+<p>\[g(4)=\frac{1}{2}f(4)=\frac{1}{2}(3)=\frac{3}{2}\]</p>
+<p>We do the same for the other values to produce <a href="#tab36">Table 36</a>.</p>
+<div class="tablewrap" id="tab36"><table class="data"><caption>Table 36</caption><tbody><tr><td><strong>\(x\)</strong></td><td>\(2\)</td><td>\(4\)</td><td>\(6\)</td><td>\(8\)</td></tr><tr><td><strong>\(g(x)\)</strong></td><td>\(\frac{1}{2}\)</td><td>\(\frac{3}{2}\)</td><td>\(\frac{7}{2}\)</td><td>\(\frac{11}{2}\)</td></tr></tbody></table></div>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>The result is that the function \(g(x)\) has been compressed vertically by \(\frac{1}{2}.\) Each output value is divided in half, so the graph is half the original height.</p>
+</div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>A function \(f\) is given as <a href="#tab37">Table 37</a>. Create a table for the function \(g(x)=\frac{3}{4}f(x).\)</p>
+<div class="tablewrap" id="tab37"><table class="data"><caption>Table 37</caption><tbody><tr><td>\(x\)</td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td>\(f(x)\)</td><td>12</td><td>16</td><td>20</td><td>0</td></tr></tbody></table></div>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><div class="tablewrap" id="tab38"><table class="data"><caption>Table 38</caption><tbody><tr><td>\(x\)</td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td>\(g(x)\)</td><td>9</td><td>12</td><td>15</td><td>0</td></tr></tbody></table></div>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example15"><div class="ex-head"><span class="num">Example 15</span><span class="t"></span></div><div class="ex-body"><p>The graph in <a href="#fig22">Figure 22</a> is a transformation of the toolkit function \(f(x)={x}^{3}.\) Relate this new function \(g(x)\) to \(f(x),\) and then find a formula for \(g(x).\)</p>
+<figure class="plot" id="fig22" data-plot data-spec='{"xmin":-2.2,"xmax":2.2,"ymin":-9,"ymax":9,"xstep":0.5,"ystep":2,"alt":"Graph of f(x)=x^3 and its vertical compression g(x)=(1/4)x^3","curves":[{"fn":"x*x*x","cls":"alt","label":"f(x)=x^3","labelAt":[1.5,7.4]},{"fn":"0.25*x*x*x","label":"g(x)=\u00bcx^3","labelAt":[1.9,1.2]}],"points":[[2,8,"(2,8)"],[2,2,"(2,2)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 22</figcaption></figure>
+</div><p class="sol-hint">Pick a point that's easy to read exactly, then compare it to the toolkit function.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>When trying to determine a vertical stretch or shift, it is helpful to look for a point on the graph that is relatively clear. In this graph, it appears that \(g(2)=2.\) With the basic cubic function at the same input, \(f(2)={2}^{3}=8.\) Based on that, it appears that the outputs of \(g\) are \(\frac{1}{4}\) the outputs of the function \(f\) because \(g(2)=\frac{1}{4}f(2).\) From this we can fairly safely conclude that \(g(x)=\frac{1}{4}f(x).\)</p>
+<p>We can write a formula for \(g\) by using the definition of the function \(f.\)</p>
+<p>\[g(x)=\frac{1}{4}f(x)=\frac{1}{4}{x}^{3}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>Write the formula for the function that we get when we stretch the identity toolkit function by a factor of 3, and then shift it down by 2 units.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(g(x)=3x-2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="horizontal-stretches-and-compressions">Horizontal Stretches and Compressions</h3>
+<p>Now we consider changes to the inside of a function. When we multiply a function’s input by a positive constant, we get a function whose graph is stretched or compressed horizontally in relation to the graph of the original function. If the constant is between 0 and 1, we get a <strong>horizontal stretch</strong>; if the constant is greater than 1, we get a <strong>horizontal compression</strong> of the function.</p>
+<figure class="plot" id="fig23" data-desmos data-spec='{"bounds":{"left":-6,"right":6,"bottom":-1,"top":9},"sliders":[{"var":"b","min":0.2,"max":4,"step":0.1,"value":0.5,"color":"#cf003d"}],"curves":[{"latex":"y=x^{2}","color":"#5a5656"},{"latex":"y=\\left(bx\\right)^{2}","color":"#cf003d"}],"alt":"Interactive graph of y=x^2 and a horizontal stretch/compression y=(bx)^2 -- drag b"}'><figcaption>Figure 23</figcaption></figure>
+<p>Given a function \(y=f(x),\) the form \(y=f(bx)\) results in a horizontal stretch or compression. Consider the function \(y={x}^{2}.\) Observe <a href="#fig23">Figure 23</a>. The graph of \(y={(0.5x)}^{2}\) is a horizontal stretch of the graph of the function \(y={x}^{2}\) by a factor of 2. The graph of \(y={(2x)}^{2}\) is a horizontal compression of the graph of the function \(y={x}^{2}\) by a factor of \(2\) .</p>
+<div class="card definition"><span class="chip">Horizontal Stretches and Compressions</span><p>Given a function \(f(x),\) a new function \(g(x)=f(bx),\) where \(b\) is a constant, is a <strong>horizontal stretch</strong> or <strong>horizontal compression</strong> of the function \(f(x).\)</p>
+<ul class="tight"><li>If \(b&gt;1,\) then the graph will be compressed by \(\frac{1}{b}.\)</li><li>If \(0&lt;b&lt;1,\) then the graph will be stretched by \(\frac{1}{b}.\)</li><li>If \(b&lt;0,\) then there will be combination of a horizontal stretch or compression with a horizontal reflection.</li></ul>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a description of a function, sketch a horizontal compression or stretch.</strong></p>
+<ul class="tight"><li>Write a formula to represent the function.</li><li>Set \(g(x)=f(bx)\) where \(b&gt;1\) for a compression or \(0&lt;b&lt;1\) for a stretch.</li></ul>
+</div>
+<div class="card example" id="example16"><div class="ex-head"><span class="num">Example 16</span><span class="t"></span></div><div class="ex-body"><p>Suppose a scientist is comparing a population of fruit flies to a population that progresses through its lifespan twice as fast as the original population. In other words, this new population, \(R,\) will progress in 1 hour the same amount as the original population does in 2 hours, and in 2 hours, it will progress as much as the original population does in 4 hours. Sketch a graph of this population.</p>
+</div><p class="sol-hint">Rewrite the new timing as R(t)=P(bt) — figure out b from how the events line up.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Symbolically, we could write</p>
+<p>\[\begin{array}{lll}R(1) &amp; = &amp; P(2), \\ R(2) &amp; = &amp; P(4),\,\text{and in general,} \\ R(t) &amp; = &amp; P(2t).\end{array}\]</p>
+<p>See <a href="#fig24">Figure 24</a> for a graphical comparison of the original population and the compressed population.</p>
+<figure class="plot" id="fig24"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_029ab.jpg" alt="Two side-by-side graphs. The first graph has function for original population whose domain is [0,7] and range is [0,3]. The maximum value occurs at (3,3). The second graph has the same shape as the first except it is half as wide. It is a graph of transformed population, with a domain of [0, 3.5] and a range of [0,3]. The maximum occurs at (1.5, 3). " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 24 — (a) Original population graph (b) Compressed population graph</figcaption></figure>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that the effect on the graph is a horizontal compression where all input values are half of their original distance from the vertical axis.</p>
+</div></div>
+<div class="card example" id="example17"><div class="ex-head"><span class="num">Example 17</span><span class="t"></span></div><div class="ex-body"><p>A function \(f(x)\) is given as <a href="#tab39">Table 39</a>. Create a table for the function \(g(x)=f(\frac{1}{2}x).\)</p>
+<div class="tablewrap" id="tab39"><table class="data"><caption>Table 39</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr></tbody></table></div>
+</div><p class="sol-hint">Multiply every input value in the table by the same constant before evaluating.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The formula \(g(x)=f(\frac{1}{2}x)\) tells us that the output values for \(g\) are the same as the output values for the function \(f\) at an input half the size. Notice that we do not have enough information to determine \(g(2)\) because \(g(2)=f(\frac{1}{2}\cdot 2)=f(1),\) and we do not have a value for \(f(1)\) in our table. Our input values to \(g\) will need to be twice as large to get inputs for \(f\) that we can evaluate. For example, we can determine \(g(4)\text{.}\)</p>
+<p>\[g(4)=f(\frac{1}{2}\cdot 4)=f(2)=1\]</p>
+<p>We do the same for the other values to produce <a href="#tab40">Table 40</a>.</p>
+<div class="tablewrap" id="tab40"><table class="data"><caption>Table 40</caption><tbody><tr><td><strong>\(x\)</strong></td><td>4</td><td>8</td><td>12</td><td>16</td></tr><tr><td><strong>\(g(x)\)</strong></td><td>1</td><td>3</td><td>7</td><td>11</td></tr></tbody></table></div>
+<p><a href="#fig25">Figure 25</a> shows the graphs of both of these sets of points.</p>
+<figure class="plot" id="fig25"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_031.jpg" alt="Graph of the previous table." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 25</figcaption></figure>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>Because each input value has been doubled, the result is that the function \(g(x)\) has been stretched horizontally by a factor of 2.</p>
+</div></div>
+<div class="card example" id="example18"><div class="ex-head"><span class="num">Example 18</span><span class="t"></span></div><div class="ex-body"><p>Relate the function \(g(x)\) to \(f(x)\) in <a href="#fig26">Figure 26</a>.</p>
+<figure class="plot" id="fig26"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_032.jpg" alt="Graph of f(x) being vertically compressed to g(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 26</figcaption></figure>
+</div><p class="sol-hint">Compare where each graph ends or turns to find the horizontal scale factor.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The graph of \(g(x)\) looks like the graph of \(f(x)\) horizontally compressed. Because \(f(x)\) ends at \((6,4)\) and \(g(x)\) ends at \((2,4),\) we can see that the \(x\text{-}\) values have been compressed by \(\frac{1}{3},\) because \(6(\frac{1}{3})=2.\) We might also notice that \(g(2)=f(6)\) and \(g(1)=f(3).\) Either way, we can describe this relationship as \(g(x)=f(3x).\) This is a horizontal compression by \(\frac{1}{3}.\)</p>
+</div></div><div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice that the coefficient needed for a horizontal stretch or compression is the reciprocal of the stretch or compression. So to stretch the graph horizontally by a scale factor of 4, we need a coefficient of \(\frac{1}{4}\) in our function: \(f(\frac{1}{4}x).\) This means that the input values must be four times larger to produce the same result, requiring the input to be larger, causing the horizontal stretching.</p>
+</div></div>
+<div class="tryit" id="tryit-11"><div class="ex-head"><span class="num">Try It #11</span></div><div class="ex-body"><p>Write a formula for the toolkit square root function horizontally stretched by a factor of 3.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(g(x)=f(\frac{1}{3}x)\) so using the square root function we get \(g(x)=\sqrt{\frac{1}{3}x}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="performing-a-sequence-of-transformations">Performing a Sequence of Transformations</h2>
+<p>When combining transformations, it is very important to consider the order of the transformations. For example, vertically shifting by 3 and then vertically stretching by 2 does not create the same graph as vertically stretching by 2 and then vertically shifting by 3, because when we shift first, both the original function and the shift get stretched, while only the original function gets stretched when we stretch first.</p>
+<p>When we see an expression such as \(2f(x)+3,\) which transformation should we start with? The answer here follows nicely from the order of operations. Given the output value of \(f(x),\) we first multiply by 2, causing the vertical stretch, and then add 3, causing the vertical shift. In other words, multiplication before addition.</p>
+<p>Horizontal transformations are a little trickier to think about. When we write \(g(x)=f(2x+3),\) for example, we have to think about how the inputs to the function \(g\) relate to the inputs to the function \(f.\) Suppose we know \(f(7)=12.\) What input to \(g\) would produce that output? In other words, what value of \(x\) will allow \(g(x)=f(2x+3)=12?\) We would need \(2x+3=7.\) To solve for \(x,\) we would first subtract 3, resulting in a horizontal shift, and then divide by 2, causing a horizontal compression.</p>
+<p>This format ends up being very difficult to work with, because it is usually much easier to horizontally stretch a graph before shifting. We can work around this by factoring inside the function.</p>
+<p>\[f(bx+p)=f(b(x+\frac{p}{b}))\]</p>
+<p>Let’s work through an example.</p>
+<p>\[f(x)={(2x+4)}^{2}\]</p>
+<p>We can factor out a 2.</p>
+<p>\[f(x)={(2(x+2))}^{2}\]</p>
+<p>Now we can more clearly observe a horizontal shift to the left 2 units and a horizontal compression. Factoring in this way allows us to horizontally stretch first and then shift horizontally.</p>
+<div class="card definition"><span class="chip">Combining Transformations</span><p>When combining vertical transformations written in the form \(af(x)+k,\) first vertically stretch by \(a\) and then vertically shift by \(k.\)</p>
+<p>When combining horizontal transformations written in the form \(f(bx-h),\) first horizontally shift by \(h\) and then horizontally stretch by \(1b.\)</p>
+<p>When combining horizontal transformations written in the form \(f(b(x-h)),\) first horizontally stretch by \(\frac{1}{b}\) and then horizontally shift by \(h.\)</p>
+<p>Horizontal and vertical transformations are independent. It does not matter whether horizontal or vertical transformations are performed first.</p>
+</div>
+<div class="card example" id="example19"><div class="ex-head"><span class="num">Example 19</span><span class="t"></span></div><div class="ex-body"><p>Given <a href="#tab41">Table 41</a> for the function \(f(x),\) create a table of values for the function \(g(x)=2f(3x)+1.\)</p>
+<div class="tablewrap" id="tab41"><table class="data"><caption>Table 41</caption><tbody><tr><td><strong>\(x\)</strong></td><td>6</td><td>12</td><td>18</td><td>24</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>10</td><td>14</td><td>15</td><td>17</td></tr></tbody></table></div>
+</div><p class="sol-hint">Multiply every input by b first, then apply the rest of the table.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>There are three steps to this transformation, and we will work from the inside out. Starting with the horizontal transformations, \(f(3x)\) is a horizontal compression by \(\frac{1}{3},\) which means we multiply each \(x\text{-}\) value by \(\frac{1}{3}.\) See <a href="#tab42">Table 42</a>.</p>
+<div class="tablewrap" id="tab42"><table class="data"><caption>Table 42</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(f(3x)\)</strong></td><td>10</td><td>14</td><td>15</td><td>17</td></tr></tbody></table></div>
+<p>Looking now to the vertical transformations, we start with the vertical stretch, which will multiply the output values by 2. We apply this to the previous transformation. See <a href="#tab43">Table 43</a>.</p>
+<div class="tablewrap" id="tab43"><table class="data"><caption>Table 43</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(2f(3x)\)</strong></td><td>20</td><td>28</td><td>30</td><td>34</td></tr></tbody></table></div>
+<p>Finally, we can apply the vertical shift, which will add 1 to all the output values. See <a href="#tab44">Table 44</a>.</p>
+<div class="tablewrap" id="tab44"><table class="data"><caption>Table 44</caption><tbody><tr><td><strong>\(x\)</strong></td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td><strong>\(g(x)=2f(3x)+1\)</strong></td><td>21</td><td>29</td><td>31</td><td>35</td></tr></tbody></table></div>
+</div></div></div>
+<div class="card example" id="example20"><div class="ex-head"><span class="num">Example 20</span><span class="t"></span></div><div class="ex-body"><p>Use the graph of \(f(x)\) in <a href="#fig27">Figure 27</a> to sketch a graph of \(k(x)=f(\frac{1}{2}x+1)-3.\)</p>
+<figure class="plot" id="fig27" data-plot data-spec='{"xmin":-3,"xmax":3,"ymin":-1,"ymax":3,"xstep":1,"ystep":1,"alt":"Graph of f(x)=square root of (4-x^2), a half-circle, with labeled points (0,2) and (2,0)","curves":[{"fn":"(4-x*x)>=0?Math.sqrt(4-x*x):NaN","label":"f(x)=\u221a(4-x\u00b2)","labelAt":[-2.7,1.8]}],"points":[[0,2,"(0,2)"],[2,0,"(2,0)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 27</figcaption></figure>
+</div><p class="sol-hint">Factor the inside of the function first to separate the horizontal stretch from the shift.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To simplify, let’s start by factoring out the inside of the function.</p>
+<p>\[f(\frac{1}{2}x+1)-3=f(\frac{1}{2}(x+2))-3\]</p>
+<p>By factoring the inside, we can first horizontally stretch by 2, as indicated by the \(\frac{1}{2}\) on the inside of the function. Remember that twice the size of 0 is still 0, so the point (0,2) remains at (0,2) while the point (2,0) will stretch to (4,0). See <a href="#fig28">Figure 28</a>.</p>
+<figure class="plot" id="fig28" data-plot data-spec='{"xmin":-5,"xmax":5,"ymin":-1,"ymax":3,"xstep":1,"ystep":1,"alt":"Graph of the half-circle stretched horizontally by a factor of 2, with labeled points (0,2) and (4,0)","curves":[{"fn":"(4-(x/2)*(x/2))>=0?Math.sqrt(4-(x/2)*(x/2)):NaN","label":"f(x/2)","labelAt":[-4.5,1.8]}],"points":[[0,2,"(0,2)"],[4,0,"(4,0)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 28</figcaption></figure>
+<p>Next, we horizontally shift left by 2 units, as indicated by \(x+2.\) See <a href="#fig29">Figure 29</a>.</p>
+<figure class="plot" id="fig29" data-plot data-spec='{"xmin":-7,"xmax":3,"ymin":-1,"ymax":3,"xstep":1,"ystep":1,"alt":"Graph of the stretched half-circle shifted left 2 units, with labeled points (-2,2) and (2,0)","curves":[{"fn":"(4-((x+2)/2)*((x+2)/2))>=0?Math.sqrt(4-((x+2)/2)*((x+2)/2)):NaN","label":"f((x+2)/2)","labelAt":[-6.5,1.8]}],"points":[[-2,2,"(-2,2)"],[2,0,"(2,0)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 29</figcaption></figure>
+<p>Last, we vertically shift down by 3 to complete our sketch, as indicated by the \(-3\) on the outside of the function. See <a href="#fig30">Figure 30</a>.</p>
+<figure class="plot" id="fig30" data-plot data-spec='{"xmin":-7,"xmax":3,"ymin":-4,"ymax":0,"xstep":1,"ystep":1,"alt":"Graph of k(x)=f((x+2)/2)-3, the final triple transformation, with labeled points (-2,-1) and (2,-3)","curves":[{"fn":"(4-((x+2)/2)*((x+2)/2))>=0?Math.sqrt(4-((x+2)/2)*((x+2)/2))-3:NaN","label":"k(x)","labelAt":[-6.5,-1.2]}],"points":[[-2,-1,"(-2,-1)"],[2,-3,"(2,-3)"]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 30</figcaption></figure>
+</div></div></div>
+<div class="card callout"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with transformation of functions.</p>
+<ul class="tight"><li>Function Transformations</li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab45"><table class="data"><caption>Table 45</caption><tbody><tr><td>Vertical shift</td><td>\(g(x)=f(x)+k\) (up for \(k&gt;0\) )</td></tr><tr><td>Horizontal shift</td><td>\(g(x)=f(x-h)\) (right for \(h&gt;0\) )</td></tr><tr><td>Vertical reflection</td><td>\(g(x)=-f(x)\)</td></tr><tr><td>Horizontal reflection</td><td>\(g(x)=f(-x)\)</td></tr><tr><td>Vertical stretch</td><td>\(g(x)=af(x)\) ( \(a&gt;0\) )</td></tr><tr><td>Vertical compression</td><td>\(g(x)=af(x)\) \((0&lt;a&lt;1)\)</td></tr><tr><td>Horizontal stretch</td><td>\(g(x)=f(bx)\) \((0&lt;b&lt;1)\)</td></tr><tr><td>Horizontal compression.</td><td>\(g(x)=f(bx)\) ( \(b&gt;1\) )</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A function can be shifted vertically by adding a constant to the output. See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.</li><li>A function can be shifted horizontally by adding a constant to the input. See <a href="#example3">Example 3</a>, <a href="#example4">Example 4</a>, and <a href="#example5">Example 5</a>.</li><li>Relating the shift to the context of a problem makes it possible to compare and interpret vertical and horizontal shifts. See <a href="#example6">Example 6</a>.</li><li>Vertical and horizontal shifts are often combined. See <a href="#example7">Example 7</a> and <a href="#example8">Example 8</a>.</li><li>A vertical reflection reflects a graph about the \(x\text{-}\) axis. A graph can be reflected vertically by multiplying the output by –1.</li><li>A horizontal reflection reflects a graph about the \(y\text{-}\) axis. A graph can be reflected horizontally by multiplying the input by –1.</li><li>A graph can be reflected both vertically and horizontally. The order in which the reflections are applied does not affect the final graph. See <a href="#example9">Example 9</a>.</li><li>A function presented in tabular form can also be reflected by multiplying the values in the input and output rows or columns accordingly. See <a href="#example10">Example 10</a>.</li><li>A function presented as an equation can be reflected by applying transformations one at a time. See <a href="#example11">Example 11</a>.</li><li>Even functions are symmetric about the \(y\text{-}\) axis, whereas odd functions are symmetric about the origin.</li><li>Even functions satisfy the condition \(f(x)=f(-x).\)</li><li>Odd functions satisfy the condition \(f(x)=-f(-x).\)</li><li>A function can be odd, even, or neither. See <a href="#example12">Example 12</a>.</li><li>A function can be compressed or stretched vertically by multiplying the output by a constant. See <a href="#example13">Example 13</a>, <a href="#example14">Example 14</a>, and <a href="#example15">Example 15</a>.</li><li>A function can be compressed or stretched horizontally by multiplying the input by a constant. See <a href="#example16">Example 16</a>, <a href="#example17">Example 17</a>, and <a href="#example18">Example 18</a>.</li><li>The order in which different transformations are applied does affect the final function. Both vertical and horizontal transformations must be applied in the order given. However, a vertical transformation may be combined with a horizontal transformation in any order. See <a href="#example19">Example 19</a> and <a href="#example20">Example 20</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise"><div class="n">1</div><div class="body"><p>When examining the formula of a function that is the result of multiple transformations, how can you tell a horizontal shift from a vertical shift?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A horizontal shift results when a constant is added to or subtracted from the input. A vertical shifts results when a constant is added to or subtracted from the output.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">2</div><div class="body"><p>When examining the formula of a function that is the result of multiple transformations, how can you tell a horizontal stretch from a vertical stretch?</p>
+</div></div>
+<div class="exercise"><div class="n">3</div><div class="body"><p>When examining the formula of a function that is the result of multiple transformations, how can you tell a horizontal compression from a vertical compression?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A horizontal compression results when a constant greater than 1 is multiplied by the input. A vertical compression results when a constant between 0 and 1 is multiplied by the output.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">4</div><div class="body"><p>When examining the formula of a function that is the result of multiple transformations, how can you tell a reflection with respect to the <strong>x</strong>-axis from a reflection with respect to the <strong>y</strong>-axis?</p>
+</div></div>
+<div class="exercise"><div class="n">5</div><div class="body"><p>How can you determine whether a function is odd or even from the formula of the function?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>For a function \(f,\) substitute \((-x)\) for \((x)\) in \(f(x).\) Simplify. If the resulting function is the same as the original function, \(f(-x)=f(x),\) then the function is even. If the resulting function is the opposite of the original function, \(f(-x)=-f(x),\) then the original function is odd. If the function is not the same or the opposite, then the function is neither odd nor even.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, write a formula for the function obtained when the graph is shifted as described.</p>
+<div class="exercise"><div class="n">6</div><div class="body"><p>\(f(x)=\sqrt{x}\) is shifted up 1 unit and to the left 2 units.</p>
+</div></div>
+<div class="exercise"><div class="n">7</div><div class="body"><p>\(f(x)=|x|\) is shifted down 3 units and to the right 1 unit.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=|x-1|-3\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">8</div><div class="body"><p>\(f(x)=\frac{1}{x}\) is shifted down 4 units and to the right 3 units.</p>
+</div></div>
+<div class="exercise"><div class="n">9</div><div class="body"><p>\(f(x)=\frac{1}{{x}^{2}}\) is shifted up 2 units and to the left 4 units.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=\frac{1}{{(x+4)}^{2}}+2\)</p>
+</div></div></div></div>
+<p>For the following exercises, describe how the graph of the function is a transformation of the graph of the original function \(f.\)</p>
+<div class="exercise"><div class="n">10</div><div class="body"><p>\(y=f(x-49)\)</p>
+</div></div>
+<div class="exercise"><div class="n">11</div><div class="body"><p>\(y=f(x+43)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(f(x+43)\) is a horizontal shift to the left 43 units of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">12</div><div class="body"><p>\(y=f(x+3)\)</p>
+</div></div>
+<div class="exercise"><div class="n">13</div><div class="body"><p>\(y=f(x-4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(f(x-4)\) is a horizontal shift to the right 4 units of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">14</div><div class="body"><p>\(y=f(x)+5\)</p>
+</div></div>
+<div class="exercise"><div class="n">15</div><div class="body"><p>\(y=f(x)+8\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(f(x)+8\) is a vertical shift up 8 units of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">16</div><div class="body"><p>\(y=f(x)-2\)</p>
+</div></div>
+<div class="exercise"><div class="n">17</div><div class="body"><p>\(y=f(x)-7\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(f(x)-7\) is a vertical shift down 7 units of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">18</div><div class="body"><p>\(y=f(x-2)+3\)</p>
+</div></div>
+<div class="exercise"><div class="n">19</div><div class="body"><p>\(y=f(x+4)-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(f(x+4)-1\) is a horizontal shift to the left 4 units and a vertical shift down 1 unit of the graph of \(f.\)</p>
+</div></div></div></div>
+<p>For the following exercises, determine the interval(s) on which the function is increasing and decreasing.</p>
+<div class="exercise"><div class="n">20</div><div class="body"><p>\(f(x)=4{(x+1)}^{2}-5\)</p>
+</div></div>
+<div class="exercise"><div class="n">21</div><div class="body"><p>\(g(x)=5{(x+3)}^{2}-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>decreasing on \((-\infty ,-3)\) and increasing on \((-3,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">22</div><div class="body"><p>\(a(x)=\sqrt{-x+4}\)</p>
+</div></div>
+<div class="exercise"><div class="n">23</div><div class="body"><p>\(k(x)=-3\sqrt{x}-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>decreasing on \((0,\,\infty )\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, use the graph of \(f(x)={2}^{x}\) shown in <a href="#fig31">Figure 31</a> to sketch a graph of each transformation of \(f(x).\)</p>
+<figure class="plot" id="fig31" data-plot data-spec='{"xmin":-4,"xmax":4,"ymin":-1,"ymax":8,"xstep":1,"ystep":1,"alt":"Graph of f(x)=2^x, passing through (0,1)","curves":[{"fn":"Math.pow(2,x)","label":"f(x)=2^x","labelAt":[1.8,5.4]}],"points":[[0,1,"(0,1)"]],"xlabel":"x","ylabel":"f(x)"}'><figcaption>Figure 31</figcaption></figure>
+<div class="exercise"><div class="n">24</div><div class="body"><p>\(g(x)={2}^{x}+1\)</p>
+</div></div>
+<div class="exercise"><div class="n">25</div><div class="body"><p>\(h(x)={2}^{x}-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_203-db69.jpg" alt="A graph displays an exponential function h, characterized by a left-to-right increasing curve. It approaches a horizontal asymptote at y=-3 for negative x, and rises steeply for positive x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">26</div><div class="body"><p>\(w(x)={2}^{x-1}\)</p>
+</div></div>
+<p>For the following exercises, sketch a graph of the function as a transformation of the graph of one of the toolkit functions.</p>
+<div class="exercise"><div class="n">27</div><div class="body"><p>\(f(t)={(t+1)}^{2}-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_206-990e.jpg" alt="Graph of f(t)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">28</div><div class="body"><p>\(h(x)=|x-1|+4\)</p>
+</div></div>
+<div class="exercise"><div class="n">29</div><div class="body"><p>\(k(x)={(x-2)}^{3}-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_208-8e38.jpg" alt="Graph of k(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">30</div><div class="body"><p>\(m(t)=3+\sqrt{t+2}\)</p>
+</div></div>
+<h3 id="numeric">Numeric</h3>
+<div class="exercise"><div class="n">31</div><div class="body"><p>Tabular representations for the functions \(f,\,g,\) and \(h\) are given below. Write \(g(x)\) and \(h(x)\) as transformations of \(f(x).\)</p>
+<div class="tablewrap" id="tab46"><table class="data"><caption>Table 46</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>−2</td><td>−1</td><td>−3</td><td>1</td><td>2</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab47"><table class="data"><caption>Table 47</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td><strong>\(g(x)\)</strong></td><td>−2</td><td>−1</td><td>−3</td><td>1</td><td>2</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab48"><table class="data"><caption>Table 48</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(h(x)\)</strong></td><td>−1</td><td>0</td><td>−2</td><td>2</td><td>3</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=f(x-1),\,h(x)=f(x)+1\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">32</div><div class="body"><p>Tabular representations for the functions \(f,\,g,\) and \(h\) are given below. Write \(g(x)\) and \(h(x)\) as transformations of \(f(x).\)</p>
+<div class="tablewrap" id="tab49"><table class="data"><caption>Table 49</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>−1</td><td>−3</td><td>4</td><td>2</td><td>1</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab50"><table class="data"><caption>Table 50</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−3</td><td>−2</td><td>−1</td><td>0</td><td>1</td></tr><tr><td><strong>\(g(x)\)</strong></td><td>−1</td><td>−3</td><td>4</td><td>2</td><td>1</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab51"><table class="data"><caption>Table 51</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(h(x)\)</strong></td><td>−2</td><td>−4</td><td>3</td><td>1</td><td>0</td></tr></tbody></table></div>
+</div></div>
+<p>For the following exercises, write an equation for each graphed function by using transformations of the graphs of one of the toolkit functions.</p>
+<div class="exercise"><div class="n">33</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_210.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=|x-3|-2\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">34</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_211.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise"><div class="n">35</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_212.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\sqrt{x+3}-1\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">36</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_213.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise"><div class="n">37</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_214.jpg" alt="Graph of a parabola" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={(x-2)}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">38</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_215.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise"><div class="n">39</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_216f.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=|x+3|-2\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">40</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_217F.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, use the graphs of transformations of the square root function to find a formula for each of the functions.</p>
+<div class="exercise"><div class="n">41</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_218.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-\sqrt{x}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">42</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_219.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, use the graphs of the transformed toolkit functions to write a formula for each of the resulting functions.</p>
+<div class="exercise"><div class="n">43</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_220.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-{(x+1)}^{2}+2\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">44</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_221.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise"><div class="n">45</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_222.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\sqrt{-x}+1\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">46</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_223.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, determine whether the function is odd, even, or neither.</p>
+<div class="exercise"><div class="n">47</div><div class="body"><p>\(f(x)=3{x}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>even</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">48</div><div class="body"><p>\(g(x)=\sqrt{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">49</div><div class="body"><p>\(h(x)=\frac{1}{x}+3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>odd</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">50</div><div class="body"><p>\(f(x)={(x-2)}^{2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">51</div><div class="body"><p>\(g(x)=2{x}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>even</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">52</div><div class="body"><p>\(h(x)=2x-{x}^{3}\)</p>
+</div></div>
+<p>For the following exercises, describe how the graph of each function is a transformation of the graph of the original function \(f.\)</p>
+<div class="exercise"><div class="n">53</div><div class="body"><p>\(g(x)=-f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(g\) is a vertical reflection (across the \(x\) -axis) of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">54</div><div class="body"><p>\(g(x)=f(-x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">55</div><div class="body"><p>\(g(x)=4f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(g\) is a vertical stretch by a factor of 4 of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">56</div><div class="body"><p>\(g(x)=6f(x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">57</div><div class="body"><p>\(g(x)=f(5x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(g\) is a horizontal compression by a factor of \(\frac{1}{5}\) of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">58</div><div class="body"><p>\(g(x)=f(2x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">59</div><div class="body"><p>\(g(x)=f(\frac{1}{3}x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(g\) is a horizontal stretch by a factor of 3 of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">60</div><div class="body"><p>\(g(x)=f(\frac{1}{5}x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">61</div><div class="body"><p>\(g(x)=3f(-x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(g\) is a horizontal reflection across the \(y\) -axis and a vertical stretch by a factor of 3 of the graph of \(f.\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">62</div><div class="body"><p>\(g(x)=-f(3x)\)</p>
+</div></div>
+<p>For the following exercises, write a formula for the function \(g\) that results when the graph of a given toolkit function is transformed as described.</p>
+<div class="exercise"><div class="n">63</div><div class="body"><p>The graph of \(f(x)=|x|\) is reflected over the \(y\) <strong>-</strong>axis and horizontally compressed by a factor of \(\frac{1}{4}\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=|-4x|\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">64</div><div class="body"><p>The graph of \(f(x)=\sqrt{x}\) is reflected over the \(x\) -axis and horizontally stretched by a factor of 2.</p>
+</div></div>
+<div class="exercise"><div class="n">65</div><div class="body"><p>The graph of \(f(x)=\frac{1}{{x}^{2}}\) is vertically compressed by a factor of \(\frac{1}{3},\) then shifted to the left 2 units and down 3 units.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=\frac{1}{3{(x+2)}^{2}}-3\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">66</div><div class="body"><p>The graph of \(f(x)=\frac{1}{x}\) is vertically stretched by a factor of 8, then shifted to the right 4 units and up 2 units.</p>
+</div></div>
+<div class="exercise"><div class="n">67</div><div class="body"><p>The graph of \(f(x)={x}^{2}\) is vertically compressed by a factor of \(\frac{1}{2},\) then shifted to the right 5 units and up 1 unit.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)=\frac{1}{2}{(x-5)}^{2}+1\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">68</div><div class="body"><p>The graph of \(f(x)={x}^{2}\) is horizontally stretched by a factor of 3, then shifted to the left 4 units and down 3 units.</p>
+</div></div>
+<p>For the following exercises, describe how the formula is a transformation of a toolkit function. Then sketch a graph of the transformation.</p>
+<div class="exercise"><div class="n">69</div><div class="body"><p>\(g(x)=4{(x+1)}^{2}-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of the function \(f(x)={x}^{2}\) is shifted to the left 1 unit, stretched vertically by a factor of 4, and shifted down 5 units.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_224.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">70</div><div class="body"><p>\(g(x)=5{(x+3)}^{2}-2\)</p>
+</div></div>
+<div class="exercise"><div class="n">71</div><div class="body"><p>\(h(x)=-2|x-4|+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(f(x)=|x|\) is stretched vertically by a factor of 2, shifted horizontally 4 units to the right, reflected across the horizontal axis, and then shifted vertically 3 units up.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_226-945c.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">72</div><div class="body"><p>\(k(x)=-3\sqrt{x}-1\)</p>
+</div></div>
+<div class="exercise"><div class="n">73</div><div class="body"><p>\(m(x)=\frac{1}{2}{x}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of the function \(f(x)={x}^{3}\) is compressed vertically by a factor of \(\frac{1}{2}.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_228-71bf.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">74</div><div class="body"><p>\(n(x)=\frac{1}{3}|x-2|\)</p>
+</div></div>
+<div class="exercise"><div class="n">75</div><div class="body"><p>\(p(x)={(\frac{1}{3}x)}^{3}-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of the function is stretched horizontally by a factor of 3 and then shifted vertically downward by 3 units.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_230-1bbb.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">76</div><div class="body"><p>\(q(x)={(\frac{1}{4}x)}^{3}+1\)</p>
+</div></div>
+<div class="exercise"><div class="n">77</div><div class="body"><p>\(a(x)=\sqrt{-x+4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph of \(f(x)=\sqrt{x}\) is reflected across the <strong>y</strong>-axis and then shifted right 4 units.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_232-720f.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, use the graph in <a href="#fig32">Figure 32</a> to sketch the given transformations.</p>
+<figure class="plot" id="fig32"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_233.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 32</figcaption></figure>
+<div class="exercise"><div class="n">78</div><div class="body"><p>\(g(x)=f(x)-2\)</p>
+</div></div>
+<div class="exercise"><div class="n">79</div><div class="body"><p>\(g(x)=-f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_235-acd1.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">80</div><div class="body"><p>\(g(x)=f(x+1)\)</p>
+</div></div>
+<div class="exercise"><div class="n">81</div><div class="body"><p>\(g(x)=f(x-2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_05_237.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>even function</dt><dd>a function whose graph is unchanged by horizontal reflection, \(f(x)=f(-x),\) and is symmetric about the \(y\text{-}\) axis</dd><dt>horizontal compression</dt><dd>a transformation that compresses a function’s graph horizontally, by multiplying the input by a constant \(b&gt;1\)</dd><dt>horizontal reflection</dt><dd>a transformation that reflects a function’s graph across the <strong>y</strong>-axis by multiplying the input by \(-1\)</dd><dt>horizontal shift</dt><dd>a transformation that shifts a function’s graph left or right by adding a positive or negative constant to the input</dd><dt>horizontal stretch</dt><dd>a transformation that stretches a function’s graph horizontally by multiplying the input by a constant \(0&lt;b&lt;1\)</dd><dt>odd function</dt><dd>a function whose graph is unchanged by combined horizontal and vertical reflection, \(f(x)=-f(-x),\) and is symmetric about the origin</dd><dt>vertical compression</dt><dd>a function transformation that compresses the function’s graph vertically by multiplying the output by a constant \(0&lt;a&lt;1\)</dd><dt>vertical reflection</dt><dd>a transformation that reflects a function’s graph across the <strong>x</strong>-axis by multiplying the output by \(-1\)</dd><dt>vertical shift</dt><dd>a transformation that shifts a function’s graph up or down by adding a positive or negative constant to the output</dd><dt>vertical stretch</dt><dd>a transformation that stretches a function’s graph vertically by multiplying the output by a constant \(a&gt;1\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/college-algebra-2e">OpenStax College Algebra 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>
