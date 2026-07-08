@@ -91,12 +91,18 @@ const qd = (n, tag) => (n.children || []).find(c => c.tag === tag); // direct ch
 /* ------------------------------------------------------------------ */
 const OPS = { "−": "-", "–": "-", "×": "\\times ", "⋅": "\\cdot ", "≈": "\\approx ", "≠": "\\ne ",
   "≤": "\\le ", "≥": "\\ge ", "→": "\\to ", "±": "\\pm ", "∞": "\\infty ", "∈": "\\in ",
-  "π": "\\pi ", "⁢": "", "⁡": "", " ": "\\ ", " ": "\\,",
+  "π": "\\pi ", "⁢": "", "⁡": "", " ": "\\,", " ": "\\,",
   // LaTeX-reserved ASCII characters that sometimes show up as literal text (e.g. "$" for
   // currency, "%" for percent) inside <mi>/<mn>/<mo> — must be escaped or KaTeX either
   // errors (stray $) or silently eats the rest of the line as a comment (stray %).
   "$": "\\$", "#": "\\#", "%": "\\%", "&": "\\&" };
-const mtxt = s => [...(s || "")].map(c => OPS[c] ?? c).join("").trim();
+// NOTE: deliberately does NOT .trim() the mapped result — several OPS entries (\cdot ,
+// \approx , \pi , \times , etc.) carry an intentional trailing space so the next token
+// doesn't get glued onto the command name (e.g. "\cdotx", "\approxP", or a bare "\" when
+// the whole node is just a space char mapped to "\ "). Callers already collapse/trim
+// whitespace at the top level (see inline()/m2l() call sites), so leaving this space in
+// is harmless there and necessary here. Found building 6-5 — see AUTOBUILD_LOG.md.
+const mtxt = s => [...(s || "")].map(c => OPS[c] ?? c).join("");
 function m2l(n) {
   if (n.tag === "#text") return mtxt(n.text);
   const K = (n.children || []).filter(c => c.tag !== "#text" || c.text.trim());
@@ -109,9 +115,14 @@ function m2l(n) {
     case "mtext": {
       const raw = textOf(n);
       const t = raw.replace(/[$#%&_{}]/g, m => "\\" + m);
-      return /^\s*$/.test(raw) ? "\\ " : `\\text{${t}}`;
+      return /^\s*$/.test(raw) ? "\\," : `\\text{${t}}`;
     }
-    case "mspace": return "\\ ";
+    // "\\," (thin space) rather than "\\ " (control space) — self-contained, so it
+    // survives being the sole content of a math node even after the outer
+    // .replace(/\s+/g," ").trim() at the top-level math wrapper call sites strips a
+    // trailing literal space. "\\ " alone would trim down to a bare "\", which KaTeX
+    // rejects. Found building 6-5 — see AUTOBUILD_LOG.md.
+    case "mspace": return "\\,";
     case "msup": return `{${g(0)}}^{${g(1)}}`;
     case "msub": return `{${g(0)}}_{${g(1)}}`;
     case "msubsup": return `{${g(0)}}_{${g(1)}}^{${g(2)}}`;

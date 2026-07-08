@@ -4,12 +4,21 @@
 const BOOK = {
   title: "College Algebra",
   chapters: [
+    { n: 3, title: "Functions", sections: [
+      { id: "3-1", title: "3.1 Functions and Function Notation", module: "m51260" },
+      { id: "3-2", title: "3.2 Domain and Range", module: "m51261" },
+      { id: "3-3", title: "3.3 Rates of Change and Behavior of Graphs", module: "m51262" },
+      { id: "3-4", title: "3.4 Composition of Functions", module: "m51263" },
+      { id: "3-5", title: "3.5 Transformation of Functions", module: "m51265" },
+      { id: "3-6", title: "3.6 Absolute Value Functions", module: "m51266" },
+      { id: "3-7", title: "3.7 Inverse Functions", module: "m51267" },
+    ]},
     { n: 6, title: "Exponential and Logarithmic Functions", sections: [
       { id: "6-1", title: "6.1 Exponential Functions", file: "6-1.html", ready: true },
       { id: "6-2", title: "6.2 Graphs of Exponential Functions", file: "6-2.html", ready: true },
       { id: "6-3", title: "6.3 Logarithmic Functions", file: "6-3.html", ready: true },
       { id: "6-4", title: "6.4 Graphs of Logarithmic Functions", file: "6-4.html", ready: true },
-      { id: "6-5", title: "6.5 Logarithmic Properties", module: "m49365" },
+      { id: "6-5", title: "6.5 Logarithmic Properties", file: "6-5.html", ready: true },
       { id: "6-6", title: "6.6 Exponential and Logarithmic Equations", module: "m49366" },
       { id: "6-7", title: "6.7 Exponential and Logarithmic Models", module: "m49367" },
       { id: "6-8", title: "6.8 Fitting Exponential Models to Data", module: "m49368" },
