@@ -11,7 +11,7 @@ const BOOK = {
       { id: "3-4", title: "3.4 Composition of Functions", file: "3-4.html", ready: true },
       { id: "3-5", title: "3.5 Transformation of Functions", file: "3-5.html", ready: true },
       { id: "3-6", title: "3.6 Absolute Value Functions", file: "3-6.html", ready: true },
-      { id: "3-7", title: "3.7 Inverse Functions", module: "m51268" },
+      { id: "3-7", title: "3.7 Inverse Functions", file: "3-7.html", ready: true },
     ]},
     { n: 6, title: "Exponential and Logarithmic Functions", sections: [
       { id: "6-1", title: "6.1 Exponential Functions", file: "6-1.html", ready: true },

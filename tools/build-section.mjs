@@ -136,13 +136,19 @@ function m2l(n) {
     case "mrow": {
       // Piecewise-function idiom: MathML represents "f(x) = { <cases table> " with a lone
       // opening <mo>{</mo> and NO matching closing brace (the "}" is implied, never
-      // written) — this is how OpenStax's editor emits every piecewise definition/exercise
-      // in this module. A literal, unescaped "{" with no closing counterpart is an
-      // unbalanced LaTeX group and KaTeX throws "Expected '}', got EOF" on it. Detect the
-      // lone-open-brace pattern and wrap the rest of the row in \left\{ ... \right. instead
-      // (the standard LaTeX idiom for a one-sided fence). Found building 3-2 (m51262).
-      if (K.length && K[0].tag === "mo" && textOf(K[0]) === "{" && !K.some(k => k.tag === "mo" && textOf(k) === "}")) {
-        return `\\left\\{${K.slice(1).map(m2l).join("")}\\right.`;
+      // written) — this is how OpenStax's editor emits every piecewise definition/exercise.
+      // A literal, unescaped "{" with no closing counterpart is an unbalanced LaTeX group
+      // and KaTeX throws "Expected '}', got EOF" on it. Originally only the "brace is the
+      // very first child" shape was handled (3-2, m51262), but 3-7 (m51268) uses a second
+      // shape where the brace comes after some prefix content in the SAME mrow (e.g.
+      // "f(x)=" then the lone "{" then the mtable, all as siblings) — find the brace
+      // anywhere in this row's children (not just position 0) and wrap only the tail after
+      // it, keeping any prefix content untouched. Found building 3-7.
+      const braceIdx = K.findIndex(k => k.tag === "mo" && textOf(k) === "{");
+      if (braceIdx !== -1 && !K.some(k => k.tag === "mo" && textOf(k) === "}")) {
+        const before = K.slice(0, braceIdx).map(m2l).join("");
+        const after = K.slice(braceIdx + 1).map(m2l).join("");
+        return `${before}\\left\\{${after}\\right.`;
       }
       return j();
     }

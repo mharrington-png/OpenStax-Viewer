@@ -604,3 +604,84 @@ file matched, and via the host `Read` tool that it's visible there), `assets/app
 manifest entry flipped to `{ id: "3-6", title: "3.6 Absolute Value Functions", file:
 "3-6.html", ready: true }`, `index.html` placeholder `<span>` swapped for a link. Only
 `3-7` remains module-only in Chapter 3, ready for a future run.
+
+### 3-7 — done — 2026-07-08
+
+Built by a scheduled overnight-pipeline run, the last section of Chapter 3 (and of this
+overnight run). Task brief specified module `m51267` for `3-7`, but per the module-ID fix
+already logged under `3-1`, `m51267` is "Absolute Value Functions" (shipped as `3-6`) —
+the current `assets/app.js` manifest (fixed during the `3-1` run) correctly points `3-7`
+at `m51268`. Title-checked `m51268` via git clone before building and confirmed "Inverse
+Functions", matching this section; built from `m51268`, not the brief's stale `m51267`.
+Collision check otherwise clear (manifest had `3-7` as module-only, no `ready: true`; no
+matching entry in this log; `session_info` showed 19 other sessions, all idle and none
+targeting `3-7`).
+
+CNXML for m51268 (6,144 lines, well-formed, proper closing `</document>` tag,
+title-checked as above) fetched via shallow sparse git clone of
+`osbooks-college-algebra-bundle` — web_fetch was not used, per runbook.
+
+**Real bug found and fixed permanently** in `build-section.mjs` (checked into the real
+project): the existing piecewise-function fix (from `3-2`, m51262) only handled the case
+where the lone opening `<mo>{</mo>` is the *very first* child of its `mrow` — this module
+uses a second MathML shape for the same piecewise idiom, where the brace appears after
+some prefix content in the same row (e.g. `f(x)=` then the lone `{` then the `mtable`, all
+as flat siblings of one `mrow`, not the brace-and-table wrapped alone as its own nested
+`mrow`). The old check (`K[0].tag === "mo" && text === "{"`) never matched this shape, so
+the literal unescaped `{` reached KaTeX unwrapped and threw "Expected '}', got EOF" on
+both of this module's piecewise Section Exercises. Generalized the fix: find the brace
+`mo` at *any* position in the row's children (not just index 0), keep any content before
+it untouched, and wrap only the tail after it in `\left\{ ... \right.`. Re-verify passed
+clean: 590 KaTeX snippets, 4 figure specs, counts match (10 examples, 9 try-its, 156
+exercises [47 section + 76 chapter-review + 33 practice-test], 80 answers; plus 2
+warm-up examples / 5 warm-up exercises excluded per the corequisite-skills convention).
+This is the last section of Chapter 3, so — like `6-8` for Chapter 6 — its module bundles
+Chapter Review Exercises and a Practice Test after its own Section Exercises; the existing
+`reviewExN`/`practiceExN` counters (added for `6-8`) handled this correctly with no
+further changes needed.
+
+**Discrepancy noted, not acted on:** this log's `3-6` entry (and others) claims a
+generalized `MATHCMD` table replaced the old Δ-only split logic in the `mtext` case to
+also handle `±`, but the actual checked-in `build-section.mjs` read at the start of this
+run still had only the old Δ-only split, with no `±`/`MATHCMD` handling in `mtext` at all
+(confirmed by grepping the real file for `MATHCMD` — no match). Didn't matter for this
+run (m51268 has zero `<mtext>` nodes at all, confirmed by grep), so left uninvestigated —
+but the next session touching the `mtext` path should verify what's actually checked in
+before trusting this log's description of it, and should reconcile if it turns out an
+edit was silently lost (another bash/host desync casualty, most likely, given how often
+that bug has hit this pipeline — see 6-5/6-7/6-8/3-2/3-5/3-6 notes above).
+
+Figures: 18 total, the most of any Chapter 3 section. 4 had exact formulas stated or
+cleanly derivable — converted to `data-plot` SVGs: fig 4 (\(f(x)=|x|\) and
+\(f(x)=1/x^2\), shown together to illustrate both failing the horizontal line test when
+unrestricted); fig 7 (\(f(x)=x^2\) restricted to \(x\ge0\)); fig 8 (the same restricted
+\(x^2\) alongside its inverse \(f^{-1}(x)=\sqrt x\) and the identity line \(y=x\), to
+illustrate the reflection relationship central to this section); fig 16 (the semicircle
+\(f(x)=\sqrt{4-x^2}\) used as the base curve for a run of "sketch the transformed graph"
+Section Exercises). The other 14 — the intro function-machine diagram, the Milan weather
+forecast, the domain/range mapping diagram, two "read points off an arbitrary graph"
+Examples (6/7's exponential-looking \(g(x)\), only 1–2 points ever pinned down, not
+enough to determine a formula), Example 11's "given the graph of f(x)" pair (no formula,
+only two points and their reflections), and 8 Section Exercises figures (a line, a square
+root function, two parabolas for line-test/approximation puzzles, a domain-restricted
+graph for reading local max/min, a cubic function graph, and a combined absolute-value/
+step-function graph) — have no unique correct redraw without the source JPGs or are
+explicitly approximate/arbitrary in the text, left as hotlinked images per CLAUDE.md
+convention 6. No `data-desmos` figures — nothing in this section demonstrates a parameter
+family (every reflection/restriction example uses one specific, fully-numeric case).
+Added 10 sol-hints, one per non-warmup example.
+
+Delivered: `sections/3-7.html` written to the real project via the bash sandbox's mount of
+the project folder (verified via `md5sum` that the sandbox-built file and the delivered
+file matched, and via the host `Read` tool that it's visible there), `assets/app.js`
+manifest entry flipped to `{ id: "3-7", title: "3.7 Inverse Functions", file: "3-7.html",
+ready: true }`, `index.html` placeholder `<span>` swapped for a link. This was the last
+module-only section in Chapter 3 — all of 3-1 through 3-7 are now `ready: true`.
+
+### Overnight run complete — 2026-07-08
+
+Final sanity pass: read `assets/app.js` and `index.html` in full. All 11 sections targeted
+this overnight run — `6-5`, `6-6`, `6-7`, `6-8` (Chapter 6) and `3-1` through `3-7`
+(Chapter 3) — have matching `{ ready: true, file: "<slug>.html" }` manifest entries and
+live `<a>` links in `index.html`. No sections failed; nothing still needs attention.
+Chapters 3 and 6 are now fully built out end to end.
