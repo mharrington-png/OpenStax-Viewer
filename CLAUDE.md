@@ -42,11 +42,12 @@ Owner: Mike Harrington (mharrington@mxschool.edu), Math Department.
 8. **Desmos API key.** Every page using `data-desmos` figures loads
    `https://www.desmos.com/api/v1.11/calculator.js?apiKey=...` in `<head>`, right after
    the KaTeX scripts (deferred, so it's guaranteed to finish before `app.js`'s
-   `DOMContentLoaded` handler runs). Currently wired to Desmos's own public demo key
-   (`dcb31709b452b1cf9dc26972add0fda6`, published in their API docs for development use)
-   — **swap this for a registered production key from desmos.com/my-api** once Mike
-   hears back from Desmos about personal-project/production pricing and terms. It's a
-   single string to find-and-replace across `sections/*.html`.
+   `DOMContentLoaded` handler runs). Currently wired to Mike's own registered key
+   (`64dd35f0fdbe40c5bb00a4a5df4237b6`) — **this is a 90-day free trial key.**
+   **Swap this for the production key from desmos.com/my-api once Mike's Desmos API
+   request is approved.** It's a single string to find-and-replace across
+   `sections/*.html`. (Prior to this, the project used Desmos's public demo key,
+   `dcb31709b452b1cf9dc26972add0fda6`.)
 9. **No frameworks, no build step.** Plain HTML/CSS/JS (third-party CDN scripts for
    KaTeX and Desmos are fine, same as existing precedent). Single shared stylesheet +
    single shared app.js. Sections must work as static files on any host.
