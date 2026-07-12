@@ -25,10 +25,14 @@ Owner: Mike Harrington (mharrington@mxschool.edu), Math Department.
    are historical hooks; change their values, not their names.
 5. **Math.** KaTeX via CDN, delimiters `\( \)` inline and `\[ \]` display ($ is reserved
    for currency). Multi-step derivations use `\begin{aligned}` with `&&` before step notes.
-6. **Figures.** Hand-built sections use the runtime SVG plotter (`data-plot` +
-   `data-spec` JSON on a `figure.plot`) for fixed, single-curve figures — not OpenStax
-   image files. Auto-built sections may hotlink OpenStax images from GitHub until
-   hand-polished.
+6. **Figures.** Use the original OpenStax images (hotlinked from GitHub, `figure.plot`
+   with a plain `<img>`) by default — they look better than the runtime SVG plotter's
+   output and match the source book. Do NOT convert static figures to the SVG plotter
+   (`data-plot` + `data-spec`) during hand-polish; that tool is effectively deprecated
+   in favor of images except for genuinely rare cases where no OpenStax image exists at
+   all (e.g. a figure built purely from a table in the CNXML). See convention 7 for the
+   one real exception: figures demonstrating a parameter family become Desmos embeds,
+   not images and not the SVG plotter.
 7. **Interactive/parameter figures use Desmos, not the SVG plotter.** Any figure that
    demonstrates a *family* of curves as a parameter varies (vertical/horizontal shifts,
    stretch/compression, reflections, the general `y=ab^x` or `y=ab^(x+c)+d` forms, etc.)
@@ -87,18 +91,19 @@ Section page contract (what build-section.mjs emits and hand-built pages follow)
 - Section exercises wrapped in `<div id="exercise-panel-content">` (enables split view),
   each `.exercise` with `.n` number and optional `.answer` (odd-numbered only)
 - Glossary as `dl.glossary`, attribution `footer.attribution`
-- Figures: `figure.plot[data-plot]` (SVG, fixed curves) or `figure.plot[data-desmos]`
-  (Desmos, parameter sliders) — see conventions 6–8. Pages with any `data-desmos`
-  figure need the Desmos `<script>` tag in `<head>`.
+- Figures: `figure.plot` with a plain OpenStax `<img>` by default, or `figure.plot[data-desmos]`
+  (Desmos, parameter sliders) for parameter-family figures — see conventions 6–8.
+  `figure.plot[data-plot]` (SVG plotter) is a rare fallback only, not the default.
+  Pages with any `data-desmos` figure need the Desmos `<script>` tag in `<head>`.
 
 ## Workflows
 
 **Add a section (automated):** `node tools/build-section.mjs m49362 6-2 "Graphs of Exponential Functions"`,
 then set `ready: true` in the BOOK manifest, and add the link in index.html.
 
-**Hand-polish a section:** replace each figure `<img>` with either the SVG plotter
-(fixed single-curve figures) or a Desmos `data-desmos` embed (figures demonstrating a
-parameter — see convention 7); add `sol-hint` lines ("try before you peek" prompts);
+**Hand-polish a section:** keep each figure as the original OpenStax `<img>` (convention
+6) unless it demonstrates a parameter family, in which case replace it with a Desmos
+`data-desmos` embed (convention 7); add `sol-hint` lines ("try before you peek" prompts);
 verify exercise numbering parity (odd = answer). If the module bundles corequisite
 warm-up content ahead of the real section (common in this Corequisite edition —
 `class="coreq-skills"`), `tools/build-section.mjs` already keeps its examples/exercises

@@ -53,7 +53,7 @@ const BOOKS = {
         { id: "1-5", title: "1.5 Exponential and Logarithmic Functions", file: "1-5.html", ready: false },
       ]},
       { n: 2, title: "Limits", sections: [
-        { id: "2-1", title: "2.1 A Preview of Calculus", file: "2-1.html", ready: false },
+        { id: "2-1", title: "2.1 A Preview of Calculus", file: "2-1.html", ready: true },
         { id: "2-2", title: "2.2 The Limit of a Function", file: "2-2.html", ready: false },
         { id: "2-3", title: "2.3 The Limit Laws", file: "2-3.html", ready: false },
         { id: "2-4", title: "2.4 Continuity", file: "2-4.html", ready: false },

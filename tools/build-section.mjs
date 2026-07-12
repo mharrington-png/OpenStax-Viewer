@@ -404,7 +404,10 @@ function blocks(n, ctx = {}) { // serialize block children
       case "note": {
         const cls = c.attrs.class || "";
         const t = qd(c, "title");
-        if (/\btry\b/.test(cls)) { out += blocks(c, { ...ctx, inTry: true }); }
+        // "try" is College Algebra's CNXML class for these self-check callouts;
+        // "checkpoint" is the equivalent class used in the Calculus bundle's CNXML.
+        // Both render as the same .tryit self-check block (CLAUDE.md section-page contract).
+        if (/\btry\b/.test(cls) || /\bcheckpoint\b/.test(cls)) { out += blocks(c, { ...ctx, inTry: true }); }
         else if (/how-to/.test(cls)) out += `<div class="card howto"><span class="chip">How To</span>${blocks(c, ctx)}</div>\n`;
         else if (/\bqa\b/.test(cls)) out += `<div class="card qa"><span class="chip">Q&amp;A</span>${blocks(c, ctx)}</div>\n`;
         else if (/media/.test(cls)) out += `<div class="card callout"><span class="chip">Media</span>${blocks(c, ctx)}</div>\n`;
