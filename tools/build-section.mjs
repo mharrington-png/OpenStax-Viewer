@@ -191,7 +191,16 @@ function m2l(n) {
       return j();
     }
     case "math": case "mstyle": case "mpadded": return j();
-    case "mi": case "mn": case "mo": return mtxt(textOf(n));
+    case "mi": case "mn": case "mo": {
+      // OpenStax's editor sometimes emits a run of literal underscores as a blank-fill-in
+      // placeholder inside a plain <mo> (or occasionally <mi>/<mn>) rather than wrapping it
+      // in <mtext> (e.g. m53493's "epsilon-delta" fill-in-the-blank proofs: <mo>_____</mo>
+      // used as a blank instead of <mtext>_____</mtext>). Unlike mtext (see below), this
+      // path had no underscore-escaping, so a bare "_" reached KaTeX and threw "Expected
+      // group after '_'" since underscore means subscript in math mode. Escape underscores
+      // here the same way the mtext case already does. Found building calculus-v1 2-5.
+      return mtxt(textOf(n)).replace(/_/g, "\\_");
+    }
     case "mtext": {
       // Strip zero-width spaces (no KaTeX character metrics, invisible anyway) before
       // anything else. Found building 3-3 (m51263) — see the msup/OPS comments above.
@@ -272,9 +281,22 @@ function inline(n) { // serialize inline content of a para/entry/item
       case "sup": out += `<sup>${inline(c)}</sup>`; break;
       case "link": {
         const tid = c.attrs["target-id"];
+        const url = c.attrs.url;
         if (tid && figIdMap.has(tid)) out += `<a href="#fig${figIdMap.get(tid)}">Figure ${figIdMap.get(tid)}</a>`;
         else if (tid && tabIdMap.has(tid)) out += `<a href="#tab${tabIdMap.get(tid)}">Table ${tabIdMap.get(tid)}</a>`;
         else if (tid && exampleIdMap.has(tid)) out += `<a href="#example${exampleIdMap.get(tid)}">Example ${exampleIdMap.get(tid)}</a>`;
+        else if (url) {
+          // External link (no target-id, just a bare url="..." attribute) — used for the
+          // "Media" callouts' applet links (e.g. the epsilon-delta definition applet in
+          // 2.5, m53493). The old code only ever checked target-id, so every external
+          // <link url="..."> fell through to the target-id-only branch below and emitted
+          // its link TEXT with no <a> around it at all — a silently dead, unclickable
+          // "link" in every Media callout across every section built so far (16 sections
+          // audited 2026-07-13, all 16 affected). Found building calculus-v1 2-5, flagged
+          // by the project owner as "Media links seem generally not to be live throughout
+          // the sections we've done."
+          out += `<a href="${esc(url)}" target="_blank" rel="noopener">${inline(c)}</a>`;
+        }
         else {
           const fallback = inline(c);
           if (fallback) { out += fallback; break; }
@@ -378,10 +400,21 @@ function blocks(n, ctx = {}) { // serialize block children
             (sol ? `<div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body">${blocks(sol, ctx)}</div></div>` : "") +
             `<div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>\n`;
         } else if (ctx.inExample) {
-          out += `<div class="ex-body">${prob ? blocks(prob, ctx) : ""}</div>` +
-            (sol ? `<div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body">${blocks(sol, ctx)}</div></div>` : "");
+          // A <commentary> ("Analysis") is a continuation of the solution's reasoning, not
+          // separate content — OpenStax always places it right after the worked solution,
+          // still discussing the same proof/steps. It must be nested INSIDE .sol-body so it
+          // hides/shows together with "Show solution"; previously it was appended as a
+          // sibling AFTER </div></div> closed the .solution wrapper, so it rendered fully
+          // visible before the reader ever clicked "Show solution" — a spoiler, and also an
+          // upstream OpenStax authoring quirk this site was blindly reproducing instead of
+          // fixing. Found in calculus-v1 2.5 Example 1 (flagged by the project owner);
+          // audited afterward and found in 13 already-built sections, 44 occurrences total.
           const comm = qd(c, "commentary");
-          if (comm) out += `<div class="ex-body analysis"><span class="chip">Analysis</span>${blocks(comm, ctx)}</div>`;
+          const analysisHtml = comm ? `<div class="ex-body analysis"><span class="chip">Analysis</span>${blocks(comm, ctx)}</div>` : "";
+          out += `<div class="ex-body">${prob ? blocks(prob, ctx) : ""}</div>` +
+            (sol
+              ? `<div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body">${blocks(sol, ctx)}${analysisHtml}</div></div>`
+              : analysisHtml);
         } else if (ctx.inCoreq) {
           warmN++;
           out += `<div class="exercise warmup"><div class="n">P${warmN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +

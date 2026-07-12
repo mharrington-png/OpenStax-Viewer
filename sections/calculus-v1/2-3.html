@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Limit Laws · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v1">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v1/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">The Limit Laws</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 2.3</span>The Limit Laws</h1>
+<p>In the previous section, we evaluated limits by looking at graphs or by constructing a table of values. In this section, we establish laws for calculating limits and learn how to apply these laws. In the Student Project at the end of this section, you have the opportunity to apply these limit laws to derive the formula for the area of a circle by adapting a method devised by the Greek mathematician Archimedes. We begin by restating two useful limit results from the previous section. These two results, together with the limit laws, serve as a foundation for calculating many limits.</p>
+<h2 id="evaluating-limits-with-the-limit-laws">Evaluating Limits with the Limit Laws</h2>
+<p>The first two limit laws were stated in <a href="2-2.html">the previous section</a> and we repeat them here. These basic results, together with the other limit laws, allow us to evaluate limits of many algebraic functions.</p>
+<div class="card definition" id="basic-limit-results"><span class="chip">Basic Limit Results</span><p>For any real number <strong>a</strong> and any constant <strong>c</strong>,</p>
+<ul class="tight"><li><p>\[\underset{x\to a}{\text{lim}}x=a\]</p>
+</li><li><p>\[\underset{x\to a}{\text{lim}}c=c\]</p>
+</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Evaluate each of the following limits using <a href="#basic-limit-results">the basic limit results above</a>.</p>
+<ul class="tight"><li>\(\underset{x\to 2}{\text{lim}}x\)</li><li>\(\underset{x\to 2}{\text{lim}}5\)</li></ul>
+</div><p class="sol-hint">Which limit law from just above applies to each piece — the variable itself, or a constant?</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>The limit of <strong>x</strong> as <strong>x</strong> approaches <strong>a</strong> is <strong>a</strong>: \(\underset{x\to 2}{\text{lim}}x=2.\)</li><li>The limit of a constant is that constant: \(\underset{x\to 2}{\text{lim}}5=5.\)</li></ul>
+</div></div></div>
+<p>We now take a look at the <strong>limit laws</strong>, the individual properties of limits. The proofs that these laws hold are omitted here.</p>
+<div class="card definition"><span class="chip">Limit Laws</span><p>Let \(f(x)\) and \(g(x)\) be defined for all \(x\ne a\) over some open interval containing <strong>a</strong>. Assume that <strong>L</strong> and <strong>M</strong> are real numbers such that \(\underset{x\to a}{\text{lim}}f(x)=L\) and \(\underset{x\to a}{\text{lim}}g(x)=M.\) Let <strong>c</strong> be a constant. Then, each of the following statements holds:</p>
+<p><strong>Sum law for limits</strong>: \(\underset{x\to a}{\text{lim}}(f(x)+g(x))=\underset{x\to a}{\text{lim}}f(x)+\underset{x\to a}{\text{lim}}g(x)=L+M\)</p>
+<p><strong>Difference law for limits</strong>: \(\underset{x\to a}{\text{lim}}(f(x)-g(x))=\underset{x\to a}{\text{lim}}f(x)-\underset{x\to a}{\text{lim}}g(x)=L-M\)</p>
+<p><strong>Constant multiple law for limits</strong>: \(\underset{x\to a}{\text{lim}}cf(x)=c·\underset{x\to a}{\text{lim}}f(x)=cL\)</p>
+<p><strong>Product law for limits</strong>: \(\underset{x\to a}{\text{lim}}(f(x)·g(x))=\underset{x\to a}{\text{lim}}f(x)·\underset{x\to a}{\text{lim}}g(x)=L·M\)</p>
+<p><strong>Quotient law for limits</strong>: \(\underset{x\to a}{\text{lim}}\frac{f(x)}{g(x)}=\frac{\underset{x\to a}{\text{lim}}f(x)}{\underset{x\to a}{\text{lim}}g(x)}=\frac{L}{M}\) for \(M\ne 0\)</p>
+<p><strong>Power law for limits</strong>: \(\underset{x\to a}{\text{lim}}{(f(x))}^{n}={(\underset{x\to a}{\text{lim}}f(x))}^{n}={L}^{n}\) for every positive integer <strong>n</strong>.</p>
+<p><strong>Root law for limits</strong>: \(\underset{x\to a}{\text{lim}}\sqrt[n]{f(x)}=\sqrt[n]{\underset{x\to a}{\text{lim}}f(x)}=\sqrt[n]{L}\) for all <strong>L</strong> if <strong>n</strong> is odd and for \(L\ge 0\) if <strong>n</strong> is even and \(f(x)\ge 0\) .</p>
+</div>
+<p>We now practice applying these limit laws to evaluate a limit.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Use the limit laws to evaluate \(\underset{x\to -3}{\text{lim}}(4x+2).\)</p>
+</div><p class="sol-hint">Break the sum into two limits, then pull the constant out front before substituting.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let’s apply the limit laws one step at a time to be sure we understand how they work. We need to keep in mind the requirement that, at each application of a limit law, the new limits must exist for the limit law to be applied.</p>
+<p>\(\begin{array}{lllll}\underset{x\to -3}{\text{lim}}(4x+2) &amp; =\underset{x\to -3}{\text{lim}}4x+\underset{x\to -3}{\text{lim}}2 &amp; &amp; &amp; \text{Apply the sum law.} \\ &amp; =4·\underset{x\to -3}{\text{lim}}x+\underset{x\to -3}{\text{lim}}2 &amp; &amp; &amp; \text{Apply the constant multiple law.} \\ &amp; =4·(-3)+2=-10. &amp; &amp; &amp; \text{Apply the basic limit results and simplify.}\end{array}\)</p>
+</div></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Use the limit laws to evaluate \(\underset{x\to 2}{\text{lim}}\frac{2{x}^{2}-3x+1}{{x}^{3}+4}.\)</p>
+</div><p class="sol-hint">The denominator doesn't vanish at x=2, so which law lets you split numerator and denominator?</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To find this limit, we need to apply the limit laws several times. Again, we need to keep in mind that as we rewrite the limit in terms of other limits, each new limit must exist for the limit law to be applied.</p>
+<p>\(\begin{array}{lllll} \\ \\ \underset{x\to 2}{\text{lim}}\frac{2{x}^{2}-3x+1}{{x}^{3}+4} &amp; =\frac{\underset{x\to 2}{\text{lim}}(2{x}^{2}-3x+1)}{\underset{x\to 2}{\text{lim}}({x}^{3}+4)} &amp; &amp; &amp; \text{Apply the quotient law, making sure that.}\,{(2)}^{3}+4\ne 0 \\ &amp; =\frac{2·\underset{x\to 2}{\text{lim}}{x}^{2}-3·\underset{x\to 2}{\text{lim}}x+\underset{x\to 2}{\text{lim}}1}{\underset{x\to 2}{\text{lim}}{x}^{3}+\underset{x\to 2}{\text{lim}}4} &amp; &amp; &amp; \text{Apply the sum law and constant multiple law.} \\ &amp; =\frac{2·{(\underset{x\to 2}{\text{lim}}x)}^{2}-3·\underset{x\to 2}{\text{lim}}x+\underset{x\to 2}{\text{lim}}1}{{(\underset{x\to 2}{\text{lim}}x)}^{3}+\underset{x\to 2}{\text{lim}}4} &amp; &amp; &amp; \text{Apply the power law.} \\ &amp; =\frac{2(4)-3(2)+1}{{(2)}^{3}+4}=\frac{1}{4}. &amp; &amp; &amp; \text{Apply the basic limit laws and simplify.}\end{array}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Use the limit laws to evaluate \(\underset{x\to 6}{\text{lim}}(2x-1)\sqrt{x+4}.\) In each step, indicate the limit law applied.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(11\sqrt{10}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="limits-of-polynomial-and-rational-functions">Limits of Polynomial and Rational Functions</h2>
+<p>By now you have probably noticed that, in each of the previous examples, it has been the case that \(\underset{x\to a}{\text{lim}}f(x)=f(a).\) This is not always true, but it does hold for all polynomials for any choice of <strong>a</strong> and for all rational functions at all values of <strong>a</strong> for which the rational function is defined.</p>
+<div class="card definition"><span class="chip">Limits of Polynomial and Rational Functions</span><p>Let \(p(x)\) and \(q(x)\) be polynomial functions. Let <strong>a</strong> be a real number. Then,</p>
+<p>\[\underset{x\to a}{\text{lim}}p(x)=p(a)\]</p>
+<p>\[\underset{x\to a}{\text{lim}}\frac{p(x)}{q(x)}=\frac{p(a)}{q(a)}\,\text{when}\,q(a)\ne 0.\]</p>
+</div>
+<p>To see that this theorem holds, consider the polynomial \(p(x)={c}_{n}{x}^{n}+{c}_{n-1}{x}^{n-1}+⋯+{c}_{1}x+{c}_{0}.\) By applying the sum, constant multiple, and power laws, we end up with</p>
+<p>\[\begin{array}{ll}\underset{x\to a}{\text{lim}}p(x) &amp; =\underset{x\to a}{\text{lim}}({c}_{n}{x}^{n}+{c}_{n-1}{x}^{n-1}+⋯+{c}_{1}x+{c}_{0}) \\ &amp; ={c}_{n}{(\underset{x\to a}{\text{lim}}x)}^{n}+{c}_{n-1}{(\underset{x\to a}{\text{lim}}x)}^{n-1}+⋯+{c}_{1}(\underset{x\to a}{\text{lim}}x)+\underset{x\to a}{\text{lim}}{c}_{0} \\ &amp; ={c}_{n}{a}^{n}+{c}_{n-1}{a}^{n-1}+⋯+{c}_{1}a+{c}_{0} \\ &amp; =p(a).\end{array}\]</p>
+<p>It now follows from the quotient law that if \(p(x)\) and \(q(x)\) are polynomials for which \(q(a)\ne 0,\) then</p>
+<p>\[\underset{x\to a}{\text{lim}}\frac{p(x)}{q(x)}=\frac{p(a)}{q(a)}.\]</p>
+<p><a href="#example4">Example 4</a> applies this result.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the \(\underset{x\to 3}{\text{lim}}\frac{2{x}^{2}-3x+1}{5x+4}.\)</p>
+</div><p class="sol-hint">Check whether the denominator is zero at x=3 before you decide you can just substitute.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since 3 is in the domain of the rational function \(f(x)=\frac{2{x}^{2}-3x+1}{5x+4},\) we can calculate the limit by substituting 3 for <strong>x</strong> into the function. Thus,</p>
+<p>\[\underset{x\to 3}{\text{lim}}\frac{2{x}^{2}-3x+1}{5x+4}=\frac{10}{19}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to -2}{\text{lim}}(3{x}^{3}-2x+7).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>−13;</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="additional-limit-evaluation-techniques">Additional Limit Evaluation Techniques</h2>
+<p>As we have seen, we may evaluate easily the limits of polynomials and limits of some (but not all) rational functions by direct substitution. However, as we saw in the introductory section on limits, it is certainly possible for \(\underset{x\to a}{\text{lim}}f(x)\) to exist when \(f(a)\) is undefined. The following observation allows us to evaluate many limits of this type:</p>
+<p>If for all \(x\ne a,f(x)=g(x)\) over some open interval containing <strong>a</strong>, then \(\underset{x\to a}{\text{lim}}f(x)=\underset{x\to a}{\text{lim}}g(x).\)</p>
+<p>To understand this idea better, consider the limit \(\underset{x\to 1}{\text{lim}}\frac{{x}^{2}-1}{x-1}.\)</p>
+<p>The function</p>
+<p>\[\begin{array}{ll}f(x) &amp; =\frac{{x}^{2}-1}{x-1} \\ &amp; =\frac{(x-1)(x+1)}{x-1}\end{array}\]</p>
+<p>and the function \(g(x)=x+1\) are identical for all values of \(x\ne 1.\) The graphs of these two functions are shown in <a href="#fig1">Figure 1</a>.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_001.jpg" alt="Two graphs side by side. The first is a graph of g(x) = x + 1, a linear function with y intercept at (0,1) and x intercept at (-1,0). The second is a graph of f(x) = (x^2 – 1) / (x – 1). This graph is identical to the first for all x not equal to 1, as there is an open circle at (1,2) in the second graph." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The graphs of \(f(x)\) and \(g(x)\) are identical for all \(x\ne 1.\) Their limits at 1 are equal.</figcaption></figure>
+<p>We see that</p>
+<p>\[\begin{array}{ll}\underset{x\to 1}{\text{lim}}\frac{{x}^{2}-1}{x-1} &amp; =\underset{x\to 1}{\text{lim}}\frac{(x-1)(x+1)}{x-1} \\ &amp; =\underset{x\to 1}{\text{lim}}(x+1) \\ &amp; =2.\end{array}\]</p>
+<p>The limit has the form \(\underset{x\to a}{\text{lim}}\frac{f(x)}{g(x)},\) where \(\underset{x\to a}{\text{lim}}f(x)=0\) and \(\underset{x\to a}{\text{lim}}g(x)=0.\) (In this case, we say that \(f(x)\text{/}g(x)\) has the indeterminate form \(0\text{/}0\text{.)}\) The following Problem-Solving Strategy provides a general outline for evaluating limits of this type.</p>
+<div class="card definition"><span class="chip">Calculating a Limit When \(f(x)\text{/}g(x)\) has the Indeterminate Form 0/0</span><ul class="tight"><li>First, we need to make sure that our function has the appropriate form and cannot be evaluated immediately using the limit laws.</li><li>We then need to find a function that is equal to \(h(x)=f(x)\text{/}g(x)\) for all \(x\ne a\) over some interval containing <strong>a</strong>. To do this, we may need to try one or more of the following steps:<ul class="tight"><li>If \(f(x)\) and \(g(x)\) are polynomials, we should factor each function and cancel out any common factors.</li><li>If the numerator or denominator contains a difference involving a square root, we should try multiplying the numerator and denominator by the conjugate of the expression involving the square root.</li><li>If \(f(x)\text{/}g(x)\) is a complex fraction, we begin by simplifying it.</li></ul>
+</li><li>Last, we apply the limit laws.</li></ul>
+</div>
+<p>The next examples demonstrate the use of this Problem-Solving Strategy. <a href="#example5">Example 5</a> illustrates the factor-and-cancel technique; <a href="#example6">Example 6</a> shows multiplying by a conjugate. In <a href="#example7">Example 7</a>, we look at simplifying a complex fraction.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 3}{\text{lim}}\frac{{x}^{2}-3x}{2{x}^{2}-5x-3}.\)</p>
+</div><p class="sol-hint">Plug in 3 first — the 0/0 form tells you factoring is the move, not the limit laws directly.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><strong>Step 1.</strong> The function \(f(x)=\frac{{x}^{2}-3x}{2{x}^{2}-5x-3}\) is undefined for \(x=3.\) In fact, if we substitute 3 into the function we get \(0\text{/}0,\) which is indeterminate. Factoring and canceling is a good strategy:</p>
+<p>\[\underset{x\to 3}{\text{lim}}\frac{{x}^{2}-3x}{2{x}^{2}-5x-3}=\underset{x\to 3}{\text{lim}}\frac{x(x-3)}{(x-3)(2x+1)}\]</p>
+<p><strong>Step 2.</strong> For all \(x\ne 3,\frac{{x}^{2}-3x}{2{x}^{2}-5x-3}=\frac{x}{2x+1}.\) Therefore,</p>
+<p>\[\underset{x\to 3}{\text{lim}}\frac{x(x-3)}{(x-3)(2x+1)}=\underset{x\to 3}{\text{lim}}\frac{x}{2x+1}.\]</p>
+<p><strong>Step 3.</strong> Evaluate using the limit laws:</p>
+<p>\[\underset{x\to 3}{\text{lim}}\frac{x}{2x+1}=\frac{3}{7}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to -3}{\text{lim}}\frac{{x}^{2}+4x+3}{{x}^{2}-9}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{1}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to -1}{\text{lim}}\frac{\sqrt{x+2}-1}{x+1}.\)</p>
+</div><p class="sol-hint">0/0 again, but no common factor to cancel yet — what do you multiply by to clear the square root?</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><strong>Step 1.</strong> \(\frac{\sqrt{x+2}-1}{x+1}\) has the form \(0\text{/}0\) at −1. Let’s begin by multiplying by \(\sqrt{x+2}+1,\) the conjugate of \(\sqrt{x+2}-1,\) on the numerator and denominator:</p>
+<p>\[\underset{x\to -1}{\text{lim}}\frac{\sqrt{x+2}-1}{x+1}=\underset{x\to -1}{\text{lim}}\frac{\sqrt{x+2}-1}{x+1}·\frac{\sqrt{x+2}+1}{\sqrt{x+2}+1}.\]</p>
+<p><strong>Step 2.</strong> We then multiply out the numerator. We don’t multiply out the denominator because we are hoping that the \((x+1)\) in the denominator cancels out in the end:</p>
+<p>\[=\underset{x\to -1}{\text{lim}}\frac{x+1}{(x+1)(\sqrt{x+2}+1)}.\]</p>
+<p><strong>Step 3.</strong> Then we cancel:</p>
+<p>\[=\underset{x\to -1}{\text{lim}}\frac{1}{\sqrt{x+2}+1}.\]</p>
+<p><strong>Step 4.</strong> Last, we apply the limit laws:</p>
+<p>\[\underset{x\to -1}{\text{lim}}\frac{1}{\sqrt{x+2}+1}=\frac{1}{2}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 5}{\text{lim}}\frac{\sqrt{x-1}-2}{x-5}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{1}{4}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 1}{\text{lim}}\frac{\frac{1}{x+1}-\frac{1}{2}}{x-1}.\)</p>
+</div><p class="sol-hint">Clear the fractions inside the fraction first (multiply by the common denominator) before you look for a common factor.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><strong>Step 1.</strong> \(\frac{\frac{1}{x+1}-\frac{1}{2}}{x-1}\) has the form \(0\text{/}0\) at 1. We simplify the algebraic fraction by multiplying by \(2(x+1)\text{/}2(x+1):\)</p>
+<p>\[\underset{x\to 1}{\text{lim}}\frac{\frac{1}{x+1}-\frac{1}{2}}{x-1}=\underset{x\to 1}{\text{lim}}\frac{\frac{1}{x+1}-\frac{1}{2}}{x-1}·\frac{2(x+1)}{2(x+1)}.\]</p>
+<p><strong>Step 2.</strong> Next, we multiply through the numerators. Do not multiply the denominators because we want to be able to cancel the factor \((x-1)\text{:}\)</p>
+<p>\[=\underset{x\to 1}{\text{lim}}\frac{2-(x+1)}{2(x-1)(x+1)}.\]</p>
+<p><strong>Step 3.</strong> Then, we simplify the numerator:</p>
+<p>\[=\underset{x\to 1}{\text{lim}}\frac{-x+1}{2(x-1)(x+1)}.\]</p>
+<p><strong>Step 4.</strong> Now we factor out −1 from the numerator:</p>
+<p>\[=\underset{x\to 1}{\text{lim}}\frac{-(x-1)}{2(x-1)(x+1)}.\]</p>
+<p><strong>Step 5.</strong> Then, we cancel the common factors of \((x-1)\text{:}\)</p>
+<p>\[=\underset{x\to 1}{\text{lim}}\frac{-1}{2(x+1)}.\]</p>
+<p><strong>Step 6.</strong> Last, we evaluate using the limit laws:</p>
+<p>\[\underset{x\to 1}{\text{lim}}\frac{-1}{2(x+1)}=-\frac{1}{4}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to -3}{\text{lim}}\frac{\frac{1}{x+2}+1}{x+3}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>−1;</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p><a href="#example8">Example 8</a> does not fall neatly into any of the patterns established in the previous examples. However, with a little creativity, we can still use these same techniques.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 0}{\text{lim}}(\frac{1}{x}+\frac{5}{x(x-5)}).\)</p>
+</div><p class="sol-hint">Neither piece has a limit alone — combine the two fractions into one before evaluating.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Both \(1\text{/}x\) and \(5\text{/}x(x-5)\) fail to have a limit at zero. Since neither of the two functions has a limit at zero, we cannot apply the sum law for limits; we must use a different strategy. In this case, we find the limit by performing addition and then applying one of our previous strategies. Observe that</p>
+<p>\[\,\begin{array}{ll}\frac{1}{x}+\frac{5}{x(x-5)} &amp; =\frac{x-5+5}{x(x-5)} \\ &amp; =\frac{x}{x(x-5)}.\end{array}\]</p>
+<p>Thus,</p>
+<p>\[\begin{array}{ll}\underset{x\to 0}{\text{lim}}(\frac{1}{x}+\frac{5}{x(x-5)}) &amp; =\underset{x\to 0}{\text{lim}}\frac{x}{x(x-5)} \\ &amp; =\underset{x\to 0}{\text{lim}}\frac{1}{x-5} \\ &amp; =-\frac{1}{5}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 3}{\text{lim}}(\frac{1}{x-3}-\frac{4}{{x}^{2}-2x-3}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{1}{4}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Let’s now revisit one-sided limits. Simple modifications in the limit laws allow us to apply them to one-sided limits. For example, to apply the limit laws to a limit of the form \(\underset{x\to {a}^{-}}{\text{lim}}h(x),\) we require the function \(h(x)\) to be defined over an open interval of the form \((b,a);\) for a limit of the form \(\underset{x\to {a}^{+}}{\text{lim}}h(x),\) we require the function \(h(x)\) to be defined over an open interval of the form \((a,c).\) <a href="#example9">Example 9</a> illustrates this point.</p>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Evaluate each of the following limits, if possible.</p>
+<ul class="tight"><li>\(\underset{x\to {3}^{-}}{\text{lim}}\sqrt{x-3}\)</li><li>\(\underset{x\to {3}^{+}}{\text{lim}}\sqrt{x-3}\)</li></ul>
+</div><p class="sol-hint">Think about the domain of the square root function near x=3 before applying any limit law.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><a href="#fig2">Figure 2</a> illustrates the function \(f(x)=\sqrt{x-3}\) and aids in our understanding of these limits.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_002.jpg" alt="A graph of the function f(x) = sqrt(x-3). Visually, the function looks like the top half of a parabola opening to the right with vertex at (3,0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The graph shows the function \(f(x)=\sqrt{x-3}.\)</figcaption></figure>
+<ul class="tight"><li>The function \(f(x)=\sqrt{x-3}\) is defined over the interval \([3,\text{+}\infty ).\) Since this function is not defined to the left of 3, we cannot apply the limit laws to compute \(\underset{x\to {3}^{-}}{\text{lim}}\sqrt{x-3}.\) In fact, since \(f(x)=\sqrt{x-3}\) is undefined to the left of 3, \(\underset{x\to {3}^{-}}{\text{lim}}\sqrt{x-3}\) does not exist.</li><li>Since \(f(x)=\sqrt{x-3}\) is defined to the right of 3, the limit laws do apply to \(\underset{x\to {3}^{+}}{\text{lim}}\sqrt{x-3}.\) By applying these limit laws we obtain \(\underset{x\to {3}^{+}}{\text{lim}}\sqrt{x-3}=0.\)</li></ul>
+</div></div></div>
+<p>In <a href="#example10">Example 10</a> we look at one-sided limits of a piecewise-defined function and use these limits to draw a conclusion about a two-sided limit of the same function.</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>For \(f(x)=\left\{\begin{array}{ll}4x-3 &amp; \text{if}\,x&lt;2 \\ {(x-3)}^{2} &amp; \text{if}\,x\ge 2\end{array}\right.,\) evaluate each of the following limits:</p>
+<ul class="tight"><li>\(\underset{x\to {2}^{-}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to {2}^{+}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to 2}{\text{lim}}f(x)\)</li></ul>
+</div><p class="sol-hint">Evaluate the two one-sided limits separately using each formula's own domain, then compare them.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><a href="#fig3">Figure 3</a> illustrates the function \(f(x)\) and aids in our understanding of these limits.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_003.jpg" alt="" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — This graph shows a function \(f(x).\)</figcaption></figure>
+<ul class="tight"><li>Since \(f(x)=4x-3\) for all <strong>x</strong> in \((\text{-}\infty ,2),\) replace \(f(x)\) in the limit with \(4x-3\) and apply the limit laws:<br><p>\[\underset{x\to {2}^{-}}{\text{lim}}f(x)=\underset{x\to {2}^{-}}{\text{lim}}(4x-3)=5.\]</p>
+</li><li>Since \(f(x)={(x-3)}^{2}\) for all <strong>x</strong> in \((2,\text{+}\infty ),\) replace \(f(x)\) in the limit with \({(x-3)}^{2}\) and apply the limit laws:<br><p>\[\underset{x\to {2}^{+}}{\text{lim}}f(x)=\underset{x\to {2}^{+}}{\text{lim}}{(x-3)}^{2}=1.\]</p>
+</li><li>Since \(\underset{x\to {2}^{-}}{\text{lim}}f(x)=5\) and \(\underset{x\to {2}^{+}}{\text{lim}}f(x)=1,\) we conclude that \(\underset{x\to 2}{\text{lim}}f(x)\) does not exist.</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Graph \(f(x)=\left\{\begin{array}{l}-x-2\,\text{if}\,x&lt;\text{-}1 \\ 2\,\text{if}\,x=-1 \\ {x}^{3}\,\text{if}\,x&gt;\text{-}1\end{array}\right.\) and evaluate \(\underset{x\to {-1}^{-}}{\text{lim}}f(x).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p><br> -1, which crossed the x axis and y axis at the origin."&gt;<br> \(\underset{x\to {-1}^{-}}{\text{lim}}f(x)=-1\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_004.jpg" alt="" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We now turn our attention to evaluating a limit of the form \(\underset{x\to a}{\text{lim}}\frac{f(x)}{g(x)},\) where \(\underset{x\to a}{\text{lim}}f(x)=K,\) where \(K\ne 0\) and \(\underset{x\to a}{\text{lim}}g(x)=0.\) That is, \(f(x)\text{/}g(x)\) has the form \(K\text{/}0,K\ne 0\) at <strong>a</strong>.</p>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to {2}^{-}}{\text{lim}}\frac{x-3}{{x}^{2}-2x}.\)</p>
+</div><p class="sol-hint">Substituting gives −1/0 — factor the denominator and track the sign of each piece as x→2⁻.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><strong>Step 1.</strong> After substituting in \(x=2,\) we see that this limit has the form \(-1\text{/}0.\) That is, as <strong>x</strong> approaches 2 from the left, the numerator approaches −1; and the denominator approaches 0. Consequently, the magnitude of \(\frac{x-3}{x(x-2)}\) becomes infinite. To get a better idea of what the limit is, we need to factor the denominator:</p>
+<p>\[\underset{x\to {2}^{-}}{\text{lim}}\frac{x-3}{{x}^{2}-2x}=\underset{x\to {2}^{-}}{\text{lim}}\frac{x-3}{x(x-2)}.\]</p>
+<p><strong>Step 2.</strong> Since \(x-2\) is the only part of the denominator that is zero when 2 is substituted, we then separate \(1\text{/}(x-2)\) from the rest of the function:</p>
+<p>\[=\underset{x\to {2}^{-}}{\text{lim}}\frac{x-3}{x}·\frac{1}{x-2}.\]</p>
+<p><strong>Step 3.</strong> \(\underset{x\to {2}^{-}}{\text{lim}}\frac{x-3}{x}=-\frac{1}{2}\) and \(\underset{x\to {2}^{-}}{\text{lim}}\frac{1}{x-2}=\text{-}\infty .\) Therefore, the product of \((x-3)\text{/}x\) and \(1\text{/}(x-2)\) has a limit of \(\text{+∞:}\)</p>
+<p>\[\underset{x\to {2}^{-}}{\text{lim}}\frac{x-3}{{x}^{2}-2x}=\text{+}\infty .\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 1}{\text{lim}}\frac{x+2}{{(x-1)}^{2}}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>+∞</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="the-squeeze-theorem">The Squeeze Theorem</h2>
+<p>The techniques we have developed thus far work very well for algebraic functions, but we are still unable to evaluate limits of very basic trigonometric functions. The next theorem, called the <strong>squeeze theorem</strong>, proves very useful for establishing basic trigonometric limits. This theorem allows us to calculate limits by “squeezing” a function, with a limit at a point <strong>a</strong> that is unknown, between two functions having a common known limit at <strong>a</strong>. <a href="#fig4">Figure 4</a> illustrates this idea.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_005.jpg" alt="A graph of three functions over a small interval. All three functions curve. Over this interval, the function g(x) is trapped between the functions h(x), which gives greater y values for the same x values, and f(x), which gives smaller y values for the same x values. The functions all approach the same limit when x=a." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The Squeeze Theorem applies when \(f(x)\le g(x)\le h(x)\) and \(\underset{x\to a}{\text{lim}}f(x)=\underset{x\to a}{\text{lim}}h(x).\)</figcaption></figure>
+<div class="card definition"><span class="chip">The Squeeze Theorem</span><p>Let \(f(x),g(x),\) and \(h(x)\) be defined for all \(x\ne a\) over an open interval containing <strong>a</strong>. If</p>
+<p>\[f(x)\le g(x)\le h(x)\]</p>
+<p>for all \(x\ne a\) in an open interval containing <strong>a</strong> and</p>
+<p>\[\underset{x\to a}{\text{lim}}f(x)=L=\underset{x\to a}{\text{lim}}h(x)\]</p>
+<p>where <strong>L</strong> is a real number, then \(\underset{x\to a}{\text{lim}}g(x)=L.\)</p>
+</div>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Apply the squeeze theorem to evaluate \(\underset{x\to 0}{\text{lim}}x\,\text{cos}\,x.\)</p>
+</div><p class="sol-hint">Squeeze x cos x between two functions you already know the limit of at 0.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because \(-1\le \text{cos}\,x\le 1\) for all <strong>x</strong>, we have \(-|x|\le x\,\text{cos}\,x\le |x|\) . Since \(\underset{x\to 0}{\text{lim}}(-|x|)=0=\underset{x\to 0}{\text{lim}}|x|,\) from the squeeze theorem, we obtain \(\underset{x\to 0}{\text{lim}}x\,\text{cos}\,x=0.\) The graphs of \(f(x)=-|x|,g(x)=x\,\text{cos}\,x,\) and \(h(x)=|x|\) are shown in <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_006.jpg" alt="" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The graphs of \(f(x),g(x),\) and \(h(x)\) are shown around the point \(x=0.\)</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Use the squeeze theorem to evaluate \(\underset{x\to 0}{\text{lim}}{x}^{2}\text{sin}\frac{1}{x}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>0</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We now use the squeeze theorem to tackle several very important limits. Although this discussion is somewhat lengthy, these limits prove invaluable for the development of the material in both the next section and the next chapter. The first of these limits is \(\underset{θ\to 0}{\text{lim}}\text{sin}\,θ.\) Consider the unit circle shown in <a href="#fig6">Figure 6</a>. In the figure, we see that \(\text{sin}\,θ\) is the <strong>y</strong>-coordinate on the unit circle and it corresponds to the line segment shown in blue. The radian measure of angle <strong>θ</strong> is the length of the arc it subtends on the unit circle. Therefore, we see that for \(0&lt;θ&lt;\frac{\pi }{2},0&lt;\text{sin}\,θ&lt;θ.\)</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_007.jpg" alt="A diagram of the unit circle in the x,y plane – it is a circle with radius 1 and center at the origin. A specific point (cos(theta), sin(theta)) is labeled in quadrant 1 on the edge of the circle. This point is one vertex of a right triangle inside the circle, with other vertices at the origin and (cos(theta), 0).  As such, the lengths of the sides are cos(theta) for the base and sin(theta) for the height, where theta is the angle created by the hypotenuse and base. The radian measure of angle theta is the length of the arc it subtends on the unit circle. The diagram shows that for 0 &amp;lt; theta &amp;lt; pi/2,  0 &amp;lt; sin(theta) &amp;lt; theta." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — The sine function is shown as a line on the unit circle.</figcaption></figure>
+<p>Because \(\underset{θ\to {0}^{+}}{\text{lim}}0=0\) and \(\underset{θ\to {0}^{+}}{\text{lim}}θ=0,\) by using the squeeze theorem we conclude that</p>
+<p>\[\underset{θ\to {0}^{+}}{\text{lim}}\text{sin}\,θ=0.\]</p>
+<p>To see that \(\underset{θ\to {0}^{-}}{\text{lim}}\text{sin}\,θ=0\) as well, observe that for \(-\frac{\pi }{2}&lt;θ&lt;0,0&lt;\text{-}θ&lt;\frac{\pi }{2}\) and hence, \(0&lt;\text{sin}\,(-θ)&lt;\text{-}θ.\) Consequently, \(0&lt;-\text{sin}\,θ&lt;\text{-}θ.\) It follows that \(0&gt;\text{sin}\,θ&gt;θ.\) An application of the squeeze theorem produces the desired limit. Thus, since \(\underset{θ\to {0}^{+}}{\text{lim}}\text{sin}\,θ=0\) and \(\underset{θ\to {0}^{-}}{\text{lim}}\text{sin}\,θ=0,\)</p>
+<p>\[\underset{θ\to 0}{\text{lim}}\,\text{sin}\,θ=0.\]</p>
+<p>Next, using the identity \(\text{cos}\,θ=\sqrt{1-{\text{sin}}^{2}θ}\) for \(-\frac{\pi }{2}&lt;θ&lt;\frac{\pi }{2},\) we see that</p>
+<p>\[\underset{θ\to 0}{\text{lim}}\,\text{cos}\,θ=\underset{θ\to 0}{\text{lim}}\sqrt{1-{\text{sin}}^{2}θ}=1.\]</p>
+<p>We now take a look at a limit that plays an important role in later chapters—namely, \(\underset{θ\to 0}{\text{lim}}\frac{\text{sin}\,θ}{θ}.\) To evaluate this limit, we use the unit circle in <a href="#fig7">Figure 7</a>. Notice that this figure adds one additional triangle to <a href="#fig7">Figure 7</a>. We see that the length of the side opposite angle <strong>θ</strong> in this new triangle is \(\text{tan}\,θ.\) Thus, we see that for \(0&lt;θ&lt;\frac{\pi }{2},\text{sin}\,θ&lt;θ&lt;\text{tan}\,θ.\)</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_008.jpg" alt="The same diagram as the previous one. However, the triangle is expanded. The base is now from the origin to (1,0). The height goes from (1,0) to (1, tan(theta)). The hypotenuse goes from the origin to (1, tan(theta)). As such, the height is now tan(theta). It shows that for 0 &amp;lt; theta &amp;lt; pi/2, sin(theta) &amp;lt; theta &amp;lt; tan(theta)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — The sine and tangent functions are shown as lines on the unit circle.</figcaption></figure>
+<p>By dividing by \(\text{sin}\,θ\) in all parts of the inequality, we obtain</p>
+<p>\[1&lt;\frac{θ}{\text{sin}\,θ}&lt;\frac{1}{\text{cos}\,θ}.\]</p>
+<p>Equivalently, we have</p>
+<p>\[1&gt;\frac{\text{sin}\,θ}{θ}&gt;\text{cos}\,θ.\]</p>
+<p>Since \(\underset{θ\to {0}^{+}}{\text{lim}}1=1=\underset{θ\to {0}^{+}}{\text{lim}}\text{cos}\,θ,\) we conclude that \(\underset{θ\to {0}^{+}}{\text{lim}}\frac{\text{sin}\,θ}{θ}=1.\) By applying a manipulation similar to that used in demonstrating that \(\underset{θ\to {0}^{-}}{\text{lim}}\text{sin}\,θ=0,\) we can show that \(\underset{θ\to {0}^{-}}{\text{lim}}\frac{\text{sin}\,θ}{θ}=1.\) Thus,</p>
+<p>\[\underset{θ\to 0}{\text{lim}}\frac{\text{sin}\,θ}{θ}=1.\]</p>
+<p>In <a href="#example13">Example 13</a> we use this limit to establish \(\underset{θ\to 0}{\text{lim}}\frac{1-\text{cos}\,θ}{θ}=0.\) This limit also proves useful in later chapters.</p>
+<div class="card example" id="example13"><div class="ex-head"><span class="num">Example 13</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{θ\to 0}{\text{lim}}\frac{1-\text{cos}\,θ}{θ}.\)</p>
+</div><p class="sol-hint">Multiply by the conjugate of 1−cos θ to bring in a sin²θ term and reuse the limit from just above.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>In the first step, we multiply by the conjugate so that we can use a trigonometric identity to convert the cosine in the numerator to a sine:</p>
+<p>\[\begin{array}{ll}\underset{θ\to 0}{\text{lim}}\frac{1-\text{cos}\,θ}{θ} &amp; =\underset{θ\to 0}{\text{lim}}\frac{1-\text{cos}\,θ}{θ}·\frac{1+\text{cos}\,θ}{1+\text{cos}\,θ} \\ &amp; =\underset{θ\to 0}{\text{lim}}\frac{1-{\text{cos}}^{2}θ}{θ(1+\text{cos}\,θ)} \\ &amp; =\underset{θ\to 0}{\text{lim}}\frac{{\text{sin}}^{2}θ}{θ(1+\text{cos}\,θ)} \\ &amp; =\underset{θ\to 0}{\text{lim}}\frac{\text{sin}\,θ}{θ}·\frac{\text{sin}\,θ}{1+\text{cos}\,θ} \\ &amp; =1·\frac{0}{2}=0.\end{array}\]</p>
+<p>Therefore,</p>
+<p>\[\underset{θ\to 0}{\text{lim}}\frac{1-\text{cos}\,θ}{θ}=0.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>Evaluate \(\underset{θ\to 0}{\text{lim}}\frac{1-\text{cos}\,θ}{\text{sin}\,θ}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>0</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card definition"><span class="chip">Deriving the Formula for the Area of a Circle</span><p>Some of the geometric formulas we take for granted today were first derived by methods that anticipate some of the methods of calculus. The Greek mathematician <strong>Archimedes</strong> (ca. 287−212; BCE) was particularly inventive, using polygons inscribed within circles to approximate the area of the circle as the number of sides of the polygon increased. He never came up with the idea of a limit, but we can use this idea to see what his geometric constructions could have predicted about the limit.</p>
+<p>We can estimate the area of a circle by computing the area of an inscribed regular polygon. Think of the regular polygon as being made up of <strong>n</strong> triangles. By taking the limit as the vertex angle of these triangles goes to zero, you can obtain the area of the circle. To see this, carry out the following steps:</p>
+<ul class="tight"><li>Express the height <strong>h</strong> and the base <strong>b</strong> of the isosceles triangle in <a href="#fig8">Figure 8</a> in terms of \(θ\) and <strong>r</strong>.<br><figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_009.jpg" alt="A diagram of a circle with an inscribed polygon – namely, an octagon. An isosceles triangle is drawn with one of the sides of the octagon as the base and center of the circle/octagon as the top vertex. The height h goes from the center of the base b to the center, and each of the legs is also radii r of the circle. The angle created by the height h and one of the legs r is labeled as theta." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</li><li>Using the expressions that you obtained in step 1, express the area of the isosceles triangle in terms of <strong>θ</strong> and <strong>r</strong>.<br>(Substitute \((1\,\text{/}\,2)\,\text{sin}\,θ\) for \(\text{sin}(θ\,\text{/}\,2)\,\text{cos}(θ\,\text{/}\,2)\) in your expression.)</li><li>If an <strong>n</strong>-sided regular polygon is inscribed in a circle of radius <strong>r</strong>, find a relationship between <strong>θ</strong> and <strong>n</strong>. Solve this for <strong>n</strong>. Keep in mind there are 2<strong>π</strong> radians in a circle. (Use radians, not degrees.)</li><li>Find an expression for the area of the <strong>n</strong>-sided polygon in terms of <strong>r</strong> and <strong>θ</strong>.</li><li>To find a formula for the area of the circle, find the limit of the expression in step 4 as <strong>θ</strong> goes to zero. (<strong>Hint:</strong> \(\underset{θ\to 0}{\text{lim}}\frac{(\text{sin}\,θ)}{θ}=1\text{).}\)</li></ul>
+<p>The technique of estimating areas of regions by using polygons is revisited in Introduction to Integration.</p>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The limit laws allow us to evaluate limits of functions without having to go through step-by-step processes each time.</li><li>For polynomials and rational functions, \(\underset{x\to a}{\text{lim}}f(x)=f(a).\)</li><li>You can evaluate the limit of a function by factoring and canceling, by multiplying by a conjugate, or by simplifying a complex fraction.</li><li>The squeeze theorem allows you to find the limit of a function if the function is always greater than one function and less than another function with limits that are known.</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Basic Limit Results</strong></td><td>\(\underset{x\to a}{\text{lim}}x=a\,\underset{x\to a}{\text{lim}}c=c\)</td></tr><tr><td><strong>Important Limits</strong></td><td>\(\underset{θ\to 0}{\text{lim}}\text{sin}\,θ=0\) <br> \(\underset{θ\to 0}{\text{lim}}\text{cos}\,θ=1\) <br> \(\underset{θ\to 0}{\text{lim}}\frac{\text{sin}\,θ}{θ}=1\) <br> \(\underset{θ\to 0}{\text{lim}}\frac{1-\text{cos}\,θ}{θ}=0\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, use the limit laws to evaluate each limit. Justify each step by indicating the appropriate limit law(s).</p>
+<div class="exercise"><div class="n">1</div><div class="body"><p>\(\underset{x\to 0}{\text{lim}}(4{x}^{2}-2x+3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Use constant multiple law and difference law: \(\underset{x\to 0}{\text{lim}}(4{x}^{2}-2x+3)=4\underset{x\to 0}{\text{lim}}{x}^{2}-2\underset{x\to 0}{\text{lim}}x+\underset{x\to 0}{\text{lim}}3=3\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">2</div><div class="body"><p>\(\underset{x\to 1}{\text{lim}}\frac{{x}^{3}+3{x}^{2}+5}{4-7x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">3</div><div class="body"><p>\(\underset{x\to -2}{\text{lim}}\sqrt{{x}^{2}-6x+3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Use root law: \(\underset{x\to -2}{\text{lim}}\sqrt{{x}^{2}-6x+3}=\sqrt{\underset{x\to -2}{\text{lim}}({x}^{2}-6x+3)}=\sqrt{19}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">4</div><div class="body"><p>\(\underset{x\to -1}{\text{lim}}{(9x+1)}^{2}\)</p>
+</div></div>
+<p>In the following exercises, use direct substitution to evaluate each limit.</p>
+<div class="exercise"><div class="n">5</div><div class="body"><p>\(\underset{x\to 7}{\text{lim}}{x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>49</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">6</div><div class="body"><p>\(\underset{x\to -2}{\text{lim}}(4{x}^{2}-1)\)</p>
+</div></div>
+<div class="exercise"><div class="n">7</div><div class="body"><p>\(\underset{x\to 0}{\text{lim}}\frac{1}{1+\text{sin}\,x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">8</div><div class="body"><p>\(\underset{x\to 2}{\text{lim}}{e}^{2x-{x}^{2}}\)</p>
+</div></div>
+<div class="exercise"><div class="n">9</div><div class="body"><p>\(\underset{x\to 1}{\text{lim}}\frac{2-7x}{x+6}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{5}{7}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">10</div><div class="body"><p>\(\underset{x\to 3}{\text{lim}}\text{ln}{e}^{3x}\)</p>
+</div></div>
+<p>In the following exercises, use direct substitution to show that each limit leads to the indeterminate form \(0\text{/}0.\) Then, evaluate the limit.</p>
+<div class="exercise"><div class="n">11</div><div class="body"><p>\(\underset{x\to 4}{\text{lim}}\frac{{x}^{2}-16}{x-4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 4}{\text{lim}}\frac{{x}^{2}-16}{x-4}=\frac{16-16}{4-4}=\frac{0}{0};\) then, \(\underset{x\to 4}{\text{lim}}\frac{{x}^{2}-16}{x-4}=\underset{x\to 4}{\text{lim}}\frac{(x+4)(x-4)}{x-4}=8\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">12</div><div class="body"><p>\(\underset{x\to 2}{\text{lim}}\frac{x-2}{{x}^{2}-2x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">13</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}\frac{3x-18}{2x-12}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 6}{\text{lim}}\frac{3x-18}{2x-12}=\frac{18-18}{12-12}=\frac{0}{0};\) then, \(\underset{x\to 6}{\text{lim}}\frac{3x-18}{2x-12}=\underset{x\to 6}{\text{lim}}\frac{3(x-6)}{2(x-6)}=\frac{3}{2}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">14</div><div class="body"><p>\(\underset{h\to 0}{\text{lim}}\frac{{(1+h)}^{2}-1}{h}\)</p>
+</div></div>
+<div class="exercise"><div class="n">15</div><div class="body"><p>\(\underset{t\to 9}{\text{lim}}\frac{t-9}{\sqrt{t}-3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 9}{\text{lim}}\frac{t-9}{\sqrt{t}-3}=\frac{9-9}{3-3}=\frac{0}{0};\) then, \(\underset{t\to 9}{\text{lim}}\frac{t-9}{\sqrt{t}-3}=\underset{t\to 9}{\text{lim}}\frac{t-9}{\sqrt{t}-3}\frac{\sqrt{t}+3}{\sqrt{t}+3}=\underset{t\to 9}{\text{lim}}(\sqrt{t}+3)=6\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">16</div><div class="body"><p>\(\underset{h\to 0}{\text{lim}}\frac{\frac{1}{a+h}-\frac{1}{a}}{h},\) where <strong>a</strong> is a non-zero real-valued constant</p>
+</div></div>
+<div class="exercise"><div class="n">17</div><div class="body"><p>\(\underset{θ\to \pi }{\text{lim}}\frac{\text{sin}\,θ}{\text{tan}\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{θ\to \pi }{\text{lim}}\frac{\text{sin}\,θ}{\text{tan}\,θ}=\frac{\text{sin}\,\pi }{\text{tan}\,\pi }=\frac{0}{0};\) then, \(\underset{θ\to \pi }{\text{lim}}\frac{\text{sin}\,θ}{\text{tan}\,θ}=\underset{θ\to \pi }{\text{lim}}\frac{\text{sin}\,θ}{\frac{\text{sin}\,θ}{\text{cos}\,θ}}=\underset{θ\to \pi }{\text{lim}}\text{cos}\,θ=-1\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">18</div><div class="body"><p>\(\underset{x\to 1}{\text{lim}}\frac{{x}^{3}-1}{{x}^{2}-1}\)</p>
+</div></div>
+<div class="exercise"><div class="n">19</div><div class="body"><p>\(\underset{x\to 1\text{/}2}{\text{lim}}\frac{2{x}^{2}+3x-2}{2x-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 1\text{/}2}{\text{lim}}\frac{2{x}^{2}+3x-2}{2x-1}=\frac{\frac{1}{2}+\frac{3}{2}-2}{1-1}=\frac{0}{0};\) then, \(\underset{x\to 1\text{/}2}{\text{lim}}\frac{2{x}^{2}+3x-2}{2x-1}=\underset{x\to 1\text{/}2}{\text{lim}}\frac{(2x-1)(x+2)}{2x-1}=\frac{5}{2}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">20</div><div class="body"><p>\(\underset{x\to -3}{\text{lim}}\frac{\sqrt{x+4}-1}{x+3}\)</p>
+</div></div>
+<p>In the following exercises, use direct substitution to obtain an undefined expression. Then, use the method of <a href="#example11">Example 11</a> to simplify the function to help determine the limit.</p>
+<div class="exercise"><div class="n">21</div><div class="body"><p>\(\underset{x\to {-2}^{-}}{\text{lim}}\frac{2{x}^{2}+7x-4}{{x}^{2}+x-2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>−∞</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">22</div><div class="body"><p>\(\underset{x\to {-2}^{+}}{\text{lim}}\frac{2{x}^{2}+7x-4}{{x}^{2}+x-2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">23</div><div class="body"><p>\(\underset{x\to {1}^{-}}{\text{lim}}\frac{2{x}^{2}+7x-4}{{x}^{2}+x-2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>−∞</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">24</div><div class="body"><p>\(\underset{x\to {1}^{+}}{\text{lim}}\frac{2{x}^{2}+7x-4}{{x}^{2}+x-2}\)</p>
+</div></div>
+<p>In the following exercises, assume that \(\underset{x\to 6}{\text{lim}}f(x)=4,\underset{x\to 6}{\text{lim}}g(x)=9,\) and \(\underset{x\to 6}{\text{lim}}h(x)=6.\) Use these three facts and the limit laws to evaluate each limit.</p>
+<div class="exercise"><div class="n">25</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}2f(x)g(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 6}{\text{lim}}2f(x)g(x)=2\underset{x\to 6}{\text{lim}}f(x)\underset{x\to 6}{\text{lim}}g(x)=72\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">26</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}\frac{g(x)-1}{f(x)}\)</p>
+</div></div>
+<div class="exercise"><div class="n">27</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}(f(x)+\frac{1}{3}g(x))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 6}{\text{lim}}(f(x)+\frac{1}{3}g(x))=\underset{x\to 6}{\text{lim}}f(x)+\frac{1}{3}\underset{x\to 6}{\text{lim}}g(x)=7\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">28</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}\frac{{(h(x))}^{3}}{2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">29</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}\sqrt{g(x)-f(x)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 6}{\text{lim}}\sqrt{g(x)-f(x)}=\sqrt{\underset{x\to 6}{\text{lim}}g(x)-\underset{x\to 6}{\text{lim}}f(x)}=\sqrt{5}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">30</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}x·h(x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">31</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}[(x+1)·f(x)]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 6}{\text{lim}}[(x+1)f(x)]=(\underset{x\to 6}{\text{lim}}(x+1))(\underset{x\to 6}{\text{lim}}f(x))=28\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">32</div><div class="body"><p>\(\underset{x\to 6}{\text{lim}}(f(x)·g(x)-h(x))\)</p>
+</div></div>
+<p><strong>[T]</strong> In the following exercises, use a calculator to draw the graph of each piecewise-defined function and study the graph to evaluate the given limits.</p>
+<div class="exercise"><div class="n">33</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}{x}^{2}, &amp; x\le 3 \\ x+4, &amp; x&gt;3\end{array}\right.\)</p>
+<ul class="tight"><li>\(\underset{x\to {3}^{-}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to {3}^{+}}{\text{lim}}f(x)\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> 3. There is an open circle at (3, 7), and the slope is 1."&gt;<br> a. 9; b. 7</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_202.jpg" alt="" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">34</div><div class="body"><p>\(g(x)=\left\{\begin{array}{ll}{x}^{3}-1, &amp; x\le 0 \\ 1, &amp; x&gt;0\end{array}\right.\)</p>
+<ul class="tight"><li>\(\underset{x\to {0}^{-}}{\text{lim}}g(x)\)</li><li>\(\underset{x\to {0}^{+}}{\text{lim}}g(x)\)</li></ul>
+</div></div>
+<div class="exercise"><div class="n">35</div><div class="body"><p>\(h(x)=\left\{\begin{array}{ll}{x}^{2}-2x+1, &amp; x&lt;2 \\ 3-x, &amp; x\ge 2\end{array}\right.\)</p>
+<ul class="tight"><li>\(\underset{x\to {2}^{-}}{\text{lim}}h(x)\)</li><li>\(\underset{x\to {2}^{+}}{\text{lim}}h(x)\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> = 2. It has a slope of -1 and an x intercept at (3,0)."&gt;<br> a. 1; b. 1</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_204.jpg" alt="" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>In the following exercises, use the following graphs and the limit laws to evaluate each limit.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_201.jpg" alt="" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise"><div class="n">36</div><div class="body"><p>\(\underset{x\to {-3}^{+}}{\text{lim}}(f(x)+g(x))\)</p>
+</div></div>
+<div class="exercise"><div class="n">37</div><div class="body"><p>\(\underset{x\to {-3}^{-}}{\text{lim}}(f(x)-3g(x))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to {-3}^{-}}{\text{lim}}(f(x)-3g(x))=\underset{x\to {-3}^{-}}{\text{lim}}f(x)-3\underset{x\to {-3}^{-}}{\text{lim}}g(x)=0+6=6\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">38</div><div class="body"><p>\(\underset{x\to 0}{\text{lim}}\frac{f(x)g(x)}{3}\)</p>
+</div></div>
+<div class="exercise"><div class="n">39</div><div class="body"><p>\(\underset{x\to -5}{\text{lim}}\frac{2+g(x)}{f(x)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to -5}{\text{lim}}\frac{2+g(x)}{f(x)}=\frac{2+(\underset{x\to -5}{\text{lim}}g(x))}{\underset{x\to -5}{\text{lim}}f(x)}=\frac{2+0}{2}=1\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">40</div><div class="body"><p>\(\underset{x\to 1}{\text{lim}}{(f(x))}^{2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">41</div><div class="body"><p>\(\underset{x\to 1}{\text{lim}}\sqrt[3]{f(x)-g(x)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 1}{\text{lim}}\sqrt[3]{f(x)-g(x)}=\sqrt[3]{\underset{x\to 1}{\text{lim}}f(x)-\underset{x\to 1}{\text{lim}}g(x)}=\sqrt[3]{2+5}=\sqrt[3]{7}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">42</div><div class="body"><p>\(\underset{x\to -7}{\text{lim}}(x·g(x))\)</p>
+</div></div>
+<div class="exercise"><div class="n">43</div><div class="body"><p>\(\underset{x\to -9}{\text{lim}}[x·f(x)+2·g(x)]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to -9}{\text{lim}}(xf(x)+2g(x))=(\underset{x\to -9}{\text{lim}}x)(\underset{x\to -9}{\text{lim}}f(x))+2\underset{x\to -9}{\text{lim}}(g(x))=(-9)(6)+2(4)=-46\)</p>
+</div></div></div></div>
+<p>For the following problems, evaluate the limit using the squeeze theorem. Use a calculator to graph the functions \(f(x),g(x),\) and \(h(x)\) when possible.</p>
+<div class="exercise"><div class="n">44</div><div class="body"><p><strong>[T]</strong> True or False? If \(2x-1\le g(x)\le {x}^{2}-2x+3,\) then \(\underset{x\to 2}{\text{lim}}g(x)=0.\)</p>
+</div></div>
+<div class="exercise"><div class="n">45</div><div class="body"><p><strong>[T]</strong> \(\underset{θ\to 0}{\text{lim}}{θ}^{2}\text{cos}\,(\frac{1}{θ})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The limit is zero.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_206.jpg" alt="The graph of three functions over the domain [-1,1], colored red, green, and blue as follows: red: theta^2, green: theta^2 * cos (1/theta), and blue: - (theta^2). The red and blue functions open upwards and downwards respectively as parabolas with vertices at the origin. The green function is trapped between the two." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">46</div><div class="body"><p>\(\underset{x\to 0}{\text{lim}}f(x),\) where \(f(x)=\left\{\begin{array}{ll}0, &amp; x\,\text{rational} \\ {x}^{2}, &amp; x\,\text{irrational}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise"><div class="n">47</div><div class="body"><p><strong>[T]</strong> In physics, the magnitude of an electric field generated by a point charge at a distance <strong>r</strong> in vacuum is governed by Coulomb’s law: \(E(r)=\frac{q}{4\pi {ε}_{0}{r}^{2}},\) where <strong>E</strong> represents the magnitude of the electric field, <strong>q</strong> is the charge of the particle, <strong>r</strong> is the distance between the particle and where the strength of the field is measured, and \(\frac{1}{4\pi {ε}_{0}}\) is Coulomb’s constant: \(8.988\,\times \,{10}^{9}\,\text{N}·{\text{m}}^{2}\text{/}{\text{C}}^{2}.\)</p>
+<ul class="tight"><li>Use a graphing calculator to graph \(E(r)\) given that the charge of the particle is \(q={10}^{-10}.\)</li><li>Evaluate \(\underset{r\to {0}^{+}}{\text{lim}}E(r).\) What is the physical meaning of this quantity? Is it physically relevant? Why are you evaluating from the right?</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a.<br> <br> b. ∞. The magnitude of the electric field as you approach the particle <strong>q</strong> becomes infinite. It does not make physical sense to evaluate negative distance.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_02_03_207.jpg" alt="A graph of a function with two curves. The first is in quadrant two and curves asymptotically to infinity along the y axis and to 0 along the x axis as x goes to negative infinity. The second is in quadrant one and curves asymptotically to infinity along the y axis and to 0 along the x axis as x goes to infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">48</div><div class="body"><p><strong>[T]</strong> The density of an object is given by its mass divided by its volume: \(ρ=m\text{/}V.\)</p>
+<ul class="tight"><li>Use a calculator to plot the volume as a function of density \((V=m\text{/}ρ),\) assuming you are examining something of mass 8 kg ( \(m=8\text{).}\)</li><li>Evaluate \(\underset{ρ\to {0}^{+}}{\text{lim}}V(ρ)\) and explain the physical meaning.</li></ul>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>constant multiple law for limits</dt><dd>the limit law \(\underset{x\to a}{\text{lim}}cf(x)=c·\underset{x\to a}{\text{lim}}f(x)=cL\)</dd><dt>difference law for limits</dt><dd>the limit law \(\underset{x\to a}{\text{lim}}(f(x)-g(x))=\underset{x\to a}{\text{lim}}f(x)-\underset{x\to a}{\text{lim}}g(x)=L-M\)</dd><dt>limit laws</dt><dd>the individual properties of limits; for each of the individual laws, let \(f(x)\) and \(g(x)\) be defined for all \(x\ne a\) over some open interval containing <strong>a</strong>; assume that <strong>L</strong> and <strong>M</strong> are real numbers so that \(\underset{x\to a}{\text{lim}}f(x)=L\) and \(\underset{x\to a}{\text{lim}}g(x)=M;\) let <strong>c</strong> be a constant</dd><dt>power law for limits</dt><dd>the limit law \(\underset{x\to a}{\text{lim}}{(f(x))}^{n}={(\underset{x\to a}{\text{lim}}f(x))}^{n}={L}^{n}\) for every positive integer <strong>n</strong></dd><dt>product law for limits</dt><dd>the limit law \(\underset{x\to a}{\text{lim}}(f(x)·g(x))=\underset{x\to a}{\text{lim}}f(x)·\underset{x\to a}{\text{lim}}g(x)=L·M\)</dd><dt>quotient law for limits</dt><dd>the limit law \(\underset{x\to a}{\text{lim}}\frac{f(x)}{g(x)}=\frac{\underset{x\to a}{\text{lim}}f(x)}{\underset{x\to a}{\text{lim}}g(x)}=\frac{L}{M}\) for \(M\ne 0\)</dd><dt>root law for limits</dt><dd>the limit law \(\underset{x\to a}{\text{lim}}\sqrt[n]{f(x)}=\sqrt[n]{\underset{x\to a}{\text{lim}}f(x)}=\sqrt[n]{L}\) for all <strong>L</strong> if <strong>n</strong> is odd and for \(L\ge 0\) if <strong>n</strong> is even</dd><dt>squeeze theorem</dt><dd>states that if \(f(x)\le g(x)\le h(x)\) for all \(x\ne a\) over an open interval containing <strong>a</strong> and \(\underset{x\to a}{\text{lim}}f(x)=L=\underset{x\to a}{\text{lim}}h(x)\) where <strong>L</strong> is a real number, then \(\underset{x\to a}{\text{lim}}g(x)=L\)</dd><dt>sum law for limits</dt><dd>The limit law \(\underset{x\to a}{\text{lim}}(f(x)+g(x))=\underset{x\to a}{\text{lim}}f(x)+\underset{x\to a}{\text{lim}}g(x)=L+M\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-1">OpenStax Calculus Volume 1</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>
