@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polar Coordinates · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=64dd35f0fdbe40c5bb00a4a5df4237b6"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Polar Coordinates</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 1.3</span>Polar Coordinates</h1>
+<p>The rectangular coordinate system (or Cartesian plane) provides a means of mapping points to ordered pairs and ordered pairs to points. This is called a <strong>one-to-one mapping</strong> from points in the plane to ordered pairs. The polar coordinate system provides an alternative method of mapping points to ordered pairs. In this section we see that in some circumstances, polar coordinates can be more useful than rectangular coordinates.</p>
+<h2 id="defining-polar-coordinates">Defining Polar Coordinates</h2>
+<p>To find the coordinates of a point in the polar coordinate system, consider <a href="#fig1">Figure 1</a>. The point \(P\) has Cartesian coordinates \((x,y).\) The line segment connecting the origin to the point \(P\) measures the distance from the origin to \(P\) and has length \(r.\) The angle between the positive \(x\) -axis and the line segment has measure \(θ.\) This observation suggests a natural correspondence between the coordinate pair \((x,y)\) and the values \(r\) and \(θ.\) This correspondence is the basis of the <strong>polar coordinate system</strong>. Note that every point in the Cartesian plane has two values (hence the term <strong>ordered pair</strong>) associated with it. In the polar coordinate system, each point also has two values associated with it: \(r\) and \(θ.\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_001.jpg" alt="A point P(x, y) is given in the first quadrant with lines drawn to indicate its x and y values. There is a line from the origin to P(x, y) marked r and this line make an angle θ with the x axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — An arbitrary point in the Cartesian plane.</figcaption></figure>
+<p>Using right-triangle trigonometry, the following equations are true for the point \(P\text{:}\)</p>
+<p>\[\text{cos}\,θ=\frac{x}{r}\,\text{so}\,x=r\,\text{cos}\,θ\]</p>
+<p>\[\text{sin}\,θ=\frac{y}{r}\,\text{so}\,y=r\,\text{sin}\,θ.\]</p>
+<p>Furthermore,</p>
+<p>\[{r}^{2}={x}^{2}+{y}^{2}\,\text{and}\,\text{tan}\,θ=\frac{y}{x}.\]</p>
+<p>Each point \((x,y)\) in the Cartesian coordinate system can therefore be represented as an ordered pair \((r,θ)\) in the polar coordinate system. The first coordinate is called the <strong>radial coordinate</strong> and the second coordinate is called the <strong>angular coordinate</strong>. Every point in the plane can be represented in this form.</p>
+<p>Note that the equation \(\text{tan}\,θ=y\text{/}x\) has an infinite number of solutions for any ordered pair \((x,y).\) However, if we restrict the solutions to values between \(0\) and \(2\pi\) then we can assign a unique solution to the quadrant in which the original point \((x,y)\) is located. Then the corresponding value of <strong>r</strong> is positive, so \({r}^{2}={x}^{2}+{y}^{2}.\)</p>
+<div class="card definition"><span class="chip">Converting Points between Coordinate Systems</span><p>Given a point \(P\) in the plane with Cartesian coordinates \((x,y)\) and polar coordinates \((r,θ),\) the following conversion formulas hold true:</p>
+<p>\[x=r\,\text{cos}\,θ\,\text{and}\,y=r\,\text{sin}\,θ,\]</p>
+<p>\[{r}^{2}={x}^{2}+{y}^{2}\,\text{and}\,\text{tan}\,θ=\frac{y}{x}.\]</p>
+<p>These formulas can be used to convert from rectangular to polar or from polar to rectangular coordinates.</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Convert each of the following points into polar coordinates.</p>
+<ul class="tight"><li>\((1,1)\)</li><li>\((-3,4)\)</li><li>\((0,3)\)</li><li>\((5\sqrt{3},-5)\)</li></ul>
+<p>Convert each of the following points into rectangular coordinates.</p>
+<ul class="tight"><li>\((3,\pi \text{/}3)\)</li><li>\((2,3\pi \text{/}2)\)</li><li>\((6,-5\pi \text{/}6)\)</li></ul>
+<p class="sol-hint">For each rectangular point use \({r}^{2}={x}^{2}+{y}^{2}\) and \(\text{tan}\,θ=y\text{/}x;\) for each polar point use \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Use \(x=1\) and \(y=1\) in (see original):<br> <br> Therefore this point can be represented as \((\sqrt{2},\frac{\pi }{4})\) in polar coordinates.<p>\[\begin{array}{lllllll}\begin{array}{lll}{r}^{2} &amp; = &amp; {x}^{2}+{y}^{2} \\ &amp; = &amp; {1}^{2}+{1}^{2} \\ r &amp; = &amp; \sqrt{2}\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}\text{tan}\,θ &amp; = &amp; \frac{y}{x} \\ &amp; = &amp; \frac{1}{1}=1 \\ θ &amp; = &amp; \frac{\pi }{4}.\end{array}\end{array}\]</p>
+</li><li>Use \(x=-3\) and \(y=4\) in (see original):<br> <br> The point \((-3, 4)\) lies in Quadrant \(\text{II}\) . Subtract the value of the reference angle, \(\text{arctan}\left(\frac{4}{3}\right)\) , from \(\pi\) to find the radian measure of \(θ\) . <br> Therefore this point can be represented as \((5,2.21)\) in polar coordinates.<p>\[\begin{array}{lllllll}\begin{array}{lll}{r}^{2} &amp; = &amp; {x}^{2}+{y}^{2} \\ &amp; = &amp; {(-3)}^{2}+{(4)}^{2} \\ r &amp; = &amp; 5\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}\text{tan}\,θ &amp; = &amp; \frac{y}{x} \\ &amp; = &amp; -\frac{4}{3} \\ θ &amp; = &amp; \pi -arctan(\frac{4}{3}) \\ &amp; \approx &amp; 2.21.\end{array}\end{array}\]</p>
+</li><li>Use \(x=0\) and \(y=3\) in (see original):<br> <br> Direct application of the second equation leads to division by zero. Graphing the point \((0,3)\) on the rectangular coordinate system reveals that the point is located on the positive <strong>y</strong>-axis. The angle between the positive <strong>x</strong>-axis and the positive <strong>y</strong>-axis is \(\frac{\pi }{2}.\) Therefore this point can be represented as \((3,\frac{\pi }{2})\) in polar coordinates.<p>\[\begin{array}{lllllll}\begin{array}{lll}{r}^{2} &amp; = &amp; {x}^{2}+{y}^{2} \\ &amp; = &amp; {(3)}^{2}+{(0)}^{2} \\ &amp; = &amp; 9+0 \\ r &amp; = &amp; 3\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}\text{tan}\,θ &amp; = &amp; \frac{y}{x} \\ &amp; = &amp; \frac{3}{0}.\end{array}\end{array}\]</p>
+</li><li>Use \(x=5\sqrt{3}\) and \(y=-5\) in (see original):<br> <br> Therefore this point can be represented as \((10,-\frac{\pi }{6})\) in polar coordinates.<p>\[\begin{array}{lllllll}\begin{array}{lll}{r}^{2} &amp; = &amp; {x}^{2}+{y}^{2} \\ &amp; = &amp; {(5\sqrt{3})}^{2}+{(-5)}^{2} \\ &amp; = &amp; 75+25 \\ r &amp; = &amp; 10\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}\text{tan}\,θ &amp; = &amp; \frac{y}{x} \\ &amp; = &amp; \frac{-5}{5\sqrt{3}}=-\frac{\sqrt{3}}{3} \\ θ &amp; = &amp; -\frac{\pi }{6}.\end{array}\end{array}\]</p>
+</li><li>Use \(r=3\) and \(θ=\frac{\pi }{3}\) in (see original):<br> <br> Therefore this point can be represented as \((\frac{3}{2},\,\frac{3\sqrt{3}}{2})\) in rectangular coordinates.<p>\[\begin{array}{lllllll}\begin{array}{lll}x &amp; = &amp; r\,\text{cos}\,θ \\ &amp; = &amp; 3\,\text{cos}(\frac{\pi }{3}) \\ &amp; = &amp; 3(\frac{1}{2})=\frac{3}{2}\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}y &amp; = &amp; r\,\text{sin}\,θ \\ &amp; = &amp; 3\,\text{sin}(\frac{\pi }{3}) \\ &amp; = &amp; 3(\frac{\sqrt{3}}{2})=\frac{3\sqrt{3}}{2}.\end{array}\end{array}\]</p>
+</li><li>Use \(r=2\) and \(θ=\frac{3\pi }{2}\) in (see original):<br> <br> Therefore this point can be represented as \((0,-2)\) in rectangular coordinates.<p>\[\begin{array}{lllllll}\begin{array}{lll}x &amp; = &amp; r\,\text{cos}\,θ \\ &amp; = &amp; 2\,\text{cos}(\frac{3\pi }{2}) \\ &amp; = &amp; 2(0)=0\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}y &amp; = &amp; r\,\text{sin}\,θ \\ &amp; = &amp; 2\,\text{sin}(\frac{3\pi }{2}) \\ &amp; = &amp; 2(-1)=-2.\end{array}\end{array}\]</p>
+</li><li>Use \(r=6\) and \(θ=-\frac{5\pi }{6}\) in (see original):<br> <br> Therefore this point can be represented as \((-3\sqrt{3},-3)\) in rectangular coordinates.<p>\[\begin{array}{lllllll}\begin{array}{lll}x &amp; = &amp; r\,\text{cos}\,θ \\ &amp; = &amp; 6\,\text{cos}(-\frac{5\pi }{6}) \\ &amp; = &amp; 6(-\frac{\sqrt{3}}{2}) \\ &amp; = &amp; -3\sqrt{3}\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}y &amp; = &amp; r\,\text{sin}\,θ \\ &amp; = &amp; 6\,\text{sin}(-\frac{5\pi }{6}) \\ &amp; = &amp; 6(-\frac{1}{2}) \\ &amp; = &amp; -3.\end{array}\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Convert \((-8,-8)\) into polar coordinates and \((4,\frac{2\pi }{3})\) into rectangular coordinates.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((8\sqrt{2},\frac{5\pi }{4})\) and \((-2,2\sqrt{3})\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The polar representation of a point is not unique. For example, the polar coordinates \((2,\frac{\pi }{3})\) and \((2,\frac{7\pi }{3})\) both represent the point \((1,\sqrt{3})\) in the rectangular system. Also, the value of \(r\) can be negative. Therefore, the point with polar coordinates \((-2,\frac{4\pi }{3})\) also represents the point \((1,\sqrt{3})\) in the rectangular system, as we can see by using (see original):</p>
+<p>\[\begin{array}{lllllll}\begin{array}{lll}x &amp; = &amp; r\,\text{cos}\,θ \\ &amp; = &amp; -2\,\text{cos}(\frac{4\pi }{3}) \\ &amp; = &amp; -2(-\frac{1}{2})=1\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}y &amp; = &amp; r\,\text{sin}\,θ \\ &amp; = &amp; -2\,\text{sin}(\frac{4\pi }{3}) \\ &amp; = &amp; -2(-\frac{\sqrt{3}}{2})=\sqrt{3}.\end{array}\end{array}\]</p>
+<p>Every point in the plane has an infinite number of representations in polar coordinates. However, each point in the plane has only one representation in the rectangular coordinate system.</p>
+<p>Note that the polar representation of a point in the plane also has a visual interpretation. In particular, \(r\) is the directed distance that the point lies from the origin, and \(θ\) measures the angle that the line segment from the origin to the point makes with the positive \(x\) -axis. Positive angles are measured in a counterclockwise direction and negative angles are measured in a clockwise direction. The polar coordinate system appears in the following figure.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_002.jpg" alt="A series of concentric circles is drawn with spokes indicating different values between 0 and 2π in increments of π/12. The first quadrant starts with 0 where the x axis would be, then the next spoke is marked π/12, then π/6, π/4, π/3, 5π/12, π/2, and so on into the second, third, and fourth quadrants. The polar axis is noted near the former x axis line." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The polar coordinate system.</figcaption></figure>
+<p>The line segment starting from the center of the graph going to the right (called the positive <strong>x</strong>-axis in the Cartesian system) is the <strong>polar axis</strong>. The center point is the <strong>pole</strong>, or origin, of the coordinate system, and corresponds to \(r=0.\) The innermost circle shown in <a href="#fig2">Figure 2</a> contains all points a distance of 1 unit from the pole, and is represented by the equation \(r=1.\) Then \(r=2\) is the set of points 2 units from the pole, and so on. The line segments emanating from the pole correspond to fixed angles. To plot a point in the polar coordinate system, start with the angle. If the angle is positive, then measure the angle from the polar axis in a counterclockwise direction. If it is negative, then measure it clockwise. If the value of \(r\) is positive, move that distance along the terminal ray of the angle. If it is negative, move along the ray that is opposite the terminal ray of the given angle.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Plot each of the following points on the polar plane.</p>
+<ul class="tight"><li>\((2,\frac{\pi }{4})\)</li><li>\((-3,\frac{2\pi }{3})\)</li><li>\((4,\frac{5\pi }{4})\)</li></ul>
+<p class="sol-hint">Start with the angle θ, measured from the polar axis, then move out along that ray by <strong>r</strong> (or along the opposite ray if <strong>r</strong> is negative).</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The three points are plotted in the following figure.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_003.jpg" alt="Three points are marked on a polar coordinate plane, specifically (2, π/4) in the first quadrant, (4, 5π/4) in the third quadrant, and (−3, 2π/3) in the fourth quadrant." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Three points plotted in the polar coordinate system.</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Plot \((4,\frac{5\pi }{3})\) and \((-3,-\frac{7\pi }{2})\) on the polar plane.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_004.jpg" alt="Two points are marked on a polar coordinate plane, specifically (−3, −7π/2) on the y axis and (4, 5π/3) in the fourth quadrant." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="polar-curves">Polar Curves</h2>
+<p>Now that we know how to plot points in the polar coordinate system, we can discuss how to plot curves. In the rectangular coordinate system, we can graph a function \(y=f(x)\) and create a curve in the Cartesian plane. In a similar fashion, we can graph a curve that is generated by a function \(r=f(θ).\)</p>
+<p>The general idea behind graphing a function in polar coordinates is the same as graphing a function in rectangular coordinates. Start with a list of values for the independent variable \((θ\) in this case) and calculate the corresponding values of the dependent variable \(r.\) This process generates a list of ordered pairs, which can be plotted in the polar coordinate system. Finally, connect the points, and take advantage of any patterns that may appear. The function may be periodic, for example, which indicates that only a limited number of values for the independent variable are needed.</p>
+<div class="card definition"><span class="chip">Plotting a Curve in Polar Coordinates</span><ul class="tight"><li>Create a table with two columns. The first column is for \(θ,\) and the second column is for \(r.\)</li><li>Create a list of values for \(θ.\)</li><li>Calculate the corresponding \(r\) values for each \(θ.\)</li><li>Plot each ordered pair \((r,θ)\) on the coordinate axes.</li><li>Connect the points and look for a pattern.</li></ul>
+</div>
+<div class="card callout"><span class="chip">Media</span><p>Watch this <a href="http://www.openstax.org/l/20_polarcurves" target="_blank" rel="noopener">video</a> for more information on sketching polar curves.</p>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Graph the curve defined by the function \(r=4\,\text{sin}\,θ.\) Identify the curve and rewrite the equation in rectangular coordinates.</p>
+<p class="sol-hint">Build a table of \((θ,r)\) values over one period and plot the points; to convert, multiply both sides by <strong>r</strong> so you can substitute \({r}^{2}={x}^{2}+{y}^{2}\) and \(y=r\,\text{sin}\,θ.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because the function is a multiple of a sine function, it is periodic with period \(2\pi ,\) so use values for \(θ\) between 0 and \(2\pi .\) The result of steps 1–3 appear in the following table. <a href="#fig4">Figure 4</a> shows the graph based on this table.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\(θ\)</td><td>\(r=4\,\text{sin}\,θ\)</td><td></td><td>\(θ\)</td><td>\(r=4\,\text{sin}\,θ\)</td></tr><tr><td>0</td><td>0</td><td></td><td>\(\pi\)</td><td>0</td></tr><tr><td>\(\frac{\pi }{6}\)</td><td>\(2\)</td><td>\(\frac{7\pi }{6}\)</td><td>\(-2\)</td></tr><tr><td>\(\frac{\pi }{4}\)</td><td>\(2\sqrt{2}\approx 2.8\)</td><td>\(\frac{5\pi }{4}\)</td><td>\(-2\sqrt{2}\approx -2.8\)</td></tr><tr><td>\(\frac{\pi }{3}\)</td><td>\(2\sqrt{3}\approx 3.4\)</td><td>\(\frac{4\pi }{3}\)</td><td>\(-2\sqrt{3}\approx -3.4\)</td></tr><tr><td>\(\frac{\pi }{2}\)</td><td>\(4\)</td><td>\(\frac{3\pi }{2}\)</td><td>\(-4\)</td></tr><tr><td>\(\frac{2\pi }{3}\)</td><td>\(2\sqrt{3}\approx 3.4\)</td><td>\(\frac{5\pi }{3}\)</td><td>\(-2\sqrt{3}\approx -3.4\)</td></tr><tr><td>\(\frac{3\pi }{4}\)</td><td>\(2\sqrt{2}\approx 2.8\)</td><td>\(\frac{7\pi }{4}\)</td><td>\(-2\sqrt{2}\approx -2.8\)</td></tr><tr><td>\(\frac{5\pi }{6}\)</td><td>\(2\)</td><td>\(\frac{11\pi }{6}\)</td><td>\(-2\)</td></tr><tr><td></td><td></td><td>\(2\pi\)</td><td>0</td></tr></tbody></table></div>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_005.jpg" alt="On the polar coordinate plane, a circle is drawn with radius 2. It touches the origin, (2 times the square root of 2, π/4), (4, π/2), and (2 times the square root of 2, 3π/4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The graph of the function \(r=4\,\text{sin}\,θ\) is a circle.</figcaption></figure>
+<p>This is the graph of a circle. The equation \(r=4\,\text{sin}\,θ\) can be converted into rectangular coordinates by first multiplying both sides by \(r.\) This gives the equation \({r}^{2}=4r\,\text{sin}\,θ.\) Next use the facts that \({r}^{2}={x}^{2}+{y}^{2}\) and \(y=r\,\text{sin}\,θ.\) This gives \({x}^{2}+{y}^{2}=4y.\) To put this equation into standard form, subtract \(4y\) from both sides of the equation and complete the square:</p>
+<p>\[\begin{array}{lll}{x}^{2}+{y}^{2}-4y &amp; = &amp; 0 \\ {x}^{2}+({y}^{2}-4y) &amp; = &amp; 0 \\ {x}^{2}+({y}^{2}-4y+4) &amp; = &amp; 0+4 \\ {x}^{2}+{(y-2)}^{2} &amp; = &amp; 4.\end{array}\]</p>
+<p>This is the equation of a circle with radius 2 and center \((0,2)\) in the rectangular coordinate system.</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Create a graph of the curve defined by the function \(r=4+4\,\text{cos}\,θ.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p><br> <br> The name of this shape is a cardioid, which we will study further later in this section.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_006.jpg" alt="The graph of r = 4 + 4 cosθ is given. It vaguely looks look a heart tipped on its side with a rounded bottom instead of a pointed one. Specifically, the graph starts at the origin, moves into the second quadrant and increases to a rounded circle-like figure. The graph is symmetric about the x axis, so it continues its rounded circle-like figure, goes into the third quadrant, and comes to a point at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The graph in <a href="#example3">Example 3</a> was that of a circle. The equation of the circle can be transformed into rectangular coordinates using the coordinate transformation formulas in (see original). <a href="#example5">Example 5</a> gives some more examples of functions for transforming from polar to rectangular coordinates.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Rewrite each of the following equations in rectangular coordinates and identify the graph.</p>
+<ul class="tight"><li>\(θ=\frac{\pi }{3}\)</li><li>\(r=3\)</li><li>\(r=6\,\text{cos}\,θ-8\,\text{sin}\,θ\)</li></ul>
+<p class="sol-hint">Multiply by <strong>r</strong> where needed so you can substitute \({r}^{2}={x}^{2}+{y}^{2},\,x=r\,\text{cos}\,θ,\) and \(y=r\,\text{sin}\,θ,\) then complete the square if the result isn't already in standard form.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Take the tangent of both sides. This gives \(\text{tan}\,θ=\text{tan}(\pi \text{/}3)=\sqrt{3}.\) Since \(\text{tan}\,θ=y\text{/}x\) we can replace the left-hand side of this equation by \(y\text{/}x.\) This gives \(y\text{/}x=\sqrt{3},\) which can be rewritten as \(y=x\sqrt{3}.\) This is the equation of a straight line passing through the origin with slope \(\sqrt{3}.\) In general, any polar equation of the form \(θ=K\) represents a straight line through the pole with slope equal to \(\text{tan}\,K.\)</li><li>First, square both sides of the equation. This gives \({r}^{2}=9.\) Next replace \({r}^{2}\) with \({x}^{2}+{y}^{2}.\) This gives the equation \({x}^{2}+{y}^{2}=9,\) which is the equation of a circle centered at the origin with radius 3. In general, any polar equation of the form \(r=k\) where <strong>k</strong> is a positive constant represents a circle of radius <strong>k</strong> centered at the origin. (<strong>Note</strong>: when squaring both sides of an equation it is possible to introduce new points unintentionally. This should always be taken into consideration. However, in this case we do not introduce new points. For example, \((-3,\frac{\pi }{3})\) is the same point as \((3,\frac{4\pi }{3}).)\)</li><li>Multiply both sides of the equation by \(r.\) This leads to \({r}^{2}=6r\,\text{cos}\,θ-8r\,\text{sin}\,θ.\) Next use the formulas<br> <br> This gives<br> <br> To put this equation into standard form, first move the variables from the right-hand side of the equation to the left-hand side, then complete the square.<br> <br> This is the equation of a circle with center at \((3,-4)\) and radius 5. Notice that the circle passes through the origin since the center is 5 units away.<p>\[{r}^{2}={x}^{2}+{y}^{2},\,x=r\,\text{cos}\,θ,\,y=r\,\text{sin}\,θ.\]</p>
+<p>\[\begin{array}{lll}{r}^{2} &amp; = &amp; 6(r\,\text{cos}\,θ)-8(r\,\text{sin}\,θ) \\ {x}^{2}+{y}^{2} &amp; = &amp; 6x-8y.\end{array}\]</p>
+<p>\[\begin{array}{lll}{x}^{2}+{y}^{2} &amp; = &amp; 6x-8y \\ {x}^{2}-6x+{y}^{2}+8y &amp; = &amp; 0 \\ ({x}^{2}-6x)+({y}^{2}+8y) &amp; = &amp; 0 \\ ({x}^{2}-6x+9)+({y}^{2}+8y+16) &amp; = &amp; 9+16 \\ {(x-3)}^{2}+{(y+4)}^{2} &amp; = &amp; 25.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Rewrite the equation \(r=\text{sec}\,θ\,\text{tan}\,θ\) in rectangular coordinates and identify its graph.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y={x}^{2},\) which is the equation of a parabola opening upward.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We have now seen several examples of drawing graphs of curves defined by <strong>polar equations</strong>. A summary of some common curves is given in the tables below. In each equation, <strong>a</strong> and <strong>b</strong> are arbitrary constants.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_016.jpg" alt="This table has three columns and 3 rows. The first row is a header row and is given from left to right as name, equation, and example. The second row is Line passing through the pole with slope tan K; θ = K; and a picture of a straight line on the polar coordinate plane with θ = π/3. The third row is Circle; r = a cosθ + b sinθ; and a picture of a circle on the polar coordinate plane with equation r = 2 cos(θ) – 3 sin(θ): the circle touches the origin but has center in the third quadrant." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_017.jpg" alt="This table has three columns and 3 rows. The first row is Spiral; r = a + bθ; and a picture of a spiral starting at the origin with equation r = θ/3. The second row is Cardioid; r = a(1 + cosθ), r = a(1 – cosθ), r = a(1 + sinθ), r = a(1 – sinθ); and a picture of a cardioid with equation r = 3(1 + cosθ): the cardioid looks like a heart turned on its side with a rounded bottom instead of a pointed one. The third row is Limaçon; r = a cosθ + b, r = a sinθ + b; and a picture of a limaçon with equation r = 2 + 4 sinθ: the figure looks like a deformed circle with a loop inside of it. The seventh row is Rose; r = a cos(bθ), r = a sin(bθ); and a picture of a rose with equation r = 3 sin(2θ): the rose looks like a flower with four petals, one petal in each quadrant, each with length 3 and reaching to the origin between each petal." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<p>A <strong>cardioid</strong> is a special case of a <strong>limaçon</strong> (pronounced “lee-mah-son”), in which \(a=b\) or \(a=\text{-}b.\) The <strong>rose</strong> is a very interesting curve. Notice that the graph of \(r=3\,\text{sin}\,2θ\) has four petals. However, the graph of \(r=3\,\text{sin}\,3θ\) has three petals as shown.</p>
+<figure class="plot" id="fig7" data-desmos data-spec='{"bounds":{"left":-6,"right":6,"bottom":-6,"top":6},"sliders":[{"var":"a","min":1,"max":5,"step":0.5,"value":3,"color":"#5a5656"},{"var":"k","min":0.5,"max":8,"step":0.1,"value":3,"color":"#cf003d"}],"curves":[{"latex":"r=a\\sin(k\\theta)","domain":{"min":"0","max":"40\\pi"},"color":"#cf003d"}],"alt":"Interactive polar rose r=a*sin(k*theta) -- drag k to change the petal count, and try a rational vs. an irrational-looking value of k"}'><figcaption>Figure 7 — Graph of \(r=3\,\text{sin}\,3θ.\) Drag <em>k</em> below to see how the petal count changes.</figcaption></figure>
+<p>If the coefficient of \(θ\) is even, the graph has twice as many petals as the coefficient. If the coefficient of \(θ\) is odd, then the number of petals equals the coefficient. You are encouraged to explore why this happens — try it in <a href="#fig7">Figure 7</a> above. Even more interesting graphs emerge when the coefficient of \(θ\) is not an integer. For example, if it is rational, then the curve is closed; that is, it eventually ends where it started (try \(k=2.5\)). However, if the coefficient is irrational, then the curve never closes (try \(k=3.14159,\) close to \(π\)). Although it may appear that the curve is closed, a closer examination reveals that the petals just above the positive <strong>r</strong> axis are slightly thicker. This is because the petal does not quite match up with the starting point.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Recall the <strong>chambered nautilus</strong> introduced in the chapter opener. This creature displays a spiral when half the outer shell is cut away. It is possible to describe a spiral using rectangular coordinates. <a href="#fig8">Figure 8</a> shows a spiral in rectangular coordinates. How can we describe this curve mathematically?</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_010.jpg" alt="A spiral starting at the origin and continually increasing its radius to a point P(x, y)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — How can we describe a spiral graph mathematically?</figcaption></figure>
+<p class="sol-hint">Let the distance from the origin be a constant multiple <strong>k</strong> of θ, so \(d(P,O)=kθ,\) then rewrite that relationship using \(r=d(P,O).\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As the point <strong>P</strong> travels around the spiral in a counterclockwise direction, its distance <strong>d</strong> from the origin increases. Assume that the distance <strong>d</strong> is a constant multiple <strong>k</strong> of the angle \(θ\) that the line segment <strong>OP</strong> makes with the positive <strong>r</strong>-axis. Therefore \(d(P,O)=kθ,\) where \(O\) is the origin. Now use the distance formula and some trigonometry:</p>
+<p>\[\begin{array}{lll}d(P,O) &amp; = &amp; kθ \\ \sqrt{{(x-0)}^{2}+{(y-0)}^{2}} &amp; = &amp; k\,\text{arctan}(\frac{y}{x}) \\ \sqrt{{x}^{2}+{y}^{2}} &amp; = &amp; k\,\text{arctan}(\frac{y}{x}) \\ \text{arctan}(\frac{y}{x}) &amp; = &amp; \frac{\sqrt{{x}^{2}+{y}^{2}}}{k} \\ y &amp; = &amp; x\,\text{tan}(\frac{\sqrt{{x}^{2}+{y}^{2}}}{k}).\end{array}\]</p>
+<p>Although this equation describes the spiral, it is not possible to solve it directly for either <strong>x</strong> or <strong>y</strong>. However, if we use polar coordinates, the equation becomes much simpler. In particular, \(d(P,O)=r,\) and \(θ\) is the second coordinate. Therefore the equation for the spiral becomes \(r=kθ.\) Note that when \(θ=0\) we also have \(r=0,\) so the spiral emanates from the origin. We can remove this restriction by adding a constant to the equation. Then the equation for the spiral becomes \(r=a+kθ\) for arbitrary constants \(a\) and \(k.\) This is referred to as an <strong>Archimedean spiral</strong>, after the Greek mathematician Archimedes.</p>
+<p>Another type of spiral is the logarithmic spiral, described by the function \(r=a·{b}^{θ}.\) A graph of the function \(r=1.2({1.25}^{θ})\) is given in <a href="#fig9">Figure 9</a>. This spiral describes the shell shape of the chambered nautilus.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_011.jpg" alt="This figure has two figures. The first is a shell with many chambers that increase in size from the center out. The second is a spiral with equation r = 1.2(1.25θ)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — A logarithmic spiral is similar to the shape of the chambered nautilus shell. (credit: modification of work by Jitze Couperus, Flickr)</figcaption></figure>
+</div></div></div>
+<p>Suppose a curve is described in the polar coordinate system via the function \(r=f(θ).\) Since we have conversion formulas from polar to rectangular coordinates given by</p>
+<p>\[\begin{array}{l}x=r\,\text{cos}\,θ \\ y=r\,\text{sin}\,θ,\end{array}\]</p>
+<p>it is possible to rewrite these formulas using the function</p>
+<p>\[\begin{array}{l}x=f(θ)\,\text{cos}\,θ \\ y=f(θ)\,\text{sin}\,θ.\end{array}\]</p>
+<p>This step gives a parameterization of the curve in rectangular coordinates using \(θ\) as the parameter. For example, the spiral formula \(r=a+bθ\) from <a href="#fig5">Figure 5</a> becomes</p>
+<p>\[\begin{array}{l}x=(a+bθ)\,\text{cos}\,θ \\ y=(a+bθ)\,\text{sin}\,θ.\end{array}\]</p>
+<p>Letting \(θ\) range from \(\text{-}\infty\) to \(\infty\) generates the entire spiral.</p>
+<h2 id="symmetry-in-polar-coordinates">Symmetry in Polar Coordinates</h2>
+<p>When studying <strong>symmetry</strong> of functions in rectangular coordinates (i.e., in the form \(y=f(x)),\) we talk about symmetry with respect to the <strong>y</strong>-axis and symmetry with respect to the origin. In particular, if \(f(\text{-}x)=f(x)\) for all \(x\) in the domain of \(f,\) then \(f\) is an even function and its graph is symmetric with respect to the <strong>y</strong>-axis. If \(f(\text{-}x)=\text{-}f(x)\) for all \(x\) in the domain of \(f,\) then \(f\) is an odd function and its graph is symmetric with respect to the origin. By determining which types of symmetry a graph exhibits, we can learn more about the shape and appearance of the graph. Symmetry can also reveal other properties of the function that generates the graph. Symmetry in polar curves works in a similar fashion.</p>
+<div class="card definition"><span class="chip">Symmetry in Polar Curves and Equations</span><p>Consider a curve generated by the function \(r=f(θ)\) in polar coordinates.</p>
+<ul class="tight"><li>The curve is symmetric about the polar axis if for every point \((r,θ)\) on the graph, the point \((r,\text{-}θ)\) is also on the graph. Similarly, the equation \(r=f(θ)\) is unchanged by replacing \(θ\) with \(\text{-}θ.\)</li><li>The curve is symmetric about the pole if for every point \((r,θ)\) on the graph, the point \((r,\pi +θ)\) is also on the graph. Similarly, the equation \(r=f(θ)\) is unchanged when replacing \(r\) with \(\text{-}r,\) or \(θ\) with \(\pi +θ.\)</li><li>The curve is symmetric about the vertical line \(θ=\frac{\pi }{2}\) if for every point \((r,θ)\) on the graph, the point \((r,\pi -θ)\) is also on the graph. Similarly, the equation \(r=f(θ)\) is unchanged when \(θ\) is replaced by \(\pi -θ.\)</li></ul>
+</div>
+<p>The following table shows examples of each type of symmetry.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_018.jpg" alt="This table has three rows and two columns. The first row reads “Symmetry with respect to the polar axis: For every point (r, θ) on the graph, there is also a point reflected directly across the horizontal (polar) axis” and it has a picture of a cardioid with equation r = 2 – 2 cosθ: this cardioid has points marked (r, θ) and (r, −θ), which are symmetric about the x axis, and the entire cardioid is symmetric about the x axis. The second row reads “Symmetry with respect to the pole: For every point (r, θ) on the graph, there is also a point on the graph that is reflected through the pole as well” and it has a picture of a skewed infinity symbol with equation r2 = 9 cos(2θ – π/2): this figure has points marked (r, θ) and (−r, θ), which are symmetric about the pole, and the entire figure is symmetric about the pole. The third row reads “Symmetry with respect to the vertical line θ = π/2: For every point (r, θ) on the graph, there is also a point reflected directly across the vertical axis” and there is a picture of a cardioid with equation r = 2 – 2 sinθ: this figure has points marked (r, θ) and (r, π − θ), which are symmetric about the vertical line θ = π/2, and the entire cardioid is symmetric about the vertical line θ = π/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find the symmetry of the rose defined by the equation \(r=3\,\text{sin}(2θ)\) and create a graph.</p>
+<p class="sol-hint">Test each symmetry rule in turn by substitution — try \(θ\to \text{-}θ\) first, and if that fails, try \(r\to \text{-}r,\,θ\to \pi -θ\) and see whether either recovers the original equation.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Suppose the point \((r,θ)\) is on the graph of \(r=3\,\text{sin}(2θ).\)</p>
+<ul class="tight"><li>To test for symmetry about the polar axis, first try replacing \(θ\) with \(\text{-}θ.\) This gives \(r=3\,\text{sin}(2(\text{-}θ))=-3\,\text{sin}(2θ).\) Since this changes the original equation, this test is not satisfied. However, returning to the original equation and replacing \(r\) with \(\text{-}r\) and \(θ\) with \(\pi -θ\) yields<br> <br> Multiplying both sides of this equation by \(-1\) gives \(r=3\,\text{sin}\,2θ,\) which is the original equation. This demonstrates that the graph is symmetric with respect to the polar axis.<p>\[\begin{array}{l} \\ \text{-}r=3\,\text{sin}(2(\pi -θ)) \\ \text{-}r=3\,\text{sin}(2\pi -2θ) \\ \text{-}r=3\,\text{sin}(-2θ) \\ \text{-}r=-3\,\text{sin}\,2θ.\end{array}\]</p>
+</li><li>To test for symmetry with respect to the pole, first replace \(r\) with \(\text{-}r,\) which yields \(\text{-}r=3\,\text{sin}(2θ).\) Multiplying both sides by −1 gives \(r=-3\,\text{sin}(2θ),\) which does not agree with the original equation. Therefore the equation does not pass the test for this symmetry. However, returning to the original equation and replacing \(θ\) with \(θ+\pi\) gives<br> <br> Since this agrees with the original equation, the graph is symmetric about the pole.<p>\[\begin{array}{ll}r &amp; =3\,\text{sin}(2(θ+\pi )) \\ &amp; =3\,\text{sin}(2θ+2\pi ) \\ &amp; =3(\text{sin}\,2θ\,\text{cos}\,2\pi +\text{cos}\,2θ\,\text{sin}\,2\pi ) \\ &amp; =3\,\text{sin}\,2θ.\end{array}\]</p>
+</li><li>To test for symmetry with respect to the vertical line \(θ=\frac{\pi }{2},\) first replace both \(r\) with \(\text{-}r\) and \(θ\) with \(\text{-}θ.\) <br> <br> Multiplying both sides of this equation by \(-1\) gives \(r=3\,\text{sin}\,2θ,\) which is the original equation. Therefore the graph is symmetric about the vertical line \(θ=\frac{\pi }{2}.\)<p>\[\begin{array}{l} \\ \text{-}r=3\,\text{sin}(2(\text{-}θ)) \\ \text{-}r=3\,\text{sin}(-2θ) \\ \text{-}r=-3\,\text{sin}\,2θ.\end{array}\]</p>
+</li></ul>
+<p>This graph has symmetry with respect to the polar axis, the origin, and the vertical line going through the pole. To graph the function, tabulate values of \(θ\) between 0 and \(\pi \text{/}2\) and then reflect the resulting graph.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(θ\)</td><td>\(r\)</td></tr><tr><td>\(0\)</td><td>\(0\)</td></tr><tr><td>\(\frac{\pi }{6}\)</td><td>\(\frac{3\sqrt{3}}{2}\approx 2.6\)</td></tr><tr><td>\(\frac{\pi }{4}\)</td><td>\(3\)</td></tr><tr><td>\(\frac{\pi }{3}\)</td><td>\(\frac{3\sqrt{3}}{2}\approx 2.6\)</td></tr><tr><td>\(\frac{\pi }{2}\)</td><td>\(0\)</td></tr></tbody></table></div>
+<p>This gives one petal of the rose, as shown in the following graph.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_013.jpg" alt="A single petal is graphed with equation r = 3 sin(2θ) for 0 ≤ θ ≤ π/2. It starts at the origin and reaches a maximum distance from the origin of 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — The graph of the equation between \(θ=0\) and \(θ=\pi \text{/}2.\)</figcaption></figure>
+<p>Reflecting this image into the other three quadrants gives the entire graph as shown.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_014.jpg" alt="A four-petaled rose is graphed with equation r = 3 sin(2θ). Each petal starts at the origin and reaches a maximum distance from the origin of 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — The entire graph of the equation is called a four-petaled rose.</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Determine the symmetry of the graph determined by the equation \(r=2\,\text{cos}(3θ)\) and create a graph.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Symmetric with respect to the polar axis.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_015.jpg" alt="A three-petaled rose is graphed with equation r = 2 cos(3θ). Each petal starts at the origin and reaches a maximum distance from the origin of 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The polar coordinate system provides an alternative way to locate points in the plane. (See <a href="#example2">Example 2</a>.)</li><li>Convert points between rectangular and polar coordinates using the formulas<br> <br> and<br><p>\[x=r\,\text{cos}\,θ\,\text{and}\,y=r\,\text{sin}\,θ\]</p>
+<p>\[r=\sqrt{{x}^{2}+{y}^{2}}\,\text{and}\,\text{tan}\,θ=\frac{y}{x}.\]</p>
+(See <a href="#example1">Example 1</a>.)</li><li>To sketch a polar curve from a given polar function, make a table of values and take advantage of periodic properties. (See <a href="#example3">Example 3</a>.)</li><li>Use the conversion formulas to convert equations between rectangular and polar coordinates. (See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a>.)</li><li>Identify symmetry in polar curves, which can occur through the pole, the horizontal axis, or the vertical axis. (See <a href="#example6">Example 6</a>.)</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, plot the point whose polar coordinates are given by first constructing the angle \(θ\) and then marking off the distance <strong>r</strong> along the ray.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\((3,\frac{\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_201.jpg" alt="On the polar coordinate plane, a ray is drawn from the origin marking π/6 and a point is drawn when this line crosses the circle with radius 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\((-2,\frac{5\pi }{3})\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\((0,\frac{7\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_203.jpg" alt="On the polar coordinate plane, a ray is drawn from the origin marking 7π/6 and a point is drawn when this line crosses the circle with radius 0, that is, it marks the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\((-4,\frac{3\pi }{4})\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\((1,\frac{\pi }{4})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_205.jpg" alt="On the polar coordinate plane, a ray is drawn from the origin marking π/4 and a point is drawn when this line crosses the circle with radius 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\((2,\frac{5\pi }{6})\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\((1,\frac{\pi }{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_207.jpg" alt="On the polar coordinate plane, a ray is drawn from the origin marking π/2 and a point is drawn when this line crosses the circle with radius 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, consider the polar graph below. Give two sets of polar coordinates for each point.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_208.jpg" alt="The polar coordinate plane is divided into 12 pies. Point A is drawn on the first circle on the first spoke above the θ = 0 line in the first quadrant. Point B is drawn in the fourth quadrant on the third circle and the second spoke below the θ = 0 line. Point C is drawn on the θ = π line on the third circle. Point D is drawn on the fourth circle on the first spoke below the θ = π line." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>Coordinates of point <strong>A</strong>.</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>Coordinates of point <strong>B</strong>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(B\begin{array}{ll}(3,\frac{\text{-}\pi }{3}) &amp; B(-3,\frac{2\pi }{3})\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>Coordinates of point <strong>C</strong>.</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>Coordinates of point <strong>D</strong>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(D(5,\frac{7\pi }{6})D(-5,\frac{\pi }{6})\)</p>
+</div></div></div></div>
+<p>For the following exercises, the rectangular coordinates of a point are given. Find two sets of polar coordinates for the point in \((0,2\pi ].\) Round to three decimal places.</p>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\((2,\,2)\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\((3,-4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((5, 5.356) (-5, 2.214)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\((8,\,15)\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\((-6,\,8)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((10, 2.214)(-10, 5.356)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\((4,\,3)\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\((3,\text{-}\sqrt{3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((2\sqrt{3},\frac{11\pi }{6})(-2\sqrt{3},\frac{5\pi }{6})\)</p>
+</div></div></div></div>
+<p>For the following exercises, find rectangular coordinates for the given point in polar coordinates.</p>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\((2,\frac{5\pi }{4})\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\((-2,\frac{\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\begin{array}{ll}\text{-}\sqrt{3}, &amp; -1\end{array})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\((5,\frac{\pi }{3})\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\((1,\frac{7\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\begin{array}{ll}-\frac{\sqrt{3}}{2}, &amp; \frac{-1}{2}\end{array})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\((-3,\frac{3\pi }{4})\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\((0,\frac{\pi }{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\begin{array}{ll}0, &amp; 0\end{array})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\((-4.5,6.5)\)</p>
+</div></div>
+<p>For the following exercises, determine whether the graphs of the polar equation are symmetric with respect to the \(x\) -axis, the \(y\) -axis, or the origin.</p>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(r=3\,\text{sin}(2θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Symmetry with respect to the <strong>x</strong>-axis, <strong>y</strong>-axis, and origin.</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({r}^{2}=9\,\text{cos}\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(r=\text{cos}(\frac{θ}{5})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Symmetric with respect to <strong>x</strong>-axis only.</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(r=2\,\text{sec}\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(r=1+\text{cos}\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Symmetry with respect to <strong>x</strong>-axis only.</p>
+</div></div></div></div>
+<p>For the following exercises, describe the graph of each polar equation. Confirm each description by converting into a rectangular equation.</p>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(r=3\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(θ=\frac{\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Line \(y=x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(r=\text{sec}\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(r=\text{csc}\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=1\)</p>
+</div></div></div></div>
+<p>For the following exercises, convert the rectangular equation to polar form and sketch its graph.</p>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\({x}^{2}+{y}^{2}=16\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\({x}^{2}-{y}^{2}=16\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Hyperbola; polar form \({r}^{2}\text{cos}(2θ)=16\) or \({r}^{2}=16\,\text{sec}\,(2θ).\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_210.jpg" alt="A hyperbola with vertices at (−4, 0) and (4, 0), the first pointing out into quadrants II and III and the second pointing out into quadrants I and IV." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(x=8\)</p>
+</div></div>
+<p>For the following exercises, convert the rectangular equation to polar form and sketch its graph.</p>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(3x-y=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{2}{3\,\text{cos}\,θ-\text{sin}\,θ}\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_212.jpg" alt="A straight line with slope 3 and y intercept −2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\({y}^{2}=4x\)</p>
+</div></div>
+<p>For the following exercises, convert the polar equation to rectangular form and sketch its graph.</p>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(r=4\,\text{sin}\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{2}+{y}^{2}=4y\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_214.jpg" alt="A circle of radius 2 with center at (2, π/2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(r=6\,\text{cos}\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(r=θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\,\text{tan}\sqrt{{x}^{2}+{y}^{2}}=y\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_216.jpg" alt="A spiral starting at the origin and crossing θ = π/2 between 1 and 2, θ = π between 3 and 4, θ = 3π/2 between 4 and 5, θ = 0 between 6 and 7, θ = π/2 between 7 and 8, and θ = π between 9 and 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(r=\text{cot}\,θ\,\text{csc}\,θ\)</p>
+</div></div>
+<p>For the following exercises, sketch a graph of the polar equation and identify any symmetry.</p>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(r=1+\text{sin}\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> <br> <strong>y</strong>-axis symmetry</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_218.jpg" alt="A cardioid with the upper heart part at the origin and the rest of the cardioid oriented up." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(r=3-2\,\text{cos}\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(r=2-2\,\text{sin}\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> <br> <strong>y</strong>-axis symmetry</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_220.jpg" alt="A cardioid with the upper heart part at the origin and the rest of the cardioid oriented down." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(r=5-4\,\text{sin}\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(r=3\,\text{cos}(2θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> <br> <strong>x</strong>- and <strong>y</strong>-axis symmetry and symmetry about the pole</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_222.jpg" alt="A rose with four petals that reach their furthest extent from the origin at θ = 0, π/2, π, and 3π/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(r=3\,\text{sin}(2θ)\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(r=2\,\text{cos}(3θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> <br> <strong>x</strong>-axis symmetry</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_224.jpg" alt="A rose with three petals that reach their furthest extent from the origin at θ = 0, 2π/3, and 4π/3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(r=3\,\text{cos}(\frac{θ}{2})\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\({r}^{2}=4\,\text{cos}(2θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> <br> <strong>x</strong>- and <strong>y</strong>-axis symmetry and symmetry about the pole</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_226.jpg" alt="The infinity symbol with the crossing point at the origin and with the furthest extent of the two petals being at θ = 0 and π." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\({r}^{2}=4\,\text{sin}\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(r=2θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> <br> no symmetry</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_228.jpg" alt="A spiral that starts at the origin crossing the line θ = π/2 between 3 and 4, θ = π between 6 and 7, θ = 3π/2 between 9 and 10, θ = 0 between 12 and 13, θ = π/2 between 15 and 16, and θ = π between 18 and 19." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p><strong>[T]</strong> The graph of \(r=2\,\text{cos}(2θ)\text{sec}(θ).\) is called a <strong>strophoid.</strong> Use a graphing utility to sketch the graph, and, from the graph, determine the asymptote.</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p><strong>[T]</strong> Use a graphing utility and sketch the graph of \(r=\frac{6}{2\,\text{sin}\,θ-3\,\text{cos}\,θ}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> <br> a line</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_230.jpg" alt="A line that crosses the y axis at roughly 3 and has slope roughly 3/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p><strong>[T]</strong> Use a graphing utility to graph \(r=\frac{1}{1-\text{cos}\,θ}.\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p><strong>[T]</strong> Use technology to graph \(r={e}^{\text{sin}(θ)}-2\,\text{cos}(4θ).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_232.jpg" alt="A geometric shape that resembles a butterfly with larger wings in the first and second quadrants, smaller wings in the third and fourth quadrants, a body along the θ = π/2 line and legs along the θ = 0 and π lines." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p><strong>[T]</strong> Use technology to plot \(r=\text{sin}(\frac{3θ}{7})\) (use the interval \(0\le θ\le 14\pi ).\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Without using technology, sketch the polar curve \(θ=\frac{2\pi }{3}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_234.jpg" alt="A line with θ = 120°." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p><strong>[T]</strong> Use a graphing utility to plot \(r=θ\,\text{sin}\,θ\) for \(\text{-}\pi \le θ\le \pi .\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p><strong>[T]</strong> Use technology to plot \(r={e}^{-0.1θ}\) for \(-10\le θ\le 10.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_11_03_236.jpg" alt="A spiral that starts in the third quadrant." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p><strong>[T]</strong> There is a curve known as the “<strong>Black Hole</strong>.” Use technology to plot \(r={e}^{-0.01θ}\) for \(-100\le θ\le 100.\)</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p><strong>[T]</strong> Use the results of the preceding two problems to explore the graphs of \(r={e}^{-0.001θ}\) and \(r={e}^{-0.0001θ}\) for \(|θ|&gt;100.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers vary. One possibility is the spiral lines become closer together and the total number of spirals increases.</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>angular coordinate</dt><dd>\(θ\) the angle formed by a line segment connecting the origin to a point in the polar coordinate system with the positive radial (<strong>x</strong>) axis, measured counterclockwise</dd><dt>cardioid</dt><dd>a plane curve traced by a point on the perimeter of a circle that is rolling around a fixed circle of the same radius; the equation of a cardioid is \(r=a(1+\text{sin}\,θ)\) or \(r=a(1+\text{cos}\,θ)\)</dd><dt>limaçon</dt><dd>the graph of the equation \(r=a+b\,\text{sin}\,θ\) or \(r=a+b\,\text{cos}\,θ.\) If \(a=b\) then the graph is a cardioid</dd><dt>polar axis</dt><dd>the horizontal axis in the polar coordinate system corresponding to \(r\ge 0\)</dd><dt>polar coordinate system</dt><dd>a system for locating points in the plane. The coordinates are \(r,\) the radial coordinate, and \(θ,\) the angular coordinate</dd><dt>polar equation</dt><dd>an equation or function relating the radial coordinate to the angular coordinate in the polar coordinate system</dd><dt>pole</dt><dd>the central point of the polar coordinate system, equivalent to the origin of a Cartesian system</dd><dt>radial coordinate</dt><dd>\(r\) the coordinate in the polar coordinate system that measures the distance from a point in the plane to the pole</dd><dt>rose</dt><dd>graph of the polar equation \(r=a\,\text{cos}\,2θ\) or \(r=a\,\text{sin}\,2θ\) for a positive constant <strong>a</strong></dd><dt>space-filling curve</dt><dd>a curve that completely occupies a two-dimensional subset of the real plane</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

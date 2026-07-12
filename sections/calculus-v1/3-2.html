@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Derivative as a Function · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v1">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v1/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">The Derivative as a Function</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.2</span>The Derivative as a Function</h1>
+<p>As we have seen, the derivative of a function at a given point gives us the rate of change or slope of the tangent line to the function at that point. If we differentiate a position function at a given time, we obtain the velocity at that time. It seems reasonable to conclude that knowing the derivative of the function at every point would produce valuable information about the behavior of the function. However, the process of finding the derivative at even a handful of values using the techniques of the preceding section would quickly become quite tedious. In this section we define the derivative function and learn a process for finding it.</p>
+<h2 id="derivative-functions">Derivative Functions</h2>
+<p>The derivative function gives the derivative of a function at each point in the domain of the original function for which the derivative is defined. We can formally define a derivative function as follows.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(f\) be a function. The <strong>derivative function</strong>, denoted by \({f}^{′},\) is the function whose domain consists of those values of \(x\) such that the following limit exists:</p>
+<p>\[{f}^{′}(x)=\underset{h\to 0}{\text{lim}}\frac{f(x+h)-f(x)}{h}.\]</p>
+</div>
+<p>A function \(f(x)\) is said to be <strong>differentiable at \(a\)</strong> if \({f}^{′}(a)\) exists. More generally, a function is said to be <strong>differentiable on \(S\)</strong> if it is differentiable at every point in an open set \(S,\) and a <strong>differentiable function</strong> is one in which \({f}^{′}(x)\) exists on its domain.</p>
+<p>In the next few examples we use (see original) to find the derivative of a function.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find the derivative of \(f(x)=\sqrt{x}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Start directly with the definition of the derivative function. Use (see original).</p>
+<p>\[\begin{array}{lllll}{f}^{′}(x) &amp; =\underset{h\to 0}{\text{lim}}\frac{\sqrt{x+h}-\sqrt{x}}{h} &amp; &amp; &amp; \begin{array}{l}\text{Substitute}\,f(x+h)=\sqrt{x+h}\,\text{and}\,f(x)=\sqrt{x} \\ \text{into}\,{f}^{′}(x)=\underset{h\to 0}{\text{lim}}\frac{f(x+h)-f(x)}{h}.\end{array} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{\sqrt{x+h}-\sqrt{x}}{h}·\frac{\sqrt{x+h}+\sqrt{x}}{\sqrt{x+h}+\sqrt{x}} &amp; &amp; &amp; \begin{array}{l}\text{Multiply numerator and denominator by} \\ \sqrt{x+h}+\sqrt{x}\,\text{without distributing in the} \\ \text{denominator.}\end{array} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{h}{h(\sqrt{x+h}+\sqrt{x})} &amp; &amp; &amp; \text{Multiply the numerators and simplify.} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{1}{(\sqrt{x+h}+\sqrt{x})} &amp; &amp; &amp; \text{Cancel the}\,h. \\ &amp; =\frac{1}{2\sqrt{x}} &amp; &amp; &amp; \text{Evaluate the limit.}\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find the derivative of the function \(f(x)={x}^{2}-2x.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Follow the same procedure here, but without having to multiply by the conjugate.</p>
+<p>\[\begin{array}{lllll}{f}^{′}(x) &amp; =\underset{h\to 0}{\text{lim}}\frac{({(x+h)}^{2}-2(x+h))-({x}^{2}-2x)}{h} &amp; &amp; &amp; \begin{array}{l}\text{Substitute}\,f(x+h)={(x+h)}^{2}-2(x+h)\,\text{and} \\ f(x)={x}^{2}-2x\,\text{into} \\ {f}^{′}(x)=\underset{h\to 0}{\text{lim}}\frac{f(x+h)-f(x)}{h}.\end{array} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{{x}^{2}+2xh+{h}^{2}-2x-2h-{x}^{2}+2x}{h} &amp; &amp; &amp; \text{Expand}\,{(x+h)}^{2}-2(x+h). \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{2xh-2h+{h}^{2}}{h} &amp; &amp; &amp; \text{Simplify.} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{h(2x-2+h)}{h} &amp; &amp; &amp; \text{Factor out}\,h\,\text{from the numerator.} \\ &amp; =\underset{h\to 0}{\text{lim}}(2x-2+h) &amp; &amp; &amp; \text{Cancel the common factor of}\,h. \\ &amp; =2x-2 &amp; &amp; &amp; \text{Evaluate the limit.}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Find the derivative of \(f(x)={x}^{2}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({f}^{′}(x)=2x\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We use a variety of different notations to express the derivative of a function. In <a href="#example2">Example 2</a> we showed that if \(f(x)={x}^{2}-2x,\) then \({f}^{′}(x)=2x-2.\) If we had expressed this function in the form \(y={x}^{2}-2x,\) we could have expressed the derivative as \({y}^{′}=2x-2\) or \(\frac{dy}{dx}=2x-2.\) We could have conveyed the same information by writing \(\frac{d}{dx}({x}^{2}-2x)=2x-2.\) Thus, for the function \(y=f(x),\) each of the following notations represents the derivative of \(f(x)\text{:}\)</p>
+<p>\[{f}^{′}(x),\,\,\frac{dy}{dx},\,\,{y}^{′},\,\,\frac{d}{dx}(f(x)).\]</p>
+<p>In place of \({f}^{′}(a)\) we may also use \(\frac{dy}{dx}|\begin{array}{l} \\ {}_{x=a}\end{array}\) Use of the \(\frac{dy}{dx}\) notation (called Leibniz notation) is quite common in engineering and physics. To understand this notation better, recall that the derivative of a function at a point is the limit of the slopes of secant lines as the secant lines approach the tangent line. The slopes of these secant lines are often expressed in the form \(\frac{\Delta y}{\Delta x}\) where \(\Delta y\) is the difference in the \(y\) values corresponding to the difference in the \(x\) values, which are expressed as \(\Delta x\) (<a href="#fig1">Figure 1</a>). Thus the derivative, which can be thought of as the instantaneous rate of change of \(y\) with respect to \(x,\) is expressed as</p>
+<p>\[\frac{dy}{dx}=\underset{\Delta x\to 0}{\text{lim}}\frac{\Delta y}{\Delta x}.\]</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_001.jpg" alt="The function y = f(x) is graphed and it shows up as a curve in the first quadrant. The x-axis is marked with 0, a, and a + Δx. The y-axis is marked with 0, f(a), and f(a) + Δy. There is a straight line crossing y = f(x) at (a, f(a)) and (a + Δx, f(a) + Δy). From the point (a, f(a)), a horizontal line is drawn; from the point (a + Δx, f(a) + Δy), a vertical line is drawn. The distance from (a, f(a)) to (a + Δx, f(a)) is denoted Δx; the distance from (a + Δx, f(a) + Δy) to (a + Δx, f(a)) is denoted Δy." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The derivative is expressed as \(\frac{dy}{dx}=\underset{\Delta x\to 0}{\text{lim}}\frac{\Delta y}{\Delta x}.\)</figcaption></figure>
+<h2 id="graphing-a-derivative">Graphing a Derivative</h2>
+<p>We have already discussed how to graph a function, so given the equation of a function or the equation of a derivative function, we could graph it. Given both, we would expect to see a correspondence between the graphs of these two functions, since \({f}^{′}(x)\) gives the rate of change of a function \(f(x)\) (or slope of the tangent line to \(f(x)).\)</p>
+<p>In <a href="#example1">Example 1</a> we found that for \(f(x)=\sqrt{x},{f}^{'}(x)=\frac{1}{2\sqrt{x}}.\) If we graph these functions on the same axes, as in <a href="#fig2">Figure 2</a>, we can use the graphs to understand the relationship between these two functions. First, we notice that \(f(x)\) is increasing over its entire domain, which means that the slopes of its tangent lines at all points are positive. Consequently, we expect \({f}^{′}(x)&gt;0\) for all values of \(x\) in its domain. Furthermore, as \(x\) increases, the slopes of the tangent lines to \(f(x)\) are decreasing and we expect to see a corresponding decrease in \({f}^{′}(x).\) We also observe that \(f′(0)\) is undefined and that \(\underset{x\to {0}^{+}}{\text{lim}}{f}^{′}(x)=\text{+}\infty ,\) corresponding to a vertical tangent to \(f(x)\) at \(0.\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_002.jpg" alt="The function f(x) = the square root of x is graphed as is its derivative f’(x) = 1/(2 times the square root of x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The derivative \({f}^{′}(x)\) is positive everywhere because the function \(f(x)\) is increasing.</figcaption></figure>
+<p>In <a href="#example2">Example 2</a> we found that for \(f(x)={x}^{2}-2x,{f}^{′}(x)=2x-2.\) The graphs of these functions are shown in <a href="#fig3">Figure 3</a>. Observe that \(f(x)\) is decreasing for \(x&lt;1.\) For these same values of \(x,{f}^{′}(x)&lt;0.\) For values of \(x&gt;1,f(x)\) is increasing and \({f}^{′}(x)&gt;0.\) Also, \(f(x)\) has a horizontal tangent at \(x=1\) and \({f}^{′}(1)=0.\)</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_003.jpg" alt="The function f(x) = x squared – 2x is graphed as is its derivative f’(x) = 2x − 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The derivative \({f}^{′}(x)&lt;0\) where the function \(f(x)\) is decreasing and \({f}^{′}(x)&gt;0\) where \(f(x)\) is increasing. The derivative is zero where the function has a horizontal tangent.</figcaption></figure>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Use the following graph of \(f(x)\) to sketch a graph of \({f}^{′}(x).\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_004.jpg" alt="The function f(x) is roughly sinusoidal, starting at (−4, 3), decreasing to a local minimum at (−2, 2), then increasing to a local maximum at (3, 6), and getting cut off at (7, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The solution is shown in the following graph. Observe that \(f(x)\) is increasing and \({f}^{′}(x)&gt;0\) on \((-2,3).\) Also, \(f(x)\) is decreasing and \({f}^{′}(x)&lt;0\) on \((\text{-}\infty ,-2)\) and on \((3,\text{+}\infty ).\) Also note that \(f(x)\) has horizontal tangents at \(-2\) and \(3,\) and \({f}^{′}(-2)=0\) and \({f}^{′}(3)=0.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_005.jpg" alt="Two functions are graphed here: f(x) and f’(x). The function f(x) is the same as the above graph, that is, roughly sinusoidal, starting at (−4, 3), decreasing to a local minimum at (−2, 2), then increasing to a local maximum at (3, 6), and getting cut off at (7, 2). The function f’(x) is an downward-facing parabola with vertex near (0.5, 1.75), y-intercept (0, 1.5), and x-intercepts (−1.9, 0) and (3, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Sketch the graph of \(f(x)={x}^{2}-4.\) On what interval is the graph of \({f}^{′}(x)\) above the \(x\) -axis?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((0,\text{+}\infty )\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="derivatives-and-continuity">Derivatives and Continuity</h2>
+<p>Now that we can graph a derivative, let’s examine the behavior of the graphs. First, we consider the relationship between differentiability and continuity. We will see that if a function is differentiable at a point, it must be continuous there; however, a function that is continuous at a point need not be differentiable at that point. In fact, a function may be continuous at a point and fail to be differentiable at the point for one of several reasons.</p>
+<div class="card definition"><span class="chip">Differentiability Implies Continuity</span><p>Let \(f(x)\) be a function and \(a\) be in its domain. If \(f(x)\) is differentiable at \(a,\) then \(f\) is continuous at \(a.\)</p>
+</div>
+<h3 id="proof">Proof</h3>
+<p>If \(f(x)\) is differentiable at \(a,\) then \({f}^{′}(a)\) exists and</p>
+<p>\[{f}^{′}(a)=\underset{x\to a}{\text{lim}}\frac{f(x)-f(a)}{x-a}.\]</p>
+<p>We want to show that \(f(x)\) is continuous at \(a\) by showing that \(\underset{x\to a}{\text{lim}}f(x)=f(a).\) Thus,</p>
+<p>\[\begin{array}{lllll}\underset{x\to a}{\text{lim}}f(x) &amp; =\underset{x\to a}{\text{lim}}(f(x)-f(a)+f(a)) &amp; &amp; &amp; \\ &amp; =\underset{x\to a}{\text{lim}}(\frac{f(x)-f(a)}{x-a}·(x-a)+f(a)) &amp; &amp; &amp; \text{Multiply and divide}\,f(x)-f(a)\,\text{by}\,x-a. \\ &amp; =(\underset{x\to a}{\text{lim}}\frac{f(x)-f(a)}{x-a})·(\underset{x\to a}{\text{lim}}(x-a))+\underset{x\to a}{\text{lim}}f(a) &amp; &amp; &amp; \\ &amp; =f′(a)·0+f(a) &amp; &amp; &amp; \\ &amp; =f(a). &amp; &amp; &amp; \end{array}\]</p>
+<p>Therefore, since \(f(a)\) is defined and \(\underset{x\to a}{\text{lim}}f(x)=f(a),\) we conclude that \(f\) is continuous at \(a.\)</p>
+<p>□</p>
+<p>We have just proven that differentiability implies continuity, but now we consider whether continuity implies differentiability. To determine an answer to this question, we examine the function \(f(x)=|x|.\) This function is continuous everywhere; however, \({f}^{′}(0)\) is undefined. This observation leads us to believe that continuity does not imply differentiability. Let’s explore further. For \(f(x)=|x|,\)</p>
+<p>\[{f}^{′}(0)=\underset{x\to 0}{\text{lim}}\frac{f(x)-f(0)}{x-0}=\underset{x\to 0}{\text{lim}}\frac{|x|-|0|}{x-0}=\underset{x\to 0}{\text{lim}}\frac{|x|}{x}.\]</p>
+<p>This limit does not exist because</p>
+<p>\[\underset{x\to {0}^{-}}{\text{lim}}\frac{|x|}{x}=-1\,\text{and}\,\underset{x\to {0}^{+}}{\text{lim}}\frac{|x|}{x}=1.\]</p>
+<p>See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_006.jpg" alt="The function f(x) = the absolute value of x is graphed. It consists of two straight line segments: the first follows the equation y = −x and ends at the origin; the second follows the equation y = x and starts at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The function \(f(x)=|x|\) is continuous at \(0\) but is not differentiable at \(0.\)</figcaption></figure>
+<p>Let’s consider some additional situations in which a continuous function fails to be differentiable. Consider the function \(f(x)=\sqrt[3]{x}\text{:}\)</p>
+<p>\[{f}^{′}(0)=\underset{x\to 0}{\text{lim}}\frac{\sqrt[3]{x}-0}{x-0}=\underset{x\to 0}{\text{lim}}\frac{1}{\sqrt[3]{{x}^{2}}}=\text{+}\infty .\]</p>
+<p>Thus \({f}^{′}(0)\) does not exist. A quick look at the graph of \(f(x)=\sqrt[3]{x}\) clarifies the situation. The function has a vertical tangent line at \(0\) (<a href="#fig5">Figure 5</a>).</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_007.jpg" alt="The function f(x) = the cube root of x is graphed. It has a vertical tangent at x = 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The function \(f(x)=\sqrt[3]{x}\) has a vertical tangent at \(x=0.\) It is continuous at \(0\) but is not differentiable at \(0.\)</figcaption></figure>
+<p>The function \(f(x)=\left\{\begin{array}{l}x\,\text{sin}\,(\frac{1}{x})\,\text{if}\,x\ne 0 \\ 0\,\text{if}\,x=0\end{array}\right.\) also has a derivative that exhibits interesting behavior at \(0.\) We see that</p>
+<p>\[{f}^{′}(0)=\underset{x\to 0}{\text{lim}}\frac{x\,\text{sin}\,(1\text{/}x)-0}{x-0}=\underset{x\to 0}{\text{lim}}\text{sin}\,(\frac{1}{x}).\]</p>
+<p>This limit does not exist, essentially because the slopes of the secant lines continuously change direction as they approach zero (<a href="#fig6">Figure 6</a>).</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_008.jpg" alt="The function f(x) = x sin (1/2) if x does not equal 0 and f(x) = 0 if x = 0 is graphed. It looks like a rapidly oscillating sinusoidal function with amplitude decreasing to 0 at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — The function \(f(x)=\left\{\begin{array}{l}x\,\text{sin}\,(\frac{1}{x})\,\text{if}\,x\ne 0 \\ 0\,\text{if}\,x=0\end{array}\right.\) is not differentiable at \(0.\)</figcaption></figure>
+<p>In summary:</p>
+<ul class="tight"><li>We observe that if a function is not continuous, it cannot be differentiable, since every differentiable function must be continuous. However, if a function is continuous, it may still fail to be differentiable.</li><li>We saw that \(f(x)=|x|\) failed to be differentiable at \(0\) because the limit of the slopes of the tangent lines on the left and right were not the same. Visually, this resulted in a sharp corner on the graph of the function at \(0.\) From this we conclude that in order to be differentiable at a point, a function must be “smooth” at that point.</li><li>As we saw in the example of \(f(x)=\sqrt[3]{x},\) a function fails to be differentiable at a point where there is a vertical tangent line.</li><li>As we saw with \(f(x)=\left\{\begin{array}{l}x\,\text{sin}\,(\frac{1}{x})\,\text{if}\,x\ne 0 \\ 0\,\text{if}\,x=0\end{array}\right.\) a function may fail to be differentiable at a point in more complicated ways as well.</li></ul>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>A toy company wants to design a track for a toy car that starts out along a parabolic curve and then converts to a straight line (<a href="#fig7">Figure 7</a>). The function that describes the track is to have the form \(f(x)=\left\{\begin{array}{l}\frac{1}{10}{x}^{2}+bx+c\,\text{if}\,x&lt;-10 \\ -\frac{1}{4}x+\frac{5}{2}\,\text{if}\,x\ge -10\end{array}\right.\) where \(x\) and \(f(x)\) are in inches. For the car to move smoothly along the track, the function \(f(x)\) must be both continuous and differentiable at \(-10.\) Find values of \(b\) and \(c\) that make \(f(x)\) both continuous and differentiable.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_009.jpg" alt="A cart is drawn on a line that curves through (−10, 5) to (10, 0) with y-intercept roughly (0, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — For the car to move smoothly along the track, the function must be both continuous and differentiable.</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>For the function to be continuous at \(x=-10,\underset{x\to {-10}^{-}}{\text{lim}}f(x)=f(-10).\) Thus, since</p>
+<p>\[\underset{x\to \text{-}{10}^{-}}{\text{lim}}f(x)=\frac{1}{10}{(-10)}^{2}-10b+c=10-10b+c\]</p>
+<p>and \(f(-10)=5,\) we must have \(10-10b+c=5.\) Equivalently, we have \(c=10b-5.\)</p>
+<p>For the function to be differentiable at \(-10,\)</p>
+<p>\[{f}^{′}(-10)=\underset{x\to \text{-}10}{\text{lim}}\frac{f(x)-f(-10)}{x+10}\]</p>
+<p>must exist. Since \(f(x)\) is defined using different rules on the right and the left, we must evaluate this limit from the right and the left and then set them equal to each other:</p>
+<p>\[\begin{array}{lllll}\underset{x\to \text{-}{10}^{-}}{\text{lim}}\frac{f(x)-f(-10)}{x+10} &amp; =\underset{x\to \text{-}{10}^{-}}{\text{lim}}\frac{\frac{1}{10}{x}^{2}+bx+c-5}{x+10} &amp; &amp; &amp; \\ &amp; =\underset{x\to \text{-}{10}^{-}}{\text{lim}}\frac{\frac{1}{10}{x}^{2}+bx+(10b-5)-5}{x+10} &amp; &amp; &amp; \text{Substitute}\,c=10b-5. \\ &amp; =\underset{x\to \text{-}{10}^{-}}{\text{lim}}\frac{{x}^{2}-100+10bx+100b}{10(x+10)} &amp; &amp; &amp; \text{Multiply numerator and denominator by 10.} \\ &amp; =\underset{x\to \text{-}{10}^{-}}{\text{lim}}\frac{(x+10)(x-10+10b)}{10(x+10)} &amp; &amp; &amp; \text{Factor by grouping.} \\ &amp; =b-2. &amp; &amp; &amp; \end{array}\]</p>
+<p>We also have</p>
+<p>\[\begin{array}{ll}\underset{x\to \text{-}{10}^{+}}{\text{lim}}\frac{f(x)-f(-10)}{x+10} &amp; =\underset{x\to \text{-}{10}^{+}}{\text{lim}}\frac{-\frac{1}{4}x+\frac{5}{2}-5}{x+10} \\ &amp; =\underset{x\to \text{-}{10}^{+}}{\text{lim}}\frac{\text{-}(x+10)}{4(x+10)} \\ &amp; =-\frac{1}{4}.\end{array}\]</p>
+<p>This gives us \(b-2=-\frac{1}{4}.\) Thus \(b=\frac{7}{4}\) and \(c=10(\frac{7}{4})-5=\frac{25}{2}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find values of \(a\) and \(b\) that make \(f(x)=\left\{\begin{array}{l}ax+b\,\text{if}\,x&lt;3 \\ {x}^{2}\,\text{if}\,x\ge 3\end{array}\right.\) both continuous and differentiable at \(3.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(a=6\) and \(b=-9\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="higher-order-derivatives">Higher-Order Derivatives</h2>
+<p>The derivative of a function is itself a function, so we can find the derivative of a derivative. For example, the derivative of a position function is the rate of change of position, or velocity. The derivative of velocity is the rate of change of velocity, which is acceleration. The new function obtained by differentiating the derivative is called the second derivative. Furthermore, we can continue to take derivatives to obtain the third derivative, fourth derivative, and so on. Collectively, these are referred to as <strong>higher-order derivatives</strong>. The notation for the higher-order derivatives of \(y=f(x)\) can be expressed in any of the following forms:</p>
+<p>\[{f}^{″}(x),\,\,f\text{‴}(x),{f}^{(4)}(x)\text{,…},{f}^{(n)}(x)\]</p>
+<p>\[{y}^{″}(x),y\text{‴}(x),{y}^{(4)}(x)\text{,…},{y}^{(n)}(x)\]</p>
+<p>\[\frac{{d}^{2}y}{d{x}^{2}},\frac{{d}^{3}y}{d{x}^{3}},\frac{{d}^{4}y}{d{x}^{4}}\text{,…},\frac{{d}^{n}y}{d{x}^{n}}.\]</p>
+<p>It is interesting to note that the notation for \(\frac{{d}^{2}y}{d{x}^{2}}\) may be viewed as an attempt to express \(\frac{d}{dx}(\frac{dy}{dx})\) more compactly. Analogously, \(\frac{d}{dx}(\frac{d}{dx}(\frac{dy}{dx}))=\frac{d}{dx}(\frac{{d}^{2}y}{d{x}^{2}})=\frac{{d}^{3}y}{d{x}^{3}}.\)</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>For \(f(x)=2{x}^{2}-3x+1,\) find \({f}^{″}(x).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First find \({f}^{′}(x).\)</p>
+<p>\[\begin{array}{lllll}{f}^{′}(x) &amp; =\underset{h\to 0}{\text{lim}}\frac{(2{(x+h)}^{2}-3(x+h)+1)-(2{x}^{2}-3x+1)}{h} &amp; &amp; &amp; \begin{array}{l}\text{Substitute}\,f(x)=2{x}^{2}-3x+1 \\ \text{and} \\ f(x+h)=2{(x+h)}^{2}-3(x+h)+1 \\ \text{into}\,{f}^{′}(x)=\underset{h\to 0}{\text{lim}}\frac{f(x+h)-f(x)}{h}.\end{array} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{4xh+2{h}^{2}-3h}{h} &amp; &amp; &amp; \text{Simplify the numerator.} \\ &amp; =\underset{h\to 0}{\text{lim}}(4x+2h-3) &amp; &amp; &amp; \begin{array}{l}\text{Factor out the}\,h\,\text{in the numerator} \\ \text{and cancel with the}\,h\,\text{in the} \\ \text{denominator.}\end{array} \\ &amp; =4x-3 &amp; &amp; &amp; \text{Take the limit.}\end{array}\]</p>
+<p>Next, find \({f}^{″}(x)\) by taking the derivative of \({f}^{′}(x)=4x-3.\)</p>
+<p>\[\begin{array}{lllll}{f}^{″}(x) &amp; =\underset{h\to 0}{\text{lim}}\frac{{f}^{′}(x+h)-{f}^{′}(x)}{h} &amp; &amp; &amp; \begin{array}{l}\text{Use}\,{f}^{′}(x)=\underset{h\to 0}{\text{lim}}\frac{f(x+h)-f(x)}{h}\,\text{with}\,{f}^{′}(x)\,\text{in} \\ \text{place of}\,f(x).\end{array} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{(4(x+h)-3)-(4x-3)}{h} &amp; &amp; &amp; \begin{array}{l}\text{Substitute}\,{f}^{′}(x+h)=4(x+h)-3\,\text{and} \\ {f}^{′}(x)=4x-3.\end{array} \\ &amp; =\underset{h\to 0}{\text{lim}}4 &amp; &amp; &amp; \text{Simplify.} \\ &amp; =4 &amp; &amp; &amp; \text{Take the limit.}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Find \({f}^{″}(x)\) for \(f(x)={x}^{2}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({f}^{″}(x)=2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>The position of a particle along a coordinate axis at time \(t\) (in seconds) is given by \(s(t)=3{t}^{2}-4t+1\) (in meters). Find the function that describes its acceleration at time \(t.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since \(v(t)={s}^{′}(t)\) and \(a(t)={v}^{′}(t)={s}^{″}(t),\) we begin by finding the derivative of \(s(t):\)</p>
+<p>\[\begin{array}{ll}{s}^{′}(t) &amp; =\underset{h\to 0}{\text{lim}}\frac{s(t+h)-s(t)}{h} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{3{(t+h)}^{2}-4(t+h)+1-(3{t}^{2}-4t+1)}{h} \\ &amp; =6t-4.\end{array}\]</p>
+<p>Next,</p>
+<p>\[\begin{array}{ll}{s}^{″}(t) &amp; =\underset{h\to 0}{\text{lim}}\frac{{s}^{′}(t+h)-{s}^{′}(t)}{h} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{6(t+h)-4-(6t-4)}{h} \\ &amp; =6.\end{array}\]</p>
+<p>Thus, \(a=6{\,\text{m/s}}^{2}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>For \(s(t)={t}^{3},\) find \(a(t).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(a(t)=6t\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The derivative of a function \(f(x)\) is the function whose value at \(x\) is \({f}^{′}(x).\)</li><li>The graph of a derivative of a function \(f(x)\) is related to the graph of \(f(x).\) Where \(f(x)\) has a tangent line with positive slope, \({f}^{′}(x)&gt;0.\) Where \(f(x)\) has a tangent line with negative slope, \({f}^{′}(x)&lt;0.\) Where \(f(x)\) has a horizontal tangent line, \({f}^{′}(x)=0.\)</li><li>If a function is differentiable at a point, then it is continuous at that point. A function is not differentiable at a point if it is not continuous at the point, if it has a vertical tangent line at the point, or if the graph has a sharp corner or cusp.</li><li>Higher-order derivatives are derivatives of derivatives, from the second derivative to the \(n\text{th}\) derivative.</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>The derivative function</strong></td><td>\({f}^{′}(x)=\underset{h\to 0}{\text{lim}}\frac{f(x+h)-f(x)}{h}\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>For the following exercises, use the definition of a derivative to find \({f}^{′}(x).\)</p>
+<div class="exercise"><div class="n">1</div><div class="body"><p>\(f(x)=6\)</p>
+</div></div>
+<div class="exercise"><div class="n">2</div><div class="body"><p>\(f(x)=2-3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-3\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">3</div><div class="body"><p>\(f(x)=\frac{2x}{7}+1\)</p>
+</div></div>
+<div class="exercise"><div class="n">4</div><div class="body"><p>\(f(x)=4{x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(8x\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">5</div><div class="body"><p>\(f(x)=5x-{x}^{2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">6</div><div class="body"><p>\(f(x)=\sqrt{2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{\sqrt{2x}}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">7</div><div class="body"><p>\(f(x)=\sqrt{x-6}\)</p>
+</div></div>
+<div class="exercise"><div class="n">8</div><div class="body"><p>\(f(x)=\frac{9}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-9}{{x}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">9</div><div class="body"><p>\(f(x)=x+\frac{1}{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">10</div><div class="body"><p>\(f(x)=\frac{1}{\sqrt{x}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-1}{2{x}^{3\text{/}2}}\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the graph of \(y=f(x)\) to sketch the graph of its derivative \({f}^{′}(x).\)</p>
+<div class="exercise"><div class="n">11</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_201.jpg" alt="The function f(x) starts at (−2, 20) and decreases to pass through the origin and achieve a local minimum at roughly (0.5, −1). Then, it increases and passes through (1, 0) and achieves a local maximum at (2.25, 2) before decreasing again through (3, 0) to (4, −20)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise"><div class="n">12</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_203.jpg" alt="The function f(x) starts at (−1.5, 20) and decreases to pass through (0, 10), where it appears to have a derivative of 0. Then it further decreases, passing through (1.7, 0) and achieving a minimum at (3, −17), at which point it increases rapidly through (3.8, 0) to (4, 20)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_204.jpg" alt="The function starts in the third quadrant and increases to touch the origin, then decreases to a minimum at (2, −16), before increasing through the x axis at x = 3, after which it continues increasing." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">13</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_205.jpg" alt="The function f(x) starts at (−2.25, −20) and increases rapidly to pass through (−2, 0) before achieving a local maximum at (−1.4, 8). Then the function decreases to the origin. The graph is symmetric about the y-axis, so the graph increases to (1.4, 8) before decreasing through (2, 0) and heading on down to (2.25, −20)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise"><div class="n">14</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_207.jpg" alt="The function f(x) starts at (−3, −1) and increases to pass through (−1.5, 0) and achieve a local minimum at (1, 0). Then, it decreases and passes through (1.5, 0) and continues decreasing to (3, −1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_208.jpg" alt="The function starts at (−3, 0), increases to a maximum at (−1.5, 1), decreases through the origin and to a minimum at (1.5, −1), and then increases to the x axis at x = 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, the given limit represents the derivative of a function \(y=f(x)\) at \(x=a.\) Find \(f(x)\) and \(a.\)</p>
+<div class="exercise"><div class="n">15</div><div class="body"><p>\(\underset{h\to 0}{\text{lim}}\frac{{(1+h)}^{2\text{/}3}-1}{h}\)</p>
+</div></div>
+<div class="exercise"><div class="n">16</div><div class="body"><p>\(\underset{h\to 0}{\text{lim}}\frac{[3{(2+h)}^{2}+2]-14}{h}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=3{x}^{2}+2,a=2\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">17</div><div class="body"><p>\(\underset{h\to 0}{\text{lim}}\frac{\text{cos}\,(\pi +h)+1}{h}\)</p>
+</div></div>
+<div class="exercise"><div class="n">18</div><div class="body"><p>\(\underset{h\to 0}{\text{lim}}\frac{{(2+h)}^{4}-16}{h}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={x}^{4},a=2\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">19</div><div class="body"><p>\(\underset{h\to 0}{\text{lim}}\frac{[2{(3+h)}^{2}-(3+h)]-15}{h}\)</p>
+</div></div>
+<div class="exercise"><div class="n">20</div><div class="body"><p>\(\underset{h\to 0}{\text{lim}}\frac{{e}^{h}-1}{h}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={e}^{x},a=0\)</p>
+</div></div></div></div>
+<p>For the following functions,</p>
+<ul class="tight"><li>sketch the graph and</li><li>use the definition of a derivative to show that the function is not differentiable at \(x=1.\)</li></ul>
+<div class="exercise"><div class="n">21</div><div class="body"><p>\(f(x)=\left\{\begin{array}{l}2\sqrt{x},0\le x\le 1 \\ 3x-1,x&gt;1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise"><div class="n">22</div><div class="body"><p>\(f(x)=\left\{\begin{array}{l}3,x&lt;1 \\ 3x,x\ge 1\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a.<br> <br> b. \(\underset{h\to {1}^{-}}{\text{lim}}\frac{3-3}{h}\ne \underset{h\to {1}^{+}}{\text{lim}}\frac{3h}{h}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_210.jpg" alt="The function is linear at y = 3 until it reaches (1, 3), at which point it increases as a line with slope 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">23</div><div class="body"><p>\(f(x)=\left\{\begin{array}{l}-{x}^{2}+2,x\le 1 \\ x,x&gt;1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise"><div class="n">24</div><div class="body"><p>\(f(x)=\left\{\begin{array}{l}2x,x\le 1 \\ \frac{2}{x},x&gt;1\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a.<br> <br> b. \(\underset{h\to {1}^{-}}{\text{lim}}\frac{2h}{h}\ne \underset{h\to {1}^{+}}{\text{lim}}\frac{\frac{2}{x+h}-\frac{2}{x}}{h}.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_212.jpg" alt="The function starts in the third quadrant as a straight line and passes through the origin with slope 2; then at (1, 2) it decreases convexly as 2/x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following graphs,</p>
+<ul class="tight"><li>determine for which values of \(x=a\) the \(\underset{x\to a}{\text{lim}}f(x)\) exists but \(f\) is not continuous at \(x=a,\) and</li><li>determine for which values of \(x=a\) the function is continuous but not differentiable at \(x=a.\)</li></ul>
+<div class="exercise"><div class="n">25</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_213.jpg" alt="The function starts at (−6, 2) and increases to a maximum at (−5.3, 4) before stopping at (−4, 3) inclusive. Then it starts again at (−4, −2) before increasing slowly through (−2.25, 0), passing through (−1, 4), hitting a local maximum at (−0.1, 5.3) and decreasing to (2, −1) inclusive. Then it starts again at (2, 5), increases to (2.6, 6), and then decreases to (4.5, −3), with a discontinuity at (4, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise"><div class="n">26</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_214.jpg" alt="The function starts at (−3, −1) and increases to and stops at a local maximum at (−1, 3) inclusive. Then it starts again at (−1, 1) before increasing quickly to and stopping at a local maximum (0, 4) inclusive. Then it starts again at (0, 3) and decreases linearly to (1, 1), at which point there is a discontinuity and the value of this function at x = 1 is 2. The function continues from (1, 1) and increases linearly to (2, 3.5) before decreasing linearly to (3, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(x=1,\) b. \(x=2\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">27</div><div class="body"><p>Use the graph to evaluate a. \({f}^{′}(-0.5),\) b. \({f}^{′}(0),\) c. \({f}^{′}(1),\) d. \({f}^{′}(2),\) and e. \({f}^{′}(3),\) if it exists.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_215.jpg" alt="The function starts at (−3, 0) and increases linearly to a local maximum at (0, 3). Then it decreases linearly to (2, 1), at which point it increases linearly to (4, 5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following functions, use \({f}^{″}(x)=\underset{h\to 0}{\text{lim}}\frac{{f}^{′}(x+h)-{f}^{′}(x)}{h}\) to find \({f}^{″}(x).\)</p>
+<div class="exercise"><div class="n">28</div><div class="body"><p>\(f(x)=2-3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">29</div><div class="body"><p>\(f(x)=4{x}^{2}\)</p>
+</div></div>
+<div class="exercise"><div class="n">30</div><div class="body"><p>\(f(x)=x+\frac{1}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2}{{x}^{3}}\)</p>
+</div></div></div></div>
+<p>For the following exercises, use a calculator to graph \(f(x).\) Determine the function \({f}^{′}(x),\) then use a calculator to graph \({f}^{′}(x).\)</p>
+<div class="exercise"><div class="n">31</div><div class="body"><p><strong>[T]</strong> \(f(x)=-\frac{5}{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">32</div><div class="body"><p><strong>[T]</strong> \(f(x)=3{x}^{2}+2x+4.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{′}(x)=6x+2\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_217.jpg" alt="The function f(x) is graphed as an upward facing parabola with y intercept 4. The function f’(x) is graphed as a straight line with y intercept 2 and slope 6." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">33</div><div class="body"><p><strong>[T]</strong> \(f(x)=\sqrt{x}+3x\)</p>
+</div></div>
+<div class="exercise"><div class="n">34</div><div class="body"><p><strong>[T]</strong> \(f(x)=\frac{1}{\sqrt{2x}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{′}(x)=-\frac{1}{{(2x)}^{3\text{/}2}}\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_219.jpg" alt="The function f(x) is in the first quadrant and has asymptotes at x = 0 and y = 0. The function f’(x) is in the fourth quadrant and has asymptotes at x = 0 and y = 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">35</div><div class="body"><p><strong>[T]</strong> \(f(x)=1+x+\frac{1}{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">36</div><div class="body"><p><strong>[T]</strong> \(f(x)={x}^{3}+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{′}(x)=3{x}^{2}\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_221.jpg" alt="The function f(x) starts is the graph of the cubic function shifted up by 1. The function f’(x) is the graph of a parabola that is slightly steeper than the normal squared function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, describe what the two expressions represent in terms of each of the given situations. Be sure to include units.</p>
+<ul class="tight"><li>\(\frac{f(x+h)-f(x)}{h}\)</li><li>\({f}^{′}(x)=\underset{h\to 0}{\text{lim}}\frac{f(x+h)-f(x)}{h}\)</li></ul>
+<div class="exercise"><div class="n">37</div><div class="body"><p>\(P(x)\) denotes the population of a city at time \(x\) in years.</p>
+</div></div>
+<div class="exercise"><div class="n">38</div><div class="body"><p>\(C(x)\) denotes the total amount of money (in thousands of dollars) spent on concessions by \(x\) customers at an amusement park.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. Average rate at which customers spent on concessions in thousands per customer. b. Rate (in thousands per customer) at which \(x\) customers spent money on concessions in thousands per customer.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">39</div><div class="body"><p>\(R(x)\) denotes the total cost (in thousands of dollars) of manufacturing \(x\) clock radios.</p>
+</div></div>
+<div class="exercise"><div class="n">40</div><div class="body"><p>\(g(x)\) denotes the grade (in percentage points) received on a test, given \(x\) hours of studying.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. Average grade received on the test with an average study time between two values. b. Rate (in percentage points per hour) at which the grade on the test increased or decreased for a given average study time of \(x\) hours.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">41</div><div class="body"><p>\(B(x)\) denotes the cost (in dollars) of a sociology textbook at university bookstores in the United States in \(x\) years since \(1990.\)</p>
+</div></div>
+<div class="exercise"><div class="n">42</div><div class="body"><p>\(p(x)\) denotes atmospheric pressure in Torrs at an altitude of \(x\) feet.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. Average change of atmospheric pressure between two different altitudes. b. Rate (torr per foot) at which atmospheric pressure is increasing or decreasing at \(x\) feet.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">43</div><div class="body"><p>Sketch the graph of a function \(y=f(x)\) with all of the following properties:</p>
+<ul class="tight"><li>\({f}^{′}(x)&gt;0\) for \(-2\le x&lt;1\)</li><li>\({f}^{′}(2)=0\)</li><li>\({f}^{′}(x)&gt;0\) for \(x&gt;2\)</li><li>\(f(2)=2\) and \(f(0)=1\)</li><li>\(\underset{x\to \text{-}\infty }{\text{lim}}f(x)=0\) and \(\underset{x\to \infty }{\text{lim}}f(x)=\infty\)</li><li>\({f}^{′}(1)\) does not exist.</li></ul>
+</div></div>
+<div class="exercise"><div class="n">44</div><div class="body"><p>Suppose temperature \(T\) in degrees Fahrenheit at a height \(x\) in feet above the ground is given by \(y=T(x).\)</p>
+<ul class="tight"><li>Give a physical interpretation, with units, of \({T}^{′}(x).\)</li><li>If we know that \({T}^{′}(1000)=-0.1,\) explain the physical meaning.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. The rate (in degrees per foot) at which temperature is increasing or decreasing for a given height \(x.\) b. The rate of change of temperature as altitude changes at \(1000\) feet is \(-0.1\) degrees per foot.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">45</div><div class="body"><p>Suppose the total profit of a company is \(y=P(x)\) thousand dollars when \(x\) units of an item are sold.</p>
+<ul class="tight"><li>What does \(\frac{P(b)-P(a)}{b-a}\) for \(0&lt;a&lt;b\) measure, and what are the units?</li><li>What does \({P}^{′}(x)\) measure, and what are the units?</li><li>Suppose that \({P}^{′}(30)=5,\) what is the approximate change in profit if the number of items sold increases from \(30\,\text{to}\,31?\)</li></ul>
+</div></div>
+<div class="exercise"><div class="n">46</div><div class="body"><p>The graph in the following figure models the number of people \(N(t)\) who have come down with the flu \(t\) weeks after its initial outbreak in a town with a population of \(50,000\) citizens.</p>
+<ul class="tight"><li>Describe what \({N}^{′}(t)\) represents and how it behaves as \(t\) increases.</li><li>What does the derivative tell us about how this town is affected by the flu outbreak?<br></li></ul>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_223.jpg" alt="The function starts at (0, 3000) and increases quickly to an asymptote at y = 50000." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>a. The rate at which the number of people who have come down with the flu is changing \(t\) weeks after the initial outbreak. b. The rate is increasing sharply up to the third week, at which point it slows down and then becomes constant.</p>
+</div></div></div></div>
+<p>For the following exercises, use the following table, which shows the height \(h\) of the Saturn \(\text{V}\) rocket for the Apollo \(11\) mission \(t\) seconds after launch.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Time (seconds)</td><td>Height (meters)</td></tr><tr><td>\(0\)</td><td>\(0\)</td></tr><tr><td>\(1\)</td><td>\(2\)</td></tr><tr><td>\(2\)</td><td>\(4\)</td></tr><tr><td>\(3\)</td><td>\(13\)</td></tr><tr><td>\(4\)</td><td>\(25\)</td></tr><tr><td>\(5\)</td><td>\(32\)</td></tr></tbody></table></div>
+<div class="exercise"><div class="n">47</div><div class="body"><p>What is the physical meaning of \({h}^{′}(t)?\) What are the units?</p>
+</div></div>
+<div class="exercise"><div class="n">48</div><div class="body"><p><strong>[T]</strong> Construct a table of values for \({h}^{′}(t)\) and graph both \(h(t)\) and \({h}^{′}(t)\) on the same graph. (<strong>Hint:</strong> for <strong>interior points</strong>, estimate both the left limit and right limit and average them. An interior point of an interval I is an element of I which is not an endpoint of I.)</p>
+<div class="answer"><button>Show answer</button><div class="a"><div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>Time (seconds)</td><td>\({h}^{′}(t)\,\text{(m/s)}\)</td></tr><tr><td>\(0\)</td><td>\(2\)</td></tr><tr><td>\(1\)</td><td>\(2\)</td></tr><tr><td>\(2\)</td><td>\(5.5\)</td></tr><tr><td>\(3\)</td><td>\(10.5\)</td></tr><tr><td>\(4\)</td><td>\(9.5\)</td></tr><tr><td>\(5\)</td><td>\(7\)</td></tr></tbody></table></div>
+</div></div></div></div>
+<div class="exercise"><div class="n">49</div><div class="body"><p><strong>[T]</strong> The best linear fit to the data is given by \(H(t)=7.229t-4.905,\) where \(H\) is the height of the rocket (in meters) and \(t\) is the time elapsed since takeoff. From this equation, determine \({H}^{′}(t).\) Graph \(H(t)\) with the given data and, on a separate coordinate plane, graph \({H}^{′}(t).\)</p>
+</div></div>
+<div class="exercise"><div class="n">50</div><div class="body"><p><strong>[T]</strong> The best quadratic fit to the data is given by \(G(t)=1.429{t}^{2}+0.0857t-0.1429,\) where \(G\) is the height of the rocket (in meters) and \(t\) is the time elapsed since takeoff. From this equation, determine \({G}^{′}(t).\) Graph \(G(t)\) with the given data and, on a separate coordinate plane, graph \({G}^{′}(t).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({G}^{′}(t)=2.858t+0.0857\) <br> <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_229.jpg" alt="This graph has the points (0, 0), (1, 2), (2, 4), (3, 13), (4, 25), and (5, 32). There is a quadratic line fit to the points with y intercept near 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_03_02_230.jpg" alt="This graph has a straight line with y intercept near 0 and slope slightly less than 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">51</div><div class="body"><p><strong>[T]</strong> The best cubic fit to the data is given by \(F(t)=0.2037{t}^{3}+2.956{t}^{2}-2.705t+0.4683,\) where \(F\) is the height of the rocket (in m) and \(t\) is the time elapsed since take off. From this equation, determine \({F}^{′}(t).\) Graph \(F(t)\) with the given data and, on a separate coordinate plane, graph \({F}^{′}(t).\) Does the linear, quadratic, or cubic function fit the data best?</p>
+</div></div>
+<div class="exercise"><div class="n">52</div><div class="body"><p>Using the best linear, quadratic, and cubic fits to the data, determine what \({H}^{″}(t),{G}^{″}(t)\,\text{and}\,{F}^{″}(t)\) are. What are the physical meanings of \({H}^{″}(t),{G}^{″}(t)\,\text{and}\,{F}^{″}(t),\) and what are their units?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({H}^{″}(t)=0,{G}^{″}(t)=2.858\,\text{and}\,{f}^{″}(t)=1.222t+5.912\) represent the acceleration of the rocket, with units of meters per second squared \(({\text{m/s}}^{2}).\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>derivative function</dt><dd>gives the derivative of a function at each point in the domain of the original function for which the derivative is defined</dd><dt>differentiable at <strong><strong>a</strong></strong></dt><dd>a function for which \({f}^{′}(a)\) exists is differentiable at \(a\)</dd><dt>differentiable on <strong><strong>S</strong></strong></dt><dd>a function for which \({f}^{′}(x)\) exists for each \(x\) in the open set \(S\) is differentiable on \(S\)</dd><dt>differentiable function</dt><dd>a function for which \({f}^{′}(x)\) exists is a differentiable function</dd><dt>higher-order derivative</dt><dd>a derivative of a derivative, from the second derivative to the <strong>n</strong>th derivative, is called a higher-order derivative</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-1">OpenStax Calculus Volume 1</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

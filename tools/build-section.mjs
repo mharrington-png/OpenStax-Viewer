@@ -29,6 +29,12 @@ const BOOK_DEFAULTS = {
     license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
     source: { name: "OpenStax Calculus Volume 1", url: "https://openstax.org/books/calculus-volume-1", author: "Gilbert Strang, Edwin “Jed” Herman" },
   },
+  "calculus-v3": {
+    repo: "osbooks-calculus-bundle",
+    sectionsDir: "sections/calculus-v3",
+    license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
+    source: { name: "OpenStax Calculus Volume 3", url: "https://openstax.org/books/calculus-volume-3", author: "Gilbert Strang, Edwin “Jed” Herman" },
+  },
 };
 
 // Optional --file=<path> / --repo=<owner/name> / --book=<id> flags (order-independent)
@@ -156,7 +162,15 @@ const OPS = { "−": "-", "–": "-", "×": "\\times ", "⋅": "\\cdot ", "≈":
   // strict-mode warn not throw, but visually risks a tofu box) — wrapping them in
   // \text{} routes them through KaTeX's text-mode renderer, which does have the glyph.
   // Found building 3-4 (m51265).
-  "“": "\\text{“}", "”": "\\text{”}" };
+  "“": "\\text{“}", "”": "\\text{”}",
+  // Prime (U+2032) is OpenStax's encoding for derivative notation (x′(t), y′(t)) — pervasive
+  // in the parametric-curves/vector-calculus modules. No KaTeX glyph for the bare Unicode
+  // character (unknownSymbol warning); \prime is the correct command. Found building
+  // calculus-v3 1-2 (m53850). Angle (∠, U+2220) and midline ellipsis (⋯, U+22EF) are the
+  // same class of bug — literal Unicode math symbol with a direct KaTeX command available
+  // (\angle, \cdots) instead of a font glyph. Found building calculus-v3 1-1 (m53834,
+  // parametrized-line angle diagrams) and 1-2 (m53850, Riemann-sum "…" notation).
+  "′": "\\prime ", "∠": "\\angle ", "⋯": "\\cdots " };
 // NOTE: deliberately does NOT .trim() the mapped result — several OPS entries (\cdot ,
 // \approx , \pi , \times , etc.) carry an intentional trailing space so the next token
 // doesn't get glued onto the command name (e.g. "\cdotx", "\approxP", or a bare "\" when
@@ -211,14 +225,21 @@ function m2l(n) {
       // mapping for the mi/mn/mo path. Found building 3-5 (m51266).
       const raw = textOf(n).replace(/​/g, "").replace(/−/g, "-");
       if (/^\s*$/.test(raw)) return "\\,";
-      // "Δ" (capital delta, rate-of-change notation) has no glyph inside KaTeX's \text{}
-      // mode ("Undefined control sequence: \Delta") — \text{} only supports literal
-      // characters, not math commands. Split the run on Δ and drop bare \Delta (valid
-      // here since mtext content is always reached from inside an outer math-mode
-      // context) between \text{}-wrapped literal segments instead of embedding it.
-      // Found building 3-3.
-      return raw.split("Δ").map(seg => seg.replace(/[$#%&_{}]/g, m => "\\" + m))
-        .map(seg => seg ? `\\text{${seg}}` : "").join("\\Delta ");
+      // Characters that are math *commands*, not literal glyphs, have no font metrics
+      // inside KaTeX's \text{} mode ("Undefined control sequence" or "No character
+      // metrics ... in mode 'text'") when OpenStax's editor embeds them as bare Unicode
+      // characters inside an <mtext> node instead of a proper <mi>/<mo>. Originally only
+      // "Δ" was special-cased (found building 3-3); generalized into a table so the next
+      // one found (π, found building calculus-v3 1-4/1-1 — "2π," inside a text clause;
+      // also affects ± tolerance phrases per 3-6) is a one-line addition instead of
+      // duplicating the split/interleave logic again. Split the run on any of these
+      // delimiters and drop the bare command (valid here since mtext content is always
+      // reached from inside an outer math-mode context) between \text{}-wrapped literal
+      // segments instead of embedding the character inside \text{}.
+      const MATHCMD = { "Δ": "\\Delta ", "±": "\\pm ", "π": "\\pi ", "∠": "\\angle ", "⋯": "\\cdots " };
+      const re = new RegExp(`(${Object.keys(MATHCMD).join("|")})`);
+      const parts = raw.split(re);
+      return parts.map(seg => MATHCMD[seg] ?? (seg ? `\\text{${seg.replace(/[$#%&_{}]/g, m => "\\" + m)}}` : "")).join("");
     }
     // "\\," (thin space) rather than "\\ " (control space) — self-contained, so it
     // survives being the sole content of a math node even after the outer
@@ -245,7 +266,20 @@ function m2l(n) {
     case "mroot": return `\\sqrt[${g(1)}]{${g(0)}}`;
     case "mfenced": return `\\left(${K.map(m2l).join(",")}\\right)`;
     case "munder": return `\\underset{${g(1)}}{${g(0)}}`;
-    case "mover": return `\\overset{${g(1)}}{${g(0)}}`;
+    case "mover": {
+      // OpenStax's editor encodes accent marks (bar/hat/tilde over a variable, e.g. the
+      // "sample point" notation t̄ᵢ / t̂ᵢ used in Riemann-sum-style parametric arc length
+      // derivations) as a literal ASCII/near-ASCII character in the accent slot rather
+      // than a proper combining diacritic — "^" (hat), "˜"/"~" (tilde), "–"/"—"/"−" (bar).
+      // The old code fed that raw character through \overset{...}{...} unconditionally:
+      // harmless for the dash characters (OPS already maps them to "-", so it degenerates
+      // to a thin overline-ish "-" — not exact but doesn't crash) but a hard KaTeX parse
+      // error ("Expected group after '^'") for "^", since ^ is the superscript operator in
+      // math mode. Recognize the known accent glyphs and emit the correct KaTeX accent
+      // command instead of overset. Found building calculus-v3 1-2 (m53850).
+      const accentCmd = { "^": "hat", "˜": "tilde", "~": "tilde", "–": "bar", "—": "bar", "−": "bar", "‾": "bar" }[textOf(K[1]).trim()];
+      return accentCmd ? `\\${accentCmd}{${g(0)}}` : `\\overset{${g(1)}}{${g(0)}}`;
+    }
     case "mtable": {
       const maxCols = K.reduce((mx, tr) => Math.max(mx, (tr.children || []).filter(x => x.tag === "mtd").length), 1);
       return `\\begin{array}{${"l".repeat(maxCols)}}${K.map(m2l).join(" \\\\ ")}\\end{array}`;
@@ -417,19 +451,19 @@ function blocks(n, ctx = {}) { // serialize block children
               : analysisHtml);
         } else if (ctx.inCoreq) {
           warmN++;
-          out += `<div class="exercise warmup"><div class="n">P${warmN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
+          out += `<div class="exercise warmup" id="warmex${warmN}"><div class="n">P${warmN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
             (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
         } else if (ctx.inReview) {
           reviewExN++;
-          out += `<div class="exercise"><div class="n">${reviewExN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
+          out += `<div class="exercise" id="reviewex${reviewExN}"><div class="n">${reviewExN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
             (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
         } else if (ctx.inPracticeTest) {
           practiceExN++;
-          out += `<div class="exercise"><div class="n">${practiceExN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
+          out += `<div class="exercise" id="practiceex${practiceExN}"><div class="n">${practiceExN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
             (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
         } else {
           exN++;
-          out += `<div class="exercise"><div class="n">${exN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
+          out += `<div class="exercise" id="ex${exN}"><div class="n">${exN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
             (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
         }
         break;
@@ -504,6 +538,7 @@ const body = blocks(doc, { depth: 2 });
 // Book home (topbar brand link) — not the top-level picker hub, which is reached via the
 // sidebar's "All books" link instead (see assets/app.js).
 const bookHome = `${rootUp}books/${bookId}/index.html`;
+const brandText = bookId === "college-algebra-2e" ? "MX Algebra" : "MX Calculus";
 const brandLabel = bookId === "college-algebra-2e" ? "MX <span>Algebra</span>" : "MX <span>Calculus</span>";
 
 const page = `<!DOCTYPE html>
@@ -511,7 +546,7 @@ const page = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)} · MX Algebra</title>
+<title>${esc(title)} · ${brandText}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">

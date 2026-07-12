@@ -60,10 +60,10 @@ const BOOKS = {
         { id: "2-5", title: "2.5 The Precise Definition of a Limit", file: "2-5.html", ready: true },
       ]},
       { n: 3, title: "Derivatives", sections: [
-        { id: "3-1", title: "3.1 Defining the Derivative", file: "3-1.html", ready: false },
-        { id: "3-2", title: "3.2 The Derivative as a Function", file: "3-2.html", ready: false },
-        { id: "3-3", title: "3.3 Differentiation Rules", file: "3-3.html", ready: false },
-        { id: "3-4", title: "3.4 Derivatives as Rates of Change", file: "3-4.html", ready: false },
+        { id: "3-1", title: "3.1 Defining the Derivative", file: "3-1.html", ready: true },
+        { id: "3-2", title: "3.2 The Derivative as a Function", file: "3-2.html", ready: true },
+        { id: "3-3", title: "3.3 Differentiation Rules", file: "3-3.html", ready: true },
+        { id: "3-4", title: "3.4 Derivatives as Rates of Change", file: "3-4.html", ready: true },
         { id: "3-5", title: "3.5 Derivatives of Trigonometric Functions", file: "3-5.html", ready: false },
         { id: "3-6", title: "3.6 The Chain Rule", file: "3-6.html", ready: false },
         { id: "3-7", title: "3.7 Derivatives of Inverse Functions", file: "3-7.html", ready: false },
@@ -104,6 +104,73 @@ const BOOKS = {
       ]},
     ],
   },
+  "calculus-v3": {
+    title: "Calculus Volume 3",
+    // Same NC-SA license as calculus-v1 — confirmed on the collection.xml and the book's
+    // openstax.org page (openstax.org/details/books/calculus-volume-3).
+    license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
+    source: { name: "OpenStax Calculus Volume 3", url: "https://openstax.org/books/calculus-volume-3", author: "Gilbert Strang, Edwin “Jed” Herman" },
+    sectionsDir: "sections/calculus-v3",
+    chapters: [
+      { n: 1, title: "Parametric Equations and Polar Coordinates", sections: [
+        { id: "1-1", title: "1.1 Parametric Equations", file: "1-1.html", ready: true },
+        { id: "1-2", title: "1.2 Calculus of Parametric Curves", file: "1-2.html", ready: true },
+        { id: "1-3", title: "1.3 Polar Coordinates", file: "1-3.html", ready: true },
+        { id: "1-4", title: "1.4 Area and Arc Length in Polar Coordinates", file: "1-4.html", ready: true },
+        { id: "1-5", title: "1.5 Conic Sections", file: "1-5.html", ready: true },
+      ]},
+      { n: 2, title: "Vectors in Space", sections: [
+        { id: "2-1", title: "2.1 Vectors in the Plane", file: "2-1.html", ready: false },
+        { id: "2-2", title: "2.2 Vectors in Three Dimensions", file: "2-2.html", ready: false },
+        { id: "2-3", title: "2.3 The Dot Product", file: "2-3.html", ready: false },
+        { id: "2-4", title: "2.4 The Cross Product", file: "2-4.html", ready: false },
+        { id: "2-5", title: "2.5 Equations of Lines and Planes in Space", file: "2-5.html", ready: false },
+        { id: "2-6", title: "2.6 Quadric Surfaces", file: "2-6.html", ready: false },
+        { id: "2-7", title: "2.7 Cylindrical and Spherical Coordinates", file: "2-7.html", ready: false },
+      ]},
+      { n: 3, title: "Vector-Valued Functions", sections: [
+        { id: "3-1", title: "3.1 Vector-Valued Functions and Space Curves", file: "3-1.html", ready: false },
+        { id: "3-2", title: "3.2 Calculus of Vector-Valued Functions", file: "3-2.html", ready: false },
+        { id: "3-3", title: "3.3 Arc Length and Curvature", file: "3-3.html", ready: false },
+        { id: "3-4", title: "3.4 Motion in Space", file: "3-4.html", ready: false },
+      ]},
+      { n: 4, title: "Differentiation of Functions of Several Variables", sections: [
+        { id: "4-1", title: "4.1 Functions of Several Variables", file: "4-1.html", ready: false },
+        { id: "4-2", title: "4.2 Limits and Continuity", file: "4-2.html", ready: false },
+        { id: "4-3", title: "4.3 Partial Derivatives", file: "4-3.html", ready: false },
+        { id: "4-4", title: "4.4 Tangent Planes and Linear Approximations", file: "4-4.html", ready: false },
+        { id: "4-5", title: "4.5 The Chain Rule", file: "4-5.html", ready: false },
+        { id: "4-6", title: "4.6 Directional Derivatives and the Gradient", file: "4-6.html", ready: false },
+        { id: "4-7", title: "4.7 Maxima/Minima Problems", file: "4-7.html", ready: false },
+        { id: "4-8", title: "4.8 Lagrange Multipliers", file: "4-8.html", ready: false },
+      ]},
+      { n: 5, title: "Multiple Integration", sections: [
+        { id: "5-1", title: "5.1 Double Integrals over Rectangular Regions", file: "5-1.html", ready: false },
+        { id: "5-2", title: "5.2 Double Integrals over General Regions", file: "5-2.html", ready: false },
+        { id: "5-3", title: "5.3 Double Integrals in Polar Coordinates", file: "5-3.html", ready: false },
+        { id: "5-4", title: "5.4 Triple Integrals", file: "5-4.html", ready: false },
+        { id: "5-5", title: "5.5 Triple Integrals in Cylindrical and Spherical Coordinates", file: "5-5.html", ready: false },
+        { id: "5-6", title: "5.6 Calculating Centers of Mass and Moments of Inertia", file: "5-6.html", ready: false },
+        { id: "5-7", title: "5.7 Change of Variables in Multiple Integrals", file: "5-7.html", ready: false },
+      ]},
+      { n: 6, title: "Vector Calculus", sections: [
+        { id: "6-1", title: "6.1 Vector Fields", file: "6-1.html", ready: false },
+        { id: "6-2", title: "6.2 Line Integrals", file: "6-2.html", ready: false },
+        { id: "6-3", title: "6.3 Conservative Vector Fields", file: "6-3.html", ready: false },
+        { id: "6-4", title: "6.4 Green’s Theorem", file: "6-4.html", ready: false },
+        { id: "6-5", title: "6.5 Divergence and Curl", file: "6-5.html", ready: false },
+        { id: "6-6", title: "6.6 Surface Integrals", file: "6-6.html", ready: false },
+        { id: "6-7", title: "6.7 Stokes’ Theorem", file: "6-7.html", ready: false },
+        { id: "6-8", title: "6.8 The Divergence Theorem", file: "6-8.html", ready: false },
+      ]},
+      { n: 7, title: "Second-Order Differential Equations", sections: [
+        { id: "7-1", title: "7.1 Second-Order Linear Equations", file: "7-1.html", ready: false },
+        { id: "7-2", title: "7.2 Nonhomogeneous Linear Equations", file: "7-2.html", ready: false },
+        { id: "7-3", title: "7.3 Applications", file: "7-3.html", ready: false },
+        { id: "7-4", title: "7.4 Series Solutions of Differential Equations", file: "7-4.html", ready: false },
+      ]},
+    ],
+  },
 };
 const DEFAULT_BOOK = "college-algebra-2e";
 
@@ -139,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // section files may live at root sections/ (College Algebra 2e, legacy) or a
     // book-scoped subfolder sections/<book-id>/ (new books) — sectionsDir already
     // encodes which, relative to site root.
-    let book = `<a class="allbooks" href="${root}/index.html">← All books</a>`;
+    let book = "";
     for (const ch of BOOK.chapters) {
       book += `<h4>Chapter ${ch.n} · ${ch.title}</h4>`;
       for (const s of ch.sections) {
@@ -151,7 +218,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     }
+    // "All books" sits outside the collapsible <details> (as opposed to inside it,
+    // right after the summary, which used to hide it whenever the fold was closed)
+    // so it's always visible regardless of the Book contents fold state, and reads
+    // above "Book contents" as the sidebar's top-level escape hatch.
     sb.innerHTML =
+      `<a class="allbooks" href="${root}/index.html">← All books</a>` +
       `<details class="booknav"${isSection ? "" : " open"}><summary>Book contents</summary>${book}</details>` +
       `<div class="outline"></div>`;
     if (isSection) buildOutline(sb.querySelector(".outline"));
@@ -467,11 +539,24 @@ function drawPlot(el) {
    fixed curve. Reads JSON from data-spec:
    { bounds:{left,right,bottom,top},
      sliders:[{var:"a", min,max,step, value, color}],
-     curves:[{latex:"y=a\\cdot b^{x}", color}],
+     curves:[{latex:"y=a\\cdot b^{x}", color, domain:{min,max}}],
      alt }
    Requires window.Desmos (loaded via a per-page <script> with an API key — see
    CLAUDE.md). If the API script failed to load (offline, key issue, ad blocker),
-   the figure is silently skipped; the figcaption/alt text still describes it. */
+   the figure is silently skipped; the figcaption/alt text still describes it.
+
+   curves[].domain: for a parametric tuple "(x(t),y(t))" or polar "r=f(θ)" curve
+   that needs to trace more than Desmos's default parameter range, DO NOT rely on
+   a "\left\{min \le t \le max\right\}" restriction embedded in the latex — Desmos
+   still shows (and actually uses) a separate auto-added "domain t Min/Max" pair of
+   fields for parametric/polar plots, which defaults to 0–1 regardless of what the
+   embedded inequality says, so the curve silently renders truncated to that range
+   (found in calculus-v3 1-1's hypocycloid Figure 10, meant to sweep 0 to 24π —
+   flagged by the project owner as "defaulting to 0<t<1"). The API's dedicated
+   parametricDomain/polarDomain options are the only things that actually set those
+   fields; set both unconditionally when curves[].domain is present since a given
+   curve only recognizes the one matching its own type (tuple vs. r=) and ignores
+   the other. */
 function drawDesmos(el) {
   let s; try { s = JSON.parse(el.dataset.spec); } catch (e) { return; }
   if (typeof Desmos === "undefined") return;
@@ -498,6 +583,8 @@ function drawDesmos(el) {
     });
   });
   (s.curves || []).forEach((c, i) => {
-    calc.setExpression({ id: "curve-" + i, latex: c.latex, color: c.color || "#cf003d" });
+    const expr = { id: "curve-" + i, latex: c.latex, color: c.color || "#cf003d" };
+    if (c.domain) { expr.parametricDomain = c.domain; expr.polarDomain = c.domain; }
+    calc.setExpression(expr);
   });
 }

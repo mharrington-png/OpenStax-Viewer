@@ -121,7 +121,11 @@ const count = re => (html.match(re) || []).length;
 const counts = {
   examples: count(/class="card example(?! *warmup)/g),
   tryits: count(/class="tryit"/g),
-  exercises: count(/<div class="exercise">/g),
+  // build-section.mjs now stamps each Section/Review/Practice exercise with an id="exN"-
+  // style anchor (so Key Concepts bullets can link back to the exercises that test them);
+  // match with-or-without that attribute so this count doesn't silently drop to 0 for
+  // exercises built after that change while still tolerating older, id-less pages.
+  exercises: count(/<div class="exercise"(?: id="[a-z]+\d+")?>/g),
   answers: count(/<div class="answer">/g),
   warmupExamples: count(/class="card example warmup"/g),
   warmupExercises: count(/class="exercise warmup"/g),
