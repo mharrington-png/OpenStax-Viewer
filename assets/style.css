@@ -152,6 +152,14 @@ ul.tight li { margin: .35em 0; }
 .objectives ul { margin: .3em 0 0; padding-left: 1.3em; }
 .objectives li { margin: .3em 0; }
 
+/* ---------- book picker (top-level hub) ---------- */
+.bookgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 1.6em 0; }
+.bookcard { display: block; text-decoration: none; color: inherit; transition: transform .12s, border-color .12s; }
+.bookcard:hover { transform: translateY(-2px); border-color: var(--accent); }
+.bookcard h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; font-size: 1.15rem; }
+.bookcard p { margin: 0; color: var(--ink-soft); }
+.bookcard .chip { margin-bottom: 0; background: var(--surface-2); color: var(--ink-faint); }
+
 /* ---------- example / try-it ---------- */
 .example { padding: 0; overflow: hidden; }
 .example .ex-head {
@@ -304,6 +312,13 @@ details.booknav > summary {
 details.booknav > summary::before { content: "\25B8 "; color: var(--accent); }
 details.booknav[open] > summary::before { content: "\25BE "; }
 details.booknav { border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 6px; }
+
+.sidebar a.allbooks {
+  display: block; padding: 6px 8px; margin: 0 0 8px;
+  font-size: .74rem; font-weight: 700; color: var(--ink-faint);
+  border-bottom: 1px solid var(--line);
+}
+.sidebar a.allbooks:hover { color: var(--accent-ink); }
 
 .sidebar .outline a.lvl1 { font-weight: 700; margin-top: 2px; color: var(--ink-soft); }
 .sidebar .outline a.lvl1.solo { margin-top: 2px; }

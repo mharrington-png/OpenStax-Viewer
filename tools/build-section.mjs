@@ -9,29 +9,67 @@
  *
  * Requires Node 18+ (uses global fetch). No dependencies.
  */
-import { writeFileSync, readFileSync } from "node:fs";
+import { writeFileSync, readFileSync, mkdirSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
-// Optional --file=<path> / --repo=<owner/name> flags (order-independent) let this run
-// against a locally-saved CNXML file instead of hitting the network directly — used by
-// the automation pipeline in sandboxes where raw.githubusercontent.com is blocked but a
-// fetch tool upstream can still retrieve the module and save it locally first.
+// Per-book defaults — repo, where section files land, and the attribution footer's
+// license/source (must match CLAUDE.md convention 3/4 and README's license note: Calculus
+// and Intermediate Algebra collections are CC BY-NC-SA 4.0, not CC BY 4.0). Add an entry
+// here (and a matching entry in assets/app.js's BOOKS map) when starting a new book.
+const BOOK_DEFAULTS = {
+  "college-algebra-2e": {
+    repo: "osbooks-college-algebra-bundle",
+    sectionsDir: "sections", // legacy: flat, no book subfolder, for backward compatibility
+    license: { name: "Creative Commons Attribution 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
+    source: { name: "OpenStax College Algebra 2e", url: "https://openstax.org/books/college-algebra-2e", author: "Jay Abramson" },
+  },
+  "calculus-v1": {
+    repo: "osbooks-calculus-bundle",
+    sectionsDir: "sections/calculus-v1",
+    license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
+    source: { name: "OpenStax Calculus Volume 1", url: "https://openstax.org/books/calculus-volume-1", author: "Gilbert Strang, Edwin “Jed” Herman" },
+  },
+};
+
+// Optional --file=<path> / --repo=<owner/name> / --book=<id> flags (order-independent)
+// let this run against a locally-saved CNXML file instead of hitting the network
+// directly (used by the automation pipeline in sandboxes where raw.githubusercontent.com
+// is blocked but a fetch tool upstream can still retrieve the module and save it locally
+// first), and let it target a book other than College Algebra 2e. --book also accepts a
+// bare "--book calculus-v1" (space-separated) form for CLI ergonomics, not just "=".
 const rawArgs = process.argv.slice(2);
-let localFile = null, repo = "osbooks-college-algebra-bundle";
+let localFile = null, repoOverride = null, bookId = "college-algebra-2e";
 const positional = [];
-for (const a of rawArgs) {
+for (let i = 0; i < rawArgs.length; i++) {
+  const a = rawArgs[i];
   if (a.startsWith("--file=")) localFile = a.slice(7);
-  else if (a.startsWith("--repo=")) repo = a.slice(7);
+  else if (a.startsWith("--repo=")) repoOverride = a.slice(7);
+  else if (a.startsWith("--book=")) bookId = a.slice(7);
+  else if (a === "--book") { bookId = rawArgs[++i]; }
   else positional.push(a);
 }
+if (!BOOK_DEFAULTS[bookId]) {
+  console.error(`Unknown --book "${bookId}". Known books: ${Object.keys(BOOK_DEFAULTS).join(", ")}`);
+  process.exit(1);
+}
+const bookDef = BOOK_DEFAULTS[bookId];
+const repo = repoOverride || bookDef.repo;
 const [moduleId, slug, ...titleParts] = positional;
 if (!moduleId || !slug) {
-  console.error('Usage: node tools/build-section.mjs <moduleId> <slug> "<Section title>" [--file=<local .cnxml path>] [--repo=<org/repo>]');
+  console.error('Usage: node tools/build-section.mjs [--book=<book-id>] <moduleId> <slug> "<Section title>" [--file=<local .cnxml path>] [--repo=<org/repo>]');
+  console.error('  e.g.: node tools/build-section.mjs m49362 6-2 "Graphs of Exponential Functions"');
+  console.error('        node tools/build-section.mjs --book calculus-v1 m53483 2-1 "A Preview of Calculus"');
   process.exit(1);
 }
 const title = titleParts.join(" ") || slug;
 
 const RAW = `https://raw.githubusercontent.com/openstax/${repo}/main/modules/${moduleId}/index.cnxml`;
 const MEDIA = `https://raw.githubusercontent.com/openstax/${repo}/main/media/`;
+// Section files for a book nest sectionsDir.split("/").length levels below the site
+// root (College Algebra 2e's legacy flat "sections" = 1 level, e.g. sections/6-1.html;
+// a book-scoped "sections/calculus-v1" = 2 levels, e.g. sections/calculus-v1/2-1.html) —
+// asset/index links in the emitted page must climb back out that many levels.
+const rootUp = "../".repeat(bookDef.sectionsDir.split("/").length);
 
 const xmlText = localFile ? readFileSync(localFile, "utf8") : await (await fetch(RAW)).text();
 
@@ -427,6 +465,11 @@ const doc = q(root, "document");
 })(doc);
 const body = blocks(doc, { depth: 2 });
 
+// Book home (topbar brand link) — not the top-level picker hub, which is reached via the
+// sidebar's "All books" link instead (see assets/app.js).
+const bookHome = `${rootUp}books/${bookId}/index.html`;
+const brandLabel = bookId === "college-algebra-2e" ? "MX <span>Algebra</span>" : "MX <span>Calculus</span>";
+
 const page = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -438,12 +481,12 @@ const page = `<!DOCTYPE html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="../assets/style.css">
-<script defer src="../assets/app.js"></script>
+<link rel="stylesheet" href="${rootUp}assets/style.css">
+<script defer src="${rootUp}assets/app.js"></script>
 </head>
-<body>
+<body data-book="${bookId}">
 <header class="topbar">
-  <a class="brand" href="../index.html">MX <span>Algebra</span></a>
+  <a class="brand" href="${bookHome}">${brandLabel}</a>
   <span class="crumb">${esc(title)}</span>
   <span class="spacer"></span>
   <span class="crumb" id="tryit-score"></span>
@@ -456,8 +499,8 @@ const page = `<!DOCTYPE html>
 <h1><span class="kicker">Section ${esc(slug.replace("-", "."))}</span>${esc(title)}</h1>
 ${body}
 <footer class="attribution">
-  Content from <a href="https://openstax.org/books/college-algebra-2e">OpenStax College Algebra 2e</a> by Jay Abramson, © OpenStax, licensed under
-  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+  Content from <a href="${bookDef.source.url}">${bookDef.source.name}</a> by ${bookDef.source.author}, © OpenStax, licensed under
+  <a href="${bookDef.license.url}">${bookDef.license.name}</a>.
   OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
 </footer>
 </main>
@@ -465,8 +508,14 @@ ${body}
 </body>
 </html>`;
 
-const outPath = new URL(`../sections/${slug}.html`, import.meta.url).pathname;
+// fileURLToPath (not raw .pathname) is required here: .pathname stays percent-encoded
+// (e.g. a space in a folder name — as in this project's own "OpenStax Viewer" — becomes
+// literal "%20" in the string), which then gets treated as a literal-character directory
+// name instead of being decoded back to a real path, silently writing to the wrong place.
+const outDir = fileURLToPath(new URL(`../${bookDef.sectionsDir}/`, import.meta.url));
+mkdirSync(outDir, { recursive: true });
+const outPath = fileURLToPath(new URL(`../${bookDef.sectionsDir}/${slug}.html`, import.meta.url));
 writeFileSync(outPath, page);
-console.log(`Wrote sections/${slug}.html (${page.length.toLocaleString()} chars, ${exN} exercises, ${tryN} try-its, ${exampleN} examples)` +
+console.log(`Wrote ${bookDef.sectionsDir}/${slug}.html (${page.length.toLocaleString()} chars, ${exN} exercises, ${tryN} try-its, ${exampleN} examples)` +
   (reviewExN || practiceExN ? ` [+ ${reviewExN} chapter-review exercises, ${practiceExN} practice-test exercises]` : ""));
-console.log(`Now open assets/app.js and set ready: true for "${slug}" in the BOOK manifest.`);
+console.log(`Now open assets/app.js and set ready: true for "${slug}" in the "${bookId}" entry of the BOOKS manifest.`);

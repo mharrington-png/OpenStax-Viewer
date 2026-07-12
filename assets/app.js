@@ -1,30 +1,111 @@
 /* MX Algebra reader — shared behavior */
 
-/* ---------- book manifest: add sections here as you build them ---------- */
-const BOOK = {
-  title: "College Algebra",
-  chapters: [
-    { n: 3, title: "Functions", sections: [
-      { id: "3-1", title: "3.1 Functions and Function Notation", file: "3-1.html", ready: true },
-      { id: "3-2", title: "3.2 Domain and Range", file: "3-2.html", ready: true },
-      { id: "3-3", title: "3.3 Rates of Change and Behavior of Graphs", file: "3-3.html", ready: true },
-      { id: "3-4", title: "3.4 Composition of Functions", file: "3-4.html", ready: true },
-      { id: "3-5", title: "3.5 Transformation of Functions", file: "3-5.html", ready: true },
-      { id: "3-6", title: "3.6 Absolute Value Functions", file: "3-6.html", ready: true },
-      { id: "3-7", title: "3.7 Inverse Functions", file: "3-7.html", ready: true },
-    ]},
-    { n: 6, title: "Exponential and Logarithmic Functions", sections: [
-      { id: "6-1", title: "6.1 Exponential Functions", file: "6-1.html", ready: true },
-      { id: "6-2", title: "6.2 Graphs of Exponential Functions", file: "6-2.html", ready: true },
-      { id: "6-3", title: "6.3 Logarithmic Functions", file: "6-3.html", ready: true },
-      { id: "6-4", title: "6.4 Graphs of Logarithmic Functions", file: "6-4.html", ready: true },
-      { id: "6-5", title: "6.5 Logarithmic Properties", file: "6-5.html", ready: true },
-      { id: "6-6", title: "6.6 Exponential and Logarithmic Equations", file: "6-6.html", ready: true },
-      { id: "6-7", title: "6.7 Exponential and Logarithmic Models", file: "6-7.html", ready: true },
-      { id: "6-8", title: "6.8 Fitting Exponential Models to Data", file: "6-8.html", ready: true },
-    ]},
-  ],
+/* ---------- book manifests ----------
+   Keyed by book id. Each page declares which book it belongs to via
+   <body data-book="...">; missing/unset defaults to "college-algebra-2e" so
+   existing pages built before multi-book support keep working unchanged.
+   `sectionsDir` is the path (relative to site root) where that book's section
+   files live — College Algebra 2e's files stay at the root sections/ folder
+   for backward compatibility; new books are scoped under sections/<book-id>/
+   to avoid chapter-number collisions (e.g. Calculus Vol 1's own Chapter 2). */
+const BOOKS = {
+  "college-algebra-2e": {
+    title: "College Algebra",
+    license: { name: "Creative Commons Attribution 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
+    source: { name: "OpenStax College Algebra 2e", url: "https://openstax.org/books/college-algebra-2e", author: "Jay Abramson" },
+    sectionsDir: "sections",
+    chapters: [
+      { n: 3, title: "Functions", sections: [
+        { id: "3-1", title: "3.1 Functions and Function Notation", file: "3-1.html", ready: true },
+        { id: "3-2", title: "3.2 Domain and Range", file: "3-2.html", ready: true },
+        { id: "3-3", title: "3.3 Rates of Change and Behavior of Graphs", file: "3-3.html", ready: true },
+        { id: "3-4", title: "3.4 Composition of Functions", file: "3-4.html", ready: true },
+        { id: "3-5", title: "3.5 Transformation of Functions", file: "3-5.html", ready: true },
+        { id: "3-6", title: "3.6 Absolute Value Functions", file: "3-6.html", ready: true },
+        { id: "3-7", title: "3.7 Inverse Functions", file: "3-7.html", ready: true },
+      ]},
+      { n: 6, title: "Exponential and Logarithmic Functions", sections: [
+        { id: "6-1", title: "6.1 Exponential Functions", file: "6-1.html", ready: true },
+        { id: "6-2", title: "6.2 Graphs of Exponential Functions", file: "6-2.html", ready: true },
+        { id: "6-3", title: "6.3 Logarithmic Functions", file: "6-3.html", ready: true },
+        { id: "6-4", title: "6.4 Graphs of Logarithmic Functions", file: "6-4.html", ready: true },
+        { id: "6-5", title: "6.5 Logarithmic Properties", file: "6-5.html", ready: true },
+        { id: "6-6", title: "6.6 Exponential and Logarithmic Equations", file: "6-6.html", ready: true },
+        { id: "6-7", title: "6.7 Exponential and Logarithmic Models", file: "6-7.html", ready: true },
+        { id: "6-8", title: "6.8 Fitting Exponential Models to Data", file: "6-8.html", ready: true },
+      ]},
+    ],
+  },
+  "calculus-v1": {
+    title: "Calculus Volume 1",
+    // NC-SA, unlike College Algebra 2e's CC BY — confirmed on the book's openstax.org
+    // page (openstax.org/details/books/calculus-volume-1). Never let this book's
+    // footer show a plain "CC BY" license — see CLAUDE.md convention 3/README license note.
+    license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
+    source: { name: "OpenStax Calculus Volume 1", url: "https://openstax.org/books/calculus-volume-1", author: "Gilbert Strang, Edwin “Jed” Herman" },
+    sectionsDir: "sections/calculus-v1",
+    chapters: [
+      { n: 1, title: "Functions and Graphs", sections: [
+        { id: "1-1", title: "1.1 Review of Functions", file: "1-1.html", ready: false },
+        { id: "1-2", title: "1.2 Basic Classes of Functions", file: "1-2.html", ready: false },
+        { id: "1-3", title: "1.3 Trigonometric Functions", file: "1-3.html", ready: false },
+        { id: "1-4", title: "1.4 Inverse Functions", file: "1-4.html", ready: false },
+        { id: "1-5", title: "1.5 Exponential and Logarithmic Functions", file: "1-5.html", ready: false },
+      ]},
+      { n: 2, title: "Limits", sections: [
+        { id: "2-1", title: "2.1 A Preview of Calculus", file: "2-1.html", ready: false },
+        { id: "2-2", title: "2.2 The Limit of a Function", file: "2-2.html", ready: false },
+        { id: "2-3", title: "2.3 The Limit Laws", file: "2-3.html", ready: false },
+        { id: "2-4", title: "2.4 Continuity", file: "2-4.html", ready: false },
+        { id: "2-5", title: "2.5 The Precise Definition of a Limit", file: "2-5.html", ready: false },
+      ]},
+      { n: 3, title: "Derivatives", sections: [
+        { id: "3-1", title: "3.1 Defining the Derivative", file: "3-1.html", ready: false },
+        { id: "3-2", title: "3.2 The Derivative as a Function", file: "3-2.html", ready: false },
+        { id: "3-3", title: "3.3 Differentiation Rules", file: "3-3.html", ready: false },
+        { id: "3-4", title: "3.4 Derivatives as Rates of Change", file: "3-4.html", ready: false },
+        { id: "3-5", title: "3.5 Derivatives of Trigonometric Functions", file: "3-5.html", ready: false },
+        { id: "3-6", title: "3.6 The Chain Rule", file: "3-6.html", ready: false },
+        { id: "3-7", title: "3.7 Derivatives of Inverse Functions", file: "3-7.html", ready: false },
+        { id: "3-8", title: "3.8 Implicit Differentiation", file: "3-8.html", ready: false },
+        { id: "3-9", title: "3.9 Derivatives of Exponential and Logarithmic Functions", file: "3-9.html", ready: false },
+      ]},
+      { n: 4, title: "Applications of Derivatives", sections: [
+        { id: "4-1", title: "4.1 Related Rates", file: "4-1.html", ready: false },
+        { id: "4-2", title: "4.2 Linear Approximations and Differentials", file: "4-2.html", ready: false },
+        { id: "4-3", title: "4.3 Maxima and Minima", file: "4-3.html", ready: false },
+        { id: "4-4", title: "4.4 The Mean Value Theorem", file: "4-4.html", ready: false },
+        { id: "4-5", title: "4.5 Derivatives and the Shape of a Graph", file: "4-5.html", ready: false },
+        { id: "4-6", title: "4.6 Limits at Infinity and Asymptotes", file: "4-6.html", ready: false },
+        { id: "4-7", title: "4.7 Applied Optimization Problems", file: "4-7.html", ready: false },
+        { id: "4-8", title: "4.8 L’Hôpital’s Rule", file: "4-8.html", ready: false },
+        { id: "4-9", title: "4.9 Newton’s Method", file: "4-9.html", ready: false },
+        { id: "4-10", title: "4.10 Antiderivatives", file: "4-10.html", ready: false },
+      ]},
+      { n: 5, title: "Integration", sections: [
+        { id: "5-1", title: "5.1 Approximating Areas", file: "5-1.html", ready: false },
+        { id: "5-2", title: "5.2 The Definite Integral", file: "5-2.html", ready: false },
+        { id: "5-3", title: "5.3 The Fundamental Theorem of Calculus", file: "5-3.html", ready: false },
+        { id: "5-4", title: "5.4 Integration Formulas and the Net Change Theorem", file: "5-4.html", ready: false },
+        { id: "5-5", title: "5.5 Substitution", file: "5-5.html", ready: false },
+        { id: "5-6", title: "5.6 Integrals Involving Exponential and Logarithmic Functions", file: "5-6.html", ready: false },
+        { id: "5-7", title: "5.7 Integrals Resulting in Inverse Trigonometric Functions", file: "5-7.html", ready: false },
+      ]},
+      { n: 6, title: "Applications of Integration", sections: [
+        { id: "6-1", title: "6.1 Areas between Curves", file: "6-1.html", ready: false },
+        { id: "6-2", title: "6.2 Determining Volumes by Slicing", file: "6-2.html", ready: false },
+        { id: "6-3", title: "6.3 Volumes of Revolution: Cylindrical Shells", file: "6-3.html", ready: false },
+        { id: "6-4", title: "6.4 Arc Length of a Curve and Surface Area", file: "6-4.html", ready: false },
+        { id: "6-5", title: "6.5 Physical Applications", file: "6-5.html", ready: false },
+        { id: "6-6", title: "6.6 Moments and Centers of Mass", file: "6-6.html", ready: false },
+        { id: "6-7", title: "6.7 Integrals, Exponential Functions, and Logarithms", file: "6-7.html", ready: false },
+        { id: "6-8", title: "6.8 Exponential Growth and Decay", file: "6-8.html", ready: false },
+        { id: "6-9", title: "6.9 Calculus of the Hyperbolic Functions", file: "6-9.html", ready: false },
+      ]},
+    ],
+  },
 };
+const DEFAULT_BOOK = "college-algebra-2e";
 
 /* ---------- theme ---------- */
 const themeKey = "mxalg-theme";
@@ -38,18 +119,33 @@ function toggleTheme() {
 /* ---------- per-page setup ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   const isSection = location.pathname.includes("/sections/");
-  const root = isSection ? ".." : ".";
+  // Derive the path back to the site root from this page's own <script src="…assets/app.js">
+  // tag rather than assuming a fixed nesting depth: College Algebra 2e section files sit
+  // one level down (sections/6-1.html, root "..") but new books are scoped one level
+  // deeper (sections/calculus-v1/2-1.html, root "../..") and books/<id>/index.html is
+  // also one level down. Reading it off the script tag works at any depth automatically.
+  const appScript = document.querySelector('script[src$="assets/app.js"]');
+  const scriptSrc = appScript ? appScript.getAttribute("src") : "assets/app.js";
+  const root = scriptSrc.replace(/assets\/app\.js$/, "").replace(/\/$/, "") || ".";
+
+  // which book this page belongs to: <body data-book="..."> wins; unset/unknown
+  // falls back to college-algebra-2e so pre-multi-book pages never break.
+  const bookId = (document.body.dataset.book && BOOKS[document.body.dataset.book]) ? document.body.dataset.book : DEFAULT_BOOK;
+  const BOOK = BOOKS[bookId];
 
   /* sidebar: collapsible book contents + auto-generated page outline */
   const sb = document.querySelector(".sidebar");
   if (sb) {
-    let book = "";
+    // section files may live at root sections/ (College Algebra 2e, legacy) or a
+    // book-scoped subfolder sections/<book-id>/ (new books) — sectionsDir already
+    // encodes which, relative to site root.
+    let book = `<a class="allbooks" href="${root}/index.html">← All books</a>`;
     for (const ch of BOOK.chapters) {
       book += `<h4>Chapter ${ch.n} · ${ch.title}</h4>`;
       for (const s of ch.sections) {
         if (s.ready) {
-          const active = location.pathname.endsWith("/" + s.file) ? " class=\"active\"" : "";
-          book += `<a href="${root}/sections/${s.file}"${active}>${s.title}</a>`;
+          const active = location.pathname.endsWith("/" + BOOK.sectionsDir + "/" + s.file) ? " class=\"active\"" : "";
+          book += `<a href="${root}/${BOOK.sectionsDir}/${s.file}"${active}>${s.title}</a>`;
         } else {
           book += `<a class="soon">${s.title}</a>`;
         }
@@ -112,7 +208,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // try-it self check, persisted
-  const pageKey = "mxalg-" + location.pathname.split("/").pop();
+  // Namespaced by full path (not just filename) so identically-named section files in
+  // different books — e.g. 6-1.html in both college-algebra-2e and calculus-v1 — don't
+  // share saved Try It progress.
+  const pageKey = "mxalg-" + bookId + "-" + location.pathname.split("/").slice(-2).join("/");
   const saved = JSON.parse(localStorage.getItem(pageKey) || "{}");
   document.querySelectorAll(".tryit").forEach(t => {
     const id = t.id; if (!id) return;
@@ -136,6 +235,22 @@ document.addEventListener("DOMContentLoaded", () => {
     el.textContent = `Try Its: ${right}/${total} ✓`;
   }
   updateScore();
+
+  // attribution footer: always regenerated from BOOK.license/source rather than trusted
+  // as static markup, so a book's footer can never drift to the wrong license (e.g.
+  // Calculus's CC BY-NC-SA showing as plain CC BY) even if a hand-edited page's footer
+  // text goes stale. Section pages built by tools/build-section.mjs emit a matching
+  // footer already, but this is the single source of truth.
+  // Only regenerate the footer on pages that actually declare a book (data-book) — the
+  // top-level book-picker hub has no single book to attribute and keeps its own neutral
+  // footer text untouched.
+  const footer = document.body.dataset.book ? document.querySelector("footer.attribution") : null;
+  if (footer) {
+    footer.innerHTML =
+      `Content from <a href="${BOOK.source.url}">${BOOK.source.name}</a> by ${BOOK.source.author}, © OpenStax, licensed under ` +
+      `<a href="${BOOK.license.url}">${BOOK.license.name}</a>. ` +
+      `OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.`;
+  }
 
   // math
   if (window.renderMathInElement) {
