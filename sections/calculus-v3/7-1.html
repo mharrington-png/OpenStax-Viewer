@@ -28,27 +28,27 @@
 <p>When working with differential equations, usually the goal is to find a solution. In other words, we want to find a function (or functions) that satisfies the differential equation. The technique we use to find these solutions varies, depending on the form of the differential equation with which we are working. Second-order differential equations have several important characteristics that can help us determine which solution method to use. In this section, we examine some of these characteristics and the associated terminology.</p>
 <h2 id="homogeneous-linear-equations">Homogeneous Linear Equations</h2>
 <p>Consider the second-order differential equation</p>
-<p>\[x{y}^{\prime\prime }+2{x}^{2}{y}^{\prime }+5{x}^{3}y=0.\]</p>
+<p id="eq1">\[x{y}^{\prime\prime }+2{x}^{2}{y}^{\prime }+5{x}^{3}y=0.\]</p>
 <p>Notice that <strong>y</strong> and its derivatives appear in a relatively simple form. They are multiplied by functions of <strong>x</strong>, but are not raised to any powers themselves, nor are they multiplied together. As discussed in Introduction to Differential Equations, first-order equations with similar characteristics are said to be linear. The same is true of second-order equations. Also note that all the terms in this differential equation involve either <strong>y</strong> or one of its derivatives. There are no terms involving only functions of <strong>x</strong>. Equations like this, in which every term contains <strong>y</strong> or one of its derivatives, are called homogeneous.</p>
 <p>Not all differential equations are homogeneous. Consider the differential equation</p>
-<p>\[x{y}^{\prime\prime }+2{x}^{2}{y}^{\prime }+5{x}^{3}y={x}^{2}.\]</p>
+<p id="eq2">\[x{y}^{\prime\prime }+2{x}^{2}{y}^{\prime }+5{x}^{3}y={x}^{2}.\]</p>
 <p>The \({x}^{2}\) term on the right side of the equal sign does not contain <strong>y</strong> or any of its derivatives. Therefore, this differential equation is nonhomogeneous.</p>
-<div class="card definition"><span class="chip">Definition</span><p>A second-order differential equation is linear if it can be written in the form</p>
-<p>\[{a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=r(x),\]</p>
+<div class="card definition" id="fs-id1170571696990"><span class="chip">Definition</span><p>A second-order differential equation is linear if it can be written in the form</p>
+<p id="eq3">\[{a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=r(x),\]</p>
 <p>where \({a}_{2}(x),\) \({a}_{1}(x),\) \({a}_{0}(x),\) and \(r(x)\) are real-valued functions and \({a}_{2}(x)\) is not identically zero. If \(r(x)≡0\) —in other words, if \(r(x)=0\) for every value of <strong>x</strong>—the equation is said to be a <strong>homogeneous linear equation</strong>. If \(r(x)\ne 0\) for some value of \(x,\) the equation is said to be a <strong>nonhomogeneous linear equation</strong>.</p>
 </div>
-<div class="card callout"><span class="chip">Media</span><p>Visit this <a href="http://www.openstax.org/l/20_Secondord" target="_blank" rel="noopener">website</a> to study more about second-order linear differential equations.</p>
+<div class="card callout" id="fs-id1170571636349"><span class="chip">Media</span><p>Visit this <a href="http://www.openstax.org/l/20_Secondord" target="_blank" rel="noopener">website</a> to study more about second-order linear differential equations.</p>
 </div>
 <p>In linear differential equations, \(y\) and its derivatives can be raised only to the first power and they may not be multiplied by one another. Terms involving \({y}^{2}\) or \(\sqrt{{y}^{\prime }}\) make the equation nonlinear. Functions of \(y\) and its derivatives, such as \(\text{sin}\,y\) or \({e}^{{y}^{\prime }},\) are similarly prohibited in linear differential equations.</p>
 <p>Note that equations may not always be given in standard form (the form shown in the definition). It can be helpful to rewrite them in that form to decide whether they are linear, or whether a linear equation is homogeneous.</p>
 <div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Classify each of the following equations as linear or nonlinear. If the equation is linear, determine further whether it is homogeneous or nonhomogeneous.</p>
 <ul class="tight"><li>\({y}^{\prime\prime }+3{x}^{4}{y}^{\prime }+{x}^{2}{y}^{2}={x}^{3}\)</li><li>\((\text{sin}\,x){y}^{\prime\prime }+(\text{cos}\,x){y}^{\prime }+3y=0\)</li><li>\(4{t}^{2}{x}^{\prime\prime }+3tx{x}^{\prime }+4x=0\)</li><li>\(5{y}^{\prime\prime }+y=4{x}^{5}\)</li><li>\((\text{cos}\,x){y}^{\prime\prime }-\text{sin}\,{y}^{\prime }+(\text{sin}\,x)y-\text{cos}\,x=0\)</li><li>\(8t{y}^{\prime\prime }-6{t}^{2}{y}^{\prime }+4ty-3{t}^{2}=0\)</li><li>\(\text{sin}({x}^{2}){y}^{\prime\prime }-(\text{cos}\,x){y}^{\prime }+{x}^{2}y={y}^{\prime }-3\)</li><li>\({y}^{\prime\prime }+5x{y}^{\prime }-3y=\text{cos}\,y\)</li></ul>
 <p class="sol-hint">Rewrite each equation in standard form first, then check whether y and its derivatives appear only to the first power and unmultiplied (linear vs. nonlinear) and whether the right-hand side r(x) is identically zero (homogeneous vs. nonhomogeneous).</p>
-</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>This equation is nonlinear because of the \({y}^{2}\) term.</li><li>This equation is linear. There is no term involving a power or function of \(y,\) and the coefficients are all functions of \(x\text{.}\) The equation is already written in standard form, and \(r(x)\) is identically zero, so the equation is homogeneous.</li><li>This equation is nonlinear. Note that, in this case, <strong>x</strong> is the dependent variable and <strong>t</strong> is the independent variable. The second term involves the product of \(x\) and \({x}^{\prime },\) so the equation is nonlinear.</li><li>This equation is linear. Since \(r(x)=4{x}^{5},\) the equation is nonhomogeneous.</li><li>This equation is nonlinear, because of the \(\text{sin}\,{y}^{\prime }\) term.</li><li>This equation is linear. Rewriting it in standard form gives<br> <br> With the equation in standard form, we can see that \(r(t)=3{t}^{2},\) so the equation is nonhomogeneous.<p>\[8{t}^{2}{y}^{\prime\prime }-6{t}^{2}{y}^{\prime }+4ty=3{t}^{2}.\]</p>
-</li><li>This equation looks like it’s linear, but we should rewrite it in standard form to be sure. We get<br> <br> This equation is, indeed, linear. With \(r(x)=-3,\) it is nonhomogeneous.<p>\[\text{sin}({x}^{2}){y}^{\prime\prime }-(\text{cos}\,x+1){y}^{\prime }+{x}^{2}y=-3.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>This equation is nonlinear because of the \({y}^{2}\) term.</li><li>This equation is linear. There is no term involving a power or function of \(y,\) and the coefficients are all functions of \(x\text{.}\) The equation is already written in standard form, and \(r(x)\) is identically zero, so the equation is homogeneous.</li><li>This equation is nonlinear. Note that, in this case, <strong>x</strong> is the dependent variable and <strong>t</strong> is the independent variable. The second term involves the product of \(x\) and \({x}^{\prime },\) so the equation is nonlinear.</li><li>This equation is linear. Since \(r(x)=4{x}^{5},\) the equation is nonhomogeneous.</li><li>This equation is nonlinear, because of the \(\text{sin}\,{y}^{\prime }\) term.</li><li>This equation is linear. Rewriting it in standard form gives<br> <br> With the equation in standard form, we can see that \(r(t)=3{t}^{2},\) so the equation is nonhomogeneous.<p id="eq4">\[8{t}^{2}{y}^{\prime\prime }-6{t}^{2}{y}^{\prime }+4ty=3{t}^{2}.\]</p>
+</li><li>This equation looks like it’s linear, but we should rewrite it in standard form to be sure. We get<br> <br> This equation is, indeed, linear. With \(r(x)=-3,\) it is nonhomogeneous.<p id="eq5">\[\text{sin}({x}^{2}){y}^{\prime\prime }-(\text{cos}\,x+1){y}^{\prime }+{x}^{2}y=-3.\]</p>
 </li><li>This equation is nonlinear because of the \(\text{cos}\,y\) term.</li></ul>
 </div></div></div>
-<div class="card callout"><span class="chip">Media</span><p>Visit this <a href="http://www.openstax.org/l/20_Secondord2" target="_blank" rel="noopener">website</a> that discusses second-order differential equations.</p>
+<div class="card callout" id="fs-id1170572169413"><span class="chip">Media</span><p>Visit this <a href="http://www.openstax.org/l/20_Secondord2" target="_blank" rel="noopener">website</a> that discusses second-order differential equations.</p>
 </div>
 <div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Classify each of the following equations as linear or nonlinear. If the equation is linear, determine further whether it is homogeneous or nonhomogeneous.</p>
 <ul class="tight"><li>\({({y}^{\prime\prime })}^{2}-{y}^{\prime }+8{x}^{3}y=0\)</li><li>\((\text{sin}\,t){y}^{\prime\prime }+\text{cos}\,t-3t{y}^{\prime }=0\)</li></ul>
@@ -56,53 +56,53 @@
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <p>Later in this section, we will see some techniques for solving specific types of differential equations. Before we get to that, however, let’s get a feel for how solutions to linear differential equations behave. In many cases, solving differential equations depends on making educated guesses about what the solution might look like. Knowing how various types of solutions behave will be helpful.</p>
 <div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Consider the linear, homogeneous differential equation</p>
-<p>\[{x}^{2}{y}^{\prime\prime }-x{y}^{\prime }-3y=0.\]</p>
+<p id="eq6">\[{x}^{2}{y}^{\prime\prime }-x{y}^{\prime }-3y=0.\]</p>
 <p>Looking at this equation, notice that the coefficient functions are polynomials, with higher powers of \(x\) associated with higher-order derivatives of \(y\text{.}\) Show that \(y={x}^{3}\) is a solution to this differential equation.</p>
 <p class="sol-hint">Compute \(y'\) and \(y''\) for \(y=x^3\) and substitute all three into the left side of the differential equation to see whether it reduces to zero.</p>
 </div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let \(y={x}^{3}.\) Then \({y}^{\prime }=3{x}^{2}\) and \({y}^{\prime\prime }=6x\text{.}\) Substituting into the differential equation, we see that</p>
-<p>\[\begin{array}{ll}{x}^{2}{y}^{\prime\prime }-xy\prime -3y &amp; ={x}^{2}(6x)-x(3{x}^{2})-3({x}^{3}) \\ &amp; =6{x}^{3}-3{x}^{3}-3{x}^{3} \\ &amp; =0.\end{array}\]</p>
+<p id="eq7">\[\begin{array}{ll}{x}^{2}{y}^{\prime\prime }-xy\prime -3y &amp; ={x}^{2}(6x)-x(3{x}^{2})-3({x}^{3}) \\ &amp; =6{x}^{3}-3{x}^{3}-3{x}^{3} \\ &amp; =0.\end{array}\]</p>
 </div></div></div>
 <div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Show that \(y=2{x}^{2}\) is a solution to the differential equation</p>
-<p>\[\frac{1}{2}{x}^{2}{y}^{\prime\prime }-x{y}^{\prime }+y=0.\]</p>
+<p id="eq8">\[\frac{1}{2}{x}^{2}{y}^{\prime\prime }-x{y}^{\prime }+y=0.\]</p>
 </div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <p>Although simply finding any solution to a differential equation is important, mathematicians and engineers often want to go beyond finding <strong>one</strong> solution to a differential equation to finding <strong>all</strong> solutions to a differential equation. In other words, we want to find a general solution<strong>.</strong> Just as with first-order differential equations, a general solution (or family of solutions) gives the entire set of solutions to a differential equation. An important difference between first-order and second-order equations is that, with second-order equations, we typically need to find two different solutions to the equation to find the general solution. If we find two solutions, then any linear combination of these solutions is also a solution. We state this fact as the following theorem.</p>
-<div class="card definition"><span class="chip">Superposition Principle</span><p>If \({y}_{1}(x)\) and \({y}_{2}(x)\) are solutions to a linear homogeneous differential equation, then the function</p>
-<p>\[y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x),\]</p>
+<div class="card definition" id="fs-id1170572430386"><span class="chip">Superposition Principle</span><p>If \({y}_{1}(x)\) and \({y}_{2}(x)\) are solutions to a linear homogeneous differential equation, then the function</p>
+<p id="eq9">\[y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x),\]</p>
 <p>where \({c}_{1}\) and \({c}_{2}\) are constants, is also a solution.</p>
 </div>
 <p>The proof of this <strong>superposition principle</strong> theorem is left as an exercise.</p>
 <div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Consider the differential equation</p>
-<p>\[{y}^{\prime\prime }-4{y}^{\prime }-5y=0.\]</p>
+<p id="eq10">\[{y}^{\prime\prime }-4{y}^{\prime }-5y=0.\]</p>
 <p>Given that \({e}^{\text{-}x}\) and \({e}^{5x}\) are solutions to this differential equation, show that \(4{e}^{\text{-}x}+{e}^{5x}\) is a solution.</p>
 <p class="sol-hint">Find \(y'\) and \(y''\) for \(y(x)=4e^{-x}+e^{5x}\) and substitute into the differential equation to check whether the left side simplifies to zero.</p>
 </div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have</p>
-<p>\[y(x)=4{e}^{\text{-}x}+{e}^{5x},\,\text{so}\,{y}^{\prime }(x)=-4{e}^{\text{-}x}+5{e}^{5x}\,\text{and}\,{y}^{\prime\prime }(x)=4{e}^{\text{-}x}+25{e}^{5x}.\]</p>
+<p id="eq11">\[y(x)=4{e}^{\text{-}x}+{e}^{5x},\,\text{so}\,{y}^{\prime }(x)=-4{e}^{\text{-}x}+5{e}^{5x}\,\text{and}\,{y}^{\prime\prime }(x)=4{e}^{\text{-}x}+25{e}^{5x}.\]</p>
 <p>Then</p>
-<p>\[\begin{array}{ll}{y}^{\prime\prime }-4{y}^{\prime }-5y &amp; =(4{e}^{\text{-}x}+25{e}^{5x})-4(-4{e}^{\text{-}x}+5{e}^{5x})-5(4{e}^{\text{-}x}+{e}^{5x}) \\ &amp; =4{e}^{\text{-}x}+25{e}^{5x}+16{e}^{\text{-}x}-20{e}^{5x}-20{e}^{\text{-}x}-5{e}^{5x} \\ &amp; =0.\end{array}\]</p>
+<p id="eq12">\[\begin{array}{ll}{y}^{\prime\prime }-4{y}^{\prime }-5y &amp; =(4{e}^{\text{-}x}+25{e}^{5x})-4(-4{e}^{\text{-}x}+5{e}^{5x})-5(4{e}^{\text{-}x}+{e}^{5x}) \\ &amp; =4{e}^{\text{-}x}+25{e}^{5x}+16{e}^{\text{-}x}-20{e}^{5x}-20{e}^{\text{-}x}-5{e}^{5x} \\ &amp; =0.\end{array}\]</p>
 <p>Thus, \(y(x)=4{e}^{\text{-}x}+{e}^{5x}\) is a solution.</p>
 </div></div></div>
 <div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Consider the differential equation</p>
-<p>\[{y}^{\prime\prime }+5{y}^{\prime }+6y=0.\]</p>
+<p id="eq13">\[{y}^{\prime\prime }+5{y}^{\prime }+6y=0.\]</p>
 <p>Given that \({e}^{-2x}\) and \({e}^{-3x}\) are solutions to this differential equation, show that \(3{e}^{-2x}+6{e}^{-3x}\) is a solution.</p>
 </div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <p>Unfortunately, to find the general solution to a second-order differential equation, it is not enough to find any two solutions and then combine them. Consider the differential equation</p>
-<p>\[{x}^{\prime\prime }+7{x}^{\prime }+12x=0.\]</p>
+<p id="eq14">\[{x}^{\prime\prime }+7{x}^{\prime }+12x=0.\]</p>
 <p>Both \({e}^{-3t}\) and \(2{e}^{-3t}\) are solutions (check this). However, \(x(t)={c}_{1}{e}^{-3t}+{c}_{2}(2{e}^{-3t})\) is <strong>not</strong> the general solution. This expression does not account for all solutions to the differential equation. In particular, it fails to account for the function \({e}^{-4t},\) which is also a solution to the differential equation.</p>
 <p>It turns out that to find the general solution to a second-order differential equation, we must find two linearly independent solutions. We define that terminology here.</p>
-<div class="card definition"><span class="chip">Definition</span><p>A set of functions \({f}_{1}(x),{f}_{2}(x\text{),…,}{f}_{n}(x)\) is said to be <strong>linearly dependent</strong> if there are constants \({c}_{1},{c}_{2}\text{,…}{c}_{n},\) not all zero, such that \({c}_{1}{f}_{1}(x)+{c}_{2}{f}_{2}(x)+\cdots +{c}_{n}{f}_{n}(x)=0\) for all <strong>x</strong> over the interval of interest. A set of functions that is not linearly dependent is said to be <strong>linearly independent</strong>.</p>
+<div class="card definition" id="fs-id1170571609153"><span class="chip">Definition</span><p>A set of functions \({f}_{1}(x),{f}_{2}(x\text{),…,}{f}_{n}(x)\) is said to be <strong>linearly dependent</strong> if there are constants \({c}_{1},{c}_{2}\text{,…}{c}_{n},\) not all zero, such that \({c}_{1}{f}_{1}(x)+{c}_{2}{f}_{2}(x)+\cdots +{c}_{n}{f}_{n}(x)=0\) for all <strong>x</strong> over the interval of interest. A set of functions that is not linearly dependent is said to be <strong>linearly independent</strong>.</p>
 </div>
 <p>In this chapter, we usually test sets of only two functions for linear independence, which allows us to simplify this definition. From a practical perspective, we see that two functions are linearly dependent if either one of them is identically zero or if they are constant multiples of each other.</p>
 <p>First we show that if the functions meet the conditions given previously, then they are linearly dependent. If one of the functions is identically zero—say, \({f}_{2}(x)≡0\) —then choose \({c}_{1}=0\) and \({c}_{2}=1,\) and the condition for linear dependence is satisfied. If, on the other hand, neither \({f}_{1}(x)\) nor \({f}_{2}(x)\) is identically zero, but \({f}_{1}(x)=C{f}_{2}(x)\) for some constant \(C,\) then choose \({c}_{1}=\frac{1}{C}\) and \({c}_{2}=-1,\) and again, the condition is satisfied.</p>
 <p>Next, we show that if two functions are linearly dependent, then either one is identically zero or they are constant multiples of one another. Assume \({f}_{1}(x)\) and \({f}_{2}(x)\) are linearly independent. Then, there are constants, \({c}_{1}\) and \({c}_{2},\) not both zero, such that</p>
-<p>\[{c}_{1}{f}_{1}(x)+{c}_{2}{f}_{2}(x)=0\]</p>
+<p id="eq15">\[{c}_{1}{f}_{1}(x)+{c}_{2}{f}_{2}(x)=0\]</p>
 <p>for all <strong>x</strong> over the interval of interest. Then,</p>
-<p>\[{c}_{1}{f}_{1}(x)=\text{-}{c}_{2}{f}_{2}(x).\]</p>
+<p id="eq16">\[{c}_{1}{f}_{1}(x)=\text{-}{c}_{2}{f}_{2}(x).\]</p>
 <p>Now, since we stated that \({c}_{1}\) and \({c}_{2}\) can’t both be zero, assume \({c}_{2}\ne 0.\) Then, there are two cases: either \({c}_{1}=0\) or \({c}_{1}\ne 0.\) If \({c}_{1}=0,\) then</p>
-<p>\[\begin{array}{l}0=\text{-}{c}_{2}{f}_{2}(x) \\ 0={f}_{2}(x),\end{array}\]</p>
+<p id="eq17">\[\begin{array}{l}0=\text{-}{c}_{2}{f}_{2}(x) \\ 0={f}_{2}(x),\end{array}\]</p>
 <p>so one of the functions is identically zero. Now suppose \({c}_{1}\ne 0.\) Then,</p>
-<p>\[{f}_{1}(x)=(-\frac{{c}_{2}}{{c}_{1}}){f}_{2}(x)\]</p>
+<p id="eq18">\[{f}_{1}(x)=(-\frac{{c}_{2}}{{c}_{1}}){f}_{2}(x)\]</p>
 <p>and we see that the functions are constant multiples of one another.</p>
-<div class="card definition"><span class="chip">Linear Dependence of Two Functions</span><p>Two functions, \({f}_{1}(x)\) and \({f}_{2}(x),\) are said to be linearly dependent if either one of them is identically zero or if \({f}_{1}(x)=C{f}_{2}(x)\) for some constant <strong>C</strong> and for all <strong>x</strong> over the interval of interest. Functions that are not linearly dependent are said to be <strong>linearly independent</strong>.</p>
+<div class="card definition" id="fs-id1170572448486"><span class="chip">Linear Dependence of Two Functions</span><p>Two functions, \({f}_{1}(x)\) and \({f}_{2}(x),\) are said to be linearly dependent if either one of them is identically zero or if \({f}_{1}(x)=C{f}_{2}(x)\) for some constant <strong>C</strong> and for all <strong>x</strong> over the interval of interest. Functions that are not linearly dependent are said to be <strong>linearly independent</strong>.</p>
 </div>
 <div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Determine whether the following pairs of functions are linearly dependent or linearly independent.</p>
 <ul class="tight"><li>\({f}_{1}(x)={x}^{2},\) \({f}_{2}(x)=5{x}^{2}\)</li><li>\({f}_{1}(x)=\text{sin}\,x,\) \({f}_{2}(x)=\text{cos}\,x\)</li><li>\({f}_{1}(x)={e}^{3x},\) \({f}_{2}(x)={e}^{-3x}\)</li><li>\({f}_{1}(x)=3x,\) \({f}_{2}(x)=3x+1\)</li></ul>
@@ -113,8 +113,8 @@
 </div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Linearly independent</p>
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <p>If we are able to find two linearly independent solutions to a second-order differential equation, then we can combine them to find the general solution. This result is formally stated in the following theorem.</p>
-<div class="card definition"><span class="chip">General Solution to a Homogeneous Equation</span><p>If \({y}_{1}(x)\) and \({y}_{2}(x)\) are linearly independent solutions to a second-order, linear, homogeneous differential equation, then the general solution is given by</p>
-<p>\[y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x),\]</p>
+<div class="card definition" id="fs-id1170572507385"><span class="chip">General Solution to a Homogeneous Equation</span><p>If \({y}_{1}(x)\) and \({y}_{2}(x)\) are linearly independent solutions to a second-order, linear, homogeneous differential equation, then the general solution is given by</p>
+<p id="eq19">\[y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x),\]</p>
 <p>where \({c}_{1}\) and \({c}_{2}\) are constants.</p>
 </div>
 <p>When we say a family of functions is the <strong>general solution to a differential equation</strong>, we mean that (1) every expression of that form is a solution and (2) every solution to the differential equation can be written in that form, which makes this theorem extremely powerful. If we can find two linearly independent solutions to a differential equation, we have, effectively, found <strong>all</strong> solutions to the differential equation—quite a remarkable statement. The proof of this theorem is beyond the scope of this text.</p>
@@ -127,75 +127,75 @@
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <h2 id="second-order-equations-with-constant-coefficients">Second-Order Equations with Constant Coefficients</h2>
 <p>Now that we have a better feel for linear differential equations, we are going to concentrate on solving second-order equations of the form</p>
-<p>\[a{y}^{\prime\prime }+b{y}^{\prime }+cy=0,\]</p>
+<p id="eq20">\[a{y}^{\prime\prime }+b{y}^{\prime }+cy=0,\]</p>
 <p>where \(a,\) \(b,\) and \(c\) are constants.</p>
 <p>Since all the coefficients are constants, the solutions are probably going to be functions with derivatives that are constant multiples of themselves. We need all the terms to cancel out, and if taking a derivative introduces a term that is not a constant multiple of the original function, it is difficult to see how that term cancels out. Exponential functions have derivatives that are constant multiples of the original function, so let’s see what happens when we try a solution of the form \(y(x)={e}^{λx},\) where \(λ\) (the lowercase Greek letter lambda) is some constant.</p>
-<p>If \(y(x)={e}^{λx},\) then \({y}^{\prime }(x)=λ{e}^{λx}\) and \({y}^{\prime\prime }={λ}^{2}{e}^{λx}.\) Substituting these expressions into (see original), we get</p>
-<p>\[\begin{array}{ll}a{y}^{\prime\prime }+b{y}^{\prime }+cy &amp; =a({λ}^{2}{e}^{λx})+b(λ{e}^{λx})+c{e}^{λx} \\ &amp; ={e}^{λx}(a{λ}^{2}+bλ+c).\end{array}\]</p>
+<p>If \(y(x)={e}^{λx},\) then \({y}^{\prime }(x)=λ{e}^{λx}\) and \({y}^{\prime\prime }={λ}^{2}{e}^{λx}.\) Substituting these expressions into <a href="#eq3">Equation 3</a>, we get</p>
+<p id="eq21">\[\begin{array}{ll}a{y}^{\prime\prime }+b{y}^{\prime }+cy &amp; =a({λ}^{2}{e}^{λx})+b(λ{e}^{λx})+c{e}^{λx} \\ &amp; ={e}^{λx}(a{λ}^{2}+bλ+c).\end{array}\]</p>
 <p>Since \({e}^{λx}\) is never zero, this expression can be equal to zero for all <strong>x</strong> only if</p>
-<p>\[a{λ}^{2}+bλ+c=0.\]</p>
+<p id="eq22">\[a{λ}^{2}+bλ+c=0.\]</p>
 <p>We call this the characteristic equation of the differential equation.</p>
-<div class="card definition"><span class="chip">Definition</span><p>The <strong>characteristic equation</strong> of the differential equation \(a{y}^{\prime\prime }+b{y}^{\prime }+cy=0\) is \(a{λ}^{2}+bλ+c=0.\)</p>
+<div class="card definition" id="fs-id1170572168702"><span class="chip">Definition</span><p>The <strong>characteristic equation</strong> of the differential equation \(a{y}^{\prime\prime }+b{y}^{\prime }+cy=0\) is \(a{λ}^{2}+bλ+c=0.\)</p>
 </div>
 <p>The characteristic equation is very important in finding solutions to differential equations of this form. We can solve the characteristic equation either by factoring or by using the quadratic formula</p>
-<p>\[λ=\frac{\text{-}b\pm \sqrt{{b}^{2}-4ac}}{2a}.\]</p>
+<p id="eq23">\[λ=\frac{\text{-}b\pm \sqrt{{b}^{2}-4ac}}{2a}.\]</p>
 <p>This gives three cases. The characteristic equation has (1) distinct real roots; (2) a single, repeated real root; or (3) complex conjugate roots. We consider each of these cases separately.</p>
 <h3 id="distinct-real-roots">Distinct Real Roots</h3>
 <p>If the characteristic equation has distinct real roots \({λ}_{1}\) and \({λ}_{2},\) then \({e}^{{λ}_{1}x}\) and \({e}^{{λ}_{2}x}\) are linearly independent solutions to <a href="#example1">Example 1</a>, and the general solution is given by</p>
-<p>\[y(x)={c}_{1}{e}^{{λ}_{1}x}+{c}_{2}{e}^{{λ}_{2}x},\]</p>
+<p id="eq24">\[y(x)={c}_{1}{e}^{{λ}_{1}x}+{c}_{2}{e}^{{λ}_{2}x},\]</p>
 <p>where \({c}_{1}\) and \({c}_{2}\) are constants.</p>
 <p>For example, the differential equation \({y}^{\prime\prime }+9{y}^{\prime }+14y=0\) has the associated characteristic equation \({λ}^{2}+9λ+14=0.\) This factors into \((λ+2)(λ+7)=0,\) which has roots \({λ}_{1}=-2\) and \({λ}_{2}=-7.\) Therefore, the general solution to this differential equation is</p>
-<p>\[y(x)={c}_{1}{e}^{-2x}+{c}_{2}{e}^{-7x}.\]</p>
+<p id="eq25">\[y(x)={c}_{1}{e}^{-2x}+{c}_{2}{e}^{-7x}.\]</p>
 <h3 id="single-repeated-real-root">Single Repeated Real Root</h3>
-<p>Things are a little more complicated if the characteristic equation has a repeated real root, \(λ\text{.}\) In this case, we know \({e}^{λx}\) is a solution to (see original), but it is only one solution and we need two linearly independent solutions to determine the general solution. We might be tempted to try a function of the form \(k{e}^{λx},\) where <strong>k</strong> is some constant, but it would not be linearly independent of \({e}^{λx}.\) Therefore, let’s try \(x{e}^{λx}\) as the second solution. First, note that by the quadratic formula,</p>
-<p>\[λ=\frac{\text{-}b\pm \sqrt{{b}^{2}-4ac}}{2a}.\]</p>
+<p>Things are a little more complicated if the characteristic equation has a repeated real root, \(λ\text{.}\) In this case, we know \({e}^{λx}\) is a solution to <a href="#eq3">Equation 3</a>, but it is only one solution and we need two linearly independent solutions to determine the general solution. We might be tempted to try a function of the form \(k{e}^{λx},\) where <strong>k</strong> is some constant, but it would not be linearly independent of \({e}^{λx}.\) Therefore, let’s try \(x{e}^{λx}\) as the second solution. First, note that by the quadratic formula,</p>
+<p id="eq26">\[λ=\frac{\text{-}b\pm \sqrt{{b}^{2}-4ac}}{2a}.\]</p>
 <p>But, \(λ\) is a repeated root, so \({b}^{2}-4ac=0\) and \(λ=\frac{\text{-}b}{2a}.\) Thus, if \(y=x{e}^{λx},\) we have</p>
-<p>\[{y}^{\prime }={e}^{λx}+λx{e}^{λx}\,\text{and}\,{y}^{\prime\prime }=2λ{e}^{λx}+{λ}^{2}x{e}^{λx}.\]</p>
-<p>Substituting these expressions into (see original), we see that</p>
-<p>\[\begin{array}{ll}a{y}^{\prime\prime }+b{y}^{\prime }+cy &amp; =a(2λ{e}^{λx}+{λ}^{2}x{e}^{λx})+b({e}^{λx}+λx{e}^{λx})+cx{e}^{λx} \\ &amp; =x{e}^{λx}(a{λ}^{2}+bλ+c)+{e}^{λx}(2aλ+b) \\ &amp; =x{e}^{λx}(0)+{e}^{λx}(2a(\frac{\text{-}b}{2a})+b) \\ &amp; =0+{e}^{λx}(0) \\ &amp; =0.\end{array}\]</p>
-<p>This shows that \(x{e}^{λx}\) is a solution to (see original). Since \({e}^{λx}\) and \(x{e}^{λx}\) are linearly independent, when the characteristic equation has a repeated root \(λ,\) the general solution to (see original) is given by</p>
-<p>\[y(x)={c}_{1}{e}^{λx}+{c}_{2}x{e}^{λx},\]</p>
+<p id="eq27">\[{y}^{\prime }={e}^{λx}+λx{e}^{λx}\,\text{and}\,{y}^{\prime\prime }=2λ{e}^{λx}+{λ}^{2}x{e}^{λx}.\]</p>
+<p>Substituting these expressions into <a href="#eq3">Equation 3</a>, we see that</p>
+<p id="eq28">\[\begin{array}{ll}a{y}^{\prime\prime }+b{y}^{\prime }+cy &amp; =a(2λ{e}^{λx}+{λ}^{2}x{e}^{λx})+b({e}^{λx}+λx{e}^{λx})+cx{e}^{λx} \\ &amp; =x{e}^{λx}(a{λ}^{2}+bλ+c)+{e}^{λx}(2aλ+b) \\ &amp; =x{e}^{λx}(0)+{e}^{λx}(2a(\frac{\text{-}b}{2a})+b) \\ &amp; =0+{e}^{λx}(0) \\ &amp; =0.\end{array}\]</p>
+<p>This shows that \(x{e}^{λx}\) is a solution to <a href="#eq3">Equation 3</a>. Since \({e}^{λx}\) and \(x{e}^{λx}\) are linearly independent, when the characteristic equation has a repeated root \(λ,\) the general solution to <a href="#eq3">Equation 3</a> is given by</p>
+<p id="eq29">\[y(x)={c}_{1}{e}^{λx}+{c}_{2}x{e}^{λx},\]</p>
 <p>where \({c}_{1}\) and \({c}_{2}\) are constants.</p>
 <p>For example, the differential equation \({y}^{\prime\prime }+12{y}^{\prime }+36y=0\) has the associated characteristic equation \({λ}^{2}+12λ+36=0.\) This factors into \({(λ+6)}^{2}=0,\) which has a repeated root \(λ=-6.\) Therefore, the general solution to this differential equation is</p>
-<p>\[y(x)={c}_{1}{e}^{-6x}+{c}_{2}x{e}^{-6x}.\]</p>
+<p id="eq30">\[y(x)={c}_{1}{e}^{-6x}+{c}_{2}x{e}^{-6x}.\]</p>
 <h3 id="complex-conjugate-roots">Complex Conjugate Roots</h3>
 <p>The third case we must consider is when \({b}^{2}-4ac&lt;0.\) In this case, when we apply the quadratic formula, we are taking the square root of a negative number. We must use the imaginary number \(i=\sqrt{-1}\) to find the roots, which take the form \({λ}_{1}=α+βi\) and \({λ}_{2}=α-βi\text{.}\) The <strong>complex number</strong> \(α+βi\) is called the <strong>conjugate</strong> of \(α-βi\text{.}\) Thus, we see that when \({b}^{2}-4ac&lt;0,\) the roots of our characteristic equation are always <strong>complex conjugates</strong>.</p>
 <p>This creates a little bit of a problem for us. If we follow the same process we used for distinct real roots—using the roots of the characteristic equation as the coefficients in the exponents of exponential functions—we get the functions \({e}^{(α+βi)x}\) and \({e}^{(α-βi)x}\) as our solutions. However, there are problems with this approach. First, these functions take on complex (imaginary) values, and a complete discussion of such functions is beyond the scope of this text. Second, even if we were comfortable with complex-value functions, in this course we do not address the idea of a derivative for such functions. So, if possible, we’d like to find two linearly independent <strong>real-value</strong> solutions to the differential equation. For purposes of this development, we are going to manipulate and differentiate the functions \({e}^{(α+βi)x}\) and \({e}^{(α-βi)x}\) as if they were real-value functions. For these particular functions, this approach is valid mathematically, but be aware that there are other instances when complex-value functions do not follow the same rules as real-value functions. Those of you interested in a more in-depth discussion of complex-value functions should consult a complex analysis text.</p>
 <p>Based on the roots \(α\pm βi\) of the characteristic equation, the functions \({e}^{(α+βi)x}\) and \({e}^{(α-βi)x}\) are linearly independent solutions to the differential equation. and the general solution is given by</p>
-<p>\[y(x)={c}_{1}{e}^{(α+βi)x}+{c}_{2}{e}^{(α-βi)x}.\]</p>
-<p>Using some smart choices for \({c}_{1}\) and \({c}_{2},\) and a little bit of algebraic manipulation, we can find two linearly independent, real-value solutions to (see original) and express our general solution in those terms.</p>
+<p id="eq31">\[y(x)={c}_{1}{e}^{(α+βi)x}+{c}_{2}{e}^{(α-βi)x}.\]</p>
+<p>Using some smart choices for \({c}_{1}\) and \({c}_{2},\) and a little bit of algebraic manipulation, we can find two linearly independent, real-value solutions to <a href="#eq3">Equation 3</a> and express our general solution in those terms.</p>
 <p>We encountered exponential functions with complex exponents earlier. One of the key tools we used to express these exponential functions in terms of sines and cosines was <strong>Euler’s formula</strong>, which tells us that</p>
-<p>\[{e}^{iθ}=\text{cos}\,θ+i\,\text{sin}\,θ\]</p>
+<p id="eq32">\[{e}^{iθ}=\text{cos}\,θ+i\,\text{sin}\,θ\]</p>
 <p>for all real numbers \(θ\text{.}\)</p>
 <p>Going back to the general solution, we have</p>
-<p>\[\begin{array}{ll}y(x) &amp; ={c}_{1}{e}^{(α+βi)x}+{c}_{2}{e}^{(α-βi)x} \\ &amp; ={c}_{1}{e}^{αx}{e}^{βix}+{c}_{2}{e}^{αx}{e}^{\text{-}βix} \\ &amp; ={e}^{αx}({c}_{1}{e}^{βix}+{c}_{2}{e}^{\text{-}βix}).\end{array}\]</p>
+<p id="eq33">\[\begin{array}{ll}y(x) &amp; ={c}_{1}{e}^{(α+βi)x}+{c}_{2}{e}^{(α-βi)x} \\ &amp; ={c}_{1}{e}^{αx}{e}^{βix}+{c}_{2}{e}^{αx}{e}^{\text{-}βix} \\ &amp; ={e}^{αx}({c}_{1}{e}^{βix}+{c}_{2}{e}^{\text{-}βix}).\end{array}\]</p>
 <p>Applying Euler’s formula together with the identities \(\text{cos}(\text{-}x)=\text{cos}\,x\) and \(\text{sin}(\text{-}x)=\text{-}\text{sin}\,x,\) we get</p>
-<p>\[\begin{array}{ll}y(x) &amp; ={e}^{αx}[{c}_{1}(\text{cos}\,βx+i\,\text{sin}\,βx)+{c}_{2}(\text{cos}(\text{-}βx)+i\,\text{sin}(\text{-}βx))] \\ &amp; ={e}^{αx}[({c}_{1}+{c}_{2})\text{cos}\,βx+({c}_{1}-{c}_{2})i\,\text{sin}\,βx].\end{array}\]</p>
+<p id="eq34">\[\begin{array}{ll}y(x) &amp; ={e}^{αx}[{c}_{1}(\text{cos}\,βx+i\,\text{sin}\,βx)+{c}_{2}(\text{cos}(\text{-}βx)+i\,\text{sin}(\text{-}βx))] \\ &amp; ={e}^{αx}[({c}_{1}+{c}_{2})\text{cos}\,βx+({c}_{1}-{c}_{2})i\,\text{sin}\,βx].\end{array}\]</p>
 <p>Now, if we choose \({c}_{1}={c}_{2}=\frac{1}{2},\) the second term is zero and we get</p>
-<p>\[y(x)={e}^{αx}\text{cos}\,βx\]</p>
-<p>as a real-value solution to (see original). Similarly, if we choose \({c}_{1}=\text{-}\frac{i}{2}\) and \({c}_{2}=\frac{i}{2},\) the first term is zero and we get</p>
-<p>\[y(x)={e}^{αx}\text{sin}\,βx\]</p>
-<p>as a second, linearly independent, real-value solution to (see original).</p>
-<p>Based on this, we see that if the characteristic equation has complex conjugate roots \(α\pm βi,\) then the general solution to (see original) is given by</p>
-<p>\[\begin{array}{ll}y(x) &amp; ={c}_{1}{e}^{αx}\text{cos}\,βx+{c}_{2}{e}^{αx}\text{sin}\,βx \\ &amp; ={e}^{αx}({c}_{1}\text{cos}\,βx+{c}_{2}\text{sin}\,βx),\end{array}\]</p>
+<p id="eq35">\[y(x)={e}^{αx}\text{cos}\,βx\]</p>
+<p>as a real-value solution to <a href="#eq3">Equation 3</a>. Similarly, if we choose \({c}_{1}=\text{-}\frac{i}{2}\) and \({c}_{2}=\frac{i}{2},\) the first term is zero and we get</p>
+<p id="eq36">\[y(x)={e}^{αx}\text{sin}\,βx\]</p>
+<p>as a second, linearly independent, real-value solution to <a href="#eq3">Equation 3</a>.</p>
+<p>Based on this, we see that if the characteristic equation has complex conjugate roots \(α\pm βi,\) then the general solution to <a href="#eq3">Equation 3</a> is given by</p>
+<p id="eq37">\[\begin{array}{ll}y(x) &amp; ={c}_{1}{e}^{αx}\text{cos}\,βx+{c}_{2}{e}^{αx}\text{sin}\,βx \\ &amp; ={e}^{αx}({c}_{1}\text{cos}\,βx+{c}_{2}\text{sin}\,βx),\end{array}\]</p>
 <p>where \({c}_{1}\) and \({c}_{2}\) are constants.</p>
 <p>For example, the differential equation \({y}^{\prime\prime }-2{y}^{\prime }+5y=0\) has the associated characteristic equation \({λ}^{2}-2λ+5=0.\) By the quadratic formula, the roots of the characteristic equation are \(1\pm 2i\text{.}\) Therefore, the general solution to this differential equation is</p>
-<p>\[y(x)={e}^{x}({c}_{1}\text{cos}\,2x+{c}_{2}\text{sin}\,2x).\]</p>
+<p id="eq38">\[y(x)={e}^{x}({c}_{1}\text{cos}\,2x+{c}_{2}\text{sin}\,2x).\]</p>
 <h3 id="summary-of-results">Summary of Results</h3>
 <p>We can solve second-order, linear, homogeneous differential equations with constant coefficients by finding the roots of the associated characteristic equation. The form of the general solution varies, depending on whether the characteristic equation has distinct, real roots; a single, repeated real root; or complex conjugate roots. The three cases are summarized in <a href="#tab1">Table 1</a>.</p>
 <div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Characteristic Equation Roots</td><td>General Solution to the Differential Equation</td></tr><tr><td>Distinct real roots, \({λ}_{1}\) and \({λ}_{2}\)</td><td>\(y(x)={c}_{1}{e}^{{λ}_{1}x}+{c}_{2}{e}^{{λ}_{2}x}\)</td></tr><tr><td>A repeated real root, \(λ\)</td><td>\(y(x)={c}_{1}{e}^{λx}+{c}_{2}x{e}^{λx}\)</td></tr><tr><td>Complex conjugate roots \(α\pm βi\)</td><td>\(y(x)={e}^{αx}({c}_{1}\text{cos}\,βx+{c}_{2}\text{sin}\,βx)\)</td></tr></tbody></table></div>
-<div class="card definition"><span class="chip">Using the Characteristic Equation to Solve Second-Order Differential Equations with Constant Coefficients</span><ul class="tight"><li>Write the differential equation in the form \(a{y}^{\prime\prime }+b{y}^{\prime }+cy=0.\)</li><li>Find the corresponding characteristic equation \(a{λ}^{2}+bλ+c=0.\)</li><li>Either factor the characteristic equation or use the quadratic formula to find the roots.</li><li>Determine the form of the general solution based on whether the characteristic equation has distinct, real roots; a single, repeated real root; or complex conjugate roots.</li></ul>
+<div class="card definition" id="fs-id1170572292207"><span class="chip">Using the Characteristic Equation to Solve Second-Order Differential Equations with Constant Coefficients</span><ul class="tight"><li>Write the differential equation in the form \(a{y}^{\prime\prime }+b{y}^{\prime }+cy=0.\)</li><li>Find the corresponding characteristic equation \(a{λ}^{2}+bλ+c=0.\)</li><li>Either factor the characteristic equation or use the quadratic formula to find the roots.</li><li>Determine the form of the general solution based on whether the characteristic equation has distinct, real roots; a single, repeated real root; or complex conjugate roots.</li></ul>
 </div>
 <div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find the general solution to the following differential equations. Give your answers as functions of <strong>x</strong>.</p>
 <ul class="tight"><li>\({y}^{\prime\prime }+3{y}^{\prime }-4y=0\)</li><li>\({y}^{\prime\prime }+6{y}^{\prime }+13y=0\)</li><li>\({y}^{\prime\prime }+2{y}^{\prime }+y=0\)</li><li>\({y}^{\prime\prime }-5{y}^{\prime }=0\)</li><li>\({y}^{\prime\prime }-16y=0\)</li><li>\({y}^{\prime\prime }+16y=0\)</li></ul>
 <p class="sol-hint">For each equation, write down the characteristic equation \(a\lambda^2+b\lambda+c=0\) and solve it (by factoring or the quadratic formula) to see which of the three root cases applies.</p>
 </div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Note that all these equations are already given in standard form (step 1).</p>
-<ul class="tight"><li>The characteristic equation is \({λ}^{2}+3λ-4=0\) (step 2). This factors into \((λ+4)(λ-1)=0,\) so the roots of the characteristic equation are \({λ}_{1}=-4\) and \({λ}_{2}=1\) (step 3). Then the general solution to the differential equation is<br><p>\[y(x)={c}_{1}{e}^{-4x}+{c}_{2}{e}^{x}\,\text{(step 4)}\text{.}\]</p>
-</li><li>The characteristic equation is \({λ}^{2}+6λ+13=0\) (step 2). Applying the quadratic formula, we see this equation has complex conjugate roots \(-3\pm 2i\) (step 3). Then the general solution to the differential equation is<br><p>\[y(t)={e}^{-3t}({c}_{1}\text{cos}\,2t+{c}_{2}\text{sin}\,2t)\,\text{(step 4)}\text{.}\]</p>
-</li><li>The characteristic equation is \({λ}^{2}+2λ+1=0\) (step 2). This factors into \({(λ+1)}^{2}=0,\) so the characteristic equation has a repeated real root \(λ=-1\) (step 3). Then the general solution to the differential equation is<br><p>\[y(t)={c}_{1}{e}^{\text{-}t}+{c}_{2}t{e}^{\text{-}t}\,\text{(step 4).}\]</p>
-</li><li>The characteristic equation is \({λ}^{2}-5λ\) (step 2). This factors into \(λ(λ-5)=0,\) so the roots of the characteristic equation are \({λ}_{1}=0\) and \({λ}_{2}=5\) (step 3). Note that \({e}^{0x}={e}^{0}=1,\) so our first solution is just a constant. Then the general solution to the differential equation is<br><p>\[y(x)={c}_{1}+{c}_{2}{e}^{5x}\,\text{(step 4)}\text{.}\]</p>
-</li><li>The characteristic equation is \({λ}^{2}-16=0\) (step 2). This factors into \((λ+4)(λ-4)=0,\) so the roots of the characteristic equation are \({λ}_{1}=4\) and \({λ}_{2}=-4\) (step 3). Then the general solution to the differential equation is<br><p>\[y(x)={c}_{1}{e}^{4x}+{c}_{2}{e}^{-4x}\,\text{(step 4)}\text{.}\]</p>
-</li><li>The characteristic equation is \({λ}^{2}+16=0\) (step 2). This has complex conjugate roots \(\pm 4i\) (step 3). Note that \({e}^{0x}={e}^{0}=1,\) so the exponential term in our solution is just a constant. Then the general solution to the differential equation is<br><p>\[y(t)={c}_{1}\text{cos}\,4t+{c}_{2}\text{sin}\,4t\,\text{(step 4)}\text{.}\]</p>
+<ul class="tight"><li>The characteristic equation is \({λ}^{2}+3λ-4=0\) (step 2). This factors into \((λ+4)(λ-1)=0,\) so the roots of the characteristic equation are \({λ}_{1}=-4\) and \({λ}_{2}=1\) (step 3). Then the general solution to the differential equation is<br><p id="eq39">\[y(x)={c}_{1}{e}^{-4x}+{c}_{2}{e}^{x}\,\text{(step 4)}\text{.}\]</p>
+</li><li>The characteristic equation is \({λ}^{2}+6λ+13=0\) (step 2). Applying the quadratic formula, we see this equation has complex conjugate roots \(-3\pm 2i\) (step 3). Then the general solution to the differential equation is<br><p id="eq40">\[y(t)={e}^{-3t}({c}_{1}\text{cos}\,2t+{c}_{2}\text{sin}\,2t)\,\text{(step 4)}\text{.}\]</p>
+</li><li>The characteristic equation is \({λ}^{2}+2λ+1=0\) (step 2). This factors into \({(λ+1)}^{2}=0,\) so the characteristic equation has a repeated real root \(λ=-1\) (step 3). Then the general solution to the differential equation is<br><p id="eq41">\[y(t)={c}_{1}{e}^{\text{-}t}+{c}_{2}t{e}^{\text{-}t}\,\text{(step 4).}\]</p>
+</li><li>The characteristic equation is \({λ}^{2}-5λ\) (step 2). This factors into \(λ(λ-5)=0,\) so the roots of the characteristic equation are \({λ}_{1}=0\) and \({λ}_{2}=5\) (step 3). Note that \({e}^{0x}={e}^{0}=1,\) so our first solution is just a constant. Then the general solution to the differential equation is<br><p id="eq42">\[y(x)={c}_{1}+{c}_{2}{e}^{5x}\,\text{(step 4)}\text{.}\]</p>
+</li><li>The characteristic equation is \({λ}^{2}-16=0\) (step 2). This factors into \((λ+4)(λ-4)=0,\) so the roots of the characteristic equation are \({λ}_{1}=4\) and \({λ}_{2}=-4\) (step 3). Then the general solution to the differential equation is<br><p id="eq43">\[y(x)={c}_{1}{e}^{4x}+{c}_{2}{e}^{-4x}\,\text{(step 4)}\text{.}\]</p>
+</li><li>The characteristic equation is \({λ}^{2}+16=0\) (step 2). This has complex conjugate roots \(\pm 4i\) (step 3). Note that \({e}^{0x}={e}^{0}=1,\) so the exponential term in our solution is just a constant. Then the general solution to the differential equation is<br><p id="eq44">\[y(t)={c}_{1}\text{cos}\,4t+{c}_{2}\text{sin}\,4t\,\text{(step 4)}\text{.}\]</p>
 </li></ul>
 </div></div></div>
 <div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Find the general solution to the following differential equations:</p>
@@ -209,30 +209,30 @@
 <div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Solve the following initial-value problem: \({y}^{\prime\prime }+3{y}^{\prime }-4y=0,\) \(y(0)=1,\) \({y}^{\prime }(0)=-9.\)</p>
 <p class="sol-hint">Start from the general solution already found for this equation in Example 6a, then use the two initial conditions to set up and solve a system of equations for \(c_1\) and \(c_2\).</p>
 </div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We already solved this differential equation in <a href="#example6">Example 6</a>a. and found the general solution to be</p>
-<p>\[y(x)={c}_{1}{e}^{-4x}+{c}_{2}{e}^{x}.\]</p>
+<p id="eq45">\[y(x)={c}_{1}{e}^{-4x}+{c}_{2}{e}^{x}.\]</p>
 <p>Then</p>
-<p>\[{y}^{\prime }(x)=-4{c}_{1}{e}^{-4x}+{c}_{2}{e}^{x}.\]</p>
+<p id="eq46">\[{y}^{\prime }(x)=-4{c}_{1}{e}^{-4x}+{c}_{2}{e}^{x}.\]</p>
 <p>When \(x=0,\) we have \(y(0)={c}_{1}+{c}_{2}\) and \({y}^{\prime }(0)=-4{c}_{1}+{c}_{2}.\) Applying the initial conditions, we have</p>
-<p>\[\begin{array}{lll}{c}_{1}+{c}_{2} &amp; = &amp; 1 \\ -4{c}_{1}+{c}_{2} &amp; = &amp; -9.\end{array}\]</p>
+<p id="eq47">\[\begin{array}{lll}{c}_{1}+{c}_{2} &amp; = &amp; 1 \\ -4{c}_{1}+{c}_{2} &amp; = &amp; -9.\end{array}\]</p>
 <p>Then \({c}_{1}=1-{c}_{2}.\) Substituting this expression into the second equation, we see that</p>
-<p>\[\begin{array}{lll}-4(1-{c}_{2})+{c}_{2} &amp; = &amp; -9 \\ -4+4{c}_{2}+{c}_{2} &amp; = &amp; -9 \\ 5{c}_{2} &amp; = &amp; -5 \\ {c}_{2} &amp; = &amp; -1.\end{array}\]</p>
+<p id="eq48">\[\begin{array}{lll}-4(1-{c}_{2})+{c}_{2} &amp; = &amp; -9 \\ -4+4{c}_{2}+{c}_{2} &amp; = &amp; -9 \\ 5{c}_{2} &amp; = &amp; -5 \\ {c}_{2} &amp; = &amp; -1.\end{array}\]</p>
 <p>So, \({c}_{1}=2\) and the solution to the initial-value problem is</p>
-<p>\[y(x)=2{e}^{-4x}-{e}^{x}.\]</p>
+<p id="eq49">\[y(x)=2{e}^{-4x}-{e}^{x}.\]</p>
 </div></div></div>
 <div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Solve the initial-value problem \({y}^{\prime\prime }-3{y}^{\prime }-10y=0,\) \(y(0)=0,\) \({y}^{\prime }(0)=7.\)</p>
 </div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y(x)=\text{-}{e}^{-2x}+{e}^{5x}\)</p>
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Solve the following initial-value problem and graph the solution:</p>
-<p>\[{y}^{\prime\prime }+6{y}^{\prime }+13y=0,\,y(0)=0,\,{y}^{\prime }(0)=2\]</p>
+<p id="eq50">\[{y}^{\prime\prime }+6{y}^{\prime }+13y=0,\,y(0)=0,\,{y}^{\prime }(0)=2\]</p>
 <p class="sol-hint">Start from the general solution already found for this equation in Example 6b, differentiate it, then apply the initial conditions to solve for \(c_1\) and \(c_2\).</p>
 </div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We already solved this differential equation in <a href="#example6">Example 6</a>b. and found the general solution to be</p>
-<p>\[y(x)={e}^{-3x}({c}_{1}\text{cos}\,2x+{c}_{2}\text{sin}\,2x).\]</p>
+<p id="eq51">\[y(x)={e}^{-3x}({c}_{1}\text{cos}\,2x+{c}_{2}\text{sin}\,2x).\]</p>
 <p>Then</p>
-<p>\[{y}^{\prime }(x)={e}^{-3x}(-2{c}_{1}\text{sin}\,2x+2{c}_{2}\text{cos}\,2x)-3{e}^{-3x}({c}_{1}\text{cos}\,2x+{c}_{2}\text{sin}\,2x).\]</p>
+<p id="eq52">\[{y}^{\prime }(x)={e}^{-3x}(-2{c}_{1}\text{sin}\,2x+2{c}_{2}\text{cos}\,2x)-3{e}^{-3x}({c}_{1}\text{cos}\,2x+{c}_{2}\text{sin}\,2x).\]</p>
 <p>When \(x=0,\) we have \(y(0)={c}_{1}\) and \({y}^{\prime }(0)=2{c}_{2}-3{c}_{1}.\) Applying the initial conditions, we obtain</p>
-<p>\[\begin{array}{lll}{c}_{1} &amp; = &amp; 0 \\ -3{c}_{1}+2{c}_{2} &amp; = &amp; 2.\end{array}\]</p>
+<p id="eq53">\[\begin{array}{lll}{c}_{1} &amp; = &amp; 0 \\ -3{c}_{1}+2{c}_{2} &amp; = &amp; 2.\end{array}\]</p>
 <p>Therefore, \({c}_{1}=0,\) \({c}_{2}=1,\) and the solution to the initial value problem is shown in the following graph.</p>
-<p>\[y={e}^{-3x}\text{sin}\,2x\text{.}\]</p>
+<p id="eq54">\[y={e}^{-3x}\text{sin}\,2x\text{.}\]</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_17_01_001.jpg" alt="This figure is a graph of the function y = e^−3x sin 2x. The x axis is scaled in increments of tenths. The y axis is scaled in increments of even tenths. The curve passes through the origin and has a horizontal asymptote of the positive x axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 </div></div></div>
 <div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Solve the following initial-value problem and graph the solution: \({y}^{\prime\prime }-2{y}^{\prime }+10y=0,y(0)=2,{y}^{\prime }(0)=-1\)</p>
@@ -240,25 +240,25 @@
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_17_01_002.jpg" alt="This figure is the graph of y(x) = e^x(2 cos 3x − sin 3x) It has the positive x axis scaled in increments of even tenths. The y axis is scaled in increments of twenty. The graph itself starts at the origin. Its amplitude increases as x increases." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>The following initial-value problem models the position of an object with mass attached to a spring. Spring-mass systems are examined in detail in Applications. The solution to the differential equation gives the position of the mass with respect to a neutral (equilibrium) position (in meters) at any given time. (Note that for spring-mass systems of this type, it is customary to define the downward direction as positive.)</p>
-<p>\[{y}^{\prime\prime }+2{y}^{\prime }+y=0,y(0)=1,{y}^{\prime }(0)=0\]</p>
+<p id="eq55">\[{y}^{\prime\prime }+2{y}^{\prime }+y=0,y(0)=1,{y}^{\prime }(0)=0\]</p>
 <p>Solve the initial-value problem and graph the solution. What is the position of the mass at time \(t=2\) sec? How fast is the mass moving at time \(t=1\) sec? In what direction?</p>
 <p class="sol-hint">Start from the general solution already found for this equation in Example 6c, apply the initial conditions to solve for \(c_1\) and \(c_2\), then evaluate the resulting position function (and its derivative) at the requested times.</p>
 </div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>In <a href="#example6">Example 6</a>c. we found the general solution to this differential equation to be</p>
-<p>\[y(t)={c}_{1}{e}^{\text{-}t}+{c}_{2}t{e}^{\text{-}t}.\]</p>
+<p id="eq56">\[y(t)={c}_{1}{e}^{\text{-}t}+{c}_{2}t{e}^{\text{-}t}.\]</p>
 <p>Then</p>
-<p>\[{y}^{\prime }(t)=\text{-}{c}_{1}{e}^{\text{-}t}+{c}_{2}(\text{-}t{e}^{\text{-}t}+{e}^{\text{-}t}).\]</p>
+<p id="eq57">\[{y}^{\prime }(t)=\text{-}{c}_{1}{e}^{\text{-}t}+{c}_{2}(\text{-}t{e}^{\text{-}t}+{e}^{\text{-}t}).\]</p>
 <p>When \(t=0,\) we have \(y(0)={c}_{1}\) and \({y}^{\prime }(0)=\text{-}{c}_{1}+{c}_{2}.\) Applying the initial conditions, we obtain</p>
-<p>\[\begin{array}{lll}{c}_{1} &amp; = &amp; 1 \\ {\text{-}c}_{1}+{c}_{2} &amp; = &amp; 0.\end{array}\]</p>
+<p id="eq58">\[\begin{array}{lll}{c}_{1} &amp; = &amp; 1 \\ {\text{-}c}_{1}+{c}_{2} &amp; = &amp; 0.\end{array}\]</p>
 <p>Thus, \({c}_{1}=1,\) \({c}_{2}=1,\) and the solution to the initial value problem is</p>
-<p>\[y(t)={e}^{\text{-}t}+t{e}^{\text{-}t}.\]</p>
+<p id="eq59">\[y(t)={e}^{\text{-}t}+t{e}^{\text{-}t}.\]</p>
 <p>This solution is represented in the following graph. At time \(t=2,\) the mass is at position \(y(2)={e}^{-2}+2{e}^{-2}=3{e}^{-2}\approx 0.406\) m below equilibrium.</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_17_01_003.jpg" alt="This figure is the graph of y(t) = e^−t + te^−t. The horizontal axis is labeled with t and is scaled in increments of even tenths. The y axis is scaled in increments of 0.5. The graph passes through positive one and decreases with a horizontal asymptote of the positive t axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 <p>To calculate the velocity at time \(t=1,\) we need to find the derivative. We have \(y(t)={e}^{\text{-}t}+t{e}^{\text{-}t},\) so</p>
-<p>\[{y}^{\prime }(t)=\text{-}{e}^{\text{-}t}+{e}^{\text{-}t}-t{e}^{\text{-}t}=\text{-}t{e}^{\text{-}t}.\]</p>
+<p id="eq60">\[{y}^{\prime }(t)=\text{-}{e}^{\text{-}t}+{e}^{\text{-}t}-t{e}^{\text{-}t}=\text{-}t{e}^{\text{-}t}.\]</p>
 <p>Then \({y}^{\prime }(1)=\text{-}{e}^{-1}\approx -0.3679.\) At time \(t=1,\) the mass is moving upward at 0.3679 m/sec.</p>
 </div></div></div>
 <div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Suppose the following initial-value problem models the position (in feet) of a mass in a spring-mass system at any given time. Solve the initial-value problem and graph the solution. What is the position of the mass at time \(t=0.3\) sec? How fast is it moving at time \(t=0.1\) sec? In what direction?</p>
-<p>\[{y}^{\prime\prime }+14{y}^{\prime }+49y=0,y(0)=0,{y}^{\prime }(0)=1\]</p>
+<p id="eq61">\[{y}^{\prime\prime }+14{y}^{\prime }+49y=0,y(0)=0,{y}^{\prime }(0)=1\]</p>
 </div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y(t)=t{e}^{-7t}\) <br> <br> At time \(t=0.3,\) \(y(0.3)=0.3{e}^{(-7*0.3)}=0.3{e}^{-2.1}\approx 0.0367.\) The mass is 0.0367 ft below equilibrium. At time \(t=0.1,\) \({y}^{\prime }(0.1)=0.3{e}^{-0.7}\approx 0.1490.\) The mass is moving downward at a speed of 0.1490 ft/sec.</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_17_01_004.jpg" alt="This figure is the graph of y(t) = te^−7t. The horizontal axis is labeled with t and is scaled in increments of tenths. The y axis is scaled in increments of 0.5. The graph passes through the origin and has a horizontal asymptote of the positive t axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
@@ -266,11 +266,11 @@
 <ul class="tight"><li>\(y(0)=0,\) \(y(\frac{\pi }{4})=0\)</li><li>\(y(0)=1,\) \(y(\frac{\pi }{8})=0\)</li><li>\(y(\frac{\pi }{8})=0,\) \(y(\frac{3\pi }{8})=2\)</li></ul>
 <p class="sol-hint">Substitute each pair of boundary values into \(y(t)=c_1\cos4t+c_2\sin4t\) and see whether the resulting system pins down \(c_1,c_2\) uniquely, leaves one undetermined, or is inconsistent.</p>
 </div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have</p>
-<p>\[y(t)={c}_{1}\text{cos}\,4t+{c}_{2}\text{sin}\,4t\text{.}\]</p>
+<p id="eq62">\[y(t)={c}_{1}\text{cos}\,4t+{c}_{2}\text{sin}\,4t\text{.}\]</p>
 <ul class="tight"><li>Applying the first boundary condition given here, we get \(y(0)={c}_{1}=0.\) So the solution is of the form \(y(t)={c}_{2}\text{sin}\,4t\text{.}\) When we apply the second boundary condition, though, we get \(y(\frac{\pi }{4})={c}_{2}\text{sin}\,(4(\frac{\pi }{4}))={c}_{2}\text{sin}\,\pi =0\) for all values of \({c}_{2}.\) The boundary conditions are not sufficient to determine a value for \({c}_{2},\) so this boundary-value problem has infinitely many solutions. Thus, \(y(t)={c}_{2}\text{sin}\,4t\) is a solution for any value of \({c}_{2}.\)</li><li>Applying the first boundary condition given here, we get \(y(0)={c}_{1}=1.\) Applying the second boundary condition gives \(y(\frac{\pi }{8})={c}_{2}=0,\) so \({c}_{2}=0.\) In this case, we have a unique solution: \(y(t)=\text{cos}\,4t\text{.}\)</li><li>Applying the first boundary condition given here, we get \(y(\frac{\pi }{8})={c}_{2}=0.\) However, applying the second boundary condition gives \(y(\frac{3\pi }{8})=\text{-}{c}_{2}=2,\) so \({c}_{2}=-2.\) We cannot have \({c}_{2}=0=-2,\) so this boundary value problem has no solution.</li></ul>
 </div></div></div>
 <h2 id="key-concepts">Key Concepts</h2>
-<ul class="tight"><li>Second-order differential equations can be classified as linear or nonlinear, homogeneous or nonhomogeneous. (See <a href="#example1">Example 1</a>.)</li><li>To find a general solution for a homogeneous second-order differential equation, we must find two linearly independent solutions. If \({y}_{1}(x)\) and \({y}_{2}(x)\) are linearly independent solutions to a second-order, linear, homogeneous differential equation, then the general solution is given by<br><p>\[y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x).\]</p>
+<ul class="tight"><li>Second-order differential equations can be classified as linear or nonlinear, homogeneous or nonhomogeneous. (See <a href="#example1">Example 1</a>.)</li><li>To find a general solution for a homogeneous second-order differential equation, we must find two linearly independent solutions. If \({y}_{1}(x)\) and \({y}_{2}(x)\) are linearly independent solutions to a second-order, linear, homogeneous differential equation, then the general solution is given by<br><p id="eq63">\[y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x).\]</p>
  (See <a href="#example5">Example 5</a>.)</li><li>To solve homogeneous second-order differential equations with constant coefficients, find the roots of the characteristic equation. The form of the general solution varies depending on whether the characteristic equation has distinct, real roots; a single, repeated real root; or complex conjugate roots. (See <a href="#example6">Example 6</a>.)</li><li>Initial conditions or boundary conditions can then be used to find the specific solution to a differential equation that satisfies those conditions, except when there is no solution or infinitely many solutions. (See <a href="#example7">Example 7</a> and <a href="#example10">Example 10</a>.)</li></ul>
 <h2 id="key-equations">Key Equations</h2>
 <div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>Linear second-order differential equation</strong></td><td>\({a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=r(x)\)</td></tr><tr><td><strong>Second-order equation with constant coefficients</strong></td><td>\(a{y}^{\prime\prime }+b{y}^{\prime }+cy=0\)</td></tr></tbody></table></div>

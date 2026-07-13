@@ -63,6 +63,17 @@ const warnings = [];
   if (stack.length) errors.push(`Tag balance: unclosed at end of file: ${stack.join(", ")}`);
 })();
 
+/* 1b. Unresolved cross-reference placeholders ------------------------- */
+// build-section.mjs emits "(see original)" (and warns on stderr) whenever a CNXML
+// <link target-id> can't be resolved against a figure/table/example/equation/titled-note
+// map. That warning is easy to miss in a long build log, and the placeholder text itself
+// violates CLAUDE.md convention 2 (never reference "the original" in student-facing UI) —
+// this shipped silently across 34 already-built sections before anyone noticed (found in
+// calculus-v1 3-1, just before Exercise 11). Hard-fail so it can't happen again unnoticed.
+if (html.includes("(see original)")) {
+  errors.push('Found the literal placeholder text "(see original)" — an unresolved <link target-id> in the source CNXML. Find its cross-module or exercise-target reference and hand-link it (or rephrase) before shipping.');
+}
+
 /* 2. KaTeX render check ------------------------------------------------ */
 // Snippets are pulled straight from the HTML source, which still has entities like
 // &gt;/&lt;/&amp; escaped (build-section.mjs's esc() does this deliberately so a literal

@@ -363,6 +363,18 @@ function inline(n) { // serialize inline content of a para/entry/item
         if (tid && figIdMap.has(tid)) out += `<a href="#fig${figIdMap.get(tid)}">Figure ${figIdMap.get(tid)}</a>`;
         else if (tid && tabIdMap.has(tid)) out += `<a href="#tab${tabIdMap.get(tid)}">Table ${tabIdMap.get(tid)}</a>`;
         else if (tid && exampleIdMap.has(tid)) out += `<a href="#example${exampleIdMap.get(tid)}">Example ${exampleIdMap.get(tid)}</a>`;
+        // Equations were missing from this resolution chain entirely — every
+        // <link target-id> pointing at an <equation id="..."> (e.g. "use Equation 3.3" —
+        // OpenStax auto-numbers ALL equations for cross-reference purposes, including ones
+        // marked class="unnumbered" which just means no visible "(N)" printed beside the
+        // formula itself) fell straight through to the generic fallback below and shipped
+        // as the literal, student-facing text "(see original)". This is the single most
+        // common unresolved-link case in the Calculus volumes (derivative-definition
+        // formulas are cross-referenced constantly: "use Equation 3.3", "using either
+        // Equation 3.4 or Equation 3.5"...). Found in calculus-v1 3-1, just before
+        // Exercise 11; audited afterward across every built section.
+        else if (tid && eqIdMap.has(tid)) out += `<a href="#eq${eqIdMap.get(tid)}">Equation ${eqIdMap.get(tid)}</a>`;
+        else if (tid && noteIdMap.has(tid)) out += `<a href="#${esc(tid)}">${noteIdMap.get(tid)}</a>`;
         else if (url) {
           // External link (no target-id, just a bare url="..." attribute) — used for the
           // "Media" callouts' applet links (e.g. the epsilon-delta definition applet in
@@ -378,12 +390,15 @@ function inline(n) { // serialize inline content of a para/entry/item
         else {
           const fallback = inline(c);
           if (fallback) { out += fallback; break; }
-          // Only figures/tables/non-coreq examples are resolvable — a link to anything
-          // else (an exercise, a glossary term, another module) still falls back to this
-          // placeholder. Surface it loudly so a human catches it during hand-polish
-          // instead of it silently shipping as "(see original)" — this was the bug behind
-          // the 6.2/6.4/6.5 Key Concepts links.
-          console.warn(`⚠ unresolved <link target-id="${tid}"> — no matching figure/table/example; emitting "(see original)" placeholder, fix by hand`);
+          // Figures/tables/non-coreq examples/equations/titled notes are resolvable — a
+          // link to anything else (an exercise, an untitled callout, or another module via
+          // <link document="...">) still falls back to this placeholder. Surface it loudly
+          // so a human catches it during hand-polish instead of it silently shipping as
+          // "(see original)" — this was the bug behind the 6.2/6.4/6.5 Key Concepts links,
+          // and separately the missing-equation-link bug found in calculus-v1 3-1.
+          // verify-section.mjs also hard-fails on the literal placeholder text now, so this
+          // can no longer slip through unnoticed even if the warning is missed.
+          console.warn(`⚠ unresolved <link target-id="${tid}"> — no matching figure/table/example/equation/note; emitting "(see original)" placeholder, fix by hand`);
           out += "(see original)";
         }
         break;
@@ -402,10 +417,16 @@ let exN = 0, tryN = 0, exampleN = 0, figN = 0, tabN = 0, warmN = 0, warmExN = 0,
 // Exercises. OpenStax always restarts numbering to 1 for each of those, independently of
 // the Section Exercises count and of each other — matching the published book. Found
 // building 6-8 (m49368 bundles both after its Section Exercises).
-// CNXML id -> assigned number, for resolving <link target-id> refs. Figures/tables number
-// sequentially regardless of coreq context (matches the unconditional figN++/tabN++ below);
-// examples only count outside the coreq warm-up (matches the exampleN++ in case "example").
-let figIdMap = new Map(), tabIdMap = new Map(), exampleIdMap = new Map();
+// CNXML id -> assigned number, for resolving <link target-id> refs. Figures/tables/equations
+// number sequentially regardless of coreq context (matches the unconditional figN++/tabN++/
+// eqN++ below); examples only count outside the coreq warm-up (matches the exampleN++ in
+// case "example").
+let figIdMap = new Map(), tabIdMap = new Map(), exampleIdMap = new Map(), eqIdMap = new Map();
+// Titled callouts (mostly class="theorem" boxes) referenced by <link target-id> — e.g.
+// "Complete the proof of [The Path Independence Test for Conservative Fields]". OpenStax
+// renders the link text as the callout's own title, not a number, so this maps straight
+// to title HTML rather than a sequential count like the other four maps.
+let noteIdMap = new Map();
 const seenIds = new Map();
 function uniqueId(base) {
   const n = (seenIds.get(base) || 0) + 1;
@@ -428,8 +449,13 @@ function blocks(n, ctx = {}) { // serialize block children
         break;
       case "equation": {
         const m = q(c, "math");
+        // id="eqN" only when this equation is an actual <link> target (has an eqIdMap
+        // entry) — most equations are never cross-referenced, so most don't need an
+        // anchor. eqN still increments for every equation regardless, so numbers stay in
+        // sync with the eqIdMap built by the collectIds pre-pass below.
+        const idAttr = c.attrs.id && eqIdMap.has(c.attrs.id) ? ` id="eq${eqIdMap.get(c.attrs.id)}"` : "";
         // esc() the LaTeX here too — same reasoning as the inline "math" case above.
-        out += `<p>\\[${m ? esc(m2l(m).replace(/\s+/g, " ")) : esc(textOf(c))}\\]</p>\n`;
+        out += `<p${idAttr}>\\[${m ? esc(m2l(m).replace(/\s+/g, " ")) : esc(textOf(c))}\\]</p>\n`;
         break;
       }
       case "figure": {
@@ -515,14 +541,20 @@ function blocks(n, ctx = {}) { // serialize block children
       case "note": {
         const cls = c.attrs.class || "";
         const t = qd(c, "title");
+        // Anchor for <link target-id> refs to this note (e.g. "Complete the proof of
+        // <link target-id="...">" pointing at a named theorem box) — see noteIdMap below.
+        // Reuse the CNXML id directly rather than renumbering; unlike figures/tables/
+        // examples/equations, the rendered link text is the callout's own title, not a
+        // number, so there's no sequence to keep in sync.
+        const idAttr = c.attrs.id ? ` id="${esc(c.attrs.id)}"` : "";
         // "try" is College Algebra's CNXML class for these self-check callouts;
         // "checkpoint" is the equivalent class used in the Calculus bundle's CNXML.
         // Both render as the same .tryit self-check block (CLAUDE.md section-page contract).
         if (/\btry\b/.test(cls) || /\bcheckpoint\b/.test(cls)) { out += blocks(c, { ...ctx, inTry: true }); }
-        else if (/how-to/.test(cls)) out += `<div class="card howto"><span class="chip">How To</span>${blocks(c, ctx)}</div>\n`;
-        else if (/\bqa\b/.test(cls)) out += `<div class="card qa"><span class="chip">Q&amp;A</span>${blocks(c, ctx)}</div>\n`;
-        else if (/media/.test(cls)) out += `<div class="card callout"><span class="chip">Media</span>${blocks(c, ctx)}</div>\n`;
-        else out += `<div class="card definition"><span class="chip">${t ? inline(t) : "Definition"}</span>${blocks(c, ctx)}</div>\n`;
+        else if (/how-to/.test(cls)) out += `<div class="card howto"${idAttr}><span class="chip">How To</span>${blocks(c, ctx)}</div>\n`;
+        else if (/\bqa\b/.test(cls)) out += `<div class="card qa"${idAttr}><span class="chip">Q&amp;A</span>${blocks(c, ctx)}</div>\n`;
+        else if (/media/.test(cls)) out += `<div class="card callout"${idAttr}><span class="chip">Media</span>${blocks(c, ctx)}</div>\n`;
+        else out += `<div class="card definition"${idAttr}><span class="chip">${t ? inline(t) : "Definition"}</span>${blocks(c, ctx)}</div>\n`;
         break;
       }
       case "section": {
@@ -573,6 +605,8 @@ const doc = q(root, "document");
     if (c.tag === "figure" && c.attrs.id) figIdMap.set(c.attrs.id, figIdMap.size + 1);
     if (c.tag === "table" && c.attrs.id) tabIdMap.set(c.attrs.id, tabIdMap.size + 1);
     if (c.tag === "example" && !ctx.inCoreq && c.attrs.id) exampleIdMap.set(c.attrs.id, exampleIdMap.size + 1);
+    if (c.tag === "equation" && c.attrs.id) eqIdMap.set(c.attrs.id, eqIdMap.size + 1);
+    if (c.tag === "note" && c.attrs.id) { const t = qd(c, "title"); if (t) noteIdMap.set(c.attrs.id, inline(t)); }
     const childCtx = (c.tag === "section" && /coreq/.test(c.attrs.class || "")) ? { ...ctx, inCoreq: true } : ctx;
     collectIds(c, childCtx);
   }
