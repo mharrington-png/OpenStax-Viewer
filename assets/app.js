@@ -23,6 +23,8 @@ const BOOKS = {
         { id: "3-5", title: "3.5 Transformation of Functions", file: "3-5.html", ready: true },
         { id: "3-6", title: "3.6 Absolute Value Functions", file: "3-6.html", ready: true },
         { id: "3-7", title: "3.7 Inverse Functions", file: "3-7.html", ready: true },
+        { id: "3-7-review", title: "Chapter Review Exercises", file: "3-7.html#chapter-review-exercises", ready: true },
+        { id: "3-7-practice", title: "Practice Test", file: "3-7.html#practice-test", ready: true },
       ]},
       { n: 6, title: "Exponential and Logarithmic Functions", sections: [
         { id: "6-1", title: "6.1 Exponential Functions", file: "6-1.html", ready: true },
@@ -33,6 +35,8 @@ const BOOKS = {
         { id: "6-6", title: "6.6 Exponential and Logarithmic Equations", file: "6-6.html", ready: true },
         { id: "6-7", title: "6.7 Exponential and Logarithmic Models", file: "6-7.html", ready: true },
         { id: "6-8", title: "6.8 Fitting Exponential Models to Data", file: "6-8.html", ready: true },
+        { id: "6-8-review", title: "Chapter Review Exercises", file: "6-8.html#chapter-review-exercises", ready: true },
+        { id: "6-8-practice", title: "Practice Test", file: "6-8.html#practice-test", ready: true },
       ]},
     ],
   },
@@ -58,6 +62,7 @@ const BOOKS = {
         { id: "2-3", title: "2.3 The Limit Laws", file: "2-3.html", ready: true },
         { id: "2-4", title: "2.4 Continuity", file: "2-4.html", ready: true },
         { id: "2-5", title: "2.5 The Precise Definition of a Limit", file: "2-5.html", ready: true },
+        { id: "2-5-review", title: "Chapter Review Exercises", file: "2-5.html#chapter-review-exercises", ready: true },
       ]},
       { n: 3, title: "Derivatives", sections: [
         { id: "3-1", title: "3.1 Defining the Derivative", file: "3-1.html", ready: true },
@@ -118,6 +123,7 @@ const BOOKS = {
         { id: "1-3", title: "1.3 Polar Coordinates", file: "1-3.html", ready: true },
         { id: "1-4", title: "1.4 Area and Arc Length in Polar Coordinates", file: "1-4.html", ready: true },
         { id: "1-5", title: "1.5 Conic Sections", file: "1-5.html", ready: true },
+        { id: "1-5-review", title: "Chapter Review Exercises", file: "1-5.html#chapter-review-exercises", ready: true },
       ]},
       { n: 2, title: "Vectors in Space", sections: [
         { id: "2-1", title: "2.1 Vectors in the Plane", file: "2-1.html", ready: true },
@@ -127,12 +133,14 @@ const BOOKS = {
         { id: "2-5", title: "2.5 Equations of Lines and Planes in Space", file: "2-5.html", ready: true },
         { id: "2-6", title: "2.6 Quadric Surfaces", file: "2-6.html", ready: true },
         { id: "2-7", title: "2.7 Cylindrical and Spherical Coordinates", file: "2-7.html", ready: true },
+        { id: "2-7-review", title: "Chapter Review Exercises", file: "2-7.html#chapter-review-exercises", ready: true },
       ]},
       { n: 3, title: "Vector-Valued Functions", sections: [
         { id: "3-1", title: "3.1 Vector-Valued Functions and Space Curves", file: "3-1.html", ready: true },
         { id: "3-2", title: "3.2 Calculus of Vector-Valued Functions", file: "3-2.html", ready: true },
         { id: "3-3", title: "3.3 Arc Length and Curvature", file: "3-3.html", ready: true },
         { id: "3-4", title: "3.4 Motion in Space", file: "3-4.html", ready: true },
+        { id: "3-4-review", title: "Chapter Review Exercises", file: "3-4.html#chapter-review-exercises", ready: true },
       ]},
       { n: 4, title: "Differentiation of Functions of Several Variables", sections: [
         { id: "4-1", title: "4.1 Functions of Several Variables", file: "4-1.html", ready: true },
@@ -143,6 +151,7 @@ const BOOKS = {
         { id: "4-6", title: "4.6 Directional Derivatives and the Gradient", file: "4-6.html", ready: true },
         { id: "4-7", title: "4.7 Maxima/Minima Problems", file: "4-7.html", ready: true },
         { id: "4-8", title: "4.8 Lagrange Multipliers", file: "4-8.html", ready: true },
+        { id: "4-8-review", title: "Chapter Review Exercises", file: "4-8.html#chapter-review-exercises", ready: true },
       ]},
       { n: 5, title: "Multiple Integration", sections: [
         { id: "5-1", title: "5.1 Double Integrals over Rectangular Regions", file: "5-1.html", ready: true },
@@ -152,6 +161,7 @@ const BOOKS = {
         { id: "5-5", title: "5.5 Triple Integrals in Cylindrical and Spherical Coordinates", file: "5-5.html", ready: true },
         { id: "5-6", title: "5.6 Calculating Centers of Mass and Moments of Inertia", file: "5-6.html", ready: true },
         { id: "5-7", title: "5.7 Change of Variables in Multiple Integrals", file: "5-7.html", ready: true },
+        { id: "5-7-review", title: "Chapter Review Exercises", file: "5-7.html#chapter-review-exercises", ready: true },
       ]},
       { n: 6, title: "Vector Calculus", sections: [
         { id: "6-1", title: "6.1 Vector Fields", file: "6-1.html", ready: true },
@@ -162,12 +172,14 @@ const BOOKS = {
         { id: "6-6", title: "6.6 Surface Integrals", file: "6-6.html", ready: true },
         { id: "6-7", title: "6.7 Stokes’ Theorem", file: "6-7.html", ready: true },
         { id: "6-8", title: "6.8 The Divergence Theorem", file: "6-8.html", ready: true },
+        { id: "6-8-review", title: "Chapter Review Exercises", file: "6-8.html#chapter-review-exercises", ready: true },
       ]},
       { n: 7, title: "Second-Order Differential Equations", sections: [
         { id: "7-1", title: "7.1 Second-Order Linear Equations", file: "7-1.html", ready: true },
         { id: "7-2", title: "7.2 Nonhomogeneous Linear Equations", file: "7-2.html", ready: true },
         { id: "7-3", title: "7.3 Applications", file: "7-3.html", ready: true },
         { id: "7-4", title: "7.4 Series Solutions of Differential Equations", file: "7-4.html", ready: true },
+        { id: "7-4-review", title: "Chapter Review Exercises", file: "7-4.html#chapter-review-exercises", ready: true },
       ]},
     ],
   },
@@ -211,7 +223,17 @@ document.addEventListener("DOMContentLoaded", () => {
       book += `<h4>Chapter ${ch.n} · ${ch.title}</h4>`;
       for (const s of ch.sections) {
         if (s.ready) {
-          const active = location.pathname.endsWith("/" + BOOK.sectionsDir + "/" + s.file) ? " class=\"active\"" : "";
+          // s.file is usually just "6-1.html", but a chapter's bundled Chapter Review
+          // Exercises/Practice Test (CLAUDE.md: OpenStax packs these into the last
+          // section's own page) get their own sidebar rows pointing at an in-page anchor,
+          // e.g. "3-7.html#chapter-review-exercises" — split off the hash before comparing
+          // against location.pathname (which never contains one) and separately require
+          // location.hash to match so only one of the same-page siblings lights up instead
+          // of all of them whenever you're anywhere on that file.
+          const [sPath, sHash] = s.file.split("#");
+          const pathMatches = location.pathname.endsWith("/" + BOOK.sectionsDir + "/" + sPath);
+          const hashMatches = sHash ? location.hash === "#" + sHash : !location.hash;
+          const active = (pathMatches && hashMatches) ? " class=\"active\"" : "";
           book += `<a href="${root}/${BOOK.sectionsDir}/${s.file}"${active}>${s.title}</a>`;
         } else {
           book += `<a class="soon">${s.title}</a>`;

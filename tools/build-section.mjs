@@ -360,9 +360,23 @@ function inline(n) { // serialize inline content of a para/entry/item
       case "link": {
         const tid = c.attrs["target-id"];
         const url = c.attrs.url;
-        if (tid && figIdMap.has(tid)) out += `<a href="#fig${figIdMap.get(tid)}">Figure ${figIdMap.get(tid)}</a>`;
-        else if (tid && tabIdMap.has(tid)) out += `<a href="#tab${tabIdMap.get(tid)}">Table ${tabIdMap.get(tid)}</a>`;
-        else if (tid && exampleIdMap.has(tid)) out += `<a href="#example${exampleIdMap.get(tid)}">Example ${exampleIdMap.get(tid)}</a>`;
+        // The author's own embedded text, if any (e.g. <link target-id="X">Second
+        // Derivative Test for Functions of Two Variables.</link>) — always wins over an
+        // auto-generated label when present, even if it doesn't quite match the target's
+        // canonical name. OpenStax's own published rendering does the same: calculus-v3
+        // 4-7 (m53942) has two such links whose target-id actually resolves to a note
+        // titled "Fermat's Theorem for Functions of Two Variables" (an upstream CNXML
+        // mistargeting), yet openstax.org still shows the author's original wording
+        // ("Second Derivative Test for Functions of Two Variables.") as the link text —
+        // only the href goes to the (mistargeted) note. An earlier version of this code
+        // used the resolved label unconditionally, which would have silently overwritten
+        // correct, published wording with a mismatched note title. Found auditing
+        // calculus-v3 4-7 for an unrelated numbering-alignment issue.
+        const embedded = inline(c);
+        let href = null, label = null;
+        if (tid && figIdMap.has(tid)) { href = `#fig${figIdMap.get(tid)}`; label = `Figure ${figIdMap.get(tid)}`; }
+        else if (tid && tabIdMap.has(tid)) { href = `#tab${tabIdMap.get(tid)}`; label = `Table ${tabIdMap.get(tid)}`; }
+        else if (tid && exampleIdMap.has(tid)) { href = `#example${exampleIdMap.get(tid)}`; label = `Example ${exampleIdMap.get(tid)}`; }
         // Equations were missing from this resolution chain entirely — every
         // <link target-id> pointing at an <equation id="..."> (e.g. "use Equation 3.3" —
         // OpenStax auto-numbers ALL equations for cross-reference purposes, including ones
@@ -373,8 +387,9 @@ function inline(n) { // serialize inline content of a para/entry/item
         // formulas are cross-referenced constantly: "use Equation 3.3", "using either
         // Equation 3.4 or Equation 3.5"...). Found in calculus-v1 3-1, just before
         // Exercise 11; audited afterward across every built section.
-        else if (tid && eqIdMap.has(tid)) out += `<a href="#eq${eqIdMap.get(tid)}">Equation ${eqIdMap.get(tid)}</a>`;
-        else if (tid && noteIdMap.has(tid)) out += `<a href="#${esc(tid)}">${noteIdMap.get(tid)}</a>`;
+        else if (tid && eqIdMap.has(tid)) { href = `#eq${eqIdMap.get(tid)}`; label = `Equation ${eqIdMap.get(tid)}`; }
+        else if (tid && noteIdMap.has(tid)) { href = `#${esc(tid)}`; label = noteIdMap.get(tid); }
+        if (href) out += `<a href="${href}">${embedded || label}</a>`;
         else if (url) {
           // External link (no target-id, just a bare url="..." attribute) — used for the
           // "Media" callouts' applet links (e.g. the epsilon-delta definition applet in
@@ -385,11 +400,10 @@ function inline(n) { // serialize inline content of a para/entry/item
           // audited 2026-07-13, all 16 affected). Found building calculus-v1 2-5, flagged
           // by the project owner as "Media links seem generally not to be live throughout
           // the sections we've done."
-          out += `<a href="${esc(url)}" target="_blank" rel="noopener">${inline(c)}</a>`;
+          out += `<a href="${esc(url)}" target="_blank" rel="noopener">${embedded}</a>`;
         }
+        else if (embedded) out += embedded;
         else {
-          const fallback = inline(c);
-          if (fallback) { out += fallback; break; }
           // Figures/tables/non-coreq examples/equations/titled notes are resolvable — a
           // link to anything else (an exercise, an untitled callout, or another module via
           // <link document="...">) still falls back to this placeholder. Surface it loudly
