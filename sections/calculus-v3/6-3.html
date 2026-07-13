@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conservative Vector Fields · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Conservative Vector Fields</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 6.3</span>Conservative Vector Fields</h1>
+<p>In this section, we continue the study of conservative vector fields. We examine the Fundamental Theorem for Line Integrals, which is a useful generalization of the Fundamental Theorem of Calculus to line integrals of conservative vector fields. We also show how to test whether a given vector field is conservative, and determine how to build a potential function for a vector field known to be conservative.</p>
+<h2 id="curves-and-regions">Curves and Regions</h2>
+<p>Before continuing our study of conservative vector fields, we need some geometric definitions. The theorems in the subsequent sections all rely on integrating over certain kinds of curves and regions, so we develop the definitions of those curves and regions here.</p>
+<p>We first define two special kinds of curves: closed curves and simple curves. As we have learned, a closed curve is one that begins and ends at the same point. A simple curve is one that does not cross itself. A curve that is both closed and simple is a simple closed curve (<a href="#fig1">Figure 1</a>).</p>
+<div class="card definition"><span class="chip">Definition</span><p>Curve <strong>C</strong> is a <strong>closed curve</strong> if there is a parameterization \(\text{r}(t),a\le t\le b\) of <strong>C</strong> such that the parameterization traverses the curve exactly once and \(\text{r}(a)=\text{r}(b).\) Curve <strong>C</strong> is a <strong>simple curve</strong> if <strong>C</strong> does not cross itself. That is, <strong>C</strong> is simple if there exists a parameterization \(\text{r}(t),a\le t\le b\) of <strong>C</strong> such that <strong>r</strong> is one-to-one over \((a,b).\) It is possible for \(\text{r}(a)=\text{r}(b),\) meaning that the simple curve is also closed.</p>
+</div>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_001.jpg" alt="An image showing eight curves and their types. The first curve is neither simple nor closed; it has two endpoints and crosses itself twice. The second curve is simple but not closed; it does not cross itself and has two endpoints. The third curve is closed but is not simple; it crosses itself a few times. The fourth is a simple closed curve; it does not cross itself and has no endpoints. The fifth is a simple, not closed curve; it does not cross itself, but it has endpoints. The sixth is a simple, closed curve; it does not cross itself and has no endpoints. The seventh is closed but not a simple curve; it crosses itself but has no endpoints. The last is not simple and not closed; it crosses itself and has endpoints." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Types of curves that are simple or not simple and closed or not closed.</figcaption></figure>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Is the curve with parameterization \(\text{r}(t)=\langle \text{cos}\,t,\frac{\text{sin}(2t)}{2}\rangle ,0\le t\le 2\pi\) a simple closed curve?</p>
+<p class="sol-hint">Check whether \(\text{r}(0)=\text{r}(2\pi)\) for closedness, then look for two distinct \(t\) values in \([0,2\pi)\) giving the same point.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Note that \(\text{r}(0)=\langle 1,0\rangle =\text{r}(2\pi );\) therefore, the curve is closed. The curve is not simple, however. To see this, note that \(\text{r}(\frac{\pi }{2})=\langle 0,0\rangle =\text{r}(\frac{3\pi }{2}),\) and therefore the curve crosses itself at the origin (<a href="#fig2">Figure 2</a>).</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_002.jpg" alt="A diagram in the (x,y) coordinate plane that shows a closed but not simple curve. It looks like a horizontal figure eight with the crossing point at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — A curve that is closed but not simple.</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Is the curve given by parameterization \(\text{r}(t)=\langle 2\,\text{cos}\,t,3\,\text{sin}\,t\rangle ,0\le t\le 6\pi ,\) a simple closed curve?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Yes</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Many of the theorems in this chapter relate an integral over a region to an integral over the boundary of the region, where the region’s boundary is a simple closed curve or a union of simple closed curves. To develop these theorems, we need two geometric definitions for regions: that of a connected region and that of a simply connected region. A connected region is one in which there is a path in the region that connects any two points that lie within that region. A simply connected region is a connected region that does not have any holes in it. These two notions, along with the notion of a simple closed curve, allow us to state several generalizations of the Fundamental Theorem of Calculus later in the chapter. These two definitions are valid for regions in any number of dimensions, but we are only concerned with regions in two or three dimensions.</p>
+<div class="card definition"><span class="chip">Definition</span><p>A region <strong>D</strong> is a <strong>connected region</strong> if, for any two points \({P}_{1}\) and \({P}_{2},\) there is a path from \({P}_{1}\) to \({P}_{2}\) with a trace contained entirely inside <strong>D</strong>. A region <strong>D</strong> is a <strong>simply connected region</strong> if <strong>D</strong> is connected for any simple closed curve <strong>C</strong> that lies inside <strong>D</strong>, and curve <strong>C</strong> can be shrunk continuously to a point while staying entirely inside <strong>D</strong>. In two dimensions, a region is simply connected if it is connected and has no holes.</p>
+</div>
+<p>All simply connected regions are connected, but not all connected regions are simply connected (<a href="#fig3">Figure 3</a>).</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_003.jpg" alt="A diagram showing simply connected, connected, and not connected regions. The simply connected regions have no holes. The connected regions may have holes, but a path can still be found between any two points in the region. The not connected region has some points that cannot be connected by a path in the region. Here, this is illustrated by showing two circular shapes that are defined as part of region D1 but are separated by white space." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Not all connected regions are simply connected. (a) Simply connected regions have no holes. (b) Connected regions that are not simply connected may have holes but you can still find a path in the region between any two points. (c) A region that is not connected has some points that cannot be connected by a path in the region.</figcaption></figure>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Is the region in the below image connected? Is the region simply connected?</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_004.jpg" alt="A shaded circle with an open space in the shape of a circle inside it but very close to the boundary." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The region in the figure is connected. The region in the figure is not simply connected.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="fundamental-theorem-for-line-integrals">Fundamental Theorem for Line Integrals</h2>
+<p>Now that we understand some basic curves and regions, let’s generalize the Fundamental Theorem of Calculus to line integrals. Recall that the Fundamental Theorem of Calculus says that if a function \(f\) has an antiderivative <strong>F</strong>, then the integral of \(f\) from <strong>a</strong> to <strong>b</strong> depends only on the values of <strong>F</strong> at <strong>a</strong> and at <strong>b</strong>—that is,</p>
+<p>\[{∫}_{a}^{b}f(x)dx=\text{F}(b)-\text{F}(a).\]</p>
+<p>If we think of the gradient as a derivative, then the same theorem holds for vector line integrals. We show how this works using a motivational example.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Let \(\text{F}(x,y)=\langle 2x,4y\rangle .\) Calculate \({∫}_{C}\text{F}·d\text{r},\) where <strong>C</strong> is the line segment from (0,0) to (2,2)(<a href="#fig4">Figure 4</a>).</p>
+<p class="sol-hint">Parametrize the segment, then compute \(\text{F}(\text{r}(t))·{\text{r}}^{\prime}(t)\) and integrate.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We use (see original) to calculate \({∫}_{C}\text{F}·d\text{r}.\) Curve <strong>C</strong> can be parameterized by \(\text{r}(t)=\langle 2t,2t\rangle ,0\le t\le 1.\) Then, \(\text{F}(\text{r}(t))=\langle 4t,8t\rangle\) and \({\text{r}}^{\prime }(t)=\langle 2,2\rangle ,\) which implies that</p>
+<p>\[\begin{array}{ll}{∫}_{C}\text{F}·d\text{r} &amp; ={∫}_{0}^{1}\langle 4t,8t\rangle ·\langle 2,2\rangle dt \\ &amp; ={∫}_{0}^{1}(8t+16t)dt={∫}_{0}^{1}24t\,dt \\ &amp; ={[12{t}^{2}]}_{0}^{1}=12.\end{array}\]</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_005.jpg" alt="A vector field in two dimensions. The arrows are longer the further away from the origin they are. They stretch out from the origin, forming a rectangular pattern. A line segment is drawn from P_0 at (0,0) to P_1 at (2,2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The value of line integral \({∫}_{C}\text{F}·d\text{r}\) depends only on the value of the potential function of <strong>F</strong> at the endpoints of the curve.</figcaption></figure>
+<p>Notice that \(F=\nabla f,\) where \(f(x,y)={x}^{2}+2{y}^{2}.\) If we think of the gradient as a derivative, then \(f\) is an “antiderivative” of <strong>F</strong>. In the case of single-variable integrals, the integral of derivative \({g}^{\prime }(x)\) is \(g(b)-g(a),\) where <strong>a</strong> is the start point of the interval of integration and <strong>b</strong> is the endpoint. If vector line integrals work like single-variable integrals, then we would expect integral <strong>F</strong> to be \(f({P}_{1})-f({P}_{0}),\) where \({P}_{1}\) is the endpoint of the curve of integration and \({P}_{0}\) is the start point. Notice that this is the case for this example:</p>
+<p>\[{∫}_{C}\text{F}·d\text{r}={∫}_{C}\nabla f.d\text{r}=12\]</p>
+<p>and</p>
+<p>\[f(2,2)-f(0,0)=4+8-0=12.\]</p>
+<p>In other words, the integral of a “derivative” can be calculated by evaluating an “antiderivative” at the endpoints of the curve and subtracting, just as for single-variable integrals.</p>
+</div></div></div>
+<p>The following theorem says that, under certain conditions, what happened in the previous example holds for any gradient field. The same theorem holds for vector line integrals, which we call the <strong>Fundamental Theorem for Line Integrals.</strong></p>
+<div class="card definition"><span class="chip">The Fundamental Theorem for Line Integrals</span><p>Let <strong>C</strong> be a piecewise smooth curve with parameterization \(\text{r}(t),a\le t\le b.\) Let \(f\) be a function of two or three variables with first-order partial derivatives that exist and are continuous on <strong>C</strong>. Then,</p>
+<p>\[{∫}_{C}\nabla f.d\text{r}=f(\text{r}(b))-f(\text{r}(a)).\]</p>
+</div>
+<h3 id="proof">Proof</h3>
+<p>By (see original),</p>
+<p>\[{∫}_{C}\nabla f.d\text{r}={∫}_{a}^{b}\nabla f(\text{r}(t)).{\text{r}}^{\prime }(t)dt.\]</p>
+<p>By the chain rule,</p>
+<p>\[\frac{d}{dt}(f(\text{r}(t))=\nabla f(\text{r}(t)).{\text{r}}^{\prime }(t).\]</p>
+<p>Therefore, by the Fundamental Theorem of Calculus,</p>
+<p>\[\begin{array}{ll}{∫}_{C}\nabla f.d\text{r} &amp; ={∫}_{a}^{b}\nabla f(\text{r}(t)).{\text{r}}^{\prime }(t)dt \\ &amp; ={∫}_{a}^{b}\frac{d}{dt}(f(\text{r}(t))dt \\ &amp; ={[f(\text{r}(t))]}_{t=a}^{t=b} \\ &amp; =f(\text{r}(b))-f(\text{r}(a)).\end{array}\]</p>
+<p>□</p>
+<p>We know that if <strong>F</strong> is a conservative vector field, there are potential functions \(f\) such that \(\nabla f=\text{F}.\) Therefore \({∫}_{C}\text{F}·d\text{r}={∫}_{C}\nabla f·d\text{r}=f(\text{r}(b))-f(\text{r}(a)).\) In other words, just as with the Fundamental Theorem of Calculus, computing the line integral \({∫}_{C}\text{F}·d\text{r},\) where <strong>F</strong> is conservative, is a two-step process: (1) find a potential function (“antiderivative”) \(f\) for <strong>F</strong> and (2) compute the value of \(f\) at the endpoints of <strong>C</strong> and calculate their difference \(f(\text{r}(b))-f(\text{r}(a)).\) Keep in mind, however, there is one major difference between the Fundamental Theorem of Calculus and the Fundamental Theorem for Line Integrals. <strong>A function of one variable that is continuous must have an antiderivative. However, a vector field, even if it is continuous, does not need to have a potential function.</strong></p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Calculate integral \({∫}_{C}\text{F}·d\text{r},\) where \(\text{F}(x,y,z)=\langle 2x\,\text{ln}\,y,\frac{{x}^{2}}{y}+{z}^{2},2yz\rangle\) and <strong>C</strong> is a curve with parameterization \(\text{r}(t)=\langle {t}^{2},t,t\rangle ,1\le t\le e\)</p>
+<ul class="tight"><li>without using the Fundamental Theorem of Line Integrals and</li><li>using the Fundamental Theorem of Line Integrals.</li></ul>
+<p class="sol-hint">For (a), substitute the parameterization directly into \(\text{F}(\text{r}(t))·{\text{r}}^{\prime}(t)\); for (b), use the given potential function and just evaluate it at the endpoints.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>First, let’s calculate the integral without the Fundamental Theorem for Line Integrals and instead use (see original):<br> <br> Integral \({∫}_{1}^{e}{t}^{3}\text{ln}\,tdt\) requires integration by parts. Let \(u=\text{ln}\,t\) and \(dv={t}^{3}.\) Then \(u=\text{ln}\,t,dv={t}^{3}\) <br> and<br> <br> Therefore,<br> <br> Thus,<br><p>\[\begin{array}{ll}{∫}_{C}\text{F}·d\text{r} &amp; ={∫}_{1}^{e}\text{F}(\text{r}(t)).{\text{r}}^{'}(t)dt \\ &amp; ={∫}_{1}^{e}⟨2{t}^{2}\text{ln}\,t,\frac{{t}^{4}}{t}+{t}^{2},2{t}^{2}⟩.⟨2t,1,1⟩dt \\ &amp; ={∫}_{1}^{e}(4{t}^{3}\text{ln}\,t+{t}^{3}+3{t}^{2})dt \\ &amp; ={∫}_{1}^{e}4{t}^{3}\text{ln}\,tdt+{∫}_{1}^{e}({t}^{3}+3{t}^{2})dt \\ &amp; ={∫}_{1}^{e}4{t}^{3}\text{ln}\,tdt+{[\frac{{t}^{4}}{4}+{t}^{3}]}_{1}^{e} \\ &amp; =2{∫}_{1}^{e}{t}^{3}\text{ln}\,tdt+\frac{{e}^{4}}{4}+{e}^{3}-\frac{5}{4}.\end{array}\]</p>
+<p>\[du=\frac{1}{t}dt,v=\frac{{t}^{4}}{4}.\]</p>
+<p>\[\begin{array}{ll}{∫}_{1}^{e}{t}^{3}\text{ln}\,tdt &amp; ={[\frac{{t}^{4}}{4}\text{ln}\,t]}_{1}^{e}-\frac{1}{4}{∫}_{1}^{e}{t}^{3}dt \\ &amp; =\frac{{e}^{4}}{4}-\frac{1}{4}(\frac{{e}^{4}}{4}-\frac{1}{4}).\end{array}\]</p>
+<p>\[\begin{array}{ll}{∫}_{C}\text{F}·dr &amp; =4{∫}_{1}^{e}{t}^{3}\text{ln}\,tdt+\frac{{e}^{4}}{4}+{e}^{3}-\frac{5}{4} \\ &amp; =4(\frac{{e}^{4}}{4}-\frac{1}{4}(\frac{{e}^{4}}{4}-\frac{1}{4}))+\frac{{e}^{4}}{4}+{e}^{3}-\frac{5}{4} \\ &amp; ={e}^{4}-\frac{{e}^{4}}{4}+\frac{1}{4}+\frac{{e}^{4}}{4}+{e}^{3}-\frac{5}{4} \\ &amp; ={e}^{4}+{e}^{3}-1.\end{array}\]</p>
+</li><li>Given that \(f(x,y,z)={x}^{2}\text{ln}\,y+y{z}^{2}\) is a potential function for <strong>F</strong>, let’s use the Fundamental Theorem for Line Integrals to calculate the integral. Note that<br> <br> This calculation is much more straightforward than the calculation we did in (a). As long as we have a potential function, calculating a line integral using the Fundamental Theorem for Line Integrals is much easier than calculating without the theorem.<p>\[\begin{array}{ll}{∫}_{C}\text{F}·d\text{r} &amp; ={∫}_{C}\nabla f.d\text{r} \\ &amp; =f(\text{r}(e))-f(\text{r}(1)) \\ &amp; =f({e}^{2},e,e)-f(1,1,1) \\ &amp; ={e}^{4}+{e}^{3}-1.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<p><a href="#example3">Example 3</a> illustrates a nice feature of the Fundamental Theorem of Line Integrals: it allows us to calculate more easily many vector line integrals. As long as we have a potential function, calculating the line integral is only a matter of evaluating the potential function at the endpoints and subtracting.</p>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Given that \(f(x,y)={(x-1)}^{2}y+{(y+1)}^{2}x\) is a potential function for \(\text{F}=\langle 2xy-2y+{(y+1)}^{2},{(x-1)}^{2}+2yx+2x\rangle ,\) calculate integral \({∫}_{C}\text{F}·d\text{r},\) where <strong>C</strong> is the lower half of the unit circle oriented counterclockwise.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_006.jpg" alt="A vector field in two dimensions. The arrows near the origin are the shortest, and the arrows in the upper right and lower left corners of quadrants 1 and 3 are the shortest. The arrows go up and to the left in quadrants 1 and 3. In quadrant 2, the arrows stretch up and to the right for values greater than x=-1. The closer the arrows are to y=1, the more horizontal they become. For values less than x=-1, the arrows point up and form a curve to the left. The closer the arrows are to y=1, the more horizontal they become. Above y=1, it looks like the arrows are shifting from vertical, going down to horizontal. In quadrant 4, the arrows go up and to the right fairly regularly, but they tend to be curving to the right the larger the x value becomes. For y values less than -1, the arrows shift from pointing up to pointing down, following x=1. The lower half of the unit circle with center at the origin is drawn in quadrants 3 and 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>2</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The Fundamental Theorem for Line Integrals has two important consequences. The first consequence is that if <strong>F</strong> is conservative and <strong>C</strong> is a closed curve, then the circulation of <strong>F</strong> along <strong>C</strong> is zero—that is, \({∫}_{C}\text{F}·d\text{r}=0.\) To see why this is true, let \(f\) be a potential function for <strong>F</strong>. Since <strong>C</strong> is a closed curve, the terminal point <strong>r</strong>(b) of <strong>C</strong> is the same as the initial point <strong>r</strong>(a) of <strong>C</strong>—that is, \(\text{r}(a)=\text{r}(b).\) Therefore, by the Fundamental Theorem for Line Integrals,</p>
+<p>\[\begin{array}{ll}{∫}_{C}\text{F}·d\text{r} &amp; ={∫}_{C}\nabla f·d\text{r} \\ &amp; =f(\text{r}(b))-f(\text{r}(a)) \\ &amp; =f(\text{r}(b))-f(\text{r}(b)) \\ &amp; =0.\end{array}\]</p>
+<p>Recall that the reason a conservative vector field <strong>F</strong> is called “conservative” is because such vector fields model forces in which energy is conserved. We have shown gravity to be an example of such a force. If we think of vector field <strong>F</strong> in integral \({∫}_{C}\text{F}·d\text{r}\) as a gravitational field, then the equation \({∫}_{C}\text{F}·d\text{r}=0\) follows. If a particle travels along a path that starts and ends at the same place, then the work done by gravity on the particle is zero.</p>
+<p>The second important consequence of the Fundamental Theorem for Line Integrals is that line integrals of conservative vector fields are independent of path—meaning, they depend only on the endpoints of the given curve, and do not depend on the path between the endpoints.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let <strong>F</strong> be a vector field with domain <strong>D</strong>. The vector field <strong>F</strong> is <strong>independent of path</strong> (or <strong>path independent</strong>) if \({∫}_{{C}_{1}}\text{F}·d\text{r}={∫}_{{C}_{2}}\text{F}·d\text{r}\) for any paths \({C}_{1}\) and \({C}_{2}\) in <strong>D</strong> with the same initial and terminal points.</p>
+</div>
+<p>The second consequence is stated formally in the following theorem.</p>
+<div class="card definition"><span class="chip">Path Independence of Conservative Fields</span><p>If <strong>F</strong> is a conservative vector field, then <strong>F</strong> is independent of path.</p>
+</div>
+<h3 id="proof-2">Proof</h3>
+<p>Let <strong>D</strong> denote the domain of <strong>F</strong> and let \({C}_{1}\) and \({C}_{2}\) be two paths in <strong>D</strong> with the same initial and terminal points (<a href="#fig5">Figure 5</a>). Call the initial point \({P}_{1}\) and the terminal point \({P}_{2}.\) Since <strong>F</strong> is conservative, there is a potential function \(f\) for <strong>F</strong>. By the Fundamental Theorem for Line Integrals,</p>
+<p>\[{∫}_{{C}_{1}}\text{F}·d\text{r}=f({P}_{2})-f({P}_{1})={∫}_{{C}_{2}}\text{F}·d\text{r}.\]</p>
+<p>Therefore, \({∫}_{{C}_{1}}\text{F}·d\text{r}={∫}_{{C}_{2}}\text{F}·d\text{r}\) and <strong>F</strong> is independent of path.</p>
+<p>□</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_007.jpg" alt="A vector field in two dimensions. The arrows are shorter the closer to the x axis and line x=1.5 they become. The arrows point up, converging around x=1.5 in quadrant 1. That line is approached from the left and from the right. Below, in quadrant 4, the arrows in the rough interval [1,2.5] curve out, away from the given line x=1.5, but do turn back in and converge to x=1.5 above the x axis. Outside of that interval, the arrows go to the left and right horizontally for x values less than 1 and greater than 2.5, respectively. A line is drawn from P_1 at the origin to P_2 at (3,.75) and labeled C_2. C_1 is a simple curve that connects the given endpoints above C_2, C_3 is a simple curve that connects the given endpoints below C_2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The vector field is conservative, and therefore independent of path.</figcaption></figure>
+<p>To visualize what independence of path means, imagine three hikers climbing from base camp to the top of a mountain. Hiker 1 takes a steep route directly from camp to the top. Hiker 2 takes a winding route that is not steep from camp to the top. Hiker 3 starts by taking the steep route but halfway to the top decides it is too difficult for him. Therefore he returns to camp and takes the non-steep path to the top. All three hikers are traveling along paths in a gravitational field. Since gravity is a force in which energy is conserved, the gravitational field is conservative. By independence of path, the total amount of work done by gravity on each of the hikers is the same because they all started in the same place and ended in the same place. The work done by the hikers includes other factors such as friction and muscle movement, so the total amount of energy each one expended is not the same, but the net energy expended against gravity is the same for all three hikers.</p>
+<p>We have shown that if <strong>F</strong> is conservative, then <strong>F</strong> is independent of path. It turns out that if the domain of <strong>F</strong> is open and connected, then the converse is also true. That is, if <strong>F</strong> is independent of path and the domain of <strong>F</strong> is open and connected, then <strong>F</strong> is conservative. Therefore, the set of conservative vector fields on open and connected domains is precisely the set of vector fields independent of path.</p>
+<div class="card definition"><span class="chip">The Path Independence Test for Conservative Fields</span><p>If <strong>F</strong> is a continuous vector field that is independent of path and the domain <strong>D</strong> of <strong>F</strong> is open and connected, then <strong>F</strong> is conservative.</p>
+</div>
+<h3 id="proof-3">Proof</h3>
+<p>We prove the theorem for vector fields in \({ℝ}^{2}.\) The proof for vector fields in \({ℝ}^{3}\) is similar. To show that \(\text{F}=\langle P,Q\rangle\) is conservative, we must find a potential function \(f\) for <strong>F</strong>. To that end, let <strong>X</strong> be a fixed point in <strong>D</strong>. For any point \((x,y)\) in <strong>D</strong>, let <strong>C</strong> be a path from <strong>X</strong> to \((x,y).\) Define \(f\) \((x,y)\) by \(f(x,y)={∫}_{C}\text{F}·d\text{r}.\) (Note that this definition of \(f\) makes sense only because <strong>F</strong> is independent of path. If <strong>F</strong> was not independent of path, then it might be possible to find another path \({C}^{\prime }\) from <strong>X</strong> to \((x,y)\) such that \({∫}_{C}\text{F}·d\text{r}\ne {∫}_{C}\text{F}·d\text{r},\) and in such a case \(f\) \((x,y)\) would not be a function.) We want to show that \(f\) has the property \(\nabla f=\text{F}.\)</p>
+<p>Since domain <strong>D</strong> is open, it is possible to find a disk centered at \((x,y)\) such that the disk is contained entirely inside <strong>D</strong>. Let \((a,y)\) with \(a&lt;x\) be a point in that disk. Let <strong>C</strong> be a path from <strong>X</strong> to \((x,y)\) that consists of two pieces: \({C}_{1}\) and \({C}_{2}.\) The first piece, \({C}_{1},\) is any path from <strong>X</strong> to \((a,y)\) that stays inside <strong>D</strong>; \({C}_{2}\) is the horizontal line segment from \((a,y)\) to \((x,y)\) (<a href="#fig6">Figure 6</a>). Then</p>
+<p>\[f(x,y)={∫}_{{C}_{1}}\text{F}·d\text{r}+{∫}_{{C}_{2}}\text{F}·d\text{r}.\]</p>
+<p>The first integral does not depend on <strong>x</strong>, so</p>
+<p>\[{f}_{x}=\frac{∂}{∂x}{∫}_{{C}_{2}}\text{F}·d\text{r}.\]</p>
+<p>If we parameterize \({C}_{2}\) by \(\text{r}(t)=\langle t,y\rangle ,a\le t\le x,\) then</p>
+<p>\[\begin{array}{ll}{f}_{x} &amp; =\frac{∂}{∂x}{∫}_{{C}_{2}}\text{F}·d\text{r} \\ &amp; =\frac{∂}{∂x}{∫}_{a}^{x}\text{F}(\text{r}(t)).{\text{r}}^{'}(t)dt \\ &amp; =\frac{∂}{∂x}{∫}_{a}^{x}\text{F}(\text{r}(t)).\frac{d}{dt}(⟨t,y⟩)dt \\ &amp; =\frac{∂}{∂x}{∫}_{a}^{x}\text{F}(\text{r}(t)).⟨1,0⟩dt \\ &amp; =\frac{∂}{∂x}{∫}_{a}^{x}P(t,y)dt.\end{array}\]</p>
+<p>By the Fundamental Theorem of Calculus (part 1),</p>
+<p>\[{f}_{x}=\frac{∂}{∂x}{∫}_{a}^{x}P(t,y)dt=P(x,y).\]</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_008.jpg" alt="A diagram of a region D in the rough shape of a backwards C. It is a simply connected region formed by a closed curve. Another curve C_1 is drawn inside D from point X to (a,y). C_2 is a horizontal line segment drawn from (a,y) to (x,y). Arrowheads point to (a,y) on C_1 and to (x,y) on C_2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Here, \({C}_{1}\) is any path from <strong>X</strong> to \((a,y)\) that stays inside <strong>D</strong>, and \({C}_{2}\) is the horizontal line segment from \((a,y)\) to \((x,y).\)</figcaption></figure>
+<p>A similar argument using a vertical line segment rather than a horizontal line segment shows that \({f}_{y}=Q(x,y).\)</p>
+<p>Therefore \(\nabla f=\text{F}\) and <strong>F</strong> is conservative.</p>
+<p>□</p>
+<p>We have spent a lot of time discussing and proving (see original) and (see original), but we can summarize them simply: a vector field <strong>F</strong> on an open and connected domain is conservative if and only if it is independent of path. This is important to know because conservative vector fields are extremely important in applications, and these theorems give us a different way of viewing what it means to be conservative using path independence.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Use path independence to show that vector field \(\text{F}(x,y)=\langle {x}^{2}y,y+5\rangle\) is not conservative.</p>
+<p class="sol-hint">Pick two different paths with the same start and end points, and show the line integral of \(\text{F}\) gives different values along each.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can indicate that <strong>F</strong> is not conservative by showing that <strong>F</strong> is not path independent. We do so by giving two different paths, \({C}_{1}\) and \({C}_{2},\) that both start at \((0,0)\) and end at \((1,1),\) and yet \({∫}_{{C}_{1}}\text{F}·dr\ne {∫}_{{C}_{2}}\text{F}·d\text{r}.\)</p>
+<p>Let \({C}_{1}\) be the curve with parameterization \({\text{r}}_{1}(t)=\langle t,t\rangle ,0\le t\le 1\) and let \({C}_{2}\) be the curve with parameterization \({\text{r}}_{2}(t)=\langle t,{t}^{2}\rangle ,0\le t\le 1\) (<a href="#fig7">Figure 7</a>). Then</p>
+<p>\[\begin{array}{ll}{∫}_{{C}_{1}}\text{F}·d\text{r} &amp; ={∫}_{0}^{1}\text{F}({\text{r}}_{1}(t))·{\text{r}}_{1}{}^{\prime }(t)dt \\ &amp; ={∫}_{0}^{1}\langle {t}^{3},t+5\rangle ·\langle 1,1\rangle dt={∫}_{0}^{1}({t}^{3}+t+5)dt \\ &amp; ={[\frac{{t}^{4}}{4}+\frac{{t}^{2}}{2}+5t]}_{0}^{1}=\frac{23}{4}\end{array}\]</p>
+<p>and</p>
+<p>\[\begin{array}{ll}{∫}_{{C}_{2}}\text{F}·d\text{r} &amp; ={∫}_{0}^{1}\text{F}({\text{r}}_{2}(t))·{\text{r}}_{2}\prime (t)dt \\ &amp; ={∫}_{0}^{1}\langle {t}^{4},{t}^{2}+5\rangle ·\langle 1,2t\rangle dt={∫}_{0}^{1}({t}^{4}+2{t}^{3}+10t)dt \\ &amp; ={[\frac{{t}^{5}}{5}+\frac{{t}^{4}}{2}+5{t}^{2}]}_{0}^{1}=\frac{57}{10}.\end{array}\]</p>
+<p>Since \({∫}_{{C}_{1}}\text{F}·d\text{r}\ne {∫}_{{C}_{2}}\text{F}·d\text{r},\) the value of a line integral of <strong>F</strong> depends on the path between two given points. Therefore, <strong>F</strong> is not independent of path, and <strong>F</strong> is not conservative.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_009.jpg" alt="A vector field drawn in two dimensions. The arrows are roughly the same length. They point directly up but tend to shift to the right in the upper right portion of quadrant 1. Curves C_1 and C_2 connect the origin to point (1,1). They are both simple curves, and their arrowheads point to (1,1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — Curves \({C}_{1}\) and \({C}_{2}\) are both oriented from left to right.</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Show that \(\text{F}(x,y)=\langle xy,{x}^{2}{y}^{2}\rangle\) is not path independent by considering the line segment from \((0,0)\) to \((2,2)\) and the piece of the graph of \(y=\frac{{x}^{2}}{2}\) that goes from \((0,0)\) to \((2,2).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>If \({C}_{1}\) and \({C}_{2}\) represent the two curves, then \({∫}_{{C}_{1}}\text{F}·d\text{r}\ne {∫}_{{C}_{2}}\text{F}·d\text{r}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="conservative-vector-fields-and-potential-functions">Conservative Vector Fields and Potential Functions</h2>
+<p>As we have learned, the Fundamental Theorem for Line Integrals says that if <strong>F</strong> is conservative, then calculating \({∫}_{C}\text{F}·dr\) has two steps: first, find a potential function \(f\) for <strong>F</strong> and, second, calculate \(f({P}_{1})-f({P}_{0}),\) where \({P}_{1}\) is the endpoint of <strong>C</strong> and \({P}_{0}\) is the starting point. To use this theorem for a conservative field <strong>F</strong>, we must be able to find a potential function \(f\) for <strong>F</strong>. Therefore, we must answer the following question: Given a conservative vector field <strong>F</strong>, how do we find a function \(f\) such that \(\nabla f=\text{F}?\) Before giving a general method for finding a potential function, let’s motivate the method with an example.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find a potential function for \(\text{F}(x,y)=\langle 2x{y}^{3},3{x}^{2}{y}^{2}+\text{cos}(y)\rangle ,\) thereby showing that <strong>F</strong> is conservative.</p>
+<p class="sol-hint">Integrate the first component with respect to <strong>x</strong>, leaving an unknown function of <strong>y</strong>, then match the <strong>y</strong>-partial to the second component.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Suppose that \(f(x,y)\) is a potential function for <strong>F</strong>. Then, \(\nabla f=\text{F},\) and therefore</p>
+<p>\[{f}_{x}=2x{y}^{3}\,\text{and}\,{f}_{y}=3{x}^{2}{y}^{2}+\text{cos}\,y.\]</p>
+<p>Integrating the equation \({f}_{x}=2x{y}^{3}\) with respect to <strong>x</strong> yields the equation</p>
+<p>\[f(x,y)={x}^{2}{y}^{3}+h(y).\]</p>
+<p>Notice that since we are integrating a two-variable function with respect to <strong>x</strong>, we must add a constant of integration that is a constant with respect to <strong>x</strong>, but may still be a function of <strong>y</strong>. The equation \(f(x,y)={x}^{2}{y}^{3}+h(y)\) can be confirmed by taking the partial derivative with respect to <strong>x</strong>:</p>
+<p>\[\frac{∂f}{∂x}=\frac{∂}{∂x}({x}^{2}{y}^{3})+\frac{∂}{∂x}(h(y))=2x{y}^{3}+0=2x{y}^{3}.\]</p>
+<p>Since \(f\) is a potential function for <strong>F</strong>,</p>
+<p>\[{f}_{y}=3{x}^{2}{y}^{2}+\text{cos}(y),\]</p>
+<p>and therefore</p>
+<p>\[3{x}^{2}{y}^{2}+{h}^{\prime }(y)=3{x}^{2}{y}^{2}+\text{cos}(y).\]</p>
+<p>This implies that \(h\prime (y)=\text{cos}\,y,\) so \(h(y)=\text{sin}\,y+C.\) Therefore, <strong>any</strong> function of the form \(f(x,y)={x}^{2}{y}^{3}+\text{sin}(y)+C\) is a potential function. Taking, in particular, \(C=0\) gives the potential function \(f(x,y)={x}^{2}{y}^{3}+\text{sin}(y).\)</p>
+<p>To verify that \(f\) is a potential function, note that \(\nabla f=\langle 2x{y}^{3},3{x}^{2}{y}^{2}+\text{cos}\,y\rangle =\text{F}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Find a potential function for \(\text{F}(x,y)=\langle {e}^{x}{y}^{3}+y,3{e}^{x}{y}^{2}+x\rangle .\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(x,y)={e}^{x}{y}^{3}+xy\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The logic of the previous example extends to finding the potential function for any conservative vector field in \({ℝ}^{2}.\) Thus, we have the following problem-solving strategy for finding potential functions:</p>
+<div class="card definition"><span class="chip">Problem-Solving Strategy: Finding a Potential Function for a Conservative Vector Field \(\text{F}(x,y)=\langle P(x,y),Q(x,y)\rangle\)</span><ul class="tight"><li>Integrate <strong>P</strong> with respect to <strong>x</strong>. This results in a function of the form \(g(x,y)+h(y),\) where \(h(y)\) is unknown.</li><li>Take the partial derivative of \(g(x,y)+h(y)\) with respect to <strong>y</strong>, which results in the function \({g}_{y}(x,y)+{h}^{\prime }(y).\)</li><li>Use the equation \({g}_{y}(x,y)+{h}^{\prime }(y)=Q(x,y)\) to find \({h}^{\prime }(y).\)</li><li>Integrate \({h}^{\prime }(y)\) to find \(h(y).\)</li><li>Any function of the form \(f(x,y)=g(x,y)+h(y)+C,\) where <strong>C</strong> is a constant, is a potential function for <strong>F</strong>.</li></ul>
+</div>
+<p>We can adapt this strategy to find potential functions for vector fields in \({ℝ}^{3},\) as shown in the next example.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find a potential function for \(\text{F}(x,y,z)=\langle 2xy,{x}^{2}+2y{z}^{3},3{y}^{2}{z}^{2}+2z\rangle ,\) thereby showing that \(\text{F}\) is conservative.</p>
+<p class="sol-hint">Integrate the first component with respect to <strong>x</strong>, then work through <strong>y</strong> and <strong>z</strong> in turn, matching each partial derivative.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Suppose that \(f\) is a potential function. Then, \(\nabla f=\text{F}\) and therefore \({f}_{x}=2xy.\) Integrating this equation with respect to <strong>x</strong> yields the equation \(f(x,y,z)={x}^{2}y+g(y,z)\) for some function <strong>g</strong>. Notice that, in this case, the constant of integration with respect to <strong>x</strong> is a function of <strong>y</strong> and <strong>z</strong>.</p>
+<p>Since \(f\) is a potential function,</p>
+<p>\[{x}^{2}+2y{z}^{3}={f}_{y}={x}^{2}+{g}_{y}.\]</p>
+<p>Therefore,</p>
+<p>\[{g}_{y}=2y{z}^{3}.\]</p>
+<p>Integrating this function with respect to <strong>y</strong> yields</p>
+<p>\[g(y,z)={y}^{2}{z}^{3}+h(z)\]</p>
+<p>for some function \(h(z)\) of <strong>z</strong> alone. (Notice that, because we know that <strong>g</strong> is a function of only <strong>y</strong> and <strong>z</strong>, we do not need to write \(g(y,z)={y}^{2}{z}^{3}+h(x,z).)\) Therefore,</p>
+<p>\[f(x,y,z)={x}^{2}y+g(y,z)={x}^{2}y+{y}^{2}{z}^{3}+h(z).\]</p>
+<p>To find \(f\) , we now must only find <strong>h</strong>. Since \(f\) is a potential function,</p>
+<p>\[3{y}^{2}{z}^{2}+2z={g}_{z}=3{y}^{2}{z}^{2}+{h}^{\prime }(z).\]</p>
+<p>This implies that \({h}^{\prime }(z)=2z,\) so \(h(z)={z}^{2}+C.\) Letting \(C=0\) gives the potential function</p>
+<p>\[f(x,y,z)={x}^{2}y+{y}^{2}{z}^{3}+{z}^{2}.\]</p>
+<p>To verify that \(f\) is a potential function, note that \(\nabla f=\langle 2xy,{x}^{2}+2y{z}^{3},3{y}^{2}{z}^{2}+2z\rangle =\text{F}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Find a potential function for \(\text{F}(x,y,z)=\langle 12{x}^{2},\text{cos}\,y\,\text{cos}\,z,1-\text{sin}\,y\,\text{sin}\,z\rangle .\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(x,y,z)=4{x}^{3}+\text{sin}\,y\,\text{cos}\,z+z\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We can apply the process of finding a potential function to a <strong>gravitational force</strong>. Recall that, if an object has unit mass and is located at the origin, then the gravitational force in \({ℝ}^{2}\) that the object exerts on another object of unit mass at the point \((x,y)\) is given by vector field</p>
+<p>\[\text{F}(x,y)=\text{-}G\langle \frac{x}{{({x}^{2}+{y}^{2})}^{3\text{/}2}},\frac{y}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}\rangle ,\]</p>
+<p>where <strong>G</strong> is the universal gravitational constant. In the next example, we build a potential function for <strong>F</strong>, thus confirming what we already know: that gravity is conservative.</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find a potential function \(f\) for \(\text{F}(x,y)=\text{-}G\langle \frac{x}{{({x}^{2}+{y}^{2})}^{3\text{/}2}},\frac{y}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}\rangle .\)</p>
+<p class="sol-hint">Integrate \({f}_{x}\) with respect to <strong>x</strong> using <strong>u</strong>-substitution with \(u=x^2+y^2\), then find \(h(y)\) from the <strong>y</strong>-partial.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Suppose that \(f\) is a potential function. Then, \(\nabla f=\text{F}\) and therefore</p>
+<p>\[{f}_{x}=\frac{\text{-}Gx}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}.\]</p>
+<p>To integrate this function with respect to <strong>x,</strong> we can use <strong>u</strong>-substitution. If \(u={x}^{2}+{y}^{2},\) then \(\frac{du}{2}=xdx,\) so</p>
+<p>\[\begin{array}{ll}∫\frac{\text{-}Gx}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}dx &amp; =∫\frac{\text{-}G}{2{u}^{3\text{/}2}}du \\ &amp; =\frac{G}{\sqrt{u}}+h(y) \\ &amp; =\frac{G}{\sqrt{{x}^{2}+{y}^{2}}}+h(y)\end{array}\]</p>
+<p>for some function \(h(y).\) Therefore,</p>
+<p>\[f(x,y)=\frac{G}{\sqrt{{x}^{2}+{y}^{2}}}+h(y).\]</p>
+<p>Since \(f\) is a potential function for <strong>F</strong>,</p>
+<p>\[{f}_{y}=\frac{\text{-}Gy}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}.\]</p>
+<p>Since \(f(x,y)=\frac{G}{\sqrt{{x}^{2}+{y}^{2}}}+h(y),\) \({f}_{y}\) also equals \(\frac{\text{-}Gy}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}+{h}^{\prime }(y).\)</p>
+<p>Therefore,</p>
+<p>\[\frac{\text{-}Gy}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}+h\prime (y)=\frac{\text{-}Gy}{{({x}^{2}+{y}^{2})}^{3\text{/}2}},\]</p>
+<p>which implies that \({h}^{\prime }(y)=0.\) Thus, we can take \(h(y)\) to be any constant; in particular, we can let \(h(y)=0.\) The function</p>
+<p>\[f(x,y)=\frac{G}{\sqrt{{x}^{2}+{y}^{2}}}\]</p>
+<p>is a potential function for the gravitational field <strong>F</strong>. To confirm that \(f\) is a potential function, note that</p>
+<p>\[\begin{array}{ll}\nabla f &amp; =\langle -\frac{1}{2}\,\frac{G}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}(2x),-\frac{1}{2}\,\frac{G}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}(2y)\rangle \\ &amp; =\langle \frac{\text{-}Gx}{{({x}^{2}+{y}^{2})}^{3\text{/}2}},\frac{\text{-}Gy}{{({x}^{2}+{y}^{2})}^{3\text{/}2}}\rangle \\ &amp; =\text{F}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Find a potential function \(f\) for the three-dimensional gravitational force \(\text{F}(x,y,z)=\langle \frac{\text{-}Gx}{{({x}^{2}+{y}^{2}+{z}^{2})}^{3\text{/}2}},\frac{\text{-}Gy}{{({x}^{2}+{y}^{2}+{z}^{2})}^{3\text{/}2}},\frac{\text{-}Gz}{{({x}^{2}+{y}^{2}+{z}^{2})}^{3\text{/}2}}\rangle .\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(x,y,z)=\frac{G}{\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="testing-a-vector-field">Testing a Vector Field</h2>
+<p>Until now, we have worked with vector fields that we know are conservative, but if we are not told that a vector field is conservative, we need to be able to test whether it is conservative. Recall that, if <strong>F</strong> is conservative, then <strong>F</strong> has the cross-partial property (see (see original)). That is, if \(\text{F}=\langle P,Q,R\rangle\) is conservative, then \({P}_{y}={Q}_{x},{P}_{z}={R}_{x},\) and \({Q}_{z}={R}_{y}.\) So, if <strong>F</strong> has the cross-partial property, then is <strong>F</strong> conservative? If the domain of <strong>F</strong> is open and simply connected, then the answer is yes.</p>
+<div class="card definition"><span class="chip">The Cross-Partial Test for Conservative Fields</span><p>If \(\text{F}=\langle P,Q,R\rangle\) is a vector field on an open, simply connected region <strong>D</strong> and \({P}_{y}={Q}_{x},{P}_{z}={R}_{x},\) and \({Q}_{z}={R}_{y}\) throughout <strong>D</strong>, then <strong>F</strong> is conservative.</p>
+</div>
+<p>Although a proof of this theorem is beyond the scope of the text, we can discover its power with some examples. Later, we see why it is necessary for the region to be simply connected.</p>
+<p>Combining this theorem with the cross-partial property, we can determine whether a given vector field is conservative:</p>
+<div class="card definition"><span class="chip">Cross-Partial Property of Conservative Fields</span><p>Let \(\text{F}=\langle P,Q,R\rangle\) be a vector field on an open, simply connected region <strong>D.</strong> Then \({P}_{y}={Q}_{x},{P}_{z}={R}_{x},\) and \({Q}_{z}={R}_{y}\) throughout <strong>D</strong> if and only if <strong>F</strong> is conservative.</p>
+</div>
+<p>The version of this theorem in \({ℝ}^{2}\) is also true. If \(\text{F}=\langle P,Q\rangle\) is a vector field on an open, simply connected domain in \({ℝ}^{2},\) then <strong>F</strong> is conservative if and only if \({P}_{y}={Q}_{x}.\)</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Determine whether vector field \(\text{F}(x,y,z)=\langle x{y}^{2}z,{x}^{2}yz,{z}^{2}\rangle\) is conservative.</p>
+<p class="sol-hint">Since the domain is all of \({ℝ}^{3}\) (simply connected), just check the cross-partials \(Q_z\) and \(R_y\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Note that the domain of <strong>F</strong> is all of \({ℝ}^{2}\) and \({ℝ}^{3}\) is simply connected. Therefore, we can use (see original) to determine whether <strong>F</strong> is conservative. Let</p>
+<p>\[P(x,y,z)=x{y}^{2}z,Q(x,y,z)={x}^{2}yz,\,\text{and}\,R(x,y,z)={z}^{2}.\]</p>
+<p>Since \({Q}_{z}={x}^{2}y\) and \({R}_{y}=0,\) the vector field is not conservative.</p>
+</div></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Determine vector field \(\text{F}(x,y)=\langle x\,\text{ln}(y),\frac{{x}^{2}}{2y}\rangle\) is conservative.</p>
+<p class="sol-hint">First confirm the domain (\(y>0\)) is simply connected, then check whether \(P_y=Q_x\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Note that the domain of <strong>F</strong> is the part of \({ℝ}^{2}\) in which \(y&gt;0.\) Thus, the domain of <strong>F</strong> is part of a plane above the <strong>x</strong>-axis, and this domain is simply connected (there are no holes in this region and this region is connected). Therefore, we can use (see original) to determine whether <strong>F</strong> is conservative. Let</p>
+<p>\[P(x,y)=x\,\text{ln}(y)\,\text{and}\,Q(x,y)=\frac{{x}^{2}}{2y}.\]</p>
+<p>Then \({P}_{y}=\frac{x}{y}={Q}_{x}\) and thus <strong>F</strong> is conservative.</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Determine whether \(\text{F}(x,y)=\langle \text{sin}\,x\,\text{cos}\,y,\text{cos}\,x\,\text{sin}\,y\rangle\) is conservative.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>It is conservative.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>When using (see original), it is important to remember that a theorem is a tool, and like any tool, it can be applied only under the right conditions. In the case of (see original), the theorem can be applied only if the domain of the vector field is simply connected.</p>
+<p>To see what can go wrong when misapplying the theorem, consider the vector field:</p>
+<p>\[\text{F}(x,y)=\frac{y}{{x}^{2}+{y}^{2}}\text{i}+\frac{\text{-}x}{{x}^{2}+{y}^{2}}\text{j}.\]</p>
+<p>This vector field satisfies the cross-partial property, since</p>
+<p>\[\frac{∂}{∂y}(\frac{y}{{x}^{2}+{y}^{2}})=\frac{({x}^{2}+{y}^{2})-y(2y)}{{({x}^{2}+{y}^{2})}^{2}}=\frac{{x}^{2}-{y}^{2}}{{({x}^{2}+{y}^{2})}^{2}}\]</p>
+<p>and</p>
+<p>\[\frac{∂}{∂x}(\frac{\text{-}x}{{x}^{2}+{y}^{2}})=\frac{\text{-}({x}^{2}+{y}^{2})+x(2x)}{{({x}^{2}+{y}^{2})}^{2}}=\frac{{x}^{2}-{y}^{2}}{{({x}^{2}+{y}^{2})}^{2}}.\]</p>
+<p>Since <strong>F</strong> satisfies the cross-partial property, we might be tempted to conclude that <strong>F</strong> is conservative. However, <strong>F</strong> is not conservative. To see this, let</p>
+<p>\[\text{r}(t)=\langle \text{cos}\,t,\text{sin}\,t\rangle ,0\le t\le \pi \]</p>
+<p>be a parameterization of the upper half of a unit circle oriented counterclockwise (denote this \({C}_{1})\) and let</p>
+<p>\[\text{s}(t)=\langle \text{cos}\,t,\text{-}\text{sin}\,t\rangle ,0\le t\le \pi \]</p>
+<p>be a parameterization of the lower half of a unit circle oriented clockwise (denote this \({C}_{2}).\) Notice that \({C}_{1}\) and \({C}_{2}\) have the same starting point and endpoint. Since \({\text{sin}}^{2}t+{\text{cos}}^{2}t=1,\)</p>
+<p>\[\text{F}(\text{r}(t)).{\text{r}}^{\prime }(t)=\langle \text{sin}(t),\text{-}\text{cos}(t)\rangle .\langle \text{-}\text{sin}(t),\text{cos}(t)\rangle =-1\]</p>
+<p>and</p>
+<p>\[\begin{array}{ll}\text{F}(s(t))·\text{s}\prime (t) &amp; =\langle \text{-}\text{sin}\,t,\text{-}\text{cos}\,t\rangle ·\langle \text{-}\text{sin}\,t,\text{-}\text{cos}\,t\rangle \\ &amp; ={\text{sin}}^{2}t+{\text{cos}}^{2}t \\ &amp; =1.\end{array}\]</p>
+<p>Therefore,</p>
+<p>\[{∫}_{{C}_{1}}\text{F}·d\text{r}={∫}_{0}^{\pi }-1dt=\text{-}\pi \,\text{and}\,{∫}_{{C}_{2}}\text{F}·d\text{r}={∫}_{0}^{\pi }1dt=\pi .\]</p>
+<p>Thus, \({C}_{1}\) and \({C}_{2}\) have the same starting point and endpoint, but \({∫}_{{C}_{1}}\text{F}·d\text{r}\ne {∫}_{{C}_{2}}\text{F}·d\text{r}.\) Therefore, <strong>F</strong> is not independent of path and <strong>F</strong> is not conservative.</p>
+<p>To summarize: <strong>F</strong> satisfies the cross-partial property and yet <strong>F</strong> is not conservative. What went wrong? Does this contradict (see original)? The issue is that the domain of <strong>F</strong> is all of \({ℝ}^{2}\) except for the origin. In other words, the domain of <strong>F</strong> has a hole at the origin, and therefore the domain is not simply connected. Since the domain is not simply connected, (see original) does not apply to <strong>F</strong>.</p>
+<p>We close this section by looking at an example of the usefulness of the Fundamental Theorem for Line Integrals. Now that we can test whether a vector field is conservative, we can always decide whether the Fundamental Theorem for Line Integrals can be used to calculate a vector line integral. If we are asked to calculate an integral of the form \({∫}_{C}\text{F}·d\text{r},\) then our first question should be: Is <strong>F</strong> conservative? If the answer is yes, then we should find a potential function and use the Fundamental Theorem for Line Integrals to calculate the integral. If the answer is no, then the Fundamental Theorem for Line Integrals can’t help us and we have to use other methods, such as using (see original).</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Calculate line integral \({∫}_{C}\text{F}·d\text{r},\) where \(\text{F}(x,y,z)=\langle 2x{e}^{y}z+{e}^{x}z,{x}^{2}{e}^{y}z,{x}^{2}{e}^{y}+{e}^{x}\rangle\) and <strong>C</strong> is any smooth curve that goes from the origin to \((1,1,1).\)</p>
+<p class="sol-hint">First verify the cross-partials confirm <strong>F</strong> is conservative, then build a potential function and evaluate it at the two endpoints.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Before trying to compute the integral, we need to determine whether <strong>F</strong> is conservative and whether the domain of <strong>F</strong> is simply connected. The domain of <strong>F</strong> is all of \({ℝ}^{3},\) which is connected and has no holes. Therefore, the domain of <strong>F</strong> is simply connected. Let</p>
+<p>\[P(x,y,z)=2x{e}^{y}z+{e}^{x}z,Q(x,y,z)={x}^{2}{e}^{y}z,\,\text{and}\,R(x,y,z)={x}^{2}{e}^{y}+{e}^{x}\]</p>
+<p>so that \(\text{F}=\langle P,Q,R\rangle .\) Since the domain of <strong>F</strong> is simply connected, we can check the cross partials to determine whether <strong>F</strong> is conservative. Note that</p>
+<p>\[\begin{array}{lll}{P}_{y} &amp; = &amp; 2x{e}^{y}z={Q}_{x} \\ {P}_{z} &amp; = &amp; 2x{e}^{y}+{e}^{x}={R}_{x} \\ {Q}_{z} &amp; = &amp; {x}^{2}{e}^{y}={R}_{y}.\end{array}\]</p>
+<p>Therefore, <strong>F</strong> is conservative.</p>
+<p>To evaluate \({∫}_{C}\text{F}·d\text{r}\) using the Fundamental Theorem for Line Integrals, we need to find a potential function \(f\) for <strong>F</strong>. Let \(f\) be a potential function for <strong>F</strong>. Then, \(\nabla f=\text{F},\) and therefore \({f}_{x}=2x{e}^{y}z+{e}^{x}z.\) Integrating this equation with respect to <strong>x</strong> gives \(f(x,y,z)={x}^{2}{e}^{y}z+{e}^{x}z+h(y,z)\) for some function <strong>h</strong>. Differentiating this equation with respect to <strong>y</strong> gives \({x}^{2}{e}^{y}z+{h}_{y}=Q={x}^{2}{e}^{y}z,\) which implies that \({h}_{y}=0.\) Therefore, <strong>h</strong> is a function of <strong>z</strong> only, and \(f(x,y,z)={x}^{2}{e}^{y}z+{e}^{x}z+h(z).\) To find <strong>h</strong>, note that \({f}_{z}={x}^{2}{e}^{y}+{e}^{x}+h\prime (z)=R={x}^{2}{e}^{y}+{e}^{x}.\) Therefore, \(h\prime (z)=0\) and we can take \(h(z)=0.\) A potential function for <strong>F</strong> is \(f(x,y,z)={x}^{2}{e}^{y}z+{e}^{x}z.\)</p>
+<p>Now that we have a potential function, we can use the Fundamental Theorem for Line Integrals to evaluate the integral. By the theorem,</p>
+<p>\[\begin{array}{ll}{∫}_{C}\text{F}·d\text{r} &amp; ={∫}_{C}\nabla f·d\text{r} \\ &amp; =f(1,1,1)-f(0,0,0) \\ &amp; =2e.\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice that if we hadn’t recognized that <strong>F</strong> is conservative, we would have had to parameterize <strong>C</strong> and use (see original). Since curve <strong>C</strong> is unknown, using the Fundamental Theorem for Line Integrals is much simpler.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Calculate integral \({∫}_{C}\text{F}·d\text{r},\) where \(\text{F}(x,y)=\langle \text{sin}\,x\,\text{sin}\,y,5-\text{cos}\,x\,\text{cos}\,y\rangle\) and <strong>C</strong> is a semicircle with starting point \((0,\pi )\) and endpoint \((0,\text{-}\pi ).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-10\pi\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Let \(\text{F}(x,y)=\langle 2x{y}^{2},2{x}^{2}y\rangle\) be a force field. Suppose that a particle begins its motion at the origin and ends its movement at any point in a plane that is not on the <strong>x</strong>-axis or the <strong>y</strong>-axis. Furthermore, the particle’s motion can be modeled with a smooth parameterization. Show that <strong>F</strong> does positive work on the particle.</p>
+<p class="sol-hint">First find a potential function for <strong>F</strong>, then apply the Fundamental Theorem for Line Integrals and argue the resulting expression is always positive.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We show that <strong>F</strong> does positive work on the particle by showing that <strong>F</strong> is conservative and then by using the Fundamental Theorem for Line Integrals.</p>
+<p>To show that <strong>F</strong> is conservative, suppose \(f(x,y)\) were a potential function for <strong>F</strong>. Then, \(\nabla f=\text{F}=\langle 2x{y}^{2},2{x}^{2}y\rangle\) and therefore \({f}_{x}=2x{y}^{2}\) and \({f}_{y}=2{x}^{2}y.\) Equation \({f}_{x}=2x{y}^{2}\) implies that \(f(x,y)={x}^{2}{y}^{2}+h(y).\) Deriving both sides with respect to <strong>y</strong> yields \({f}_{y}=2{x}^{2}y+{h}^{\prime }(y).\) Therefore, \({h}^{\prime }(y)=0\) and we can take \(h(y)=0.\)</p>
+<p>If \(f(x,y)={x}^{2}{y}^{2},\) then note that \(\nabla f=\langle 2x{y}^{2},2{x}^{2}y\rangle =\text{F},\) and therefore \(f\) is a potential function for <strong>F</strong>.</p>
+<p>Let \((a,b)\) be the point at which the particle stops is motion, and let <strong>C</strong> denote the curve that models the particle’s motion. The work done by <strong>F</strong> on the particle is \({∫}_{C}\text{F}·d\text{r}.\) By the Fundamental Theorem for Line Integrals,</p>
+<p>\[\begin{array}{ll}{∫}_{C}\text{F}·d\text{r} &amp; ={∫}_{C}\nabla f·d\text{r} \\ &amp; =f(a,b)-f(0,0) \\ &amp; ={a}^{2}{b}^{2}.\end{array}\]</p>
+<p>Since \(a\ne 0\) and \(b\ne 0,\) by assumption, \({a}^{2}{b}^{2}&gt;0.\) Therefore, \({∫}_{C}\text{F}·d\text{r}&gt;0,\) and <strong>F</strong> does positive work on the particle.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice that this problem would be much more difficult without using the Fundamental Theorem for Line Integrals. To apply the tools we have learned, we would need to give a curve parameterization and use (see original). Since the path of motion <strong>C</strong> can be as exotic as we wish (as long as it is smooth), it can be very difficult to parameterize the motion of the particle.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>Let \(\text{F}(x,y)=\langle 4{x}^{3}{y}^{4},4{x}^{4}{y}^{3}\rangle ,\) and suppose that a particle moves from point \((4,4)\) to \((1,1)\) along any smooth curve. Is the work done by <strong>F</strong> on the particle positive, negative, or zero?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Negative</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The theorems in this section require curves that are closed, simple, or both, and regions that are connected or simply connected. (See <a href="#example1">Example 1</a>.)</li><li>The line integral of a conservative vector field can be calculated using the Fundamental Theorem for Line Integrals. This theorem is a generalization of the Fundamental Theorem of Calculus in higher dimensions. Using this theorem usually makes the calculation of the line integral easier. (See <a href="#example3">Example 3</a> and <a href="#example10">Example 10</a>.)</li><li>Conservative fields are independent of path. The line integral of a conservative field depends only on the value of the potential function at the endpoints of the domain curve. (See <a href="#example4">Example 4</a>.)</li><li>Given vector field <strong>F</strong>, we can test whether <strong>F</strong> is conservative by using the cross-partial property. If <strong>F</strong> has the cross-partial property and the domain is simply connected, then <strong>F</strong> is conservative (and thus has a potential function). If <strong>F</strong> is conservative, we can find a potential function by using the Problem-Solving Strategy. (See <a href="#example5">Example 5</a> and <a href="#example8">Example 8</a>.)</li><li>The circulation of a conservative vector field on a simply connected domain over a closed curve is zero.</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Fundamental Theorem for Line Integrals</strong></td><td>\({∫}_{C}\nabla f·d\text{r}=f(\text{r}(b))-f(\text{r}(a))\)</td></tr><tr><td><strong>Circulation of a conservative field over curve <strong>C</strong> that encloses a simply connected region</strong></td><td>\({∫}_{C}\nabla f·d\text{r}=0\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p><strong>True</strong> or <strong>False?</strong> If vector field <strong>F</strong> is conservative on the open and connected region <strong>D</strong>, then line integrals of <strong>F</strong> are path independent on <strong>D</strong>, regardless of the shape of <strong>D</strong>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>True</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p><strong>True</strong> or <strong>False?</strong> Function \(\text{r}(t)=\text{a}+t(\text{b}-\text{a}),\) where \(0\le t\le 1,\) parameterizes the straight-line segment from \(\text{a}\,\text{to}\,\text{b}.\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p><strong>True</strong> or <strong>False?</strong> Vector field \(\text{F}(x,y,z)=(y\,\text{sin}\,z)\text{i}+(x\,\text{sin}\,z)\text{j}+(xy\,\text{cos}\,z)\text{k}\) is conservative.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>True</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p><strong>True</strong> or <strong>False?</strong> Vector field \(\text{F}(x,y,z)=y\text{i}+(x+z)\text{j}-y\text{k}\) is conservative.</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Verify the Fundamental Theorem of Line Integrals for \({∫}_{C}\text{F}·d\text{r}\) by computing the integral using a parameterization and, separately, by finding a potential function for the case when \(\text{F}(x,y)=(2x+2y)\text{i}+(2x+2y)\text{j}\) and <strong>C</strong> is a portion of circle \({x}^{2}+{y}^{2}=25\) oriented counterclockwise from (5, 0) to (3, 4).</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{C}^{}\text{F}·d\text{r}=24\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p><strong>[T]</strong> Find \({∫}_{C}^{}\text{F}·d\text{r},\) where \(\text{F}(x,y)=(y{e}^{xy}+\text{cos}\,x)\text{i}+(x{e}^{xy}+\frac{1}{{y}^{2}+1})\text{j}\) and <strong>C</strong> is a portion of curve \(y=\text{sin}\,x\) from \(x=0\) to \(x=\frac{\pi }{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p><strong>[T]</strong> Evaluate line integral \({∫}_{C}^{}\text{F}·d\text{r},\) where \(\text{F}(x,y)=({e}^{x}\text{sin}\,y-y)\text{i}+({e}^{x}\text{cos}\,y-x-2)\text{j},\) and <strong>C</strong> is the path given by \(r(t)=[{t}^{3}\text{sin}\,\frac{\pi t}{2}]\text{i}-[\frac{\pi }{2}\text{cos}(\frac{\pi t}{2}+\frac{\pi }{2})]\text{j}\) for \(0\le t\le 1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{C}^{}\text{F}·d\text{r}=e-\frac{3\pi }{2}\)</p>
+</div></div></div></div>
+<p>For the following exercises, determine whether the vector field is conservative and, if it is, find the potential function.</p>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\text{F}(x,y)=2x{y}^{3}\text{i}+3{y}^{2}{x}^{2}\text{j}\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\text{F}(x,y)=(\text{-}y+{e}^{x}\text{sin}\,y)\text{i}+[(x+2){e}^{x}\text{cos}\,y]\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Not conservative</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\text{F}(x,y)=({e}^{2x}\text{sin}\,y)\text{i}+[{e}^{2x}\text{cos}\,y]\text{j}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\text{F}(x,y)=(6x+5y)\text{i}+(5x+4y)\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Conservative, \(f(x,y)=3{x}^{2}+5xy+2{y}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\text{F}(x,y)=[2x\,\text{cos}(y)-y\,\text{cos}(x)]\text{i}+[\text{-}{x}^{2}\text{sin}(y)-\text{sin}(x)]\text{j}\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\text{F}(x,y)=[y{e}^{x}+\text{sin}(y)]\text{i}+[{e}^{x}+x\,\text{cos}(y)]\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Conservative, \(f(x,y)=y{e}^{x}+x\,\text{sin}(y)\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the line integrals using the Fundamental Theorem of Line Integrals.</p>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\({∫}_{C}(y\text{i}+x\text{j})·d\text{r},\) where <strong>C</strong> is any path from (0, 0) to (2, 4)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\({∫}_{C}(2ydx+2xdy),\) where <strong>C</strong> is the line segment from (0, 0) to (4, 4)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{C}(2ydx+2xdy)=32\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p><strong>[T]</strong> \({∫}_{C}[\text{arctan}\,\frac{y}{x}-\frac{xy}{{x}^{2}+{y}^{2}}]dx+[\frac{{x}^{2}}{{x}^{2}+{y}^{2}}+{e}^{\text{-}y}(1-y)]dy,\) where <strong>C</strong> is any smooth curve from (1, 1) to \((-1,2)\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>Find the conservative vector field for the potential function</p>
+<p>\[f(x,y)=5{x}^{2}+3xy+{10y}^{2}.\]</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{F}(x,y)=(10x+3y)\text{i}+(3x+20y)\text{j}\)</p>
+</div></div></div></div>
+<p>For the following exercises, determine whether the vector field is conservative and, if so, find a potential function.</p>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\text{F}(x,y)=(12xy)\text{i}+6({x}^{2}+{y}^{2})\text{j}\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\text{F}(x,y)=({e}^{x}\text{cos}\,y)\text{i}+6({e}^{x}\text{sin}\,y)\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>F</strong> is not conservative.</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\text{F}(x,y)=(2xy{e}^{{x}^{2}y})\text{i}+({x}^{2}{e}^{{x}^{2}y})\text{j}\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\text{F}(x,y\text{,}\,z)=(y{e}^{z})\text{i}+(x{e}^{z})\text{j}+(xy{e}^{z})\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>F</strong> is conservative and a potential function is \(f(x,y\text{,}\,z)=xy{e}^{z}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\text{F}(x,y\text{,}\,z)=(\text{sin}\,y)\text{i}-(x\,\text{cos}\,y)\text{j}+\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\text{F}(x,y\text{,}\,z)=(-\frac{1}{y})\text{i}+(\frac{x}{{y}^{2}})\text{j}+(2z-1)\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>F</strong> is conservative and a potential function is \(f(x,y,z)={z}^{2}-z-\frac{x}{y}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(\text{F}(x,y,z)=3{z}^{2}\text{i}-\text{cos}\,y\text{j}+2xz\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(\text{F}(x,y\text{,}\,z)=(2xy)\text{i}+({x}^{2}+2yz)\text{j}+{y}^{2}\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>F</strong> is conservative and a potential function is \(f(x,y\text{,}\,z)={x}^{2}y+{y}^{2}z.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\text{F}(x,y)=(4{e}^{x}\text{cos}\,y)\text{i}-(4{e}^{x}\text{sin}\,y)\text{j}\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\text{F}(x,y)=(y{e}^{{x}^{2}})\text{i}+({x}^{2}{e}^{{y}^{2}})\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>F</strong> is conservative and a potential function is \(f(x,y)={e}^{{x}^{2}y}\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the integral using the Fundamental Theorem of Line Integrals.</p>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Evaluate \({∫}_{C}\nabla f·d\text{r},\) where \(f(x,y\text{,}\,z)=\text{cos}(\pi x)+\text{sin}(\pi y)-xyz\) and <strong>C</strong> is any path that starts at \((1,\frac{1}{2},2)\) and ends at \((2,1,-1).\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p><strong>[T]</strong> Evaluate \({∫}_{C}\nabla f·d\text{r},\) where \(f(x,y)=xy+{e}^{x}\) and <strong>C</strong> is a straight line from \((0,0)\) to \((2,1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{C}\text{F}·dr={e}^{2}+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p><strong>[T]</strong> Evaluate \({∫}_{C}\nabla f·d\text{r},\) where \(f(x,y)={x}^{2}y-x\) and <strong>C</strong> is any path in a plane from (1, 2) to (3, 2).</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>Evaluate \({∫}_{C}\nabla f·d\text{r},\) where \(f(x,y\text{,}\,z)=xy{z}^{2}-yz\) and <strong>C</strong> has initial point (1, 2, 3) and terminal point (3, 5, 1).</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{C}\text{F}·dr=-2\)</p>
+</div></div></div></div>
+<p>For the following exercises, let \(\text{F}(x,y)=2x{y}^{2}\text{i}+(2y{x}^{2}+2y)\text{j}\) and \(G(x,y)=(y+x)\text{i}+(y-x)\text{j},\) and let <strong>C</strong><sub>1</sub> be the curve consisting of the circle of radius 2, centered at the origin and oriented counterclockwise, and <strong>C</strong><sub>2</sub> be the curve consisting of a line segment from (0, 0) to (1, 1) followed by a line segment from (1, 1) to (3, 1).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_202.jpg" alt="A vector fields in two dimensions is shown. It has short arrows close to the origin. Longer arrows are in the upper right corner of quadrant 1 and somewhat in the bottom right of quadrant 4, upper left of quadrant 2, and lower left of quadrant 3. The arrows all point away from the origin at about 90-degrees in their respective quadrants. A unit circle with center at the origin is drawn as C_1. Curve C_2 connects the origin, (1,1), and (3,1) with arrowheads pointing in that order." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_203.jpg" alt="A vector field has the same curves C_1 and C_2. However, the arrows are different. Here, the arrows spiral out from the origin in a clockwise manner. The further away they are from the origin, the longer they become. They are largely horizontal in quadrants 1 and 3 and largely vertical in quadrants 2 and 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Calculate the line integral of <strong>F</strong> over <strong>C</strong><sub>1</sub>.</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Calculate the line integral of <strong>G</strong> over <strong>C</strong><sub>1</sub>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{{C}_{1}}\text{G}·d\text{r}=-8\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Calculate the line integral of <strong>F</strong> over <strong>C</strong><sub>2</sub>.</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Calculate the line integral of <strong>G</strong> over <strong>C</strong><sub>2</sub>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{{C}_{2}}\text{G}·d\text{r}=7\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p><strong>[T]</strong> Let \(\text{F}(x,y,z)={x}^{2}\text{i}+z\,\text{sin}(yz)\text{j}+y\,\text{sin}(yz)\text{k}.\) Calculate \({∫}_{C}\text{F}·dr,\) where <strong>C</strong> is a path from \(A=(0,0,1)\) to \(B=(3,1,2).\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p><strong>[T]</strong> Find line integral \({∫}_{C}\text{F}·dr\) of vector field \(\text{F}(x,y,z)=3{x}^{2}z\text{i}+{z}^{2}\text{j}+({x}^{3}+2yz)\text{k}\) along curve <strong>C</strong> parameterized by \(r(t)=(\frac{\text{ln}\,t}{\text{ln}\,2})\text{i}+{t}^{3\text{/}2}\text{j}+t\,\text{cos}(\pi t)k\text{,}\,1\le t\le 4.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{C}\text{F}·d\text{r}=159\)</p>
+</div></div></div></div>
+<p>For the following exercises, show that the following vector fields are conservative by using a computer. Calculate \({∫}_{C}\text{F}·d\text{r}\) for the given curve.</p>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(\text{F}=(x{y}^{2}+3{x}^{2}y)\text{i}+(x+y){x}^{2}\text{j};\) <strong>C</strong> is the curve consisting of line segments from \((1,1)\) to \((0,2)\) to \((3,0).\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(\text{F}=\frac{2x}{{y}^{2}+1}\text{i}-\frac{2y({x}^{2}+1)}{{({y}^{2}+1)}^{2}}\text{j};\) <strong>C</strong> is parameterized by \(x={t}^{3}-1,y={t}^{6}-t,0\le t\le 1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{C}\text{F}·d\text{r}=-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p><strong>[T]</strong> \(\text{F}=[\text{cos}(x{y}^{2})-x{y}^{2}\text{sin}(x{y}^{2})]\text{i}-2{x}^{2}y\,\text{sin}(x{y}^{2})\text{j};\) <strong>C</strong> is curve \(r(t)=\left({e}^{t},{e}^{t+1}\right),-1\le t\le 0.\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>The mass of Earth is approximately \(6\,\times \,{10}^{27}\text{g}\) and that of the Sun is 330,000 times as much. The gravitational constant is \(6.7\,\times \,{10}^{-8}{\text{cm}}^{3}\text{/}({\text{s}}^{2}·\text{g}).\) The distance of Earth from the Sun is about \(1.5\,\times \,{10}^{12}\text{cm}.\) Compute, approximately, the work necessary to increase the distance of Earth from the Sun by \(1\,\text{cm}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4\,\times \,{10}^{29}\text{erg}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p><strong>[T]</strong> Let \(\text{F}=({e}^{x}\text{sin}\,y)\text{i}+({e}^{x}\text{cos}\,y)\text{j}+{z}^{2}\text{k}.\) Evaluate the integral \({∫}_{C}\text{F}·dr,\) where \(C\) is the curve \(r(t)=\left(\sqrt{t},{t}^{3},{e}^{\sqrt{t}}\right),0\le t\le 1.\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p><strong>[T]</strong> Let \(\text{r}:[1,2]\to {ℝ}^{2}\) be given by \(x={e}^{t-1},y=\text{sin}(\frac{\pi }{t}).\) Use a computer to compute the integral \({∫}_{C}\text{F}·d\text{r}={∫}_{C}2x\,\text{cos}\,ydx-{x}^{2}\text{sin}\,ydy,\) where \(\text{F}=(2x\,\text{cos}\,y)\text{i}-({x}^{2}\text{sin}\,y)\text{j}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({∫}_{C}\text{F}·d\text{r}\approx 2.9923\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p><strong>[T]</strong> Use a computer algebra system to find the mass of a wire that lies along curve \(\text{r}(t)=({t}^{2}-1)\text{j}+2t\text{k},0\le t\le 1,\) if the density is \(\frac{3}{2}t.\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Find the circulation and flux of field \(\text{F}=\text{-}y\text{i}+x\text{j}\) around and across the closed semicircular path that consists of semicircular arch \({\text{r}}_{1}(t)=(a\,\text{cos}\,t)\text{i}+(a\,\text{sin}\,t)\text{j},0\le t\le \pi ,\) followed by line segment \({\text{r}}_{2}(t)=t\text{i},\text{-}a\le t\le a.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_16_03_204.jpg" alt="A vector field in two dimensions. The arrows are shorter the closer they are to the origin. They surround the origin in a counterclockwise radial pattern. The outline of the circle has counterclockwise arrows. The upper half of a circle with radius 2 and center at the origin is drawn. (-2,0) and (2,0) are labeled as –a and a, respectively, and the curve is labeled r_1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{circulation}=\pi {a}^{2}\,\text{and flux}=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Compute \({∫}_{C}\text{cos}\,x\,\text{cos}\,ydx-\text{sin}\,x\,\text{sin}\,ydy,\) where \(\text{c}(t)=\left(t,{t}^{2}\right),0\le t\le 1.\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Complete the proof of (see original) by showing that \({f}_{y}=Q(x,y).\)</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>closed curve</dt><dd>a curve that begins and ends at the same point</dd><dt>connected region</dt><dd>a region in which any two points can be connected by a path with a trace contained entirely inside the region</dd><dt>Fundamental Theorem for Line Integrals</dt><dd>the value of line integral \({∫}_{C}\nabla f·d\text{r}\) depends only on the value of \(f\) at the endpoints of <strong>C</strong>: \({∫}_{C}\nabla f·d\text{r}=f(\text{r}(b))-f(\text{r}(a))\)</dd><dt>independence of path</dt><dd>a vector field <strong>F</strong> has path independence if \({∫}_{{C}_{1}}\text{F}·d\text{r}={∫}_{{C}_{2}}\text{F}·d\text{r}\) for any curves \({C}_{1}\) and \({C}_{2}\) in the domain of <strong>F</strong> with the same initial points and terminal points</dd><dt>simple curve</dt><dd>a curve that does not cross itself</dd><dt>simply connected region</dt><dd>a region that is connected and has the property that any closed curve that lies entirely inside the region encompasses points that are entirely inside the region</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

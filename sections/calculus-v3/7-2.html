@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nonhomogeneous Linear Equations · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Nonhomogeneous Linear Equations</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 7.2</span>Nonhomogeneous Linear Equations</h1>
+<p>In this section, we examine how to solve nonhomogeneous differential equations. The terminology and methods are different from those we used for homogeneous equations, so let’s start by defining some new terms.</p>
+<h2 id="general-solution-to-a-nonhomogeneous-linear-equation">General Solution to a Nonhomogeneous Linear Equation</h2>
+<p>Consider the nonhomogeneous linear differential equation</p>
+<p>\[{a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=r(x).\]</p>
+<p>The associated homogeneous equation</p>
+<p>\[{a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=0\]</p>
+<p>is called the <strong>complementary equation</strong>. We will see that solving the complementary equation is an important step in solving a nonhomogeneous differential equation.</p>
+<div class="card definition"><span class="chip">Definition</span><p>A solution \({y}_{p}(x)\) of a differential equation that contains no arbitrary constants is called a <strong>particular solution</strong> to the equation.</p>
+</div>
+<div class="card definition"><span class="chip">General Solution to a Nonhomogeneous Equation</span><p>Let \({y}_{p}(x)\) be any particular solution to the nonhomogeneous linear differential equation</p>
+<p>\[{a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=r(x).\]</p>
+<p>Also, let \({c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x)\) denote the general solution to the complementary equation. Then, the general solution to the nonhomogeneous equation is given by</p>
+<p>\[y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x)+{y}_{p}(x\text{).}\]</p>
+</div>
+<h3 id="proof">Proof</h3>
+<p>To prove \(y(x)\) is the general solution, we must first show that it solves the differential equation and, second, that any solution to the differential equation can be written in that form. Substituting \(y(x)\) into the differential equation, we have</p>
+<p>\[\begin{array}{ll}{a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y &amp; ={a}_{2}(x)({c}_{1}{y}_{1}+{c}_{2}{y}_{2}+{y}_{p})\prime\prime +{a}_{1}(x){({c}_{1}{y}_{1}+{c}_{2}{y}_{2}+{y}_{p})}^{\prime } \\ &amp; \,+{a}_{0}(x)({c}_{1}{y}_{1}+{c}_{2}{y}_{2}+{y}_{p}) \\ &amp; =[{a}_{2}(x)({c}_{1}{y}_{1}+{c}_{2}{y}_{2})\prime\prime +{a}_{1}(x){({c}_{1}{y}_{1}+{c}_{2}{y}_{2})}^{\prime }+{a}_{0}(x)({c}_{1}{y}_{1}+{c}_{2}{y}_{2})] \\ &amp; \,+{a}_{2}(x){y}_{p}\prime\prime +{a}_{1}(x){y}_{p}{}^{\prime }+{a}_{0}(x){y}_{p} \\ &amp; =0+r(x) \\ &amp; =r(x\text{).}\end{array}\]</p>
+<p>So \(y(x)\) is a solution.</p>
+<p>Now, let \(z(x)\) be any solution to \({a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=r(x).\) Then</p>
+<p>\[\begin{array}{ll}{a}_{2}(x)(z-{y}_{p})\prime\prime +{a}_{1}(x){(z-{y}_{p})}^{\prime }+{a}_{0}(x)(z-{y}_{p}) &amp; =({a}_{2}(x){z}^{\prime\prime }+{a}_{1}(x){z}^{\prime }+{a}_{0}(x)z) \\ &amp; \,-({a}_{2}(x){y}_{p}\prime\prime +{a}_{1}(x){y}_{p}{}^{\prime }+{a}_{0}(x){y}_{p}) \\ &amp; =r(x)-r(x) \\ &amp; =0,\end{array}\]</p>
+<p>so \(z(x)-{y}_{p}(x)\) is a solution to the complementary equation. But, \({c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x)\) is the general solution to the complementary equation, so there are constants \({c}_{1}\) and \({c}_{2}\) such that</p>
+<p>\[z(x)-{y}_{p}(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x\text{).}\]</p>
+<p>Hence, we see that \(z(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x)+{y}_{p}(x\text{).}\)</p>
+<p>□</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Given that \({y}_{p}(x)=x\) is a particular solution to the differential equation \({y}^{\prime\prime }+y=x,\) write the general solution and check by verifying that the solution satisfies the equation.</p>
+<p class="sol-hint">Solve the complementary equation \(y''+y=0\) first to get its general solution, then add the given particular solution \(y_p=x\) to it.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The complementary equation is \({y}^{\prime\prime }+y=0,\) which has the general solution \({c}_{1}\text{cos}\,x+{c}_{2}\text{sin}\,x\text{.}\) So, the general solution to the nonhomogeneous equation is</p>
+<p>\[y(x)={c}_{1}\text{cos}\,x+{c}_{2}\text{sin}\,x+x\text{.}\]</p>
+<p>To verify that this is a solution, substitute it into the differential equation. We have</p>
+<p>\[{y}^{\prime }(x)=\text{-}{c}_{1}\text{sin}\,x+{c}_{2}\text{cos}\,x+1\,\text{and}\,{y}^{\prime\prime }(x)=\text{-}{c}_{1}\text{cos}\,x-{c}_{2}\text{sin}\,x\text{.}\]</p>
+<p>Then</p>
+<p>\[\begin{array}{ll}{y}^{\prime\prime }(x)+y(x) &amp; =\text{-}{c}_{1}\text{cos}\,x-{c}_{2}\text{sin}\,x+{c}_{1}\text{cos}\,x+{c}_{2}\text{sin}\,x+x \\ &amp; =x\text{.}\end{array}\]</p>
+<p>So, \(y(x)\) is a solution to \({y}^{\prime\prime }+y=x\text{.}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Given that \({y}_{p}(x)=-2\) is a particular solution to \({y}^{\prime\prime }-3{y}^{\prime }-4y=8,\) write the general solution and verify that the general solution satisfies the equation.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y(x)={c}_{1}{e}^{\text{-}x}+{c}_{2}{e}^{4x}-2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>In the preceding section, we learned how to solve homogeneous equations with constant coefficients. Therefore, for nonhomogeneous equations of the form \(a{y}^{\prime\prime }+b{y}^{\prime }+cy=r(x),\) we already know how to solve the complementary equation, and the problem boils down to finding a particular solution for the nonhomogeneous equation. We now examine two techniques for this: the method of undetermined coefficients and the method of variation of parameters.</p>
+<h2 id="undetermined-coefficients">Undetermined Coefficients</h2>
+<p>The <strong>method of undetermined coefficients</strong> involves making educated guesses about the form of the particular solution based on the form of \(r(x\text{).}\) When we take derivatives of polynomials, exponential functions, sines, and cosines, we get polynomials, exponential functions, sines, and cosines. So when \(r(x)\) has one of these forms, it is possible that the solution to the nonhomogeneous differential equation might take that same form. Let’s look at some examples to see how this works.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find the general solution to \({y}^{\prime\prime }+4{y}^{\prime }+3y=3x\text{.}\)</p>
+<p class="sol-hint">Solve the complementary equation first, then since \(r(x)=3x\) is linear, guess a particular solution of the form \(y_p=Ax+B\) (keeping the constant term even though \(r(x)\) has none) and substitute it in to solve for A and B.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The complementary equation is \({y}^{\prime\prime }+4{y}^{\prime }+3y=0,\) with general solution \({c}_{1}{e}^{\text{-}x}+{c}_{2}{e}^{-3x}.\) Since \(r(x)=3x,\) the particular solution might have the form \({y}_{p}(x)=Ax+B\text{.}\) If this is the case, then we have \({y}_{p}{}^{\prime }(x)=A\) and \({y}_{p}\prime\prime (x)=0.\) For \({y}_{p}\) to be a solution to the differential equation, we must find values for \(A\) and \(B\) such that</p>
+<p>\[\begin{array}{lll}{y}^{\prime\prime }+4{y}^{\prime }+3y &amp; = &amp; 3x \\ 0+4(A)+3(Ax+B) &amp; = &amp; 3x \\ 3Ax+(4A+3B) &amp; = &amp; 3x\text{.}\end{array}\]</p>
+<p>Setting coefficients of like terms equal, we have</p>
+<p>\[\begin{array}{lll}3A &amp; = &amp; 3 \\ 4A+3B &amp; = &amp; 0.\end{array}\]</p>
+<p>Then, \(A=1\) and \(B=-\frac{4}{3},\) so \({y}_{p}(x)=x-\frac{4}{3}\) and the general solution is</p>
+<p>\[y(x)={c}_{1}{e}^{\text{-}x}+{c}_{2}{e}^{-3x}+x-\frac{4}{3}.\]</p>
+</div></div></div>
+<p>In <a href="#example2">Example 2</a>, notice that even though \(r(x)\) did not include a constant term, it was necessary for us to include the constant term in our guess. If we had assumed a solution of the form \({y}_{p}=Ax\) (with no constant term), we would not have been able to find a solution. (Verify this!) If the function \(r(x)\) is a polynomial, our guess for the particular solution should be a polynomial of the same degree, and it must include all lower-order terms, regardless of whether they are present in \(r(x\text{).}\)</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the general solution to \({y}^{\prime\prime }-{y}^{\prime }-2y=2{e}^{3x}.\)</p>
+<p class="sol-hint">Solve the complementary equation first, then since \(r(x)=2e^{3x}\) is exponential, guess a particular solution of the form \(y_p=Ae^{3x}\) and substitute it in to solve for A.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The complementary equation is \({y}^{\prime\prime }-{y}^{\prime }-2y=0,\) with the general solution \({c}_{1}{e}^{\text{-}x}+{c}_{2}{e}^{2x}.\) Since \(r(x)=2{e}^{3x},\) the particular solution might have the form \({y}_{p}(x)=A{e}^{3x}.\) Then, we have \({y}_{p}{}^{\prime }(x)=3A{e}^{3x}\) and \({y}_{p}\prime\prime (x)=9A{e}^{3x}.\) For \({y}_{p}\) to be a solution to the differential equation, we must find a value for \(A\) such that</p>
+<p>\[\begin{array}{lll}{y}^{\prime\prime }-{y}^{\prime }-2y &amp; = &amp; 2{e}^{3x} \\ 9A{e}^{3x}-3A{e}^{3x}-2A{e}^{3x} &amp; = &amp; 2{e}^{3x} \\ 4A{e}^{3x} &amp; = &amp; 2{e}^{3x}.\end{array}\]</p>
+<p>So, \(4A=2\) and \(A=1\text{/}2.\) Then, \({y}_{p}(x)=(\frac{1}{2}){e}^{3x},\) and the general solution is</p>
+<p>\[y(x)={c}_{1}{e}^{\text{-}x}+{c}_{2}{e}^{2x}+\frac{1}{2}{e}^{3x}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find the general solution to \({y}^{\prime\prime }-4{y}^{\prime }+4y=7\,\text{sin}\,t-\text{cos}\,t\text{.}\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y(t)={c}_{1}{e}^{2t}+{c}_{2}t{e}^{2t}+\text{sin}\,t+\text{cos}\,t\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>In the previous checkpoint, \(r(x)\) included both sine and cosine terms. However, even if \(r(x)\) included a sine term only or a cosine term only, both terms must be present in the guess. The method of undetermined coefficients also works with products of polynomials, exponentials, sines, and cosines. Some of the key forms of \(r(x)\) and the associated guesses for \({y}_{p}(x)\) are summarized in <a href="#tab1">Table 1</a>.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\(r(x)\)</td><td>Initial guess for \({y}_{p}(x)\)</td></tr><tr><td>\(k\) (a constant)</td><td>\(A\) (a constant)</td></tr><tr><td>\(ax+b\)</td><td>\(Ax+B\) (<strong>Note</strong>: The guess must include both terms even if \(b=0.\) )</td></tr><tr><td>\(a{x}^{2}+bx+c\)</td><td>\(A{x}^{2}+Bx+C\) (<strong>Note</strong>: The guess must include all three terms even if \(b\) or \(c\) are zero.)</td></tr><tr><td>Higher-order polynomials</td><td>Polynomial of the same order as \(r(x)\)</td></tr><tr><td>\(a{e}^{λx}\)</td><td>\(A{e}^{λx}\)</td></tr><tr><td>\(a\,\text{cos}\,βx+b\,\text{sin}\,βx\)</td><td>\(A\,\text{cos}\,βx+B\,\text{sin}\,βx\) (<strong>Note</strong>: The guess must include both terms even if either \(a=0\) or \(b=0.\) )</td></tr><tr><td>\(a{e}^{αx}\text{cos}\,βx+b{e}^{αx}\text{sin}\,βx\)</td><td>\(A{e}^{αx}\text{cos}\,βx+B{e}^{αx}\text{sin}\,βx\)</td></tr><tr><td>\((a{x}^{2}+bx+c){e}^{λx}\)</td><td>\((A{x}^{2}+Bx+C){e}^{λx}\)</td></tr><tr><td>\(\begin{array}{l}({a}_{2}{x}^{2}+{a}_{1}x+{a}_{0})\,\text{cos}\,βx \\ +({b}_{2}{x}^{2}+{b}_{1}x+{b}_{0})\,\text{sin}\,βx\end{array}\)</td><td>\(\begin{array}{l}({A}_{2}{x}^{2}+{A}_{1}x+{A}_{0})\,\text{cos}\,βx \\ +({B}_{2}{x}^{2}+{B}_{1}x+{B}_{0})\,\text{sin}\,βx\end{array}\)</td></tr><tr><td>\(\begin{array}{l}({a}_{2}{x}^{2}+{a}_{1}x+{a}_{0}){e}^{αx}\text{cos}\,βx \\ +({b}_{2}{x}^{2}+{b}_{1}x+{b}_{0}){e}^{αx}\text{sin}\,βx\end{array}\)</td><td>\(\begin{array}{l}({A}_{2}{x}^{2}+{A}_{1}x+{A}_{0}){e}^{αx}\text{cos}\,βx \\ +({B}_{2}{x}^{2}+{B}_{1}x+{B}_{0}){e}^{αx}\text{sin}\,βx\end{array}\)</td></tr></tbody></table></div>
+<p>Keep in mind that there is a key pitfall to this method. Consider the differential equation \({y}^{\prime\prime }+5{y}^{\prime }+6y=3{e}^{-2x}.\) Based on the form of \(r(x),\) we guess a particular solution of the form \({y}_{p}(x)=A{e}^{-2x}.\) But when we substitute this expression into the differential equation to find a value for \(A,\) we run into a problem. We have</p>
+<p>\[{y}_{p}{}^{\prime }(x)=-2A{e}^{-2x}\]</p>
+<p>and</p>
+<p>\[{y}_{p}\prime\prime =4A{e}^{-2x},\]</p>
+<p>so we want</p>
+<p>\[\begin{array}{lll}{y}^{\prime\prime }+5{y}^{\prime }+6y &amp; = &amp; 3{e}^{-2x} \\ 4A{e}^{-2x}+5(-2A{e}^{-2x})+6A{e}^{-2x} &amp; = &amp; 3{e}^{-2x} \\ 4A{e}^{-2x}-10A{e}^{-2x}+6A{e}^{-2x} &amp; = &amp; 3{e}^{-2x} \\ 0 &amp; = &amp; 3{e}^{-2x},\end{array}\]</p>
+<p>which is not possible.</p>
+<p>Looking closely, we see that, in this case, the general solution to the complementary equation is \({c}_{1}{e}^{-2x}+{c}_{2}{e}^{-3x}.\) The exponential function in \(r(x)\) is actually a solution to the complementary equation, so, as we just saw, all the terms on the left side of the equation cancel out. We can still use the method of undetermined coefficients in this case, but we have to alter our guess by multiplying it by \(x\text{.}\) Using the new guess, \({y}_{p}(x)=Ax{e}^{-2x},\) we have</p>
+<p>\[{y}_{p}{}^{\prime }(x)=A({e}^{-2x}-2x{e}^{-2x})\]</p>
+<p>and</p>
+<p>\[{y}_{p}\prime\prime (x)=-4A{e}^{-2x}+4Ax{e}^{-2x}.\]</p>
+<p>Substitution gives</p>
+<p>\[\begin{array}{lll}{y}^{\prime\prime }+5{y}^{\prime }+6y &amp; = &amp; 3{e}^{-2x} \\ (-4A{e}^{-2x}+4Ax{e}^{-2x})+5(A{e}^{-2x}-2Ax{e}^{-2x})+6Ax{e}^{-2x} &amp; = &amp; 3{e}^{-2x} \\ -4A{e}^{-2x}+4Ax{e}^{-2x}+5A{e}^{-2x}-10Ax{e}^{-2x}+6Ax{e}^{-2x} &amp; = &amp; 3{e}^{-2x} \\ A{e}^{-2x} &amp; = &amp; 3{e}^{-2x}.\end{array}\]</p>
+<p>So, \(A=3\) and \({y}_{p}(x)=3x{e}^{-2x}.\) This gives us the following general solution</p>
+<p>\[y(x)={c}_{1}{e}^{-2x}+{c}_{2}{e}^{-3x}+3x{e}^{-2x}.\]</p>
+<p>Note that if \(x{e}^{-2x}\) were also a solution to the complementary equation, we would have to multiply by \(x\) again, and we would try \({y}_{p}(x)=A{x}^{2}{e}^{-2x}.\)</p>
+<div class="card definition"><span class="chip">Method of Undetermined Coefficients</span><ul class="tight"><li>Solve the complementary equation and write down the general solution.</li><li>Based on the form of \(r(x),\) make an initial guess for \({y}_{p}(x\text{).}\)</li><li>Check whether any term in the guess for \({y}_{p}(x)\) is a solution to the complementary equation. If so, multiply the guess by \(x\text{.}\) Repeat this step until there are no terms in \({y}_{p}(x)\) that solve the complementary equation.</li><li>Substitute \({y}_{p}(x)\) into the differential equation and equate like terms to find values for the unknown coefficients in \({y}_{p}(x\text{).}\)</li><li>Add the general solution to the complementary equation and the particular solution you just found to obtain the general solution to the nonhomogeneous equation.</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the general solutions to the following differential equations.</p>
+<ul class="tight"><li>\({y}^{\prime\prime }-9y=-6\,\text{cos}\,3x\)</li><li>\({x}^{\prime\prime }+2{x}^{\prime }+x=4{e}^{\text{-}t}\)</li><li>\({y}^{\prime\prime }-2{y}^{\prime }+5y=10{x}^{2}-3x-3\)</li><li>\({y}^{\prime\prime }-3{y}^{\prime }=-12t\)</li></ul>
+<p class="sol-hint">For each equation, solve the complementary equation first, make an initial guess for \(y_p\) matching the form of \(r(x)\), then check whether any term of that guess already solves the complementary equation — if so, multiply the guess by x (or again by x) before substituting to solve for the coefficients.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>The complementary equation is \({y}^{\prime\prime }-9y=0,\) which has the general solution \({c}_{1}{e}^{3x}+{c}_{2}{e}^{-3x}\) (step 1). Based on the form of \(r(x)=-6\,\text{cos}\,3x,\) our initial guess for the particular solution is \({y}_{p}(x)=A\,\text{cos}\,3x+B\,\text{sin}\,3x\) (step 2). None of the terms in \({y}_{p}(x)\) solve the complementary equation, so this is a valid guess (step 3).<br> Now we want to find values for \(A\) and \(B,\) so substitute \({y}_{p}\) into the differential equation. We have<br> <br> so we want to find values of \(A\) and \(B\) such that<br> <br> Therefore,<br> <br> This gives \(A=\frac{1}{3}\) and \(B=0,\) so \({y}_{p}(x)=(\frac{1}{3})\,\text{cos}\,3x\) (step 4).<br> Putting everything together, we have the general solution<br><p>\[{y}_{p}{}^{\prime }(x)=-3A\,\text{sin}\,3x+3B\,\text{cos}\,3x\,\text{and}\,{y}_{p}\prime\prime (x)=-9A\,\text{cos}\,3x-9B\,\text{sin}\,3x,\]</p>
+<p>\[\begin{array}{lll}{y}^{\prime\prime }-9y &amp; = &amp; -6\,\text{cos}\,3x \\ -9A\,\text{cos}\,3x-9B\,\text{sin}\,3x-9(A\,\text{cos}\,3x+B\,\text{sin}\,3x) &amp; = &amp; -6\,\text{cos}\,3x \\ -18A\,\text{cos}\,3x-18B\,\text{sin}\,3x &amp; = &amp; -6\,\text{cos}\,3x\text{.}\end{array}\]</p>
+<p>\[\begin{array}{lll}-18A &amp; = &amp; -6 \\ -18B &amp; = &amp; 0.\end{array}\]</p>
+<p>\[y(x)={c}_{1}{e}^{3x}+{c}_{2}{e}^{-3x}+\frac{1}{3}\,\text{cos}\,3x\text{.}\]</p>
+</li><li>The complementary equation is \({x}^{\prime\prime }+2{x}^{\prime }+x=0,\) which has the general solution \({c}_{1}{e}^{\text{-}t}+{c}_{2}t{e}^{\text{-}t}\) (step 1). Based on the form \(r(t)=4{e}^{\text{-}t},\) our initial guess for the particular solution is \({x}_{p}(t)=A{e}^{\text{-}t}\) (step 2). However, we see that this guess solves the complementary equation, so we must multiply by \(t,\) which gives a new guess: \({x}_{p}(t)=At{e}^{\text{-}t}\) (step 3). Checking this new guess, we see that it, too, solves the complementary equation, so we must multiply by <strong>t</strong> again, which gives \({x}_{p}(t)=A{t}^{2}{e}^{\text{-}t}\) (step 3 again). Now, checking this guess, we see that \({x}_{p}(t)\) does not solve the complementary equation, so this is a valid guess (step 3 yet again).<br> We now want to find a value for \(A,\) so we substitute \({x}_{p}\) into the differential equation. We have<br> <br> and \({x}_{p}\prime\prime (t)=2A{e}^{\text{-}t}-2At{e}^{\text{-}t}-(2At{e}^{\text{-}t}-A{t}^{2}{e}^{\text{-}t})=2A{e}^{\text{-}t}-4At{e}^{\text{-}t}+A{t}^{2}{e}^{\text{-}t}.\) <br> Substituting into the differential equation, we want to find a value of \(A\) so that<br> <br> This gives \(A=2,\) so \({x}_{p}(t)=2{t}^{2}{e}^{\text{-}t}\) (step 4). Putting everything together, we have the general solution<br><p>\[\begin{array}{lll}{x}_{p}(t) &amp; = &amp; A{t}^{2}{e}^{\text{-}t},\,\text{so} \\ {x}_{p}{}^{\prime }(t) &amp; = &amp; 2At{e}^{\text{-}t}-A{t}^{2}{e}^{\text{-}t}\end{array}\]</p>
+<p>\[\begin{array}{lll}{x}^{\prime\prime }+2{x}^{\prime }+x &amp; = &amp; 4{e}^{\text{-}t} \\ 2A{e}^{\text{-}t}-4At{e}^{\text{-}t}+A{t}^{2}{e}^{\text{-}t}+2(2At{e}^{\text{-}t}-A{t}^{2}{e}^{\text{-}t})+A{t}^{2}{e}^{\text{-}t} &amp; = &amp; 4{e}^{\text{-}t} \\ 2A{e}^{\text{-}t} &amp; = &amp; 4{e}^{\text{-}t}.\end{array}\]</p>
+<p>\[x(t)={c}_{1}{e}^{\text{-}t}+{c}_{2}t{e}^{\text{-}t}+2{t}^{2}{e}^{\text{-}t}.\]</p>
+</li><li>The complementary equation is \({y}^{\prime\prime }-2{y}^{\prime }+5y=0,\) which has the general solution \({c}_{1}{e}^{x}\text{cos}\,2x+{c}_{2}{e}^{x}\text{sin}\,2x\) (step 1). Based on the form \(r(x)=10{x}^{2}-3x-3,\) our initial guess for the particular solution is \({y}_{p}(x)=A{x}^{2}+Bx+C\) (step 2). None of the terms in \({y}_{p}(x)\) solve the complementary equation, so this is a valid guess (step 3). We now want to find values for \(A,\) \(B,\) and \(C,\) so we substitute \({y}_{p}\) into the differential equation. We have \({y}_{p}{}^{\prime }(x)=2Ax+B\) and \({y}_{p}\prime\prime (x)=2A,\) so we want to find values of \(A,\) \(B,\) and \(C\) such that<br> <br> Therefore,<br> <br> This gives \(A=2,\) \(B=1,\) and \(C=-1,\) so \({y}_{p}(x)=2{x}^{2}+x-1\) (step 4). Putting everything together, we have the general solution<br><p>\[\begin{array}{lll}{y}^{\prime\prime }-2{y}^{\prime }+5y &amp; = &amp; 10{x}^{2}-3x-3 \\ 2A-2(2Ax+B)+5(A{x}^{2}+Bx+C) &amp; = &amp; 10{x}^{2}-3x-3 \\ 5A{x}^{2}+(5B-4A)x+(5C-2B+2A) &amp; = &amp; 10{x}^{2}-3x-3.\end{array}\]</p>
+<p>\[\begin{array}{lll}5A &amp; = &amp; 10 \\ 5B-4A &amp; = &amp; -3 \\ 5C-2B+2A &amp; = &amp; -3.\end{array}\]</p>
+<p>\[y(x)={c}_{1}{e}^{x}\text{cos}\,2x+{c}_{2}{e}^{x}\text{sin}\,2x+2{x}^{2}+x-1.\]</p>
+</li><li>The complementary equation is \({y}^{\prime\prime }-3{y}^{\prime }=0,\) which has the general solution \({c}_{1}{e}^{3t}+{c}_{2}\) (step 1). Based on the form \(r(t)=-12t,\) our initial guess for the particular solution is \({y}_{p}(t)=At+B\) (step 2). However, we see that the constant term in this guess solves the complementary equation, so we must multiply by \(t,\) which gives a new guess: \({y}_{p}(t)=A{t}^{2}+Bt\) (step 3). Checking this new guess, we see that none of the terms in \({y}_{p}(t)\) solve the complementary equation, so this is a valid guess (step 3 again). We now want to find values for \(A\) and \(B,\) so we substitute \({y}_{p}\) into the differential equation. We have \({y}_{p}{}^{\prime }(t)=2At+B\) and \({y}_{p}\prime\prime (t)=2A,\) so we want to find values of \(A\) and \(B\) such that<br> <br> Therefore,<br> <br> This gives \(A=2\) and \(B=4\text{/}3,\) so \({y}_{p}(t)=2{t}^{2}+(4\text{/}3)t\) (step 4). Putting everything together, we have the general solution<br><p>\[\begin{array}{lll}{y}^{\prime\prime }-3{y}^{\prime } &amp; = &amp; -12t \\ 2A-3(2At+B) &amp; = &amp; -12t \\ -6At+(2A-3B) &amp; = &amp; -12t\text{.}\end{array}\]</p>
+<p>\[\begin{array}{lll}-6A &amp; = &amp; -12 \\ 2A-3B &amp; = &amp; 0.\end{array}\]</p>
+<p>\[y(t)={c}_{1}{e}^{3t}+{c}_{2}+2{t}^{2}+\frac{4}{3}t\text{.}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the general solution to the following differential equations.</p>
+<ul class="tight"><li>\({y}^{\prime\prime }-5{y}^{\prime }+4y=3{e}^{x}\)</li><li>\({y}^{\prime\prime }+{y}^{\prime }-6y=52\,\text{cos}\,2t\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>\(y(x)={c}_{1}{e}^{4x}+{c}_{2}{e}^{x}-x{e}^{x}\)</li><li>\(y(t)={c}_{1}{e}^{-3t}+{c}_{2}{e}^{2t}-5\,\text{cos}\,2t+\text{sin}\,2t\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="variation-of-parameters">Variation of Parameters</h2>
+<p>Sometimes, \(r(x)\) is not a combination of polynomials, exponentials, or sines and cosines. When this is the case, the method of undetermined coefficients does not work, and we have to use another approach to find a particular solution to the differential equation. We use an approach called the <strong>method of variation of parameters</strong>.</p>
+<p>To simplify our calculations a little, we are going to divide the differential equation through by \(a,\) so we have a leading coefficient of 1. Then the differential equation has the form</p>
+<p>\[{y}^{\prime\prime }+p{y}^{\prime }+qy=r(x),\]</p>
+<p>where \(p\) and \(q\) are constants.</p>
+<p>If the general solution to the complementary equation is given by \({c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x),\) we are going to look for a particular solution of the form \({y}_{p}(x)=u(x){y}_{1}(x)+v(x){y}_{2}(x\text{).}\) In this case, we use the two linearly independent solutions to the complementary equation to form our particular solution. However, we are assuming the coefficients are functions of <strong>x</strong>, rather than constants. We want to find functions \(u(x)\) and \(v(x)\) such that \({y}_{p}(x)\) satisfies the differential equation. We have</p>
+<p>\[\begin{array}{lll}{y}_{p} &amp; = &amp; u{y}_{1}+v{y}_{2} \\ {y}_{p}{}^{\prime } &amp; = &amp; {u}^{\prime }{y}_{1}+u{y}_{1}{}^{\prime }+{v}^{\prime }{y}_{2}+v{y}_{2}{}^{\prime } \\ {y}_{p}\prime\prime &amp; = &amp; {({u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2})}^{\prime }+{u}^{\prime }{y}_{1}{}^{\prime }+u{y}_{1}\prime\prime +{v}^{\prime }{y}_{2}{}^{\prime }+v{y}_{2}\prime\prime \text{.}\end{array}\]</p>
+<p>Substituting into the differential equation, we obtain</p>
+<p>\[\begin{array}{ll}{y}_{p}\prime\prime +p{y}_{p}{}^{\prime }+q{y}_{p} &amp; =[{({u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2})}^{\prime }+{u}^{\prime }{y}_{1}{}^{\prime }+u{y}_{1}\prime\prime +{v}^{\prime }{y}_{2}{}^{\prime }+v{y}_{2}\prime\prime ] \\ &amp; \,+p[{u}^{\prime }{y}_{1}+u{y}_{1}{}^{\prime }+{v}^{\prime }{y}_{2}+v{y}_{2}{}^{\prime }]+q[u{y}_{1}+v{y}_{2}] \\ &amp; =u[{y}_{1}\prime\prime +p{y}_{1}{}^{\prime }+q{y}_{1}]+v[{y}_{2}\prime\prime +p{y}_{2}{}^{\prime }+q{y}_{2}] \\ &amp; \,+{({u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2})}^{\prime }+p({u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2})+({u}^{\prime }{y}_{1}{}^{\prime }+{v}^{\prime }{y}_{2}{}^{\prime }).\end{array}\]</p>
+<p>Note that \({y}_{1}\) and \({y}_{2}\) are solutions to the complementary equation, so the first two terms are zero. Thus, we have</p>
+<p>\[{({u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2})}^{\prime }+p({u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2})+({u}^{\prime }{y}_{1}{}^{\prime }+{v}^{\prime }{y}_{2}{}^{\prime })=r(x\text{).}\]</p>
+<p>If we simplify this equation by imposing the additional condition \({u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2}=0,\) the first two terms are zero, and this reduces to \({u}^{\prime }{y}_{1}{}^{\prime }+{v}^{\prime }{y}_{2}{}^{\prime }=r(x\text{).}\) So, with this additional condition, we have a system of two equations in two unknowns:</p>
+<p>\[\begin{array}{lll}{u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2} &amp; = &amp; 0 \\ {u}^{\prime }{y}_{1}{}^{\prime }+{v}^{\prime }{y}_{2}{}^{\prime } &amp; = &amp; r(x\text{).}\end{array}\]</p>
+<p>Solving this system gives us \({u}^{\prime }\) and \({v}^{\prime },\) which we can integrate to find <strong>u</strong> and <strong>v</strong>.</p>
+<p>Then, \({y}_{p}(x)=u(x){y}_{1}(x)+v(x){y}_{2}(x)\) is a particular solution to the differential equation. Solving this system of equations is sometimes challenging, so let’s take this opportunity to review Cramer’s rule, which allows us to solve the system of equations using determinants.</p>
+<div class="card definition"><span class="chip">Rule: Cramer’s Rule</span><p>The system of equations</p>
+<p>\[\begin{array}{lll}{a}_{1}{z}_{1}+{b}_{1}{z}_{2} &amp; = &amp; {r}_{1} \\ {a}_{2}{z}_{1}+{b}_{2}{z}_{2} &amp; = &amp; {r}_{2}\end{array}\]</p>
+<p>has a unique solution if and only if the determinant of the coefficients is not zero. In this case, the solution is given by</p>
+<p>\[{z}_{1}=\frac{|\begin{array}{ll}{r}_{1} &amp; {b}_{1} \\ {r}_{2} &amp; {b}_{2}\end{array}|}{|\begin{array}{ll}{a}_{1} &amp; {b}_{1} \\ {a}_{2} &amp; {b}_{2}\end{array}|}\,\text{and}\,{z}_{2}=\frac{|\begin{array}{ll}{a}_{1} &amp; {r}_{1} \\ {a}_{2} &amp; {r}_{2}\end{array}|}{|\begin{array}{ll}{a}_{1} &amp; {b}_{1} \\ {a}_{2} &amp; {b}_{2}\end{array}|}.\]</p>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Use Cramer’s rule to solve the following system of equations.</p>
+<p>\[\begin{array}{lll}{x}^{2}{z}_{1}+2x{z}_{2} &amp; = &amp; 0 \\ {z}_{1}-3{x}^{2}{z}_{2} &amp; = &amp; 2x\end{array}\]</p>
+<p class="sol-hint">Identify \(a_1,a_2,b_1,b_2,r_1,r_2\) from the system, then apply Cramer's rule to compute \(z_1\) and \(z_2\) as ratios of determinants.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have</p>
+<p>\[\begin{array}{lll} \\ \\ {a}_{1}(x) &amp; = &amp; {x}^{2} \\ {a}_{2}(x) &amp; = &amp; 1 \\ {b}_{1}(x) &amp; = &amp; 2x \\ {b}_{2}(x) &amp; = &amp; -3{x}^{2} \\ {r}_{1}(x) &amp; = &amp; 0 \\ {r}_{2}(x) &amp; = &amp; 2x\text{.}\end{array}\]</p>
+<p>Then,</p>
+<p>\[|\begin{array}{ll}{a}_{1} &amp; {b}_{1} \\ {a}_{2} &amp; {b}_{2}\end{array}|=|\begin{array}{ll}{x}^{2} &amp; \,2x \\ 1 &amp; -3{x}^{2}\end{array}|=-3{x}^{4}-2x\]</p>
+<p>and</p>
+<p>\[|\begin{array}{ll}{r}_{1} &amp; {b}_{1} \\ {r}_{2} &amp; {b}_{2}\end{array}|=|\begin{array}{ll}0 &amp; \,2x \\ 2x &amp; -3{x}^{2}\end{array}|=0-4{x}^{2}=-4{x}^{2}.\]</p>
+<p>Thus,</p>
+<p>\[{z}_{1}=\frac{|\begin{array}{ll}{r}_{1} &amp; {b}_{1} \\ {r}_{2} &amp; {b}_{2}\end{array}|}{|\begin{array}{ll}{a}_{1} &amp; {b}_{1} \\ {a}_{2} &amp; {b}_{2}\end{array}|}=\frac{-4{x}^{2}}{-3{x}^{4}-2x}=\frac{4x}{3{x}^{3}+2}.\]</p>
+<p>In addition,</p>
+<p>\[|\begin{array}{ll}{a}_{1} &amp; {r}_{1} \\ {a}_{2} &amp; {r}_{2}\end{array}|=|\begin{array}{ll}{x}^{2} &amp; 0 \\ 1 &amp; 2x\end{array}|=2{x}^{3}-0=2{x}^{3}.\]</p>
+<p>Thus,</p>
+<p>\[{z}_{2}=\frac{|\begin{array}{ll}{a}_{1} &amp; {r}_{1} \\ {a}_{2} &amp; {r}_{2}\end{array}|}{|\begin{array}{ll}{a}_{1} &amp; {b}_{1} \\ {a}_{2} &amp; {b}_{2}\end{array}|}=\frac{2{x}^{3}}{-3{x}^{4}-2x}=\frac{-2{x}^{2}}{3{x}^{3}+2}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Use Cramer’s rule to solve the following system of equations.</p>
+<p>\[\begin{array}{lll}2x{z}_{1}-3{z}_{2} &amp; = &amp; 0 \\ {x}^{2}{z}_{1}+4x{z}_{2} &amp; = &amp; x+1\end{array}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({z}_{1}=\frac{3x+3}{11{x}^{2}},\) \({z}_{2}=\frac{2x+2}{11x}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card definition"><span class="chip">Method of Variation of Parameters</span><ul class="tight"><li>Solve the complementary equation and write down the general solution<br><p>\[{c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x\text{).}\]</p>
+</li><li>Use Cramer’s rule or another suitable technique to find functions \({u}^{\prime }(x)\) and \({v}^{\prime }(x)\) satisfying<br><p>\[\begin{array}{lll}{u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2} &amp; = &amp; 0 \\ {u}^{\prime }{y}_{1}{}^{\prime }+{v}^{\prime }{y}_{2}{}^{\prime } &amp; = &amp; r(x\text{).}\end{array}\]</p>
+</li><li>Integrate \({u}^{\prime }\) and \({v}^{\prime }\) to find \(u(x)\) and \(v(x\text{).}\) Then, \({y}_{p}(x)=u(x){y}_{1}(x)+v(x){y}_{2}(x)\) is a particular solution to the equation.</li><li>Add the general solution to the complementary equation and the particular solution found in step 3 to obtain the general solution to the nonhomogeneous equation.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find the general solution to the following differential equations.</p>
+<ul class="tight"><li>\({y}^{\prime\prime }-2{y}^{\prime }+y=\frac{{e}^{t}}{{t}^{2}}\)</li><li>\({y}^{\prime\prime }+y=3\,{\text{sin}}^{2}x\)</li></ul>
+<p class="sol-hint">Solve the complementary equation to identify \(y_1\) and \(y_2\), then set up the variation-of-parameters system \(u'y_1+v'y_2=0,\ u'y_1'+v'y_2'=r(x)\) and solve it (e.g. with Cramer's rule) before integrating to find u and v.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>The complementary equation is \({y}^{\prime\prime }-2{y}^{\prime }+y=0\) with associated general solution \({c}_{1}{e}^{t}+{c}_{2}t{e}^{t}.\) Therefore, \({y}_{1}(t)={e}^{t}\) and \({y}_{2}(t)=t{e}^{t}.\) Calculating the derivatives, we get \({y}_{1}{}^{\prime }(t)={e}^{t}\) and \({y}_{2}{}^{\prime }(t)={e}^{t}+t{e}^{t}\) (step 1). Then, we want to find functions \({u}^{\prime }(t)\) and \({v}^{\prime }(t)\) so that<br> <br> Applying Cramer’s rule, we have<br> <br> and<br> <br> Integrating, we get<br> <br> Then we have<br> <br> The \({e}^{t}\) term is a solution to the complementary equation, so we don’t need to carry that term into our general solution explicitly. The general solution is<br><p>\[\begin{array}{lll}{u}^{\prime }{e}^{t}+{v}^{\prime }t{e}^{t} &amp; = &amp; 0 \\ {u}^{\prime }{e}^{t}+{v}^{\prime }({e}^{t}+t{e}^{t}) &amp; = &amp; \frac{{e}^{t}}{{t}^{2}}.\end{array}\]</p>
+<p>\[{u}^{\prime }=\frac{|\begin{array}{ll}0 &amp; t{e}^{t} \\ \frac{{e}^{t}}{{t}^{2}} &amp; {e}^{t}+t{e}^{t}\end{array}|}{|\begin{array}{ll}{e}^{t} &amp; t{e}^{t} \\ {e}^{t} &amp; {e}^{t}+t{e}^{t}\end{array}|}=\frac{0-t{e}^{t}(\frac{{e}^{t}}{{t}^{2}})}{{e}^{t}({e}^{t}+t{e}^{t})-{e}^{t}t{e}^{t}}=\frac{-\frac{{e}^{2t}}{t}}{{e}^{2t}}=-\frac{1}{t}\]</p>
+<p>\[{v}^{\prime }=\frac{|\begin{array}{ll}{e}^{t} &amp; 0 \\ {e}^{t} &amp; \frac{{e}^{t}}{{t}^{2}}\end{array}|}{|\begin{array}{ll}{e}^{t} &amp; t{e}^{t} \\ {e}^{t} &amp; {e}^{t}+t{e}^{t}\end{array}|}=\frac{{e}^{t}(\frac{{e}^{t}}{{t}^{2}})}{{e}^{2t}}=\frac{1}{{t}^{2}}\,\text{(step 2).}\]</p>
+<p>\[\begin{array}{l} \\ \\ u=\text{-}∫\frac{1}{t}dt=\text{-}\text{ln}|t| \\ v=∫\frac{1}{{t}^{2}}dt=-\frac{1}{t}\,\text{(step 3).}\end{array}\]</p>
+<p>\[\begin{array}{ll}{y}_{p} &amp; =\text{-}{e}^{t}\text{ln}|t|-\frac{1}{t}t{e}^{t} \\ &amp; =\text{-}{e}^{t}\text{ln}|t|-{e}^{t}\,\text{(step 4).}\end{array}\]</p>
+<p>\[y(t)={c}_{1}{e}^{t}+{c}_{2}t{e}^{t}-{e}^{t}\text{ln}|t|\,\text{(step 5).}\]</p>
+</li><li>The complementary equation is \({y}^{\prime\prime }+y=0\) with associated general solution \({c}_{1}\text{cos}\,x+{c}_{2}\text{sin}\,x\text{.}\) So, \({y}_{1}(x)=\text{cos}\,x\) and \({y}_{2}(x)=\text{sin}\,x\) (step 1). Then, we want to find functions \({u}^{\prime }(x)\) and \({v}^{\prime }(x)\) such that<br> <br> Applying Cramer’s rule, we have<br> <br> and<br> <br> Integrating first to find <strong>u</strong>, we get<br> <br> Now, we integrate to find <strong>v</strong>. Using substitution (with \(w=\text{sin}\,x\) ), we get<br> <br> Then,<br> <br> The general solution is<br><p>\[\begin{array}{lll}{u}^{\prime }\text{cos}\,x+{v}^{\prime }\text{sin}\,x &amp; = &amp; 0 \\ \text{-}{u}^{\prime }\text{sin}\,x+{v}^{\prime }\text{cos}\,x &amp; = &amp; 3\,{\text{sin}}^{2}x\text{.}\end{array}\]</p>
+<p>\[{u}^{\prime }=\frac{|\begin{array}{ll}0 &amp; \text{sin}\,x \\ 3\,{\text{sin}}^{2}x &amp; \text{cos}\,x\end{array}|}{|\begin{array}{ll}\text{cos}\,x &amp; \text{sin}\,x \\ \text{-}\text{sin}\,x &amp; \text{cos}\,x\end{array}|}=\frac{0-3\,{\text{sin}}^{3}x}{{\text{cos}}^{2}x+{\text{sin}}^{2}x}=-3\,{\text{sin}}^{3}x\]</p>
+<p>\[{v}^{\prime }=\frac{|\begin{array}{ll}\text{cos}\,x &amp; 0 \\ \text{-}\text{sin}\,x &amp; 3\,{\text{sin}}^{2}x\end{array}|}{|\begin{array}{ll}\text{cos}\,x &amp; \text{sin}\,x \\ \text{-}\text{sin}\,x &amp; \text{cos}\,x\end{array}|}=\frac{3\,{\text{sin}}^{2}x\,\text{cos}\,x}{1}=3\,{\text{sin}}^{2}x\,\text{cos}\,x\,\text{(step 2).}\]</p>
+<p>\[u=∫-3\,{\text{sin}}^{3}xdx=-3[\text{-}\frac{1}{3}{\text{sin}}^{2}x\,\text{cos}\,x+\frac{2}{3}∫\text{sin}\,xdx]={\text{sin}}^{2}x\,\text{cos}\,x+2\,\text{cos}\,x\text{.}\]</p>
+<p>\[v=∫3\,{\text{sin}}^{2}x\,\text{cos}\,xdx=∫3{w}^{2}dw={w}^{3}={\text{sin}}^{3}x\text{.}\]</p>
+<p>\[\begin{array}{ll}{y}_{p} &amp; =({\text{sin}}^{2}x\,\text{cos}\,x+2\,\text{cos}\,x)\,\text{cos}\,x+({\text{sin}}^{3}x)\,\text{sin}\,x \\ &amp; ={\text{sin}}^{2}x\,{\text{cos}}^{2}x+2\,{\text{cos}}^{2}x+{\text{sin}}^{4}x \\ &amp; =2\,{\text{cos}}^{2}x+{\text{sin}}^{2}x({\text{cos}}^{2}x+{\text{sin}}^{2}x)\,\text{(step 3).} \\ &amp; =2\,{\text{cos}}^{2}x+{\text{sin}}^{2}x \\ &amp; ={\text{cos}}^{2}x+1\end{array}\]</p>
+<p>\[y(x)={c}_{1}\text{cos}\,x+{c}_{2}\text{sin}\,x+1+{\text{cos}}^{2}x\,\text{(step 4).}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Find the general solution to the following differential equations.</p>
+<ul class="tight"><li>\({y}^{\prime\prime }+y=\text{sec}\,x\)</li><li>\({x}^{\prime\prime }-2{x}^{\prime }+x=\frac{{e}^{t}}{t}\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>\(y(x)={c}_{1}\text{cos}\,x+{c}_{2}\text{sin}\,x+\text{cos}\,x\,\text{ln}|\text{cos}\,x|+x\,\text{sin}\,x\)</li><li>\(x(t)={c}_{1}{e}^{t}+{c}_{2}t{e}^{t}+t{e}^{t}\text{ln}|t|\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>To solve a nonhomogeneous linear second-order differential equation, first find the general solution to the complementary equation, then find a particular solution to the nonhomogeneous equation. (See <a href="#example1">Example 1</a>.)</li><li>Let \({y}_{p}(x)\) be any particular solution to the nonhomogeneous linear differential equation<br> <br> and let \({c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x)\) denote the general solution to the complementary equation. Then, the general solution to the nonhomogeneous equation is given by<br><p>\[{a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=r(x),\]</p>
+<p>\[y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x)+{y}_{p}(x\text{).}\]</p>
+</li><li>When \(r(x)\) is a combination of polynomials, exponential functions, sines, and cosines, use the method of undetermined coefficients to find the particular solution. To use this method, assume a solution in the same form as \(r(x),\) multiplying by <strong>x</strong> as necessary until the assumed solution is linearly independent of the general solution to the complementary equation. Then, substitute the assumed solution into the differential equation to find values for the coefficients. (See <a href="#example2">Example 2</a> and <a href="#example4">Example 4</a>.)</li><li>When \(r(x)\) is <strong>not</strong> a combination of polynomials, exponential functions, or sines and cosines, use the method of variation of parameters to find the particular solution. This method involves using Cramer’s rule or another suitable technique to find functions \({u}^{\prime }(x)\) and \({v}^{\prime }(x)\) satisfying<br> <br> Then, \({y}_{p}(x)=u(x){y}_{1}(x)+v(x){y}_{2}(x)\) is a particular solution to the differential equation. (See <a href="#example6">Example 6</a>.)<p>\[\begin{array}{lll}{u}^{\prime }{y}_{1}+{v}^{\prime }{y}_{2} &amp; = &amp; 0 \\ {u}^{\prime }{y}_{1}{}^{\prime }+{v}^{\prime }{y}_{2}{}^{\prime } &amp; = &amp; r(x\text{).}\end{array}\]</p>
+</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>Complementary equation</strong></td><td>\({a}_{2}(x){y}^{\prime\prime }+{a}_{1}(x){y}^{\prime }+{a}_{0}(x)y=0\)</td></tr><tr><td><strong>General solution to a nonhomogeneous linear differential equation</strong></td><td>\(y(x)={c}_{1}{y}_{1}(x)+{c}_{2}{y}_{2}(x)+{y}_{p}(x)\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>Solve the following equations using the method of undetermined coefficients.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(2{y}^{\prime\prime }-5{y}^{\prime }-12y=6\)</p>
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(3{y}^{\prime\prime }+{y}^{\prime }-4y=8\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}{e}^{-4x\text{/}3}+{c}_{2}{e}^{x}-2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\({y}^{\prime\prime }-6{y}^{\prime }+5y={e}^{\text{-}x}\)</p>
+</div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\({y}^{\prime\prime }+16y={e}^{-2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}\text{cos}\,4x+{c}_{2}\text{sin}\,4x+\frac{1}{20}{e}^{-2x}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\({y}^{\prime\prime }-4y={x}^{2}+1\)</p>
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\({y}^{\prime\prime }-4{y}^{\prime }+4y=8{x}^{2}+4x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}{e}^{2x}+{c}_{2}x{e}^{2x}+2{x}^{2}+5x+4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\({y}^{\prime\prime }-2{y}^{\prime }-3y=\text{sin}\,2x\)</p>
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\({y}^{\prime\prime }+2{y}^{\prime }+y=\text{sin}\,x+\text{cos}\,x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}{e}^{\text{-}x}+{c}_{2}x{e}^{\text{-}x}+\frac{1}{2}\,\text{sin}\,x-\frac{1}{2}\,\text{cos}\,x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\({y}^{\prime\prime }+9y={e}^{x}\text{cos}\,x\)</p>
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\({y}^{\prime\prime }+y=3\,\text{sin}\,2x+x\,\text{cos}\,2x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}\text{cos}\,x+{c}_{2}\text{sin}\,x-\frac{1}{3}x\,\text{cos}\,2x-\frac{5}{9}\,\text{sin}\,2x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\({y}^{\prime\prime }+3{y}^{\prime }-28y=10{e}^{4x}\)</p>
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\({y}^{\prime\prime }+10{y}^{\prime }+25y=x{e}^{-5x}+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}{e}^{-5x}+{c}_{2}x{e}^{-5x}+\frac{1}{6}{x}^{3}{e}^{-5x}+\frac{4}{25}\)</p>
+</div></div></div></div>
+<p>In each of the following problems,</p>
+<ul class="tight"><li>Write the form for the particular solution \({y}_{p}(x)\) for the method of undetermined coefficients.</li><li><strong>[T]</strong> Use a computer algebra system to find a particular solution to the given equation.</li></ul>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\({y}^{\prime\prime }-{y}^{\prime }-y=x+{e}^{\text{-}x}\)</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\({y}^{\prime\prime }-3y={x}^{2}-4x+11\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({y}_{p}(x)=A{x}^{2}+Bx+C\) <br>b. \({y}_{p}(x)=-\frac{1}{3}{x}^{2}+\frac{4}{3}x-\frac{35}{9}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\({y}^{\prime\prime }-{y}^{\prime }-4y={e}^{x}\text{cos}\,3x\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(2{y}^{\prime\prime }-{y}^{\prime }+y=({x}^{2}-5x){e}^{\text{-}x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({y}_{p}(x)=(A{x}^{2}+Bx+C){e}^{\text{-}x}\) <br>b. \({y}_{p}(x)=(\frac{1}{4}{x}^{2}-\frac{5}{8}x-\frac{33}{32}){e}^{\text{-}x}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(4{y}^{\prime\prime }+5{y}^{\prime }-2y={e}^{2x}+x\,\text{sin}\,x\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\({y}^{\prime\prime }-{y}^{\prime }-2y={x}^{2}{e}^{x}\text{sin}\,x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({y}_{p}(x)=(A{x}^{2}+Bx+C){e}^{x}\text{cos}\,x\) \(+(D{x}^{2}+Ex+F){e}^{x}\text{sin}\,x\) <br>b. \({y}_{p}(x)=(-\frac{1}{10}{x}^{2}-\frac{11}{25}x-\frac{27}{250}){e}^{x}\text{cos}\,x\) \(+(-\frac{3}{10}{x}^{2}+\frac{2}{25}x+\frac{39}{250}){e}^{x}\text{sin}\,x\)</p>
+</div></div></div></div>
+<p>Solve the differential equation using either the method of undetermined coefficients or the variation of parameters.</p>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\({y}^{\prime\prime }+3{y}^{\prime }-4y=2{e}^{x}\)</p>
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\({y}^{\prime\prime }+2{y}^{\prime }={e}^{3x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}+{c}_{2}{e}^{-2x}+\frac{1}{15}{e}^{3x}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\({y}^{\prime\prime }+6{y}^{\prime }+9y={e}^{\text{-}x}\)</p>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\({y}^{\prime\prime }+2{y}^{\prime }-8y=6{e}^{2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}{e}^{2x}+{c}_{2}{e}^{-4x}+x{e}^{2x}\)</p>
+</div></div></div></div>
+<p>Solve the differential equation using the method of variation of parameters.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(4{y}^{\prime\prime }+y=2\,\text{sin}\,x\)</p>
+</div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({y}^{\prime\prime }-9y=8x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}{e}^{3x}+{c}_{2}{e}^{-3x}-\frac{8x}{9}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({y}^{\prime\prime }+y=\text{sec}\,x,\,0&lt;x&lt;\pi \text{/}2\)</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({y}^{\prime\prime }+4y=3\,\text{csc}\,2x,\,0&lt;x&lt;\pi \text{/}2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={c}_{1}\text{cos}\,2x+{c}_{2}\text{sin}\,2x-\frac{3}{2}x\,\text{cos}\,2x+\frac{3}{4}\,\text{sin}\,2x\,\text{ln}\,(\text{sin}\,2x)\)</p>
+</div></div></div></div>
+<p>Find the unique solution satisfying the differential equation and the initial conditions given, where \({y}_{p}(x)\) is the particular solution.</p>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\({y}^{\prime\prime }-2{y}^{\prime }+y=12{e}^{x},\) \({\text{y}}_{p}(x)=6{x}^{2}{e}^{x},\) \(y(0)=6,\,\,\,y\prime (0)=0\)</p>
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({y}^{\prime\prime }-7{y}^{\prime }=4x{e}^{7x},\) \({y}_{p}(x)=\frac{2}{7}{x}^{2}{e}^{7x}-\frac{4}{49}x{e}^{7x},\) \(y(0)=-1,\,\,\,y\prime (0)=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{347}{343}+\frac{4}{343}{e}^{7x}+\frac{2}{7}{x}^{2}{e}^{7x}-\frac{4}{49}x{e}^{7x}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({y}^{\prime\prime }+y=\text{cos}\,x-4\,\text{sin}\,x,\) \({y}_{p}(x)=2x\,\text{cos}\,x+\frac{1}{2}x\,\text{sin}\,x,\) \(y(0)=8,\,\,\,y\prime (0)=-4\)</p>
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\({y}^{\prime\prime }-5{y}^{\prime }={e}^{5x}+8{e}^{-5x},\) \({y}_{p}(x)=\frac{1}{5}x{e}^{5x}+\frac{4}{25}{e}^{-5x},\) \(y(0)=-2,\,\,\,y\prime (0)=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{57}{25}+\frac{3}{25}{e}^{5x}+\frac{1}{5}x{e}^{5x}+\frac{4}{25}{e}^{-5x}\)</p>
+</div></div></div></div>
+<p>In each of the following problems, two linearly independent solutions— \({y}_{1}\) and \({y}_{2}\) —are given that satisfy the corresponding homogeneous equation. Use the method of variation of parameters to find a particular solution to the given nonhomogeneous equation. Assume <strong>x</strong> &gt; 0 in each exercise.</p>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\({x}^{2}{y}^{\prime\prime }+2x{y}^{\prime }-2y=3x,\) \({y}_{1}(x)=x,\,{y}_{2}(x)={x}^{-2}\)</p>
+</div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\({x}^{2}{y}^{\prime\prime }-2y=10{x}^{2}-1,\) \({y}_{1}(x)={x}^{2},\,{y}_{2}(x)={x}^{-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({y}_{p}=\frac{1}{2}+\frac{10}{3}{x}^{2}\text{ln}\,x\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>complementary equation</dt><dd>for the nonhomogeneous linear differential equation<br> <br> the associated homogeneous equation, called the <strong>complementary equation</strong>, is<br></dd><dt>method of undetermined coefficients</dt><dd>a method that involves making a guess about the form of the particular solution, then solving for the coefficients in the guess</dd><dt>method of variation of parameters</dt><dd>a method that involves looking for particular solutions in the form \({y}_{p}(x)=u(x){y}_{1}(x)+v(x){y}_{2}(x),\) where \({y}_{1}\) and \({y}_{2}\) are linearly independent solutions to the complementary equations, and then solving a system of equations to find \(u(x)\) and \(v(x)\)</dd><dt>particular solution</dt><dd>a solution \({y}_{p}(x)\) of a differential equation that contains no arbitrary constants</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Change of Variables in Multiple Integrals · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Change of Variables in Multiple Integrals</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 5.7</span>Change of Variables in Multiple Integrals</h1>
+<p>Recall from Substitution Rule the method of integration by substitution. When evaluating an integral such as \({∫}_{2}^{3}x{({x}^{2}-4)}^{5}dx,\) we substitute \(u=g(x)={x}^{2}-4.\) Then \(du=2x\,dx\) or \(x\,dx=\frac{1}{2}du\) and the limits change to \(u=g(2)={2}^{2}-4=0\) and \(u=g(3)=9-4=5.\) Thus the integral becomes \({∫}_{0}^{5}\frac{1}{2}{u}^{5}du\) and this integral is much simpler to evaluate. In other words, when solving integration problems, we make appropriate substitutions to obtain an integral that becomes much simpler than the original integral.</p>
+<p>We also used this idea when we transformed double integrals in rectangular coordinates to polar coordinates and transformed triple integrals in rectangular coordinates to cylindrical or spherical coordinates to make the computations simpler. More generally,</p>
+<p>\[∫abf(x)dx=∫cdf(g(u))g\prime (u)du,\]</p>
+<p>Where \(x=g(u),dx=g\prime (u)du,\) and \(u=c\) and \(u=d\) satisfy \(c={g}^{-1}(a)\) and \(d={g}^{-1}(b).\)</p>
+<p>A similar result occurs in double integrals when we substitute \(x=h(r,θ)=r\,\text{cos}\,θ,\) \(y=g(r,θ)=r\,\text{sin}\,θ,\) and \(dA=dx\,dy=r\,dr\,dθ.\) Then we get</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{S}{∬}f(r\,\text{cos}\,θ,r\,\text{sin}\,θ)r\,dr\,dθ\]</p>
+<p>where the domain \(R\) is replaced by the domain \(S\) in polar coordinates. Generally, the function that we use to change the variables to make the integration simpler is called a <strong>transformation</strong> or mapping.</p>
+<h2 id="planar-transformations">Planar Transformations</h2>
+<p>A <strong>planar transformation</strong> \(T\) is a function that transforms a region \(G\) in one plane into a region \(R\) in another plane by a change of variables. Both \(G\) and \(R\) are subsets of \({ℝ}^{2}.\) For example, <a href="#fig1">Figure 1</a> shows a region \(G\) in the \(uv\text{-plane}\) transformed into a region \(R\) in the \(xy\text{-plane}\) by the change of variables \(x=g(u,v)\) and \(y=h(u,v),\) or sometimes we write \(x=x(u,v)\) and \(y=y(u,v).\) We shall typically assume that each of these functions has continuous first partial derivatives, which means \({g}_{u},{g}_{v},{h}_{u},\) and \({h}_{v}\) exist and are also continuous. The need for this requirement will become clear soon.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_001.jpg" alt="On the left-hand side of this figure, there is a region G with point (u, v) given in the Cartesian u v-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with x = g(u, v) and y = h(u, v). On the right-hand side of this figure there is a region R with point (x, y) given in the Cartesian xy- plane." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The transformation of a region \(G\) in the \(uv\text{-plane}\) into a region \(R\) in the \(xy\text{-plane}.\)</figcaption></figure>
+<div class="card definition"><span class="chip">Definition</span><p>A transformation \(T\text{:}\,G\to R,\) defined as \(T(u,v)=(x,y),\) is said to be a <strong>one-to-one transformation</strong> if no two points map to the same image point.</p>
+</div>
+<p>To show that \(T\) is a one-to-one transformation, we assume \(T({u}_{1},{v}_{1})=T({u}_{2},{v}_{2})\) and show that as a consequence we obtain \(({u}_{1},{v}_{1})=({u}_{2},{v}_{2}).\) If the transformation \(T\) is one-to-one in the domain \(G,\) then the inverse \({T}^{-1}\) exists with the domain \(R\) such that \({T}^{-1}∘T\) and \(T∘{T}^{-1}\) are identity functions.</p>
+<p><a href="#fig1">Figure 1</a> shows the mapping \(T(u,v)=(x,y)\) where \(x\) and \(y\) are related to \(u\) and \(v\) by the equations \(x=g(u,v)\) and \(y=h(u,v).\) The region \(G\) is the domain of \(T\) and the region \(R\) is the range of \(T,\) also known as the <strong>image</strong> of \(G\) under the transformation \(T.\)</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Suppose a transformation \(T\) is defined as \(T(r,θ)=(x,y)\) where \(x=r\,\text{cos}\,θ,y=r\,\text{sin}\,θ.\) Find the image of the polar rectangle \(G=\{(r,θ)|0&lt;r\le 1,0\le θ\le \pi \text{/}2\}\) in the \(rθ\text{-plane}\) to a region \(R\) in the \(xy\text{-plane}\text{.}\) Show that \(T\) is a one-to-one transformation in \(G\) and find \({T}^{-1}(x,y).\)</p>
+<p class="sol-hint">Track how the r and θ bounds map to x,y bounds, then assume T(r1,θ1)=T(r2,θ2) to prove the transformation is one-to-one.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since \(r\) varies from 0 to 1 in the \(rθ\text{-plane},\) we have a circular disc of radius 0 to 1 in the \(xy\text{-plane}\text{.}\) Because \(θ\) varies from 0 to \(\pi \text{/2}\) in the \(rθ\text{-plane},\) we end up getting a quarter circle of radius \(1\) in the first quadrant of the \(xy\text{-plane}\) (<a href="#fig2">Figure 2</a>). Hence \(R\) is a quarter circle bounded by \({x}^{2}+{y}^{2}=1\) in the first quadrant.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_002.jpg" alt="On the left-hand side of this figure, there is a rectangle G with a marked subrectangle given in the first quadrant of the Cartesian r theta-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with x = r cos theta and y = r sin theta. On the right-hand side of this figure there is a quarter circle R with a marked subannulus (analogous to the rectangle in the other graph) given in the Cartesian x y-plane." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — A rectangle in the \(rθ\text{-plane}\) is mapped into a quarter circle in the \(xy\text{-plane}\text{.}\)</figcaption></figure>
+<p>In order to show that \(T\) is a one-to-one transformation, assume \(T({r}_{1},{θ}_{1})=T({r}_{2},{θ}_{2})\) and show as a consequence that \(({r}_{1},{θ}_{1})=({r}_{2},{θ}_{2}).\) In this case, we have</p>
+<p>\[\begin{array}{lll}T({r}_{1},{θ}_{1}) &amp; = &amp; T({r}_{2},{θ}_{2}), \\ ({x}_{1},{y}_{1}) &amp; = &amp; ({x}_{2},{y}_{2}), \\ ({r}_{1}\text{cos}\,{θ}_{1},{r}_{1}\text{sin}\,{θ}_{1}) &amp; = &amp; ({r}_{2}\text{cos}\,{θ}_{2},{r}_{2}\text{sin}\,{θ}_{2}), \\ {r}_{1}\text{cos}\,{θ}_{1} &amp; = &amp; {r}_{2}\text{cos}\,{θ}_{2} \\ {r}_{1}\text{sin}\,{θ}_{1} &amp; = &amp; {r}_{2}\text{sin}\,{θ}_{2}\end{array}\]</p>
+<p>Dividing, we obtain</p>
+<p>\[\begin{array}{lll}\frac{{r}_{1}\text{cos}\,{θ}_{1}}{{r}_{1}\text{sin}\,{θ}_{1}} &amp; = &amp; \frac{{r}_{2}\text{cos}\,{θ}_{2}}{{r}_{2}\text{sin}\,{θ}_{2}} \\ \frac{\text{cos}\,{θ}_{1}}{\text{sin}\,{θ}_{1}} &amp; = &amp; \frac{\text{cos}\,{θ}_{2}}{\text{sin}\,{θ}_{2}} \\ \text{cot}\,{θ}_{1} &amp; = &amp; \text{cot}\,{θ}_{2} \\ {θ}_{1} &amp; = &amp; {θ}_{2}\end{array}\]</p>
+<p>since the cotangent function is one-one function in the interval \(0\le θ\le \pi \text{/}2.\) Also, since \(0&lt;r\le 1,\) we have \({r}_{1}={r}_{2},{θ}_{1}={θ}_{2}.\) Therefore, \(({r}_{1},{θ}_{1})=({r}_{2},{θ}_{2})\) and \(T\) is a one-to-one transformation from \(G\) into \(R.\)</p>
+<p>To find \({T}^{-1}(x,y)\) solve for \(r,θ\) in terms of \(x,y.\) We already know that \({r}^{2}={x}^{2}+{y}^{2}\) and \(\text{tan}\,θ=\frac{y}{x}.\) Thus \({T}^{-1}(x,y)=(r,θ)\) is defined as \(r=\sqrt{{x}^{2}+{y}^{2}}\) and \(θ={\text{tan}}^{-1}(\frac{y}{x}).\)</p>
+</div></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Let the transformation \(T\) be defined by \(T(u,v)=(x,y)\) where \(x={u}^{2}-{v}^{2}\) and \(y=uv.\) Find the image of the triangle in the \(uv\text{-plane}\) with vertices \((0,0),(0,1),\) and \((1,1).\)</p>
+<p class="sol-hint">Trace each of the triangle's three sides through the transformation one at a time to see what curve each one becomes.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The triangle and its image are shown in <a href="#fig3">Figure 3</a>. To understand how the sides of the triangle transform, call the side that joins \((0,0)\) and \((0,1)\) side \(A,\) the side that joins \((0,0)\) and \((1,1)\) side \(B,\) and the side that joins \((1,1)\) and \((0,1)\) side \(C.\)</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_003.jpg" alt="On the left-hand side of this figure, there is a triangular region given in the Cartesian uv-plane with boundaries A, B, and C represented by the v axis, the line u = v, and the line v = 1, respectively. Then there is an arrow from this graph to the right-hand side of the figure marked with x = u squared minus v squared and y = u v. On the right-hand side of this figure there is a complex region given in the Cartesian x y-plane with boundaries A’, B’, and C’ given by the x axis, y axis, and a line curving from (negative 1, 0) through (0, 1), namely x = y squared minus 1, respectively." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — A triangular region in the \(uv\text{-plane}\) is transformed into an image in the \(xy\text{-plane}\text{.}\)</figcaption></figure>
+<p>For the side \(A\text{:}\,u=0,0\le v\le 1\) transforms to \(x=\text{-}{v}^{2},y=0\) so this is the side \(A\prime\) that joins \((-1,0)\) and \((0,0).\)</p>
+<p>For the side \(B\text{:}\,u=v,0\le u\le 1\) transforms to \(x=0,y={u}^{2}\) so this is the side \({B}^{\prime }\) that joins \((0,0)\) and \((0,1).\)</p>
+<p>For the side \(C\text{:}\,0\le u\le 1,v=1\) transforms to \(x={u}^{2}-1,y=u\) (hence \(x={y}^{2}-1)\) so this is the side \({C}^{\prime }\) that makes the upper half of the parabolic arc joining \((-1,0)\) and \((0,1).\)</p>
+<p>All the points in the entire region of the triangle in the \(uv\text{-plane}\) are mapped inside the parabolic region in the \(xy\text{-plane}\text{.}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Let a transformation \(T\) be defined as \(T(u,v)=(x,y)\) where \(x=u+v,y=3v.\) Find the image of the rectangle \(G=\{(u,v)\text{:}\,0\le u\le 1,0\le v\le 2\}\) from the \(uv\text{-plane}\) after the transformation into a region \(R\) in the \(xy\text{-plane}\text{.}\) Show that \(T\) is a one-to-one transformation and find \({T}^{-1}(x,y).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({T}^{-1}(x,y)=(u,v)\) where \(u=\frac{3x-y}{3}\) and \(v=\frac{y}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="jacobians">Jacobians</h2>
+<p>Recall that we mentioned near the beginning of this section that each of the component functions must have continuous first partial derivatives, which means that \({g}_{u},{g}_{v},{h}_{u},\) and \({h}_{v}\) exist and are also continuous. A transformation that has this property is called a \({C}^{1}\) transformation (here \(C\) denotes continuous). Let \(T(u,v)=(g(u,v),h(u,v)),\) where \(x=g(u,v)\) and \(y=h(u,v),\) be a one-to-one \({C}^{1}\) transformation. We want to see how it transforms a small rectangular region \(S,\) \(\Delta u\) units by \(\Delta v\) units, in the \(uv\text{-plane}\) (see the following figure).</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_004.jpg" alt="On the left-hand side of this figure, there is a region S with lower right corner point (u sub 0, v sub 0), height Delta v, and length Delta u given in the Cartesian u v-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with T. On the right-hand side of this figure there is a region R with point (x sub 0, y sub 0) given in the Cartesian x y-plane with sides r(u, v sub 0) along the bottom and r(u sub 0, v) along the left." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — A small rectangle \(S\) in the \(uv\text{-plane}\) is transformed into a region \(R\) in the \(xy\text{-plane}\text{.}\)</figcaption></figure>
+<p>Since \(x=g(u,v)\) and \(y=h(u,v),\) we have the position vector \(r(u,v)=g(u,v)i+h(u,v)j\) of the image of the point \((u,v).\) Suppose that \(({u}_{0},{v}_{0})\) is the coordinate of the point at the lower left corner that mapped to \(({x}_{0},{y}_{0})=T({u}_{0},{v}_{0}).\) The line \(v={v}_{0}\) maps to the image curve with vector function \(\text{r}(u,{v}_{0}),\) and the tangent vector at \(({x}_{0},{y}_{0})\) to the image curve is</p>
+<p>\[{r}_{u}={g}_{u}({u}_{0},{v}_{0})i+{h}_{u}({u}_{0},{v}_{0})j=\frac{∂x}{∂u}i+\frac{∂y}{∂u}j.\]</p>
+<p>Similarly, the line \(u={u}_{0}\) maps to the image curve with vector function \(r({u}_{0},v),\) and the tangent vector at \(({x}_{0},{y}_{0})\) to the image curve is</p>
+<p>\[{r}_{v}={g}_{v}({u}_{0},{v}_{0})i+{h}_{v}({u}_{0},{v}_{0})j=\frac{∂x}{∂v}i+\frac{∂y}{∂v}j.\]</p>
+<p>Now, note that</p>
+<p>\[{r}_{u}=\underset{\Delta u\to 0}{\text{lim}}\frac{r({u}_{0}+\Delta u,{v}_{0})-r({u}_{0},{v}_{0})}{\Delta u}\,\text{so}\,r({u}_{0}+\Delta u,{v}_{0})-r({u}_{0},{v}_{0})\approx \Delta u{r}_{u}.\]</p>
+<p>Similarly,</p>
+<p>\[{r}_{v}=\underset{\Delta v\to 0}{\text{lim}}\frac{r({u}_{0},{v}_{0}+\Delta v)-r({u}_{0},{v}_{0})}{\Delta v}\,\text{so}\,r({u}_{0},{v}_{0}+\Delta v)-r({u}_{0},{v}_{0})\approx \Delta v{r}_{v}.\]</p>
+<p>This allows us to estimate the area \(\Delta A\) of the image \(R\) by finding the area of the parallelogram formed by the sides \(\Delta v{r}_{v}\) and \(\Delta u{r}_{u}.\) By using the cross product of these two vectors by adding the <strong>k</strong> component as \(0,\) the area \(\Delta A\) of the image \(R\) (refer to The Cross Product) is approximately \(||\Delta {ur}_{u}\,\times \,\Delta {vr}_{v}||=||{r}_{u}\,\times \,{r}_{v}||\Delta u\Delta v.\) In determinant form, the cross product is</p>
+<p>\[{r}_{u}\,\times \,{r}_{v}=|\begin{array}{lllll}i &amp; &amp; j &amp; &amp; k \\ \frac{∂x}{∂u} &amp; &amp; \frac{∂y}{∂u} &amp; &amp; 0 \\ \frac{∂x}{∂v} &amp; &amp; \frac{∂y}{∂v} &amp; &amp; 0\end{array}|=|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂y}{∂u} \\ \frac{∂x}{∂v} &amp; &amp; \frac{∂y}{∂v}\end{array}|k=(\frac{∂x}{∂u}\,\frac{∂y}{∂v}-\frac{∂x}{∂v}\,\frac{∂y}{∂u})k.\]</p>
+<p>Since \(||k||=1,\) we have \(\Delta A\approx ||{r}_{u}\,\times \,{r}_{v}||\Delta u\Delta v=(\frac{∂x}{∂u}\,\frac{∂y}{∂v}-\frac{∂x}{∂v}\,\frac{∂y}{∂u})\Delta u\Delta v.\)</p>
+<div class="card definition"><span class="chip">Definition</span><p>The <strong>Jacobian</strong> of the \({C}^{1}\) transformation \(T(u,v)=(g(u,v),h(u,v))\) is denoted by \(J(u,v)\) and is defined by the \(2\,\times \,2\) determinant</p>
+<p>\[J(u,v)=|\frac{∂(x,y)}{∂(u,v)}|=|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂y}{∂u} \\ \frac{∂x}{∂v} &amp; &amp; \frac{∂y}{∂v}\end{array}|=(\frac{∂x}{∂u}\,\frac{∂y}{∂v}-\frac{∂x}{∂v}\,\frac{∂y}{∂u}).\]</p>
+</div>
+<p>Using the definition, we have</p>
+<p>\[\Delta A\approx J(u,v)\Delta u\Delta v=|\frac{∂(x,y)}{∂(u,v)}|\Delta u\Delta v.\]</p>
+<p>Note that the Jacobian is frequently denoted simply by</p>
+<p>\[J(u,v)=\frac{∂(x,y)}{∂(u,v)}.\]</p>
+<p>Note also that</p>
+<p>\[|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂y}{∂u} \\ \frac{∂x}{∂v} &amp; &amp; \frac{∂y}{∂v}\end{array}|=(\frac{∂x}{∂u}\,\frac{∂y}{∂v}-\frac{∂x}{∂v}\,\frac{∂y}{∂u})=|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂x}{∂v} \\ \frac{∂y}{∂u} &amp; &amp; \frac{∂y}{∂v}\end{array}|.\]</p>
+<p>Hence the notation \(J(u,v)=\frac{∂(x,y)}{∂(u,v)}\) suggests that we can write the Jacobian determinant with partials of \(x\) in the first row and partials of \(y\) in the second row.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the Jacobian of the transformation given in <a href="#example1">Example 1</a>.</p>
+<p class="sol-hint">Compute the four partial derivatives of x and y with respect to r and θ, then evaluate the resulting 2×2 determinant.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The transformation in the example is \(T(r,θ)=(r\,\text{cos}\,θ,r\,\text{sin}\,θ)\) where \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ.\) Thus the Jacobian is</p>
+<p>\[\begin{array}{ll}J(r,θ) &amp; =\frac{∂(x,y)}{∂(r,θ)}=|\begin{array}{lll}\frac{∂x}{∂r} &amp; &amp; \frac{∂x}{∂θ} \\ \frac{∂y}{∂r} &amp; &amp; \frac{∂y}{∂θ}\end{array}|=|\begin{array}{lll}\text{cos}\,θ &amp; &amp; -r\,\text{sin}\,θ \\ \text{sin}\,θ &amp; &amp; r\,\text{cos}\,θ\end{array}| \\ &amp; =r\,{\text{cos}}^{2}θ+r\,{\text{sin}}^{2}θ=r({\text{cos}}^{2}θ+{\text{sin}}^{2}θ)=r.\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the Jacobian of the transformation given in <a href="#example2">Example 2</a>.</p>
+<p class="sol-hint">Take the partial derivatives of x=u²-v² and y=uv, then form the 2×2 Jacobian determinant.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The transformation in the example is \(T(u,v)=({u}^{2}-{v}^{2},uv)\) where \(x={u}^{2}-{v}^{2}\) and \(y=uv.\) Thus the Jacobian is</p>
+<p>\[J(u,v)=\frac{∂(x,y)}{∂(u,v)}=|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂x}{∂v} \\ \frac{∂y}{∂u} &amp; &amp; \frac{∂y}{∂v}\end{array}|=|\begin{array}{lll}2u &amp; &amp; v \\ -2v &amp; &amp; u\end{array}|=2{u}^{2}+2{v}^{2}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find the Jacobian of the transformation: \(T(u,v)=(u+v,2v).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(J(u,v)=\frac{∂(x,y)}{∂(u,v)}=|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂x}{∂v} \\ \frac{∂y}{∂u} &amp; &amp; \frac{∂y}{∂v}\end{array}|=|\begin{array}{lll}1 &amp; &amp; 1 \\ 0 &amp; &amp; 2\end{array}|=2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="change-of-variables-for-double-integrals">Change of Variables for Double Integrals</h2>
+<p>We have already seen that, under the change of variables \(T(u,v)=(x,y)\) where \(x=g(u,v)\) and \(y=h(u,v),\) a small region \(\Delta A\) in the \(xy\text{-plane}\) is related to the area formed by the product \(\Delta u\Delta v\) in the \(uv\text{-plane}\) by the approximation</p>
+<p>\[\Delta A\approx J(u,v)\Delta u,\Delta v.\]</p>
+<p>Now let’s go back to the definition of double integral for a minute:</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({x}_{ij},{y}_{ij})\Delta A.\]</p>
+<p>Referring to <a href="#fig5">Figure 5</a>, observe that we divided the region \(S\) in the \(uv\text{-plane}\) into small subrectangles \({S}_{ij}\) and we let the subrectangles \({R}_{ij}\) in the \(xy\text{-plane}\) be the images of \({S}_{ij}\) under the transformation \(T(u,v)=(x,y).\)</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_005.jpg" alt="On the left-hand side of this figure, there is a rectangle S with an inscribed red oval and a subrectangle with lower right corner point (u sub ij, v sub ij), height Delta v, and length Delta u given in the Cartesian u v-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with T. On the right-hand side of this figure there is a region R with inscribed (deformed) red oval and a subrectangle R sub ij with corner point (x sub ij, y sub ij) given in the Cartesian x y-plane. The subrectangle is blown up and shown with vectors pointing along the edge from the corner point." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The subrectangles \({S}_{ij}\) in the \(uv\text{-plane}\) transform into subrectangles \({R}_{ij}\) in the \(xy\text{-plane}\text{.}\)</figcaption></figure>
+<p>Then the double integral becomes</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({x}_{ij},{y}_{ij})\Delta A=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf(g({u}_{ij},{v}_{ij}),h({u}_{ij},{v}_{ij}))|J({u}_{ij},{v}_{ij})|\Delta u\Delta v.\]</p>
+<p>Notice this is exactly the double Riemann sum for the integral</p>
+<p>\[\underset{S}{∬}f(g(u,v),h(u,v))|\frac{∂(x,y)}{∂(u,v)}|du\,dv.\]</p>
+<div class="card definition"><span class="chip">Change of Variables for Double Integrals</span><p>Let \(T(u,v)=(x,y)\) where \(x=g(u,v)\) and \(y=h(u,v)\) be a one-to-one \({C}^{1}\) transformation, with a nonzero Jacobian on the interior of the region \(S\) in the \(uv\text{-plane;}\) it maps \(S\) into the region \(R\) in the \(xy\text{-plane}\text{.}\) If \(f\) is continuous on \(R,\) then</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{S}{∬}f(g(u,v),h(u,v))|\frac{∂(x,y)}{∂(u,v)}|du\,dv.\]</p>
+</div>
+<p>With this theorem for double integrals, we can change the variables from \((x,y)\) to \((u,v)\) in a double integral simply by replacing</p>
+<p>\[dA=dx\,dy=|\frac{∂(x,y)}{∂(u,v)}|du\,dv\]</p>
+<p>when we use the substitutions \(x=g(u,v)\) and \(y=h(u,v)\) and then change the limits of integration accordingly. This change of variables often makes any computations much simpler.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Consider the integral</p>
+<p>\[∫02\,∫0\sqrt{2x-{x}^{2}}\sqrt{{x}^{2}+{y}^{2}}\,dy\,dx.\]</p>
+<p>Use the change of variables \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ,\) and find the resulting integral.</p>
+<p class="sol-hint">Identify the region as the upper half of a circle, rewrite its boundary in polar form, then substitute the Jacobian r for dA.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we need to find the region of integration. This region is bounded below by \(y=0\) and above by \(y=\sqrt{2x-{x}^{2}}\) (see the following figure).</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_006.jpg" alt="A semicircle in the first quadrant of the xy plane with radius 1 and center (1, 0). The equation for this curve is given as y = the square root of (2x minus x squared)" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Changing a region from rectangular to polar coordinates.</figcaption></figure>
+<p>Squaring and collecting terms, we find that the region is the upper half of the circle \({x}^{2}+{y}^{2}-2x=0,\) that is, \({y}^{2}+{(x-1)}^{2}=1.\) In polar coordinates, the circle is \(r=2\,\text{cos}\,θ\) so the region of integration in polar coordinates is bounded by \(0\le r\le 2 \text{cos}\,θ\) and \(0\le θ\le \frac{\pi }{2}.\)</p>
+<p>The Jacobian is \(J(r,θ)=r,\) as shown in <a href="#example3">Example 3</a>. Since \(r\ge 0,\) we have \(|J(r,θ)|=r.\)</p>
+<p>The integrand \(\sqrt{{x}^{2}+{y}^{2}}\) changes to \(r\) in polar coordinates, so the double iterated integral is</p>
+<p>\[∫02\,∫0\sqrt{2x-{x}^{2}}\sqrt{{x}^{2}+{y}^{2}}dy\,dx=∫0\pi \text{/}2\,∫02\,\text{cos}\,θr|J(r,θ)|dr\,dθ=∫0\pi \text{/}2\,∫02\,\text{cos}\,θ{r}^{2}dr\,dθ.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Considering the integral \(∫01\,∫0\sqrt{1-{x}^{2}}({x}^{2}+{y}^{2})dy\,dx,\) use the change of variables \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ,\) and find the resulting integral.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(∫0\pi \text{/}2\,∫01{r}^{3}dr\,dθ\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Notice in the next example that the region over which we are to integrate may suggest a suitable transformation for the integration. This is a common and important situation.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Consider the integral \(\underset{R}{∬}(x-y)dy\,dx,\) where \(R\) is the parallelogram joining the points \((1,2),\) \((3,4),(4,3),\) and \((6,5)\) (<a href="#fig7">Figure 7</a>). Make appropriate changes of variables, and write the resulting integral.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_007.jpg" alt="A parallelogram R with corners (1, 2), (3, 4), (6, 5), and (4, 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — The region of integration for the given integral.</figcaption></figure>
+<p class="sol-hint">Notice the parallelogram's sides are level curves of x-y and x-3y, so let u=x-y and v=x-3y to straighten the region into a rectangle.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we need to understand the region over which we are to integrate. The sides of the parallelogram are \(x-y+1=0,x-y-1=0,\) \(x-3y+5=0,\text{and}\,x-3y+9=0\) (<a href="#fig8">Figure 8</a>). Another way to look at them is \(x-y=-1,x-y=1,\) \(x-3y=-5,\) and \(x-3y=-9.\)</p>
+<p>Clearly the parallelogram is bounded by the lines \(y=x+1,y=x-1,y=\frac{1}{3}(x+5),\) and \(y=\frac{1}{3}(x+9).\)</p>
+<p>Notice that if we were to make \(u=x-y\) and \(v=x-3y,\) then the limits on the integral would be \(-1\le u\le 1\) and \(-9\le v\le -5.\)</p>
+<p>To solve for \(x\) and \(y,\) we multiply the first equation by \(3\) and subtract the second equation, \(3u-v=(3x-3y)-(x-3y)=2x.\) Then we have \(x=\frac{3u-v}{2}.\) Moreover, if we simply subtract the second equation from the first, we get \(u-v=(x-y)-(x-3y)=2y\) and \(y=\frac{u-v}{2}.\)</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_008.jpg" alt="A parallelogram R with corners (1, 2), (3, 4), (6, 5), and (4, 3) formed by the lines y = x + 1, y = x minus 1, y = (x + 9)/3, and y = (x + 5)/3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — A parallelogram in the \(xy\text{-plane}\) that we want to transform by a change in variables.</figcaption></figure>
+<p>Thus, we can choose the transformation</p>
+<p>\[T(u,v)=(\frac{3u-v}{2},\frac{u-v}{2})\]</p>
+<p>and compute the Jacobian \(J(u,v).\) We have</p>
+<p>\[J(u,v)=\frac{∂(x,y)}{∂(u,v)}=|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂x}{∂v} \\ \frac{∂y}{∂u} &amp; &amp; \frac{∂y}{∂v}\end{array}|=|\begin{array}{lll}3\text{/}2 &amp; &amp; -1\text{/}2 \\ 1\text{/}2 &amp; &amp; -1\text{/}2\end{array}|=-\frac{3}{4}+\frac{1}{4}=-\frac{1}{2}.\]</p>
+<p>Therefore, \(|J(u,v)|=\frac{1}{2}.\) Also, the original integrand becomes</p>
+<p>\[x-y=\frac{1}{2}[3u-v-u+v]=\frac{1}{2}[3u-u]=\frac{1}{2}[2u]=u.\]</p>
+<p>Therefore, by the use of the transformation \(T,\) the integral changes to</p>
+<p>\[\underset{R}{∬}(x-y)dy\,dx=∫-9-5\,∫-11J(u,v)u\,du\,dv=∫-9-5\,∫-11(\frac{1}{2})u\,du\,dv,\]</p>
+<p>which is much simpler to compute. In fact, it is easily found to be zero. And this is just one example of why we transform integrals like this.</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Make appropriate changes of variables in the integral \(\underset{R}{∬}\frac{4}{{(x-y)}^{2}}dy\,dx,\) where \(R\) is the trapezoid bounded by the lines \(x-y=2,x-y=4,x=0,\text{and}\,y=0.\) Write the resulting integral.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=\frac{1}{2}(v+u)\) and \(y=\frac{1}{2}(v-u)\) and \(∫24\,∫-uu\frac{4}{{u}^{2}}(\frac{1}{2})dv\,du.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We are ready to give a problem-solving strategy for change of variables.</p>
+<div class="card definition"><span class="chip">Change of Variables</span><ul class="tight"><li>Sketch the region given by the problem in the \(xy\text{-plane}\) and then write the equations of the curves that form the boundary.</li><li>Depending on the region or the integrand, choose the transformations \(x=g(u,v)\) and \(y=h(u,v).\)</li><li>Determine the new limits of integration in the \(uv\text{-plane}\text{.}\)</li><li>Find the Jacobian \(J(u,v).\)</li><li>In the integrand, replace the variables to obtain the new integrand.</li><li>Replace \(dy\,dx\) or \(dx\,dy,\) whichever occurs, by \(J(u,v)du\,dv.\)</li></ul>
+</div>
+<p>In the next example, we find a substitution that makes the integrand much simpler to compute.</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Using the change of variables \(u=x-y\) and \(v=x+y,\) evaluate the integral</p>
+<p>\[\underset{R}{∬}(x-y){e}^{{x}^{2}-{y}^{2}}dA,\]</p>
+<p>where \(R\) is the region bounded by the lines \(x+y=1\) and \(x+y=3\) and the curves \({x}^{2}-{y}^{2}=-1\) and \({x}^{2}-{y}^{2}=1\) (see the first region in <a href="#fig9">Figure 9</a>).</p>
+<p class="sol-hint">Rewrite the boundary curves in terms of u=x-y and v=x+y to turn the curved region into a simple rectangle in the uv-plane.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As before, first find the region \(R\) and picture the transformation so it becomes easier to obtain the limits of integration after the transformations are made (<a href="#fig9">Figure 9</a>).</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_009.jpg" alt="On the left-hand side of this figure, there is a complex region R in the Cartesian x y-plane bounded by x squared minus y squared = negative 1, x squared minus y squared = 1, x + y = 3, and x + y = 1. Then there is an arrow from this graph to the right-hand side of the figure marked with x = (u + v)/2 and y = (v minus u)/2. On the right-hand side of this figure there is a simpler region S in the Cartesian u v-plane bounded by u v = negative 1, u v = 1, v = 1, and v = 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Transforming the region \(R\) into the region \(S\) to simplify the computation of an integral.</figcaption></figure>
+<p>Given \(u=x-y\) and \(v=x+y,\) we have \(x=\frac{u+v}{2}\) and \(y=\frac{v-u}{2}\) and hence the transformation to use is \(T(u,v)=(\frac{u+v}{2},\frac{v-u}{2}).\) The lines \(x+y=1\) and \(x+y=3\) become \(v=1\) and \(v=3,\) respectively. The curves \({x}^{2}-{y}^{2}=1\) and \({x}^{2}-{y}^{2}=-1\) become \(uv=1\) and \(uv=-1,\) respectively.</p>
+<p>Thus we can describe the region \(S\) (see the second region <a href="#fig9">Figure 9</a>) as</p>
+<p>\[S=\{(u,v)|1\le v\le 3,\frac{-1}{v}\le u\le \frac{1}{v}\}.\]</p>
+<p>The Jacobian for this transformation is</p>
+<p>\[J(u,v)=\frac{∂(x,y)}{∂(u,v)}=|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂x}{∂v} \\ \frac{∂y}{∂u} &amp; &amp; \frac{∂y}{∂v}\end{array}|=|\begin{array}{lll}1\text{/}2 &amp; &amp; -1\text{/}2 \\ 1\text{/}2 &amp; &amp; 1\text{/}2\end{array}|=\frac{1}{2}.\]</p>
+<p>Therefore, by using the transformation \(T,\) the integral changes to</p>
+<p>\[\underset{R}{∬}(x-y){e}^{{x}^{2}-{y}^{2}}dA=\frac{1}{2}∫13\,∫-1\text{/}v1\text{/}vu{e}^{uv}du\,dv.\]</p>
+<p>Doing the evaluation, we have</p>
+<p>\[\frac{1}{2}∫13\,∫-1\text{/}v1\text{/}vu{e}^{uv}du\,dv=\frac{2}{3e}\approx 0.245.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Using the substitutions \(x=v\) and \(y=\sqrt{u+v},\) evaluate the integral \(\underset{R}{∬}y\,\text{sin}({y}^{2}-x)dA\) where \(R\) is the region bounded by the lines \(y=\sqrt{x},x=2,\text{and}\,y=0.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{1}{2}(\text{sin}\,2-2)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="change-of-variables-for-triple-integrals">Change of Variables for Triple Integrals</h2>
+<p>Changing variables in triple integrals works in exactly the same way. Cylindrical and spherical coordinate substitutions are special cases of this method, which we demonstrate here.</p>
+<p>Suppose that \(G\) is a region in \(uvw\text{-space}\) and is mapped to \(D\) in \(xyz\text{-space}\) (<a href="#fig10">Figure 10</a>) by a one-to-one \({C}^{1}\) transformation \(T(u,v,w)=(x,y,z)\) where \(x=g(u,v,w),\) \(y=h(u,v,w),\) and \(z=k(u,v,w).\)</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_010.jpg" alt="On the left-hand side of this figure, there is a region G in u v w space. Then there is an arrow from this graph to the right-hand side of the figure marked with x = g(u, v, w), y = h(u, v, w), and z = k(u, v, w). On the right-hand side of this figure there is a region D in xyz space." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — A region \(G\) in \(uvw\text{-space}\) mapped to a region \(D\) in \(xyz\text{-space}.\)</figcaption></figure>
+<p>Then any function \(F(x,y,z)\) defined on \(D\) can be thought of as another function \(H(u,v,w)\) that is defined on \(G\text{:}\)</p>
+<p>\[F(x,y,z)=F(g(u,v,w),h(u,v,w),k(u,v,w))=H(u,v,w).\]</p>
+<p>Now we need to define the Jacobian for three variables.</p>
+<div class="card definition"><span class="chip">Definition</span><p>The Jacobian determinant \(J(u,v,w)\) in three variables is defined as follows:</p>
+<p>\[J(u,v,w)=|\begin{array}{lllll}\frac{∂x}{∂u} &amp; &amp; \frac{∂y}{∂u} &amp; &amp; \frac{∂z}{∂u} \\ \frac{∂x}{∂v} &amp; &amp; \frac{∂y}{∂v} &amp; &amp; \frac{∂z}{∂v} \\ \frac{∂x}{∂w} &amp; &amp; \frac{∂y}{∂w} &amp; &amp; \frac{∂z}{∂w}\end{array}|.\]</p>
+<p>This is also the same as</p>
+<p>\[J(u,v,w)=|\begin{array}{lllll}\frac{∂x}{∂u} &amp; &amp; \frac{∂x}{∂v} &amp; &amp; \frac{∂x}{∂w} \\ \frac{∂y}{∂u} &amp; &amp; \frac{∂y}{∂v} &amp; &amp; \frac{∂y}{∂w} \\ \frac{∂z}{∂u} &amp; &amp; \frac{∂z}{∂v} &amp; &amp; \frac{∂z}{∂w}\end{array}|.\]</p>
+<p>The Jacobian can also be simply denoted as \(\frac{∂(x,y,z)}{∂(u,v,w)}.\)</p>
+</div>
+<p>With the transformations and the Jacobian for three variables, we are ready to establish the theorem that describes change of variables for triple integrals.</p>
+<div class="card definition"><span class="chip">Change of Variables for Triple Integrals</span><p>Let \(T(u,v,w)=(x,y,z)\) where \(x=g(u,v,w),y=h(u,v,w),\) and \(z=k(u,v,w),\) be a one-to-one \({C}^{1}\) transformation, with a nonzero Jacobian, that maps the region \(G\) in the \(uvw\text{-space}\) into the region \(R\) in the \(xyz\text{-space}\text{.}\) As in the two-dimensional case, if \(F\) is continuous on \(R,\) then</p>
+<p>\[\begin{array}{ll}\underset{R}{∭}F(x,y,z)dV &amp; =\underset{G}{∭}F(g(u,v,w),h(u,v,w),k(u,v,w))|\frac{∂(x,y,z)}{∂(u,v,w)}|du\,dv\,dw \\ &amp; =\underset{G}{∭}H(u,v,w)|J(u,v,w)|du\,dv\,dw.\end{array}\]</p>
+</div>
+<p>Let us now see how changes in triple integrals for cylindrical and spherical coordinates are affected by this theorem. We expect to obtain the same formulas as in Triple Integrals in Cylindrical and Spherical Coordinates.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Derive the formula in triple integrals for</p>
+<ul class="tight"><li>cylindrical and</li><li>spherical coordinates.</li></ul>
+<p class="sol-hint">Write out the 3×3 Jacobian determinant for each transformation and expand it to confirm the r and ρ²sin φ factors.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>For cylindrical coordinates, the transformation is \(T(r,θ,z)=(x,y,z)\) from the Cartesian \(rθz\text{-plane}\) to the Cartesian \(xyz\text{-plane}\) (<a href="#fig11">Figure 11</a>). Here \(x=r\,\text{cos}\,θ,\) \(y=r\,\text{sin}\,θ,\) and \(z=z.\) The Jacobian for the transformation is<br> <br> We know that \(r\ge 0,\) so \(|J(r,θ,z)|=r.\) Then the triple integral is<br> <br><p>\[\begin{array}{ll}J(r,θ,z) &amp; =\frac{∂(x,y,z)}{∂(r,θ,z)}=|\begin{array}{lllll}\frac{∂x}{∂r} &amp; &amp; \frac{∂x}{∂θ} &amp; &amp; \frac{∂x}{∂z} \\ \frac{∂y}{∂r} &amp; &amp; \frac{∂y}{∂θ} &amp; &amp; \frac{∂y}{∂z} \\ \frac{∂z}{∂r} &amp; &amp; \frac{∂z}{∂θ} &amp; &amp; \frac{∂z}{∂z}\end{array}| \\ &amp; =|\begin{array}{lllll}\text{cos}\,θ &amp; &amp; -r\,\text{sin}\,θ &amp; &amp; 0 \\ \text{sin}\,θ &amp; &amp; r\,\text{cos}\,θ &amp; &amp; 0 \\ 0 &amp; &amp; 0 &amp; &amp; 1\end{array}|=r\,{\text{cos}}^{2}θ+r\,{\text{sin}}^{2}θ=r({\text{cos}}^{2}θ+{\text{sin}}^{2}θ)=r.\end{array}\]</p>
+<p>\[\underset{D}{∭}f(x,y,z)dV=\underset{G}{∭}f(r\,\text{cos}\,θ,r\,\text{sin}\,θ,z)r\,dr\,dθ\,dz.\]</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_011.jpg" alt="On the left-hand side of this figure, there is a cube G with sides parallel to the coordinate axes in cylindrical coordinate space. Then there is an arrow from this graph to the right-hand side of the figure marked with x = r cos theta, y = r sin theta, and z = z. On the right-hand side of this figure there is a region D in x y z space that is a thick annulus. The top is labeled z = constant, the flat vertical side is labeled theta = constant, and the outermost side is labeled r = constant." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — The transformation from rectangular coordinates to cylindrical coordinates can be treated as a change of variables from region \(G\) in \(rθz\text{-space}\) to region \(D\) in \(xyz\text{-space}.\)</figcaption></figure>
+</li><li>For spherical coordinates, the transformation is \(T(ρ,θ,φ)=(x,y,z)\) from the Cartesian \(pθφ\text{-plane}\) to the Cartesian \(xyz\text{-plane}\) (<a href="#fig12">Figure 12</a>). Here \(x=ρ\,\text{sin}\,φ\,\text{cos}\,θ,\) \(y=ρ\,\text{sin}\,φ\,\text{sin}\,θ,\) and \(z=ρ\,\text{cos}\,φ.\) The Jacobian for the transformation is<br> <br> Expanding the determinant with respect to the third row:<br> <br> Since \(0\le φ\le \pi ,\) we must have \(\text{sin}\,φ\ge 0.\) Thus \(|J(ρ,θ,φ)|=|\text{-}{ρ}^{2}\text{sin}\,φ|={ρ}^{2}\text{sin}\,φ.\) <br> Then the triple integral becomes<br><p>\[J(ρ,θ,φ)=\frac{∂(x,y,z)}{∂(ρ,θ,φ)}=|\begin{array}{lllll}\frac{∂x}{∂ρ} &amp; &amp; \frac{∂x}{∂θ} &amp; &amp; \frac{∂x}{∂φ} \\ \frac{∂y}{∂ρ} &amp; &amp; \frac{∂y}{∂θ} &amp; &amp; \frac{∂y}{∂φ} \\ \frac{∂z}{∂ρ} &amp; &amp; \frac{∂z}{∂θ} &amp; &amp; \frac{∂z}{∂φ}\end{array}|=|\begin{array}{lllll}\text{sin}\,φ\,\text{cos}\,θ &amp; &amp; ρ\,\text{sin}\,φ\,\text{sin}\,θ &amp; &amp; ρ\,\text{cos}\,φ\,\text{cos}\,θ \\ \text{sin}\,φ\,\text{sin}\,θ &amp; &amp; ρ\,\text{sin}\,φ\,\text{cos}\,θ &amp; &amp; ρ\,\text{cos}\,φ\,\text{sin}\,θ \\ \text{cos}\,ϕ &amp; &amp; 0 &amp; &amp; -ρ\,\text{sin}\,φ\end{array}|.\]</p>
+<p>\[\begin{array}{l} \\ \\ =\text{cos}\,φ|\begin{array}{lll}-ρ\,\text{sin}\,φ\,\text{sin}\,θ &amp; &amp; ρ\,\text{cos}\,φ\,\text{cos}\,θ \\ ρ\,\text{sin}\,φ\,\text{sin}\,θ &amp; &amp; ρ\,\text{cos}\,φ\,\text{sin}\,θ\end{array}|-ρ\,\text{sin}\,φ|\begin{array}{lll}\text{sin}\,φ\,\text{cos}\,θ &amp; &amp; -ρ\,\text{sin}\,φ\,\text{sin}\,θ \\ \text{sin}\,φ\,\text{sin}\,θ &amp; &amp; ρ\,\text{sin}\,φ\,\text{cos}\,θ\end{array}| \\ =\text{cos}\,φ(\text{-}{ρ}^{2}\text{sin}\,φ\,\text{cos}\,φ\,{\text{sin}}^{2}θ-{ρ}^{2}\text{sin}\,φ\,\text{cos}\,φ\,{\text{cos}}^{2}θ) \\ \,-ρ\,\text{sin}\,φ(ρ\,{\text{sin}}^{2}φ\,{\text{cos}}^{2}θ+ρ\,{\text{sin}}^{2}φ\,{\text{sin}}^{2}θ) \\ =\text{-}{ρ}^{2}\text{sin}\,φ\,{\text{cos}}^{2}φ({\text{sin}}^{2}θ+{\text{cos}}^{2}θ)-{ρ}^{2}\text{sin}\,φ\,{\text{sin}}^{2}φ({\text{sin}}^{2}θ+{\text{cos}}^{2}θ) \\ =\text{-}{ρ}^{2}\text{sin}\,φ\,{\text{cos}}^{2}φ-{ρ}^{2}\text{sin}\,φ\,{\text{sin}}^{2}φ \\ =\text{-}{ρ}^{2}\text{sin}\,φ({\text{cos}}^{2}φ+{\text{sin}}^{2}φ)=\text{-}{ρ}^{2}\text{sin}\,φ.\end{array}\]</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_012.jpg" alt="On the left-hand side of this figure, there is a cube G with sides parallel to the coordinate axes in rho phi theta space. Then there is an arrow from this graph to the right-hand side of the figure marked with x = rho sin phi cos theta, y = rho sin phi sin theta, and z = rho cos phi. On the right-hand side of this figure there is a region D in xyz space that is a thick annulus and has the point (x, y, z) shown as being equal to (rho, phi, theta). The top is labeled phi = constant, the flat vertical side is labeled theta = constant, and the outermost side is labeled rho = constant." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — The transformation from rectangular coordinates to spherical coordinates can be treated as a change of variables from region \(G\) in \(ρθφ\text{-space}\) to region \(D\) in \(xyz\text{-space}\text{.}\)</figcaption></figure>
+<p>\[\underset{D}{∭}f(x,y,z)dV=\underset{G}{∭}f(ρ\,\text{sin}\,φ\,\text{cos}\,θ,ρ\,\text{sin}\,φ\,\text{sin}\,θ,ρ\,\text{cos}\,φ){ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ.\]</p>
+</li></ul>
+</div></div></div>
+<p>Let’s try another example with a different substitution.</p>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the triple integral</p>
+<p>\[∫03\,∫04\,∫y\text{/}2(y\text{/}2)+1(x+\frac{z}{3})dx\,dy\,dz\]</p>
+<p>in \(xyz\text{-space}\) by using the transformation</p>
+<p>\[u=(2x-y)\text{/}2,v=y\text{/}2,\text{and}\,w=z\text{/}3.\]</p>
+<p>Then integrate over an appropriate region in \(uvw\text{-space}\text{.}\)</p>
+<p class="sol-hint">Solve the given substitution for x, y, z in terms of u, v, w, then rewrite both the bounds and the integrand in the new variables.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As before, some kind of sketch of the region \(G\) in \(xyz\text{-space}\) over which we have to perform the integration can help identify the region \(D\) in \(uvw\text{-space}\) (<a href="#fig13">Figure 13</a>). Clearly \(G\) in \(xyz\text{-space}\) is bounded by the planes \(x=y\text{/}2,x=(y\text{/}2)+1,y=0,\) \(y=4,\) \(z=0,\text{and}\,z=4.\) We also know that we have to use \(u=(2x-y)\text{/}2,v=y\text{/}2,\text{and}\,w=z\text{/}3\) for the transformations. We need to solve for \(x,y,\text{and}\,z.\) Here we find that \(x=u+v,\) \(y=2v,\) and \(z=3w.\)</p>
+<p>Using elementary algebra, we can find the corresponding surfaces for the region \(G\) and the limits of integration in \(uvw\text{-space}\text{.}\) It is convenient to list these equations in a table.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Equations in \(xyz\) for the region \(D\)</td><td>Corresponding equations in \(uvw\) for the region \(G\)</td><td>Limits for the integration in \(uvw\)</td></tr><tr><td>\(x=y\text{/}2\)</td><td>\(u+v=2v\text{/}2=v\)</td><td>\(u=0\)</td></tr><tr><td>\(x=y\text{/}2\)</td><td>\(u+v=(2v\text{/}2)+1=v+1\)</td><td>\(u=1\)</td></tr><tr><td>\(y=0\)</td><td>\(2v=0\)</td><td>\(v=0\)</td></tr><tr><td>\(y=4\)</td><td>\(2v=4\)</td><td>\(v=2\)</td></tr><tr><td>\(z=0\)</td><td>\(3w=0\)</td><td>\(w=0\)</td></tr><tr><td>\(z=3\)</td><td>\(3w=3\)</td><td>\(w=1\)</td></tr></tbody></table></div>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_013.jpg" alt="On the left-hand side of this figure, there is a box G with sides 1, 2, and 1 along the u, v, and w axes, respectively. Then there is an arrow from this graph to the right-hand side of the figure marked with x = u + v, y = 2v, and z = 3w. On the right-hand side of this figure there is a region D in xyz space that is a rotated box with sides 1, 4, and 3 along the x, y, and z axes. The rear plane is marked x = y/2 or y = 2x. The front plane is marked x = y/2 + 1 or y = 2x minus 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — The region \(G\) in \(uvw\text{-space}\) is transformed to region \(D\) in \(xyz\text{-space}\text{.}\)</figcaption></figure>
+<p>Now we can calculate the Jacobian for the transformation:</p>
+<p>\[J(u,v,w)=|\begin{array}{lllll}\frac{∂x}{∂u} &amp; &amp; \frac{∂x}{∂v} &amp; &amp; \frac{∂x}{∂w} \\ \frac{∂y}{∂u} &amp; &amp; \frac{∂y}{∂v} &amp; &amp; \frac{∂y}{∂w} \\ \frac{∂z}{∂u} &amp; &amp; \frac{∂z}{∂v} &amp; &amp; \frac{∂z}{∂w}\end{array}|=|\begin{array}{lllll}1 &amp; &amp; 1 &amp; &amp; 0 \\ 0 &amp; &amp; 2 &amp; &amp; 0 \\ 0 &amp; &amp; 0 &amp; &amp; 3\end{array}|=6.\]</p>
+<p>The function to be integrated becomes</p>
+<p>\[f(x,y,z)=x+\frac{z}{3}=u+v+\frac{3w}{3}=u+v+w.\]</p>
+<p>We are now ready to put everything together and complete the problem.</p>
+<p>\[\begin{array}{l} \\ \\ \\ \\ \,∫03\,∫04\,∫y\text{/}2(y\text{/}2)+1(x+\frac{z}{3})dx\,dy\,dz \\ \\ =∫01\,∫02\,∫01(u+v+w)|J(u,v,w)|du\,dv\,dw=∫01\,∫02\,∫01(u+v+w)|6|du\,dv\,dw \\ =6∫01\,∫02\,∫01(u+v+w)du\,dv\,dw=6{∫01\,∫02[\frac{{u}^{2}}{2}+vu+wu]}_{0}^{1}dv\,dw \\ =6∫01\,∫02(\frac{1}{2}+v+w)dv\,dw=6{∫01[\frac{1}{2}v+\frac{{v}^{2}}{2}+wv]}_{0}^{2}dw \\ =6∫01(3+2w)dw=6{[3w+{w}^{2}]}_{0}^{1}=24.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Let \(D\) be the region in \(xyz\text{-space}\) defined by \(1\le x\le 2,0\le xy\le 2,\text{and}\,0\le z\le 1.\)</p>
+<p>Evaluate \(\underset{D}{∭}({x}^{2}y+3xyz)dx\,dy\,dz\) by using the transformation \(u=x,v=xy,\) and \(w=3z.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(∫03\,∫02\,∫12(\frac{v}{3}+\frac{vw}{3u})du\,dv\,dw=2+\text{ln}\,8\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A transformation \(T\) is a function that transforms a region \(G\) in one plane (space) into a region \(R\) in another plane (space) by a change of variables. (See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.)</li><li>A transformation \(T:G\to R\) defined as \(T(u,v)=(x,y)\) \((\text{or}\,T(u,v,w)=(x,y,z))\) is said to be a one-to-one transformation if no two points map to the same image point. (See <a href="#example1">Example 1</a>.)</li><li>If \(f\) is continuous on \(R,\) then \(\underset{R}{∬}f(x,y)dA=\underset{S}{∬}f(g(u,v),h(u,v))|\frac{∂(x,y)}{∂(u,v)}|du\,dv.\) (See <a href="#example5">Example 5</a>, <a href="#example6">Example 6</a>, and <a href="#example7">Example 7</a>.)</li><li>If \(F\) is continuous on \(R,\) then<br><p>\[\begin{array}{ll}\underset{R}{∭}F(x,y,z)dV &amp; =\underset{G}{∭}F(g(u,v,w),h(u,v,w),k(u,v,w))|\frac{∂(x,y,z)}{∂(u,v,w)}|du\,dv\,dw \\ &amp; =\underset{G}{∭}H(u,v,w)|J(u,v,w)|du\,dv\,dw.\end{array}\]</p>
+ (See <a href="#example8">Example 8</a> and <a href="#example9">Example 9</a>.)</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, the function \(T:S\to R,T(u,v)=(x,y)\) on the region \(S=\{(u,v)|0\le u\le 1,0\le v\le 1\}\) bounded by the unit square is given, where \(R⊂{ℝ}^{2}\) is the image of \(S\) under \(T.\)</p>
+<ul class="tight"><li>Justify that the function \(T\) is a \({C}^{1}\) transformation.</li><li>Find the images of the vertices of the unit square \(S\) through the function \(T.\)</li><li>Determine the image \(R\) of the unit square \(S\) and graph it.</li></ul>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(x=2u,y=3v\)</p>
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(x=\frac{u}{2},y=\frac{v}{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(T(u,v)=(g(u,v),h(u,v)),x=g(u,v)=\frac{u}{2}\) and \(y=h(u,v)=\frac{v}{3}.\) The functions \(g\) and \(h\) are continuous and differentiable, and the partial derivatives \({g}_{u}(u,v)=\frac{1}{2},\) \({g}_{v}(u,v)=0,{h}_{u}(u,v)=0\,\text{and}\,{h}_{v}(u,v)=\frac{1}{3}\) are continuous on \(S;\) b. \(T(0,0)=(0,0),\) \(T(1,0)=(\frac{1}{2},0),T(0,1)=(0,\frac{1}{3}),\) and \(T(1,1)=(\frac{1}{2},\frac{1}{3});\) c. \(R\) is the rectangle of vertices \((0,0),(\frac{1}{2},0),(\frac{1}{2},\frac{1}{3}),\text{and}\,(0,\frac{1}{3})\) in the \(xy\text{-plane;}\) the following figure.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_202.jpg" alt="A rectangle with one corner at the origin, horizontal length 0.5, and vertical height 0.34." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(x=u-v,y=u+v\)</p>
+</div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(x=2u-v,y=u+2v\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(T(u,v)=(g(u,v),h(u,v)),x=g(u,v)=2u-v,\) and \(y=h(u,v)=u+2v.\) The functions \(g\) and \(h\) are continuous and differentiable, and the partial derivatives \({g}_{u}(u,v)=2,\) \({g}_{v}(u,v)=-1,\) \({h}_{u}(u,v)=1,\) and \({h}_{v}(u,v)=2\) are continuous on \(S;\) b. \(T(0,0)=(0,0),\) \(T(1,0)=(2,1),\) \(T(0,1)=(-1,2),\) and \(T(1,1)=(1,3);\) c. \(R\) is the sqaure of vertices \((0,0),(2,1),(1,3),\text{and}\,(-1,2)\) in the \(xy\text{-plane;}\) see the following figure.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_204.jpg" alt="A square of side length square root of 5 with one corner at the origin and another at (2, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(x={u}^{2},y={v}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(x={u}^{3},y={v}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(T(u,v)=(g(u,v),h(u,v)),x=g(u,v)={u}^{3},\) and \(y=h(u,v)={v}^{3}.\) The functions \(g\) and \(h\) are continuous and differentiable, and the partial derivatives \({g}_{u}(u,v)=3{u}^{2},\) \({g}_{v}(u,v)=0,\) \({h}_{u}(u,v)=0,\) and \({h}_{v}(u,v)=3{v}^{2}\) are continuous on \(S;\) b. \(T(0,0)=(0,0),\) \(T(1,0)=(1,0),\) \(T(0,1)=(0,1),\) and \(T(1,1)=(1,1);\) c. \(R\) is the unit square in the \(xy\text{-plane;}\) see the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_205.jpg" alt="A Cartesian coordinate graph with axes ranging from 0 to 1 on both x (horizontal) and y (vertical) axes, displaying an empty plot area with no data or functions presented." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>In the following exercises, determine whether the transformations \(T:S\to R\) are one-to-one or not.</p>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(x={u}^{2},y={v}^{2},\text{where}\,S\) is the rectangle of vertices \((-1,0),(1,0),(1,1),\text{and}\,(-1,1).\)</p>
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(x={u}^{4},y={u}^{2}+v,\text{where}\,S\) is the triangle of vertices \((-2,0),(2,0),\text{and}\,(0,2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(T\) is not one-to-one: two points of \(S\) have the same image. Indeed, \(T(-2,0)=T(2,0)=(16,4).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(x=2u,y=3v,\text{where}\,S\) is the square of vertices \((-1,1),(-1,-1),(1,-1),\text{and}\,(1,1).\)</p>
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(T(u,v)=(2u-v,u),\) where \(S\) is the triangle of vertices \((-1,1),(-1,-1),\text{and}\,(1,-1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(T\) is one-to-one: We argue by contradiction. \(T({u}_{1},{v}_{1})=T({u}_{2},{v}_{2})\) implies \(2{u}_{1}-{v}_{1}=2{u}_{2}-{v}_{2}\) and \({u}_{1}={u}_{2}.\) Thus, \({u}_{1}={u}_{2}\) and \({v}_{1}={v}_{2}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(x=u+v+w,y=u+v,z=w,\) where \(S=R={ℝ}^{3}.\)</p>
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(x={u}^{2}+v+w,y={u}^{2}+v,z=w,\) where \(S=R={ℝ}^{3}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(T\) is not one-to-one: \(T(1,v,w)=(-1,v,w)\)</p>
+</div></div></div></div>
+<p>In the following exercises, the transformations \(T:S\to R\) are one-to-one. Find their related inverse transformations \({T}^{-1}:R\to S.\)</p>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(x=4u,y=5v,\) where \(S=R={ℝ}^{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(x=u+2v,y=\text{-}u+v,\) where \(S=R={ℝ}^{2}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(u=\frac{x-2y}{3},v=\frac{x+y}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(x={e}^{2u+v},y={e}^{u-v},\) where \(S={ℝ}^{2}\) and \(R=\{(x,y)|x&gt;0,y&gt;0\}\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(x=\text{ln}\,u,y=\text{ln}(uv),\) where \(S=\{(u,v)|u&gt;0,v&gt;0\}\) and \(R={ℝ}^{2}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(u={e}^{x},v={e}^{\text{-}x+y}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(x=u+v+w,y=3v,z=2w,\) where \(S=R={ℝ}^{3}.\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(x=u+v,y=v+w,z=u+w,\) where \(S=R={ℝ}^{3}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(u=\frac{x-y+z}{2},v=\frac{x+y-z}{2},w=\frac{\text{-}x+y+z}{2}\)</p>
+</div></div></div></div>
+<p>In the following exercises, the transformation \(T:S\to R,T(u,v)=(x,y)\) and the region \(R⊂{ℝ}^{2}\) are given. Find the region \(S⊂{ℝ}^{2}.\)</p>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(x=au,y=bv,R=\{(x,y)|{x}^{2}+{y}^{2}\le {a}^{2}{b}^{2}\},\) where \(a,b&gt;0\)</p>
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(x=au,y=bv,R=\{(x,y)|\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}\le 1\},\) where \(a,b&gt;0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(S=\{(u,v)|{u}^{2}+{v}^{2}\le 1\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(x=\frac{u}{a},y=\frac{v}{b},z=\frac{w}{c},\) \(R=\{(x,y)|{x}^{2}+{y}^{2}+{z}^{2}\le 1\},\) where \(a,b,c&gt;0\)</p>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(x=au,y=bv,z=cw,R=\{(x,y)|\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}-\frac{{z}^{2}}{{c}^{2}}\le 1,z&gt;0\},\) where \(a,b,c&gt;0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(R=\{(u,v,w)|{u}^{2}-{v}^{2}-{w}^{2}\le 1,w&gt;0\}\)</p>
+</div></div></div></div>
+<p>In the following exercises, find the Jacobian \(J\) of the transformation.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(x=u+2v,y=\text{-}u+v\)</p>
+</div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(x=\frac{{u}^{3}}{2},y=\frac{v}{{u}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(x={e}^{2u-v},y={e}^{u+v}\)</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(x=u{e}^{v},y={e}^{\text{-}v}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(x=u\,\text{cos}({e}^{v}),y=u\,\text{sin}({e}^{v})\)</p>
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(x=v\,\text{sin}({u}^{2}),y=v\,\text{cos}({u}^{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2uv\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(x=u\,\text{cosh}\,v,y=u\,\text{sinh}\,v,z=w\)</p>
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(x=v\,\text{cosh}(\frac{1}{u}),y=v\,\text{sinh}(\frac{1}{u}),z=u+{w}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2vw}{{u}^{2}}\text{or}\frac{2w\left(u+{w}^{2}\right)}{{u}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(x=u+v,y=v+w,z=u\)</p>
+</div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(x=u-v,y=u+v,z=u+v+w\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>The triangular region \(R\) with the vertices \((0,0),(1,1),\text{and}\,(1,2)\) is shown in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_206.jpg" alt="A triangle with corners at the origin, (1, 1), and (1, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<ul class="tight"><li>Find a transformation \(T:S\to R,\) \(T(u,v)=(x,y)=(au+bv,cu+dv),\) where \(a,b,c,\) and \(d\) are real numbers with \(ad-bc\ne 0\) such that \({T}^{-1}(0,0)=(0,0),{T}^{-1}(1,1)=(1,0),\) and \({T}^{-1}(1,2)=(0,1).\)</li><li>Use the transformation \(T\) to find the area \(A(R)\) of the region \(R.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>The triangular region \(R\) with the vertices \((0,0),(2,0),\text{and}\,(1,3)\) is shown in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_207.jpg" alt="A triangle with corners at the origin, (2, 0), and (1, 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<ul class="tight"><li>Find a transformation \(T:S\to R,\) \(T(u,v)=(x,y)=(au+bv,cu+dv),\) where \(a,b,c\) and \(d\) are real numbers with \(ad-bc\ne 0\) such that \({T}^{-1}(0,0)=(0,0),\) \({T}^{-1}(2,0)=(1,0),\) and \({T}^{-1}(1,3)=(0,1).\)</li><li>Use the transformation \(T\) to find the area \(A(R)\) of the region \(R.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(T(u,v)=(2u+v,3v);\) b. The area of \(R\) is<br> \(A(R)=∫03\,∫y\text{/}3(6-y)\text{/}3dx\,dy=∫01\,∫01-u|\frac{∂(x,y)}{∂(u,v)}|dv\,du=∫01\,∫01-u6dv\,du=3.\)</p>
+</div></div></div></div>
+<p>In the following exercises, use the transformation \(u=y-x,v=y,\) to evaluate the integrals on the parallelogram \(R\) of vertices \((0,0),(1,0),(2,1),\text{and}\,(1,1)\) shown in the following figure.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_208.jpg" alt="A rhombus with corners at the origin, (1, 0), (1, 1), and (2, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(\underset{R}{∬}(y-x)dA\)</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(\underset{R}{∬}({y}^{2}-xy)dA\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{1}{4}\)</p>
+</div></div></div></div>
+<p>In the following exercises, use the transformation \(y-x=u,x+y=v\) to evaluate the integrals on the square \(R\) determined by the lines \(y=x,y=\text{-}x+2,y=x+2,\) and \(y=\text{-}x\) shown in the following figure.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_209.jpg" alt="A square with side lengths square root of 2 rotated 45 degrees with one corner at the origin and another at (1, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(\underset{R}{∬}{e}^{x+y}dA\)</p>
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(\underset{R}{∬}\text{sin}(x-y)dA\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-1+\text{cos}\,2\)</p>
+</div></div></div></div>
+<p>In the following exercises, use the transformation \(x=u,5y=v\) to evaluate the integrals on the region \(R\) bounded by the ellipse \({x}^{2}+25{y}^{2}=1\) shown in the following figure.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_210.jpg" alt="An ellipse with center at the origin, major axis 2, and minor 0.4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(\underset{R}{∬}\sqrt{{x}^{2}+25{y}^{2}}\,dA\)</p>
+</div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\({\underset{R}{∬}({x}^{2}+25{y}^{2})}^{2}dA\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{15}\)</p>
+</div></div></div></div>
+<p>In the following exercises, use the transformation \(u=x+y,v=x-y\) to evaluate the integrals on the trapezoidal region \(R\) determined by the points \((1,0),(2,0),(0,2\text{)},\text{and}\,(0,1)\) shown in the following figure.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_211.jpg" alt="A trapezoid with corners at (1, 0), (0, 1), (0, 2), and (2, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(\underset{R}{∬}({x}^{2}-2xy+{y}^{2}){e}^{x+y}dA\)</p>
+</div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\underset{R}{∬}({x}^{3}+3{x}^{2}y+3x{y}^{2}+{y}^{3})dA\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{31}{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>The circular annulus sector \(R\) bounded by the circles \(4{x}^{2}+4{y}^{2}=1\) and \(9{x}^{2}+9{y}^{2}=64,\) the line \(x=y\sqrt{3},\) and the \(y\text{-axis}\) is shown in the following figure. Find a transformation \(T\) from a rectangular region \(S\) in the \(rθ\text{-plane}\) to the region \(R\) in the \(xy\text{-plane.}\) Graph \(S.\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_212.jpg" alt="In the first quadrant, a section of an annulus described by an inner radius of 0.5, outer radius slightly more than 2.5, and center the origin. There is a line dividing this annulus that comes from approximately a 30 degree angle. The portion corresponding to 60 degrees is shaded." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>The solid \(R\) bounded by the circular cylinder \({x}^{2}+{y}^{2}=9\) and the planes \(z=0,z=1,\) \(x=0,\text{and}\,y=0\) is shown in the following figure. Find a transformation \(T\) from a cylindrical box \(S\) in \(rθz\text{-space}\) to the solid \(R\) in \(xyz\text{-space}.\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_214.jpg" alt="A quarter of a cylinder with height 1 and radius 3. The center axis is the z axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(T(r,θ,z)=(r\,\text{cos}\,θ,r\,\text{sin}\,θ,z);S=[0,3]\,\times \,[0,\frac{\pi }{2}]\,\times \,[0,1]\) in the \(rθz\text{-space}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Show that \(\underset{R}{∬}f(\sqrt{\frac{{x}^{2}}{3}+\frac{{y}^{2}}{3}})dA=2\pi \sqrt{15}∫01f(ρ)ρ\,dρ,\) where \(f\) is a continuous function on \([0,1]\) and \(R\) is the region bounded by the ellipse \(5{x}^{2}+3{y}^{2}=15.\)</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Show that \(\underset{R}{∭}f(\sqrt{16{x}^{2}+4{y}^{2}+{z}^{2}})dV=\frac{\pi }{2}∫01f(ρ){ρ}^{2}dρ,\) where \(f\) is a continuous function on \([0,1]\) and \(R\) is the region bounded by the ellipsoid \(16{x}^{2}+4{y}^{2}+{z}^{2}=1.\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p><strong>[T]</strong> Find the area of the region bounded by the curves \(xy=1,xy=3,y=2x,\) and \(y=3x\) by using the transformation \(u=xy\) and \(v=\frac{y}{x}.\) Use a computer algebra system (CAS) to graph the boundary curves of the region \(R.\)</p>
+</div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p><strong>[T]</strong> Find the area of the region bounded by the curves \(xy=2,xy=3,y=x,\) and \(y=2x\) by using the transformation \(u=xy\) and \(v=\frac{y}{x}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The area of the region is \(\frac{ln2}{2}.\) A graph of the region is:<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_216.jpg" alt="Four lines are drawn, namely, y = 3, y = 2, y = 3/(x squared), and y = 2/(x squared). The lines y = 3 and y = 2 are parallel to each other. The lines y = 3/(x squared) and y = 2/(x squared) are curves that run somewhat parallel to each other." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Evaluate the triple integral \(∫01\,∫12\,∫zz+1(y+1)dx\,dy\,dz\) by using the transformation \(u=x-z,\) \(v=3y,\text{and}\,w=\frac{z}{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Evaluate the triple integral \(∫02\,∫46\,∫3z3z+2(5-4y)dx\,dz\,dy\) by using the transformation \(u=x-3z,v=4y,\text{and}\,w=z.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(8\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>A transformation \(T:{ℝ}^{2}\to {ℝ}^{2},T(u,v)=(x,y)\) of the form \(x=au+bv,y=cu+dv,\) where \(a,b,c,\text{and}\,d\) are real numbers, is called linear. Show that a linear transformation for which \(ad-bc\ne 0\) maps parallelograms to parallelograms.</p>
+</div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>The transformation \({T}_{θ}:{ℝ}^{2}\to {ℝ}^{2},{T}_{θ}(u,v)=(x,y),\) where \(x=u\,\text{cos}\,θ-v\,\text{sin}\,θ,\) \(y=u\,\text{sin}\,θ+v\,\text{cos}\,θ,\) is called a rotation of angle \(θ.\) Show that the inverse transformation of \({T}_{θ}\) satisfies \({T}_{θ}{}^{-1}={T}_{\text{-}θ},\) where \({T}_{\text{-}θ}\) is the rotation of angle \(\text{-}θ.\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p><strong>[T]</strong> Use the results of the previous exercise to find the region \(S\) in the \(uv\text{-plane}\) whose image through a rotation of angle \(\frac{\pi }{4}\) is the region \(R\) enclosed by the ellipse \({x}^{2}+4{y}^{2}=1.\) Use a CAS to answer the following questions.</p>
+<ul class="tight"><li>Graph the region \(S.\)</li><li>Evaluate the integral \(\underset{S}{∬}{e}^{-2uv}du\,dv.\) Round your answer to two decimal places.</li></ul>
+</div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p><strong>[T]</strong> The transformations \({T}_{i}:{ℝ}^{2}\to {ℝ}^{2},\) \(i=1\text{,…,}\,4,\) defined by \({T}_{1}(u,v)=(u,\text{-}v),\) \({T}_{2}(u,v)=(\text{-}u,v),{T}_{3}(u,v)=(\text{-}u,\text{-}v),\) and \({T}_{4}(u,v)=(v,u)\) are called reflections about the \(x\text{-axis},y\text{-axis},\) origin, and the line \(y=x,\) respectively.</p>
+<ul class="tight"><li>Find the image of the region \(S=\{(u,v)|{u}^{2}+{v}^{2}-2u-4v+1\le 0\}\) in the \(xy\text{-plane}\) through the transformation \({T}_{1}∘{T}_{2}∘{T}_{3}∘{T}_{4}.\)</li><li>Use a CAS to graph the image of \(S.\)</li><li>Evaluate the integral \(\underset{S}{∬}\text{sin}({u}^{2})du\,dv\) by using a CAS. Round your answer to two decimal places.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(R=\{(x,y)|{y}^{2}+{x}^{2}-2y-4x+1\le 0\};\) b. \(R\) is graphed in the following figure;<br> <br> c. \(3.16\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_218.jpg" alt="A circle with radius 2 and center (2, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p><strong>[T]</strong> The transformation \({T}_{k,1,1}:{ℝ}^{3}\to {ℝ}^{3},{T}_{k,1,1}(u,v,w)=(x,y,z)\) of the form \(x=ku,\) \(y=v,z=w,\) where \(k\ne 1\) is a positive real number, is called a stretch if \(k&gt;1\) and a compression if \(0&lt;k&lt;1\) in the \(x\text{-direction}\text{.}\) Use a CAS to evaluate the integral \(\underset{S}{∭}{e}^{\text{-}(4{x}^{2}+9{y}^{2}+25{z}^{2})}dx\,dy\,dz\) on the solid \(S=\{(x,y,z)|4{x}^{2}+9{y}^{2}+25{z}^{2}\le 1\}\) by considering the compression \({T}_{2,3,5}(u,v,w)=(x,y,z)\) defined by \(x=\frac{u}{2},y=\frac{v}{3},\) and \(z=\frac{w}{5}.\) Round your answer to four decimal places.</p>
+</div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p><strong>[T]</strong> The transformation \({T}_{a,0}:{ℝ}^{2}\to {ℝ}^{2},{T}_{a,0}(u,v)=(u+av,v),\) where \(a\ne 0\) is a real number, is called a shear in the \(x\text{-direction}\text{.}\) The transformation, \({T}_{0,b}:{ℝ}^{2}\to {ℝ}^{2},{T}_{0,b}(u,v)=(u,bu+v),\) where \(b\ne 0\) is a real number, is called a shear in the \(y\text{-direction}\text{.}\)</p>
+<ul class="tight"><li>Find transformations \({T}_{0,2}∘{T}_{3,0}.\)</li><li>Find the image \(R\) of the trapezoidal region \(S\) bounded by \(u=0,v=0,v=1,\) and \(v=2-u\) through the transformation \({T}_{0,2}∘{T}_{3,0}.\)</li><li>Use a CAS to graph the image \(R\) in the \(xy\text{-plane}\text{.}\)</li><li>Find the area of the region \(R\) by using the area of region \(S.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({T}_{0,2}∘{T}_{3,0}(u,v)=(u+3v,2u+7v);\) b. The image \(R\) is the quadrilateral of vertices \((0,0),(3,7),(2,4),\text{and}\,(4,9);\) c. \(S\) is graphed in the following figure;<br> <br> d. \(\frac{3}{2}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_219.jpg" alt="A four-sided figure with points the origin, (2, 4), (4, 9), and (3, 7)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Use the transformation, \(x=au,y=av,z=cw\) and spherical coordinates to show that the volume of a region bounded by the spheroid \(\frac{{x}^{2}+{y}^{2}}{{a}^{2}}+\frac{{z}^{2}}{{c}^{2}}=1\) is \(\frac{4\pi {a}^{2}c}{3}.\)</p>
+</div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Find the volume of a football whose shape is a spheroid \(\frac{{x}^{2}+{y}^{2}}{{a}^{2}}+\frac{{z}^{2}}{{c}^{2}}=1\) whose length from tip to tip is \(11\) inches and circumference at the center is \(22\) inches. Round your answer to two decimal places.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2662}{3\pi }≃282.45{\,\text{in}}^{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p><strong>[T]</strong> Lamé ovals (or superellipses) are plane curves of equations \({(\frac{x}{a})}^{n}+{(\frac{y}{b})}^{n}=1,\) where <strong>a</strong>, <strong>b</strong>, and <strong>n</strong> are positive real numbers.</p>
+<ul class="tight"><li>Use a CAS to graph the regions \(R\) bounded by Lamé ovals for \(a=1,b=2,n=4\) and \(n=6,\) respectively.</li><li>Find the transformations that map the region \(R\) bounded by the Lamé oval \({x}^{4}+{y}^{4}=1,\) also called a squircle and graphed in the following figure, into the unit disk.<br><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_220.jpg" alt="A square of side length 2 with rounded corners." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>Use a CAS to find an approximation of the area \(A(R)\) of the region \(R\) bounded by \({x}^{4}+{y}^{4}=1.\) Round your answer to two decimal places.</li></ul>
+</div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p><strong>[T]</strong> Lamé ovals have been consistently used by designers and architects. For instance, Gerald Robinson, a Canadian architect, has designed a parking garage in a shopping center in Peterborough, Ontario, in the shape of a superellipse of the equation \({(\frac{x}{a})}^{n}+{(\frac{y}{b})}^{n}=1\) with \(\frac{a}{b}=\frac{9}{7}\) and \(n=e.\) Use a CAS to find an approximation of the area of the parking garage in the case \(a=900\) yards, \(b=700\) yards, and \(n=2.72\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(A(R)=2,177,216 {\text{yd}}^{2}\)</p>
+</div></div></div></div>
+</div>
+<h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
+<p><strong>True or False?</strong> Justify your answer with a proof or a counterexample.</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\(∫ab\,∫cdf(x,y)dy\,dx=∫cd\,∫abf(x,y)dy\,dx\)</p>
+</div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>Fubini’s theorem can be extended to three dimensions, as long as \(f\) is continuous in all variables.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>True.</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>The integral \(∫02\pi \,∫01\,∫r1dz\,dr\,dθ\) represents the volume of a right cone.</p>
+</div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>The Jacobian of the transformation \(x={u}^{2}-2v,y=3v-2uv\) is given by \(-4{u}^{2}+6u+4v.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>False.</p>
+</div></div></div></div>
+<p>Evaluate the following integrals.</p>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>\(\underset{R}{∬}(5{x}^{3}{y}^{2}-{y}^{2})dA,R=\{(x,y)|0\le x\le 2,1\le y\le 4\}\)</p>
+</div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>\(\underset{D}{∬}\frac{y}{3{x}^{2}+1}dA,D=\{(x,y)|0\le x\le 1,\text{-}x\le y\le x\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(\underset{D}{∬}\text{sin}({x}^{2}+{y}^{2})dA\) where \(D\) is a disk of radius \(2\) centered at the origin</p>
+</div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(∫01\,∫y1xy{e}^{{x}^{2}}dx\,dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>\(∫-11\,∫0z\,∫0x-z6dy\,dx\,dz\)</p>
+</div></div>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>\(\underset{R}{∭}3y\,dV,\) where \(R=\{(x,y,z)|0\le x\le 1,0\le y\le x,0\le z\le \sqrt{9-{y}^{2}}\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1.475</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>\(∫02\,∫02\pi \,∫r1r\,dz\,dθ\,dr\)</p>
+</div></div>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(∫02\pi \,∫0\pi \text{/}2\,∫13{ρ}^{2}\text{sin}(φ)dρ\,dφ\,dθ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{52}{3}\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(∫01\,∫\text{-}\sqrt{1-{x}^{2}}\sqrt{1-{x}^{2}}\,∫\text{-}\sqrt{1-{x}^{2}-{y}^{2}}\sqrt{1-{x}^{2}-{y}^{2}}dz\,dy\,dx\)</p>
+</div></div>
+<p>For the following problems, find the specified area or volume.</p>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>The area of region enclosed by one petal of \(r=\text{cos}(4θ).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{16}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>The volume of the solid that lies between the paraboloid \(z=2{x}^{2}+2{y}^{2}\) and the plane \(z=8.\)</p>
+</div></div>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>The volume of the solid bounded by the cylinder \({x}^{2}+{y}^{2}=16\) and from \(z=1\) and \(z+x=2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(16\pi \approx 50.265\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>The volume of the intersection between two spheres of radius 1, the top whose center is \((0,0,0.25)\) and the bottom, which is centered at \((0,0,0).\)</p>
+</div></div>
+<p>For the following problems, find the center of mass of the region.</p>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>\(ρ(x,y)=xy\) on the circle with radius \(1\) in the first quadrant only.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\frac{8}{15},\frac{8}{15})\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>\(ρ(x,y)=(y+1)\sqrt{x}\) in the region bounded by \(y={e}^{x},\) \(y=0,\) and \(x=1.\)</p>
+</div></div>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>\(ρ(x,y,z)=z\) on the inverted cone with radius \(2\) and height \(2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,0,\frac{4}{5})\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>The volume an ice cream cone that is given by the solid above \(z=\sqrt{({x}^{2}+{y}^{2})}\) and below \({z}^{2}+{x}^{2}+{y}^{2}=z.\)</p>
+</div></div>
+<p>The following problems examine Mount Holly in the state of Michigan. Mount Holly is a landfill that was converted into a ski resort. The shape of Mount Holly can be approximated by a right circular cone of height \(1100\) ft and radius \(6000\) ft.</p>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><p>If the compacted trash used to build Mount Holly on average has a density \(400{\,\text{lb/ft}}^{3},\) find the amount of work required to build the mountain.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1.452\pi \,\times \,{10}^{15}\) ft-lb</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><p>In reality, it is very likely that the trash at the bottom of Mount Holly has become more compacted with all the weight of the above trash. Consider a density function with respect to height: the density at the top of the mountain is still density \(400{\,\text{lb/ft}}^{3}\) and the density increases. Every \(100\) feet deeper, the density doubles. What is the total weight of Mount Holly?</p>
+</div></div>
+<p>The following problems consider the temperature and density of Earth’s layers.</p>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p><strong>[T]</strong> The temperature of Earth’s layers is exhibited in the table below. Use your calculator to fit a polynomial of degree \(3\) to the temperature along the radius of the Earth. Then find the average temperature of Earth. (<strong>Hint</strong>: begin at \(0\) in the inner core and increase outward toward the surface)</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Layer</td><td>Depth from center (km)</td><td>Temperature \(\text{°}C\)</td></tr><tr><td>Rocky Crust</td><td>0 to 40</td><td>0</td></tr><tr><td>Upper Mantle</td><td>40 to 150</td><td>870</td></tr><tr><td>Mantle</td><td>400 to 650</td><td>870</td></tr><tr><td>Inner Mantel</td><td>650 to 2700</td><td>870</td></tr><tr><td>Molten Outer Core</td><td>2890 to 5150</td><td>4300</td></tr><tr><td>Inner Core</td><td>5150 to 6378</td><td>7200</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-1.238\,\times \,{10}^{-7}{x}^{3}+0.001196{x}^{2}-3.666x+7208;\) average temperature approximately \({2800}^{\text{°}}C\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p><strong>[T]</strong> The density of Earth’s layers is displayed in the table below. Using your calculator or a computer program, find the best-fit quadratic equation to the density. Using this equation, find the total mass of Earth.</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>Layer</td><td>Depth from center (km)</td><td>Density (g/cm3)</td></tr><tr><td>Inner Core</td><td>\(0\)</td><td>\(12.95\)</td></tr><tr><td>Outer Core</td><td>\(1228\)</td><td>\(11.05\)</td></tr><tr><td>Mantle</td><td>\(3488\)</td><td>\(5.00\)</td></tr><tr><td>Upper Mantle</td><td>\(6338\)</td><td>\(3.90\)</td></tr><tr><td>Crust</td><td>\(6378\)</td><td>\(2.55\)</td></tr></tbody></table></div>
+</div></div>
+<p>The following problems concern the Theorem of Pappus (see Moments and Centers of Mass for a refresher), a method for calculating volume using centroids. Assuming a region \(R,\) when you revolve around the \(x\text{-axis}\) the volume is given by \({V}_{x}=2\pi A\bar{\left(y\right)},\) and when you revolve around the \(\text{y-axis}\) the volume is given by \({V}_{y}=2\pi A\left(\bar{x}\right),\) where \(A\) is the area of \(R.\) Consider the region bounded by \({x}^{2}+{y}^{2}=1\) and above \(y=x+1.\)</p>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>Find the volume when you revolve the region around the \(x\text{-axis.}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><p>Find the volume when you revolve the region around the \(y\text{-axis.}\)</p>
+</div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>Jacobian</dt><dd>the Jacobian \(J(u,v)\) in two variables is a \(2\,\times \,2\) determinant:<br> <br> the Jacobian \(J(u,v,w)\) in three variables is a \(3\,\times \,3\) determinant:<br></dd><dt>one-to-one transformation</dt><dd>a transformation \(T:G\to R\) defined as \(T(u,v)=(x,y)\) is said to be one-to-one if no two points map to the same image point</dd><dt>planar transformation</dt><dd>a function \(T\) that transforms a region \(G\) in one plane into a region \(R\) in another plane by a change of variables</dd><dt>transformation</dt><dd>a function that transforms a region \(G\) in one plane into a region \(R\) in another plane by a change of variables</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

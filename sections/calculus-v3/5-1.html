@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double Integrals over Rectangular Regions · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Double Integrals over Rectangular Regions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 5.1</span>Double Integrals over Rectangular Regions</h1>
+<p>In this section we investigate double integrals and show how we can use them to find the volume of a solid over a rectangular region in the \(xy\) -plane. Many of the properties of double integrals are similar to those we have already discussed for single integrals.</p>
+<h2 id="volumes-and-double-integrals">Volumes and Double Integrals</h2>
+<p>We begin by considering the space above a rectangular region <strong>R</strong>. Consider a continuous function \(f(x,y)\ge 0\) of two variables defined on the closed rectangle <strong>R</strong>:</p>
+<p>\[R=[a,b]\,\times \,[c,d]=\left\{(x,y)\in {ℝ}^{2}|a\le x\le b,c\le y\le d\}\right.\]</p>
+<p>Here \([a,b]\,\times \,[c,d]\) denotes the Cartesian product of the two closed intervals \([a,b]\) and \([c,d].\) It consists of rectangular pairs \((x,y)\) such that \(a\le x\le b\) and \(c\le y\le d.\) The graph of \(f\) represents a surface above the \(xy\) -plane with equation \(z=f(x,y)\) where \(z\) is the height of the surface at the point \((x,y).\) Let \(S\) be the solid that lies above \(R\) and under the graph of \(f\) (<a href="#fig1">Figure 1</a>). The base of the solid is the rectangle \(R\) in the \(xy\) -plane. We want to find the volume \(V\) of the solid \(S.\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_001.jpg" alt="In xyz space, there is a surface z = f(x, y). On the x axis, the lines denoting a and b are drawn; on the y axis the lines for c and d are drawn. When the surface is projected onto the xy plane, it forms a rectangle with corners (a, c), (a, d), (b, c), and (b, d)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The graph of \(f(x,y)\) over the rectangle \(R\) in the \(xy\) -plane is a curved surface.</figcaption></figure>
+<p>We divide the region \(R\) into small rectangles \({R}_{ij},\) each with area \(\Delta A\) and with sides \(\Delta x\) and \(\Delta y\) (<a href="#fig2">Figure 2</a>). We do this by dividing the interval \([a,b]\) into \(m\) subintervals and dividing the interval \([c,d]\) into \(n\) subintervals. Hence \(\Delta x=\frac{b-a}{m},\) \(\Delta y=\frac{d-c}{n},\) and \(\Delta A=\Delta x\Delta y.\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_002.jpg" alt="In the xy plane, there is a rectangle with corners (a, c), (a, d), (b, c), and (b, d). Between a and b on the x axis lines are drawn from a, x1, x2, …, xi, …, b with distance Delta x between each line; between c and d on the y axis lines are drawn from c, y1, y2, …, yj, …, d with distance Delta y between each line. Among the resulting subrectangles, the one in the second column and third row up has a point marked (x*23, y*23). The rectangle Rij is marked with upper right corner (xi, yj). Within this rectangle the point (x*ij, y*ij) is marked." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Rectangle \(R\) is divided into small rectangles \({R}_{ij},\) each with area \(\Delta A.\)</figcaption></figure>
+<p>The volume of a thin rectangular box above \({R}_{ij}\) is \(f({x}_{ij}^{*},{y}_{ij}^{*})\Delta A,\) where \(({x}_{ij}^{*},{y}_{ij}^{*})\) is an arbitrary sample point in each \({R}_{ij}\) as shown in the following figure.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_003.jpg" alt="In xyz space, there is a surface z = f(x, y). On the x axis, the lines denoting a and b are drawn; on the y axis the lines for c and d are drawn. When the surface is projected onto the xy plane, it forms a rectangle with corners (a, c), (a, d), (b, c), and (b, d). There are additional squares drawn to correspond to changes of Delta x and Delta y. On the surface, a square is marked and its projection onto the plane is marked as Rij. The average value for this small square is f(x*ij, y*ij)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — A thin rectangular box above \({R}_{ij}\) with height \(f({x}_{ij}^{*},{y}_{ij}^{*}).\)</figcaption></figure>
+<p>Using the same idea for all the subrectangles, we obtain an approximate volume of the solid \(S\) as \(V\approx ∑i=1m∑j=1nf({x}_{ij}^{*},{y}_{ij}^{*})\Delta A.\) This sum is known as a <strong>double Riemann sum</strong> and can be used to approximate the value of the volume of the solid. Here the double sum means that for each subrectangle we evaluate the function at the chosen point, multiply by the area of each rectangle, and then add all the results.</p>
+<p>As we have seen in the single-variable case, we obtain a better approximation to the actual volume if <strong>m</strong> and <strong>n</strong> become larger.</p>
+<p>\[V=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({x}_{ij}^{*},{y}_{ij}^{*})\Delta A\,\text{or}\,V=\underset{\Delta x,\Delta y\to 0}{\text{lim}}∑i=1m∑j=1nf({x}_{ij}^{*},{y}_{ij}^{*})\Delta A.\]</p>
+<p>Note that the sum approaches a limit in either case and the limit is the volume of the solid with the base <strong>R</strong>. Now we are ready to define the double integral.</p>
+<div class="card definition"><span class="chip">Definition</span><p>The <strong>double integral</strong> of the function \(f(x,y)\) over the rectangular region \(R\) in the \(xy\) -plane is defined as</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({x}_{i}^{*},{y}_{j}^{*})\Delta A.\]</p>
+</div>
+<p>If \(f(x,y)\ge 0,\) then the volume <strong>V</strong> of the solid <strong>S</strong>, which lies above \(R\) in the \(xy\) -plane and under the graph of <strong>f</strong>, is the double integral of the function \(f(x,y)\) over the rectangle \(R.\) If the function is ever negative, then the double integral can be considered a “signed” volume in a manner similar to the way we defined net signed area in The Definite Integral.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Consider the function \(z=f(x,y)=3{x}^{2}-y\) over the rectangular region \(R=[0,2]\,\times \,[0,2]\) (<a href="#fig4">Figure 4</a>).</p>
+<ul class="tight"><li>Set up a double integral for finding the value of the signed volume of the solid <strong>S</strong> that lies above \(R\) and “under” the graph of \(f.\)</li><li>Divide <strong>R</strong> into four squares with \(m=n=2,\) and choose the sample point as the upper right corner point of each square \((1,1),(2,1),(1,2),\) and \((2,2)\) (<a href="#fig5">Figure 5</a>) to approximate the signed volume of the solid <strong>S</strong> that lies above \(R\) and “under” the graph of \(f.\)</li><li>Divide <strong>R</strong> into four squares with \(m=n=2,\) and choose the sample point as the midpoint of each square: \((1\text{/}2,1\text{/}2),(3\text{/}2,1\text{/}2),(1\text{/}2,3\text{/}2),\text{and}\,(3\text{/}2,3\text{/}2)\) to approximate the signed volume.<br><figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_004.jpg" alt="In xyz space, there is a surface z = f(x, y) = 3x2 minus y. The corners of the surface are given as (0, 0, 0), (2, 0, 12), (0, 2, negative 2), and (2, 2, 10). The surface is parabolic along the x axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The function \(z=f(x,y)\) graphed over the rectangular region \(R=[0,2]\,\times \,[0,2].\)</figcaption></figure>
+</li></ul>
+<p class="sol-hint">Start by writing the definition of the double integral as a limit of Riemann sums, then plug in each set of sample points in turn.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>As we can see, the function \(z=f(x,y)=3{x}^{2}-y\) is both above and below the plane. To find the signed volume of <strong>S</strong>, we need to divide the region <strong>R</strong> into small rectangles \({R}_{ij},\) each with area \(\Delta A\) and with sides \(\Delta x\) and \(\Delta y,\) and choose \(({x}_{ij}^{*},{y}_{ij}^{*})\) as sample points in each \({R}_{ij}.\) Hence, a double integral is set up as<br><p>\[V=\underset{R}{∬}(3{x}^{2}-y)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1n[3{({x}_{ij}^{*})}^{2}-{y}_{ij}^{*}]\Delta A.\]</p>
+</li><li>Approximating the signed volume using a Riemann sum with \(m=n=2\) we have \(\Delta A=\Delta x\Delta y=1\,\times \,1=1.\) Also, the sample points are (1, 1), (2, 1), (1, 2), and (2, 2) as shown in the following figure.<br> <br> Hence,<br><figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_005.jpg" alt="On the xy plane, the points (1, 1), (1, 2), (2, 1), and (2, 2) are marked, and these form the upper right corners of four squares marked R11, R12, R21, and R22, respectively. Each square has area Delta A = 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — Subrectangles for the rectangular region \(R=[0,2]\,\times \,[0,2].\)</figcaption></figure>
+<p>\[\begin{array}{ll}V &amp; =∑i=12∑j=12f({x}_{ij}^{*},{y}_{ij}^{*})\Delta A \\ &amp; =∑i=12(f({x}_{i1}^{*},{y}_{i1}^{*})+f({x}_{i2}^{*},{y}_{i2}^{*}))\Delta A \\ &amp; =f({x}_{11}^{*},{y}_{11}^{*})\Delta A+f({x}_{21}^{*},{y}_{21}^{*})\Delta A+f({x}_{12}^{*},{y}_{12}^{*})\Delta A+f({x}_{22}^{*},{y}_{22}^{*})\Delta A \\ &amp; =f(1,1)(1)+f(2,1)(1)+f(1,2)(1)+f(2,2)(1) \\ &amp; =\left(3-1\right)(1)+(12-1)(1)+(3-2)(1)+(12-2)(1) \\ &amp; =2 + 11 + 1 + 10 = 24\end{array}\]</p>
+</li><li>Approximating the signed volume using a Riemann sum with \(m=n=2,\) we have \(\Delta A=\Delta x\Delta y=1\,\times \,1=1.\) In this case the sample points are (1/2, 1/2), (3/2, 1/2), (1/2, 3/2),<br>and (3/2, 3/2).<br> Hence<br><p>\[\begin{array}{ll}V &amp; =∑i=12∑j=12f({x}_{ij}^{*},{y}_{ij}^{*})\Delta A \\ &amp; =f({x}_{11}^{*},{y}_{11}^{*})\Delta A+f({x}_{21}^{*},{y}_{21}^{*})\Delta A+f({x}_{12}^{*},{y}_{12}^{*})\Delta A+f({x}_{22}^{*},{y}_{22}^{*})\Delta A \\ &amp; =f(\frac{1}{2},\frac{1}{2})(1)+f(\frac{3}{2},\frac{1}{2})(1)+f(\frac{1}{2},\frac{3}{2})(1)+f(\frac{3}{2},\frac{3}{2})(1) \\ &amp; =(\frac{3}{4}-\frac{1}{2})(1)+(\frac{27}{4}-\frac{1}{2})(1)+(\frac{3}{4}-\frac{3}{2})(1)+(\frac{27}{4}-\frac{3}{2})(1) \\ &amp; =\frac{1}{4}+\frac{25}{4}+(-\frac{3}{4})+\frac{21}{4}=\frac{44}{4}\end{array}\]</p>
+</li></ul>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice that the approximate answers differ due to the choices of the sample points. In either case, we are introducing some error because we are using only a few sample points. Thus, we need to investigate how we can achieve an accurate answer.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Use the same function \(z=f(x,y)=3{x}^{2}-y\) over the rectangular region \(R=[0,2]\,\times \,[0,2].\)</p>
+<p>Divide <strong>R</strong> into the same four squares with \(m=n=2,\) and choose the sample points as the upper left corner point of each square \((0,1),(1,1),(0,2),\) and \((1,2)\) (<a href="#fig5">Figure 5</a>) to approximate the signed volume of the solid <strong>S</strong> that lies above \(R\) and “under” the graph of \(f.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(V=∑i=12∑j=12f({x}_{ij}^{*},{y}_{ij}^{*})\Delta A=0\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Note that we developed the concept of double integral using a rectangular region <strong>R</strong>. This concept can be extended to any general region. However, when a region is not rectangular, the subrectangles may not all fit perfectly into <strong>R</strong>, particularly if the base area is curved. We examine this situation in more detail in the next section, where we study regions that are not always rectangular and subrectangles may not fit perfectly in the region <strong>R</strong>. Also, the heights may not be exact if the surface \(z=f(x,y)\) is curved. However, the errors on the sides and the height where the pieces may not fit perfectly within the solid <strong>S</strong> approach 0 as <strong>m</strong> and <strong>n</strong> approach infinity. Also, the double integral of the function \(z=f(x,y)\) exists provided that the function \(f\) is not too discontinuous. If the function is bounded and continuous over <strong>R</strong> except on a finite number of smooth curves, then the double integral exists and we say that \(f\) is integrable over <strong>R</strong>.</p>
+<p>Since \(\Delta A=\Delta x\Delta y=\Delta y\Delta x,\) we can express \(dA\) as \(dx\,dy\) or \(dy\,dx.\) This means that, when we are using rectangular coordinates, the double integral over a region \(R\) denoted by \(\underset{R}{∬}f(x,y)dA\) can be written as \(\underset{R}{∬}f(x,y)dx\,dy\) or \(\underset{R}{∬}f(x,y)dy\,dx.\)</p>
+<p>Now let’s list some of the properties that can be helpful to compute double integrals.</p>
+<h2 id="properties-of-double-integrals">Properties of Double Integrals</h2>
+<p>The properties of double integrals are very helpful when computing them or otherwise working with them. We list here six properties of double integrals. Properties 1 and 2 are referred to as the linearity of the integral, property 3 is the additivity of the integral, property 4 is the monotonicity of the integral, and property 5 is used to find the bounds of the integral. Property 6 is used if \(f(x,y)\) is a product of two functions \(g(x)\) and \(h(y).\)</p>
+<div class="card definition"><span class="chip">Properties of Double Integrals</span><p>Assume that the functions \(f(x,y)\) and \(g(x,y)\) are integrable over the rectangular region <strong>R</strong>; <strong>S</strong> and <strong>T</strong> are subregions of <strong>R</strong>; and assume that <strong>m</strong> and <strong>M</strong> are real numbers.</p>
+<ul class="tight"><li>The sum \(f(x,y)+g(x,y)\) is integrable and<br><p>\[\underset{R}{∬}[f(x,y)+g(x,y)]dA=\underset{R}{∬}f(x,y)dA+\underset{R}{∬}g(x,y)dA.\]</p>
+</li><li>If <strong>c</strong> is a constant, then \(cf(x,y)\) is integrable and<br><p>\[\underset{R}{∬}cf(x,y)dA=c\underset{R}{∬}f(x,y)dA.\]</p>
+</li><li>If \(R=S∪T\) and \(S∩T=\varnothing\) except an overlap on the boundaries, then<br><p>\[\underset{R}{∬}f(x,y)dA=\underset{S}{∬}f(x,y)dA+\underset{T}{∬}f(x,y)dA.\]</p>
+</li><li>If \(f(x,y)\ge g(x,y)\) for \((x,y)\) in \(R,\) then<br><p>\[\underset{R}{∬}f(x,y)dA\ge \underset{R}{∬}g(x,y)dA.\]</p>
+</li><li>If \(m\le f(x,y)\le M,\) then<br><p>\[m\,\times \,A(R)\le \underset{R}{∬}f(x,y)dA\le M\,\times \,A(R).\]</p>
+</li><li>In the case where \(f(x,y)\) can be factored as a product of a function \(g(x)\) of \(x\) only and a function \(h(y)\) of \(y\) only, then over the region \(R=\{(x,y)|a\le x\le b,c\le y\le d\},\) the double integral can be written as<br><p>\[\underset{R}{∬}f(x,y)dA=({∫}_{a}^{b}g(x)dx)({∫}_{c}^{d}h(y)dy).\]</p>
+</li></ul>
+</div>
+<p>These properties are used in the evaluation of double integrals, as we will see later. We will become skilled in using these properties once we become familiar with the computational tools of double integrals. So let’s get to that now.</p>
+<h2 id="iterated-integrals">Iterated Integrals</h2>
+<p>So far, we have seen how to set up a double integral and how to obtain an approximate value for it. We can also imagine that evaluating double integrals by using the definition can be a very lengthy process if we choose larger values for \(m\) and \(n.\) Therefore, we need a practical and convenient technique for computing double integrals. In other words, we need to learn how to compute double integrals without employing the definition that uses limits and double sums.</p>
+<p>The basic idea is that the evaluation becomes easier if we can break a double integral into single integrals by integrating first with respect to one variable and then with respect to the other. The key tool we need is called an iterated integral.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Assume \(a,b,c,\) and \(d\) are real numbers. We define an <strong>iterated integral</strong> for a function \(f(x,y)\) over the rectangular region \(R\) \(=[a,b]\,\times \,[c,d]\) as</p>
+<ul class="tight"><li><br><p>\[∫ab\,∫cdf(x,y)dy\,dx=∫ab[∫cdf(x,y)dy]dx\]</p>
+</li><li><br><p>\[∫cd\,∫abf(x,y)dx\,dy=∫cd[∫abf(x,y)dx]dy.\]</p>
+</li></ul>
+</div>
+<p>The notation \(∫ab[∫cdf(x,y)dy]dx\) means that we integrate \(f(x,y)\) with respect to <strong>y</strong> while holding <strong>x</strong> constant. Similarly, the notation \(∫cd[∫abf(x,y)dx]dy\) means that we integrate \(f(x,y)\) with respect to <strong>x</strong> while holding <strong>y</strong> constant. The fact that double integrals can be split into iterated integrals is expressed in Fubini’s theorem. Think of this theorem as an essential tool for evaluating double integrals.</p>
+<div class="card definition"><span class="chip">Fubini’s Theorem</span><p>Suppose that \(f(x,y)\) is a function of two variables that is continuous over a rectangular region \(R=\{(x,y)\in {ℝ}^{2}|a\le x\le b,\text{c}\le \text{y}\le \text{d}\}.\) Then we see from <a href="#fig6">Figure 6</a> that the double integral of \(f\) over the region equals an iterated integral,</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{R}{∬}f(x,y)dx\,dy=∫ab\,∫cdf(x,y)dy\,dx=∫cd\,∫abf(x,y)dx\,dy.\]</p>
+<p>More generally, <strong>Fubini’s theorem</strong> is true if \(f\) is bounded on \(R\) and \(f\) is discontinuous only on a finite number of continuous curves. In other words, \(f\) has to be integrable over \(R.\)</p>
+</div>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_006.jpg" alt="This figure consists of two figures marked a and b. In figure a, in xyz space, a surface is shown that is given by the function f(x, y). A point x is chosen on the x axis, and at this point, it it written fix x. From this point, a plane is projected perpendicular to the xy plane along the line with value x. This plane is marked Area A(x), and the entire space under the surface is marked V. Similarly, in figure b, in xyz space, a surface is shown that is given by the function f(x, y). A point y is chosen on the y axis, and at this point, it it written fix y. From this point, a plane is projected perpendicular to the xy plane along the line with value y. This plane is marked Area A(y), and the entire space under the surface is marked V." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — (a) Integrating first with respect to \(y\) and then with respect to \(x\) to find the area \(A(x)\) and then the volume <strong>V</strong>; (b) integrating first with respect to \(x\) and then with respect to \(y\) to find the area \(A(y)\) and then the volume <strong>V</strong>.</figcaption></figure>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Use Fubini’s theorem to compute the double integral \(\underset{R}{∬}f(x,y)dA\) where \(f(x,y)=x\) and \(R=[0,2]\,\times \,[0,1].\)</p>
+<p class="sol-hint">Convert the double integral to an iterated integral using Fubini's theorem, integrating with respect to x first.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Fubini’s theorem offers an easier way to evaluate the double integral by the use of an iterated integral. Note how the boundary values of the region <strong>R</strong> become the upper and lower limits of integration.</p>
+<p>\[\begin{array}{ll}\underset{R}{∬}f(x,y)dA &amp; =\underset{R}{∬}f(x,y)dx\,dy \\ &amp; ={∫}_{y=0}^{y=1}{∫}_{x=0}^{x=2}x\,dx\,dy \\ &amp; ={∫}_{y=0}^{y=1}[{\frac{{x}^{2}}{2}|}_{x=0}^{x=2}]dy \\ &amp; ={∫}_{y=0}^{y=1}2dy={2y|}_{y=0}^{y=1}=2.\end{array}\]</p>
+</div></div></div>
+<p>The double integration in this example is simple enough to use Fubini’s theorem directly, allowing us to convert a double integral into an iterated integral. Consequently, we are now ready to convert all double integrals to iterated integrals and demonstrate how the properties listed earlier can help us evaluate double integrals when the function \(f(x,y)\) is more complex. Note that the order of integration can be changed (see <a href="#example7">Example 7</a>).</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the double integral \(\underset{R}{∬}(xy-3x{y}^{2})dA\) where \(R=\{(x,y)|0\le x\le 2,1\le y\le 2\}.\)</p>
+<p class="sol-hint">Split the integrand into two pieces using linearity, then convert each piece to an iterated integral.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This function has two pieces: one piece is \(xy\) and the other is \(3x{y}^{2}.\) Also, the second piece has a constant \(3.\) Notice how we use properties i and ii to help evaluate the double integral.</p>
+<p>\[\begin{array}{llll} \\ \\ \\ \\ \,\underset{R}{∬}(xy-3x{y}^{2})dA &amp; &amp; &amp; \\ =\underset{R}{∬}xy\,dA+\underset{R}{∬}(-3x{y}^{2})dA &amp; &amp; &amp; \text{Property i: Integral of a sum is the sum of the integrals.} \\ ={∫}_{y=1}^{y=2}{∫}_{x=0}^{x=2}xy\,dx\,dy-{∫}_{y=1}^{y=2}{∫}_{x=0}^{x=2}3x{y}^{2}dx\,dy &amp; &amp; &amp; \text{Convert double integrals to iterated integrals.} \\ ={∫}_{y=1}^{y=2}{(\frac{{x}^{2}}{2}y)|}_{x=0}^{x=2}dy-3{∫}_{y=1}^{y=2}{(\frac{{x}^{2}}{2}{y}^{2})|}_{x=0}^{x=2}dy &amp; &amp; &amp; \text{Integrate with respect to}\,x,\text{holding}\,y\,\text{constant.} \\ ={∫}_{y=1}^{y=2}2y\,dy-{∫}_{y=1}^{y=2}6{y}^{2}dy &amp; &amp; &amp; \text{Property ii: Placing the constant before the integral.} \\ =2{∫}_{1}^{2}y\,dy-6{∫}_{1}^{2}{y}^{2}dy &amp; &amp; &amp; \text{Integrate with respect to}\,y. \\ ={2\frac{{y}^{2}}{2}|}_{1}^{2}-{6\frac{{y}^{3}}{3}|}_{1}^{2} &amp; &amp; &amp; \\ ={{y}^{2}|}_{1}^{2}-{2{y}^{3}|}_{1}^{2} &amp; &amp; &amp; \\ =(4-1)-2(8-1) &amp; &amp; &amp; \\ =3-2(7)=3-14=-11.\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Over the region \(R=\{(x,y)|1\le x\le 3,1\le y\le 2\},\) we have \(2\le {x}^{2}+{y}^{2}\le 13.\) Find a lower and an upper bound for the integral \(\underset{R}{∬}({x}^{2}+{y}^{2})dA.\)</p>
+<p class="sol-hint">Use the boundedness property, integrating the constant lower bound and the constant upper bound separately over R.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>For a lower bound, integrate the constant function 2 over the region \(R.\) For an upper bound, integrate the constant function 13 over the region \(R.\)</p>
+<p>\[\begin{array}{lll}{∫}_{1}^{2}{∫}_{1}^{3}2dx\,dy &amp; = &amp; {∫}_{1}^{2}[{2x|}_{1}^{3}]dy={∫}_{1}^{2}2(2)dy={4y|}_{1}^{2}=4(2-1)=4 \\ {∫}_{1}^{2}{∫}_{1}^{3}13dx\,dy &amp; = &amp; {∫}_{1}^{2}[{13x|}_{1}^{3}]dy={∫}_{1}^{2}13(2)dy={26y|}_{1}^{2}=26(2-1)=26.\end{array}\]</p>
+<p>Hence, we obtain \(4\le \underset{R}{∬}({x}^{2}+{y}^{2})dA\le 26.\)</p>
+</div></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{R}{∬}{e}^{y}\text{cos}\,x\,dA\) over the region \(R=\{(x,y)|0\le x\le \frac{\pi }{2},0\le y\le 1\}.\)</p>
+<p class="sol-hint">Recognize the integrand factors into a function of x times a function of y, then split the double integral into a product of two single integrals.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This is a great example for property vi because the function \(f(x,y)\) is clearly the product of two single-variable functions \({e}^{y}\) and \(\text{cos}\,x.\) Thus we can split the integral into two parts and then integrate each one as a single-variable integration problem.</p>
+<p>\[\begin{array}{ll}\underset{R}{∬}{e}^{y}\text{cos}\,x\,dA &amp; ={∫}_{0}^{1}{∫}_{0}^{\pi \text{/}2}{e}^{y}\text{cos}\,x\,dx\,dy \\ &amp; =({∫}_{0}^{1}{e}^{y}dy)({∫}_{0}^{\pi \text{/}2}\text{cos}\,x\,dx) \\ &amp; =({{e}^{y}|}_{0}^{1})({\text{sin}\,x|}_{0}^{\pi \text{/}2}) \\ &amp; =e-1.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><ul class="tight"><li>Use the properties of the double integral and Fubini’s theorem to evaluate the integral<br><p>\[{∫}_{0}^{1}{∫}_{-1}^{3}(3-x+4y)dy\,dx.\]</p>
+</li><li>Show that \(0\le \underset{R}{∬}\text{sin}\,\pi x\,\text{cos}\,\pi y\,dA\le \frac{1}{32}\) where \(R=\left(0,\frac{1}{4}\right)\times \left(\frac{1}{4},\frac{1}{2}\right).\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>a. 26 b. Answers may vary.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>As we mentioned before, when we are using rectangular coordinates, the double integral over a region \(R\) denoted by \(\underset{R}{∬}f(x,y)dA\) can be written as \(\underset{R}{∬}f(x,y)dx\,dy\) or \(\underset{R}{∬}f(x,y)dy\,dx.\) The next example shows that the results are the same regardless of which order of integration we choose.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Let’s return to the function \(f(x,y)=3{x}^{2}-y\) from <a href="#example1">Example 1</a>, this time over the rectangular region \(R=[0,2]\,\times \,[0,3].\) Use Fubini’s theorem to evaluate \(\underset{R}{∬}f(x,y)dA\) in two different ways:</p>
+<ul class="tight"><li>First integrate with respect to <strong>y</strong> and then with respect to <strong>x</strong>;</li><li>First integrate with respect to <strong>x</strong> and then with respect to <strong>y</strong>.</li></ul>
+<p class="sol-hint">Set up the iterated integral both ways — y first then x, and x first then y — using the boundary values of R as the limits.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><a href="#fig6">Figure 6</a> shows how the calculation works in two different ways.</p>
+<ul class="tight"><li>First integrate with respect to <strong>y</strong> and then integrate with respect to <strong>x</strong>:<br><p>\[\begin{array}{ll}\underset{R}{∬}f(x,y)dA &amp; ={∫}_{x=0}^{x=2}{∫}_{y=0}^{y=3}(3{x}^{2}-y)dy\,dx \\ &amp; ={∫}_{x=0}^{x=2}(∫y=0y=3(3{x}^{2}-y)dy)dx={∫}_{x=0}^{x=2}[{3{x}^{2}y-\frac{{y}^{2}}{2}|}_{y=0}^{y=3}]dx \\ &amp; ={∫}_{x=0}^{x=2}(9{x}^{2}-\frac{9}{2})dx={3{x}^{3}-\frac{9}{2}x|}_{x=0}^{x=2}=15.\end{array}\]</p>
+</li><li>First integrate with respect to <strong>x</strong> and then integrate with respect to <strong>y</strong>:<br><p>\[\begin{array}{ll}\underset{R}{∬}f(x,y)dA &amp; ={∫}_{y=0}^{y=3}{∫}_{x=0}^{x=2}(3{x}^{2}-y)dx\,dy \\ &amp; ={∫}_{y=0}^{y=3}({∫}_{x=0}^{x=2}(3{x}^{2}-y)dx)dy={∫}_{y=0}^{y=3}[{{x}^{3}-xy|}_{x=0}^{x=2}]dy \\ &amp; ={∫}_{y=0}^{y=3}(8-2y)dy={8y-{y}^{2}|}_{y=0}^{y=3}=15.\end{array}\]</p>
+</li></ul>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>With either order of integration, the double integral gives us an answer of 15. We might wish to interpret this answer as a volume in cubic units of the solid \(S\) below the function \(f(x,y)=3{x}^{2}-y\) over the region \(R=[0,2]\,\times \,[0,3].\) However, remember that the interpretation of a double integral as a (non-signed) volume works only when the integrand \(f\) is a nonnegative function over the base region \(R.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Evaluate \({∫}_{y=-3}^{y=2}{∫}_{x=3}^{x=5}(2-3{x}^{2}+{y}^{2})dx\,dy.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-\frac{1340}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>In the next example we see that it can actually be beneficial to switch the order of integration to make the computation easier. We will come back to this idea several times in this chapter.</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Consider the double integral \(\underset{R}{∬}x\,\text{sin}(xy)dA\) over the region \(R=\{(x,y)|0\le x\le \pi ,1\le y\le 2\}\) (<a href="#fig7">Figure 7</a>).</p>
+<ul class="tight"><li>Express the double integral in two different ways.</li><li>Analyze whether evaluating the double integral in one way is easier than the other and why.</li><li>Evaluate the integral.<br><figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_007.jpg" alt="The function z = f(x, y) = x sin(xy) is shown, which starts with z = 0 along the x axis. Then, the function increases roughly as a normal sin function would, but then skews a bit and decreases as x increases after pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — The function \(z=f(x,y)=x\,\text{sin}(xy)\) over the rectangular region \(R=[0,\pi ]\,\times \,[1,2].\)</figcaption></figure>
+</li></ul>
+<p class="sol-hint">Write the integral both orders and compare; integrating y first turns into a quick substitution while x first requires integration by parts.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>We can express \(\underset{R}{∬}x\,\text{sin}(xy)dA\) in the following two ways: first by integrating with respect to \(y\) and then with respect to \(x;\) second by integrating with respect to \(x\) and then with respect to \(y.\) <br><p>\[\begin{array}{llll} \\ \\ \\ \\ \,\underset{R}{∬}x\,\text{sin}(xy)dA &amp; &amp; &amp; \\ =∫x=0x=\pi \,∫y=1y=2x\,\text{sin}(xy)dy\,dx &amp; &amp; &amp; \text{Integrate first with respect to}\,y. \\ =∫y=1y=2\,∫x=0x=\pi x\,\text{sin}(xy)dx\,dy &amp; &amp; &amp; \text{Integrate first with respect to}\,x.\end{array}\]</p>
+</li><li>If we want to integrate with respect to <strong>y</strong> first and then integrate with respect to \(x,\) we see that we can use the substitution \(u=xy,\) which gives \(du=x\,dy.\) Hence the inner integral is simply \(∫\text{sin}\,u\,du\) and we can change the limits to be functions of <strong>x</strong>,<br> <br> However, integrating with respect to \(x\) first and then integrating with respect to \(y\) requires integration by parts for the inner integral, with \(u=x\) and \(dv=\text{sin}(xy)dx.\) <br> Then \(du=dx\) and \(v=-\frac{\text{cos}(xy)}{y},\) so<br> <br> Since the evaluation is getting complicated, we will only do the computation that is easier to do, which is clearly the first method.<p>\[\underset{R}{∬}x\,\text{sin}(xy)dA=∫x=0x=\pi \,∫y=1y=2x\,\text{sin}(xy)dy\,dx=∫x=0x=\pi [∫u=xu=2x\text{sin}(u)du]dx.\]</p>
+<p>\[\underset{R}{∬}x\,\text{sin}(xy)dA=∫y=1y=2\,∫x=0x=\pi x\,\text{sin}(xy)dx\,dy=∫y=1y=2[-{\frac{x\,\text{cos}(xy)}{y}|}_{x=0}^{x=\pi }+\frac{1}{y}∫x=0x=\pi \text{cos}(xy)dx]dy.\]</p>
+</li><li>Evaluate the double integral using the easier way.<br><p>\[\begin{array}{ll}\underset{R}{∬}x\,\text{sin}(xy)dA &amp; =∫x=0x=\pi \,∫y=1y=2x\,\text{sin}(xy)dy\,dx \\ &amp; =∫x=0x=\pi [∫u=xu=2x\text{sin}(u)du]dx=∫x=0x=\pi [{\text{-}\text{cos}\,u|}_{u=x}^{u=2x}]dx=∫x=0x=\pi (\text{-}\text{cos}\,2x+\text{cos}\,x)dx \\ &amp; ={-\frac{1}{2}\text{sin}\,2x+\text{sin}\,x|}_{x=0}^{x=\pi }=0.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Evaluate the integral \(\underset{R}{∬}x{e}^{xy}dA\) where \(R=[0,1]\,\times \,[0,\text{ln}\,5].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{4-\text{ln}\,5}{\text{ln}\,5}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="applications-of-double-integrals">Applications of Double Integrals</h2>
+<p>Double integrals are very useful for finding the area of a region bounded by curves of functions. We describe this situation in more detail in the next section. However, if the region is a rectangular shape, we can find its area by integrating the constant function \(f(x,y)=1\) over the region \(R.\)</p>
+<div class="card definition"><span class="chip">Definition</span><p>The area of the region \(R\) is given by \(A(R)=\underset{R}{∬}1dA.\)</p>
+</div>
+<p>This definition makes sense because using \(f(x,y)=1\) and evaluating the integral make it a product of length and width. Let’s check this formula with an example and see how this works.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find the area of the region \(R=\{(x,y)|0\le x\le 3,0\le y\le 2\}\) by using a double integral, that is, by integrating 1 over the region \(R.\)</p>
+<p class="sol-hint">Set up the double integral with integrand 1 over the region, since area equals the integral of the constant function 1.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The region is rectangular with length 3 and width 2, so we know that the area is 6. We get the same answer when we use a double integral:</p>
+<p>\[A(R)=∫02\,∫031dx\,dy=∫02[{x|}_{0}^{3}]dy=∫023dy=3∫02dy=3{y|}_{0}^{2}=3(2)=6.\]</p>
+</div></div></div>
+<p>We have already seen how double integrals can be used to find the volume of a solid bounded above by a function \(f(x,y)\) over a region \(R\) provided \(f(x,y)\ge 0\) for all \((x,y)\) in \(R.\) Here is another example to illustrate this concept.</p>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Find the volume \(V\) of the solid \(S\) that is bounded by the elliptic paraboloid \(2{x}^{2}+{y}^{2}+z=27,\) the planes \(x=3\) and \(y=3,\) and the three coordinate planes.</p>
+<p class="sol-hint">Identify the region R2=[0,3]×[0,3] under the paraboloid and set up the double integral of z=27-2x²-y² over it.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First notice the graph of the surface \(z=27-2{x}^{2}-{y}^{2}\) in <a href="#fig8">Figure 8</a>(a) and above the square region \({R}_{1}=[-3,3]\,\times \,[-3,3].\) However, we need the volume of the solid bounded by the elliptic paraboloid \(2{x}^{2}+{y}^{2}+z=27,\) the planes \(x=3\) and \(y=3,\) and the three coordinate planes.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_008.jpg" alt="This figure consists of two figures marked a and b. In figure a, in xyz space, the surface z = 20 minus 2x2 minus y2 is shown for x and y from negative 3 to positive 3. The shape looks like a sheet that has been pinned at the corners and forced up gently in the middle. In figure b, in xyz space, the surface z = 20 minus 2x2 minus y2 is shown for x and y from 0 to positive 3. The surface is the upper corner of the figure from part a, and below the surface is marked the solid S." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — (a) The surface \(z=27-2{x}^{2}-{y}^{2}\) above the square region \({R}_{1}=[-3,3]\,\times \,[-3,3].\) (b) The solid <strong>S</strong> lies under the surface \(z=27-2{x}^{2}-{y}^{2}\) above the square region \({R}_{2}=[0,3]\,\times \,[0,3].\)</figcaption></figure>
+<p>Now let’s look at the graph of the surface in <a href="#fig8">Figure 8</a>(b). We determine the volume <strong>V</strong> by evaluating the double integral over \({R}_{2}\text{:}\)</p>
+<p>\[\begin{array}{lllll}V &amp; =\underset{R}{∬}z\,dA=\underset{R}{∬}(27-2{x}^{2}-{y}^{2})dA &amp; &amp; &amp; \\ &amp; =∫y=0y=3\,∫x=0x=3(27-2{x}^{2}-{y}^{2})dx\,dy &amp; &amp; &amp; \text{Convert to iterated integral.} \\ &amp; =∫y=0y=3{[27x-\frac{2}{3}{x}^{3}-{y}^{2}x]|}_{x=0}^{x=3}dy &amp; &amp; &amp; \text{Integrate with respect to}\,x. \\ &amp; =∫y=0y=3(63-3{y}^{2})dy=63y-{{y}^{3}|}_{y=0}^{y=3}=162. &amp; &amp; &amp; \end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Find the volume of the solid bounded above by the graph of \(f(x,y)=xy\,\text{sin}({x}^{2}y)\) and below by the \(xy\) -plane on the rectangular region \(R=[0,1]\,\times \,[0,\pi ].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{\pi }{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Recall that we defined the average value of a function of one variable on an interval \([a,b]\) as</p>
+<p>\[{f}_{\text{ave}}=\frac{1}{b-a}∫abf(x)dx.\]</p>
+<p>Similarly, we can define the average value of a function of two variables over a region <strong>R</strong>. The main difference is that we divide by an area instead of the width of an interval.</p>
+<div class="card definition"><span class="chip">Definition</span><p>The average value of a function of two variables over a region \(R\) is</p>
+<p>\[{f}_{\text{ave}}=\frac{1}{\text{Area}\,R}\underset{R}{∬}f(x,y)dA.\]</p>
+</div>
+<p>In the next example we find the average value of a function over a rectangular region. This is a good example of obtaining useful information for an integration by making individual measurements over a grid, instead of trying to find an algebraic expression for a function.</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>The weather map in <a href="#fig9">Figure 9</a> shows an unusually moist storm system associated with the remnants of Hurricane Karl, which dumped 4–8 inches (100–200 mm) of rain in some parts of the Midwest on September 22–23, 2010. The area of rainfall measured 300 miles east to west and 250 miles north to south. Estimate the average rainfall over the entire area in those two days.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_009.jpg" alt="A map of Wisconsin and Minnesota that shows many cities with numbers affixed to them. The highest numbers come in a narrow band, and the map is colored accordingly. The map effectively looks like a contour map, but instead of elevations, it uses these numbers." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Effects of Hurricane Karl, which dumped 4–8 inches (100–200 mm) of rain in some parts of southwest Wisconsin, southern Minnesota, and southeast South Dakota over a span of 300 miles east to west and 250 miles north to south.</figcaption></figure>
+<p class="sol-hint">Divide the map into six subrectangles and read off the rainfall value at each midpoint to apply the average-value formula.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Place the origin at the southwest corner of the map so that all the values can be considered as being in the first quadrant and hence all are positive. Now divide the entire map into six rectangles \((m=3\,\text{and}\,n=2),\) as shown in <a href="#fig10">Figure 10</a>. Assume \(f(x,y)\) denotes the storm rainfall in inches at a point approximately \(x\) miles to the east of the origin and <strong>y</strong> miles to the north of the origin. Let \(R\) represent the entire area of \(250\,\times \,300=75000\) square miles. Then the area of each subrectangle is</p>
+<p>\[\Delta A=\frac{1}{6}(75,000)=12,500.\]</p>
+<p>Assume \(({x}_{ij}^{*},{y}_{ij}^{*})\) are approximately the midpoints of each subrectangle \({R}_{ij}.\) Note the color-coded region at each of these points, and estimate the rainfall. The rainfall at each of these points can be estimated as:</p>
+<p>At \((x{*}_{11},y{*}_{11})\) the rainfall is 0.08.</p>
+<p>At \((x{*}_{21},y{*}_{21})\) the rainfall is 0.08.</p>
+<p>At \((x{*}_{31},y{*}_{31})\) the rainfall is 0.01.</p>
+<p>At \((x{*}_{12},y{*}_{12})\) the rainfall is 1.70.</p>
+<p>At \((x{*}_{22},y{*}_{22})\) the rainfall is 1.74.</p>
+<p>At \((x{*}_{32},y{*}_{32})\) the rainfall is 3.00.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_011.jpg" alt="Another version of the previous storm map, but this time with lines drawn for x = 100, 200, and 300 and for y = 125 and 250. There is a dot in the center of each of the resulting rectangles." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Storm rainfall with rectangular axes and showing the midpoints of each subrectangle.</figcaption></figure>
+<p>According to our definition, the average storm rainfall in the entire area during those two days was</p>
+<p>\[\begin{array}{ll}{f}_{\text{ave}} &amp; =\frac{1}{\text{Area}\,R}\underset{R}{∬}f(x,y)dx\,dy=\frac{1}{75000}\underset{R}{∬}f(x,y)dx\,dy \\ &amp; \approx \frac{1}{75,000}∑i=13∑j=12f({x}_{ij}^{*},{y}_{ij}^{*})\Delta A \\ &amp; \approx \frac{1}{75,000}[f({x}_{11}^{*},{y}_{11}^{*})\Delta A+f({x}_{21}^{*},{y}_{21}^{*})\Delta A \\ &amp; \,+f({x}_{31}^{*},{y}_{31}^{*})\Delta A+f({x}_{12}^{*},{y}_{12}^{*})\Delta A+f({x}_{22}^{*},{y}_{22}^{*})\Delta A+f({x}_{32}^{*},{y}_{32}^{*})\Delta A] \\ &amp; \approx \frac{1}{75,000}[0.08+0.08+0.01+1.70+1.74+3.00]\Delta A \\ &amp; \approx \frac{1}{75,000}[0.08+0.08+0.01+1.70+1.74+3.00]12500 \\ &amp; \approx \frac{5}{30}[0.08+0.08+0.01+1.70+1.74+3.00] \\ &amp; \approx 1.10.\end{array}\]</p>
+<p>During September 22–23, 2010 this area had an average storm rainfall of approximately 1.10 inches.</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>A contour map is shown for a function \(f(x,y)\) on the rectangle \(R=[-3,6]\,\times \,[-1,4].\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_010.jpg" alt="A contour map is shown with the highest point being about 18 and centered near (4, negative 1). From this point, the values decrease to 16, 14, 12, 10, 8, and 6 roughly every 0.5 to 1 distance. The lowest point is negative four near (negative 3, 4). There is a local minimum of 2 near (negative 1, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<ul class="tight"><li>Use the midpoint rule with \(m=3\) and \(n=2\) to estimate the value of \(\underset{R}{∬}f(x,y)dA.\)</li><li>Estimate the average value of the function \(f(x,y).\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Answers to both parts a. and b. may vary.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>We can use a double Riemann sum to approximate the volume of a solid bounded above by a function of two variables over a rectangular region. By taking the limit, this becomes a double integral representing the volume of the solid. (See <a href="#example1">Example 1</a>.)</li><li>Properties of double integral are useful to simplify computation and find bounds on their values. (See <a href="#example4">Example 4</a> and <a href="#example5">Example 5</a>.)</li><li>We can use Fubini’s theorem to write and evaluate a double integral as an iterated integral. (See <a href="#example2">Example 2</a>, <a href="#example6">Example 6</a>, and <a href="#example7">Example 7</a>.)</li><li>Double integrals are used to calculate the area of a region, the volume under a surface, and the average value of a function of two variables over a rectangular region. (See <a href="#example8">Example 8</a>, <a href="#example9">Example 9</a>, and <a href="#example10">Example 10</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Double integral</strong></td><td>\(\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({x}_{ij}^{*},{y}_{ij}^{*})\Delta A\)</td></tr><tr><td><strong>Iterated integral</strong></td><td>\({∫}_{a}^{b}{∫}_{c}^{d}f(x,y)dx\,dy={∫}_{a}^{b}[{∫}_{c}^{d}f(x,y)dy]dx\) <br> or<br> \({∫}_{c}^{d}{∫}_{b}^{a}f(x,y)dx\,dy={∫}_{c}^{d}[{∫}_{a}^{b}f(x,y)dx]dy\)</td></tr><tr><td><strong>Average value of a function of two variables</strong></td><td>\({f}_{\text{ave}}=\frac{1}{\text{Area}\,R}\underset{R}{∬}f(x,y)dx\,dy\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, use the midpoint rule with \(m=4\) and \(n=2\) to estimate the volume of the solid bounded by the surface \(z=f(x,y),\) the vertical planes \(x=1,\) \(x=2,\) \(y=1,\) and \(y=2,\) and the horizontal plane \(z=0.\)</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(f(x,y)=4x+2y+8xy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>27.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(f(x,y)=16{x}^{2}+\frac{y}{2}\)</p>
+</div></div>
+<p>In the following exercises, estimate \({∬}_{R}f\left(x,y\right)dA\) by using a Riemann sum with \(m=n=2\) and the sample points to be the lower left corners of the subrectangles of the partition.</p>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(f(x,y)=\text{sin}\,x-\text{cos}\,y,\) \(R=[0,\pi ]\,\times \,[0,\pi ]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(f(x,y)=\text{cos}\,x+\text{cos}\,y,\) \(R=[0,\pi ]\,\times \,[0,\frac{\pi }{2}]\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Use the midpoint rule with \(m=n=2\) to estimate \(\underset{R}{∬}f(x,y)dA,\) where the values of the function <strong>f</strong> on \(R=[8,10]\,\times \,[9,11]\) are given in the following table.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td></td><td><strong><strong>y</strong></strong></td></tr><tr><td><strong><strong>x</strong></strong></td><td>9</td><td>9.5</td><td>10</td><td>10.5</td><td>11</td></tr><tr><td>8</td><td>9.8</td><td>5</td><td>6.7</td><td>5</td><td>5.6</td></tr><tr><td>8.5</td><td>9.4</td><td>4.5</td><td>8</td><td>5.4</td><td>3.4</td></tr><tr><td>9</td><td>8.7</td><td>4.6</td><td>6</td><td>5.5</td><td>3.4</td></tr><tr><td>9.5</td><td>6.7</td><td>6</td><td>4.5</td><td>5.4</td><td>6.7</td></tr><tr><td>10</td><td>6.8</td><td>6.4</td><td>5.5</td><td>5.7</td><td>6.8</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>21.3.</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>The values of the function <strong>f</strong> on the rectangle \(R=[0,2]\,\times \,[7,9]\) are given in the following table. Estimate the double integral \(\underset{R}{∬}f(x,y)dA\) by using a Riemann sum with \(m=n=2.\) Select the sample points to be the upper right corners of the subsquares of <strong>R</strong>.</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td></td><td>\({y}_{0}=7\)</td><td>\({y}_{1}=8\)</td><td>\({y}_{2}=9\)</td></tr><tr><td>\({x}_{0}=0\)</td><td>10.22</td><td>10.21</td><td>9.85</td></tr><tr><td>\({x}_{1}=1\)</td><td>6.73</td><td>9.75</td><td>9.63</td></tr><tr><td>\({x}_{2}=2\)</td><td>5.62</td><td>7.83</td><td>8.21</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>The depth of a children’s 4-ft by 4-ft swimming pool, measured at 1-ft intervals, is given in the following table.</p>
+<ul class="tight"><li>Estimate the volume of water in the swimming pool by using a Riemann sum with \(m=n=2.\) Select the sample points using the midpoint rule on \(R=[0,4]\,\times \,[0,4].\)</li><li>Approximate the average depth of the swimming pool.<br><div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td></td><td><strong><strong>y</strong></strong></td></tr><tr><td><strong><strong>x</strong></strong></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>0</td><td>1</td><td>1.5</td><td>2</td><td>2.5</td><td>3</td></tr><tr><td>1</td><td>1</td><td>1.5</td><td>2</td><td>2.5</td><td>3</td></tr><tr><td>2</td><td>1</td><td>1.5</td><td>1.5</td><td>2.5</td><td>3</td></tr><tr><td>3</td><td>1</td><td>1</td><td>1.5</td><td>2</td><td>2.5</td></tr><tr><td>4</td><td>1</td><td>1</td><td>1</td><td>1.5</td><td>2</td></tr></tbody></table></div>
+</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. 28 \({\text{ft}}^{3}\) b. 1.75 ft.</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>The depth of a 3-ft by 3-ft hole in the ground, measured at 1-ft intervals, is given in the following table.</p>
+<ul class="tight"><li>Estimate the volume of the hole by using a Riemann sum with \(m=n=3\) and the sample points to be the upper left corners of the subsquares of <strong>R</strong>.</li><li>Approximate the average depth of the hole.<br><div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td></td><td><strong><strong>y</strong></strong></td></tr><tr><td><strong><strong>x</strong></strong></td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td>0</td><td>6</td><td>6.5</td><td>6.4</td><td>6</td></tr><tr><td>1</td><td>6.5</td><td>7</td><td>7.5</td><td>6.5</td></tr><tr><td>2</td><td>6.5</td><td>6.7</td><td>6.5</td><td>6</td></tr><tr><td>3</td><td>6</td><td>6.5</td><td>5</td><td>5.6</td></tr></tbody></table></div>
+</li></ul>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>The level curves \(f(x,y)=k\) of the function <strong>f</strong> are given in the following graph, where <strong>k</strong> is a constant.</p>
+<ul class="tight"><li>Apply the midpoint rule with \(m=n=2\) to estimate the double integral \(\underset{R}{∬}f(x,y)dA,\) where \(R=[0.2,1]\,\times \,[0,0.8].\)</li><li>Estimate the average value of the function <strong>f</strong> on <strong>R</strong>.<br><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_201.jpg" alt="A series of curves marked k = negative 1, negative ½, negative ¼, negative 1/8, 0, 1/8, ¼, ½, and 1. The line marked k = 0 serves as an asymptote along the line y = x. The lines originate at (along the y axis) 1, 0.7, 0.5, 0.38, 0, (along the x axis) 0.38, 0.5, 0.7, and 1, with the further out lines curving less dramatically toward the asymptote." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(0.112\) b. \({f}_{\text{ave}}≃0.175;\) here \(f(0.4,0.2)≃0.1,\) \(f(0.2,0.6)≃-0.2,\) \(f(0.8,0.2)≃0.6,\) and \(f(0.8,0.6)≃0.2.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>The level curves \(f(x,y)=k\) of the function <strong>f</strong> are given in the following graph, where <strong>k</strong> is a constant.</p>
+<ul class="tight"><li>Apply the midpoint rule with \(m=n=2\) to estimate the double integral \(\underset{R}{∬}f(x,y)dA,\) where \(R=[0.1,0.5]\,\times \,[0.1,0.5].\)</li><li>Estimate the average value of the function <strong>f</strong> on <strong>R</strong>.<br><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_202.jpg" alt="A series of quarter circles drawn in the first quadrant marked k = 1/32, 1/16, 1/8, ¼, ½, ¾, and 1. The quarter circles have radii 0. 17, 0.25, 0.35, 0.5, 0.71, 0.87, and 1, respectively." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li></ul>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>The solid lying under the surface \(z=\sqrt{4-{y}^{2}}\) and above the rectangular region \(R=[0,2]\,\times \,[0,2]\) is illustrated in the following graph. Evaluate the double integral \(\underset{R}{∬}f(x,y)dA,\) where \(f(x,y)=\sqrt{4-{y}^{2}},\) by finding the volume of the corresponding solid.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_203.jpg" alt="A quarter cylinder with center along the x axis and with radius 2. It has height 2 as shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\pi .\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>The solid lying under the plane \(z=y+4\) and above the rectangular region \(R=[0,2]\,\times \,[0,4]\) is illustrated in the following graph. Evaluate the double integral \(\underset{R}{∬}f(x,y)dA,\) where \(f(x,y)=y+4,\) by finding the volume of the corresponding solid.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_204.jpg" alt="In xyz space, a shape is created with sides given by y = 0, x = 0, y = 4, x = 2, z = 0, and the plane the runs from z = 4 along the y axis to z = 8 along the plane formed by y = 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>In the following exercises, calculate the integrals by interchanging the order of integration.</p>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(∫-11(∫-22(2x+3y+5)dx)dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>40.</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(∫02(∫01(x+2{e}^{y}-3)dx)dy\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(∫127(∫12(\sqrt[3]{x}+\sqrt[3]{y})dy)dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{81}{2}+39\sqrt[3]{2}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(∫116(∫18(\sqrt[4]{x}+2\sqrt[3]{y})dy)dx\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(∫\text{ln}\,2\text{ln}\,3(∫0l{e}^{x+y}dy)dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(e-1.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(∫02(∫01{3}^{x+y}dy)dx\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(∫16(∫29\frac{\sqrt{y}}{{x}^{2}}dy)dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(15-\frac{10\sqrt{2}}{9}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(∫19(∫42\frac{\sqrt{x}}{{y}^{2}}dy)dx\)</p>
+</div></div>
+<p>In the following exercises, evaluate the iterated integrals by choosing the order of integration.</p>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(∫0\pi \,∫0\pi \text{/}2\text{sin}(2x)\text{cos}(3y)dx\,dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(∫\pi \text{/}12\pi \text{/}8\,∫\pi \text{/}4\pi \text{/}3[\text{cot}\,x+\text{tan}(2y)]dx\,dy\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(∫1e\,∫1e[\frac{1}{x}\text{sin}(\text{ln}\,x)+\frac{1}{y}\text{cos}(\text{ln}\,y)]dx\,dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((e-1)(1+\text{sin}\,1-\text{cos}\,1).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(∫1e\,∫1e\frac{\text{sin}(\text{ln}\,x)\text{cos}(\text{ln}\,y)}{xy}dx\,dy\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(∫12\,∫12(\frac{\text{ln}\,y}{x}+\frac{x}{2y+1})dy\,dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3}{4}\text{ln}(\frac{5}{3})+2\,{\text{ln}}^{2}2-\text{ln}\,2.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(∫1e\,∫12{x}^{2}\text{ln}(x)dy\,dx\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(∫1\sqrt{3}\,∫12y\,\text{arctan}(\frac{1}{x})dy\,dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{8}[(2\sqrt{3}-3)\pi +6\,\text{ln}\,2].\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(∫01\,∫01\text{/}2(\text{arcsin}\,x+\text{arcsin}\,y)dy\,dx\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(∫01\,∫12x{e}^{x+4y}dy\,dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{4}{e}^{4}({e}^{4}-1).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(∫12\,∫01x{e}^{x-y}dy\,dx\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(∫1e\,∫1e(\frac{\text{ln}\,y}{\sqrt{y}}+\frac{\text{ln}\,x}{\sqrt{x}})dy\,dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4(e-1)(2-\sqrt{e}).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(∫1e\,∫1e(\frac{x\,\text{ln}\,y}{\sqrt{y}}+\frac{y\,\text{ln}\,x}{\sqrt{x}})dy\,dx\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(∫01\,∫12(\frac{x}{{x}^{2}+{y}^{2}})dy\,dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\pi }{4}+\text{ln}(\frac{5}{4})-\frac{1}{2}\text{ln}\,2+\text{arctan}\,2.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(∫01\,∫12\frac{y}{x+{y}^{2}}dy\,dx\)</p>
+</div></div>
+<p>In the following exercises, find the average value of the function over the given rectangles.</p>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(f(x,y)=\text{-}x+2y,\) \(R=[0,1]\,\times \,[0,1]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(f(x,y)={x}^{4}+2{y}^{3},\) \(R=[1,2]\,\times \,[2,3]\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(f(x,y)=\text{sinh}\,x+\text{sinh}\,y,\) \(R=[0,1]\,\times \,[0,2]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}\left(2\,\text{cosh}\,1+\text{cosh}\,2-3\right).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(f(x,y)=\text{arctan}(xy),\) \(R=[0,1]\,\times \,[0,1]\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Let <strong>f</strong> and <strong>g</strong> be two continuous functions such that \(0\le {m}_{1}\le f(x)\le {M}_{1}\) for any \(x\in [a,b]\) and \(0\le {m}_{2}\le g(y)\le {M}_{2}\) for any \(y\in [c,d].\) Show that the following inequality is true:</p>
+<p>\({m}_{1}{m}_{2}(b-a)(d-c)\le ∫ab\,∫cdf(x)g(y)dy\,dx\le {M}_{1}{M}_{2}(b-a)(d-c).\)</p>
+</div></div>
+<p>In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true.</p>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(\frac{1}{{e}^{2}}\le \underset{R}{∬}{e}^{\text{-}{x}^{2}-{y}^{2}}dA\le 1,\) where \(R=[0,1]\,\times \,[0,1]\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(\frac{{\pi }^{2}}{144}\le \underset{R}{∬}\text{sin}\,x\,\text{cos}\,y\,dA\le \frac{{\pi }^{2}}{48},\) where \(R=[\frac{\pi }{6},\frac{\pi }{3}]\,\times \,[\frac{\pi }{6},\frac{\pi }{3}]\)</p>
+</div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(0\le \underset{R}{∬}{e}^{\text{-}y}\text{cos}\,x\,dA\le {\left(\frac{\pi }{2}\right)}^{2},\) where \(R=[0,\frac{\pi }{2}]\,\times \,[0,\frac{\pi }{2}]\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(0\le \underset{R}{∬}(\text{ln}\,x)(\text{ln}\,y)dA\le {(e-1)}^{2},\) where \(R=[1,e]\,\times \,[1,e]\)</p>
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Let <strong>f</strong> and <strong>g</strong> be two continuous functions such that \(0\le {m}_{1}\le f(x)\le {M}_{1}\) for any \(x\in [a,b]\) and \(0\le {m}_{2}\le g(y)\le {M}_{2}\) for any \(y\in [c,d].\) Show that the following inequality is true:</p>
+<p>\(({m}_{1}+{m}_{2})(b-a)(d-c)\le ∫ab\,∫cd[f(x)+g(y)]dy\,dx\le ({M}_{1}+{M}_{2})(b-a)(d-c).\)</p>
+</div></div>
+<p>In the following exercises, use property v. of double integrals and the answer from the preceding exercise to show that the following inequalities are true.</p>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(\frac{2}{e}\le \underset{R}{∬}({e}^{\text{-}{x}^{2}}+{e}^{\text{-}{y}^{2}})dA\le 2,\) where \(R=[0,1]\,\times \,[0,1]\)</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(\frac{{\pi }^{2}}{36}\le \underset{R}{∬}(\text{sin}\,x+\text{cos}\,y)dA\le \frac{{\pi }^{2}\sqrt{3}}{36},\) where \(R=[\frac{\pi }{6},\frac{\pi }{3}]\,\times \,[\frac{\pi }{6},\frac{\pi }{3}]\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(\frac{{\pi }^{2}}{4}{e}^{\frac{-\pi }{2}}\le \underset{R}{∬}(\text{cos}\,x+{e}^{-y})dA\le \frac{{\pi }^{2}}{2},\) where \(R=[0,\frac{\pi }{2}]\,\times \,[0,\frac{\pi }{2}]\)</p>
+</div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(0\le \underset{R}{∬}(\text{ln} x+\text{ln}\,y)dA\le 2{\left(e-1\right)}^{2},\) where \(R=[1,e]\,\times \,[1,e]\)</p>
+</div></div>
+<p>In the following exercises, the function <strong>f</strong> is given in terms of double integrals.</p>
+<ul class="tight"><li>Determine the explicit form of the function <strong>f</strong>.</li><li>Find the volume of the solid under the surface \(z=f(x,y)\) and above the region <strong>R</strong>.</li><li>Find the average value of the function <strong>f</strong> on <strong>R</strong>.</li><li>Use a computer algebra system (CAS) to plot \(z=f(x,y)\) and \(z={f}_{\text{ave}}\) in the same system of coordinates.</li></ul>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p><strong>[T]</strong> \(f(x,y)=∫0y\,∫0x(xs+yt)ds\,dt,\) where \((x,y)\in R=[0,1]\,\times \,[0,1]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(f(x,y)=\frac{1}{2}xy({x}^{2}+{y}^{2})\) b. \(V=∫01\,∫01f(x,y)dx\,dy=\frac{1}{8}\) c. \({f}_{\text{ave}}=\frac{1}{8};\) <br> d.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_205.jpg" alt="In xyz space, a plane is formed at z = 1/8, and there is another shape that starts at the origin, increases through the plane in a line roughly running from (1, 0.25, 0.125) to (0.25, 1, 0.125), and then rapidly increases to (1, 1, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p><strong>[T]</strong> \(f(x,y)=∫0x\,∫0y[\text{cos}(s)+\text{cos}(t)]dt\,ds,\) where \((x,y)\in R=[0,3]\,\times \,[0,3]\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Show that if <strong>f</strong> and <strong>g</strong> are continuous on \([a,b]\) and \([c,d],\) respectively, then</p>
+<p>\(∫ab\,∫cd[f(x)+g(y)]dy\,dx=(d-c)∫abf(x)dx\)</p>
+<p>\(\,+∫ab\,∫cdg(y)dy\,dx=(b-a)∫cdg(y)dy+∫cd\,∫abf(x)dx\,dy.\)</p>
+</div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Show that \(∫ab\,∫cdyf(x)+xg(y)dy\,dx=\frac{1}{2}({d}^{2}-{c}^{2})(∫abf(x)dx)+\frac{1}{2}({b}^{2}-{a}^{2})(∫cdg(y)dy).\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p><strong>[T]</strong> Consider the function \(f(x,y)={e}^{\text{-}{x}^{2}-{y}^{2}},\) where \((x,y)\in R=[-1,1]\,\times \,[-1,1].\)</p>
+<ul class="tight"><li>Use the midpoint rule with \(m=n=2,4\text{,…,}\,10\) to estimate the double integral \(I=\underset{R}{∬}{e}^{\text{-}{x}^{2}-{y}^{2}}dA.\) Round your answers to the nearest hundredths.</li><li>For \(m=n=2,\) find the average value of <strong>f</strong> over the region <strong>R</strong>. Round your answer to the nearest hundredths.</li><li>Use a CAS to graph in the same coordinate system the solid whose volume is given by \(\underset{R}{∬}{e}^{\text{-}{x}^{2}-{y}^{2}}dA\) and the plane \(z={f}_{\text{ave}}.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. For \(m=n=2,\) \(I=4{e}^{-0.5}\approx 2.43\) b. \({f}_{\text{ave}}={e}^{-0.5}≃0.61;\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_207.jpg" alt="In xyz space, a plane is formed at z = 0.61, and there is another shape with maximum roughly at (0, 0, 0.92), which decreases along all the sides to the points (plus or minus 1, plus or minus 1, 0.12)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p><strong>[T]</strong> Consider the function \(f(x,y)=\text{sin}({x}^{2})\text{cos}({y}^{2}),\) where \((x,y)\in R=[-1,1]\,\times \,[-1,1].\)</p>
+<ul class="tight"><li>Use the midpoint rule with \(m=n=2,4\text{,…,}\,10\) to estimate the double integral \(I=\underset{R}{∬}\text{sin}({x}^{2})\text{cos}({y}^{2})dA.\) Round your answers to the nearest hundredths.</li><li>For \(m=n=2,\) find the average value of <strong>f</strong> over the region <strong>R.</strong> Round your answer to the nearest hundredths.</li><li>Use a CAS to graph in the same coordinate system the solid whose volume is given by \(\underset{R}{∬}\text{sin}({x}^{2})\text{cos}({y}^{2})dA\) and the plane \(z={f}_{\text{ave}}.\)</li></ul>
+</div></div>
+<p>In the following exercises, the functions \({f}_{n}\) are given, where \(n\ge 1\) is a natural number.</p>
+<ul class="tight"><li>Find the volume of the solids \({S}_{n}\) under the surfaces \(z={f}_{n}(x,y)\) and above the region <strong>R</strong>.</li><li>Determine the limit of the volumes of the solids \({S}_{n}\) as <strong>n</strong> increases without bound.</li></ul>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\({f}_{n}(x,y)={x}^{n}+{y}^{n}+xy,(x,y)\in R=[0,1]\,\times \,[0,1]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\frac{2}{n+1}+\frac{1}{4}\) b. \(\frac{1}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\({f}_{n}(x,y)=\frac{1}{{x}^{n}}+\frac{1}{{y}^{n}},(x,y)\in R=[1,2]\,\times \,[1,2]\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Show that the average value of a function <strong>f</strong> on a rectangular region \(R=[a,b]\,\times \,[c,d]\) is \({f}_{\text{ave}}\approx \frac{1}{mn}∑i=1m∑j=1nf({x}_{ij}^{*},{y}_{ij}^{*}),\) where \(({x}_{ij}^{*},{y}_{ij}^{*})\) are the sample points of the partition of <strong>R</strong>, where \(1\le i\le m\) and \(1\le j\le n.\)</p>
+</div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Use the midpoint rule with \(m=n\) to show that the average value of a function <strong>f</strong> on a rectangular region \(R=[a,b]\,\times \,[c,d]\) is approximated by</p>
+<p>\[{f}_{\text{ave}}\approx \frac{1}{{n}^{2}}∑i,j=1nf(\frac{1}{2}({x}_{i-1}+{x}_{i}),\frac{1}{2}({y}_{j-1}+{y}_{j})).\]</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>An isotherm map is a chart connecting points having the same temperature at a given time for a given period of time. Use the preceding exercise and apply the midpoint rule with \(m=n=2\) to find the average temperature over the region given in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_01_209.jpg" alt="A contour map showing surface temperature in degrees Fahrenheit. Given the map, the midpoint rule would give rectangles with values 71, 72, 40, and 43." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(56.5\text{°}\) F; here \(f({x}_{1}^{*},{y}_{1}^{*})=71,\) \(f({x}_{2}^{*},{y}_{1}^{*})=72,\) \(f({x}_{1}^{*},{y}_{2}^{*})=40,\) \(f({x}_{2}^{*},{y}_{2}^{*})=43,\) where \({x}_{i}^{*}\) and \({y}_{j}^{*}\) are the midpoints of the subintervals of the partitions of \([a,b]\) and \([c,d],\) respectively.</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>double integral</dt><dd>of the function \(f(x,y)\) over the region \(R\) in the \(xy\) -plane is defined as the limit of a double Riemann sum, \(\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({x}_{ij}^{*},{y}_{ij}^{*})\Delta A.\)</dd><dt>double Riemann sum</dt><dd>of the function \(f(x,y)\) over a rectangular region \(R\) is \(∑i=1m∑j=1nf({x}_{ij}^{*},{y}_{ij}^{*})\Delta A\) where \(R\) is divided into smaller subrectangles \({R}_{ij}\) and \(({x}_{ij}^{*},{y}_{ij}^{*})\) is an arbitrary point in \({R}_{ij}\)</dd><dt>Fubini’s theorem</dt><dd>if \(f(x,y)\) is a function of two variables that is continuous over a rectangular region \(R=\left\{(x,y)\in {ℝ}^{2}|a\le x\le b,c\le y\le d\},\right.\) then the double integral of \(f\) over the region equals an iterated integral, \(\underset{R}{∬}f(x,y)dy\,dx={∫}_{a}^{b}{∫}_{c}^{d}f(x,y)dx\,dy={∫}_{c}^{d}{∫}_{a}^{b}f(x,y)dx\,dy\)</dd><dt>iterated integral</dt><dd>for a function \(f(x,y)\) over the region \(R\) is where \(a,b,c,\) and \(d\) are any real numbers and \(R=[a,b]\,\times \,[c,d]\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

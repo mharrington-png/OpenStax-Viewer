@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lagrange Multipliers · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Lagrange Multipliers</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 4.8</span>Lagrange Multipliers</h1>
+<p>Solving optimization problems for functions of two or more variables can be similar to solving such problems in single-variable calculus. However, techniques for dealing with multiple variables allow us to solve more varied optimization problems for which we need to deal with additional conditions or constraints. In this section, we examine one of the more common and useful methods for solving optimization problems with constraints.</p>
+<h2 id="lagrange-multipliers">Lagrange Multipliers</h2>
+<p>(see original) was an applied situation involving maximizing a profit function, subject to certain <strong>constraints</strong>. In that example, the constraints involved a maximum number of golf balls that could be produced and sold in \(1\) month \((x),\) and a maximum number of advertising hours that could be purchased per month \((y).\) Suppose these were combined into a budgetary constraint, such as \(20x+4y\le 216,\) that took into account the cost of producing the golf balls and the number of advertising hours purchased per month. The goal is, still, to maximize profit, but now there is a different type of constraint on the values of \(x\) and \(y.\) This constraint, when combined with the profit function \(f(x,y)=48x+96y-{x}^{2}-2xy-9{y}^{2},\) is an example of an <strong>optimization problem</strong>, and the function \(f(x,y)\) is called the <strong>objective function</strong>. A graph of various level curves of the function \(f(x,y)\) follows.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_08_001.jpg" alt="A series of rotated ellipses that become increasingly large. The smallest one is marked f(x, y) = 400, and the biggest one is marked f(x, y) = 150." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Graph of level curves of the function \(f(x,y)=48x+96y-{x}^{2}-2xy-9{y}^{2}\) corresponding to \(c=150,250,350,\,\text{and}\,400.\)</figcaption></figure>
+<p>In <a href="#fig1">Figure 1</a>, the value \(c\) represents different profit levels (i.e., values of the function \(f).\) As the value of \(c\) increases, the curve shifts to the right. Since our goal is to maximize profit, we want to choose a curve as far to the right as possible. If there was no restriction on the number of golf balls the company could produce, or the number of units of advertising available, then we could produce as many golf balls as we want, and advertise as much as we want, and there would not be a maximum profit for the company. Unfortunately, we have a budgetary constraint that is modeled by the inequality \(20x+4y\le 216.\) To see how this constraint interacts with the profit function, <a href="#fig2">Figure 2</a> shows the graph of the line \(20x+4y=216\) superimposed on the previous graph.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_08_002.jpg" alt="A series of rotated ellipses that become increasingly large. On the smallest ellipse, which is red, there is a tangent line marked with equation 20x + 4y = 216 that appears to touch the ellipse near (10, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Graph of level curves of the function \(f(x,y)=48x+96y-{x}^{2}-2xy-9{y}^{2}\) corresponding to \(c=150,250,350,\,\text{and}\,395.\) The red graph is the constraint function.</figcaption></figure>
+<p>As mentioned previously, the maximum profit occurs when the level curve is as far to the right as possible. However, the level of production corresponding to this maximum profit must also satisfy the budgetary constraint, so the point at which this profit occurs must also lie on (or to the left of) the red line in <a href="#fig2">Figure 2</a>. Inspection of this graph reveals that this point exists where the line is tangent to the level curve of \(f.\) Trial and error reveals that this profit level seems to be around \(395,\) when \(x\) and \(y\) are both just less than \(5.\) We return to the solution of this problem later in this section. From a theoretical standpoint, at the point where the profit curve is tangent to the constraint line, the gradient of both of the functions evaluated at that point must point in the same (or opposite) direction. Recall that the gradient of a function of more than one variable is a vector. If two vectors point in the same (or opposite) directions, then one must be a constant multiple of the other. This idea is the basis of the <strong>method of Lagrange multipliers</strong>.</p>
+<div class="card definition"><span class="chip">Method of Lagrange Multipliers: One Constraint</span><p>Let \(f\) and \(g\) be functions of two variables with continuous partial derivatives at every point of some open set containing the smooth curve \(g(x,y)=0.\) Suppose that \(f,\) when restricted to points on the curve \(g(x,y)=0,\) has a local extremum at the point \(({x}_{0},{y}_{0})\) and that \(∇g({x}_{0},{y}_{0})\ne 0.\) Then there is a number \(λ\) called a <strong>Lagrange multiplier</strong>, for which</p>
+<p>\[∇f({x}_{0},{y}_{0})=λ∇g({x}_{0},{y}_{0}).\]</p>
+</div>
+<h3 id="proof">Proof</h3>
+<p>Assume that a constrained extremum occurs at the point \(({x}_{0},{y}_{0}).\) Furthermore, we assume that the equation \(g(x,y)=0\) can be smoothly parameterized as</p>
+<p>\[x=x(s)\,\text{and}\,y=y(s)\]</p>
+<p>where <strong>s</strong> is an arc length parameter with reference point \(({x}_{0},{y}_{0})\) at \(s=0.\) Therefore, the quantity \(z=f(x(s),y(s))\) has a relative maximum or relative minimum at \(s=0,\) and this implies that \(\frac{dz}{ds}=0\) at that point. From the chain rule,</p>
+<p>\[\frac{dz}{ds}=\frac{∂f}{∂x}·\frac{dx}{ds}+\frac{∂f}{∂y}·\frac{dy}{ds}=(\frac{∂f}{∂x}\hat{i}+\frac{∂f}{∂y}\hat{j})·(\frac{dx}{ds}\hat{i}+\frac{dy}{ds}\hat{j})=0,\]</p>
+<p>where the derivatives are all evaluated at \(s=0.\) However, the first factor in the dot product is the gradient of \(f,\) and the second factor is the unit tangent vector \(\text{T}(0)\) to the constraint curve. Since the point \(({x}_{0},{y}_{0})\) corresponds to \(s=0,\) it follows from this equation that</p>
+<p>\[∇f({x}_{0},{y}_{0})·\text{T}(0)=0,\]</p>
+<p>which implies that the gradient is either \(0\) or is normal to the constraint curve at a constrained relative extremum. However, the constraint curve \(g(x,y)=0\) is a level curve for the function \(g(x,y)\) so that if \(∇g({x}_{0},{y}_{0})\ne 0\) then \(∇g({x}_{0},{y}_{0})\) is normal to this curve at \(({x}_{0},{y}_{0})\) It follows, then, that there is some scalar \(λ\) such that</p>
+<p>\[∇f({x}_{0},{y}_{0})=λ∇g({x}_{0},{y}_{0})\]</p>
+<p>□</p>
+<p>To apply (see original) to an optimization problem similar to that for the golf ball manufacturer, we need a problem-solving strategy.</p>
+<div class="card definition"><span class="chip">Steps for Using Lagrange Multipliers</span><ul class="tight"><li>Determine the objective function \(f(x,y)\) and the constraint function \(g(x,y).\) Does the optimization problem involve maximizing or minimizing the objective function?</li><li>Set up a system of equations using the following template:<br><p>\[\begin{array}{lll}∇f({x}_{0},{y}_{0}) &amp; = &amp; λ∇g({x}_{0},{y}_{0}) \\ g({x}_{0},{y}_{0}) &amp; = &amp; 0.\end{array}\]</p>
+</li><li>Solve for \({x}_{0}\) and \({y}_{0}.\)</li><li>The largest of the values of \(f\) at the solutions found in step \(3\) maximizes \(f;\) the smallest of those values minimizes \(f.\)</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Use the method of Lagrange multipliers to find the minimum value of \(f(x,y)={x}^{2}+4{y}^{2}-2x+8y\) subject to the constraint \(x+2y=7.\)</p>
+<p class="sol-hint">Write the constraint as \(g(x,y)=0,\) set \(∇f=λ∇g,\) match the \(i\) and \(j\) coefficients, then combine those equations with \(g=0\) to solve the resulting system.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let’s follow the problem-solving strategy:</p>
+<ul class="tight"><li>The optimization function is \(f(x,y)={x}^{2}+4{y}^{2}-2x+8y.\) To determine the constraint function, we must first subtract \(7\) from both sides of the constraint. This gives \(x+2y-7=0.\) The constraint function is equal to the left-hand side, so \(g(x,y)=x+2y-7.\) The problem asks us to solve for the minimum value of \(f,\) subject to the constraint (see the following graph).<br><figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_08_003.jpg" alt="Two rotated ellipses, one within the other. On the largest ellipse, which is marked f(x, y) = 26, there is a tangent line marked with equation x + 2y = 7 that appears to touch the ellipse near (5, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Graph of level curves of the function \(f(x,y)={x}^{2}+4{y}^{2}-2x+8y\) corresponding to \(c=10\) and \(26.\) The red graph is the constraint function.</figcaption></figure>
+</li><li>We then must calculate the gradients of both <strong>f</strong> and <strong>g</strong>:<br> <br> The equation \(∇f({x}_{0},{y}_{0})=λ∇g({x}_{0},{y}_{0})\) becomes<br> <br> which can be rewritten as<br> <br> Next, we set the coefficients of \(i\,\text{and}\,j\) equal to each other:<br> <br> The equation \(g({x}_{0},{y}_{0})=0\) becomes \({x}_{0}+2{y}_{0}-7=0.\) Therefore, the system of equations that needs to be solved is<br><p>\[\begin{array}{l}∇f(x,y)=(2x-2)i+(8y+8)j \\ ∇g(x,y)=i+2j.\end{array}\]</p>
+<p>\[(2{x}_{0}-2)i+(8{y}_{0}+8)j=λ(i+2j),\]</p>
+<p>\[(2{x}_{0}-2)i+(8{y}_{0}+8)j=λi+2λj.\]</p>
+<p>\[\begin{array}{l}2{x}_{0}-2=λ \\ 8{y}_{0}+8=2λ.\end{array}\]</p>
+<p>\[\begin{array}{lll}2{x}_{0}-2 &amp; = &amp; λ \\ 8{y}_{0}+8 &amp; = &amp; 2λ \\ {x}_{0}+2{y}_{0}-7 &amp; = &amp; 0.\end{array}\]</p>
+</li><li>This is a linear system of three equations in three variables. We start by solving the second equation for \(λ\) and substituting it into the first equation. This gives \(λ=4{y}_{0}+4,\) so substituting this into the first equation gives<br> <br> Solving this equation for \({x}_{0}\) gives \({x}_{0}=2{y}_{0}+3.\) We then substitute this into the third equation: <br> Since \({x}_{0}=2{y}_{0}+3,\) this gives \({x}_{0}=5.\)<p>\[2{x}_{0}-2=4{y}_{0}+4.\]</p>
+<p>\[\begin{array}{lll}(2{y}_{0}+3)+2{y}_{0}-7 &amp; = &amp; 0 \\ 4{y}_{0}-4 &amp; = &amp; 0 \\ {y}_{0} &amp; = &amp; 1.\end{array}\]</p>
+</li><li>Next, we substitute \((5,1)\) into \(f(x,y)={x}^{2}+4{y}^{2}-2x+8y,\) gives \(f(5,1)={5}^{2}+4{(1)}^{2}-2(5)+8(1)=27.\) To ensure this corresponds to a minimum value on the constraint function, let’s try some other values, such as the intercepts of \(g(x,y)=0,\) Which are \((7,0)\) and \((0,3.5).\) We get \(f(7,0)=35\) and \(f(0,3.5)=77,\) so it appears \(f\) has a minimum at \((5,1).\)</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Use the method of Lagrange multipliers to find the maximum value of \(f(x,y)=9{x}^{2}+36xy-4{y}^{2}-18x-8y\) subject to the constraint \(3x+4y=32.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f\) has a maximum value of \(976\) at the point \((8,2).\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Let’s now return to the problem posed at the beginning of the section.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>The golf ball manufacturer, Pro-T, has developed a profit model that depends on the number \(x\) of golf balls sold per month (measured in thousands), and the number of hours per month of advertising <strong>y</strong>, according to the function</p>
+<p>\[z=f(x,y)=48x+96y-{x}^{2}-2xy-9{y}^{2},\]</p>
+<p>where \(z\) is measured in thousands of dollars. The budgetary constraint function relating the cost of the production of thousands golf balls and advertising units is given by \(20x+4y=216.\) Find the values of \(x\) and \(y\) that maximize profit, and find the maximum profit.</p>
+<p class="sol-hint">Rewrite the budget constraint as \(g(x,y)=0,\) set \(∇f=λ∇g,\) match coefficients, and solve the resulting system together with the constraint equation.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Again, we follow the problem-solving strategy:</p>
+<ul class="tight"><li>The optimization function is \(f(x,y)=48x+96y-{x}^{2}-2xy-9{y}^{2}.\) To determine the constraint function, we first subtract 216 from both sides of the constraint, then divide both sides by \(4,\) which gives \(5x+y-54=0.\) The constraint function is equal to the left-hand side, so \(g(x,y)=5x+y-54.\) The problem asks us to solve for the maximum value of \(f,\) subject to this constraint.</li><li>So, we calculate the gradients of both \(f\,\text{and}\) \(g\text{:}\) <br> <br> The equation \(∇f({x}_{0},{y}_{0})=λ∇g({x}_{0},{y}_{0})\) becomes<br> <br> which can be rewritten as<br> <br> We then set the coefficients of \(i\,\text{and}\,j\) equal to each other:<br> <br> The equation \(g({x}_{0},{y}_{0})=0\) becomes \(5{x}_{0}+{y}_{0}-54=0.\) Therefore, the system of equations that needs to be solved is<br><p>\[\begin{array}{l}∇f(x,y)=(48-2x-2y)i+(96-2x-18y)j \\ ∇g(x,y)=5i+j.\end{array}\]</p>
+<p>\[(48-2{x}_{0}-2{y}_{0})i+(96-2{x}_{0}-18{y}_{0})j=λ(5i+j),\]</p>
+<p>\[(48-2{x}_{0}-2{y}_{0})i+(96-2{x}_{0}-18{y}_{0})j=λ5i+λj.\]</p>
+<p>\[\begin{array}{lll}48-2{x}_{0}-2{y}_{0} &amp; = &amp; 5λ \\ 96-2{x}_{0}-18{y}_{0} &amp; = &amp; λ.\end{array}\]</p>
+<p>\[\begin{array}{lll}48-2{x}_{0}-2{y}_{0} &amp; = &amp; 5λ \\ 96-2{x}_{0}-18{y}_{0} &amp; = &amp; λ \\ 5{x}_{0}+{y}_{0}-54 &amp; = &amp; 0.\end{array}\]</p>
+</li><li>We use the left-hand side of the second equation to replace \(λ\) in the first equation:<br> <br> Then we substitute this into the third equation:<br> <br> Since \({x}_{0}=54-11{y}_{0},\) this gives \({x}_{0}=10.\)<p>\[\begin{array}{lll}48-2{x}_{0}-2{y}_{0} &amp; = &amp; 5(96-2{x}_{0}-18{y}_{0}) \\ 48-2{x}_{0}-2{y}_{0} &amp; = &amp; 480-10{x}_{0}-90{y}_{0} \\ 8{x}_{0} &amp; = &amp; 432-88{y}_{0} \\ {x}_{0} &amp; = &amp; 54-11{y}_{0}.\end{array}\]</p>
+<p>\[\begin{array}{lll}5(54-11{y}_{0})+{y}_{0}-54 &amp; = &amp; 0 \\ 270-55{y}_{0}+{y}_{0} &amp; = &amp; 0 \\ 216-54{y}_{0} &amp; = &amp; 0 \\ {y}_{0} &amp; = &amp; 4.\end{array}\]</p>
+</li><li>We then substitute \((10,4)\) into \(f(x,y)=48x+96y-{x}^{2}-2xy-9{y}^{2},\) which gives<br> <br> Therefore the maximum profit that can be attained, subject to budgetary constraints, is \(\text{\$}540,000\) with a production level of \(10,000\) golf balls and \(4\) hours of advertising bought per month. Let’s check to make sure this truly is a maximum. The endpoints of the line that defines the constraint are \((10.8,0)\) and \((0,54)\) Let’s evaluate \(f\) at both of these points:<br> <br> The second value represents a loss, since no golf balls are produced. Neither of these values exceed \(540,\) so it seems that our extremum is a maximum value of \(f.\)<p>\[\begin{array}{ll}f(10,4) &amp; =48(10)+96(4)-{(10)}^{2}-2(10)(4)-9{(4)}^{2} \\ &amp; =480+384-100-80-144=540.\end{array}\]</p>
+<p>\[\begin{array}{lll}f(10.8,0) &amp; = &amp; 48(10.8)+96(0)-{10.8}^{2}-2(10.8)(0)-9({0}^{2})=401.76 \\ f(0,54) &amp; = &amp; 48(0)+96(54)-{0}^{2}-2(0)(54)-9({54}^{2})=-21,060.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>A company has determined that its production level is given by the Cobb-Douglas function \(f(x,y)=2.5{x}^{0.45}{y}^{0.55}\) where <strong>x</strong> represents the total number of labor hours in \(1\) year and <strong>y</strong> represents the total capital input for the company. Suppose \(1\) unit of labor costs \(\text{\$}40\) and \(1\) unit of capital costs \(\text{\$}50.\) Use the method of Lagrange multipliers to find the maximum value of \(f(x,y)=2.5{x}^{0.45}{y}^{0.55}\) subject to a budgetary constraint of \(\text{\$}500,000\) per year.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>A maximum production level of \(13890\) occurs with \(5625\) labor hours and \(\text{\$}5500\) of total capital input.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>In the case of an optimization function with three variables and a single constraint function, it is possible to use the method of Lagrange multipliers to solve an optimization problem as well. An example of an optimization function with three variables could be the <strong>Cobb-Douglas function</strong> in the previous example: \(f(x,y,z)={x}^{0.2}{y}^{0.4}{z}^{0.4},\) where \(x\) represents the cost of labor, \(y\) represents capital input, and \(z\) represents the cost of advertising. The method is the same as for the method with a function of two variables; the equations to be solved are</p>
+<p>\[\begin{array}{lll}∇f(x,y,z) &amp; = &amp; λ∇g(x,y,z) \\ g(x,y,z) &amp; = &amp; 0.\end{array}\]</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the minimum of the function \(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2}\) subject to the constraint \(x+y+z=1.\)</p>
+<p class="sol-hint">Set \(∇f=λ∇g\) componentwise to get three equations; notice they force \({x}_{0}={y}_{0}={z}_{0},\) then substitute into the constraint to solve.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>The optimization function is \(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2}.\) To determine the constraint function, we subtract \(1\) from each side of the constraint: \(x+y+z-1=0\) which gives the constraint function as \(g(x,y,z)=x+y+z-1.\)</li><li>Next, we calculate \(∇f(x,y,z)\) and \(∇g(x,y,z)\text{:}\) <br> <br> This leads to the equations<br> <br> which can be rewritten in the following form:<br><p>\[\begin{array}{l}∇f(x,y,z)=\langle 2x,2y,2z\rangle \\ ∇g(x,y,z)=\langle 1,1,1\rangle \text{.}\end{array}\]</p>
+<p>\[\begin{array}{lll}\langle 2{x}_{0},2{y}_{0},2{z}_{0}\rangle &amp; = &amp; λ\langle 1,1,1\rangle \\ {x}_{0}+{y}_{0}+{z}_{0}-1 &amp; = &amp; 0\end{array}\]</p>
+<p>\[\begin{array}{lll}2{x}_{0} &amp; = &amp; λ \\ 2{y}_{0} &amp; = &amp; λ \\ 2{z}_{0} &amp; = &amp; λ \\ {x}_{0}+{y}_{0}+{z}_{0}-1 &amp; = &amp; 0.\end{array}\]</p>
+</li><li>Since each of the first three equations has \(λ\) on the right-hand side, we know that \(2{x}_{0}=2{y}_{0}=2{z}_{0}\) and all three variables are equal to each other. Substituting \({y}_{0}={x}_{0}\) and \({z}_{0}={x}_{0}\) into the last equation yields \(3{x}_{0}-1=0,\) so \({x}_{0}=\frac{1}{3}\) and \({y}_{0}=\frac{1}{3}\) and \({z}_{0}=\frac{1}{3}\) which corresponds to a critical point on the constraint curve.</li><li>Then, we evaluate <strong>f</strong> at the point \((\frac{1}{3},\frac{1}{3},\frac{1}{3})\text{:}\) <br> <br> Therefore, an extremum of the function is \(\frac{1}{3}.\) To verify it is a minimum, choose other points that satisfy the constraint and calculate \(f\) at that point. For example,<br> <br> Both of these values are greater than \(\frac{1}{3},\) leading us to believe the extremum is a minimum.<p>\[f(\frac{1}{3},\frac{1}{3},\frac{1}{3})={(\frac{1}{3})}^{2}+{(\frac{1}{3})}^{2}+{(\frac{1}{3})}^{2}=\frac{3}{9}=\frac{1}{3}.\]</p>
+<p>\[\begin{array}{lll}f(1,0,0) &amp; = &amp; {1}^{2}+{0}^{2}+{0}^{2}=1 \\ f(0,-2,3) &amp; = &amp; {0}^{2}+{(-2)}^{2}+{3}^{2}=13.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Use the method of Lagrange multipliers to find the minimum value of the function</p>
+<p>\[f(x,y,z)=x+y+z\]</p>
+<p>subject to the constraint \({x}^{2}+{y}^{2}+{z}^{2}=1.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{lll}f(\frac{\sqrt{3}}{3},\frac{\sqrt{3}}{3},\frac{\sqrt{3}}{3}) &amp; = &amp; \frac{\sqrt{3}}{3}+\frac{\sqrt{3}}{3}+\frac{\sqrt{3}}{3}=\sqrt{3} \\ f(-\frac{\sqrt{3}}{3},-\frac{\sqrt{3}}{3},-\frac{\sqrt{3}}{3}) &amp; = &amp; -\frac{\sqrt{3}}{3}-\frac{\sqrt{3}}{3}-\frac{\sqrt{3}}{3}=\text{-}\sqrt{3}.\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="problems-with-two-constraints">Problems with Two Constraints</h2>
+<p>The method of Lagrange multipliers can be applied to problems with more than one constraint. In this case the optimization function, \(w\) is a function of three variables:</p>
+<p>\[w=f(x,y,z)\]</p>
+<p>and it is subject to two constraints:</p>
+<p>\[g(x,y,z)=0\,\text{and}\,h(x,y,z)=0.\]</p>
+<p>There are two Lagrange multipliers, \({λ}_{1}\) and \({λ}_{2},\) and the system of equations becomes</p>
+<p>\[\begin{array}{lll}∇f({x}_{0},{y}_{0},{z}_{0}) &amp; = &amp; {λ}_{1}∇g({x}_{0},{y}_{0},{z}_{0})+{λ}_{2}∇h({x}_{0},{y}_{0},{z}_{0}) \\ g({x}_{0},{y}_{0},{z}_{0}) &amp; = &amp; 0 \\ h({x}_{0},{y}_{0},{z}_{0}) &amp; = &amp; 0.\end{array}\]</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the local extreme values of the function</p>
+<p>\[f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2}\]</p>
+<p>subject to the constraints \({z}^{2}={x}^{2}+{y}^{2}\) and \(x+y-z+1=0.\)</p>
+<p class="sol-hint">Set \(∇f={λ}_{1}∇g+{λ}_{2}∇h\) componentwise, eliminate the multipliers between the resulting equations, then combine with both constraint equations to solve for \({x}_{0},{y}_{0},{z}_{0}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let’s follow the problem-solving strategy:</p>
+<ul class="tight"><li>The optimization function is \(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2}.\) To determine the constraint functions, we first subtract \({z}^{2}\) from both sides of the first constraint, which gives \({x}^{2}+{y}^{2}-{z}^{2}=0,\) so \(g(x,y,z)={x}^{2}+{y}^{2}-{z}^{2}.\) The second constraint function is \(h(x,y,z)=x+y-z+1.\)</li><li>We then calculate the gradients of \(f,g,\,\text{and}\,h\text{:}\) <br> <br> The equation \(∇f({x}_{0},{y}_{0},{z}_{0})={λ}_{1}∇g({x}_{0},{y}_{0},{z}_{0})+{λ}_{2}∇h({x}_{0},{y}_{0},{z}_{0})\) becomes<br> <br> which can be rewritten as<br> <br> Next, we set the coefficients of \(i\,\text{,}\,j\text{, and}\,k\) equal to each other:<br> <br> The two equations that arise from the constraints are \({z}_{0}{}^{2}={x}_{0}{}^{2}+{y}_{0}{}^{2}\) and \({x}_{0}+{y}_{0}-{z}_{0}+1=0.\) Combining these equations with the previous three equations gives<br><p>\[\begin{array}{l}∇f(x,y,z)=2xi+2yj+2zk \\ ∇g(x,y,z)=2xi+2yj-2zk \\ ∇h(x,y,z)=i+j-k.\end{array}\]</p>
+<p>\[2{x}_{0}i+2{y}_{0}j+2{z}_{0}k={λ}_{1}(2{x}_{0}i+2{y}_{0}j-2{z}_{0}k)+{λ}_{2}(i+j-k),\]</p>
+<p>\[2{x}_{0}i+2{y}_{0}j+2{z}_{0}k=(2{λ}_{1}{x}_{0}+{λ}_{2})i+(2{λ}_{1}{y}_{0}+{λ}_{2})j-(2{λ}_{1}{z}_{0}+{λ}_{2})k.\]</p>
+<p>\[\begin{array}{l}2{x}_{0}=2{λ}_{1}{x}_{0}+{λ}_{2} \\ 2{y}_{0}=2{λ}_{1}{y}_{0}+{λ}_{2} \\ 2{z}_{0}=-2{λ}_{1}{z}_{0}-{λ}_{2}.\end{array}\]</p>
+<p>\[\begin{array}{lll}2{x}_{0} &amp; = &amp; 2{λ}_{1}{x}_{0}+{λ}_{2} \\ 2{y}_{0} &amp; = &amp; 2{λ}_{1}{y}_{0}+{λ}_{2} \\ 2{z}_{0} &amp; = &amp; -2{λ}_{1}{z}_{0}-{λ}_{2} \\ {z}_{0}{}^{2} &amp; = &amp; {x}_{0}{}^{2}+{y}_{0}{}^{2} \\ {x}_{0}+{y}_{0}-{z}_{0}+1 &amp; = &amp; 0.\end{array}\]</p>
+</li><li>The first three equations contain the variable \({λ}_{2}.\) Solving the third equation for \({λ}_{2}\) and replacing into the first and second equations reduces the number of equations to four:<br> <br> Next, we solve the first and second equation for \({λ}_{1}.\) The first equation gives \({λ}_{1}=\frac{{x}_{0}+{z}_{0}}{{x}_{0}-{z}_{0}},\) the second equation gives \({λ}_{1}=\frac{{y}_{0}+{z}_{0}}{{y}_{0}-{z}_{0}}.\) We set the right-hand side of each equation equal to each other and cross-multiply:<br> <br> Therefore, either \({z}_{0}=0\) or \({y}_{0}={x}_{0}.\) If \({z}_{0}=0,\) then the first constraint becomes \(0={x}_{0}{}^{2}+{y}_{0}{}^{2}.\) The only real solution to this equation is \({x}_{0}=0\) and \({y}_{0}=0,\) which gives the ordered triple \((0,0,0).\) This point does not satisfy the second constraint, so it is not a solution.<br> Next, we consider \({y}_{0}={x}_{0},\) which reduces the number of equations to three:<br> <br> We substitute the first equation into the second and third equations:<br> <br> Then, we solve the second equation for \({z}_{0},\) which gives \({z}_{0}=2{x}_{0}+1.\) We then substitute this into the first equation,<br> <br> and use the quadratic formula to solve for \({x}_{0}\text{:}\) <br> <br> Recall \({y}_{0}={x}_{0},\) so this solves for \({y}_{0}\) as well. Then, \({z}_{0}=2{x}_{0}+1,\) so<br> <br> Therefore, there are two ordered triplet solutions:<br><p>\[\begin{array}{lll}2{x}_{0} &amp; = &amp; 2{λ}_{1}{x}_{0}-2{λ}_{1}{z}_{0}-2{z}_{0} \\ 2{y}_{0} &amp; = &amp; 2{λ}_{1}{y}_{0}-2{λ}_{1}{z}_{0}-2{z}_{0} \\ {z}_{0}{}^{2} &amp; = &amp; {x}_{0}{}^{2}+{y}_{0}{}^{2} \\ {x}_{0}+{y}_{0}-{z}_{0}+1 &amp; = &amp; 0.\end{array}\]</p>
+<p>\[\begin{array}{lll}\frac{{x}_{0}+{z}_{0}}{{x}_{0}-{z}_{0}} &amp; = &amp; \frac{{y}_{0}+{z}_{0}}{{y}_{0}-{z}_{0}} \\ ({x}_{0}+{z}_{0})({y}_{0}-{z}_{0}) &amp; = &amp; ({x}_{0}-{z}_{0})({y}_{0}+{z}_{0}) \\ {x}_{0}{y}_{0}-{x}_{0}{z}_{0}+{y}_{0}{z}_{0}-{z}_{0}{}^{2} &amp; = &amp; {x}_{0}{y}_{0}+{x}_{0}{z}_{0}-{y}_{0}{z}_{0}-{z}_{0}2 \\ 2{y}_{0}{z}_{0}-2{x}_{0}{z}_{0} &amp; = &amp; 0 \\ 2{z}_{0}({y}_{0}-{x}_{0}) &amp; = &amp; 0.\end{array}.\]</p>
+<p>\[\begin{array}{lll}{y}_{0} &amp; = &amp; {x}_{0} \\ {z}_{0}{}^{2} &amp; = &amp; {x}_{0}{}^{2}+{y}_{0}{}^{2} \\ {x}_{0}+{y}_{0}-{z}_{0}+1 &amp; = &amp; 0.\end{array}\]</p>
+<p>\[\begin{array}{lll}{z}_{0}{}^{2} &amp; = &amp; {x}_{0}{}^{2}+{x}_{0}{}^{2} \\ {x}_{0}+{x}_{0}-{z}_{0}+1 &amp; = &amp; 0.\end{array}\]</p>
+<p>\[\begin{array}{lll}{z}_{0}{}^{2} &amp; = &amp; 2{x}_{0}{}^{2} \\ {(2{x}_{0}+1)}^{2} &amp; = &amp; 2{x}_{0}{}^{2} \\ 4{x}_{0}{}^{2}+4{x}_{0}+1 &amp; = &amp; 2{x}_{0}{}^{2} \\ 2{x}_{0}{}^{2}+4{x}_{0}+1 &amp; = &amp; 0,\end{array}\]</p>
+<p>\[{x}_{0}=\frac{-4\pm \sqrt{{4}^{2}-4(2)(1)}}{2(2)}=\frac{-4\pm \sqrt{8}}{4}=\frac{-4\pm 2\sqrt{2}}{4}=-1\pm \frac{\sqrt{2}}{2}.\]</p>
+<p>\[{z}_{0}=2{x}_{0}+1=2(-1\pm \frac{\sqrt{2}}{2})+1=-2+1\pm \sqrt{2}=-1\pm \sqrt{2}.\]</p>
+<p>\[(-1+\frac{\sqrt{2}}{2},-1+\frac{\sqrt{2}}{2},-1+\sqrt{2})\,\text{and}\,(-1-\frac{\sqrt{2}}{2},-1-\frac{\sqrt{2}}{2},-1-\sqrt{2}).\]</p>
+</li><li>We substitute \((-1+\frac{\sqrt{2}}{2},-1+\frac{\sqrt{2}}{2},-1+\sqrt{2})\) into \(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2},\) which gives<br> <br> Then, we substitute \((-1-\frac{\sqrt{2}}{2},-1-\frac{\sqrt{2}}{2},-1-\sqrt{2})\) into \(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2},\) which gives<br> <br> \(6+4\sqrt{2}\) and \(6-4\sqrt{2}\) are the local extreme values of \(f(x,y,z),\) subject to the given constraints.<p>\[\begin{array}{ll}f(-1+\frac{\sqrt{2}}{2},-1+\frac{\sqrt{2}}{2},-1+\sqrt{2}) &amp; ={(-1+\frac{\sqrt{2}}{2})}^{2}+{(-1+\frac{\sqrt{2}}{2})}^{2}+{(-1+\sqrt{2})}^{2} \\ &amp; =(1-\sqrt{2}+\frac{1}{2})+(1-\sqrt{2}+\frac{1}{2})+(1-2\sqrt{2}+2) \\ &amp; =6-4\sqrt{2}.\end{array}\]</p>
+<p>\[\begin{array}{ll}f(-1-\frac{\sqrt{2}}{2},-1-\frac{\sqrt{2}}{2},-1-\sqrt{2}) &amp; ={(-1-\frac{\sqrt{2}}{2})}^{2}+{(-1-\frac{\sqrt{2}}{2})}^{2}+{(-1-\sqrt{2})}^{2} \\ &amp; =(1+\sqrt{2}+\frac{1}{2})+(1+\sqrt{2}+\frac{1}{2})+(1+2\sqrt{2}+2) \\ &amp; =6+4\sqrt{2}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Use the method of Lagrange multipliers to find the minimum value of the function</p>
+<p>\[f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2}\]</p>
+<p>subject to the constraints \(2x+y+2z=9\) and \(5x+5y+7z=29.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(2,1,2)=9\) is a minimum.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>An objective function combined with one or more constraints is an example of an optimization problem. (See <a href="#example2">Example 2</a>.)</li><li>To solve optimization problems, we apply the method of Lagrange multipliers using a four-step problem-solving strategy. (See <a href="#example1">Example 1</a>, <a href="#example3">Example 3</a>, and <a href="#example4">Example 4</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Method of Lagrange multipliers, one constraint</strong></td><td>\(\begin{array}{lll}∇f({x}_{0},{y}_{0}) &amp; = &amp; λ∇g({x}_{0},{y}_{0}) \\ g({x}_{0},{y}_{0}) &amp; = &amp; 0\end{array}\)</td></tr><tr><td><strong>Method of Lagrange multipliers, two constraints</strong></td><td>\(\begin{array}{lll}∇f({x}_{0},{y}_{0},{z}_{0}) &amp; = &amp; {λ}_{1}∇g({x}_{0},{y}_{0},{z}_{0})+{λ}_{2}∇h({x}_{0},{y}_{0},{z}_{0}) \\ g({x}_{0},{y}_{0},{z}_{0}) &amp; = &amp; 0 \\ h({x}_{0},{y}_{0},{z}_{0}) &amp; = &amp; 0\end{array}\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>For the following exercises, use the method of Lagrange multipliers to find the maximum and minimum values of the function subject to the given constraints.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(f(x,y)={x}^{2}y;{x}^{2}+2{y}^{2}=6\)</p>
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(f(x,y,z)=xyz,{x}^{2}+2{y}^{2}+3{z}^{2}=6\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>maximum: \(2\frac{\sqrt{3}}{3},\) minimum: \(\frac{-2\sqrt{3}}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(f(x,y)=xy;4{x}^{2}+8{y}^{2}=16\)</p>
+</div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(f(x,y)=4{x}^{3}+{y}^{2};2{x}^{2}+{y}^{2}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>maximum: \((\frac{\sqrt{2}}{2},0,\sqrt{2}),\) minimum: \((\frac{\text{-}\sqrt{2}}{2},0,\text{-}\sqrt{2})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2},{x}^{4}+{y}^{4}+{z}^{4}=1\)</p>
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(f(x,y,z)=yz+xy,xy=1,{y}^{2}+{z}^{2}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>maximum: \(\frac{3}{2},\) minimum = \(\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(f(x,y)={x}^{2}+{y}^{2},{(x-1)}^{2}+4{y}^{2}=4\)</p>
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(f(x,y)=4xy,\frac{{x}^{2}}{9}+\frac{{y}^{2}}{16}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>maxima: \(f(\frac{3\sqrt{2}}{2},2\sqrt{2})=24,\) \(f(-\frac{3\sqrt{2}}{2},-2\sqrt{2})=24;\) minima: \(f(-\frac{3\sqrt{2}}{2},2\sqrt{2})=-24,\) \(f(\frac{3\sqrt{2}}{2},-2\sqrt{2})=-24\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(f(x,y,z)=x+y+z,\frac{1}{x}+\frac{1}{y}+\frac{1}{z}=1\)</p>
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(f(x,y,z)=x+3y-z,{x}^{2}+{y}^{2}+{z}^{2}=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>maximum: \(2\sqrt{11}\) at \(f(\frac{2}{\sqrt{11}},\frac{6}{\sqrt{11}},\frac{-2}{\sqrt{11}});\) minimum: \(-2\sqrt{11}\) at \(f(\frac{-2}{\sqrt{11}},\frac{-6}{\sqrt{11}},\frac{2}{\sqrt{11}})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2},xyz=4\)</p>
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>Minimize \(f(x,y)={x}^{2}+{y}^{2}\) on the hyperbola \(xy=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2.0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>Minimize \(f(x,y)=xy\) on the ellipse \({b}^{2}{x}^{2}+{a}^{2}{y}^{2}={a}^{2}{b}^{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>Maximize \(f(x,y,z)=2x+3y+5z\) on the sphere \({x}^{2}+{y}^{2}+{z}^{2}=19.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(19\sqrt{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>Maximize \(\begin{array}{l}f(x,y)={x}^{2}-{y}^{2};x&gt;0,y&gt;0; \\ g(x,y)=y-{x}^{2}=0\end{array}\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>The curve \({x}^{3}-{y}^{3}=1\) is asymptotic to the line \(y=x.\) Find the point(s) on the curve \({x}^{3}-{y}^{3}=1\) farthest from the line \(y=x.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\frac{1}{\sqrt[3]{2}},\frac{-1}{\sqrt[3]{2}})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>Maximize \(U(x,y)=8{x}^{4\text{/}5}{y}^{1\text{/}5};4x+2y=12\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>Minimize \(f(x,y)={x}^{2}+{y}^{2},x+2y-5=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(1,2)=5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>Maximize \(f(x,y)=\sqrt{6-{x}^{2}-{y}^{2}},x+y-2=0.\)</p>
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>Minimize \(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2},x+y+z=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(\frac{1}{3},\frac{1}{3},\frac{1}{3})=\frac{1}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>Minimize \(f(x,y)={x}^{2}-{y}^{2}\) subject to the constraint \(x-2y+6=0.\)</p>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>Minimize \(f(x,y,z)={x}^{2}+{y}^{2}+{z}^{2}\) when \(x+y+z=9\) and \(x+2y+3z=20.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>minimum: \(f(2,3,4)=29\)</p>
+</div></div></div></div>
+<p>For the next group of exercises, use the method of Lagrange multipliers to solve the following applied problems.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>A pentagon is formed by placing an isosceles triangle on a rectangle, as shown in the diagram. If the perimeter of the pentagon is \(10\) in., find the lengths of the sides of the pentagon that will maximize the area of the pentagon.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_08_201.jpg" alt="A rectangle with an isosceles triangle on top. The side of the isosceles triangle with the two equal angles of size θ overlaps the top length of the rectangle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>A rectangular box without a top (a topless box) is to be made from \(12\) ft<sup>2</sup> of cardboard. Find the maximum volume of such a box.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The maximum volume is \(4\) ft<sup>3</sup>. The dimensions are \(1\,\times \,2\,\times \,2\) ft.</p>
+</div></div></div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>Find the minimum and maximum distances between the ellipse \({x}^{2}+xy+2{y}^{2}=1\) and the origin.</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>Find the point on the surface \({x}^{2}-2xy+{y}^{2}-x+y=0\) closest to the point \((1,2,-3).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The point on the surface \({x}^{2}-2xy+{y}^{2}-x+y=0\) closest to the point \((1,2,-3)\) is \(\left(\frac{3}{2},\frac{3}{2},-3\right)\) .</p>
+</div></div></div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Show that, of all the triangles inscribed in a circle of radius \(R\) (see diagram), the equilateral triangle has the largest perimeter.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_08_202.jpg" alt="A circle with an equilateral triangle drawn inside of it such that each vertex of the triangle touches the circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Find the minimum distance from point \((0,1)\) to the parabola \({x}^{2}=4y.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1.0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>Find the minimum distance from the parabola \(y={x}^{2}\) to point \((0,3).\)</p>
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>Find the minimum distance from the plane \(x+y+z=1\) to point \((2,1,1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>A large container in the shape of a rectangular solid must have a volume of \(480\) m<sup>3</sup>. The bottom of the container costs $5/m<sup>2</sup> to construct whereas the top and sides cost $3/m<sup>2</sup> to construct. Use Lagrange multipliers to find the dimensions of the container of this size that has the minimum cost.</p>
+</div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Find the point on the line \(y=2x+3\) that is closest to point \((4,2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\frac{2}{5},\frac{19}{5})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Find the point on the plane \(4x+3y+z=2\) that is closest to the point \((1,-1,1).\)</p>
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Find the maximum value of \(f(x,y)=\text{sin}\,x\,\text{sin}\,y,\) where \(x\,\text{and}\,y\) denote the acute angles of a right triangle. Draw the contours of the function using a CAS.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_08_203.jpg" alt="An alternating series of hills and holes of amplitude 1 across xyz space." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>A rectangular solid is contained within a tetrahedron with vertices at</p>
+<p>\((1,0,0),(0,1,0),(0,0,1),\) and the origin. The base of the box has dimensions \(x,y,\) and the height of the box is \(z.\) If the sum of \(x,y,\,\text{and}\,z\) is 1.0, find the dimensions that maximizes the volume of the rectangular solid.</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p><strong>[T]</strong> By investing <strong>x</strong> units of labor and <strong>y</strong> units of capital, a watch manufacturer can produce \(P(x,y)=50{x}^{0.4}{y}^{0.6}\) watches. Find the maximum number of watches that can be produced on a budget of \(\text{\$}20,000\) if labor costs $100/unit and capital costs $200/unit. Use a CAS to sketch a contour plot of the function.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Roughly 3365 watches at the critical point \((80,60)\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_08_204.jpg" alt="A series of curves in the first quadrant, with the first starting near (2, 120), decreasing sharply to near (20, 20), and then decreasing slowly to (120, 5). The next curve starts near (10, 120), decreases sharply to near (40, 40), and then decreases slowly to (120, 20). The next curve starts near (20, 120), decreases sharply to near (60, 60), and then decreases slowly to (120, 40). The next curve starts near (40, 120), decreases to near (80, 80), and then decreases a little slowly to (120, 60). The last curve starts near (60, 120) and decreases rather evenly through (100, 100) to (120, 90)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+</div>
+<h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
+<p>For the following exercises, determine whether the statement is <strong>true or false</strong>. Justify your answer with a proof or a counterexample.</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>The domain of \(f(x,y)={x}^{3}{\text{sin}}^{-1}(y)\) is \(x=\) all real numbers, and \(\text{-}\pi \le y\le \pi .\)</p>
+</div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>If the function \(f(x,y)\) and all its second derivatives are continuous everywhere, then \({f}_{xy}={f}_{yx}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>True, by Clairaut’s theorem</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>The linear approximation to the function of \(f(x,y)=5{x}^{2}+x\,\text{tan}(y)\) at \((2,\pi )\) is given by \(L(x,y)=22+21(x-2)+(y-\pi ).\)</p>
+</div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>\((\frac{3}{4},\frac{9}{16})\) is a critical point of \(g(x,y)=4{x}^{3}-2{x}^{2}y+{y}^{2}-2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>False</p>
+</div></div></div></div>
+<p>For the following exercises, sketch the function in one graph and, in a second, sketch several level curves.</p>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>\(f(x,y)={e}^{\text{-}({x}^{2}+2{y}^{2})}.\)</p>
+</div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>\(f(x,y)=x+4{y}^{2}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers may vary</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the following limits, if they exist. If they do not exist, prove it.</p>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(\underset{(x,y)\to (1,1)}{\text{lim}}\frac{4xy}{x-2{y}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4xy}{x-2{y}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Does not exist</p>
+</div></div></div></div>
+<p>For the following exercises, find the largest region of continuity for the function.</p>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>\(f(x,y)={x}^{3}{\text{sin}}^{-1}(y)\)</p>
+</div></div>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>\(g(x,y)=\text{ln}(4-{x}^{2}-{y}^{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Continuous at all points on the \(x,y\text{-plane,}\) except where \({x}^{2}+{y}^{2}&gt;4.\)</p>
+</div></div></div></div>
+<p>For the following exercises, find all first derivatives, full or partial, as appropriate.</p>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>\(f(x,y)=\sqrt{{x}^{2}-{y}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(u(x,y)={x}^{4}-3xy+1,x=2t,y={t}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂u}{∂x}=4{x}^{3}-3y,\frac{∂u}{∂y}=-3x,\frac{dx}{dt}=2,\frac{dy}{dt}=3{t}^{2},\frac{du}{dt}=40{t}^{3}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find all second partial derivatives.</p>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(g(t,x)=3{t}^{2}-\text{sin}(x+t)\)</p>
+</div></div>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>\(h(x,y,z)=\frac{{x}^{3}{e}^{2y}}{z}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({h}_{xx}(x,y,z)=\frac{6x{e}^{2y}}{z},\) \({h}_{xy}(x,y,z)=\frac{6{x}^{2}{e}^{2y}}{z},\) \({h}_{xz}(x,y,z)=-\frac{3{x}^{2}{e}^{2y}}{{z}^{2}},\) \({h}_{yx}(x,y,z)=\frac{6{x}^{2}{e}^{2y}}{z},\) \({h}_{yy}(x,y,z)=\frac{4{x}^{3}{e}^{2y}}{z},\) \({h}_{yz}(x,y,z)=-\frac{2{x}^{3}{e}^{2y}}{{z}^{2}},\) \({h}_{zx}(x,y,z)=-\frac{3{x}^{2}{e}^{2y}}{{z}^{2}},\) \({h}_{zy}(x,y,z)=-\frac{2{x}^{3}{e}^{2y}}{{z}^{2}},\) \({h}_{zz}(x,y,z)=\frac{2{x}^{3}{e}^{2y}}{{z}^{3}}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find an equation of the tangent plane to the specified surface at the given point.</p>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>\(z={x}^{3}-2{y}^{2}+y-1\) at point \((1,1,-1)\)</p>
+</div></div>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>\(z={e}^{x}+\frac{2}{y}\) at point \((0,1,3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(z=x-2y+5\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>Approximate \(f(x,y)={e}^{{x}^{2}}+\sqrt{y}\) at \((0.1,9.1).\) Write down your linear approximation function \(L(x,y).\) How accurate is the approximation to the exact answer, rounded to four digits?</p>
+</div></div>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>Find the differential \(dz\) of \(h(x,y)=4{x}^{2}+2xy-3y\) and approximate \(\Delta z\) at the point \((1,-2).\) Let \(\Delta x=0.1\) and \(\Delta y=0.01.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(dz=4dx-dy,\) \(dz(0.1,0.01)=0.39,\) \(\Delta z=0.432\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>Find the directional derivative of \(f(x,y)={x}^{2}+6xy-{y}^{2}\) in the direction \(\text{v}=i+4j.\)</p>
+</div></div>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>Find the maximal directional derivative magnitude and direction for the function \(f(x,y)={x}^{3}+2xy-\text{cos}(\pi y)\) at point \((3,0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3\sqrt{85},\langle 27,6\rangle\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the gradient.</p>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>\(c(x,t)=e{(t-x)}^{2}+3\,\text{cos}(t)\)</p>
+</div></div>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><p>\(f(x,y)=\frac{\sqrt{x}+{y}^{2}}{xy}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(∇f(x,y)=-\frac{\sqrt{x}+2{y}^{2}}{2{x}^{2}y}\text{i}+(\frac{1}{x}-\frac{1}{\sqrt{x}{y}^{2}})\text{j}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find and classify the critical points.</p>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><p>\(z={x}^{3}-xy+{y}^{2}-1\)</p>
+</div></div>
+<p>For the following exercises, use Lagrange multipliers to find the maximum and minimum values for the functions with the given constraints.</p>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p>\(f(x,y)={x}^{2}y,{x}^{2}+{y}^{2}=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>maximum: \(\frac{16}{3\sqrt{3}},\) minimum: \(-\frac{16}{3\sqrt{3}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p>\(f(x,y)={x}^{2}-{y}^{2},x+6y=4\)</p>
+</div></div>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>A machinist is constructing a right circular cone out of a block of aluminum. The machine gives an error of \(5\text{\%}\) in height and \(2\text{\%}\) in radius. Find the maximum error in the volume of the cone if the machinist creates a cone of height \(6\) cm and radius \(2\) cm.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2.3228\) cm<sup>3</sup></p>
+</div></div></div></div>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><p>A trash compactor is in the shape of a cuboid. Assume the trash compactor is filled with incompressible liquid. The length and width are decreasing at rates of \(2\) ft/sec and \(3\) ft/sec, respectively. Find the rate at which the liquid level is rising when the length is \(14\) ft, the width is \(10\) ft, and the height is \(4\) ft.</p>
+</div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>constraint</dt><dd>an inequality or equation involving one or more variables that is used in an optimization problem; the constraint enforces a limit on the possible solutions for the problem</dd><dt>Lagrange multiplier</dt><dd>the constant (or constants) used in the method of Lagrange multipliers; in the case of one constant, it is represented by the variable \(λ\)</dd><dt>method of Lagrange multipliers</dt><dd>a method of solving an optimization problem subject to one or more constraints</dd><dt>objective function</dt><dd>the function that is to be maximized or minimized in an optimization problem</dd><dt>optimization problem</dt><dd>calculation of a maximum or minimum value of a function of several variables, often using Lagrange multipliers</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

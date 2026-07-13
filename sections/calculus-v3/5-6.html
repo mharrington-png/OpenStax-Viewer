@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculating Centers of Mass and Moments of Inertia · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Calculating Centers of Mass and Moments of Inertia</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 5.6</span>Calculating Centers of Mass and Moments of Inertia</h1>
+<p>We have already discussed a few applications of multiple integrals, such as finding areas, volumes, and the average value of a function over a bounded region. In this section we develop computational techniques for finding the center of mass and moments of inertia of several types of physical objects, using double integrals for a lamina (flat plate) and triple integrals for a three-dimensional object with variable density. The density is usually considered to be a constant number when the lamina or the object is homogeneous; that is, the object has uniform density.</p>
+<h2 id="center-of-mass-in-two-dimensions">Center of Mass in Two Dimensions</h2>
+<p>The center of mass is also known as the center of gravity if the object is in a uniform gravitational field. If the object has uniform density, the center of mass is the geometric center of the object, which is called the centroid. <a href="#fig1">Figure 1</a> shows a point \(P\) as the center of mass of a lamina. The lamina is perfectly balanced about its center of mass.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_001.jpg" alt="A surface is delicately balanced on a fine point." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — A lamina is perfectly balanced on a spindle if the lamina’s center of mass sits on the spindle.</figcaption></figure>
+<p>To find the coordinates of the center of mass \(P(\bar{x},\bar{y})\) of a lamina, we need to find the moment \({M}_{x}\) of the lamina about the \(x\text{-axis}\) and the moment \({M}_{y}\) about the \(y\text{-axis}\text{.}\) We also need to find the mass \(m\) of the lamina. Then</p>
+<p>\[\bar{x}=\frac{{M}_{y}}{m}\,\text{and}\,\bar{y}=\frac{{M}_{x}}{m}.\]</p>
+<p>Refer to Moments and Centers of Mass for the definitions and the methods of single integration to find the center of mass of a one-dimensional object (for example, a thin rod). We are going to use a similar idea here except that the object is a two-dimensional lamina and we use a double integral.</p>
+<p>If we allow a constant density function, then \(\bar{x}=\frac{{M}_{y}}{m}\,\text{and}\,\bar{y}=\frac{{M}_{x}}{m}\) give the <strong>centroid</strong> of the lamina.</p>
+<p>Suppose that the lamina occupies a region \(R\) in the \(xy\text{-plane},\) and let \(ρ(x,y)\) be its density (in units of mass per unit area) at any point \((x,y).\) Hence, \(ρ(x,y)=\underset{\Delta A\to 0}{\text{lim}}\frac{\Delta m}{\Delta A},\) where \(\Delta m\) and \(\Delta A\) are the mass and area of a small rectangle containing the point \((x,y)\) and the limit is taken as the dimensions of the rectangle go to \(0\) (see the following figure).</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_002.jpg" alt="A lamina R is shown on the x y plane with a point (x, y) surrounded by a small rectangle marked Mass = Delta m and Area = Delta A." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The density of a lamina at a point is the limit of its mass per area in a small rectangle about the point as the area goes to zero.</figcaption></figure>
+<p>Just as before, we divide the region \(R\) into tiny rectangles \({R}_{ij}\) with area \(\Delta A\) and choose \(({x}_{ij}^{*},{y}_{ij}^{*})\) as sample points. Then the mass \({m}_{ij}\) of each \({R}_{ij}\) is equal to \(ρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A\) (<a href="#fig3">Figure 3</a>). Let \(k\) and \(l\) be the number of subintervals in \(x\) and \(y,\) respectively. Also, note that the shape might not always be rectangular but the limit works anyway, as seen in previous sections.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_003.jpg" alt="A lamina is shown on the x y plane with a point (x* sub ij, y* sub ij) surrounded by a small rectangle marked R sub ij." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Subdividing the lamina into tiny rectangles \({R}_{ij},\) each containing a sample point \(({x}_{ij}^{*},{y}_{ij}^{*}).\)</figcaption></figure>
+<p>Hence, the mass of the lamina is</p>
+<p>\[m=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l{m}_{ij}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1lρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A=\underset{R}{∬}ρ(x,y)dA.\]</p>
+<p>Let’s see an example now of finding the total mass of a triangular lamina.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Consider a triangular lamina \(R\) with vertices \((0,0),(0,3),\) \((3,0)\) and with density \(ρ(x,y)=xy{\,\text{kg/m}}^{2}.\) Find the total mass.</p>
+<p class="sol-hint">Set up the mass as the double integral of the density function over the triangular region, integrating y first from 0 to 3-x.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>A sketch of the region \(R\) is always helpful, as shown in the following figure.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_004.jpg" alt="A triangular lamina is shown on the x y plane bounded by the x and y axes and the line x + y = 3. The point (1, 1) is marked and is surrounded by a small squared marked d m = p(x, y) dA." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — A lamina in the \(xy\text{-plane}\) with density \(ρ(x,y)=xy.\)</figcaption></figure>
+<p>Using the expression developed for mass, we see that</p>
+<p>\[\begin{array}{ll}m &amp; =\underset{R}{∬}dm=\underset{R}{∬}ρ(x,y)dA=∫x=0x=3\,∫y=0y=3-xxy\,dy\,dx=∫x=0x=3[{x\frac{{y}^{2}}{2}|}_{y=0}^{y=3-x}]dx \\ &amp; =∫x=0x=3\frac{1}{2}x{(3-x)}^{2}dx={[\frac{9{x}^{2}}{4}-{x}^{3}+\frac{{x}^{4}}{8}]|}_{x=0}^{x=3} \\ &amp; =\frac{27}{8}.\end{array}\]</p>
+<p>The computation is straightforward, giving the answer \(m=\frac{27}{8}\,\text{kg}\text{.}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Consider the same region \(R\) as in the previous example, and use the density function \(ρ(x,y)=\sqrt{xy}.\) Find the total mass. <strong>Hint:</strong> Use trigonometric substitution \(\sqrt{x}=\sqrt{3}sinθ\) and then use the power reducing formulas for trigonometric functions.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{9\pi }{8}\,\text{kg}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Now that we have established the expression for mass, we have the tools we need for calculating moments and centers of mass. The moment \({M}_{x}\) about the \(x\text{-axis}\) for \(R\) is the limit of the sums of moments of the regions \({R}_{ij}\) about the \(x\text{-axis}\text{.}\) Hence</p>
+<p>\[{M}_{x}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l({y}_{{}_{ij}}^{*}){m}_{ij}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l({y}_{{}_{ij}}^{*})ρ({x}_{{}_{ij}}^{*},{y}_{{}_{ij}}^{*})\Delta A=\underset{R}{∬}yρ(x,y)dA.\]</p>
+<p>Similarly, the moment \({M}_{y}\) about the \(y\text{-axis}\) for \(R\) is the limit of the sums of moments of the regions \({R}_{ij}\) about the \(y\text{-axis}\text{.}\) Hence</p>
+<p>\[{M}_{y}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l({x}_{{}_{ij}}^{*}){m}_{ij}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l({y}_{{}_{ij}}^{*})ρ({x}_{{}_{ij}}^{*},{y}_{{}_{ij}}^{*})\Delta A=\underset{R}{∬}xρ(x,y)dA.\]</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Consider the same triangular lamina \(R\) with vertices \((0,0),(0,3),\,(3,0)\) and with density \(ρ(x,y)=xy.\) Find the moments \({M}_{x}\) and \({M}_{y}.\)</p>
+<p class="sol-hint">Apply the moment formulas Mx=∬yρdA and My=∬xρdA directly to the same triangular region and density.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Use double integrals for each moment and compute their values:</p>
+<p>\[{M}_{x}=\underset{R}{∬}yρ(x,y)dA=∫x=0x=3\,∫y=0y=3-xx{y}^{2}\,dy\,dx=\frac{81}{20},\]</p>
+<p>\[{M}_{y}=\underset{R}{∬}xρ(x,y)dA=∫x=0x=3\,∫y=0y=3-x{x}^{2}\,yd\,y\,dx=\frac{81}{20}.\]</p>
+<p>The computation is quite straightforward.</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Consider the same lamina \(R\) as above, and use the density function \(ρ(x,y)=\sqrt{xy}.\) Find the moments \({M}_{x}\) and \({M}_{y}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({M}_{x}=\frac{81\pi }{64}\) and \({M}_{y}=\frac{81\pi }{64}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Finally we are ready to restate the expressions for the center of mass in terms of integrals. We denote the <strong>x</strong>-coordinate of the center of mass by \(\bar{x}\) and the <strong>y</strong>-coordinate by \(\bar{y}.\) Specifically,</p>
+<p>\[\bar{x}=\frac{{M}_{y}}{m}=\frac{\underset{R}{∬}xρ(x,y)dA}{\underset{R}{∬}ρ(x,y)dA}\,\text{and}\,\bar{y}=\frac{{M}_{x}}{m}\,=\frac{\underset{R}{∬}yρ(x,y)dA}{\underset{R}{∬}ρ(x,y)dA}.\]</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Again consider the same triangular region \(R\) with vertices \((0,0),(0,3),\) \((3,0)\) and with density function \(ρ(x,y)=xy.\) Find the center of mass.</p>
+<p class="sol-hint">Divide the moments found for this lamina by its mass to get the center-of-mass coordinates.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the formulas we developed, we have</p>
+<p>\[\bar{x}=\frac{{M}_{y}}{m}=\frac{\underset{R}{∬}xρ(x,y)dA}{\underset{R}{∬}ρ(x,y)dA}=\frac{81\text{/}20}{27\text{/}8}=\frac{6}{5},\]</p>
+<p>\[\bar{y}=\frac{{M}_{x}}{m}=\frac{\underset{R}{∬}yρ(x,y)dA}{\underset{R}{∬}ρ(x,y)dA}=\frac{81\text{/}20}{27\text{/}8}=\frac{6}{5}.\]</p>
+<p>Therefore, the center of mass is the point \((\frac{6}{5},\frac{6}{5}).\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>If we choose the density \(ρ(x,y)\) instead to be uniform throughout the region (i.e., constant), such as the value 1 (any constant will do), then we can compute the centroid,</p>
+<p>\[\begin{array}{l} \\ \\ \\ \\ {x}_{c}=\frac{{M}_{y}}{m}=\frac{\underset{R}{∬}x\,dA}{\underset{R}{∬}dA}=\frac{9\text{/}2}{9\text{/}2}=1, \\ {y}_{c}=\frac{{M}_{x}}{m}\,=\frac{\underset{R}{∬}y\,dA}{\underset{R}{∬}dA}=\frac{9\text{/}2}{9\text{/}2}=1.\end{array}\]</p>
+<p>Notice that the center of mass \((\frac{6}{5},\frac{6}{5})\) is not exactly the same as the centroid \((1,1)\) of the triangular region. This is due to the variable density of \(R.\) If the density is constant, then we just use \(ρ(x,y)=c\) (constant). This value cancels out from the formulas, so for a constant density, the center of mass coincides with the centroid of the lamina.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Again use the same region \(R\) as above and the density function \(ρ(x,y)=\sqrt{xy}.\) Find the center of mass.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\bar{x}=\frac{{M}_{y}}{m}=\frac{81\pi \text{/}64}{9\pi \text{/}8}=\frac{9}{8}\) and \(\bar{y}=\frac{{M}_{x}}{m}=\frac{81\pi \text{/}64}{9\pi \text{/}8}=\frac{9}{8}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Once again, based on the comments at the end of <a href="#example3">Example 3</a>, we have expressions for the centroid of a region on the plane:</p>
+<p>\[{x}_{c}=\frac{{M}_{y}}{m}=\frac{\underset{R}{∬}x\,dA}{\underset{R}{∬}dA}\,\text{and}\,{y}_{c}=\frac{{M}_{x}}{m}\,\frac{\underset{R}{∬}y\,dA}{\underset{R}{∬}dA}.\]</p>
+<p>We should use these formulas and verify the centroid of the triangular region \(R\) referred to in the last three examples.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the mass, moments, and the center of mass of the lamina of density \(ρ(x,y)=x+y\) occupying the region \(R\) under the curve \(y={x}^{2}\) in the interval \(0\le x\le 2\) (see the following figure).</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_005.jpg" alt="A lamina R is shown on the x y plane bounded by the x axis, the line x = 2, and the line y = x squared. The corners of the shape are (0, 0), (2, 0), and (2, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — Locating the center of mass of a lamina \(R\) with density \(ρ(x,y)=x+y.\)</figcaption></figure>
+<p class="sol-hint">Set up the mass integral first with y running from 0 to x², then use the same region and density for the two moments.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we compute the mass \(m.\) We need to describe the region between the graph of \(y={x}^{2}\) and the vertical lines \(x=0\) and \(x=2\text{:}\)</p>
+<p>\[\begin{array}{ll}m &amp; =\underset{R}{∬}dm=\underset{R}{∬}ρ(x,y)dA=∫x=0x=2\,∫y=0y={x}^{2}(x+y)dy\,dx=∫x=0x=2[{xy+\frac{{y}^{2}}{2}|}_{y=0}^{y={x}^{2}}]dx \\ &amp; =∫x=0x=2[{x}^{3}+\frac{{x}^{4}}{2}]dx={[\frac{{x}^{4}}{4}+\frac{{x}^{5}}{10}]|}_{x=0}^{x=2}=\frac{36}{5}.\end{array}\]</p>
+<p>Now compute the moments \({M}_{x}\) and \({M}_{y}\text{:}\)</p>
+<p>\[{M}_{x}=\underset{R}{∬}yρ(x,y)dA=∫x=0x=2\,∫y=0y={x}^{2}y(x+y)dy\,dx=\frac{80}{7},\]</p>
+<p>\[{M}_{y}=\underset{R}{∬}xρ(x,y)dA=∫x=0x=2\,∫y=0y={x}^{2}x(x+y)dy\,dx=\frac{176}{15}.\]</p>
+<p>Finally, evaluate the center of mass,</p>
+<p>\[\begin{array}{l} \\ \\ \\ \bar{x}=\frac{{M}_{y}}{m}=\frac{\underset{R}{∬}xρ(x,y)dA}{\underset{R}{∬}ρ(x,y)dA}=\frac{176\text{/}15}{36\text{/}5}=\frac{44}{27}, \\ \bar{y}=\frac{{M}_{x}}{m}=\frac{\underset{R}{∬}yρ(x,y)dA}{\underset{R}{∬}ρ(x,y)dA}=\frac{80\text{/}7}{36\text{/}5}=\frac{100}{63}.\end{array}\]</p>
+<p>Hence the center of mass is \((\bar{x},\bar{y})=(\frac{44}{27},\frac{100}{63}).\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Calculate the mass, moments, and the center of mass of the region between the curves \(y=x\) and \(y={x}^{2}\) with the density function \(ρ(x,y)=x\) in the interval \(0\le x\le 1.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\bar{x}=\frac{{M}_{y}}{m}=\frac{1\text{/}20}{1\text{/}12}=\frac{3}{5}\) and \(\bar{y}=\frac{{M}_{x}}{m}=\frac{1\text{/}24}{1\text{/}12}=\frac{1}{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find the centroid of the region under the curve \(y={e}^{x}\) over the interval \(1\le x\le 3\) (see the following figure).</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_006.jpg" alt="On the x y plane the curve y = e to the x is shown from x = 0 to x = 3 (3, e cubed). The points (1, 0) and (3, 0) are marked on the x axes. A dashed line rises from (1, 0) marked x = 1; similarly, a solid line rises from (3, 0) marked x = 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Finding a centroid of a region below the curve \(y={e}^{x}.\)</figcaption></figure>
+<p class="sol-hint">Since the density is constant, set up the centroid formulas so the density cancels out of numerator and denominator.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To compute the centroid, we assume that the density function is constant and hence it cancels out:</p>
+<p>\[\begin{array}{l} \\ \\ \\ \\ {x}_{c}=\frac{{M}_{y}}{m}=\frac{\underset{R}{∬}x\,dA}{\underset{R}{∬}dA}\,\text{and}\,{y}_{c}=\frac{{M}_{x}}{m}=\frac{\underset{R}{∬}y\,dA}{\underset{R}{∬}dA}, \\ {x}_{c}=\frac{{M}_{y}}{m}=\frac{\underset{R}{∬}x\,dA}{\underset{R}{∬}dA}=\frac{∫x=1x=3\,∫y=0y={e}^{x}x\,dy\,dx}{∫x=1x=3\,∫y=0y={e}^{x}dy\,dx}=\frac{∫x=1x=3x{e}^{x}dx}{∫x=1x=3{e}^{x}dx}=\frac{2{e}^{3}}{{e}^{3}-e}=\frac{2{e}^{2}}{{e}^{2}-1}, \\ {y}_{c}=\frac{{M}_{x}}{m}=\frac{\underset{R}{∬}y\,dA}{\underset{R}{∬}dA}=\frac{∫x=1x=3\,∫y=0y={e}^{x}y\,dy\,dx}{∫x=1x=3\,∫y=0y={e}^{x}dy\,dx}=\frac{∫x=1x=3\frac{{e}^{2x}}{2}dx}{∫x=1x=3{e}^{x}dx}=\frac{\frac{1}{4}{e}^{2}({e}^{4}-1)}{e({e}^{2}-1)}=\frac{1}{4}e({e}^{2}+1).\end{array}\]</p>
+<p>Thus the centroid of the region is</p>
+<p>\[({x}_{c},{y}_{c})=(\frac{2{e}^{2}}{{e}^{2}-1},\frac{1}{4}e({e}^{2}+1)).\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Calculate the centroid of the region between the curves \(y=x\) and \(y=\sqrt{x}\) with uniform density in the interval \(0\le x\le 1.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({x}_{c}=\frac{{M}_{y}}{m}=\frac{1\text{/}15}{1\text{/}6}=\frac{2}{5}\,\text{and}\,{y}_{c}=\frac{{M}_{x}}{m}=\frac{1\text{/}12}{1\text{/}6}=\frac{1}{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="moments-of-inertia">Moments of Inertia</h2>
+<p>For a clear understanding of how to calculate moments of inertia using double integrals, we need to go back to the general definition of moments and centers of mass in Section 6.6 of Volume 1. The moment of inertia of a particle of mass \(m\) about an axis is \(m{r}^{2},\) where \(r\) is the distance of the particle from the axis. We can see from <a href="#fig3">Figure 3</a> that the moment of inertia of the subrectangle \({R}_{ij}\) about the \(x\text{-axis}\) is \({({y}_{ij}^{*})}^{2}ρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A.\) Similarly, the moment of inertia of the subrectangle \({R}_{ij}\) about the \(y\text{-axis}\) is \({({x}_{ij}^{*})}^{2}ρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A.\) The moment of inertia is related to the rotation of the mass; specifically, it measures the tendency of the mass to resist a change in rotational motion about an axis.</p>
+<p>The moment of inertia \({I}_{x}\) about the \(x\text{-axis}\) for the region \(R\) is the limit of the sum of moments of inertia of the regions \({R}_{ij}\) about the \(x\text{-axis}\text{.}\) Hence</p>
+<p>\[{I}_{x}=\underset{k,l\to \infty }{\text{lim}}{∑i=1k∑j=1l({y}_{ij}^{*})}^{2}{m}_{ij}=\underset{k,l\to \infty }{\text{lim}}{∑i=1k∑j=1l({y}_{ij}^{*})}^{2}ρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A=\underset{R}{∬}{y}^{2}ρ(x,y)dA.\]</p>
+<p>Similarly, the moment of inertia \({I}_{y}\) about the \(y\text{-axis}\) for \(R\) is the limit of the sum of moments of inertia of the regions \({R}_{ij}\) about the \(y\text{-axis}\text{.}\) Hence</p>
+<p>\[{I}_{y}=\underset{k,l\to \infty }{\text{lim}}{∑i=1k∑j=1l({x}_{ij}^{*})}^{2}{m}_{ij}=\underset{k,l\to \infty }{\text{lim}}{∑i=1k∑j=1l({x}_{ij}^{*})}^{2}ρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A=\underset{R}{∬}{x}^{2}ρ(x,y)dA.\]</p>
+<p>Sometimes, we need to find the moment of inertia of an object about the origin, which is known as the polar moment of inertia. We denote this by \({I}_{0}\) and obtain it by adding the moments of inertia \({I}_{x}\) and \({I}_{y}.\) Hence</p>
+<p>\[{I}_{0}={I}_{x}+{I}_{y}=\underset{R}{∬}({x}^{2}+{y}^{2})ρ(x,y)dA.\]</p>
+<p>All these expressions can be written in polar coordinates by substituting \(x=r\,\text{cos}\,θ,\) \(y=r\,\text{sin}\,θ,\) and \(dA=r\,dr\,dθ.\) For example, \({I}_{0}=\underset{R}{∬}{r}^{2}ρ(r\,\text{cos}\,θ,r\,\text{sin}\,θ)dA.\)</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Use the triangular region \(R\) with vertices \((0,0),(2,2),\) and \((2,0)\) and with density \(ρ(x,y)=xy\) as in previous examples. Find the moments of inertia.</p>
+<p class="sol-hint">Apply the moment-of-inertia formulas Ix=∬y²ρdA and Iy=∬x²ρdA to the given triangular region and density.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the expressions established above for the moments of inertia, we have</p>
+<p>\[\begin{array}{lll}{I}_{x} &amp; = &amp; \underset{R}{∬}{y}^{2}ρ(x,y)dA=∫x=0x=2\,∫y=0y=xx{y}^{3}dy\,dx=\frac{8}{3}, \\ {I}_{y} &amp; = &amp; \underset{R}{∬}{x}^{2}ρ(x,y)dA=∫x=0x=2\,∫y=0y=x{x}^{3}y\,dy\,dx=\frac{16}{3}, \\ {I}_{0} &amp; = &amp; \underset{R}{∬}({x}^{2}+{y}^{2})ρ(x,y)dA=∫02\,∫0x({x}^{2}+{y}^{2})xy\,dy\,dx \\ &amp; = &amp; {I}_{x}+{I}_{y}=8.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Again use the same region \(R\) as above and the density function \(ρ(x,y)=\sqrt{xy}.\) Find the moments of inertia.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({I}_{x}=∫x=0x=2\,∫y=0y=x{y}^{2}\sqrt{xy}\,dy\,dx=\frac{64}{35}\) and \({I}_{y}=∫x=0x=2\,∫y=0y=x{x}^{2}\sqrt{xy}\,dy\,dx=\frac{64}{35}.\) Also, \({I}_{0}=∫x=0x=2\,∫y=0y=x({x}^{2}+{y}^{2})\sqrt{xy}\,dy\,dx=\frac{128}{35}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>As mentioned earlier, the moment of inertia of a particle of mass \(m\) about an axis is \(m{r}^{2}\) where \(r\) is the distance of the particle from the axis, also known as the <strong>radius of gyration</strong>.</p>
+<p>Hence the radii of gyration with respect to the \(x\text{-axis,}\) the \(y\text{-axis,}\) and the origin are</p>
+<p>\[{R}_{x}=\sqrt{\frac{{I}_{x}}{m}},{R}_{y}=\sqrt{\frac{{I}_{y}}{m}},\text{and}\,{R}_{0}=\sqrt{\frac{{I}_{0}}{m}},\]</p>
+<p>respectively. In each case, the radius of gyration tells us how far (perpendicular distance) from the axis of rotation the entire mass of an object might be concentrated. The moments of an object are useful for finding information on the balance and torque of the object about an axis, but radii of gyration are used to describe the distribution of mass around its centroidal axis. There are many applications in engineering and physics. Sometimes it is necessary to find the radius of gyration, as in the next example.</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Consider the same triangular lamina \(R\) with vertices \((0,0),(2,2),\) and \((2,0)\) and with density \(ρ(x,y)=xy\) as in previous examples. Find the radii of gyration with respect to the \(x\text{-axis,}\) the \(y\text{-axis,}\) and the origin.</p>
+<p class="sol-hint">Use the mass and the moments of inertia already found for this lamina to compute each radius of gyration as √(I/m).</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>If we compute the mass of this region we find that \(m=2.\) We found the moments of inertia of this lamina in <a href="#example4">Example 4</a>. From these data, the radii of gyration with respect to the \(x\text{-axis,}\) \(y\text{-axis,}\) and the origin are, respectively,</p>
+<p>\[\begin{array}{lll}{R}_{x} &amp; = &amp; \sqrt{\frac{{I}_{x}}{m}}=\sqrt{\frac{8\text{/}3}{2}}=\sqrt{\frac{8}{6}}=\frac{2\sqrt{3}}{3}, \\ {R}_{y} &amp; = &amp; \sqrt{\frac{{I}_{y}}{m}}=\sqrt{\frac{16\text{/}3}{2}}=\sqrt{\frac{8}{3}}=\frac{2\sqrt{6}}{3}, \\ {R}_{0} &amp; = &amp; \sqrt{\frac{{I}_{0}}{m}}=\sqrt{\frac{8}{2}}=\sqrt{4}=2.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Use the same region \(R\) from <a href="#example7">Example 7</a> and the density function \(ρ(x,y)=\sqrt{xy}.\) Find the radii of gyration with respect to the \(x\text{-axis,}\) the \(y\text{-axis,}\) and the origin.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({R}_{x}=\frac{6\sqrt{35}}{35},\) \({R}_{y}=\frac{6\sqrt{35}}{35},\) and \({R}_{0}=\frac{6\sqrt{70}}{35}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="center-of-mass-and-moments-of-inertia-in-three-dimensions">Center of Mass and Moments of Inertia in Three Dimensions</h2>
+<p>All the expressions of double integrals discussed so far can be modified to become triple integrals.</p>
+<div class="card definition"><span class="chip">Definition</span><p>If we have a solid object \(Q\) with a density function \(ρ(x,y,z)\) at any point \((x,y,z)\) in space, then its mass is</p>
+<p>\[m=\underset{Q}{∭}ρ(x,y,z)dV.\]</p>
+<p>Its moments about the \(xy\text{-plane,}\) the \(xz\text{-plane,}\) and the \(yz\text{-plane}\) are</p>
+<p>\[\begin{array}{l}{M}_{xy}=\underset{Q}{∭}zρ(x,y,z)dV,\,{M}_{xz}=\underset{Q}{∭}yρ(x,y,z)dV, \\ {M}_{yz}=\underset{Q}{∭}xρ(x,y,z)dV.\end{array}\]</p>
+<p>If the center of mass of the object is the point \((\bar{x},\bar{y},\bar{z}),\) then</p>
+<p>\[\bar{x}=\frac{{M}_{yz}}{m},\,\,\bar{y}=\frac{{M}_{xz}}{m},\bar{z}=\frac{{M}_{xy}}{m}.\]</p>
+<p>Also, if the solid object is homogeneous (with constant density), then the center of mass becomes the centroid of the solid. Finally, the moments of inertia about the \(yz\text{-plane,}\) the \(xz\text{-plane,}\) and the \(xy\text{-plane}\) are</p>
+<p>\[\begin{array}{l} \\ {I}_{x}=\underset{Q}{∭}({y}^{2}+{z}^{2})ρ(x,y,z)dV, \\ {I}_{y}=\underset{Q}{∭}({x}^{2}+{z}^{2})ρ(x,y,z)dV, \\ {I}_{z}=\underset{Q}{∭}({x}^{2}+{y}^{2})ρ(x,y,z)dV.\end{array}\]</p>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Suppose that \(Q\) is a solid region bounded by \(x+2y+3z=6\) and the coordinate planes and has density \(ρ(x,y,z)={x}^{2}yz.\) Find the total mass.</p>
+<p class="sol-hint">Find the xy-plane projection of the tetrahedron by setting z=0, then set up the triple integral of the density over that region.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The region \(Q\) is a tetrahedron (<a href="#fig7">Figure 7</a>) meeting the axes at the points \((6,0,0),(0,3,0),\) and \((0,0,2).\) To find the limits of integration, let \(z=0\) in the slanted plane \(z=\frac{1}{3}(6-x-2y).\) Then for \(x\) and \(y\) find the projection of \(Q\) onto the \(xy\text{-plane,}\) which is bounded by the axes and the line \(x+2y=6.\) Hence the mass is</p>
+<p>\[m=\underset{Q}{∭}ρ(x,y,z)dV=∫x=0x=6\,∫y=0y=1\text{/}2(6-x)\,∫z=0z=1\text{/}3(6-x-2y){x}^{2}yz\,dz\,dy\,dx=\frac{108}{35}\approx 3.086.\]</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_007.jpg" alt="In x y z space, the solid Q is shown with corners (0, 0, 0), (0, 0, 2), (0, 3, 0), and (6, 0, 0). Alternatively, you could consider the solid as being bounded by the x y, x z, and y z planes and the plane x + 2y + 3z = 6, forming an irregular tetrahedron." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — Finding the mass of a three-dimensional solid \(Q.\)</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Consider the same region \(Q\) (<a href="#fig7">Figure 7</a>), and use the density function \(ρ(x,y,z)=x{y}^{2}z.\) Find the mass.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{54}{35}=1.543\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Suppose \(Q\) is a solid region bounded by the plane \(x+2y+3z=6\) and the coordinate planes with density \(ρ(x,y,z)={x}^{2}yz\) (see <a href="#fig7">Figure 7</a>). Find the center of mass using decimal approximation. Use the mass found in <a href="#example8">Example 8</a></p>
+<p class="sol-hint">Compute the three moments Mxy, Mxz, Myz over the same tetrahedron and density, then divide each by the mass found earlier.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have used this tetrahedron before and know the limits of integration, so we can proceed to the computations right away. First, we need to find the moments about the \(xy\text{-plane,}\) the \(xz\text{-plane,}\) and the \(yz\text{-plane:}\)</p>
+<p>\[\begin{array}{l} \\ \\ \\ {M}_{xy}=\underset{Q}{∭}zρ(x,y,z)dV=∫x=0x=6\,∫y=0y=1\text{/}2(6-x)\,∫z=0z=1\text{/}3(6-x-2y){x}^{2}y{z}^{2}dz\,dy\,dx=\frac{54}{35}\approx 1.543, \\ {M}_{xz}=\underset{Q}{∭}yρ(x,y,z)dV=∫x=0x=6\,∫y=0y=1\text{/}2(6-x)\,∫z=0z=1\text{/}3(6-x-2y){x}^{2}{y}^{2}z\,dz\,dy\,dx=\frac{81}{35}\approx 2.314, \\ {M}_{yz}=\underset{Q}{∭}xρ(x,y,z)dV=∫x=0x=6\,∫y=0y=1\text{/}2(6-x)\,∫z=0z=1\text{/}3(6-x-2y){x}^{3}yz\,dz\,dy\,dx=\frac{243}{35}\approx 6.943.\end{array}\]</p>
+<p>Hence the center of mass is</p>
+<p>\[\begin{array}{l} \\ \\ \\ \bar{x}=\frac{{M}_{yz}}{m},\bar{y}=\frac{{M}_{xz}}{m},\bar{z}=\frac{{M}_{xy}}{m}, \\ \bar{x}=\frac{{M}_{yz}}{m}=\frac{243\text{/}35}{108\text{/}35}=\frac{243}{108}=2.25, \\ \bar{y}=\frac{{M}_{xz}}{m}=\frac{81\text{/}35}{108\text{/}35}=\frac{81}{108}=0.75, \\ \bar{z}=\frac{{M}_{xy}}{m}=\frac{54\text{/}35}{108\text{/}35}=\frac{54}{108}=0.5.\end{array}\]</p>
+<p>The center of mass for the tetrahedron \(Q\) is the point \((2.25,0.75,0.5).\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Consider the same region \(Q\) (<a href="#fig7">Figure 7</a>) and use the density function \(ρ(x,y,z)=x{y}^{2}z.\) Find the center of mass.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((\frac{3}{2},\frac{9}{8},\frac{1}{2})\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We conclude this section with an example of finding moments of inertia \({I}_{x},{I}_{y},\) and \({I}_{z}.\)</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Suppose that \(Q\) is a solid region and is bounded by \(x+2y+3z=6\) and the coordinate planes with density \(ρ(x,y,z)={x}^{2}yz\) (see <a href="#fig7">Figure 7</a>). Find the moments of inertia of the tetrahedron \(Q\) about the \(yz\text{-plane,}\) the \(xz\text{-plane,}\) and the \(xy\text{-plane}\text{.}\)</p>
+<p class="sol-hint">Apply the three moment-of-inertia formulas for Ix, Iy, Iz to the same tetrahedron and density, integrating over the same bounds as before.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Once again, we can almost immediately write the limits of integration and hence we can quickly proceed to evaluating the moments of inertia. Using the formula stated before, the moments of inertia of the tetrahedron \(Q\) about the \(xy\text{-plane,}\) the \(xz\text{-plane,}\) and the \(yz\text{-plane}\) are</p>
+<p>\[\begin{array}{l} \\ {I}_{x}=\underset{Q}{∭}({y}^{2}+{z}^{2})ρ(x,y,z)dV, \\ {I}_{y}=\underset{Q}{∭}({x}^{2}+{z}^{2})ρ(x,y,z)dV,\end{array}\]</p>
+<p>and</p>
+<p>\[{I}_{z}=\underset{Q}{∭}({x}^{2}+{y}^{2})ρ(x,y,z)dV\,\text{with}\,ρ(x,y,z)={x}^{2}yz.\]</p>
+<p>Proceeding with the computations, we have</p>
+<p>\[\begin{array}{l} \\ \\ \\ \\ \\ \\ {I}_{x}=\underset{Q}{∭}({y}^{2}+{z}^{2}){x}^{2}yz\,dV=∫x=0x=6\,∫y=0y=\frac{1}{2}(6-x)\,∫z=0z=\frac{1}{3}(6-x-2y)({y}^{2}+{z}^{2}){x}^{2}yz\,dz\,dy\,dx=\frac{117}{35}\approx 3.343, \\ {I}_{y}=\underset{Q}{∭}({x}^{2}+{z}^{2}){x}^{2}yz\,dV=∫x=0x=6\,∫y=0y=\frac{1}{2}(6-x)\,∫z=0z=\frac{1}{3}(6-x-2y)({x}^{2}+{z}^{2}){x}^{2}yz\,dz\,dy\,dx=\frac{684}{35}\approx 19.543, \\ {I}_{z}=\underset{Q}{∭}({x}^{2}+{y}^{2}){x}^{2}yz\,dV=∫x=0x=6\,∫y=0y=\frac{1}{2}(6-x)\,∫z=0z=\frac{1}{3}(6-x-2y)({x}^{2}+{y}^{2}){x}^{2}yz\,dz\,dy\,dx=\frac{729}{35}\approx 20.829.\end{array}\]</p>
+<p>Thus, the moments of inertia of the tetrahedron \(Q\) about the \(yz\text{-plane,}\) the \(xz\text{-plane,}\) and the \(xy\text{-plane}\) are \(117\text{/}35,684\text{/}35,\text{and}\,729\text{/}35,\) respectively.</p>
+</div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>Consider the same region \(Q\) (<a href="#fig7">Figure 7</a>), and use the density function \(ρ(x,y,z)=x{y}^{2}z.\) Find the moments of inertia about the three coordinate planes.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The moments of inertia of the tetrahedron \(Q\) about the \(yz\text{-plane,}\) the \(xz\text{-plane,}\) and the \(xy\text{-plane}\) are \(99\text{/}35,36\text{/}7,\text{and}\,243\text{/}35,\) respectively.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<p>Finding the mass, center of mass, moments, and moments of inertia in double integrals:</p>
+<ul class="tight"><li>For a lamina \(R\) with a density function \(ρ(x,y)\) at any point \((x,y)\) in the plane, the mass is \(m=\underset{R}{∬}ρ(x,y)dA.\) (See <a href="#example1">Example 1</a>.)</li><li>The moments about the \(x\text{-axis}\) and \(y\text{-axis}\) are<br><p>\[{M}_{x}=\underset{R}{∬}yρ(x,y)dA\,\text{and}\,{M}_{y}=\underset{R}{∬}xρ(x,y)dA.\]</p>
+ (See <a href="#example2">Example 2</a>.)</li><li>The center of mass is given by \(\bar{x}=\frac{{M}_{y}}{m},\bar{y}=\frac{{M}_{x}}{m}.\) (See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a>.)</li><li>The center of mass becomes the centroid of the plane when the density is constant. (See <a href="#example5">Example 5</a>.)</li><li>The moments of inertia about the \(x-\text{axis,}\) \(y-\text{axis,}\) and the origin are<br><p>\[{I}_{x}=\underset{R}{∬}{y}^{2}ρ(x,y)dA,\,\,\,{I}_{y}=\underset{R}{∬}{x}^{2}ρ(x,y)dA,\,\text{and}\,{I}_{0}={I}_{x}+{I}_{y}=\underset{R}{∬}({x}^{2}+{y}^{2})ρ(x,y)dA.\]</p>
+ (See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.)</li></ul>
+<p>Finding the mass, center of mass, moments, and moments of inertia in triple integrals:</p>
+<ul class="tight"><li>For a solid object \(Q\) with a density function \(ρ(x,y,z)\) at any point \((x,y,z)\) in space, the mass is \(m=\underset{Q}{∭}ρ(x,y,z)dV.\) (See <a href="#example8">Example 8</a>.)</li><li>The moments about the \(xy\text{-plane,}\) the \(xz\text{-plane,}\) and the \(yz\text{-plane}\) are<br><p>\[{M}_{xy}=\underset{Q}{∭}zρ(x,y,z)dV,\,{M}_{xz}=\underset{Q}{∭}yρ(x,y,z)dV,\,{M}_{yz}=\underset{Q}{∭}xρ(x,y,z)dV.\]</p>
+</li><li>The center of mass is given by \(\bar{x}=\frac{{M}_{yz}}{m},\bar{y}=\frac{{M}_{xz}}{m},\bar{z}=\frac{{M}_{xy}}{m}.\) (See <a href="#example9">Example 9</a>.)</li><li>The center of mass becomes the centroid of the solid when the density is constant.</li><li>The moments of inertia about the \(yz\text{-plane,}\) the \(xz\text{-plane,}\) and the \(xy\text{-plane}\) are<br><p>\[\begin{array}{l} \\ {I}_{x}=\underset{Q}{∭}({y}^{2}+{z}^{2})ρ(x,y,z)dV,{I}_{y}=\underset{Q}{∭}({x}^{2}+{z}^{2})ρ(x,y,z)dV, \\ {I}_{z}=\underset{Q}{∭}({x}^{2}+{y}^{2})ρ(x,y,z)dV.\end{array}\]</p>
+ (See <a href="#example10">Example 10</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Mass of a lamina</strong></td><td>\(m=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l{m}_{ij}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1lρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A=\underset{R}{∬}ρ(x,y)dA\)</td></tr><tr><td><strong>Moment about the <strong>x</strong>-axis</strong></td><td>\({M}_{x}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l({y}_{ij}^{*}){m}_{ij}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l({y}_{ij}^{*})ρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A=\underset{R}{∬}yρ(x,y)dA\)</td></tr><tr><td><strong>Moment about the <strong>y</strong>-axis</strong></td><td>\({M}_{y}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l({x}_{ij}^{*}){m}_{ij}=\underset{k,l\to \infty }{\text{lim}}∑i=1k∑j=1l({x}_{ij}^{*})ρ({x}_{ij}^{*},{y}_{ij}^{*})\Delta A=\underset{R}{∬}xρ(x,y)dA\)</td></tr><tr><td><strong>Center of mass of a lamina</strong></td><td>\(\bar{x}=\frac{{M}_{y}}{m}=\frac{\underset{R}{∬}xρ(x,y)dA}{\underset{R}{∬}ρ(x,y)dA}\) and \(\bar{y}=\frac{{M}_{x}}{m}=\frac{\underset{R}{∬}yρ(x,y)dA}{\underset{R}{∬}ρ(x,y)dA}\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, the region \(R\) occupied by a lamina is shown in a graph. Find the mass of \(R\) with the density function \(ρ.\)</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(R\) is the triangular region with vertices \((0,0),(0,3),\) and \((6,0);ρ(x,y)=xy.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_201.jpg" alt="A right triangle bounded by the x and y axes and the line y = negative x/2 + 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{27}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(R\) is the triangular region with vertices \((0,0),(1,1),\) \((0,5);ρ(x,y)=x+y.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_202.jpg" alt="A triangle bounded by the y axis, the line x = y, and the line y = negative 4x + 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(R\) is the rectangular region with vertices \((0,0),(0,3),(6,3),\) and \((6,0);\) \(ρ(x,y)=\sqrt{xy}.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_203.jpg" alt="A rectangle bounded by the x and y axes and the lines x = 6 and y = 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(24\sqrt{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(R\) is the rectangular region with vertices \((0,1),(0,3),(3,3),\) and \((3,1);\) \(ρ(x,y)={x}^{2}y.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_204.jpg" alt="A rectangle bounded by the y axis, the lines y = 1 and 3, and the line x = 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(R\) is the trapezoidal region determined by the lines \(y=-\frac{1}{4}x+\frac{5}{2},y=0,y=2,\) and \(x=0;\) \(ρ(x,y)=3xy.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_205.jpg" alt="A trapezoid bounded by the x and y axes, the line y = 2, and the line y = negative x/4 + 2.5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(76\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(R\) is the trapezoidal region determined by the lines \(y=0,y=1,y=x,\) and \(y=\text{-}x+3;ρ(x,y)=2x+y.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_206.jpg" alt="A trapezoid bounded by the x axis, the line y = 1, the line y = x, and the line y = negative x + 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(R\) is the disk of radius \(2\) centered at \((1,2);\) \(ρ(x,y)={x}^{2}+{y}^{2}-2x-4y+5.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_207.jpg" alt="A circle with radius 2 centered at (1, 2), which is tangent to the x axis at (1, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(8\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(R\) is the unit disk; \(ρ(x,y)=3{x}^{4}+6{x}^{2}{y}^{2}+3{y}^{4}.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_208.jpg" alt="A circle with radius 1 and center the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(R\) is the region enclosed by the ellipse \({x}^{2}+4{y}^{2}=1;ρ(x,y)=1.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_209.jpg" alt="An ellipse with center the origin, major axis 2, and minor axis 0.5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(R=\{(x,y)|9{x}^{2}+{y}^{2}\le 1,x\ge 0,y\ge 0\};\) \(ρ(x,y)=\sqrt{9{x}^{2}+{y}^{2}}.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_210.jpg" alt="The quarter section of an ellipse in the first quadrant with center the origin, major axis 2, and minor axis roughly 0.64." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(R\) is the region bounded by \(y=x,y=\text{-}x,y=x+2,y=\text{-}x+2;\) \(ρ(x,y)=1.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_211.jpg" alt="A square with side length square root of 2 rotated 45 degrees, with corners at the origin, (2, 0), (1, 1), and (negative 1, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(R\) is the region bounded by \(y=\frac{1}{x},y=\frac{2}{x},y=1,\) and \(y=2;ρ(x,y)=4(x+y).\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_212.jpg" alt="A complex region between 2 and 1 that sweeps down and to the right with boundaries y = 1/x and y = 2/x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>In the following exercises, consider a lamina occupying the region \(R\) and having the density function \(ρ\) given in the preceding group of exercises. Use a computer algebra system (CAS) to answer the following questions.</p>
+<ul class="tight"><li>Find the moments \({M}_{x}\) and \({M}_{y}\) about the \(x\text{-axis}\) and \(y\text{-axis,}\) respectively.</li><li>Calculate and plot the center of mass of the lamina.</li><li><strong>[T]</strong> Use a CAS to locate the center of mass on the graph of \(R.\)</li></ul>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p><strong>[T]</strong> \(R\) is the triangular region with vertices \((0,0),(0,3),\) and \((6,0);ρ(x,y)=xy.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({M}_{x}=\frac{81}{5},{M}_{y}=\frac{162}{5};\) b. \(\bar{x}=\frac{12}{5},\bar{y}=\frac{6}{5};\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_213.jpg" alt="A triangular region R bounded by the x and y axes and the line y = negative x/2 + 3, with a point marked at (12/5, 6/5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p><strong>[T]</strong> \(R\) is the triangular region with vertices \((0,0),(1,1),\text{and}\,(0,5);ρ(x,y)=x+y.\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p><strong>[T]</strong> \(R\) is the rectangular region with vertices \((0,0),(0,3),(6,3),\text{and}\,(6,0);\) \(ρ(x,y)=\sqrt{xy}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({M}_{x}=\frac{216\sqrt{2}}{5},{M}_{y}=\frac{432\sqrt{2}}{5};\) b. \(\bar{x}=\frac{18}{5},\bar{y}=\frac{9}{5};\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_215.jpg" alt="A rectangle R bounded by the x and y axes and the lines x = 6 and y = 3 with point marked (18/5, 9/5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p><strong>[T]</strong> \(R\) is the rectangular region with vertices \((0,1),(0,3),(3,3),\text{and}\,(3,1);\) \(ρ(x,y)={x}^{2}y.\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p><strong>[T]</strong> \(R\) is the trapezoidal region determined by the lines \(y=-\frac{1}{4}x+\frac{5}{2},y=0,\) \(y=2,\text{and}\,x=0;\) \(ρ(x,y)=3xy.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({M}_{x}=\frac{368}{5},{M}_{y}=\frac{1552}{5};\) b. \(\bar{x}=\frac{388}{95},\bar{y}=\frac{92}{95};\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_217.jpg" alt="A trapezoid R bounded by the x and y axes, the line y = 2, and the line y = negative x/4 + 2.5 with the point marked (92/95, 388/95)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p><strong>[T]</strong> \(R\) is the trapezoidal region determined by the lines \(y=0,y=1,y=x,\) and \(y=\text{-}x+3;ρ(x,y)=2x+y.\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p><strong>[T]</strong> \(R\) is the disk of radius \(2\) centered at \((1,2);\) \(ρ(x,y)={x}^{2}+{y}^{2}-2x-4y+5.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({M}_{x}=16\pi ,{M}_{y}=8\pi ;\) b. \(\bar{x}=1,\bar{y}=2;\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_219.jpg" alt="A circle with radius 2 centered at (1, 2), which is tangent to the x axis at (1, 0) and has pointed marked at the center (1, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p><strong>[T]</strong> \(R\) is the unit disk; \(ρ(x,y)=3{x}^{4}+6{x}^{2}{y}^{2}+3{y}^{4}.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p><strong>[T]</strong> \(R\) is the region enclosed by the ellipse \({x}^{2}+4{y}^{2}=1;ρ(x,y)=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({M}_{x}=0,{M}_{y}=0;\) b. \(\bar{x}=0,\bar{y}=0;\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_221.jpg" alt="An ellipse R with center the origin, major axis 2, and minor axis 0.5, with point marked at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p><strong>[T]</strong> \(R=\{(x,y)|9{x}^{2}+{y}^{2}\le 1,x\ge 0,y\ge 0\};\) \(ρ(x,y)=\sqrt{9{x}^{2}+{y}^{2}}.\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p><strong>[T]</strong> \(R\) is the region bounded by \(y=x,y=\text{-}x,y=x+2,\) and \(y=\text{-}x+2;\) \(ρ(x,y)=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({M}_{x}=2,{M}_{y}=0;\) b. \(\bar{x}=0,\bar{y}=1;\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_223.jpg" alt="A square R with side length square root of 2 rotated 45 degrees, with corners at the origin, (2, 0), (1, 1), and (negative 1, 1). A point is marked at (0, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p><strong>[T]</strong> \(R\) is the region bounded by \(y=\frac{1}{x},\) \(y=\frac{2}{x},y=1,\text{and}\,y=2;\) \(ρ(x,y)=4(x+y).\)</p>
+</div></div>
+<p>In the following exercises, consider a lamina occupying the region \(R\) and having the density function \(ρ\) given in the first two groups of Exercises.</p>
+<ul class="tight"><li>Find the moments of inertia \({I}_{x},{I}_{y},\) and \({I}_{0}\) about the \(x\text{-axis},\) \(y\text{-axis},\) and origin, respectively.</li><li>Find the radii of gyration with respect to the \(x\text{-axis},\) \(y\text{-axis},\) and origin, respectively.</li></ul>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(R\) is the triangular region with vertices \((0,0),(0,3),\) and \((6,0);ρ(x,y)=xy.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({I}_{x}=\frac{243}{10},{I}_{y}=\frac{486}{5},\text{and}\,{I}_{0}=\frac{243}{2};\) b. \({R}_{x}=\frac{3\sqrt{5}}{5},{R}_{y}=\frac{6\sqrt{5}}{5},\text{and}\,{R}_{0}=3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(R\) is the triangular region with vertices \((0,0),(1,1),\) and \((0,5);ρ(x,y)=x+y.\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(R\) is the rectangular region with vertices \((0,0),(0,3),(6,3),\) and \((6,0);ρ(x,y)=\sqrt{xy}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({I}_{x}=\frac{648\sqrt{2}}{7},{I}_{y}=\frac{2592\sqrt{2}}{7},\text{and}\,{I}_{0}=\frac{3240\sqrt{2}}{7};\) b. \({R}_{y}=\frac{3\sqrt{21}}{7},{R}_{x}=\frac{6\sqrt{21}}{7},\text{and}\,{R}_{0}=\frac{3\sqrt{105}}{7}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(R\) is the rectangular region with vertices \((0,1),(0,3),(3,3),\) and \((3,1);ρ(x,y)={x}^{2}y.\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(R\) is the trapezoidal region determined by the lines \(y=-\frac{1}{4}x+\frac{5}{2},y=0,y=2,\) and \(x=0;ρ(x,y)=3xy.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({I}_{x}=88,{I}_{y}=1560,\text{and}\,{I}_{0}=1648;\) b. \({R}_{x}=\frac{\sqrt{418}}{19},{R}_{y}=\frac{\sqrt{7410}}{19},\) and \({R}_{0}=\frac{2\sqrt{1957}}{19}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(R\) is the trapezoidal region determined by the lines \(y=0,y=1,y=x,\) and \(y=\text{-}x+3;ρ(x,y)=2x+y.\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(R\) is the disk of radius \(2\) centered at \((1,2);\) \(ρ(x,y)={x}^{2}+{y}^{2}-2x-4y+5.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({I}_{x}=\frac{128\pi }{3},{I}_{y}=\frac{56\pi }{3},\text{and}\,{I}_{0}=\frac{184\pi }{3};\) b. \({R}_{x}=\frac{4\sqrt{3}}{3},{R}_{y}=\frac{\sqrt{21}}{3},\) and \({R}_{0}=\frac{\sqrt{69}}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(R\) is the unit disk; \(ρ(x,y)=3{x}^{4}+6{x}^{2}{y}^{2}+3{y}^{4}.\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(R\) is the region enclosed by the ellipse \({x}^{2}+4{y}^{2}=1;ρ(x,y)=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({I}_{x}=\frac{\pi }{32},{I}_{y}=\frac{\pi }{8},\text{and}\,{I}_{0}=\frac{5\pi }{32};\) b. \({R}_{x}=\frac{1}{4},{R}_{y}=\frac{1}{2},\text{and}\,{R}_{0}=\frac{\sqrt{5}}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(R=\{(x,y)|9{x}^{2}+{y}^{2}\le 1,x\ge 0,y\ge 0\};ρ(x,y)=\sqrt{9{x}^{2}+{y}^{2}}.\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(R\) is the region bounded by \(y=x,y=\text{-}x,y=x+2,\text{and}\,y=\text{-}x+2;\) \(ρ(x,y)=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \({I}_{x}=\frac{7}{3},{I}_{y}=\frac{1}{3},\text{and}\,{I}_{0}=\frac{8}{3};\) b. \({R}_{x}=\frac{\sqrt{42}}{6},{R}_{y}=\frac{\sqrt{6}}{6},\text{and}\,{R}_{0}=\frac{2\sqrt{3}}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(R\) is the region bounded by \(y=\frac{1}{x},y=\frac{2}{x},y=1,\text{and}\,y=2;ρ(x,y)=4(x+y).\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Let \(Q\) be the solid unit cube. Find the mass of the solid if its density \(ρ\) is equal to the square of the distance of an arbitrary point of \(Q\) to the \(xy\text{-plane}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(m=\frac{1}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Let \(Q\) be the solid unit hemisphere. Find the mass of the solid if its density \(ρ\) is equal to the distance of an arbitrary point of \(Q\) to the origin.</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>The solid \(Q\) of constant density \(1\) is situated inside the sphere \({x}^{2}+{y}^{2}+{z}^{2}=16\) and outside the sphere \({x}^{2}+{y}^{2}+{z}^{2}=1.\) Show that the center of mass of the solid is not located within the solid.</p>
+</div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Find the mass of the solid \(Q=\{(x,y,z)|1\le {x}^{2}+{z}^{2}\le 25,y\le 1-{x}^{2}-{z}^{2}\}\) whose density is \(ρ(x,y,z)=k,\) where \(k&gt;0.\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p><strong>[T]</strong> The solid \(Q=\{(x,y,z)|{x}^{2}+{y}^{2}\le 9,0\le z\le 1,x\ge 0,y\ge 0\}\) has density equal to the distance to the \(xy\text{-plane}\text{.}\) Use a CAS to answer the following questions.</p>
+<ul class="tight"><li>Find the mass of \(Q.\)</li><li>Find the moments \({M}_{xy},{M}_{xz},\text{and}\,{M}_{yz}\) about the \(xy\text{-plane,}\) \(xz\text{-plane,}\) and \(yz\text{-plane,}\) respectively.</li><li>Find the center of mass of \(Q.\)</li><li>Graph \(Q\) and locate its center of mass.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(m=\frac{9\pi }{8};\) b. \({M}_{xy}=\frac{3\pi }{4},{M}_{xz}=\frac{9}{2},{M}_{yz}=\frac{9}{2};\) c. \(\bar{x}=\frac{4}{\pi },\bar{y}=\frac{4}{\pi },\bar{z}=\frac{2}{3};\) d. the solid \(Q\) and its center of mass are shown in the following figure.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_225.jpg" alt="A quarter cylinder in the first quadrant with height 1 and radius 3. A point is marked at (9/(2 pi), 9/(2 pi), 2/3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Consider the solid \(Q=\{(x,y,z)|0\le x\le 1,0\le y\le 2,0\le z\le 3\}\) with the density function \(ρ(x,y,z)=x+y+1.\)</p>
+<ul class="tight"><li>Find the mass of \(Q.\)</li><li>Find the moments \({M}_{xy},{M}_{xz},\text{and}\,{M}_{yz}\) about the \(xy\text{-plane,}\) \(xz\text{-plane,}\) and \(yz\text{-plane,}\) respectively.</li><li>Find the center of mass of \(Q.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p><strong>[T]</strong> The solid \(Q\) has the mass given by the triple integral \(∫-11\,∫0\frac{\pi }{4}\,∫01{r}^{2}dr\,dθ\,dz.\) Use a CAS to answer the following questions.</p>
+<ul class="tight"><li>Show that the center of mass of \(Q\) is located in the \(xy\text{-plane.}\)</li><li>Graph \(Q\) and locate its center of mass.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\bar{x}=\frac{3\sqrt{2}}{2\pi },\bar{y}=\frac{3(2-\sqrt{2})}{2\pi },\bar{z}=0;\) b. the solid \(Q\) and its center of mass are shown in the following figure.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_06_226.jpg" alt="A wedge from a cylinder in the first quadrant with height 2, radius 1, and angle roughly 45 degrees. A point is marked at (3 times the square root of 2/(2 pi), 3 times (2 minus the square root of 2)/(2 pi), 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>The solid \(Q\) is bounded by the planes \(x+4y+z=8,x=0,y=0,\text{and}\,z=0.\) Its density at any point is equal to the distance to the \(xz\text{-plane}\text{.}\) Find the moment of inertia \({I}_{y}\) of the solid about the \(xz\text{-plane}\text{.}\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>The solid \(Q\) is bounded by the planes \(x+y+z=3,\) \(x=0,y=0,\) and \(z=0.\) Its density is \(ρ(x,y,z)=x+ay,\) where \(a&gt;0.\) Show that the center of mass of the solid is located in the plane \(z=\frac{3}{5}\) for any value of \(a.\)</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Let \(Q\) be the solid situated outside the sphere \({x}^{2}+{y}^{2}+{z}^{2}=z\) and inside the upper hemisphere \({x}^{2}+{y}^{2}+{z}^{2}={R}^{2},\) where \(R&gt;1.\) If the density of the solid is \(ρ(x,y,z)=\frac{1}{\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}},\) find \(R\) such that the mass of the solid is \(\frac{7\pi }{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>The mass of a solid \(Q\) is given by \(∫02\sqrt{2}\,∫0\sqrt{8-{x}^{2}}\,∫\sqrt{{x}^{2}+{y}^{2}}\sqrt{16-{x}^{2}-{y}^{2}}{({x}^{2}+{y}^{2}+{z}^{2})}^{n}dz\,dy\,dx,\) where \(n\) is an integer. Determine \(n\) such that the mass of the solid is \((2-\sqrt{2})\pi .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(n=-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Let \(Q\) be the solid above the cone \({x}^{2}+{y}^{2}={z}^{2}\) and below the sphere \({x}^{2}+{y}^{2}+{z}^{2}-4kz=0.\) Its density is a constant \(k&gt;0.\) Find \(k\) such that the center of mass of the solid is situated \(7\) units from the origin.</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>The solid \(Q=\{(x,y,z)|0\le {x}^{2}+{y}^{2}\le 16,x\ge 0,y\ge 0,0\le z\le x\}\) has the density \(ρ(x,y,z)=k.\) Show that the moment \({M}_{xy}\) about the \(xy\text{-plane}\) is half of the moment \({M}_{yz}\) about the \(yz\text{-plane}\text{.}\)</p>
+</div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>The solid \(Q\) is bounded by the cylinder \({x}^{2}+{y}^{2}={a}^{2},\) the paraboloid \({b}^{2}-z={x}^{2}+{y}^{2},\) and the \(xy\text{-plane,}\) where \(0&lt;a&lt;b.\) Find the mass of the solid if its density is given by \(ρ(x,y,z)=\sqrt{{x}^{2}+{y}^{2}}.\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Let \(Q\) be a solid of constant density \(k,\) where \(k&gt;0,\) that is located in the first octant, inside the circular cone \({x}^{2}+{y}^{2}=9{(z-1)}^{2},\) and above the plane \(z=0.\) Show that the moment \({M}_{xy}\) about the \(xy\text{-plane}\) is the same as the moment \({M}_{yz}\) about the \(yz\text{-plane}\text{.}\)</p>
+</div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>The solid \(Q\) has the mass given by the triple integral \(∫01\,∫0\pi \text{/}2\,∫0{r}^{2}({r}^{4}+r)dz\,dθ\,dr.\)</p>
+<ul class="tight"><li>Find the density of the solid in rectangular coordinates.</li><li>Find the moment \({M}_{xy}\) about the \(xy\text{-plane}\text{.}\)</li></ul>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>The solid \(Q\) has the moment of inertia \({I}_{x}\) about the \(yz\text{-plane}\) given by the triple integral \(∫02\,∫\text{-}\sqrt{4-{y}^{2}}\sqrt{4-{y}^{2}}\,∫\frac{1}{2}({x}^{2}+{y}^{2})\sqrt{{x}^{2}+{y}^{2}}({y}^{2}+{z}^{2})({x}^{2}+{y}^{2})dz\,dx\,dy.\)</p>
+<ul class="tight"><li>Find the density of \(Q.\)</li><li>Find the moment of inertia \({I}_{z}\) about the \(xy\text{-plane.}\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(ρ(x,y,z)={x}^{2}+{y}^{2};\) b. \(\frac{16\pi }{7}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>The solid \(Q\) has the mass given by the triple integral \(∫0\pi \text{/}4\,∫02\,\text{sec}\,θ\,∫01({r}^{3}\text{cos}\,θ\,\text{sin}\,θ+2r)dz\,dr\,dθ.\)</p>
+<ul class="tight"><li>Find the density of the solid in rectangular coordinates.</li><li>Find the moment \({M}_{xz}\) about the \(xz\text{-plane.}\)</li></ul>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>Let \(Q\) be the solid bounded by the \(xy\text{-plane},\) the cylinder \({x}^{2}+{y}^{2}={a}^{2},\) and the plane \(z=1,\) where \(a&gt;1\) is a real number. Find the moment \({M}_{xy}\) of the solid about the \(xy\text{-plane}\) if its density given in cylindrical coordinates is \(ρ(r,θ,z)=\frac{{d}^{2}f}{d{r}^{2}}(r),\) where \(f\) is a differentiable function with the first and second derivatives continuous and differentiable on \((0,a).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({M}_{xy}=\pi (f(0)-f(a)+a{f}^{\prime }(a))\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>A solid \(Q\) has a volume given by \(\underset{D}{∬}∫abdz\,dA,\) where \(D\) is the projection of the solid onto the \(xy\text{-plane}\) and \(a&lt;b\) are real numbers, and its density does not depend on the variable \(z.\) Show that its center of mass lies in the plane \(z=\frac{a+b}{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Consider the solid enclosed by the cylinder \({x}^{2}+{z}^{2}={a}^{2}\) and the planes \(y=b\) and \(y=c,\) where \(a&gt;0\) and \(b&lt;c\) are real numbers. The density of \(Q\) is given by \(ρ(x,y,z)=f\prime (y),\) where \(f\) is a differential function whose derivative is continuous on \((b,c).\) Show that if \(f(b)=f(c),\) then the moment of inertia about the \(xz\text{-plane}\) of \(Q\) is null.</p>
+</div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p><strong>[T]</strong> The average density of a solid \(Q\) is defined as \({ρ}_{ave}=\frac{1}{V(Q)}\underset{Q}{∭}ρ(x,y,z)dV=\frac{m}{V(Q)},\) where \(V(Q)\) and \(m\) are the volume and the mass of \(Q,\) respectively. If the density of the unit ball centered at the origin is \(ρ(x,y,z)={e}^{\text{-}{x}^{2}-{y}^{2}-{z}^{2}},\) use a CAS to find its average density. Round your answer to three decimal places.</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Show that the moments of inertia \({I}_{x},{I}_{y},\text{and}\,{I}_{z}\) about the \(yz\text{-plane,}\) \(xz\text{-plane,}\) and \(xy\text{-plane,}\) respectively, of the unit ball centered at the origin whose density is \(ρ(x,y,z)={e}^{\text{-}{x}^{2}-{y}^{2}-{z}^{2}}\) are the same. Round your answer to two decimal places.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({I}_{x}={I}_{y}={I}_{z}≃0.84\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>radius of gyration</dt><dd>the distance between the rotational axis of the object and the point where the entire mass of the object can be concentrated and have the same moment of inertia</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

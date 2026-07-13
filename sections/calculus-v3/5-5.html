@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triple Integrals in Cylindrical and Spherical Coordinates · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Triple Integrals in Cylindrical and Spherical Coordinates</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 5.5</span>Triple Integrals in Cylindrical and Spherical Coordinates</h1>
+<p>Earlier in this chapter we showed how to convert a double integral in rectangular coordinates into a double integral in polar coordinates in order to deal more conveniently with problems involving circular symmetry. A similar situation occurs with triple integrals, but here we need to distinguish between cylindrical symmetry and spherical symmetry. In this section we convert triple integrals in rectangular coordinates into a triple integral in either cylindrical or spherical coordinates.</p>
+<p>Also recall the chapter opener, which showed the opera house l’Hemisphèric in Valencia, Spain. It has four sections with one of the sections being a theater in a five-story-high sphere (ball) under an oval roof as long as a football field. Inside is an IMAX screen that changes the sphere into a planetarium with a sky full of \(9000\) twinkling stars. Using triple integrals in spherical coordinates, we can find the volumes of different geometric shapes like these.</p>
+<h2 id="review-of-cylindrical-coordinates">Review of Cylindrical Coordinates</h2>
+<p>As we have seen earlier, in two-dimensional space \({ℝ}^{2},\) a point with rectangular coordinates \((x,y)\) can be identified with \((r,θ)\) in polar coordinates and vice versa, where \(x=r\,\text{cos}\,θ,\) \(y=r\,\text{sin}\,θ,\) \({r}^{2}={x}^{2}+{y}^{2}\) and \(\text{tan}\,θ=(\frac{y}{x})\) are the relationships between the variables.</p>
+<p>In three-dimensional space \({ℝ}^{3},\) a point with rectangular coordinates \((x,y,z)\) can be identified with cylindrical coordinates \((r,θ,z)\) and vice versa. We can use these same conversion relationships, adding \(z\) as the vertical distance to the point from the \(xy\) -plane as shown in the following figure.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_001.jpg" alt="In xyz space, a point is shown (x, y, z). There is also a depiction of it in polar coordinates as (r, theta, z)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Cylindrical coordinates are similar to polar coordinates with a vertical \(z\) coordinate added.</figcaption></figure>
+<p>To convert from rectangular to cylindrical coordinates, we use the conversion \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ.\) To convert from cylindrical to rectangular coordinates, we use \({r}^{2}={x}^{2}+{y}^{2}\) and \(\text{tan}θ=\frac{y}{x}.\) The \(z\) -coordinate remains the same in both cases.</p>
+<p>In the two-dimensional plane with a rectangular coordinate system, when we say \(x=k\) (constant) we mean an unbounded vertical line parallel to the \(y\) -axis and when \(y=l\) (constant) we mean an unbounded horizontal line parallel to the \(x\) -axis. With the polar coordinate system, when we say \(r=c\) (constant), we mean a circle of radius \(c\) units and when \(θ=α\) (constant) we mean an infinite ray making an angle \(α\) with the positive \(x\) -axis.</p>
+<p>Similarly, in three-dimensional space with rectangular coordinates \((x,y,z),\) the equations \(x=k,y=l,\) and \(z=m,\) where \(k,l,\) and \(m\) are constants, represent unbounded planes parallel to the \(yz\) -plane, \(xz\) -plane and \(xy\) -plane, respectively. With cylindrical coordinates \((r,θ,z),\) by \(r=c,θ=α,\) and \(z=m,\) where \(c,α,\) and \(m\) are constants, we mean an unbounded vertical cylinder with the \(z\) -axis as its radial axis; a plane making a constant angle \(α\) with the \(xz\) -plane; and an unbounded horizontal plane parallel to the \(xy\) -plane, respectively. This means that the circular cylinder \({x}^{2}+{y}^{2}={c}^{2}\) in rectangular coordinates can be represented simply as \(r=c\) in cylindrical coordinates. (Refer to Cylindrical and Spherical Coordinates for more review.)</p>
+<h2 id="integration-in-cylindrical-coordinates">Integration in Cylindrical Coordinates</h2>
+<p>Triple integrals can often be more readily evaluated by using cylindrical coordinates instead of rectangular coordinates. Some common equations of surfaces in rectangular coordinates along with corresponding equations in cylindrical coordinates are listed in <a href="#tab1">Table 1</a>. These equations will become handy as we proceed with solving problems using triple integrals.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td></td><td>Circular cylinder</td><td>Circular cone</td><td>Sphere</td><td>Paraboloid</td></tr><tr><td>Rectangular</td><td>\({x}^{2}+{y}^{2}={c}^{2}\)</td><td>\({z}^{2}={c}^{2}({x}^{2}+{y}^{2})\)</td><td>\({x}^{2}+{y}^{2}+{z}^{2}={c}^{2}\)</td><td>\(z=c({x}^{2}+{y}^{2})\)</td></tr><tr><td>Cylindrical</td><td>\(r=c\)</td><td>\(z=cr\)</td><td>\({r}^{2}+{z}^{2}={c}^{2}\)</td><td>\(z=c{r}^{2}\)</td></tr></tbody></table></div>
+<p>As before, we start with the simplest bounded region \(B\) in \({ℝ}^{3},\) to describe in cylindrical coordinates, in the form of a cylindrical box, \(B=\{(r,θ,z)|a\le r\le b,α\le θ\le β,c\le z\le d\}\) (<a href="#fig2">Figure 2</a>). Suppose we divide each interval into \(l,m\,\text{and}\,n\) subdivisions such that \(\Delta r=\frac{b-a}{l},\Delta θ=\frac{β-α}{m},\) and \(\Delta z=\frac{d-c}{n}.\) Then we can state the following definition for a triple integral in cylindrical coordinates.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_002.jpg" alt="In cylindrical box is shown with its projection onto the polar coordinate plane with inner radius a, outer radius b, and sides defined by theta = alpha and beta. The cylindrical box B starts at height c and goes to height d with the rest of the values the same as the projection onto the plane." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — A cylindrical box \(B\) described by cylindrical coordinates.</figcaption></figure>
+<div class="card definition"><span class="chip">Definition</span><p>Consider the cylindrical box (expressed in cylindrical coordinates)</p>
+<p>\[B=\{(r,θ,z)|a\le r\le b,α\le θ\le β,c\le z\le d\}.\]</p>
+<p>If the function \(f(r,θ,z)\) is continuous on \(B\) and if \(({r}_{ijk}^{*},{θ}_{ijk}^{*},{z}_{ijk}^{*})\) is any sample point in the cylindrical subbox \({B}_{ijk}=[{r}_{i-1},{r}_{i}]\,\times \,[{θ}_{j-1},{θ}_{j}]\,\times \,[{z}_{k-1},{z}_{k}]\) (<a href="#fig2">Figure 2</a>), then we can define the <strong>triple integral in cylindrical coordinates</strong> as the limit of a triple Riemann sum, provided the following limit exists:</p>
+<p>\[\underset{l,m,n\to \infty }{\text{lim}}∑i=1l∑j=1m∑k=1nf({r}_{ijk}^{*},{θ}_{ijk}^{*},{z}_{ijk}^{*}){r}_{ijk}^{*}\Delta r\Delta θ\Delta z.\]</p>
+</div>
+<p>Note that if \(g(x,y,z)\) is the function in rectangular coordinates and the box \(B\) is expressed in rectangular coordinates, then the triple integral \(\underset{B}{∭}g(x,y,z)dV\) is equal to the triple integral \(\underset{B}{∭}g(r\,\text{cos}\,θ,r\,\text{sin}\,θ,z)r\,dr\,dθ\,dz\) and we have</p>
+<p>\[\underset{B}{∭}g(x,y,z)dV=\underset{B}{∭}g(r\,\text{cos}\,θ,r\,\text{sin}\,θ,z)r\,dr\,dθ\,dz=\underset{B}{∭}f(r,θ,z)r\,dr\,dθ\,dz.\]</p>
+<p>As mentioned in the preceding section, all the properties of a double integral work well in triple integrals, whether in rectangular coordinates or cylindrical coordinates. They also hold for iterated integrals. To reiterate, in cylindrical coordinates, Fubini’s theorem takes the following form:</p>
+<div class="card definition"><span class="chip">Fubini’s Theorem in Cylindrical Coordinates</span><p>Suppose that \(g(x,y,z)\) is continuous on a portion of a circular cylinder \(B,\) which when described in cylindrical coordinates looks like \(B=\{(r,θ,z)|a\le r\le b,α\le θ\le β,c\le z\le d\}.\)</p>
+<p>Then \(g(x,y,z)=g(r\,\text{cos}\,θ,r\,\text{sin}\,θ,z)=f(r,θ,z)\) and</p>
+<p>\[\underset{B}{∭}g(x,y,z)dV=∫cd\,∫αβ\,∫abf(r,θ,z)r\,dr\,dθ\,dz.\]</p>
+</div>
+<p>The iterated integral may be replaced equivalently by any one of the other five iterated integrals obtained by integrating with respect to the three variables in other orders.</p>
+<p>Cylindrical coordinate systems work well for solids that are symmetric around an axis, such as cylinders and cones. Let us look at some examples before we define the triple integral in cylindrical coordinates on general cylindrical regions.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the triple integral \(\underset{B}{∭}(zr\,\text{sin}\,θ)r\,dr\,dθ\,dz\) where the cylindrical box \(B\) is \(B=\{(r,θ,z)|0\le r\le 2,0\le θ\le \pi \text{/}2,0\le z\le 4\}.\)</p>
+<p class="sol-hint">Notice the integrand and box bounds separate into independent factors of θ, r, and z, so integrate and multiply each piece separately.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As stated in Fubini’s theorem, we can write the triple integral as the iterated integral</p>
+<p>\[\underset{B}{∭}(zr\,\text{sin}\,θ)r\,dr\,dθ\,dz={∫}_{θ=0}^{θ=\pi \text{/}2}{∫}_{r=0}^{r=2}{∫}_{z=0}^{z=4}(zr\,\text{sin}\,θ)r\,dz\,dr\,dθ.\]</p>
+<p>The evaluation of the iterated integral is straightforward. Each variable in the integral is independent of the others, so we can integrate each variable separately and multiply the results together. This makes the computation much easier:</p>
+<p>\[\begin{array}{l} \\ \\ \\ \\ \,{∫}_{θ=0}^{θ=\pi \text{/}2}{∫}_{r=0}^{r=2}{∫}_{z=0}^{z=4}(zr\,\text{sin}\,θ)r\,dz\,dr\,dθ \\ =({∫}_{0}^{\pi \text{/}2}\text{sin}\,θ\,dθ)({∫}_{0}^{2}{r}^{2}dr)({∫}_{0}^{4}z\,dz)=({\text{-}\text{cos}\,θ|}_{0}^{\pi \text{/}2})({\frac{{r}^{3}}{3}|}_{0}^{2})({\frac{{z}^{2}}{2}|}_{0}^{4})=\frac{64}{3}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Evaluate the triple integral \(∫θ=0θ=\pi \,∫r=0r=1\,∫z=0z=4(rz\,\text{sin}\,θ)rdzdrdθ.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{16}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>If the cylindrical region over which we have to integrate is a general solid, we look at the projections onto the coordinate planes. Hence the triple integral of a continuous function \(f(r,θ,z)\) over a general solid region \(E=\{(r,θ,z)|(r,θ)\in D,{u}_{1}(r,θ)\le z\le {u}_{2}(r,θ)\}\) in \({ℝ}^{3},\) where \(D\) is the projection of \(E\) onto the \(rθ\) -plane, is</p>
+<p>\[\underset{E}{∭}f(r,θ,z)r\,dr\,dθ\,dz=\underset{D}{∬}[∫{u}_{1}(r,θ){u}_{2}(r,θ)f(r,θ,z)dz]r\,dr\,dθ.\]</p>
+<p>In particular, if \(D=\{(r,θ)|{g}_{1}(θ)\le r\le {g}_{2}(θ),α\le θ\le β\},\) then we have</p>
+<p>\[\underset{E}{∭}f(r,θ,z)r\,dr\,dθ=∫θ=αθ=β\,∫r={g}_{1}(θ)r={g}_{2}(θ)\,∫z={u}_{1}(r,θ)z={u}_{2}(r,θ)f(r,θ,z)r\,dz\,dr\,dθ.\]</p>
+<p>Similar formulas exist for projections onto the other coordinate planes. We can use polar coordinates in those planes if necessary.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Consider the region \(E\) inside the right circular cylinder with equation \(r=2\,\text{sin}\,θ,\) bounded below by the \(rθ\) -plane and bounded above by the sphere with radius \(4\) centered at the origin (<a href="#fig3">Figure 3</a>). Set up a triple integral over this region with a function \(f(r,θ,z)\) in cylindrical coordinates.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_003.jpg" alt="In polar coordinate space, a sphere of radius 4 is shown with equation r squared + z squared = 16 and center being the origin. There is also a cylinder described by r = 2 sin theta inside the sphere." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Setting up a triple integral in cylindrical coordinates over a cylindrical region.</figcaption></figure>
+<p class="sol-hint">Convert the sphere and cylinder equations to r and z bounds first, then write the region E in cylindrical coordinates.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, identify that the equation for the sphere is \({r}^{2}+{z}^{2}=16.\) We can see that the limits for \(z\) are from \(0\) to \(z=\sqrt{16-{r}^{2}}.\) Then the limits for \(r\) are from \(0\) to \(r=2\,\text{sin}\,θ.\) Finally, the limits for \(θ\) are from \(0\) to \(\pi .\) Hence the region is</p>
+<p>\[E=\{(r,θ,z)|0\le θ\le \pi ,0\le r\le 2\,\text{sin}\,θ,0\le z\le \sqrt{16-{r}^{2}}\}.\]</p>
+<p>Therefore, the triple integral is</p>
+<p>\[\underset{E}{∭}f(r,θ,z)r\,dz\,dr\,dθ=∫θ=0θ=\pi \,∫r=0r=2\,\text{sin}\,θ\,∫z=0z=\sqrt{16-{r}^{2}}f(r,θ,z)r\,dz\,dr\,dθ.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Consider the region \(E\) inside the right circular cylinder with equation \(r=2\,\text{sin}\,θ,\) bounded below by the \(rθ\) -plane and bounded above by \(z=4-y.\) Set up a triple integral with a function \(f(r,θ,z)\) in cylindrical coordinates.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\underset{E}{∭}f(r,θ,z)r\,dz\,dr\,dθ=∫θ=0θ=\pi \,∫r=0r=2\,\text{sin}\,θ\,∫z=0z=4-r\,\text{sin}\,θf(r,θ,z)r\,dz\,dr\,dθ.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Let \(E\) be the region bounded below by the cone \(z=\sqrt{{x}^{2}+{y}^{2}}\) and above by the paraboloid \(z=2-{x}^{2}-{y}^{2}.\) (<a href="#fig4">Figure 4</a>). Set up a triple integral in cylindrical coordinates to find the volume of the region, using the following orders of integration:</p>
+<ul class="tight"><li>\(dz\,dr\,dθ\)</li><li>\(dr\,dz\,dθ.\) <br><figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_004.jpg" alt="A paraboloid with equation z = 2 minus x squared minus y squared opening down, and within it, a cone with equation z = the square root of (x squared + y squared) pointing down." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — Setting up a triple integral in cylindrical coordinates over a conical region.</figcaption></figure>
+</li></ul>
+<p class="sol-hint">Find where the cone and paraboloid intersect to get the r-bound, then set up the integral with z between the cone and the paraboloid.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>The cone is of radius 1 where it meets the paraboloid. Since \(z=2-{x}^{2}-{y}^{2}=2-{r}^{2}\) and \(z=\sqrt{{x}^{2}+{y}^{2}}=r\) (assuming \(r\) is nonnegative), we have \(2-{r}^{2}=r.\) Solving, we have \({r}^{2}+r-2=(r+2)(r-1)=0.\) Since \(r\ge 0,\) we have \(r=1.\) Therefore \(z=1.\) So the intersection of these two surfaces is a circle of radius \(1\) in the plane \(z=1.\) The cone is the lower bound for \(z\) and the paraboloid is the upper bound. The projection of the region onto the \(xy\) -plane is the circle of radius \(1\) centered at the origin.<br> Thus, we can describe the region as<br> <br> Hence the integral for the volume is<br><p>\[E=\{(r,θ,z)|0\le θ\le 2\pi ,0\le r\le 1,r\le z\le 2-{r}^{2}\}.\]</p>
+<p>\[V=∫θ=0θ=2\pi \,∫r=0r=1\,∫z=rz=2-{r}^{2}r\,dz\,dr\,dθ.\]</p>
+</li><li>We can also write the cone surface as \(r=z\) and the paraboloid as \({r}^{2}=2-z.\) The lower bound for \(r\) is zero, but the upper bound is sometimes the cone and the other times it is the paraboloid. The plane \(z=1\) divides the region into two regions. Then the region can be described as<br> <br> Now the integral for the volume becomes<br><p>\[\begin{array}{ll}E &amp; =\{(r,θ,z)|0\le θ\le 2\pi ,0\le z\le 1,0\le r\le z\} \\ &amp; ∪\{(r,θ,z)|0\le θ\le 2\pi ,1\le z\le 2,0\le r\le \sqrt{2-z}\}.\end{array}\]</p>
+<p>\[V=∫θ=0θ=2\pi \,∫z=0z=1\,∫r=0r=zr\,dr\,dz\,dθ+∫θ=0θ=2\pi \,∫z=1z=2\,∫r=0r=\sqrt{2-z}r\,dr\,dz\,dθ.\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Redo the previous example with the order of integration \(dθ\,dz\,dr.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(E=\{(r,θ,z)|0\le θ\le 2\pi ,0\le z\le 1,z\le r\le 2-{z}^{2}\}\) and \(V=∫r=0r=1\,∫z=rz=2-{r}^{2}\,∫θ=0θ=2\pi r\,dθ\,dz\,dr.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Let <strong>E</strong> be the region bounded below by the \(rθ\) -plane, above by the sphere \({x}^{2}+{y}^{2}+{z}^{2}=4,\) and on the sides by the cylinder \({x}^{2}+{y}^{2}=1\) (<a href="#fig5">Figure 5</a>). Set up a triple integral in cylindrical coordinates to find the volume of the region using the following orders of integration, and in each case find the volume and check that the answers are the same:</p>
+<ul class="tight"><li>\(dz\,dr\,dθ\)</li><li>\(dr\,dz\,dθ.\) <br><figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_005.jpg" alt="A hemisphere with equation x squared + y squared + z squared = 4 in the upper half plane, and within it, a cylinder with equation x squared + y squared = 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — Finding a cylindrical volume with a triple integral in cylindrical coordinates.</figcaption></figure>
+</li></ul>
+<p class="sol-hint">Convert the sphere and cylinder to r,z equations, then set up the z-innermost integral bounded below by 0 and above by the sphere.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Note that the equation for the sphere is<br> <br> and the equation for the cylinder is<br> <br> Thus, we have for the region \(E\) <br> <br> Hence the integral for the volume is<br><p>\[{x}^{2}+{y}^{2}+{z}^{2}=4\,\text{or}\,{r}^{2}+{z}^{2}=4\]</p>
+<p>\[{x}^{2}+{y}^{2}=1\,\text{or}\,{r}^{2}=1.\]</p>
+<p>\[E=\{(r,θ,z)|0\le z\le \sqrt{4-{r}^{2}},0\le r\le 1,0\le θ\le 2\pi \}\]</p>
+<p>\[\begin{array}{ll}V(E) &amp; =∫θ=0θ=2\pi \,∫r=0r=1\,∫z=0z=\sqrt{4-{r}^{2}}r\,dz\,dr\,dθ \\ &amp; =∫θ=0θ=2\pi \,∫r=0r=1[{rz|}_{z=0}^{z=\sqrt{4-{r}^{2}}}]dr\,dθ=∫θ=0θ=2\pi \,∫r=0r=1(r\sqrt{4-{r}^{2}})dr\,dθ \\ &amp; =∫02\pi (\frac{8}{3}-\sqrt{3})dθ=2\pi (\frac{8}{3}-\sqrt{3})\,\text{cubic units}\text{.}\end{array}\]</p>
+</li><li>Since the sphere is \({x}^{2}+{y}^{2}+{z}^{2}=4,\) which is \({r}^{2}+{z}^{2}=4,\) and the cylinder is \({x}^{2}+{y}^{2}=1,\) which is \({r}^{2}=1,\) we have \(1+{z}^{2}=4,\) that is, \({z}^{2}=3.\) Thus we have two regions, since the sphere and the cylinder intersect at \((1,\sqrt{3})\) in the \(rz\) -plane<br> <br> and<br> <br> Hence the integral for the volume is<br><p>\[{E}_{1}=\{(r,θ,z)|0\le r\le \sqrt{4-{z}^{2}},\sqrt{3}\le z\le 2,0\le θ\le 2\pi \}\]</p>
+<p>\[{E}_{2}=\{(r,θ,z)|0\le r\le 1,0\le z\le \sqrt{3},0\le θ\le 2\pi \}.\]</p>
+<p>\[\begin{array}{ll}V(E) &amp; =∫θ=0θ=2\pi \,∫z=\sqrt{3}z=2\,∫r=0r=\sqrt{4-{r}^{2}}r\,dr\,dz\,dθ+∫θ=0θ=2\pi \,∫z=0z=\sqrt{3}\,∫r=0r=1r\,dr\,dz\,dθ \\ &amp; =\sqrt{3}\pi +(\frac{16}{3}-3\sqrt{3})\pi =2\pi (\frac{8}{3}-\sqrt{3})\,\text{cubic units}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Redo the previous example with the order of integration \(dθ\,dz\,dr.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({E}_{2}=\{(r,θ,z)|0\le θ\le 2\pi ,0\le r\le 1,r\le z\le \sqrt{4-{r}^{2}}\}\) and \(V=∫r=0r=1\,∫z=rz=\sqrt{4-{r}^{2}}\,∫θ=0θ=2\pi r\,dθ\,dz\,dr.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="review-of-spherical-coordinates">Review of Spherical Coordinates</h2>
+<p>In three-dimensional space \({ℝ}^{3}\) in the spherical coordinate system, we specify a point \(P\) by its distance \(ρ\) from the origin, the polar angle \(θ\) from the positive \(x\text{-axis}\) (same as in the cylindrical coordinate system), and the angle \(φ\) from the positive \(z\text{-axis}\) and the line \(OP\) (<a href="#fig6">Figure 6</a>). Note that \(ρ\ge 0\) and \(0\le φ\le \pi .\) (Refer to Cylindrical and Spherical Coordinates for a review.) Spherical coordinates are useful for triple integrals over regions that are symmetric with respect to the origin.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_006.jpg" alt="A depiction of the spherical coordinate system: a point (x, y, z) is shown, which is equal to (rho, theta, phi) in spherical coordinates. Rho serves as the spherical radius, theta serves as the angle from the x axis in the xy plane, and phi serves as the angle from the z axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — The spherical coordinate system locates points with two angles and a distance from the origin.</figcaption></figure>
+<p>Recall the relationships that connect rectangular coordinates with spherical coordinates.</p>
+<p>From spherical coordinates to rectangular coordinates:</p>
+<p>\[x=ρ\,\text{sin}\,φ\,\text{cos}\,θ,y=ρ\,\text{sin}\,φ\,\text{sin}\,θ,\,\text{and}\,z=ρ\,\text{cos}\,φ.\]</p>
+<p>From rectangular coordinates to spherical coordinates:</p>
+<p>\[{ρ}^{2}={x}^{2}+{y}^{2}+{z}^{2},\text{tan}\,θ=\frac{y}{x},φ=\text{arccos}(\frac{z}{\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}}).\]</p>
+<p>Other relationships that are important to know for conversions are</p>
+<p>\[\begin{array}{llllll}\bullet &amp; &amp; r=ρ\,\text{sin}\,φ &amp; &amp; &amp; \\ \bullet &amp; &amp; θ=θ &amp; &amp; &amp; \begin{array}{l}\text{These equations are used to convert from} \\ \text{spherical coordinates to cylindrical coordinates}\end{array} \\ \bullet &amp; &amp; z=ρ\,\text{cos}\,φ &amp; &amp; &amp; \end{array}\]</p>
+<p>and</p>
+<p>\[\begin{array}{llllll} \\ \\ \bullet &amp; &amp; ρ=\sqrt{{r}^{2}+{z}^{2}} &amp; &amp; &amp; \\ \bullet &amp; &amp; θ=θ &amp; &amp; &amp; \begin{array}{l}\text{These equations are used to convert from} \\ \text{cylindrical coordinates to spherical} \\ \text{coordinates.}\end{array} \\ \bullet &amp; &amp; φ=\text{arccos}(\frac{z}{\sqrt{{r}^{2}+{z}^{2}}}) &amp; &amp; &amp; \end{array}\]</p>
+<p>The following figure shows a few solid regions that are convenient to express in spherical coordinates.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_007.jpg" alt="This figure consists of four figures. In the first, a sphere is shown with the note Sphere rho = c (constant). In the second, a half plane is drawn from the z axis with the note Half plane theta = c (constant). In the last two figures, a half cone is drawn in each with the note Half cone phi = c (constant). In the first of these, the cone opens up and it is marked 0 &amp;lt; c &amp;lt; pi/2. In the second of these, the cone opens down and it is marked pi/2 &amp;lt; c &amp;lt; pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — Spherical coordinates are especially convenient for working with solids bounded by these types of surfaces. (The letter \(c\) indicates a constant.)</figcaption></figure>
+<h2 id="integration-in-spherical-coordinates">Integration in Spherical Coordinates</h2>
+<p>We now establish a triple integral in the spherical coordinate system, as we did before in the cylindrical coordinate system. Let the function \(f(ρ,θ,φ)\) be continuous in a bounded spherical box, \(B=\{(ρ,θ,φ)|a\le ρ\le b,α\le θ\le β,γ\le φ\le ψ\}.\) We then divide each interval into \(l,m\,\text{and}\,n\) subdivisions such that \(\Delta ρ=\frac{b-a}{l},\Delta θ=\frac{β-α}{m},\Delta φ=\frac{ψ-γ}{n}.\)</p>
+<p>Now we can illustrate the following theorem for triple integrals in spherical coordinates with \(({ρ}_{ijk}^{*},{θ}_{ijk}^{*},{φ}_{ijk}^{*})\) being any sample point in the spherical subbox \({B}_{ijk}.\) For the volume element of the subbox \(\Delta V\) in spherical coordinates, we have \(\Delta V=(\Delta ρ)(ρ\Delta φ)(ρ\,\text{sin}\,φ\Delta θ),,\) as shown in the following figure.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_008.jpg" alt="In the spherical coordinate space, a box is projected onto the polar coordinate plane. On the polar coordinate plane, the projection has area rho sin phi Delta theta. On the z axis, a distance Delta rho is indicated, and from these boundaries, angles are made that project through the edges of the box. There is also a blown up version of the box that shows it has sides Delta rho, rho Delta phi, and rho sin phi Delta theta, with overall volume Delta V = rho squared sin phi Delta rho Delta phi Delta theta." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — The volume element of a box in spherical coordinates.</figcaption></figure>
+<div class="card definition"><span class="chip">Definition</span><p>The <strong>triple integral in spherical coordinates</strong> is the limit of a triple Riemann sum,</p>
+<p>\[\underset{l,m,n\to \infty }{\text{lim}}∑i=1l∑j=1m∑k=1nf({ρ}_{ijk}^{*},{θ}_{ijk}^{*},{φ}_{ijk}^{*}){({ρ}_{ijk}^{*})}^{2}\text{sin}\,{φ}_{ijk}^{*}\Delta ρ\Delta θ\Delta φ\]</p>
+<p>provided the limit exists.</p>
+</div>
+<p>As with the other multiple integrals we have examined, all the properties work similarly for a triple integral in the spherical coordinate system, and so do the iterated integrals. Fubini’s theorem takes the following form.</p>
+<div class="card definition"><span class="chip">Fubini’s Theorem for Spherical Coordinates</span><p>If \(f(ρ,θ,φ)\) is continuous on a spherical solid box \(B=[a,b]\,\times \,[α,β]\,\times \,[γ,ψ],\) then</p>
+<p>\[\underset{B}{∭}f(ρ,θ,φ){ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ=∫θ=αθ=β ∫φ=γφ=ψ\,∫ρ=aρ=bf(ρ,θ,φ){ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ.\]</p>
+<p>This iterated integral may be replaced by other iterated integrals by integrating with respect to the three variables in other orders.</p>
+</div>
+<p>As stated before, spherical coordinate systems work well for solids that are symmetric around a point, such as spheres and cones. Let us look at some examples before we consider triple integrals in spherical coordinates on general spherical regions.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the iterated triple integral \(∫θ=0θ=2\pi \,∫φ=0φ=\pi \text{/}2\,∫p=0ρ=1{ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ.\)</p>
+<p class="sol-hint">Since ρ, θ, and φ appear as independent factors, split the integral into a product of three single integrals.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As before, in this case the variables in the iterated integral are actually independent of each other and hence we can integrate each piece and multiply:</p>
+<p>\[∫02\pi \,∫0\pi \text{/}2\,∫01{ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ=∫02\pi dθ∫0\pi \text{/}2\text{sin}\,φ\,dφ∫01{ρ}^{2}dρ=(2\pi )(1)(\frac{1}{3})=\frac{2\pi }{3}.\]</p>
+</div></div></div>
+<p>The concept of triple integration in spherical coordinates can be extended to integration over a general solid, using the projections onto the coordinate planes. Note that \(dV\) and \(dA\) mean the increments in volume and area, respectively. The variables \(V\) and \(A\) are used as the variables for integration to express the integrals.</p>
+<p>The triple integral of a continuous function \(f(ρ,θ,φ)\) over a general solid region</p>
+<p>\[E=\{(ρ,θ,φ)|(ρ,θ)\in D,{u}_{1}(ρ,θ)\le φ\le {u}_{2}(ρ,θ)\}\]</p>
+<p>in \({ℝ}^{3},\) where \(D\) is the projection of \(E\) onto the \(ρθ\) -plane, is</p>
+<p>\[\underset{E}{∭}f(ρ,θ,φ)dV=\underset{D}{∬}[∫{u}_{1}(ρ,θ){u}_{2}(ρ,θ)f(ρ,θ,φ)dφ]dA.\]</p>
+<p>In particular, if \(D=\{(ρ,θ)|{g}_{1}(θ)\le ρ\le {g}_{2}(θ),α\le θ\le β\},\) then we have</p>
+<p>\[\underset{E}{∭}f(ρ,θ,φ)dV=∫αβ\,∫{g}_{1}(θ){g}_{2}(θ)\,∫{u}_{1}(ρ,θ){u}_{2}(ρ,θ)f(ρ,θ,φ){ρ}^{2}\text{sin}\,φ\,dφ\,dρ\,dθ.\]</p>
+<p>Similar formulas occur for projections onto the other coordinate planes.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Set up an integral for the volume of the region bounded by the cone \(z=\sqrt{3({x}^{2}+{y}^{2})}\) and the hemisphere \(z=\sqrt{4-{x}^{2}-{y}^{2}}\) (see the figure below).</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_009.jpg" alt="A hemisphere with equation z = the square root of (4 minus x squared minus y squared) in the upper half plane, and within it, a cone with equation z = the square root of (3 times (x squared + y squared)) that is pointing down, with vertex at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — A region bounded below by a cone and above by a hemisphere.</figcaption></figure>
+<p class="sol-hint">Convert the cone and sphere equations to spherical coordinates to find the bounding value of φ and ρ.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the conversion formulas from rectangular coordinates to spherical coordinates, we have:</p>
+<p>For the cone: \(z=\sqrt{3({x}^{2}+{y}^{2})}\) or \(ρ\,\text{cos}\,φ=\sqrt{3}ρ\,\text{sin}\,φ\) or \(\text{tan}\,φ=\frac{1}{\sqrt{3}}\) or \(φ=\frac{\pi }{6}.\)</p>
+<p>For the sphere: \(z=\sqrt{4-{x}^{2}-{y}^{2}}\) or \({z}^{2}={x}^{2}+{y}^{2}=4\) or \({ρ}^{2}=4\) or \(ρ=2.\)</p>
+<p>Thus, the triple integral for the volume is \(V(E)=∫θ=0θ=2\pi \,∫φ=0φ=\pi \text{/}6\,∫ρ=0ρ=2{ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Set up a triple integral for the volume of the solid region bounded above by the sphere \(ρ=2\) and bounded below by the cone \(φ=\pi \text{/}3.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(V(E)=∫θ=0θ=2\pi \,∫ϕ=0φ=\pi \text{/}3\,∫ρ=0ρ=2{ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Let \(E\) be the region bounded below by the cone \(z=\sqrt{{x}^{2}+{y}^{2}}\) and above by the sphere \(z={x}^{2}+{y}^{2}+{z}^{2}\) (<a href="#fig10">Figure 10</a>). Set up a triple integral in spherical coordinates and find the volume of the region using the following orders of integration:</p>
+<ul class="tight"><li>\(dρ\,dθ\,dθ,\)</li><li>\(dφ\,dρ\,dθ.\) <br><figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_010.jpg" alt="A sphere with equation z = x squared + y squared + z squared, and within it, a cone with equation z = the square root of (x squared + y squared) that is pointing down, with vertex at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — A region bounded below by a cone and above by a sphere.</figcaption></figure>
+</li></ul>
+<p class="sol-hint">Convert the cone and sphere to spherical equations to find where they intersect at φ=π/4, then set up the ρ-innermost integral.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Use the conversion formulas to write the equations of the sphere and cone in spherical coordinates.<br> For the sphere:<br> <br> For the cone:<br> <br> Hence the integral for the volume of the solid region \(E\) becomes<br><p>\[\begin{array}{lll}{x}^{2}+{y}^{2}+{z}^{2} &amp; = &amp; z \\ {ρ}^{2} &amp; = &amp; ρ\,\text{cos}\,φ \\ ρ &amp; = &amp; \text{cos}\,φ.\end{array}\]</p>
+<p>\[\begin{array}{lll}z &amp; = &amp; \sqrt{{x}^{2}+{y}^{2}} \\ ρ\,\text{cos}\,φ &amp; = &amp; \sqrt{{ρ}^{2}{\text{sin}}^{2}φ\,{\text{cos}}^{2}\theta +{ρ}^{2}{\text{sin}}^{2}φ\,{\text{sin}}^{2}\theta } \\ ρ\,\text{cos}\,φ &amp; = &amp; \sqrt{{ρ}^{2}{\text{sin}}^{2}φ({\text{cos}}^{2}\theta +{\text{sin}}^{2}\theta )} \\ ρ\,\text{cos}\,φ &amp; = &amp; ρ\,\text{sin}\,φ \\ \text{cos}\,φ &amp; = &amp; \text{sin}\,φ \\ φ &amp; = &amp; \pi \text{/}4.\end{array}\]</p>
+<p>\[V(E)=∫θ=0θ=2\pi \,∫φ=0φ=\pi \text{/}4\,∫ρ=0ρ=\text{cos}\,φ{ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ.\]</p>
+</li><li>Consider the \(φρ\) -plane. Note that the ranges for \(φ\) and \(ρ\) (from part a.) are<br> <br> The curve \(ρ=\text{cos}\,φ\) meets the line \(φ=\pi \text{/}4\) at the point \((\pi \text{/}4,\sqrt{2}\text{/}2).\) Thus, to change the order of integration, we need to use two pieces:<br> <br> Hence the integral for the volume of the solid region \(E\) becomes<br> <br> In each case, the integration results in \(V(E)=\frac{\pi }{8}.\)<p>\[\begin{array}{l}0\le φ\le \pi \text{/}4 \\ 0\le ρ\le \text{cos}\,φ.\end{array}\]</p>
+<p>\[\begin{array}{lllllll}\begin{array}{l}0\le ρ\le \sqrt{2}\text{/}2 \\ 0\le φ\le \pi \text{/}4\end{array} &amp; &amp; &amp; \text{and} &amp; &amp; &amp; \begin{array}{lll}\sqrt{2}\text{/}2 &amp; \le &amp; ρ\le 1 \\ 0 &amp; \le &amp; φ\le {\text{cos}}^{-1}ρ.\end{array}\end{array}\]</p>
+<p>\[V(E)=∫θ=0θ=2\pi \,∫ρ=0ρ=\sqrt{2}\text{/}2\,∫φ=0φ=\pi \text{/}4{ρ}^{2}\text{sin}\,φ\,dφ\,dρ\,dθ+∫θ=0θ=2\pi \,∫ρ=\sqrt{2}\text{/}2ρ=1\,∫φ=0φ={\text{cos}}^{-1}ρ{ρ}^{2}\text{sin}\,φ\,dφ\,dρ\,dθ.\]</p>
+</li></ul>
+</div></div></div>
+<p>Before we end this section, we present a couple of examples that can illustrate the conversion from rectangular coordinates to cylindrical coordinates and from rectangular coordinates to spherical coordinates.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Convert the following integral into cylindrical coordinates:</p>
+<p>\[∫y=-1y=1\,∫x=0x=\sqrt{1-{y}^{2}}\,∫z={x}^{2}+{y}^{2}z=\sqrt{{x}^{2}+{y}^{2}}xyz\,dz\,dx\,dy.\]</p>
+<p class="sol-hint">Identify the xy-region as part of a circle first, then convert the z-bounds and integrand into r and θ.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The ranges of the variables are</p>
+<p>\[\begin{array}{lll}-1 &amp; \le &amp; y\le 1 \\ 0 &amp; \le &amp; x\le \sqrt{1-{y}^{2}} \\ {x}^{2}+{y}^{2} &amp; \le &amp; z\le \sqrt{{x}^{2}+{y}^{2}}.\end{array}\]</p>
+<p>The first two inequalities describe the right half of a circle of radius \(1.\) Therefore, the ranges for \(θ\) and \(r\) are</p>
+<p>\[-\frac{\pi }{2}\le θ\le \frac{\pi }{2}\,\text{and}\,0\le r\le 1.\]</p>
+<p>The limits of \(z\) are \({r}^{2}\le z\le r,\) hence</p>
+<p>\[∫y=-1y=1\,∫x=0x=\sqrt{1-{y}^{2}}\,∫z={x}^{2}+{y}^{2}z=\sqrt{{x}^{2}+{y}^{2}}xyz\,dz\,dx\,dy=∫θ=\text{-}\pi \text{/}2θ=\pi \text{/}2\,∫r=0r=1\,∫z={r}^{2}z=rr(r\,\text{cos}\,θ)(r\,\text{sin}\,θ)z\,dz\,dr\,dθ.\]</p>
+</div></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Convert the following integral into spherical coordinates:</p>
+<p>\[∫y=0y=3\,∫x=0x=\sqrt{9-{y}^{2}}\,∫z=\sqrt{{x}^{2}+{y}^{2}}z=\sqrt{18-{x}^{2}-{y}^{2}}({x}^{2}+{y}^{2}+{z}^{2})dz\,dx\,dy.\]</p>
+<p class="sol-hint">Identify the xy-region as a quarter disk, then find where the cone and sphere bounds intersect to get the φ range.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The ranges of the variables are</p>
+<p>\[\begin{array}{lll}0 &amp; \le &amp; y\le 3 \\ 0 &amp; \le &amp; x\le \sqrt{9-{y}^{2}} \\ \sqrt{{x}^{2}+{y}^{2}} &amp; \le &amp; z\le \sqrt{18-{x}^{2}-{y}^{2}}.\end{array}\]</p>
+<p>The first two ranges of variables describe a quarter disk in the first quadrant of the \(xy\) -plane. Hence the range for \(θ\) is \(0\le θ\le \frac{\pi }{2}.\)</p>
+<p>The lower bound \(z=\sqrt{{x}^{2}+{y}^{2}}\) is the upper half of a cone and the upper bound \(z=\sqrt{18-{x}^{2}-{y}^{2}}\) is the upper half of a sphere. Therefore, we have \(0\le ρ\le \sqrt{18},\) which is \(0\le ρ\le 3\sqrt{2}.\)</p>
+<p>For the ranges of \(φ,\) we need to find where the cone and the sphere intersect, so solve the equation</p>
+<p>\[\begin{array}{lll}{r}^{2}+{z}^{2} &amp; = &amp; 18 \\ {(\sqrt{{x}^{2}+{y}^{2}})}^{2}+{z}^{2} &amp; = &amp; 18 \\ {z}^{2}+{z}^{2} &amp; = &amp; 18 \\ 2{z}^{2} &amp; = &amp; 18 \\ {z}^{2} &amp; = &amp; 9 \\ z &amp; = &amp; 3.\end{array}\]</p>
+<p>This gives</p>
+<p>\[\begin{array}{lll}3\sqrt{2}\,\text{cos}\,φ &amp; = &amp; 3 \\ \text{cos}\,φ &amp; = &amp; \frac{1}{\sqrt{2}} \\ φ &amp; = &amp; \frac{\pi }{4}.\end{array}\]</p>
+<p>Putting this together, we obtain</p>
+<p>\[∫y=0y=3\,∫x=0x=\sqrt{9-{y}^{2}}\,∫z=\sqrt{{x}^{2}+{y}^{2}}z=\sqrt{18-{x}^{2}-{y}^{2}}({x}^{2}+{y}^{2}+{z}^{2})dz\,dx\,dy=∫φ=0φ=\pi \text{/}4\,∫θ=0θ=\pi \text{/}2\,∫ρ=0ρ=3\sqrt{2}{ρ}^{4}\text{sin}\,φ\,dρ\,dθ\,dφ.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Use rectangular, cylindrical, and spherical coordinates to set up triple integrals for finding the volume of the region inside the sphere \({x}^{2}+{y}^{2}+{z}^{2}=4\) but outside the cylinder \({x}^{2}+{y}^{2}=1.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_011.jpg" alt="A sphere with equation x squared + y squared + z squared = 4, and within it, a cylinder with equation x squared + y squared = 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Rectangular: \(∫x=-2x=2\,∫y=\text{-}\sqrt{4-{x}^{2}}y=\sqrt{4-{x}^{2}}\,∫z=\text{-}\sqrt{4-{x}^{2}-{y}^{2}}z=\sqrt{4-{x}^{2}-{y}^{2}}dz\,dy\,dx-∫x=-1x=1\,∫y=\text{-}\sqrt{1-{x}^{2}}y=\sqrt{1-{x}^{2}}\,∫z=\text{-}\sqrt{4-{x}^{2}-{y}^{2}}z=\sqrt{4-{x}^{2}-{y}^{2}}dz\,dy\,dx.\) <br> Cylindrical: \(∫θ=0θ=2\pi \,∫r=1r=2\,∫z=\text{-}\sqrt{4-{r}^{2}}z=\sqrt{4-{r}^{2}}r\,dz\,dr\,dθ.\) <br> Spherical: \(∫φ=\pi \text{/}6φ=5\pi \text{/}6\,∫θ=0θ=2\pi \,∫ρ=\text{csc}\,φρ=2{ρ}^{2}\text{sin}\,φ\,dρ\,dθ\,dφ.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Now that we are familiar with the spherical coordinate system, let’s find the volume of some known geometric figures, such as spheres and ellipsoids.</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Find the volume of the spherical planetarium in l’Hemisphèric in Valencia, Spain, which is five stories tall and has a radius of approximately \(50\) ft, using the equation \({x}^{2}+{y}^{2}+{z}^{2}={r}^{2}.\)</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_012.jpg" alt="A picture of l’Hemisphèric, which is a giant glass structure that is in the shape of an ellipsoid." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — (credit: modification of work by Javier Yaya Tur, Wikimedia Commons)</figcaption></figure>
+<p class="sol-hint">Set up the integral over just the first octant using spherical coordinates, then multiply the result by 8 using symmetry.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We calculate the volume of the ball in the first octant, where \(x\ge 0,y\ge 0,\) and \(z\ge 0,\) using spherical coordinates, and then multiply the result by \(8\) for symmetry. Since we consider the region \(D\) as the first octant in the integral, the ranges of the variables are</p>
+<p>\[0\le φ\le \frac{\pi }{2},0\le ρ\le r,0\le θ\le \frac{\pi }{2}.\]</p>
+<p>Therefore,</p>
+<p>\[\begin{array}{ll}V &amp; =\underset{D}{∭}dx\,dy\,dz=8∫θ=0θ=\pi \text{/}2\,∫ρ=0ρ=r\,∫φ=0φ=\pi \text{/}2{ρ}^{2}\text{sin}\,θ\,dφ\,dρ\,dθ \\ &amp; =8∫φ=0φ=\pi \text{/}2dφ∫ρ=0ρ=r{ρ}^{2}dρ∫θ=0θ=\pi \text{/}2\text{sin}\,θ\,dθ \\ &amp; =8(\frac{\pi }{2})(\frac{{r}^{3}}{3})(1) \\ &amp; =\frac{4}{3}\pi {r}^{3}.\end{array}\]</p>
+<p>This exactly matches with what we knew. So for a sphere with a radius of approximately \(50\) ft, the volume is \(\frac{4}{3}\pi {(50)}^{3}\approx 523,600{\,\text{ft}}^{3}.\)</p>
+</div></div></div>
+<p>For the next example we find the volume of an ellipsoid.</p>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Find the volume of the ellipsoid \(\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}+\frac{{z}^{2}}{{c}^{2}}=1.\)</p>
+<p class="sol-hint">Substitute x=aρcosθsinφ (and similarly for y, z) to turn the ellipsoid into a unit sphere in the new variables, then integrate over the first octant and multiply by 8.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We again use symmetry and evaluate the volume of the ellipsoid using spherical coordinates. As before, we use the first octant \(x\ge 0,y\ge 0,\) and \(z\ge 0\) and then multiply the result by \(8.\)</p>
+<p>In this case the ranges of the variables are</p>
+<p>\[0\le φ\le \frac{\pi }{2},0,0\le ρ\le 1,\,\text{and}\,0\le θ\le \frac{\pi }{2}.\]</p>
+<p>Also, we need to change the rectangular to spherical coordinates in this way:</p>
+<p>\[x=aρ\,\text{cos}\,φ\,\text{sin}\,θ,y=bρ\,\text{sin}\,φ\,\text{sin}\,θ,\,\text{and}\,z=cρ\,\text{cos}\,θ.\]</p>
+<p>Then the volume of the ellipsoid becomes</p>
+<p>\[\begin{array}{ll}V &amp; =\underset{D}{∭}dx\,dy\,dz \\ &amp; =8∫θ=0θ=\pi \text{/}2\,∫ρ=0ρ=1\,∫φ=0φ=\pi \text{/}2abc{ρ}^{2}\text{sin}\,θ\,dφ\,dρ\,dθ \\ &amp; =8abc∫φ=0φ=\pi \text{/}2dφ∫ρ=0ρ=1{ρ}^{2}dρ∫θ=0θ=\pi \text{/}2\text{sin}\,θ\,dθ \\ &amp; =8abc(\frac{\pi }{2})(\frac{1}{3})(1) \\ &amp; =\frac{4}{3}\pi abc.\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Find the volume of the space inside the ellipsoid \(\frac{{x}^{2}}{{75}^{2}}+\frac{{y}^{2}}{{80}^{2}}+\frac{{z}^{2}}{{90}^{2}}=1\) and outside the sphere \({x}^{2}+{y}^{2}+{z}^{2}={50}^{2}.\)</p>
+<p class="sol-hint">Reuse the ellipsoid volume and the sphere volume found in the two previous examples, then subtract to get the volume between them.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This problem is directly related to the l’Hemisphèric structure. The volume of space inside the ellipsoid and outside the sphere might be useful to find the expense of heating or cooling that space. We can use the preceding two examples for the volume of the sphere and ellipsoid and then substract.</p>
+<p>First we find the volume of the ellipsoid using \(a=75\,\text{ft,}\) \(b=80\,\text{ft,}\) and \(c=90\,\text{ft}\) in the result from <a href="#example11">Example 11</a>. Hence the volume of the ellipsoid is</p>
+<p>\[{V}_{\text{ellipsoid}}=\frac{4}{3}\pi (75)(80)(90)\approx 2,262,000{\,\text{ft}}^{3}.\]</p>
+<p>From <a href="#example10">Example 10</a>, the volume of the sphere is</p>
+<p>\[{V}_{\text{sphere}}\approx 523,600{\,\text{ft}}^{3}.\]</p>
+<p>Therefore, the volume of the space inside the ellipsoid \(\frac{{x}^{2}}{{75}^{2}}+\frac{{y}^{2}}{{80}^{2}}+\frac{{z}^{2}}{{90}^{2}}=1\) and outside the sphere \({x}^{2}+{y}^{2}+{z}^{2}={50}^{2}\) is approximately</p>
+<p>\[{V}_{\text{Hemisferic}}={V}_{\text{ellipsoid}}-{V}_{\text{sphere}}=1,738,400{\,\text{ft}}^{3}.\]</p>
+</div></div></div>
+<div class="card definition"><span class="chip">Hot air balloons</span><p>Hot air ballooning is a relaxing, peaceful pastime that many people enjoy. Many balloonist gatherings take place around the world, such as the Albuquerque International Balloon Fiesta. The Albuquerque event is the largest hot air balloon festival in the world, with over \(500\) balloons participating each year.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_013.jpg" alt="A picture of many hot air balloons." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — Balloons lift off at the \(2001\) Albuquerque International Balloon Fiesta. (credit: David Herrera, Flickr)</figcaption></figure>
+<p>As the name implies, hot air balloons use hot air to generate lift. (Hot air is less dense than cooler air, so the balloon floats as long as the hot air stays hot.) The heat is generated by a propane burner suspended below the opening of the basket. Once the balloon takes off, the pilot controls the altitude of the balloon, either by using the burner to heat the air and ascend or by using a vent near the top of the balloon to release heated air and descend. The pilot has very little control over where the balloon goes, however—balloons are at the mercy of the winds. The uncertainty over where we will end up is one of the reasons balloonists are attracted to the sport.</p>
+<p>In this project we use triple integrals to learn more about hot air balloons. We model the balloon in two pieces. The top of the balloon is modeled by a half sphere of radius \(28\) feet. The bottom of the balloon is modeled by a frustum of a cone (think of an ice cream cone with the pointy end cut off). The radius of the large end of the frustum is \(28\) feet and the radius of the small end of the frustum is \(6\) feet. A graph of our balloon model and a cross-sectional diagram showing the dimensions are shown in the following figure.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_014.jpg" alt="This figure consists of two parts, a and b. Figure a shows a representation of a hot air balloon in xyz space as a half sphere on top of a frustrum of a cone. Figure b shows the dimensions, namely, the radius of the half sphere is 28 ft, the distance from the bottom to the top of the frustrum is 44 ft, and the diameter of the circle at the top of the frustrum is 12 ft." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — (a) Use a half sphere to model the top part of the balloon and a frustum of a cone to model the bottom part of the balloon. (b) A cross section of the balloon showing its dimensions.</figcaption></figure>
+<p>We first want to find the volume of the balloon. If we look at the top part and the bottom part of the balloon separately, we see that they are geometric solids with known volume formulas. However, it is still worthwhile to set up and evaluate the integrals we would need to find the volume. If we calculate the volume using integration, we can use the known volume formulas to check our answers. This will help ensure that we have the integrals set up correctly for the later, more complicated stages of the project.</p>
+<ul class="tight"><li>Find the volume of the balloon in two ways. In reality, calculating the temperature at a point inside the balloon is a tremendously complicated endeavor. In fact, an entire branch of physics (thermodynamics) is devoted to studying heat and temperature. For the purposes of this project, however, we are going to make some simplifying assumptions about how temperature varies from point to point within the balloon. Assume that just prior to liftoff, the temperature (in degrees Fahrenheit) of the air inside the balloon varies according to the function<br><ul class="tight"><li>Use triple integrals to calculate the volume. Consider each part of the balloon separately. (Consider using spherical coordinates for the top part and cylindrical coordinates for the bottom part.)</li><li>Verify the answer using the formulas for the volume of a sphere, \(V=\frac{4}{3}\pi {r}^{3},\) and for the volume of a cone, \(V=\frac{1}{3}\pi {r}^{2}h.\)</li></ul>
+<p>\[{T}_{0}(r,θ,z)=\frac{z-r}{10}+210.\]</p>
+</li><li>What is the average temperature of the air in the balloon just prior to liftoff? (Again, look at each part of the balloon separately, and do not forget to convert the function into spherical coordinates when looking at the top part of the balloon.)<br> Now the pilot activates the burner for \(10\) seconds. This action affects the temperature in a \(12\) -foot-wide column \(20\) feet high, directly above the burner. A cross section of the balloon depicting this column in shown in the following figure.<br> <br> Assume that after the pilot activates the burner for \(10\) seconds, the temperature of the air in the column described above <strong>increases</strong> according to the formula<br> <br> Then the temperature of the air in the column is given by<br> <br> while the temperature in the remainder of the balloon is still given by<br><figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_015.jpg" alt="This figure shows the dimensions of the balloon and the hot air, namely, the radius of the half sphere is 28 ft, the distance from the bottom to the top of the frustrum is 44 ft, the diameter of the circle at the top of the frustrum is 12 ft, and the inner column of hot air has height 20 ft and diameter 12 ft." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14 — Activating the burner heats the air in a \(20\) -foot-high, \(12\) -foot-wide column directly above the burner.</figcaption></figure>
+<p>\[H(r,θ,z)=-2z-48.\]</p>
+<p>\[{T}_{1}(r,θ,z)=\frac{z-r}{10}+210+(-2z-48),\]</p>
+<p>\[{T}_{0}(r,θ,z)=\frac{z-r}{10}+210.\]</p>
+</li><li>Find the average temperature of the air in the balloon after the pilot has activated the burner for \(10\) seconds.</li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>To evaluate a triple integral in cylindrical coordinates, use the iterated integral<br><p>\[∫θ=αθ=β\,∫r={g}_{1}(θ)r={g}_{2}(θ)\,∫z={u}_{1}(r,θ)z={u}_{2}(r,θ)f(r,θ,z)r\,dz\,dr\,dθ.\]</p>
+ (See <a href="#example1">Example 1</a>, <a href="#example3">Example 3</a>, and <a href="#example4">Example 4</a>.)</li><li>To evaluate a triple integral in spherical coordinates, use the iterated integral<br><p>\[∫θ=αθ=β\,∫ρ={g}_{1}(θ)ρ={g}_{2}(θ)\,∫φ={u}_{1}(r,θ)φ={u}_{2}(r,θ)f(ρ,θ,φ){ρ}^{2}\text{sin}\,φ\,dφ\,dρ\,dθ.\]</p>
+ (See <a href="#example5">Example 5</a>, <a href="#example10">Example 10</a>, and <a href="#example11">Example 11</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>Triple integral in cylindrical coordinates</strong></td><td>\(\underset{B}{∭}g(x,y,z)dV=\underset{B}{∭}g(r\,\text{cos}\,θ,r\,\text{sin}\,θ,z)r\,dr\,dθ\,dz=\underset{B}{∭}f(r,θ,z)r\,dr\,dθ\,dz\)</td></tr><tr><td><strong>Triple integral in spherical coordinates</strong></td><td>\(\underset{B}{∭}f(ρ,θ,φ){ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ=∫φ=γφ=ψ\,∫θ=αθ=β\,∫ρ=aρ=bf(ρ,θ,φ){ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, evaluate the triple integrals \(\underset{B}{∭}f(x,y,z)dV\) over the solid \(B.\)</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(f(x,y,z)=z,\) \(B=\{(x,y,z)|{x}^{2}+{y}^{2}\le 9,x\ge 0,y\ge 0,0\le z\le 1\}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_201.jpg" alt="A quarter section of a cylinder with height 1 and radius 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{9\pi }{8}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(f(x,y,z)=x{z}^{2},\) \(B=\{(x,y,z)|{x}^{2}+{y}^{2}\le 16,x\ge 0,y\le 0,-1\le z\le 1\}\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(f(x,y,z)=xy,\) \(B=\{(x,y,z)|{x}^{2}+{y}^{2}\le 1,x\ge 0,y\ge 0,x\le y,-1\le z\le 1\}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_202.jpg" alt="A wedge with radius 1, height 1, and angle pi/4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{8}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(f(x,y,z)={x}^{2}+{y}^{2},\) \(B=\{(x,y,z)|{x}^{2}+{y}^{2}\le 4,x\ge 0,x\le y,0\le z\le 3\}\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(f(x,y,z)={e}^{\sqrt{{x}^{2}+{y}^{2}}},\) \(B=\{(x,y,z)|1\le {x}^{2}+{y}^{2}\le 4,y\le 0,x\le y\sqrt{3},2\le z\le 3\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi {e}^{2}}{6}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(f(x,y,z)=\sqrt{{x}^{2}+{y}^{2}},\) \(B=\{(x,y,z)|1\le {x}^{2}+{y}^{2}\le 9,y\le 0,0\le z\le 1\}\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><ul class="tight"><li>Let \(B\) be a cylindrical shell with inner radius \(a,\) outer radius \(b,\) and height \(c,\) where \(0&lt;a&lt;b\) and \(c&gt;0.\) Assume that a function \(F\) defined on \(B\) can be expressed in cylindrical coordinates as \(F(x,y,z)=f(r)+h(z),\) where \(f\) and \(h\) are differentiable functions. If \(∫ab\tilde{f}(r)dr=0\) and \(\tilde{h}(0)=0,\) where \(\tilde{f}\) and \(\tilde{h}\) are antiderivatives of \(f\) and \(h,\) respectively, show that<br><p>\[\underset{B}{∭}F(x,y,z)dV=2\pi c(b\tilde{f}(b)-a\tilde{f}(a))+\pi ({b}^{2}-{a}^{2})\tilde{h}(c).\]</p>
+</li><li>Use the previous result to show that \(\underset{B}{∭}(z+\text{sin}\sqrt{{x}^{2}+{y}^{2}})dx\,dy\,dz=6{\pi }^{2}(\pi -2),\) where \(B\) is a cylindrical shell with inner radius \(\pi ,\) outer radius \(2\pi ,\) and height \(2.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><ul class="tight"><li>Let \(B\) be a cylindrical shell with inner radius \(a,\) outer radius \(b,\) and height \(c,\) where \(0&lt;a&lt;b\) and \(c&gt;0.\) Assume that a function \(F\) defined on \(B\) can be expressed in cylindrical coordinates as \(F(x,y,z)=f(r)g(θ)h(z),\) where \(f,g,\,\text{and}\,h\) are differentiable functions. If \(∫ab\tilde{f}(r)dr=0,\) where \(\tilde{f}\) is an antiderivative of \(f,\) show that<br> <br> where \(\tilde{g}\) and \(\tilde{h}\) are antiderivatives of \(g\) and \(h,\) respectively.<p>\[\underset{B}{∭}F(x,y,z)dV=[b\tilde{f}(b)-a\tilde{f}(a)]\,[\tilde{g}(2\pi )-\tilde{g}(0)]\,[\tilde{h}(c)-\tilde{h}(0)],\]</p>
+</li><li>Use the previous result to show that \(\underset{B}{∭}z\,\text{sin}\sqrt{{x}^{2}+{y}^{2}}dx\,dy\,dz=-12{\pi }^{2},\) where \(B\) is a cylindrical shell with inner radius \(\pi ,\) outer radius \(2\pi ,\) and height \(2.\)</li></ul>
+</div></div>
+<p>In the following exercises, the boundaries of the solid \(E\) are given in cylindrical coordinates. Let \(f (r,θ,z)\) be the corresponding function in cylindrical coordinates.</p>
+<ul class="tight"><li>Define the region in cylindrical coordinates.</li><li>Convert the integral \(\underset{Ε}{∭}g(x,y,z)dV\) to cylindrical coordinates.</li></ul>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(E\) is inside the right circular cylinder \(r=4\,\text{sin}\,θ,\) above the \(rθ\) -plane, and inside the sphere \({r}^{2}+{z}^{2}=16.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(E=\{(r,θ,z)|0\le θ\le \pi ,0\le r\le 4\,\text{sin}\,θ,0\le z\le \sqrt{16-{r}^{2}}\};\) b. \(∫0\pi \,∫04\,\text{sin}\,θ\,∫0\sqrt{16-{r}^{2}}f(r,θ,z)r\,dz\,dr\,dθ\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(E\) is inside the right circular cylinder \(r=\text{cos}\,θ,\) above the \(rθ\) -plane, and inside the sphere \({r}^{2}+{z}^{2}=9.\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(E\) is located in the first octant and is bounded by the circular paraboloid \(z=9-3{r}^{2},\) the cylinder \(r=\sqrt{3},\) and the plane \(r(\text{cos}\,θ+\text{sin}\,θ)=20-z.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(E=\{(r,θ,z)|0\le θ\le \frac{\pi }{2},0\le r\le \sqrt{3},9-3{r}^{2}\le z\le 20-r(\text{cos}\,θ+\text{sin}\,θ)\};\) b. \(∫0\pi \text{/}2\,∫0\sqrt{3}\,∫9-3{r}^{2}20-r(\text{cos}\,θ+\text{sin}\,θ)f(r,θ,z)r\,dz\,dr\,dθ\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(E\) is located in the first octant outside the circular paraboloid \(z=10-2{r}^{2}\) and inside the cylinder \(r=\sqrt{5}\) and is bounded also by the planes \(z=20\) and \(θ=\frac{\pi }{4}.\)</p>
+</div></div>
+<p>In the following exercises, the function \(g\) and region \(E\) are given in rectangular coordinates.</p>
+<ul class="tight"><li>Express the region \(Ε\) and the function \(g\) in cylindrical coordinates. Let \(f(r,θ,z)\) be the corresponding function in cylindrical coordinates.</li><li>Convert the integral \(\underset{E}{∭}g(x,y,z)dV\) to cylindrical coordinates and evaluate it.</li></ul>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(g(x,y,z)=\frac{1}{x+3},\) \(E=\{(x,y,z)|0\le {x}^{2}+{y}^{2}\le 9,x\ge 0,y\ge 0,0\le z\le x+3\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(E=\{(r,θ,z)|0\le r\le 3,0\le θ\le \frac{\pi }{2},0\le z\le r\,\text{cos}\,θ+3\},\) \(f(r,θ,z)=\frac{1}{r\,\text{cos}\,θ+3};\) b. \(∫03\,∫0\pi \text{/}2\,∫0r\,\text{cos}\,θ+3\frac{r}{r\,\text{cos}\,θ+3}dz\,dθ\,dr=\frac{9\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(g(x,y,z)={x}^{2}+{y}^{2},\) \(E=\{(x,y,z)|0\le {x}^{2}+{y}^{2}\le 4,y\ge 0,0\le z\le 3-x\}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(g(x,y,z)=x,\) \(E=\{(x,y,z)|1\le {y}^{2}+{z}^{2}\le 9,0\le x\le 9-{y}^{2}-{z}^{2}\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(y=r\,\text{cos}\,θ,z=r\,\text{sin}\,θ,x=z,\) \(E=\{(r,θ,z)|1\le r\le 3,0\le θ\le 2\pi ,0\le z\le 9-{r}^{2}\},f(r,θ,z)=z;\) b. \(∫13\,∫02\pi \,∫09-{r}^{2}zr\,dz\,dθ\,dr=\frac{256\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(g(x,y,z)=y,\) \(E=\{(x,y,z)|1\le {x}^{2}+{z}^{2}\le 9,0\le y\le 9-{x}^{2}-{z}^{2}\}\)</p>
+</div></div>
+<p>In the following exercises, find the volume of the solid \(E\) whose boundaries are given in rectangular coordinates.</p>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(E\) is above the \(xy\) -plane, inside the cylinder \({x}^{2}+{y}^{2}=1,\) and below the plane \(z=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(E\) is below the plane \(z=1\) and inside the paraboloid \(z={x}^{2}+{y}^{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(E\) is bounded by the circular cone \(z=\sqrt{{x}^{2}+{y}^{2}}\) and \(z=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(E\) is located above the \(xy\) -plane, below \(z=1,\) outside the one-sheeted hyperboloid \({x}^{2}+{y}^{2}-{z}^{2}=1,\) and inside the cylinder \({x}^{2}+{y}^{2}=2.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(E\) is located inside the cylinder \({x}^{2}+{y}^{2}=1\) and between the circular paraboloids \(z=1-{x}^{2}-{y}^{2}\) and \(z={x}^{2}+{y}^{2}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(E\) is located inside the sphere \({x}^{2}+{y}^{2}+{z}^{2}=1,\) above the \(xy\) -plane, and inside the circular cone \(z=\sqrt{{x}^{2}+{y}^{2}}.\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(E\) is located inside the circular cone \({x}^{2}+{y}^{2}={(z-1)}^{2}\) and between the planes \(z=0\) and \(z=2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(E\) is located inside the cylinder \({x}^{2}+{y}^{2}=1\) , above the circular cone \(z=1-\sqrt{{x}^{2}+{y}^{2}}\) , and below the circular paraboloid \(z=1+{x}^{2}+{y}^{2}\) , and between the planes \(z=0\) and \(z=2\) .</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p><strong>[T]</strong> Use a computer algebra system (CAS) to graph the solid whose volume is given by the iterated integral in cylindrical coordinates \(∫\text{-}\pi \text{/}2\pi \text{/}2\,∫01\,∫{r}^{2}rr\,dz\,dr\,dθ.\) Find the volume \(V\) of the solid. Round your answer to four decimal places.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(V=\frac{\pi }{12}\approx 0.2618\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_203.jpg" alt="A quarter section of an ellipsoid with width 2, height 1, and depth 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p><strong>[T]</strong> Use a CAS to graph the solid whose volume is given by the iterated integral in cylindrical coordinates \(∫0\pi \text{/}2\,∫01\,∫{r}^{4}rr\,dz\,dr\,dθ.\) Find the volume \(V\) of the solid Round your answer to four decimal places.</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Convert the integral \(∫01\,∫\text{-}\sqrt{1-{y}^{2}}\sqrt{1-{y}^{2}}\,∫{x}^{2}+{y}^{2}\sqrt{{x}^{2}+{y}^{2}}xz\,dz\,dx\,dy\) into an integral in cylindrical coordinates.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(∫01\,∫0\pi \,∫{r}^{2}rz{r}^{2}\text{cos}\,θ\,dz\,dθ\,dr\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Convert the integral \(∫02\,∫0y\,∫01(xy+z)dz\,dx\,dy\) into an integral in cylindrical coordinates.</p>
+</div></div>
+<p>In the following exercises, evaluate the triple integral \(\underset{B}{∭}f(x,y,z)dV\) over the solid \(B.\)</p>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(f(x,y,z)=1,\) \(B=\{(x,y,z)|{x}^{2}+{y}^{2}+{z}^{2}\le 90,z\ge 0\}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_205.jpg" alt="A filled-in half-sphere with radius 3 times the square root of 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(180\pi \sqrt{10}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(f(x,y,z)=1-\sqrt{{x}^{2}+{y}^{2}+{z}^{2}},\) \(B=\{(x,y,z)|{x}^{2}+{y}^{2}+{z}^{2}\le 9,y\ge 0,z\ge 0\}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_206.jpg" alt="A quarter section of an ovoid with height 8, width 8 and length 18." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(f(x,y,z)=\sqrt{{x}^{2}+{y}^{2}},\) \(B\) is bounded above by the half-sphere \({x}^{2}+{y}^{2}+{z}^{2}=9\) with \(z\ge 0\) and below by the cone \({z}^{2}={x}^{2}+{y}^{2}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{81\pi (\pi -2)}{16}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(f(x,y,z)=z,\) \(B\) is bounded above by the half-sphere \({x}^{2}+{y}^{2}+{z}^{2}=16\) with \(z\ge 0\) and below by the cone \({z}^{2}={x}^{2}+{y}^{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Show that if \(F(ρ,θ,φ)=f(ρ)g(θ)h(φ)\) is a continuous function on the spherical box \(B=\{(ρ,θ,φ)|a\le ρ\le b,α\le θ\le β,γ\le φ\le ψ\},\) then</p>
+<p>\[\underset{B}{∭}F\,dV=(∫ab{ρ}^{2}f(ρ)dr)(∫αβg(θ)dθ)(∫γψh(φ)\text{sin}\,φ\,dφ).\]</p>
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><ul class="tight"><li>A function \(F\) is said to have spherical symmetry if it depends on the distance to the origin only, that is, it can be expressed in spherical coordinates as \(F(x,y,z)=f(ρ),\) where \(ρ=\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}.\) Show that<br> <br> where \(B\) is the region between the upper concentric hemispheres of radii \(a\) and \(b\) centered at the origin, with \(0&lt;a&lt;b\) and \(F\) a spherical function defined on \(B.\)<p>\[\underset{B}{∭}F(x,y,z)dV=2\pi ∫ab{ρ}^{2}f(ρ)dρ,\]</p>
+</li><li>Use the previous result to show that \(\underset{B}{∭}({x}^{2}+{y}^{2}+{z}^{2})\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}\,dV=21\pi ,\) where<br><p>\[B=\{(x,y,z)|1\le {x}^{2}+{y}^{2}+{z}^{2}\le 2,z\ge 0\}.\]</p>
+</li></ul>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><ul class="tight"><li>Let \(B\) be the region between the upper concentric hemispheres of radii <strong>a</strong> and <strong>b</strong> centered at the origin and situated in the first octant, where \(0&lt;a&lt;b.\) Consider <strong>F</strong> a function defined on <strong>B</strong> whose form in spherical coordinates \((ρ,θ,φ)\) is \(F(x,y,z)=f(ρ)\text{cos}\,φ.\) Show that if \(g(a)=g(b)=0\) and \(∫abh(ρ)dρ=0,\) then<br> <br> where \(g\) is an antiderivative of \(f\) and \(h\) is an antiderivative of \(g.\)<p>\[\underset{B}{∭}F(x,y,z)dV=\frac{{\pi }^{2}}{4}[ah(a)-bh(b)],\]</p>
+</li><li>Use the previous result to show that \(\underset{B}{∭}\frac{z\,\text{cos}\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}}{\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}}dV=\frac{3{\pi }^{2}}{2},\) where \(B\) is the region between the upper concentric hemispheres of radii \(\pi\) and \(2\pi\) centered at the origin and situated in the first octant.</li></ul>
+</div></div>
+<p>In the following exercises, the function \(g\) and region \(E\) are given in rectangular coordinates.</p>
+<ul class="tight"><li>Express the region \(E\) and the function \(g\) in spherical coordinates. Let \(f(ρ, θ, φ)\) be the corresponding function in spherical coordinates</li><li>Convert the integral \(\underset{E}{∭}g(x,y,z)dV\) to spherical coordinates and evaluate it.</li></ul>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(g(x,y,z)=z;\) \(E=\{(x,y,z)|0\le {x}^{2}+{y}^{2}+{z}^{2}\le 1,z\ge 0\}\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(g(x,y,z)=x+y;\) \(E=\{(x,y,z)|1\le {x}^{2}+{y}^{2}+{z}^{2}\le 4,z\ge 0,y\ge 0\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(f(ρ,θ,φ)=ρ\,\text{sin}\,φ(\text{cos}\,θ+\text{sin}\,θ),\) \(E=\{(ρ,θ,φ)|1\le ρ\le 2,0\le θ\le \pi ,0\le φ\le \frac{\pi }{2}\};\) b. \(∫0\pi \,∫0\pi \text{/}2\,∫12{ρ}^{3}{\text{sin}}^{2}\,φ\left(\text{cos}θ+\text{sin}θ\right)=\frac{15\pi }{8}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(g(x,y,z)=2xy;\) \(E=\{(x,y,z)|\sqrt{{x}^{2}+{y}^{2}}\le z\le \sqrt{1-{x}^{2}-{y}^{2}},x\ge 0,y\ge 0\}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(g(x,y,z)=z;\) \(E=\{(x,y,z)|{x}^{2}+{y}^{2}+{z}^{2}-2z\le 0,\sqrt{{x}^{2}+{y}^{2}}\le z\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(f(ρ,θ,φ)=ρ\,\text{cos}\,φ;\) \(E=\{(ρ,θ,φ)|0\le ρ\le 2\,\text{cos}\,φ,0\le θ\le 2\pi ,0\le φ\le \frac{\pi }{4}\};\) b. \(∫02\pi \,∫0\pi \text{/}4\,∫02\,\text{cos}\,φ{ρ}^{3}\text{sin}\,φ\text{cos}\,φ\,dρ\,dφ\,dθ=\frac{7\pi }{6}\)</p>
+</div></div></div></div>
+<p>In the following exercises, find the volume of the solid \(E\) whose boundaries are given in rectangular coordinates.</p>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(E=\{(x,y,z)|\sqrt{{x}^{2}+{y}^{2}}\le z\le \sqrt{16-{x}^{2}-{y}^{2}},x\ge 0,y\ge 0\}\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(E=\{(x,y,z)|{x}^{2}+{y}^{2}+{z}^{2}-2z\le 0,\sqrt{{x}^{2}+{y}^{2}}\le z\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Use spherical coordinates to find the volume of the solid situated inside the sphere \(ρ=1\) and outside the sphere \(ρ=\text{cos}\,φ,\) with \(φ\in [0,\frac{\pi }{2}].\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Use spherical coordinates to find the volume of the ball \(ρ\le 3\) that is situated between the cones \(φ=\frac{\pi }{4}\,\text{and}\,φ=\frac{\pi }{3}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(9\pi (\sqrt{2}-1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Convert the integral \(∫-44\,∫\text{-}\sqrt{16-{y}^{2}}\sqrt{16-{y}^{2}}\,∫\text{-}\sqrt{16-{x}^{2}-{y}^{2}}\sqrt{16-{x}^{2}-{y}^{2}}({x}^{2}+{y}^{2}+{z}^{2})dz\,dx\,dy\) into an integral in spherical coordinates.</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Convert the integral \(∫04\,∫0\sqrt{16-{x}^{2}}\,∫\text{-}\sqrt{16-{x}^{2}-{y}^{2}}\sqrt{16-{x}^{2}-{y}^{2}}{({x}^{2}+{y}^{2}+{z}^{2})}^{2}dz\,dy\,dx\) into an integral in spherical coordinates.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(∫0\pi \text{/}2\,∫0\pi \,∫04{ρ}^{6}\text{sin}\,φ\,dρ\,dφ\,dθ\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Convert the integral \(∫-2\sqrt{2}2\sqrt{2}\,∫-\sqrt{8-{x}^{2}}\sqrt{8-{x}^{2}}\,∫\sqrt{{x}^{2}+{y}^{2}}\sqrt{16-{x}^{2}-{y}^{2}}dz\,dy\,dx\) into an integral in spherical coordinates and evaluate it.</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p><strong>[T]</strong> Use a CAS to graph the solid whose volume is given by the iterated integral in spherical coordinates \(∫\pi \text{/}2\pi \,∫5\pi \text{/}6\pi \text{/}6\,∫02{ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ.\) Find the volume \(V\) of the solid. Round your answer to three decimal places.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(V=\frac{4\pi \sqrt{3}}{3}\approx 7.255\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_05_208.jpg" alt="A quarter section of an ellipsoid with width 2, height 2, and depth 1" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p><strong>[T]</strong> Use a CAS to graph the solid whose volume is given by the iterated integral in spherical coordinates as \(∫02\pi \,∫\pi \text{/}43\pi \text{/}4\,∫01{ρ}^{2}\text{sin}\,φ\,dρ\,dφ\,dθ.\) Find the volume \(V\) of the solid. Round your answer to three decimal places.</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p><strong>[T]</strong> Use a CAS to evaluate the integral \(\underset{E}{∭}({x}^{2}+{y}^{2})dV\) where \(E\) lies above the paraboloid \(z={x}^{2}+{y}^{2}\) and below the plane \(z=3y.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{243\pi }{32}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p><strong>[T]</strong></p>
+<ul class="tight"><li>Evaluate the integral \(\underset{E}{∭}{e}^{\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}}dV,\) where \(E\) is bounded by the spheres \(4{x}^{2}+4{y}^{2}+4{z}^{2}=1\) and \({x}^{2}+{y}^{2}+{z}^{2}=1.\)</li><li>Use a CAS to find an approximation of the previous integral. Round your answer to two decimal places.</li></ul>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Express the volume of the solid inside the sphere \({x}^{2}+{y}^{2}+{z}^{2}=16\) and outside the cylinder \({x}^{2}+{y}^{2}=4\) as triple integrals in cylindrical coordinates and spherical coordinates.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(∫02\pi \,∫24\,∫\text{-}\sqrt{16-{r}^{2}}\sqrt{16-{r}^{2}}r\,dz\,dr\,dθ;\) \(∫\pi \text{/}65\pi \text{/}6\,∫02\pi \,∫2\,\text{csc}\,φ4{ρ}^{2}\text{sin}\,φ\,dρ\,dθ\,dφ\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Express the volume of the solid inside the sphere \({x}^{2}+{y}^{2}+{z}^{2}=16\) and outside the cylinder \({x}^{2}+{y}^{2}=4\) that is located in the first octant as triple integrals in cylindrical coordinates and spherical coordinates.</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>The power emitted by an antenna has a power density per unit volume given in spherical coordinates by</p>
+<p>\(p(ρ,θ,φ)=\frac{{P}_{0}}{{ρ}^{2}}{\text{cos}}^{2}θ\,{\text{sin}}^{4}φ,\) where \({P}_{0}\) is a constant with units in watts. The total power within a sphere \(B\) of radius \(r\) meters is defined as \(P=\underset{B}{∭}p(ρ,θ,φ)dV.\) Find the total power \(P\) within a sphere of radius 20 meters.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(P=\frac{64{P}_{0}\pi }{3}\) watts</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Use the preceding exercise to find the total power within a sphere \(B\) of radius 5 meters when the power density per unit volume is given by \(p(ρ,θ,φ)=\frac{30}{{ρ}^{2}}{\text{cos}}^{2}θ\,{\text{sin}}^{4}φ.\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>A charge cloud contained in a sphere \(B\) of radius <strong>r</strong> centimeters centered at the origin has its charge density given by \(q(x,y,z)=k\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}\frac{μ\,\text{C}}{{\text{cm}}^{3}},\) where \(k&gt;0.\) The total charge contained in \(B\) is given by \(Q=\underset{B}{∭}q(x,y,z)dV.\) Find the total charge \(Q.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(Q=k{r}^{4}\pi μC\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Use the preceding exercise to find the total charge cloud contained in the unit sphere if the charge density is \(q(x,y,z)=20\sqrt{{x}^{2}+{y}^{2}+{z}^{2}}\frac{μ\,\text{C}}{{\text{cm}}^{3}}.\)</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>triple integral in cylindrical coordinates</dt><dd>the limit of a triple Riemann sum, provided the following limit exists:<br></dd><dt>triple integral in spherical coordinates</dt><dd>the limit of a triple Riemann sum, provided the following limit exists:<br></dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

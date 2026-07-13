@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maxima/Minima Problems · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Maxima/Minima Problems</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 4.7</span>Maxima/Minima Problems</h1>
+<p>One of the most useful applications for derivatives of a function of one variable is the determination of maximum and/or minimum values. This application is also important for functions of two or more variables, but as we have seen in earlier sections of this chapter, the introduction of more independent variables leads to more possible outcomes for the calculations. The main ideas of finding critical points and using derivative tests are still valid, but new wrinkles appear when assessing the results.</p>
+<h2 id="critical-points">Critical Points</h2>
+<p>For functions of a single variable, we defined critical points as the values of the function when the derivative equals zero or does not exist. For functions of two or more variables, the concept is essentially the same, except for the fact that we are now working with partial derivatives.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(z=f(x,y)\) be a function of two variables that is defined on an open set containing the point \(({x}_{0},{y}_{0}).\) The point \(({x}_{0},{y}_{0})\) is called a <strong>critical point of a function of two variables</strong> \(f\) if one of the two following conditions holds:</p>
+<ul class="tight"><li>\({f}_{x}({x}_{0},{y}_{0})={f}_{y}({x}_{0},{y}_{0})=0\)</li><li>Either \({f}_{x}({x}_{0},{y}_{0})\,\text{or}\,{f}_{y}({x}_{0},{y}_{0})\) does not exist.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find the critical points of each of the following functions:</p>
+<ul class="tight"><li>\(f(x,y)=\sqrt{4{y}^{2}-9{x}^{2}+24y+36x+36}\)</li><li>\(g(x,y)={x}^{2}+2xy-4{y}^{2}+4x-6y+4\)</li></ul>
+<p class="sol-hint">Compute the partial derivatives, set both equal to zero to find where they vanish, and separately check where a partial derivative fails to exist (e.g., a zero denominator).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>First, we calculate \({f}_{x}(x,y)\,\text{and}\,{f}_{y}(x,y)\text{:}\) <br> <br> Next, we set each of these expressions equal to zero:<br> <br> Then, multiply each equation by its common denominator:<br> <br> Therefore, \(x=2\) and \(y=-3,\) so \((2,-3)\) is a critical point of \(f.\) <br> We must also check for the possibility that the denominator of each partial derivative can equal zero, thus causing the partial derivative not to exist. Since the denominator is the same in each partial derivative, we need only do this once:<br> <br> This equation represents a hyperbola. We should also note that the domain of \(f\) consists of points satisfying the inequality<br> <br> Therefore, any points on the hyperbola are not only critical points, they are also on the boundary of the domain. To put the hyperbola in standard form, we use the method of completing the square:<br> <br> Dividing both sides by \(-36\) puts the equation in standard form:<br> <br> Notice that point \((2,-3)\) is the center of the hyperbola.<p>\[\begin{array}{lll}{f}_{x}(x,y) &amp; = &amp; \frac{1}{2}(-18x+36){(4{y}^{2}-9{x}^{2}+24y+36x+36)}^{-1\text{/}2} \\ &amp; = &amp; \frac{-9x+18}{\sqrt{4{y}^{2}-9{x}^{2}+24y+36x+36}} \\ {f}_{y}(x,y) &amp; = &amp; \frac{1}{2}(8y+24){(4{y}^{2}-9{x}^{2}+24y+36x+36)}^{-1\text{/}2} \\ &amp; = &amp; \frac{4y+12}{\sqrt{4{y}^{2}-9{x}^{2}+24y+36x+36}}.\end{array}\]</p>
+<p>\[\begin{array}{lll}\frac{-9x+18}{\sqrt{4{y}^{2}-9{x}^{2}+24y+36x+36}} &amp; = &amp; 0 \\ \frac{4y+12}{\sqrt{4{y}^{2}-9{x}^{2}+24y+36x+36}} &amp; = &amp; 0.\end{array}\]</p>
+<p>\[\begin{array}{lll}-9x+18 &amp; = &amp; 0 \\ 4y+12 &amp; = &amp; 0.\end{array}\]</p>
+<p>\[4{y}^{2}-9{x}^{2}+24y+36x+36=0.\]</p>
+<p>\[4{y}^{2}-9{x}^{2}+24y+36x+36\ge 0.\]</p>
+<p>\[\begin{array}{lll}4{y}^{2}-9{x}^{2}+24y+36x+36 &amp; = &amp; 0 \\ 4{y}^{2}-9{x}^{2}+24y+36x &amp; = &amp; -36 \\ 4{y}^{2}+24y-9{x}^{2}+36x &amp; = &amp; -36 \\ 4({y}^{2}+6y)-9({x}^{2}-4x) &amp; = &amp; -36 \\ 4({y}^{2}+6y+9)-9({x}^{2}-4x+4) &amp; = &amp; -36+36-36 \\ 4{(y+3)}^{2}-9{(x-2)}^{2} &amp; = &amp; -36.\end{array}\]</p>
+<p>\[\begin{array}{lll}\frac{4{(y+3)}^{2}}{-36}-\frac{9{(x-2)}^{2}}{-36} &amp; = &amp; 1 \\ \frac{{(x-2)}^{2}}{4}-\frac{{(y+3)}^{2}}{9} &amp; = &amp; 1.\end{array}\]</p>
+</li><li>First, we calculate \({g}_{x}(x,y)\,\text{and}\,{g}_{y}(x,y)\text{:}\) <br> <br> Next, we set each of these expressions equal to zero, which gives a system of equations in \(x\,\text{and}\,y\text{:}\) <br> <br> Subtracting the second equation from the first gives \(10y+10=0,\,\text{so}\,y=-1.\) Substituting this into the first equation gives \(2x+2(-1)+4=0,\) so \(x=-1.\) Therefore \((-1,-1)\) is a critical point of \(g\) (<a href="#fig1">Figure 1</a>). There are no points in \({ℝ}^{2}\) that make either partial derivative not exist.<br><p>\[\begin{array}{lll}{g}_{x}(x,y) &amp; = &amp; 2x+2y+4 \\ {g}_{y}(x,y) &amp; = &amp; 2x-8y-6.\end{array}\]</p>
+<p>\[\begin{array}{lll}2x+2y+4 &amp; = &amp; 0 \\ 2x-8y-6 &amp; = &amp; 0.\end{array}\]</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_006.jpg" alt="The function g(x, y) = x2 + 2xy – 4y2 + 4x – 6y + 4 is shown with critical point (–1, –1, 5). The critical point is located where the derivative in the x and y directions are both zero." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The function \(g(x,y)\) has a critical point at \((-1,-1,5).\)</figcaption></figure>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Find the critical point of the function \(f(x,y)={x}^{3}+2xy-2x-4y.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((2,-5)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The main purpose for determining critical points is to locate relative maxima and minima, as in single-variable calculus. When working with a function of one variable, the definition of a local extremum involves finding an interval around the critical point such that the function value is either greater than or less than all the other function values in that interval. When working with a function of two or more variables, we work with an open disk around the point.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(z=f(x,y)\) be a function of two variables that is defined and continuous on an open set containing the point \(({x}_{0},{y}_{0}).\) Then <strong>f</strong> has a <strong>local maximum</strong> at \(({x}_{0},{y}_{0})\) if</p>
+<p>\[f({x}_{0},{y}_{0})\ge f(x,y)\]</p>
+<p>for all points \((x,y)\) within some disk centered at \(({x}_{0},{y}_{0}).\) The number \(f({x}_{0},{y}_{0})\) is called a <strong>local maximum value</strong>. If the preceding inequality holds for every point \((x,y)\) in the domain of \(f,\) then \(f\) has a <strong>global maximum</strong> (also called an <strong>absolute maximum</strong>) at \(({x}_{0},{y}_{0}).\)</p>
+<p>The function \(f\) has a <strong>local minimum</strong> at \(({x}_{0},{y}_{0})\) if</p>
+<p>\[f({x}_{0},{y}_{0})\le f(x,y)\]</p>
+<p>for all points \((x,y)\) within some disk centered at \(({x}_{0},{y}_{0}).\) The number \(f({x}_{0},{y}_{0})\) is called a <strong>local minimum value</strong>. If the preceding inequality holds for every point \((x,y)\) in the domain of \(f,\) then \(f\) has a <strong>global minimum</strong> (also called an <strong>absolute minimum</strong>) at \(({x}_{0},{y}_{0}).\)</p>
+<p>If \(f({x}_{0},{y}_{0})\) is either a local maximum or local minimum value, then it is called a <strong><strong>local extremum</strong></strong> (see the following figure).</p>
+</div>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_001.jpg" alt="The function z = the square root of (16 – x2 – y2) is shown, which is the upper hemisphere of radius 4 with center at the origin. In the xy plane, the circle with radius 4 and center at the origin is highlighted; it has equation x2 + y2 = 16." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The graph of \(z=\sqrt{16-{x}^{2}-{y}^{2}}\) has a maximum value when \((x,y)=(0,0).\) It attains its minimum value at the boundary of its domain, which is the circle \({x}^{2}+{y}^{2}=16.\)</figcaption></figure>
+<p>In Maxima and Minima, we showed that extrema of functions of one variable occur at critical points. The same is true for functions of more than one variable, as stated in the following theorem.</p>
+<div class="card definition"><span class="chip">Fermat’s Theorem for Functions of Two Variables</span><p>Let \(z=f(x,y)\) be a function of two variables that is defined and continuous on an open set containing the point \(({x}_{0},{y}_{0}).\) Suppose \({f}_{x}\) and \({f}_{y}\) each exists at \(({x}_{0},{y}_{0}).\) If \(f\) has a local extremum at \(({x}_{0},{y}_{0}),\) then \(({x}_{0},{y}_{0})\) is a critical point of \(f.\)</p>
+</div>
+<h2 id="second-derivative-test">Second Derivative Test</h2>
+<p>Consider the function \(f(x)={x}^{3}.\) This function has a critical point at \(x=0,\) since \(f\prime (0)=3{(0)}^{2}=0.\) However, \(f\) does not have an extreme value at \(x=0.\) Therefore, the existence of a critical value at \(x={x}_{0}\) does not guarantee a local extremum at \(x={x}_{0}.\) The same is true for a function of two or more variables. One way this can happen is at a <strong>saddle point</strong>. An example of a saddle point appears in the following figure.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_002.jpg" alt="The function z = x2 – y2 is shown, which is roughly saddle looking, with the function achieving maxima along the x and y axes." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Graph of the function \(z={x}^{2}-{y}^{2}.\) This graph has a saddle point at the origin.</figcaption></figure>
+<p>In this graph, the origin is a saddle point. This is because the first partial derivatives of \(f(x,y)={x}^{2}-{y}^{2}\) are both equal to zero at this point, but it is neither a maximum nor a minimum for the function. Furthermore the vertical trace corresponding to \(y=0\) is \(z={x}^{2}\) (a parabola opening upward), but the vertical trace corresponding to \(x=0\) is \(z=\text{-}{y}^{2}\) (a parabola opening downward). Therefore, it is both a global maximum for one trace and a global minimum for another.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Given the function \(z=f(x,y),\) the point \(({x}_{0},{y}_{0},f({x}_{0},{y}_{0}))\) is a saddle point if both \({f}_{x}({x}_{0},{y}_{0})=0\) and \({f}_{y}({x}_{0},{y}_{0})=0,\) but \(f\) does not have a local extremum at \(({x}_{0},{y}_{0}).\)</p>
+</div>
+<p>The second derivative test for a function of one variable provides a method for determining whether an extremum occurs at a critical point of a function. When extending this result to a function of two variables, an issue arises related to the fact that there are, in fact, four different second-order partial derivatives, although equality of mixed partials reduces this to three. The second derivative test for a function of two variables, stated in the following theorem, uses a <strong>discriminant</strong> \(D\) that replaces \({f}^{\prime\prime }({x}_{0})\) in the second derivative test for a function of one variable.</p>
+<div class="card definition"><span class="chip">Second Derivative Test</span><p>Let \(z=f(x,y)\) be a function of two variables for which the first- and second-order partial derivatives are continuous on some disk containing the point \(({x}_{0},{y}_{0}).\) Suppose \({f}_{x}({x}_{0},{y}_{0})=0\) and \({f}_{y}({x}_{0},{y}_{0})=0.\) Define the quantity</p>
+<p>\[D={f}_{xx}({x}_{0},{y}_{0}){f}_{yy}({x}_{0},{y}_{0})-{({f}_{xy}({x}_{0},{y}_{0}))}^{2}.\]</p>
+<ul class="tight"><li>If \(D&gt;0\) and \({f}_{xx}({x}_{0},{y}_{0})&gt;0,\) then \(f\) has a local minimum at \(({x}_{0},{y}_{0}).\)</li><li>If \(D&gt;0\) and \({f}_{xx}({x}_{0},{y}_{0})&lt;0,\) then \(f\) has a local maximum at \(({x}_{0},{y}_{0}).\)</li><li>If \(D&lt;0,\) then \(f\) has a saddle point at \(({x}_{0},{y}_{0}).\)</li><li>If \(D=0,\) then the test is inconclusive.</li></ul>
+<p>See <a href="#fig4">Figure 4</a>.</p>
+</div>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_007.jpg" alt="This figure consists of three figures labeled a, b, and c. Figure a has two bulbous mounds pointing down, and the two extrema are listed as the local minima. Figure b has two bulbous mounds pointed up, and the two extrema are listed as the local maxima. Figure c is shaped like a saddle, and in the middle of the saddle, a point is marked as the saddle point." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The second derivative test can often determine whether a function of two variables has a local minima (a), a local maxima (b), or a saddle point (c).</figcaption></figure>
+<p>To apply the second derivative test, it is necessary that we first find the critical points of the function. There are several steps involved in the entire procedure, which are outlined in a problem-solving strategy.</p>
+<div class="card definition"><span class="chip">Using the Second Derivative Test for Functions of Two Variables</span><p>Let \(z=f(x,y)\) be a function of two variables for which the first- and second-order partial derivatives are continuous on some disk containing the point \(({x}_{0},{y}_{0}).\) To apply the second derivative test to find local extrema, use the following steps:</p>
+<ul class="tight"><li>Determine the critical points \(({x}_{0},{y}_{0})\) of the function \(f\) where \({f}_{x}({x}_{0},{y}_{0})={f}_{y}({x}_{0},{y}_{0})=0.\) Discard any points where at least one of the partial derivatives does not exist.</li><li>Calculate the discriminant \(D={f}_{xx}({x}_{0},{y}_{0}){f}_{yy}({x}_{0},{y}_{0})-{({f}_{xy}({x}_{0},{y}_{0}))}^{2}\) for each critical point of \(f.\)</li><li>Apply (see original) to determine whether each critical point is a local maximum, local minimum, or saddle point, or whether the theorem is inconclusive.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find the critical points for each of the following functions, and use the second derivative test to find the local extrema:</p>
+<ul class="tight"><li>\(f(x,y)=4{x}^{2}+9{y}^{2}+8x-36y+24\)</li><li>\(g(x,y)=\frac{1}{3}{x}^{3}+{y}^{2}+2xy-6x-3y+4\)</li></ul>
+<p class="sol-hint">Find the critical points by setting \({f}_{x}={f}_{y}=0,\) then compute the discriminant \(D={f}_{xx}{f}_{yy}-{f}_{xy}^{2}\) at each one to classify it.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Step \(1\) of the problem-solving strategy involves finding the critical points of \(f.\) To do this, we first calculate \({f}_{x}(x,y)\) and \({f}_{y}(x,y),\) then set each of them equal to zero:<br> <br> Setting them equal to zero yields the system of equations<br> <br> The solution to this system is \(x=-1\) and \(y=2.\) Therefore \((-1,2)\) is a critical point of \(f.\) <br> Step 2 of the problem-solving strategy involves calculating \(D.\) To do this, we first calculate the second partial derivatives of \(f\text{:}\) <br> <br> Therefore, \(D={f}_{xx}(-1,2){f}_{yy}(-1,2)-{({f}_{xy}(-1,2))}^{2}=(8)(18)-{(0)}^{2}=144.\) <br> Step 3 states to check the Second Derivative Test for Functions of Two Variables.. Since \(D&gt;0\) and \({f}_{xx}(-1,2)&gt;0,\) this corresponds to case 1. Therefore, \(f\) has a local minimum at \((-1,2)\) as shown in the following figure.<br><p>\[\begin{array}{lll}{f}_{x}(x,y) &amp; = &amp; 8x+8 \\ {f}_{y}(x,y) &amp; = &amp; 18y-36.\end{array}\]</p>
+<p>\[\begin{array}{lll}8x+8 &amp; = &amp; 0 \\ 18y-36 &amp; = &amp; 0.\end{array}\]</p>
+<p>\[\begin{array}{lll}{f}_{xx}(x,y) &amp; = &amp; 8 \\ {f}_{xy}(x,y) &amp; = &amp; 0 \\ {f}_{yy}(x,y) &amp; = &amp; 18.\end{array}\]</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_008.jpg" alt="The function f(x, y) = 4x2 + 9y2 + 8x – 36y + 24 is shown with local minimum at (–1, 2, –16). The shape is a plane curving up on both ends parallel to the y axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The function \(f(x,y)\) has a local minimum at \((-1,2,-16).\)</figcaption></figure>
+</li><li>For step 1, we first calculate \({g}_{x}(x,y)\) and \({g}_{y}(x,y),\) then set each of them equal to zero:<br> <br> Setting them equal to zero yields the system of equations<br> <br> To solve this system, first solve the second equation for <strong>y.</strong> This gives \(y=\frac{3-2x}{2}.\) Substituting this into the first equation gives<br> Therefore, \(x=-1\) or \(x=3.\) Substituting these values into the equation \(y=\frac{3-2x}{2}\) yields the critical points \((-1,\frac{5}{2})\) and \((3,-\frac{3}{2}).\) Step 2 involves calculating the second partial derivatives of \(g\text{:}\) <br> Then, we find a general formula for \(D\text{:}\) <br> <br> Next, we substitute each critical point into this formula:<br> <br> In step 3, we note that, applying the Second Derivative Test for Functions of Two Variables. to point \((-1,\frac{5}{2})\) leads to case \(3,\) which means that \((-1,\frac{5}{2})\) is a saddle point. Applying the theorem to point \((3,-\frac{3}{2})\) leads to case 1, which means that \((3,-\frac{3}{2})\) corresponds to a local minimum as shown in the following figure.<br><p>\[\begin{array}{lll}{g}_{x}(x,y) &amp; = &amp; {x}^{2}+2y-6 \\ {g}_{y}(x,y) &amp; = &amp; 2y+2x-3.\end{array}\]</p>
+<p>\[\begin{array}{lll}{x}^{2}+2y-6 &amp; = &amp; 0 \\ 2y+2x-3 &amp; = &amp; 0.\end{array}\]</p>
+<p>\[\begin{array}{lll}{x}^{2}+3-2x-6 &amp; = &amp; 0 \\ {x}^{2}-2x-3 &amp; = &amp; 0 \\ (x-3)(x+1) &amp; = &amp; 0.\end{array}\]</p>
+<p>Therefore, \(x=-1\) or \(x=3.\) Substituting these values into the equation \(y=\frac{3-2x}{2}\) yields the critical points \((-1,\frac{5}{2})\) and \((3,-\frac{3}{2}).\)</p>
+<p>Step 2 involves calculating the second partial derivatives of \(g\text{:}\)</p>
+<p>\[\begin{array}{lll}{g}_{xx}(x,y) &amp; = &amp; 2x \\ {g}_{xy}(x,y) &amp; = &amp; 2 \\ {g}_{yy}(x,y) &amp; = &amp; 2.\end{array}\]</p>
+<p>\[\begin{array}{ll}D &amp; ={g}_{xx}({x}_{0},{y}_{0}){g}_{yy}({x}_{0},{y}_{0})-{({g}_{xy}({x}_{0},{y}_{0}))}^{2} \\ &amp; =(2{x}_{0})(2)-{2}^{2} \\ &amp; =4{x}_{0}-4.\end{array}\]</p>
+<p>\[\begin{array}{lll}D(-1,\frac{5}{2}) &amp; = &amp; (2(-1))(2)-{(2)}^{2}=-4-4=-8 \\ D(3,-\frac{3}{2}) &amp; = &amp; (2(3))(2)-{(2)}^{2}=12-4=8.\end{array}\]</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_009.jpg" alt="The function f(x, y) = (1/3)x3 + y2 + + 2xy – 6x – 3y + 4 is shown with local minimum at (3, –3/2, –29/4) and saddle point at (−1, 5/2, 41/12). The shape is a plane curving up on the corners near (4, 3) and (−2, −2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — The function \(g(x,y)\) has a local minimum and a saddle point.</figcaption></figure>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Use the second derivative to find the local extrema of the function</p>
+<p>\[f(x,y)={x}^{3}+2xy-6x-4{y}^{2}.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((\frac{4}{3},\frac{1}{3})\) is a saddle point, \((-\frac{3}{2},-\frac{3}{8})\) is a local maximum.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="absolute-maxima-and-minima">Absolute Maxima and Minima</h2>
+<p>When finding global extrema of functions of one variable on a closed interval, we start by checking the critical values over that interval and then evaluate the function at the endpoints of the interval. When working with a function of two variables, the closed interval is replaced by a closed, bounded set. A set is <strong>bounded</strong> if all the points in that set can be contained within a ball (or disk) of finite radius. First, we need to find the critical points inside the set and calculate the corresponding critical values. Then, it is necessary to find the maximum and minimum value of the function on the boundary of the set. When we have all these values, the largest function value corresponds to the global maximum and the smallest function value corresponds to the absolute minimum. First, however, we need to be assured that such values exist. The following theorem does this.</p>
+<div class="card definition"><span class="chip">Extreme Value Theorem</span><p>A continuous function \(f(x,y)\) on a closed and bounded set \(D\) in the plane attains an absolute maximum value at some point of \(D\) and an absolute minimum value at some point of \(D.\)</p>
+</div>
+<p>Now that we know any continuous function \(f\) defined on a closed, bounded set attains its extreme values, we need to know how to find them.</p>
+<div class="card definition"><span class="chip">Finding Extreme Values of a Function of Two Variables</span><p>Assume \(z=f(x,y)\) is a differentiable function of two variables defined on a closed, bounded set \(D.\) Then \(f\) will attain the absolute maximum value and the absolute minimum value, which are, respectively, the largest and smallest values found among the following:</p>
+<ul class="tight"><li>The values of \(f\) at the critical points of \(f\) in \(D.\)</li><li>The values of \(f\) on the boundary of \(D.\)</li></ul>
+</div>
+<p>The proof of this theorem is a direct consequence of the extreme value theorem and Fermat’s theorem. In particular, if either extremum is not located on the boundary of \(D,\) then it is located at an interior point of \(D.\) But an interior point \(({x}_{0},{y}_{0})\) of \(D\) that’s an absolute extremum is also a local extremum; hence, \(({x}_{0},{y}_{0})\) is a critical point of \(f\) by Fermat’s theorem. Therefore the only possible values for the global extrema of \(f\) on \(D\) are the extreme values of \(f\) on the interior or boundary of \(D.\)</p>
+<div class="card definition"><span class="chip">Finding Absolute Maximum and Minimum Values</span><p>Let \(z=f(x,y)\) be a continuous function of two variables defined on a closed, bounded set \(D,\) and assume \(f\) is differentiable on \(D.\) To find the absolute maximum and minimum values of \(f\) on \(D,\) do the following:</p>
+<ul class="tight"><li>Determine the critical points of \(f\) in \(D.\)</li><li>Calculate \(f\) at each of these critical points.</li><li>Determine the maximum and minimum values of \(f\) on the boundary of its domain.</li><li>The maximum and minimum values of \(f\) will occur at one of the values obtained in steps \(2\,\text{and}\,3.\)</li></ul>
+</div>
+<p>Finding the maximum and minimum values of \(f\) on the boundary of \(D\) can be challenging. If the boundary is a rectangle or set of straight lines, then it is possible to parameterize the line segments and determine the maxima on each of these segments, as seen in <a href="#example3">Example 3</a>. The same approach can be used for other shapes such as circles and ellipses.</p>
+<p>If the boundary of the set \(D\) is a more complicated curve defined by a function \(g(x,y)=c\) for some constant \(c,\) and the first-order partial derivatives of \(g\) exist, then the method of Lagrange multipliers can prove useful for determining the extrema of \(f\) on the boundary. The method of Lagrange multipliers is introduced in Lagrange Multipliers.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Use the problem-solving strategy for finding absolute extrema of a function to determine the absolute extrema of each of the following functions:</p>
+<ul class="tight"><li>\(f(x,y)={x}^{2}-2xy+4{y}^{2}-4x-2y+24\) on the domain defined by \(0\le x\le 4\) and \(0\le y\le 2\)</li><li>\(g(x,y)={x}^{2}+{y}^{2}+4x-6y\) on the domain defined by \({x}^{2}+{y}^{2}\le 16\)</li></ul>
+<p class="sol-hint">Find any interior critical points first, then parametrize each piece of the boundary (line segments or a circle) to check for critical points there too, and finally compare with the corner/endpoint values.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Using the problem-solving strategy, step \(1\) involves finding the critical points of \(f\) on its domain. Therefore, we first calculate \({f}_{x}(x,y)\) and \({f}_{y}(x,y),\) then set them each equal to zero:<br> <br> Setting them equal to zero yields the system of equations<br> <br> The solution to this system is \(x=3\) and \(y=1.\) Therefore \((3,1)\) is a critical point of \(f.\) Calculating \(f(3,1)\) gives \(f(3,1)=17.\) <br> The next step involves finding the extrema of \(f\) on the boundary of its domain. The boundary of its domain consists of four line segments as shown in the following graph:<br> <br> \({L}_{1}\) is the line segment connecting \((0,0)\) and \((4,0),\) and it can be parameterized by the equations \(x(t)=t,y(t)=0\) for \(0\le t\le 4.\) Define \(g(t)=f(x(t),y(t)).\) This gives \(g(t)={t}^{2}-4t+24.\) Differentiating <strong>g</strong> leads to \({g}^{\prime }(t)=2t-4.\) Therefore, \(g\) has a critical value at \(t=2,\) which corresponds to the point \((2,0).\) Calculating \(f(2,0)\) gives the <strong>z-</strong>value \(20.\) <br> \({L}_{2}\) is the line segment connecting \((4,0)\) and \((4,2),\) and it can be parameterized by the equations \(x(t)=4,y(t)=t\) for \(0\le t\le 2.\) Again, define \(g(t)=f(x(t),y(t)).\) This gives \(g(t)=4{t}^{2}-10t+24.\) Then, \({g}^{\prime }(t)=8t-10.\) \(g\) has a critical value at \(t=\frac{5}{4},\) which corresponds to the point \((4,\frac{5}{4}).\) Calculating \(f(4,\frac{5}{4})\) gives the <strong>z-</strong>value \(17.75.\) <br> \({L}_{3}\) is the line segment connecting \((0,2)\) and \((4,2),\) and it can be parameterized by the equations \(x(t)=t,y(t)=2\) for \(0\le t\le 4.\) Again, define \(g(t)=f(x(t),y(t)).\) This gives \(g(t)={t}^{2}-8t+36.\) The critical value corresponds to the point \((4,2).\) So, calculating \(f(4,2)\) gives the <strong>z-</strong>value \(20.\) <br> \({L}_{4}\) is the line segment connecting \((0,0)\) and \((0,2),\) and it can be parameterized by the equations \(x(t)=0,y(t)=t\) for \(0\le t\le 2.\) This time, \(g(t)=4{t}^{2}-2t+24\) and the critical value \(t=\frac{1}{4}\) correspond to the point \((0,\frac{1}{4}).\) Calculating \(f(0,\frac{1}{4})\) gives the <strong>z-</strong>value \(23.75.\) <br> We also need to find the values of \(f(x,y)\) at the corners of its domain. These corners are located at \((0,0),(4,0),(4,2)\,\text{and}\,(0,2)\text{:}\) <br> <br> The absolute maximum value is \(36,\) which occurs at \((0,2),\) and the global minimum value is \(17,\) which occurs at \((3,1)\) as shown in the following figure.<br><p>\[\begin{array}{lll}{f}_{x}(x,y) &amp; = &amp; 2x-2y-4 \\ {f}_{y}(x,y) &amp; = &amp; -2x+8y-2.\end{array}\]</p>
+<p>\[\begin{array}{lll}2x-2y-4 &amp; = &amp; 0 \\ -2x+8y-2 &amp; = &amp; 0.\end{array}\]</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_003.jpg" alt="A rectangle is drawn in the first quadrant with one corner at the origin, horizontal length 4, and height 2. This rectangle is marked D, and the sides are marked in counterclockwise order from the side overlapping the x axis L1, L2, L3, and L4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — Graph of the domain of the function \(f(x,y)={x}^{2}-2xy+4{y}^{2}-4x-2y+24.\)</figcaption></figure>
+<p>\[\begin{array}{lllll} \\ f(0,0) &amp; = &amp; {(0)}^{2}-2(0)(0)+4{(0)}^{2}-4(0)-2(0)+24 &amp; = &amp; 24 \\ f(4,0) &amp; = &amp; {(4)}^{2}-2(4)(0)+4{(0)}^{2}-4(4)-2(0)+24 &amp; = &amp; 24 \\ f(4,2) &amp; = &amp; {(4)}^{2}-2(4)(2)+4{(2)}^{2}-4(4)-2(2)+24 &amp; = &amp; 20 \\ f(0,2) &amp; = &amp; {(0)}^{2}-2(0)(2)+4{(2)}^{2}-4(0)-2(2)+24 &amp; = &amp; 36.\end{array}\]</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_010.jpg" alt="The function f(x, y) = x2 − 2xy – 4x + 4y2 – 2y + 24 is shown with local minima at (4, 2, 20) and (2, 0, 20) and local maximum at (0, 2, 36). The shape is a plane curving up on the corners significantly near (0, 2) and slightly less near (4, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — The function \(f(x,y)\) has one global minimum and one global maximum over its domain.</figcaption></figure>
+</li><li>Using the problem-solving strategy, step \(1\) involves finding the critical points of \(g\) on its domain. Therefore, we first calculate \({g}_{x}(x,y)\) and \({g}_{y}(x,y),\) then set them each equal to zero:<br> <br> Setting them equal to zero yields the system of equations<br> <br> The solution to this system is \(x=-2\) and \(y=3.\) Therefore, \((-2,3)\) is a critical point of \(g.\) Calculating \(g(-2,3),\) we get<br> <br> The next step involves finding the extrema of <strong>g</strong> on the boundary of its domain. The boundary of its domain consists of a circle of radius \(4\) centered at the origin as shown in the following graph.<br> <br> The boundary of the domain of \(g\) can be parameterized using the functions \(x(t)=4\,\text{cos}\,t,y(t)=4\,\text{sin}\,t\) for \(0\le t\le 2\pi .\) Define \(h(t)=g(x(t),y(t))\text{:}\) <br> <br> Setting \({h}^{\prime }(t)=0\) leads to<br> <br> <br> This equation has two solutions over the interval \(0\le t\le 2\pi .\) One is \(t=\pi -\text{arctan}(\frac{3}{2})\) and the other is \(t=2\pi -\text{arctan}(\frac{3}{2}).\) For the first angle,<br> <br> Therefore, \(x(t)=4\,\text{cos}\,t=-\frac{8\sqrt{13}}{13}\) and \(y(t)=4\,\text{sin}\,t=\frac{12\sqrt{13}}{13},\) so \((-\frac{8\sqrt{13}}{13},\frac{12\sqrt{13}}{13})\) is a critical point on the boundary and<br> <br> For the second angle,<br> <br> Therefore, \(x(t)=4\,\text{cos}\,t=\frac{8\sqrt{13}}{13}\) and \(y(t)=4\,\text{sin}\,t=-\frac{12\sqrt{13}}{13},\) so \((\frac{8\sqrt{13}}{13},-\frac{12\sqrt{13}}{13})\) is a critical point on the boundary and<br> <br> The absolute minimum of <strong>g</strong> is \(-13,\) which is attained at the point \((-2,3),\) which is an interior point of <strong>D</strong>. The absolute maximum of <strong>g</strong> is approximately equal to 44.844, which is attained at the boundary point \((\frac{8\sqrt{13}}{13},-\frac{12\sqrt{13}}{13}).\) These are the absolute extrema of <strong>g</strong> on <strong>D</strong> as shown in the following figure.<br><p>\[\begin{array}{lll}{g}_{x}(x,y) &amp; = &amp; 2x+4 \\ {g}_{y}(x,y) &amp; = &amp; 2y-6.\end{array}\]</p>
+<p>\[\begin{array}{lll}2x+4 &amp; = &amp; 0 \\ 2y-6 &amp; = &amp; 0.\end{array}\]</p>
+<p>\[g(-2,3)={(-2)}^{2}+{3}^{2}+4(-2)-6(3)=4+9-8-18=-13.\]</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_004.jpg" alt="A filled-in circle marked D of radius four with center at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Graph of the domain of the function \(g(x,y)={x}^{2}+{y}^{2}+4x-6y.\)</figcaption></figure>
+<p>\[\begin{array}{ll}h(t) &amp; =g(x(t),y(t)) \\ &amp; ={(4\,\text{cos}\,t)}^{2}+{(4\,\text{sin}\,t)}^{2}+4(4\,\text{cos}\,t)-6(4\,\text{sin}\,t) \\ &amp; =16{\text{cos}}^{2}\,t+16{\text{sin}}^{2}\,t+16\,\text{cos}\,t-24\,\text{sin}\,t \\ &amp; =16+16\,\text{cos}\,t-24\,\text{sin}\,t.\end{array}\]</p>
+<p>\[\begin{array}{lll}-16\,\text{sin}\,t-24\,\text{cos}\,t &amp; = &amp; 0 \\ -16\,\text{sin}\,t &amp; = &amp; 24\,\text{cos}\,t \\ \frac{-16\,\text{sin}\,t}{-16\,\text{cos}\,t} &amp; = &amp; \frac{24\,\text{cos}\,t}{-16\,\text{cos}\,t} \\ \text{tan}\,t &amp; = &amp; -\frac{3}{2}.\end{array}\]</p>
+<p>\[\begin{array}{lll}\text{sin}\,t &amp; = &amp; \text{sin}(\pi -\text{arctan}(\frac{3}{2}))=\text{sin}(\text{arctan}(\frac{3}{2}))=\frac{3\sqrt{13}}{13} \\ \text{cos}\,t &amp; = &amp; \text{cos}(\pi -\text{arctan}(\frac{3}{2}))=\text{-}\text{cos}(\text{arctan}(\frac{3}{2}))=-\frac{2\sqrt{13}}{13}.\end{array}\]</p>
+<p>\[\begin{array}{ll}g(-\frac{8\sqrt{13}}{13},\frac{12\sqrt{13}}{13}) &amp; ={(-\frac{8\sqrt{13}}{13})}^{2}+{(\frac{12\sqrt{13}}{13})}^{2}+4(-\frac{8\sqrt{13}}{13})-6(\frac{12\sqrt{13}}{13}) \\ &amp; =\frac{144}{13}+\frac{64}{13}-\frac{32\sqrt{13}}{13}-\frac{72\sqrt{13}}{13} \\ &amp; =\frac{208-104\sqrt{13}}{13}\approx -12.844.\end{array}\]</p>
+<p>\[\begin{array}{lll}\text{sin}\,t &amp; = &amp; \text{sin}(2\pi -\text{arctan}(\frac{3}{2}))=\text{-}\text{sin}(\text{arctan}(\frac{3}{2}))=-\frac{3\sqrt{13}}{13} \\ \text{cos}\,t &amp; = &amp; \text{cos}(2\pi -\text{arctan}(\frac{3}{2}))=\text{cos}(\text{arctan}(\frac{3}{2}))=\frac{2\sqrt{13}}{13}.\end{array}\]</p>
+<p>\[\begin{array}{ll}g(\frac{8\sqrt{13}}{13},-\frac{12\sqrt{13}}{13}) &amp; ={(\frac{8\sqrt{13}}{13})}^{2}+{(-\frac{12\sqrt{13}}{13})}^{2}+4(\frac{8\sqrt{13}}{13})-6(-\frac{12\sqrt{13}}{13}) \\ &amp; =\frac{144}{13}+\frac{64}{13}+\frac{32\sqrt{13}}{13}+\frac{72\sqrt{13}}{13} \\ &amp; =\frac{208+104\sqrt{13}}{13}\approx 44.844.\end{array}\]</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_011.jpg" alt="The function f(x, y) = x2 + 4x + y2 – 6y is shown with local minimum at (–12/5, 16/5, –64/5) and local maximum at (12/5, −16/5, 224/5). The shape is a plane curving up from near (−4, 4) to (4, −4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — The function \(f(x,y)\) has a local minimum and a local maximum.</figcaption></figure>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Use the problem-solving strategy for finding absolute extrema of a function to find the absolute extrema of the function</p>
+<p>\[f(x,y)=4{x}^{2}-2xy+6{y}^{2}-8x+2y+3\]</p>
+<p>on the domain defined by \(0\le x\le 2\) and \(-1\le y\le 3.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The absolute minimum occurs at \((1,0)\text{:}\) \(f(1,0)=-1.\)</p>
+<p>The absolute maximum occurs at \((0,3)\text{:}\) \(f(0,3)=63.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_014.jpg" alt="A basket full of golf balls." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — (credit: modification of work by oatsy40, Flickr)</figcaption></figure>
+<p>Pro- \(\text{T}\) company has developed a profit model that depends on the number <strong>x</strong> of golf balls sold per month (measured in thousands), and the number of hours per month of advertising <strong>y</strong>, according to the function</p>
+<p>\[z=f(x,y)=48x+96y-{x}^{2}-2xy-9{y}^{2},\]</p>
+<p>where \(z\) is measured in thousands of dollars. The maximum number of golf balls that can be produced and sold is \(50,000,\) and the maximum number of hours of advertising that can be purchased is \(25.\) Find the values of \(x\) and \(y\) that maximize profit, and find the maximum profit.</p>
+<p class="sol-hint">Find the interior critical point of the profit function first, then check each edge of the rectangular domain (via parametrization) and its corners for a possibly larger value.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the problem-solving strategy, step \(1\) involves finding the critical points of \(f\) on its domain. Therefore, we first calculate \({f}_{x}(x,y)\) and \({f}_{y}(x,y),\) then set them each equal to zero:</p>
+<p>\[\begin{array}{lll}{f}_{x}(x,y) &amp; = &amp; 48-2x-2y \\ {f}_{y}(x,y) &amp; = &amp; 96-2x-18y.\end{array}\]</p>
+<p>Setting them equal to zero yields the system of equations</p>
+<p>\[\begin{array}{lll}48-2x-2y &amp; = &amp; 0 \\ 96-2x-18y &amp; = &amp; 0.\end{array}\]</p>
+<p>The solution to this system is \(x=21\) and \(y=3.\) Therefore \((21,3)\) is a critical point of \(f.\) Calculating \(f(21,3)\) gives \(f(21,3)=48(21)+96(3)-{21}^{2}-2(21)(3)-9{(3)}^{2}=648.\)</p>
+<p>The domain of this function is \(0\le x\le 50\) and \(0\le y\le 25\) as shown in the following graph.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_005.jpg" alt="A rectangle is drawn in the first quadrant with one corner at the origin, horizontal length 50, and height 25. This rectangle is marked D, and the sides are marked in counterclockwise order from the side overlapping the x axis L1, L2, L3, and L4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — Graph of the domain of the function \(f(x,y)=48x+96y-{x}^{2}-2xy-9{y}^{2}.\)</figcaption></figure>
+<p>\({L}_{1}\) is the line segment connecting \((0,0)\) and \((50,0),\) and it can be parameterized by the equations \(x(t)=t,y(t)=0\) for \(0\le t\le 50.\) We then define \(g(t)=f(x(t),y(t))\text{:}\)</p>
+<p>\[\begin{array}{ll}g(t) &amp; =f(x(t),y(t)) \\ &amp; =f(t,0) \\ &amp; =48t+96(0)-{t}^{2}-2(t)(0)-9{(0)}^{2} \\ &amp; =48t-{t}^{2}.\end{array}\]</p>
+<p>Setting \({g}^{\prime }(t)=0\) yields the critical point \(t=24,\) which corresponds to the point \((24,0)\) in the domain of \(f.\) Calculating \(f(24,0)\) gives \(576.\)</p>
+<p>\({L}_{2}\) is the line segment connecting and \((50,25),\) and it can be parameterized by the equations \(x(t)=50,y(t)=t\) for \(0\le t\le 25.\) Once again, we define \(g(t)=f(x(t),y(t))\text{:}\)</p>
+<p>\[\begin{array}{ll}g(t) &amp; =f(x(t),y(t)) \\ &amp; =f(50,t) \\ &amp; =48(50)+96t-{50}^{2}-2(50)t-9{t}^{2} \\ &amp; =-9{t}^{2}-4t-100.\end{array}\]</p>
+<p>This function has a critical point at \(t=-\frac{2}{9},\) which corresponds to the point \((50,-\frac{2}{9}).\) This point is not in the domain of \(f.\)</p>
+<p>\({L}_{3}\) is the line segment connecting \((0,25)\,\text{and}\,(50,25),\) and it can be parameterized by the equations \(x(t)=t,y(t)=25\) for \(0\le t\le 50.\) We define \(g(t)=f(x(t),y(t))\text{:}\)</p>
+<p>\[\begin{array}{ll}g(t) &amp; =f(x(t),y(t)) \\ &amp; =f(t,25) \\ &amp; =48t+96(25)-{t}^{2}-2t(25)-9({25}^{2}) \\ &amp; =\text{-}{t}^{2}-2t-3225.\end{array}\]</p>
+<p>This function has a critical point at \(t=-1,\) which corresponds to the point \((-1,25),\) which is not in the domain.</p>
+<p>\({L}_{4}\) is the line segment connecting \((0,0)\,\text{to}\,(0,25),\) and it can be parameterized by the equations \(x(t)=0,y(t)=t\) for \(0\le t\le 25.\) We define \(g(t)=f(x(t),y(t))\text{:}\)</p>
+<p>\[\begin{array}{ll}g(t) &amp; =f(x(t),y(t)) \\ &amp; =f(0,t) \\ &amp; =48(0)+96t-{(0)}^{2}-2(0)t-9{t}^{2} \\ &amp; =96t-{t}^{2}.\end{array}\]</p>
+<p>This function has a critical point at \(t=\frac{16}{3},\) which corresponds to the point \((0,\frac{16}{3}),\) which is on the boundary of the domain. Calculating \(f(0,\frac{16}{3})\) gives \(256.\)</p>
+<p>We also need to find the values of \(f(x,y)\) at the corners of its domain. These corners are located at \((0,0),(50,0),(50,25)\,\text{and}\,(0,25)\text{:}\)</p>
+<p>\[\begin{array}{lll}f(0,0) &amp; = &amp; 48(0)+96(0)-{(0)}^{2}-2(0)(0)-9{(0)}^{2}=0 \\ f(50,0) &amp; = &amp; 48(50)+96(0)-{(50)}^{2}-2(50)(0)-9{(0)}^{2}=-100 \\ f(50,25) &amp; = &amp; 48(50)+96(25)-{(50)}^{2}-2(50)(25)-9{(25)}^{2}=-5825 \\ f(0,25) &amp; = &amp; 48(0)+96(25)-{(0)}^{2}-2(0)(25)-9{(25)}^{2}=-3225.\end{array}\]</p>
+<p>The maximum critical value is \(648,\) which occurs at \((21,3).\) Therefore, a maximum profit of \(\text{\$}648,000\) is realized when \(21,000\) golf balls are sold and \(3\) hours of advertising are purchased per month as shown in the following figure.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_012.jpg" alt="The function f(x, y) = 48x + 96y – x2 – 2xy – 9y2 is shown with maximum point at (21, 3, 648). The shape is a plane curving from near the origin down to (50, 25)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — The profit function \(f(x,y)\) has a maximum at \((21,3,648).\)</figcaption></figure>
+</div></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A critical point of the function \(f(x,y)\) is any point \(({x}_{0},{y}_{0})\) where either \({f}_{x}({x}_{0},{y}_{0})={f}_{y}({x}_{0},{y}_{0})=0,\) or at least one of \({f}_{x}({x}_{0},{y}_{0})\) and \({f}_{y}({x}_{0},{y}_{0})\) do not exist. (See <a href="#example1">Example 1</a>.)</li><li>A saddle point is a point \(({x}_{0},{y}_{0})\) where \({f}_{x}({x}_{0},{y}_{0})={f}_{y}({x}_{0},{y}_{0})=0,\) but \(({x}_{0},{y}_{0})\) is neither a maximum nor a minimum at that point. (See <a href="#example2">Example 2</a>.)</li><li>To find extrema of functions of two variables, first find the critical points, then calculate the discriminant and apply the second derivative test. (See <a href="#example2">Example 2</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Discriminant</strong></td><td>\(D={f}_{xx}({x}_{0},{y}_{0}){f}_{yy}({x}_{0},{y}_{0})-{({f}_{xy}({x}_{0},{y}_{0}))}^{2}\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>For the following exercises, find all critical points.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(f(x,y)=1+{x}^{2}+{y}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(f(x,y)={(3x-2)}^{2}+{(y-4)}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\frac{2}{3},4)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(f(x,y)={x}^{4}+{y}^{4}-16xy\)</p>
+</div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(f(x,y)=15{x}^{3}-3xy+15{y}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,0)\) \((\frac{1}{15},\frac{1}{15})\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the critical points of the function by using algebraic techniques (completing the square) or by examining the form of the equation. Verify your results using the partial derivatives test.</p>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(f(x,y)=\sqrt{{x}^{2}+{y}^{2}+1}\)</p>
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(f(x,y)=\text{-}{x}^{2}-5{y}^{2}+8x-10y-13\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Maximum at \((4,-1,8)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(f(x,y)={x}^{2}+{y}^{2}+2x-6y+6\)</p>
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(f(x,y)=\sqrt{{x}^{2}+{y}^{2}}+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Relative minimum at \((0,0,1)\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the second derivative test to classify any critical points and determine whether each critical point is a maximum, minimum, saddle point, or none of these.</p>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(f(x,y)=\text{-}{x}^{3}+4xy-2{y}^{2}+1\)</p>
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(f(x,y)={x}^{2}{y}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The second derivative test fails. Since \({x}^{2}{y}^{2}&gt;0\) for all <strong>x</strong> and <strong>y</strong> different from zero, and \({x}^{2}{y}^{2}=0\) when either <strong>x</strong> or <strong>y</strong> equals zero (or both), then the absolute minimum occurs at \((0,0).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(f(x,y)={x}^{2}-6x+{y}^{2}+4y-8\)</p>
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(f(x,y)=2xy+3x+4y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(-2,-\frac{3}{2})=-6\) is a saddle point.</p>
+</div></div></div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(f(x,y)=8xy(x+y)+7\)</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(f(x,y)={x}^{2}+4xy+{y}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(0,0)=0;\) \((0,0,0)\) is a saddle point.</p>
+</div></div></div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(f(x,y)={x}^{3}+{y}^{3}-300x-75y-3\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(f(x,y)=9-{x}^{4}{y}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The only critical point(s) are where both \({f}_{x}=0\) and \({f}_{y}=0\) and that is \(f(0, 0)=9\) . However, since \({f}_{xx}{f}_{xy}-{\left({f}_{xy}\right)}^{2}=0\) at the critical point, the Second Derivative Test fails. By graphing, we can see that this point is a local maximum.</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x,y)=7{x}^{2}y+9x{y}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(f(x,y)=3{x}^{2}-2xy+{y}^{2}-8y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Relative minimum located at \((2,6).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(f(x,y)=3{x}^{2}+2xy+{y}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(f(x,y)={y}^{2}+xy+3y+2x+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((1,-2)\) is a saddle point.</p>
+</div></div></div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(f(x,y)={x}^{2}+xy+{y}^{2}-3x\)</p>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(f(x,y)={x}^{2}+2{y}^{2}-{x}^{2}y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((2,1)\) and \((-2,1)\) are saddle points; \((0,0)\) is a relative minimum.</p>
+</div></div></div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(f(x,y)={x}^{2}+y-{e}^{y}\)</p>
+</div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(f(x,y)={e}^{\text{-}({x}^{2}+{y}^{2}+2x)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-1,0)\) is a relative maximum.</p>
+</div></div></div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(f(x,y)={x}^{2}+xy+{y}^{2}-x-y+1\)</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(f(x,y)={x}^{2}+10xy+{y}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,0)\) is a saddle point.</p>
+</div></div></div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(f(x,y)=\text{-}{x}^{2}-5{y}^{2}+10x-30y-62\)</p>
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(f(x,y)=120x+120y-xy-{x}^{2}-{y}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The relative maximum is at \((40,40).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(f(x,y)=2{x}^{2}+2xy+{y}^{2}+2x-3\)</p>
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(f(x,y)={x}^{2}+x-3xy+{y}^{3}-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\frac{1}{4},\frac{1}{2})\) is a saddle point and \((1,1)\) is the relative minimum.</p>
+</div></div></div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(f(x,y)=2xy{e}^{\text{-}{x}^{2}-{y}^{2}}\)</p>
+</div></div>
+<p>For the following exercises, determine the extreme values and the saddle points. Use a CAS to graph the function.</p>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p><strong>[T]</strong> \(f(x,y)=y{e}^{x}-{e}^{y}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A saddle point is located at \((0,0).\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_201.jpg" alt="A complicated graph that starts near (1, 1, 1), and decreases significantly along the x and y axes, so much so along the y axis that it is cut off. The rest of the graph stays near 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p><strong>[T]</strong> \(f(x,y)=x\,\text{sin}(y)\)</p>
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p><strong>[T]</strong> \(f(x,y)=\text{sin}(x)\text{sin}(y),x\in (0,2\pi ),y\in (0,2\pi )\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>There is a saddle point at \((\pi ,\pi ),\) local maxima at \((\frac{\pi }{2},\frac{\pi }{2})\,\text{and}\,(\frac{3\pi }{2},\frac{3\pi }{2}),\) and local minima at \((\frac{\pi }{2},\frac{3\pi }{2})\,\text{and}\,(\frac{3\pi }{2},\frac{\pi }{2}).\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_07_203.jpg" alt="A series of hills and holes alternating through a space with amplitude 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>Find the absolute extrema of the given function on the indicated closed and bounded set \(R.\)</p>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(f(x,y)=xy-x-3y;\) \(R\) is the triangular region with vertices \((0,0),(0,4),\,\text{and}\,(5,0).\)</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Find the absolute maximum and minimum values of \(f(x,y)={x}^{2}+{y}^{2}-2y+1\) on the region \(R=\{(x,y)|{x}^{2}+{y}^{2}\le 4\}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,1,0)\) is the absolute minimum and \((0,-2,9)\) is the absolute maximum.</p>
+</div></div></div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(f(x,y)={x}^{3}-3xy-{y}^{3}\) on \(R=\{(x,y)\text{:}\,-2\le x\le 2,-2\le y\le 2\}\)</p>
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(f(x,y)=\frac{-2y}{{x}^{2}+{y}^{2}+1}\) on \(R=\{(x,y)\text{:}\,{x}^{2}+{y}^{2}\le 4\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>There is an absolute minimum at \((0,1,-1)\) and an absolute maximum at \((0,-1,1).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Find three positive numbers the sum of which is \(27,\) such that the sum of their squares is as small as possible.</p>
+</div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Find the points on the surface \({x}^{2}-yz=5\) that are closest to the origin.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\sqrt{5},0,0),(\text{-}\sqrt{5},0,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Find the maximum volume of a rectangular box with three faces in the coordinate planes and a vertex in the first octant on the plane \(x+y+z=1.\)</p>
+</div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>The sum of the length and the girth (perimeter of a cross-section) of a package carried by a delivery service cannot exceed \(108\) in. Find the dimensions of the rectangular package of largest volume that can be sent.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{18 by 36 by 18 in}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>A cardboard box without a lid is to be made with a volume of \(4\) ft<sup>3</sup>. Find the dimensions of the box that requires the least amount of cardboard.</p>
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find the point on the surface \(f(x,y)={x}^{2}+{y}^{2}+10\) nearest the plane \(x+2y-z=0.\) Identify the point on the plane.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\frac{1}{2},1,\frac{45}{4})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Find the point in the plane \(2x-y+2z=16\) that is closest to the origin.</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>A company manufactures two types of athletic shoes: jogging shoes and cross-trainers. The total revenue from \(x\) jogging shoes and \(y\) cross-trainers is given by \(R(x,y)=-5{x}^{2}-8{y}^{2}-2xy+42x+102y,\) where \(x\) and \(y\) are in thousands of units. Find the values of <strong>x</strong> and <strong>y</strong> to maximize the total revenue.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=3\) and \(y=6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>A shipping company handles rectangular boxes provided the sum of the length, width, and height of the box does not exceed \(96\) in. Find the dimensions of the box that meets this condition and has the largest volume.</p>
+</div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Find the maximum volume of a cylindrical soda can such that the sum of its height and circumference is \(120\) cm.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(V=\frac{64,000}{\pi }\approx 20,372\) cm<sup>3</sup></p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>critical point of a function of two variables</dt><dd>the point \(({x}_{0},{y}_{0})\) is called a critical point of \(f(x,y)\) if one of the two following conditions holds:<br></dd><dt>discriminant</dt><dd>the discriminant of the function \(f(x,y)\) is given by the formula \(D={f}_{xx}({x}_{0},{y}_{0}){f}_{yy}({x}_{0},{y}_{0})-{({f}_{xy}({x}_{0},{y}_{0}))}^{2}\)</dd><dt>saddle point</dt><dd>given the function \(z=f(x,y),\) the point \(({x}_{0},{y}_{0},f({x}_{0},{y}_{0}))\) is a saddle point if both \({f}_{x}({x}_{0},{y}_{0})=0\) and \({f}_{y}({x}_{0},{y}_{0})=0,\) but \(f\) does not have a local extremum at \(({x}_{0},{y}_{0})\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

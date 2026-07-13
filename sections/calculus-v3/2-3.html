@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Dot Product · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">The Dot Product</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 2.3</span>The Dot Product</h1>
+<p>If we apply a force to an object so that the object moves, we say that <strong>work</strong> is done by the force. In Introduction to Applications of Integration on integration applications, we looked at a constant force and we assumed the force was applied in the direction of motion of the object. Under those conditions, work can be expressed as the product of the force acting on an object and the distance the object moves. In this chapter, however, we have seen that both force and the motion of an object can be represented by vectors.</p>
+<p>In this section, we develop an operation called the <strong>dot product</strong>, which allows us to calculate work in the case when the force vector and the motion vector have different directions. The dot product essentially tells us how much of the force vector is applied in the direction of the motion vector. The dot product can also help us measure the angle formed by a pair of vectors and the position of a vector relative to the coordinate axes. It even provides a simple test to determine whether two vectors meet at a right angle.</p>
+<h2 id="the-dot-product-and-its-properties">The Dot Product and Its Properties</h2>
+<p>We have already learned how to add and subtract vectors. In this chapter, we investigate two types of vector multiplication. The first type of vector multiplication is called the dot product, based on the notation we use for it, and it is defined as follows:</p>
+<div class="card definition"><span class="chip">Definition</span><p>The <strong>dot product</strong> of vectors \(\text{u}=\langle {u}_{1},{u}_{2},{u}_{3}\rangle\) and \(\text{v}=\langle {v}_{1},{v}_{2},{v}_{3}\rangle\) is given by the sum of the products of the components</p>
+<p>\[\text{u}·\text{v}={u}_{1}{v}_{1}+{u}_{2}{v}_{2}+{u}_{3}{v}_{3}.\]</p>
+</div>
+<p>Note that if \(\text{u}\) and \(\text{v}\) are two-dimensional vectors, we calculate the dot product in a similar fashion. Thus, if \(\text{u}=\langle {u}_{1},{u}_{2}\rangle\) and \(\text{v}=\langle {v}_{1},{v}_{2}\rangle ,\) then</p>
+<p>\[\text{u}·\text{v}={u}_{1}{v}_{1}+{u}_{2}{v}_{2}.\]</p>
+<p>When two vectors are combined under addition or subtraction, the result is a vector. When two vectors are combined using the dot product, the result is a scalar. For this reason, the dot product is often called the <strong>scalar product</strong>. It may also be called the <strong>inner product</strong>.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><ul class="tight"><li>Find the dot product of \(\text{u}=\langle 3,5,2\rangle\) and \(\text{v}=\langle -1,3,0\rangle .\)</li><li>Find the scalar product of \(\text{p}=10\text{i}-4\text{j}+7\text{k}\) and \(\text{q}=-2\text{i}+\text{j}+6\text{k}.\)</li></ul>
+<p class="sol-hint">Multiply corresponding components and add the results.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Substitute the vector components into the formula for the dot product:<br><p>\[\begin{array}{ll}\text{u}·\text{v} &amp; ={u}_{1}{v}_{1}+{u}_{2}{v}_{2}+{u}_{3}{v}_{3} \\ &amp; =3(-1)+5(3)+2(0)=-3+15+0=12.\end{array}\]</p>
+</li><li>The calculation is the same if the vectors are written using standard unit vectors. We still have three components for each vector to substitute into the formula for the dot product:<br><p>\[\begin{array}{ll}\text{p}·\text{q} &amp; ={u}_{1}{v}_{1}+{u}_{2}{v}_{2}+{u}_{3}{v}_{3} \\ &amp; =10(-2)+(-4)(1)+(7)(6)=-20-4+42=18.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Find \(\text{u}·\text{v},\) where \(\text{u}=\langle 2,9,-1\rangle\) and \(\text{v}=\langle -3,1,-4\rangle .\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>7</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Like vector addition and subtraction, the dot product has several algebraic properties. We prove three of these properties and leave the rest as exercises.</p>
+<div class="card definition"><span class="chip">Properties of the Dot Product</span><p>Let \(\text{u},\) \(\text{v},\) and \(\text{w}\) be vectors, and let <strong>c</strong> be a scalar.</p>
+<p>\[\begin{array}{lllllllll}\text{i.} &amp; &amp; &amp; \text{u}·\text{v} &amp; = &amp; \text{v}·\text{u} &amp; &amp; &amp; \text{Commutative property} \\ \text{ii.} &amp; &amp; &amp; \text{u}·(\text{v}+\text{w}) &amp; = &amp; \text{u}·\text{v}+\text{u}·\text{w} &amp; &amp; &amp; \text{Distributive property} \\ \text{iii.} &amp; &amp; &amp; c(\text{u}·\text{v}) &amp; = &amp; (c\text{u})·\text{v}=\text{u}·(c\text{v}) &amp; &amp; &amp; \text{Associative property} \\ \text{iv.} &amp; &amp; &amp; \text{v}·\text{v} &amp; = &amp; {\Vert \text{v}\Vert }^{2} &amp; &amp; &amp; \text{Property of magnitude}\end{array}\]</p>
+</div>
+<h3 id="proof">Proof</h3>
+<p>Let \(\text{u}=\langle {u}_{1},{u}_{2},{u}_{3}\rangle\) and \(\text{v}=\langle {v}_{1},{v}_{2},{v}_{3}\rangle .\) Then</p>
+<p>\[\begin{array}{ll}\text{u}·\text{v} &amp; =\langle {u}_{1},{u}_{2},{u}_{3}\rangle ·\langle {v}_{1},{v}_{2},{v}_{3}\rangle \\ &amp; ={u}_{1}{v}_{1}+{u}_{2}{v}_{2}+{u}_{3}{v}_{3} \\ &amp; ={v}_{1}{u}_{1}+{v}_{2}{u}_{2}+{v}_{3}{u}_{3} \\ &amp; =\langle {v}_{1},{v}_{2},{v}_{3}\rangle ·\langle {u}_{1},{u}_{2},{u}_{3}\rangle \\ &amp; =\text{v}·\text{u}.\end{array}\]</p>
+<p>The associative property looks like the associative property for real-number multiplication, but pay close attention to the difference between scalar and vector objects:</p>
+<p>\[\begin{array}{ll}c(\text{u}·\text{v}) &amp; =c({u}_{1}{v}_{1}+{u}_{2}{v}_{2}+{u}_{3}{v}_{3}) \\ &amp; =c({u}_{1}{v}_{1})+c({u}_{2}{v}_{2})+c({u}_{3}{v}_{3}) \\ &amp; =(c{u}_{1}){v}_{1}+(c{u}_{2}){v}_{2}+(c{u}_{3}){v}_{3} \\ &amp; =\langle c{u}_{1},c{u}_{2},c{u}_{3}\rangle ·\langle {v}_{1},{v}_{2},{v}_{3}\rangle \\ &amp; =c\langle {u}_{1},{u}_{2},{u}_{3}\rangle ·\langle {v}_{1},{v}_{2},{v}_{3}\rangle \\ &amp; =(c\text{u})·\text{v}.\end{array}\]</p>
+<p>The proof that \(c(\text{u}·\text{v})=\text{u}·(c\text{v})\) is similar.</p>
+<p>The fourth property shows the relationship between the magnitude of a vector and its dot product with itself:</p>
+<p>\[\begin{array}{ll}\text{v}·\text{v} &amp; =\langle {v}_{1},{v}_{2},{v}_{3}\rangle ·\langle {v}_{1},{v}_{2},{v}_{3}\rangle \\ &amp; ={({v}_{1})}^{2}+{({v}_{2})}^{2}+{({v}_{3})}^{2} \\ &amp; ={[\sqrt{{({v}_{1})}^{2}+{({v}_{2})}^{2}+{({v}_{3})}^{2}}]}^{2} \\ &amp; ={\Vert \text{v}\Vert }^{2}.\end{array}\]</p>
+<p>□</p>
+<p>Note that the definition of the dot product yields \(0·\text{v}=0.\) By property iv., if \(\text{v}·\text{v}=0,\) then \(\text{v}=0.\)</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Let \(\text{a}=\langle 1,2,-3\rangle ,\) \(\text{b}=\langle 0,2,4\rangle ,\) and \(\text{c}=\langle 5,-1,3\rangle .\) Find each of the following products.</p>
+<ul class="tight"><li>\((\text{a}·\text{b})\text{c}\)</li><li>\(\text{a}·(2\text{c})\)</li><li>\({\Vert \text{b}\Vert }^{2}\)</li></ul>
+<p class="sol-hint">Work each expression from the inside out — compute any dot products first, then apply the resulting scalar to the remaining vector.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Note that this expression asks for the scalar multiple of <strong>c</strong> by \(\text{a}·\text{b}\text{:}\) <br><p>\[\begin{array}{ll}(\text{a}·\text{b})\text{c} &amp; =(\langle 1,2,-3\rangle ·\langle 0,2,4\rangle )\langle 5,-1,3\rangle \\ &amp; =(1(0)+2(2)+(-3)(4))\langle 5,-1,3\rangle \\ &amp; =-8\langle 5,-1,3\rangle \\ &amp; =\langle -40,8,-24\rangle .\end{array}\]</p>
+</li><li>This expression is a dot product of vector <strong>a</strong> and scalar multiple 2<strong>c</strong>:<br><p>\[\begin{array}{ll}\text{a}·(2\text{c}) &amp; =2(\text{a}·\text{c}) \\ &amp; =2(\langle 1,2,-3\rangle ·\langle 5,-1,3\rangle ) \\ &amp; =2(1(5)+2(-1)+(-3)(3)) \\ &amp; =2(-6)=-12.\end{array}\]</p>
+</li><li>Simplifying this expression is a straightforward application of the dot product:<br><p>\[{\Vert \text{b}\Vert }^{2}=\text{b}·\text{b}=\langle 0,2,4\rangle ·\langle 0,2,4\rangle ={0}^{2}+{2}^{2}+{4}^{2}=0+4+16=20.\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find the following products for \(\text{p}=\langle 7,0,2\rangle ,\) \(\text{q}=\langle -2,2,-2\rangle ,\) and \(\text{r}=\langle 0,2,-3\rangle .\)</p>
+<ul class="tight"><li>\((\text{r}·\text{p})\text{q}\)</li><li>\({\Vert \text{p}\Vert }^{2}\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>a. \((\text{r}·\text{p})\text{q}=\langle 12,-12,12\rangle ;\) b. \({\Vert \text{p}\Vert }^{2}=53\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-the-dot-product-to-find-the-angle-between-two-vectors">Using the Dot Product to Find the Angle between Two Vectors</h2>
+<p>When two nonzero vectors are placed in standard position, whether in two dimensions or three dimensions, they form an angle between them (<a href="#fig1">Figure 1</a>). The dot product provides a way to find the measure of this angle. This property is a result of the fact that we can express the dot product in terms of the cosine of the angle formed by two vectors.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_001.jpg" alt="This figure is two vectors with the same initial point. The first vector is labeled “u,” and the second vector is labeled “v.” The angle between the two vectors is labeled “theta.”" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Let <strong>θ</strong> be the angle between two nonzero vectors \(\text{u}\) and \(\text{v}\) such that \(0\le θ\le \pi .\)</figcaption></figure>
+<div class="card definition"><span class="chip">Evaluating a Dot Product</span><p>The dot product of two vectors is the product of the magnitude of each vector and the cosine of the angle between them:</p>
+<p>\[\text{u}·\text{v}=\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ.\]</p>
+</div>
+<h3 id="proof-2">Proof</h3>
+<p>Place vectors \(\text{u}\) and \(\text{v}\) in standard position and consider the vector \(\text{v}-\text{u}\) (<a href="#fig2">Figure 2</a>). These three vectors form a triangle with side lengths \(\Vert \text{u}\Vert ,\Vert \text{v}\Vert ,\,\text{and}\,\Vert \text{v}-\text{u}\Vert .\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_002.jpg" alt="This figure is two vectors with the same initial point. The first vector is labeled “u,” and the second vector is labeled “v.” The angle between the two vectors is labeled “theta.” There is also a third vector from the terminal point of vector u to the terminal point of vector v. It is labeled “v – u.”" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The lengths of the sides of the triangle are given by the magnitudes of the vectors that form the triangle.</figcaption></figure>
+<p>Recall from trigonometry that the law of cosines describes the relationship among the side lengths of the triangle and the angle <strong>θ</strong>. Applying the law of cosines here gives</p>
+<p>\[{\Vert \text{v}-\text{u}\Vert }^{2}={\Vert \text{u}\Vert }^{2}+{\Vert \text{v}\Vert }^{2}-2\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ.\]</p>
+<p>The dot product provides a way to rewrite the left side of this equation:</p>
+<p>\[\begin{array}{ll}{\Vert \text{v}-\text{u}\Vert }^{2} &amp; =(\text{v}-\text{u})·(\text{v}-\text{u}) \\ &amp; =(\text{v}-\text{u})·\text{v}-(\text{v}-\text{u})·\text{u} \\ &amp; =\text{v}·\text{v}-\text{u}·\text{v}-\text{v}·\text{u}+\text{u}·\text{u} \\ &amp; =\text{v}·\text{v}-\text{u}·\text{v}-\text{u}·\text{v}+\text{u}·\text{u} \\ &amp; ={\Vert \text{v}\Vert }^{2}-2\text{u}·\text{v}+{\Vert \text{u}\Vert }^{2}.\end{array}\]</p>
+<p>Substituting into the law of cosines yields</p>
+<p>\[\begin{array}{lll}{\Vert \text{v}-\text{u}\Vert }^{2} &amp; = &amp; {\Vert \text{u}\Vert }^{2}+{\Vert \text{v}\Vert }^{2}-2\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ \\ {\Vert \text{v}\Vert }^{2}-2\text{u}·\text{v}+{\Vert \text{u}\Vert }^{2} &amp; = &amp; {\Vert \text{u}\Vert }^{2}+{\Vert \text{v}\Vert }^{2}-2\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ \\ -2\text{u}·\text{v} &amp; = &amp; -2\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ \\ \text{u}·\text{v} &amp; = &amp; \Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ.\end{array}\]</p>
+<p>□</p>
+<p>We can use this form of the dot product to find the measure of the angle between two nonzero vectors. The following equation rearranges (see original) to solve for the cosine of the angle:</p>
+<p>\[\text{cos}\,θ=\frac{\text{u}·\text{v}}{\Vert \text{u}\Vert \Vert \text{v}\Vert }.\]</p>
+<p>Using this equation, we can find the cosine of the angle between two nonzero vectors. Since we are considering the smallest angle between the vectors, we assume \(0\text{°}\le θ\le 180\text{°}\) (or \(0\le θ\le \pi\) if we are working in radians). The inverse cosine is unique over this range, so we are then able to determine the measure of the angle \(θ.\)</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the measure of the angle between each pair of vectors.</p>
+<ul class="tight"><li><strong>i</strong> + <strong>j</strong> + <strong>k</strong> and 2<strong>i</strong> – <strong>j</strong> – 3<strong>k</strong></li><li>\(\langle 2,5,6\rangle\) and \(\langle -2,-4,4\rangle\)</li></ul>
+<p class="sol-hint">Solve \(\text{cos}\,θ=\frac{\text{u}·\text{v}}{\Vert \text{u}\Vert \Vert \text{v}\Vert }\) for θ using each pair's dot product and magnitudes.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>To find the cosine of the angle formed by the two vectors, substitute the components of the vectors into (see original):<br> <br> Therefore, \(θ=\text{arccos}\,\frac{-2}{\sqrt{42}}\) rad.<p>\[\begin{array}{ll}\text{cos}\,θ &amp; =\frac{(\text{i}+\text{j}+\text{k})·(2\text{i}-\text{j}-3\text{k})}{\Vert \text{i}+\text{j}+\text{k}\Vert ·\Vert 2\text{i}-\text{j}-3\text{k}\Vert } \\ &amp; =\frac{1(2)+(1)(-1)+(1)(-3)}{\sqrt{{1}^{2}+{1}^{2}+{1}^{2}}\,\sqrt{{2}^{2}+{(-1)}^{2}+{(-3)}^{2}}} \\ &amp; =\frac{-2}{\sqrt{3}\,\sqrt{14}}=\frac{-2}{\sqrt{42}}.\end{array}\]</p>
+</li><li>Start by finding the value of the cosine of the angle between the vectors:<br> <br> Now, \(\text{cos}\,θ=0\) and \(0\le θ\le \pi ,\) so \(θ=\pi \text{/}2.\)<p>\[\begin{array}{ll}\text{cos}\,θ &amp; =\frac{\langle 2,5,6\rangle ·\langle -2,-4,4\rangle }{\Vert \langle 2,5,6\rangle \Vert ·\Vert \langle -2,-4,4\rangle \Vert } \\ &amp; =\frac{2(-2)+(5)(-4)+(6)(4)}{\sqrt{{2}^{2}+{5}^{2}+{6}^{2}}\,\sqrt{{(-2)}^{2}+{(-4)}^{2}+{4}^{2}}} \\ &amp; =\frac{0}{\sqrt{65}\,\sqrt{36}}=0.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the measure of the angle, in radians, formed by vectors \(\text{a}=\langle 1,2,0\rangle\) and \(\text{b}=\langle 2,4,1\rangle .\) Round to the nearest hundredth.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(θ\approx 0.22\) rad</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The angle between two vectors can be acute \((0&lt;\text{cos}\,θ&lt;1),\) obtuse \((-1&lt;\text{cos}\,θ&lt;0),\) or straight \((\text{cos}\,θ=-1).\) If \(\text{cos}\,θ=1,\) then both vectors have the same direction. If \(\text{cos}\,θ=0,\) then the vectors, when placed in standard position, form a right angle (<a href="#fig3">Figure 3</a>). We can formalize this result into a theorem regarding orthogonal (perpendicular) vectors.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_009.jpg" alt="This figure has 5 images. The first image has two vectors u and v. The angle between these two vectors is theta. Theta is an acute angle. The second image is has two vectors u and v. The angle between these vectors is theta. Theta is an obtuse angle. The third image is vectors u and v in opposite directions. The angle between u and v is a straight angle. The fourth image is u and v in the same direction. The fifth image is u and v with angle theta between them as a right angle." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — (a) An acute angle has \(0&lt;\text{cos}\,θ&lt;1.\) (b) An obtuse angle has \(-1&lt;\text{cos}\,θ&lt;0.\) (c) A straight line has \(\text{cos}\,θ=-1.\) (d) If the vectors have the same direction, \(\text{cos}\,θ=1.\) (e) If the vectors are orthogonal (perpendicular), \(\text{cos}\,θ=0.\)</figcaption></figure>
+<div class="card definition"><span class="chip">Orthogonal Vectors</span><p>The nonzero vectors \(\text{u}\) and \(\text{v}\) are <strong>orthogonal vectors</strong> if and only if \(\text{u}·\text{v}=0.\)</p>
+</div>
+<h3 id="proof-3">Proof</h3>
+<p>Let \(\text{u}\) and \(\text{v}\) be nonzero vectors, and let \(θ\) denote the angle between them. First, assume \(\text{u}·\text{v}=0.\) Then</p>
+<p>\[\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ=0.\]</p>
+<p>However, \(\Vert \text{u}\Vert \ne 0\) and \(\Vert \text{v}\Vert \ne 0,\) so we must have \(\text{cos}\,θ=0.\) Hence, \(θ=90\text{°},\) and the vectors are orthogonal.</p>
+<p>Now assume \(\text{u}\) and \(\text{v}\) are orthogonal. Then \(θ=90\text{°}\) and we have</p>
+<p>\[\text{u}·\text{v}=\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ=\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,90\text{°}=\Vert \text{u}\Vert \Vert \text{v}\Vert (0)=0.\]</p>
+<p>□</p>
+<p>The terms <strong><strong>orthogonal</strong></strong>, <strong><strong>perpendicular</strong></strong>, and <strong><strong>normal</strong></strong> each indicate that mathematical objects are intersecting at right angles. The use of each term is determined mainly by its context. We say that vectors are orthogonal and lines are perpendicular. The term <strong>normal</strong> is used most often when measuring the angle made with a plane or other surface.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Determine whether \(\text{p}=\langle 1,0,5\rangle\) and \(\text{q}=\langle 10,3,-2\rangle\) are orthogonal vectors.</p>
+<p class="sol-hint">Compute the dot product — vectors are orthogonal exactly when it equals zero.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the definition, we need only check the dot product of the vectors:</p>
+<p>\[\text{p}·\text{q}=1(10)+(0)(3)+(5)(-2)=10+0-10=0.\]</p>
+<p>Because \(\text{p}·\text{q}=0,\) the vectors are orthogonal (<a href="#fig4">Figure 4</a>).</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_003.jpg" alt="This figure is the 3-dimensional coordinate system. There are two vectors in standard position. The vectors are labeled “p” and “q.” The angle between the vectors is a right angle." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — Vectors <strong>p</strong> and \(\text{q}\) form a right angle when their initial points are aligned.</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>For which value of <strong>x</strong> is \(\text{p}=\langle 2,8,-1\rangle\) orthogonal to \(\text{q}=\langle x,-1,2\rangle ?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=5\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Let \(\text{v}=\langle 2,3,3\rangle .\) Find the measures of the angles formed by the following vectors.</p>
+<ul class="tight"><li>\(\text{v}\) and <strong>i</strong></li><li>\(\text{v}\) and <strong>j</strong></li><li>\(\text{v}\) and <strong>k</strong></li></ul>
+<p class="sol-hint">Use \(\text{cos}\,α=\frac{\text{v}·\text{i}}{\Vert \text{v}\Vert \Vert \text{i}\Vert }\) for each standard unit vector in turn.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Let <strong>α</strong> be the angle formed by \(\text{v}\) and <strong>i:</strong><br> <br><p>\[\begin{array}{ll}\text{cos}\,α &amp; =\frac{\text{v}·\text{i}}{\Vert \text{v}\Vert ·\Vert \text{i}\Vert } \\ &amp; =\frac{\langle 2,3,3\rangle ·\langle 1,0,0\rangle }{\sqrt{{2}^{2}+{3}^{2}+{3}^{2}}\,\sqrt{1}} \\ &amp; =\frac{2}{\sqrt{22}}.\end{array}\]</p>
+<p>\[α=\text{arccos}\,\frac{2}{\sqrt{22}}\approx 1.130\,\text{rad}.\]</p>
+</li><li>Let <strong>β</strong> represent the angle formed by \(\text{v}\) and <strong>j</strong>:<br> <br><p>\[\begin{array}{ll}\text{cos}\,β &amp; =\frac{\text{v}·\text{j}}{\Vert \text{v}\Vert ·\Vert \text{j}\Vert } \\ &amp; =\frac{\langle 2,3,3\rangle ·\langle 0,1,0\rangle }{\sqrt{{2}^{2}+{3}^{2}+{3}^{2}}\,\sqrt{1}} \\ &amp; =\frac{3}{\sqrt{22}}.\end{array}\]</p>
+<p>\[β=\text{arccos}\,\frac{3}{\sqrt{22}}\approx 0.877\,\text{rad.}\]</p>
+</li><li>Let <strong>γ</strong> represent the angle formed by \(\text{v}\) and <strong>k</strong>:<br> <br><p>\[\begin{array}{ll}\text{cos}\,γ &amp; =\frac{\text{v}·\text{k}}{\Vert \text{v}\Vert ·\Vert \text{k}\Vert } \\ &amp; =\frac{\langle 2,3,3\rangle ·\langle 0,0,1\rangle }{\sqrt{{2}^{2}+{3}^{2}+{3}^{2}}\,\sqrt{1}} \\ &amp; =\frac{3}{\sqrt{22}}.\end{array}\]</p>
+<p>\[γ=\text{arccos}\,\frac{3}{\sqrt{22}}\approx 0.877\,\text{rad.}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Let \(\text{v}=\langle 3,-5,1\rangle .\) Find the measure of the angles formed by each pair of vectors.</p>
+<ul class="tight"><li>\(\text{v}\) and <strong>i</strong></li><li>\(\text{v}\) and <strong>j</strong></li><li>\(\text{v}\) and <strong>k</strong></li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>a. \(α\approx 1.04\) rad; b. \(β\approx 2.58\) rad; c. \(γ\approx 1.40\) rad</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The angle a vector makes with each of the coordinate axes, called a direction angle, is very important in practical computations, especially in a field such as engineering. For example, in astronautical engineering, the angle at which a rocket is launched must be determined very precisely. A very small error in the angle can lead to the rocket going hundreds of miles off course. Direction angles are often calculated by using the dot product and the cosines of the angles, called the direction cosines. Therefore, we define both these angles and their cosines.</p>
+<div class="card definition"><span class="chip">Definition</span><p>The angles formed by a nonzero vector and the coordinate axes are called the <strong>direction angles</strong> for the vector (<a href="#fig5">Figure 5</a>). The cosines for these angles are called the <strong>direction cosines</strong>.</p>
+</div>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_004_new.jpg" alt="This figure is the first octant of the 3-dimensional coordinate system. It has the standard unit vectors drawn on axes x, y, and z. There is also a vector drawn in the first octant labeled “v.” The angle between the x-axis and v is labeled “alpha.” The angle between the y-axis and vector v is labeled “beta.” The angle between the z-axis and vector v is labeled “gamma.”" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — Angle <strong>α</strong> is formed by vector \(\text{v}\) and unit vector <strong>i</strong>. Angle <strong>β</strong> is formed by vector \(\text{v}\) and unit vector <strong>j</strong>. Angle <strong>γ</strong> is formed by vector \(\text{v}\) and unit vector <strong>k</strong>.</figcaption></figure>
+<p>In <a href="#example5">Example 5</a>, the direction cosines of \(\text{v}=\langle 2,3,3\rangle\) are \(\text{cos}\,α=\frac{2}{\sqrt{22}},\) \(\text{cos}\,β=\frac{3}{\sqrt{22}},\) and \(\text{cos}\,γ=\frac{3}{\sqrt{22}}.\) The direction angles of \(\text{v}\) are \(α=1.130\,\text{rad},\) \(β=0.877\,\text{rad},\) and \(γ=0.877\,\text{rad}.\)</p>
+<p>So far, we have focused mainly on vectors related to force, movement, and position in three-dimensional physical space. However, vectors are often used in more abstract ways. For example, suppose a fruit vendor sells apples, bananas, and oranges. On a given day, he sells 30 apples, 12 bananas, and 18 oranges. He might use a quantity vector, \(\text{q}=\langle 30,12,18\rangle ,\) to represent the quantity of fruit he sold that day. Similarly, he might want to use a price vector, \(\text{p}=\langle 0.50,0.25,1\rangle ,\) to indicate that he sells his apples for 50¢ each, bananas for 25¢ each, and oranges for $1 apiece. In this example, although we could still graph these vectors, we do not interpret them as literal representations of position in the physical world. We are simply using vectors to keep track of particular pieces of information about apples, bananas, and oranges.</p>
+<p>This idea might seem a little strange, but if we simply regard vectors as a way to order and store data, we find they can be quite a powerful tool. Going back to the fruit vendor, let’s think about the dot product, \(\text{q}·\text{p}.\) We compute it by multiplying the number of apples sold (30) by the price per apple (50¢), the number of bananas sold by the price per banana, and the number of oranges sold by the price per orange. We then add all these values together. So, in this example, the dot product tells us how much money the fruit vendor had in sales on that particular day.</p>
+<p>When we use vectors in this more general way, there is no reason to limit the number of components to three. What if the fruit vendor decides to start selling grapefruit? In that case, he would want to use four-dimensional quantity and price vectors to represent the number of apples, bananas, oranges, and grapefruit sold, and their unit prices. As you might expect, to calculate the dot product of four-dimensional vectors, we simply add the products of the components as before, but the sum has four terms instead of three.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>AAA Party Supply Store sells invitations, party favors, decorations, and food service items such as paper plates and napkins. When AAA buys its inventory, it pays 25¢ per package for invitations and party favors. Decorations cost AAA 50¢ each, and food service items cost 20¢ per package. AAA sells invitations for $2.50 per package and party favors for $1.50 per package. Decorations sell for $4.50 each and food service items for $1.25 per package.</p>
+<p>During the month of May, AAA Party Supply Store sells 1258 invitations, 342 party favors, 2426 decorations, and 1354 food service items. Use vectors and dot products to calculate how much money AAA made in sales during the month of May. How much did the store make in profit?</p>
+<p class="sol-hint">Set up cost, price, and quantity vectors, then use the dot products \(\text{p}·\text{q}\) and \(\text{c}·\text{q}\) for total sales and total cost.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The cost, price, and quantity vectors are</p>
+<p>\[\begin{array}{l}\text{c}=\langle 0.25,0.25,0.50,0.20\rangle \\ \text{p}=\langle 2.50,1.50,4.50,1.25\rangle \\ \text{q}=\langle 1258,342,2426,1354\rangle .\end{array}\]</p>
+<p>AAA sales for the month of May can be calculated using the dot product \(\text{p}·\text{q}.\) We have</p>
+<p>\[\begin{array}{ll}\text{p}·\text{q} &amp; =\langle 2.50,1.50,4.50,1.25\rangle ·\langle 1258,342,2426,1354\rangle \\ &amp; =3145+513+10917+1692.5 \\ &amp; =16267.5.\end{array}\]</p>
+<p>So, AAA took in $16,267.50 during the month of May.</p>
+<p>To calculate the profit, we must first calculate how much AAA paid for the items sold. We use the dot product \(\text{c}·\text{q}\) to get</p>
+<p>\[\begin{array}{ll}\text{c}·\text{q} &amp; =\langle 0.25,0.25,0.50,0.20\rangle ·\langle 1258,342,2426,1354\rangle \\ &amp; =314.5+85.5+1213+270.8 \\ &amp; =1883.8.\end{array}\]</p>
+<p>So, AAA paid $1,883.80 for the items they sold. Their profit, then, is given by</p>
+<p>\[\begin{array}{ll}\text{p}·\text{q}-\text{c}·\text{q} &amp; =16267.5-1883.8 \\ &amp; =14383.7.\end{array}\]</p>
+<p>Therefore, AAA Party Supply Store made $14,383.70 in May.</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>On June 1, AAA Party Supply Store decided to increase the price they charge for party favors to $2 per package. They also changed suppliers for their invitations, and are now able to purchase invitations for only 10¢ per package. All their other costs and prices remain the same. If AAA sells 1408 invitations, 147 party favors, 2112 decorations, and 1894 food service items in the month of June, use vectors and dot products to calculate their total sales and profit for June.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Sales = $15,685.50; profit = $14,073.15</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="projections">Projections</h2>
+<p>As we have seen, addition combines two vectors to create a resultant vector. But what if we are given a vector and we need to find its component parts? We use vector projections to perform the opposite process; they can break down a vector into its components. The magnitude of a vector projection is a scalar projection. For example, if a child is pulling the handle of a wagon at a 55° angle, we can use projections to determine how much of the force on the handle is actually moving the wagon forward (<a href="#fig6">Figure 6</a>). We return to this example and learn how to solve it after we see how to calculate projections.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_005.jpg" alt="This figure is the image of a wagon with a handle. The handle is represented by the vector “F.” The angle between F and the horizontal direction of the wagon is 55 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — When a child pulls a wagon, only the horizontal component of the force propels the wagon forward.</figcaption></figure>
+<div class="card definition"><span class="chip">Definition</span><p>The <strong>vector projection</strong> of \(\text{v}\) onto \(\text{u}\) is the vector labeled proj<strong><sub>u</sub>v</strong> in <a href="#fig7">Figure 7</a>. It has the same initial point as \(\text{u}\) and \(\text{v}\) and the same direction as \(\text{u}\) , and represents the component of \(\text{v}\) that acts in the direction of \(\text{u}\) . If \(θ\) represents the angle between \(\text{u}\) and \(\text{v}\) , then, by properties of triangles, we know the length of \({\text{proj}}_{\text{u}}\text{v}\) is \(\Vert {\text{proj}}_{\text{u}}\text{v}\Vert =\Vert \text{v}\Vert ·\left(\text{cos}\right)\,θ.\) Note that when the angle \(θ\) between \(\text{u}\) and \(\text{v}\) is an obtuse angle, the projection will be in the opposite direction of \(\text{u}\) . When expressing \(\text{cos}\,θ\) in terms of the dot product, this becomes</p>
+<p>\[\begin{array}{ll}\Vert {\text{proj}}_{\text{u}}\text{v}\Vert &amp; =\Vert \text{v}\Vert ·\left(\text{cos}\right)\,θ \\ &amp; =\Vert \text{v}\Vert (\frac{|\text{u}·\text{v}|}{\Vert \text{u}\Vert \Vert \text{v}\Vert }) \\ &amp; =\frac{|\text{u}·\text{v}|}{\Vert \text{u}\Vert }.\end{array}\]</p>
+<p>We now multiply by a unit vector in the direction of \(\text{u}\) to get \({\text{proj}}_{\text{u}}\text{v}\text{:}\)</p>
+<p>\[{\text{proj}}_{\text{u}}\text{v}=\frac{\text{u}·\text{v}}{\Vert \text{u}\Vert }(\frac{1}{\Vert \text{u}\Vert }\text{u})=\frac{\text{u}·\text{v}}{{\Vert \text{u}\Vert }^{2}}\text{u}.\]</p>
+<p>The length of this vector is also known as the <strong>scalar projection</strong> of \(\text{v}\) onto \(\text{u}\) and is denoted by</p>
+<p>\[{\text{comp}}_{\text{u}}\text{v}=\frac{\text{u}·\text{v}}{\Vert \text{u}\Vert }.\]</p>
+</div>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_006.jpg" alt="This image has a vector labeled “v.” There is also a vector with the same initial point labeled “proj sub u v.” The third vector is from the terminal point of proj sub u v in the same direction labeled “u.” A broken line segment from the initial point of u to the terminal point of v is drawn and is perpendicular to u." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — The projection of \(\text{v}\) onto \(\text{u}\) shows the component of vector \(\text{v}\) in the direction of \(\text{u}\) .</figcaption></figure>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find the projection of \(\text{v}\) onto <strong>u.</strong></p>
+<ul class="tight"><li>\(\text{v}=\langle 3,5,1\rangle\) and \(\text{u}=\langle -1,4,3\rangle\)</li><li>\(\text{v}=3\text{i}-2\text{j}\) and \(\text{u}=\text{i}+6\text{j}\)</li></ul>
+<p class="sol-hint">Substitute the components of u and v directly into \({\text{proj}}_{\text{u}}\text{v}=\frac{\text{u}·\text{v}}{{\Vert \text{u}\Vert }^{2}}\text{u}.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Substitute the components of \(\text{v}\) and \(\text{u}\) into the formula for the projection:<br><p>\[\begin{array}{ll}{\text{proj}}_{\text{u}}\text{v} &amp; =\frac{\text{u}·\text{v}}{{\Vert \text{u}\Vert }^{2}}\text{u} \\ &amp; =\frac{\langle -1,4,3\rangle ·\langle 3,5,1\rangle }{{\Vert \langle -1,4,3\rangle \Vert }^{2}}\langle -1,4,3\rangle \\ &amp; =\frac{-3+20+3}{{(-1)}^{2}+{4}^{2}+{3}^{2}}\langle -1,4,3\rangle \\ &amp; =\frac{20}{26}\langle -1,4,3\rangle \\ &amp; =\langle -\frac{10}{13},\frac{40}{13},\frac{30}{13}\rangle .\end{array}\]</p>
+</li><li>To find the two-dimensional projection, simply adapt the formula to the two-dimensional case:<br><p>\[\begin{array}{ll}{\text{proj}}_{\text{u}}\text{v} &amp; =\frac{\text{u}·\text{v}}{{\Vert \text{u}\Vert }^{2}}\text{u} \\ &amp; =\frac{(\text{i}+6\text{j})·(3\text{i}-2\text{j})}{{\Vert \text{i}+6\text{j}\Vert }^{2}}(\text{i}+6\text{j}) \\ &amp; =\frac{1(3)+6(-2)}{{1}^{2}+{6}^{2}}(\text{i}+6\text{j}) \\ &amp; =-\frac{9}{37}(\text{i}+6\text{j}) \\ &amp; =-\frac{9}{37}\text{i}-\frac{54}{37}\text{j}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<p>Sometimes it is useful to decompose vectors—that is, to break a vector apart into a sum. This process is called the <strong><strong>resolution of a vector into components</strong></strong>. Projections allow us to identify two orthogonal vectors having a desired sum. For example, let \(\text{v}=\langle 6,-4\rangle\) and let \(\text{u}=\langle 3,1\rangle .\) We want to decompose the vector \(\text{v}\) into orthogonal components such that one of the component vectors has the same direction as \(\text{u}\) .</p>
+<p>We first find the component that has the same direction as \(\text{u}\) by projecting \(\text{v}\) onto \(\text{u}\) . Let \(\text{p}={\text{proj}}_{\text{u}}\text{v}.\) Then, we have</p>
+<p>\[\begin{array}{ll}\text{p} &amp; =\frac{\text{u}·\text{v}}{{\Vert \text{u}\Vert }^{2}}\text{u} \\ &amp; =\frac{18-4}{9+1}\text{u} \\ &amp; =\frac{7}{5}\text{u}=\frac{7}{5}\langle 3,1\rangle =\langle \frac{21}{5},\frac{7}{5}\rangle .\end{array}\]</p>
+<p>Now consider the vector \(\text{q}=\text{v}-\text{p}.\) We have</p>
+<p>\[\begin{array}{ll}\text{q} &amp; =\text{v}-\text{p} \\ &amp; =\langle 6,-4\rangle -\langle \frac{21}{5},\frac{7}{5}\rangle \\ &amp; =\langle \frac{9}{5},-\frac{27}{5}\rangle .\end{array}\]</p>
+<p>Clearly, by the way we defined \(\text{q}\) , we have \(\text{v}=\text{q}+\text{p},\) and</p>
+<p>\[\begin{array}{ll}\text{q}·\text{p} &amp; =\langle \frac{9}{5},-\frac{27}{5}\rangle ·\langle \frac{21}{5},\frac{7}{5}\rangle \\ &amp; =\frac{9(21)}{25}+\frac{-27(7)}{25} \\ &amp; =\frac{189}{25}-\frac{189}{25}=0.\end{array}\]</p>
+<p>Therefore, \(\text{q}\) and <strong>p</strong> are orthogonal.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Express \(\text{v}=\langle 8,-3,-3\rangle\) as a sum of orthogonal vectors such that one of the vectors has the same direction as \(\text{u}=\langle 2,3,2\rangle .\)</p>
+<p class="sol-hint">Find \(\text{p}={\text{proj}}_{\text{u}}\text{v}\) first — then \(\text{q}=\text{v}-\text{p}\) is automatically orthogonal to p.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let <strong>p</strong> represent the projection of \(\text{v}\) onto \(\text{u}\) :</p>
+<p>\[\begin{array}{ll}\text{p} &amp; ={\text{proj}}_{\text{u}}\text{v} \\ &amp; =\frac{\text{u}·\text{v}}{{\Vert \text{u}\Vert }^{2}}\text{u} \\ &amp; =\frac{\langle 2,3,2\rangle ·\langle 8,-3,-3\rangle }{{\Vert \langle 2,3,2\rangle \Vert }^{2}}\langle 2,3,2\rangle \\ &amp; =\frac{16-9-6}{{2}^{2}+{3}^{2}+{2}^{2}}\langle 2,3,2\rangle \\ &amp; =\frac{1}{17}\langle 2,3,2\rangle \\ &amp; =\langle \frac{2}{17},\frac{3}{17},\frac{2}{17}\rangle .\end{array}\]</p>
+<p>Then,</p>
+<p>\[\text{q}=\text{v}-\text{p}=\langle 8,-3,-3\rangle -\langle \frac{2}{17},\frac{3}{17},\frac{2}{17}\rangle =\langle \frac{134}{17},-\frac{54}{17},-\frac{53}{17}\rangle .\]</p>
+<p>To check our work, we can use the dot product to verify that <strong>p</strong> and \(\text{q}\) are orthogonal vectors:</p>
+<p>\[\text{p}·\text{q}=\langle \frac{2}{17},\frac{3}{17},\frac{2}{17}\rangle ·\langle \frac{134}{17},-\frac{54}{17},-\frac{53}{17}\rangle =\frac{268}{289}-\frac{162}{289}-\frac{106}{289}=0.\]</p>
+<p>Then,</p>
+<p>\[\text{v}=\text{p}+\text{q}=\langle \frac{2}{17},\frac{3}{17},\frac{2}{17}\rangle +\langle \frac{134}{17},-\frac{54}{17},-\frac{53}{17}\rangle .\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Express \(\text{v}=5\text{i}-\text{j}\) as a sum of orthogonal vectors such that one of the vectors has the same direction as \(\text{u}=4\text{i}+2\text{j}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\text{v}=\text{p}+\text{q},\) where \(\text{p}=\frac{18}{5}\text{i}+\frac{9}{5}\text{j}\) and \(\text{q}=\frac{7}{5}\text{i}-\frac{14}{5}\text{j}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>A container ship leaves port traveling \(15\text{°}\) north of east. Its engine generates a speed of 20 knots along that path (see the following figure). In addition, the ocean current moves the ship northeast at a speed of 2 knots. Considering both the engine and the current, how fast is the ship moving in the direction \(15\text{°}\) north of east? Round the answer to two decimal places.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_010.jpg" alt="This figure is an image of a ship. The ship is at the origin of two perpendicular axes. The horizontal axis is labeled “east.” The second axis is vertical and labeled “north.” From the ship there are two vectors. The first is labeled “v” and has an angle of 15 degrees between the East axis and the vector v. The second vector is labeled “w” and has an angle of 45 degrees between the East axis and the vector w." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p class="sol-hint">Add the scalar projection of the current's vector onto the ship's heading to the engine's own speed.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let \(\text{v}\) be the velocity vector generated by the engine, and let \(\text{w}\) be the velocity vector of the current. We already know \(\Vert \text{v}\Vert =20\) along the desired route. We just need to add in the scalar projection of \(\text{w}\) onto \(\text{v}\) . We get</p>
+<p>\[\begin{array}{ll}{\text{comp}}_{\text{v}}\text{w} &amp; =\frac{\text{v}·\text{w}}{\Vert \text{v}\Vert } \\ &amp; =\frac{\Vert \text{v}\Vert \Vert \text{w}\Vert \text{cos}(30\text{°})}{\Vert \text{v}\Vert } \\ &amp; =\Vert \text{w}\Vert \text{cos}(30\text{°}) \\ &amp; =2\frac{\sqrt{3}}{2}=\sqrt{3}\approx 1.73\,\text{knots}.\end{array}\]</p>
+<p>The ship is moving at 21.73 knots in the direction \(15\text{°}\) north of east.</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Repeat the previous example, but assume the ocean current is moving southeast instead of northeast, as shown in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_011.jpg" alt="This figure is an image of a ship. The ship is at the origin of two perpendicular axes. The horizontal axis is labeled “east.” The second axis is vertical and labeled “north.” From the ship there are two vectors. The first is labeled “v” and has an angle of 15 degrees between the East axis and the vector v. The second vector is labeled “w” and has an angle of 45 degrees between the East axis and the vector w. Vector w is below the East axis in the fourth quadrant." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>21 knots</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="work">Work</h2>
+<p>Now that we understand dot products, we can see how to apply them to real-life situations. The most common application of the dot product of two vectors is in the calculation of work.</p>
+<p>From physics, we know that work is done when an object is moved by a force. When the force is constant and applied in the same direction the object moves, then we define the work done as the product of the force and the distance the object travels: \(W=Fd.\) We saw several examples of this type in earlier chapters. Now imagine the direction of the force is different from the direction of motion, as with the example of a child pulling a wagon. To find the work done, we need to multiply the component of the force that acts in the direction of the motion by the magnitude of the displacement. The dot product allows us to do just that. If we represent an applied force by a vector <strong>F</strong> and the displacement of an object by a vector <strong>s</strong>, then the <strong>work done by the force</strong> is the dot product of <strong>F</strong> and <strong>s</strong>.</p>
+<div class="card definition"><span class="chip">Definition</span><p>When a constant force is applied to an object so the object moves in a straight line from point <strong>P</strong> to point <strong>Q</strong>, the work <strong>W</strong> done by the force <strong>F</strong>, acting at an angle <strong>θ</strong> from the line of motion, is given by</p>
+<p>\[W=\text{F}·\overset{\to }{PQ}=\Vert \text{F}\Vert \Vert \overset{\to }{PQ}\Vert \text{cos}\,θ.\]</p>
+</div>
+<p>Let’s revisit the problem of the child’s wagon introduced earlier. Suppose a child is pulling a wagon with a force having a magnitude of 8 lb on the handle at an angle of 55°. If the child pulls the wagon 50 ft, find the work done by the force (<a href="#fig8">Figure 8</a>).</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_007.jpg" alt="This figure is an image of a wagon with a handle. The handle is represented with a vector labeled “8 lb.” There is another vector in the horizontal direction from the wagon labeled “50 ft.” The angle between these vectors is 55 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — The horizontal component of the force is the projection of <strong>F</strong> onto the positive <strong>x</strong>-axis.</figcaption></figure>
+<p>We have</p>
+<p>\[W=\Vert \text{F}\Vert \Vert \overset{\to }{PQ}\Vert \text{cos}\,θ=8(50)(\text{cos}(55\text{°}))\approx 229\,\text{ft}·\text{lb}.\]</p>
+<p>In U.S. standard units, we measure the magnitude of force \(\Vert \text{F}\Vert\) in pounds. The magnitude of the displacement vector \(\Vert \overset{\to }{PQ}\Vert\) tells us how far the object moved, and it is measured in feet. The customary unit of measure for work, then, is the foot-pound. One foot-pound is the amount of work required to move an object weighing 1 lb a distance of 1 ft straight up. In the metric system, the unit of measure for force is the newton (N), and the unit of measure of magnitude for work is a newton-meter (N·m), or a joule (J).</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>A conveyor belt generates a force \(\text{F}=5\text{i}-3\text{j}+\text{k}\) that moves a suitcase from point \((1,1,1)\) to point \((9,4,7)\) along a straight line. Find the work done by the conveyor belt. The distance is measured in meters and the force is measured in newtons.</p>
+<p class="sol-hint">Find the displacement vector \(\overset{\to }{PQ}\) first, then compute the dot product \(W=\text{F}·\overset{\to }{PQ}.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The displacement vector \(\overset{\to }{PQ}\) has initial point \((1,1,1)\) and terminal point \((9,4,7)\text{:}\)</p>
+<p>\[\overset{\to }{PQ}=\langle 9-1,4-1,7-1\rangle =\langle 8,3,6\rangle =8\text{i}+3\text{j}+6\text{k}.\]</p>
+<p>Work is the dot product of force and displacement:</p>
+<p>\[\begin{array}{ll}W &amp; =\text{F}·\overset{\to }{PQ} \\ &amp; =(5\text{i}-3\text{j}+\text{k})·(8\text{i}+3\text{j}+6\text{k}) \\ &amp; =5(8)+(-3)(3)+1(6) \\ &amp; =37\text{N}·\text{m} \\ &amp; =37\,\text{J}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>A constant force of 30 lb is applied at an angle of 60° to pull a handcart 10 ft across the ground (<a href="#fig9">Figure 9</a>). What is the work done by this force?</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_008.jpg" alt="This figure is an image of a hand cart with a crate. The vertical handle of the hand cart has two vectors. The first is horizontal to the handle and labeled “s.” The second is from the handle and labeled “F.” The angle between the two vectors is 60 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>150 ft-lb</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The dot product, or scalar product, of two vectors \(\text{u}=\langle {u}_{1},{u}_{2},{u}_{3}\rangle\) and \(\text{v}=\langle {v}_{1},{v}_{2},{v}_{3}\rangle\) is \(\text{u}·\text{v}={u}_{1}{v}_{1}+{u}_{2}{v}_{2}+{u}_{3}{v}_{3}.\) (See <a href="#example1">Example 1</a>.)</li><li>The dot product satisfies the following properties:<ul class="tight"><li>\(\text{u}·\text{v}=\text{v}·\text{u}\)</li><li>\(\text{u}·(\text{v}+\text{w})=\text{u}·\text{v}+\text{u}·\text{w}\)</li><li>\(c(\text{u}·\text{v})=(c\text{u})·\text{v}=\text{u}·(c\text{v})\)</li><li>\(\text{v}·\text{v}={\Vert \text{v}\Vert }^{2}\)</li></ul>
+ (See <a href="#example2">Example 2</a>.)</li><li>The dot product of two vectors can be expressed, alternatively, as \(\text{u}·\text{v}=\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ.\) This form of the dot product is useful for finding the measure of the angle formed by two vectors. (See <a href="#example3">Example 3</a>.)</li><li>Vectors \(\text{u}\) and \(\text{v}\) are orthogonal if \(\text{u}·\text{v}=0.\) (See <a href="#example4">Example 4</a>.)</li><li>The angles formed by a nonzero vector and the coordinate axes are called the <strong>direction angles</strong> for the vector. The cosines of these angles are known as the <strong>direction cosines</strong>. (See <a href="#example5">Example 5</a>.)</li><li>The vector projection of \(\text{v}\) onto \(\text{u}\) is the vector \({\text{proj}}_{\text{u}}\text{v}=\frac{\text{u}·\text{v}}{{\Vert \text{u}\Vert }^{2}}\text{u}.\) The magnitude of this vector is known as the <strong>scalar projection</strong> of \(\text{v}\) onto \(\text{u}\) , given by \({\text{comp}}_{\text{u}}\text{v}=\frac{\text{u}·\text{v}}{\Vert \text{u}\Vert }.\) (See <a href="#example7">Example 7</a>, <a href="#example8">Example 8</a>, and <a href="#example9">Example 9</a>.)</li><li>Work is done when a force is applied to an object, causing displacement. When the force is represented by the vector <strong>F</strong> and the displacement is represented by the vector <strong>s</strong>, then the work done <strong>W</strong> is given by the formula \(W=\text{F}·s=\Vert \text{F}\Vert \Vert \text{s}\Vert \text{cos}\,θ.\) (See <a href="#example10">Example 10</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Dot product of u and v</strong></td><td>\(\begin{array}{ll}\text{u}·\text{v} &amp; ={u}_{1}{v}_{1}+{u}_{2}{v}_{2}+{u}_{3}{v}_{3} \\ &amp; =\Vert \text{u}\Vert \Vert \text{v}\Vert \text{cos}\,θ\end{array}\)</td></tr><tr><td><strong>Cosine of the angle formed by</strong> \(\text{u}\) and \(\text{v}\)</td><td>\(\text{cos}\,θ=\frac{\text{u}·\text{v}}{\Vert \text{u}\Vert \Vert \text{v}\Vert }\)</td></tr><tr><td><strong>Vector projection of</strong> \(\text{v}\) onto \(\text{u}\)</td><td>\({\text{proj}}_{\text{u}}\text{v}=\frac{\text{u}·\text{v}}{{\Vert \text{u}\Vert }^{2}}\text{u}\)</td></tr><tr><td><strong>Scalar projection of</strong> \(\text{v}\) onto \(\text{u}\)</td><td>\({\text{comp}}_{\text{u}}\text{v}=\frac{\text{u}·\text{v}}{\Vert \text{u}\Vert }\)</td></tr><tr><td><strong>Work done by a force F to move an object through displacement vector</strong> \(\overset{\to }{PQ}\)</td><td>\(W=\text{F}·\overset{\to }{PQ}=\Vert \text{F}\Vert \Vert \overset{\to }{PQ}\Vert \text{cos}\,θ\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>For the following exercises, the vectors \(\text{u}\) and \(\text{v}\) are given. Calculate the dot product \(\text{u}·\text{v}.\)</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(\text{u}=\langle 3,0\rangle ,\) \(\text{v}=\langle 2,2\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>6</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(\text{u}=\langle 3,-4\rangle ,\) \(\text{v}=\langle 4,3\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(\text{u}=\langle 2,2,-1\rangle ,\) \(\text{v}=\langle -1,2,2\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(\text{u}=\langle 4,5,-6\rangle ,\) \(\text{v}=\langle 0,-2,-3\rangle\)</p>
+</div></div>
+<p>For the following exercises, the vectors <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> are given. Determine the vectors \((\text{a}·\text{b})\text{c}\) and \((\text{a}·\text{c})\text{b}.\) Express the vectors in component form.</p>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(\text{a}=\langle 2,0,-3\rangle ,\) \(\text{b}=\langle -4,-7,1\rangle ,\) \(\text{c}=\langle 1,1,-1\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\text{a}·\text{b})\text{c}=\langle -11,-11,11\rangle ;\) \((\text{a}·\text{c})\text{b}=\langle -20,-35,5\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\text{a}=\langle 0,1,2\rangle ,\) \(\text{b}=\langle -1,0,1\rangle ,\) \(\text{c}=\langle 1,0,-1\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\text{a}=\text{i}+\text{j},\) \(\text{b}=\text{i}-\text{k},\) \(\text{c}=\text{i}-2\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\text{a}·\text{b})\text{c}=\langle 1,0,-2\rangle ;\) \((\text{a}·\text{c})\text{b}=\langle 1,0,-1\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\text{a}=\text{i}-\text{j}+\text{k},\) \(\text{b}=\text{j}+3\text{k},\) \(\text{c}=\text{-}\text{i}+2\text{j}-4\text{k}\)</p>
+</div></div>
+<p>For the following exercises, the two-dimensional vectors <strong>a</strong> and <strong>b</strong> are given.</p>
+<ul class="tight"><li>Find the measure of the angle \(θ\) between <strong>a</strong> and <strong>b</strong>. Express the answer in radians rounded to two decimal places, if it is not possible to express it exactly.</li><li>Is \(θ\) an acute angle?</li></ul>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p><strong>[T]</strong> \(\text{a}=\langle 3,-1\rangle ,\) \(\text{b}=\langle -4,0\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(θ=2.82\) rad; b. \(θ\) is not acute.</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p><strong>[T]</strong> \(\text{a}=\langle 2,1\rangle ,\) \(\text{b}=\langle -1,3\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\text{u}=3\text{i},\) \(\text{v}=4\text{i}+4\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(θ=\frac{\pi }{4}\) rad; b. \(θ\) is acute.</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\text{u}=5\text{i},\) \(\text{v}=-6\text{i}+6\text{j}\)</p>
+</div></div>
+<p>For the following exercises, find the measure of the angle between the three-dimensional vectors <strong>a</strong> and <strong>b</strong>. Express the answer in radians rounded to two decimal places, if it is not possible to express it exactly.</p>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\text{a}=\langle 3,-1,2\rangle ,\) \(\text{b}=\langle 1,-1,-2\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ=\frac{\pi }{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\text{a}=\langle 0,-1,-3\rangle ,\) \(\text{b}=\langle 2,3,-1\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\text{a}=\text{i}+\text{j},\) \(\text{b}=\text{j}-\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ=\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\text{a}=\text{i}-2\text{j}+\text{k},\) \(\text{b}=\text{i}+\text{j}-2\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p><strong>[T]</strong> \(\text{a}=3\text{i}-\text{j}-2\text{k},\) \(\text{b}=\text{v}+\text{w},\) where \(\text{v}=-2\text{i}-3\text{j}+2\text{k}\) and \(\text{w}=\text{i}+2\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ=2\) rad</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p><strong>[T]</strong> \(\text{a}=3\text{i}-\text{j}+2\text{k},\) \(\text{b}=\text{v}-\text{w},\) where \(\text{v}=2\text{i}+\text{j}+4\text{k}\) and \(\text{w}=6\text{i}+\text{j}+2\text{k}\)</p>
+</div></div>
+<p>For the following exercises determine whether the given vectors are orthogonal.</p>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\text{a}=\langle x,y\rangle ,\) \(\text{b}=\langle \text{-}y,x\rangle ,\) where <strong>x</strong> and <strong>y</strong> are nonzero real numbers</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Orthogonal</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\text{a}=\langle x,x\rangle ,\) \(\text{b}=\langle \text{-}y,y\rangle ,\) where <strong>x</strong> and <strong>y</strong> are nonzero real numbers</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\text{a}=3\text{i}-\text{j}-2\text{k},\) \(\text{b}=-2\text{i}-3\text{j}+\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Not orthogonal</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\text{a}=\text{i}-\text{j},\) \(\text{b}=7\text{i}+2\text{j}-\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>Find all two-dimensional vectors <strong>a</strong> orthogonal to vector \(\text{b}=\langle 3,4\rangle .\) Express the answer in component form.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{a}=\langle -\frac{4α}{3},α\rangle ,\) where \(α\ne 0\) is a real number</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>Find all two-dimensional vectors <strong>a</strong> orthogonal to vector \(\text{b}=\langle 5,-6\rangle .\) Express the answer by using standard unit vectors.</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>Determine all three-dimensional vectors \(\text{u}\) orthogonal to vector \(\text{v}=\langle 1,1,0\rangle .\) Express the answer by using standard unit vectors.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{u}=\text{-}α\text{i}+α\text{j}+β\text{k},\) where \(α\) and \(β\) are real numbers such that \({α}^{2}+{β}^{2}\ne 0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>Determine all three-dimensional vectors \(\text{u}\) orthogonal to vector \(\text{v}=\text{i}-\text{j}-\text{k}.\) Express the answer in component form.</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Determine the real number \(α\) such that vectors \(\text{a}=2\text{i}+3\text{j}\) and \(\text{b}=9\text{i}+α\text{j}\) are orthogonal.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(α=-6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Determine the real number \(α\) such that vectors \(\text{a}=-3\text{i}+2\text{j}\) and \(\text{b}=2\text{i}+α\text{j}\) are orthogonal.</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p><strong>[T]</strong> Consider the points \(P(4,5)\) and \(Q(5,-7).\)</p>
+<ul class="tight"><li>Determine vectors \(\overset{\to }{OP}\) and \(\overset{\to }{OQ}.\) Express the answer by using standard unit vectors.</li><li>Determine the measure of angle <strong>O</strong> in triangle <strong>OPQ</strong>. Express the answer in degrees rounded to two decimal places.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\overset{\to }{OP}=4\text{i}+5\text{j},\) \(\overset{\to }{OQ}=5\text{i}-7\text{j};\) b. \(105.8\text{°}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p><strong>[T]</strong> Consider points \(A(1,1),\) \(B(2,-7),\) and \(C(6,3).\)</p>
+<ul class="tight"><li>Determine vectors \(\overset{\to }{BA}\) and \(\overset{\to }{BC}.\) Express the answer in component form.</li><li>Determine the measure of angle <strong>B</strong> in triangle <strong>ABC</strong>. Express the answer in degrees rounded to two decimal places.</li></ul>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>Determine the measure of angle <strong>A</strong> in triangle <strong>ABC</strong>, where \(A(1,1,8),\) \(B(4,-3,-4),\) and \(C(-3,1,5).\) Express your answer in degrees rounded to two decimal places.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(68.33\text{°}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Consider points \(P(3,7,-2)\) and \(Q(1,1,-3).\) Determine the angle between vectors \(\overset{\to }{OP}\) and \(\overset{\to }{OQ}.\) Express the answer in degrees rounded to two decimal places.</p>
+</div></div>
+<p>For the following exercises, determine which (if any) pairs of the following vectors are orthogonal.</p>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(\text{u}=\langle 3,7,-2\rangle ,\) \(\text{v}=\langle 5,-3,-3\rangle ,\) \(\text{w}=\langle 0,1,-1\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{u}\) and \(\text{v}\) are orthogonal; \(\text{v}\) and \(\text{w}\) are orthogonal.</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(\text{u}=\text{i}-\text{k},\) \(\text{v}=5\text{j}-5\text{k},\) \(\text{w}=10\text{j}\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Use vectors to show that a parallelogram with equal diagonals is a rectangle.</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Use vectors to show that the diagonals of a rhombus are perpendicular.</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Show that \(\text{u}·(\text{v}+\text{w})=\text{u}·\text{v}+\text{u}·\text{w}\) is true for any vectors \(\text{u}\) , \(\text{v}\) , and \(\text{w}\) .</p>
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Verify the identity \(\text{u}·(\text{v}+\text{w})=\text{u}·\text{v}+\text{u}·\text{w}\) for vectors \(\text{u}=\langle 1,0,4\rangle ,\) \(\text{v}=\langle -2,3,5\rangle ,\) and \(\text{w}=\langle 4,-2,6\rangle .\)</p>
+</div></div>
+<p>For the following problems, the vector \(\text{u}\) is given.</p>
+<ul class="tight"><li>Find the direction cosines for the vector \(\text{u}\) .</li><li>Find the direction angles for the vector \(\text{u}\) expressed in degrees. (Round the answer to the nearest integer.)</li></ul>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(\text{u}=\langle 2,2,1\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{cos}\,α=\frac{2}{3},\text{cos}\,β=\frac{2}{3},\) and \(\text{cos}\,γ=\frac{1}{3};\) b. \(α=48\text{°},\) \(β=48\text{°},\) and \(γ=71\text{°}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(\text{u}=\text{i}-2\text{j}+2\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(\text{u}=\langle -1,5,2\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{cos}\,α=-\frac{1}{\sqrt{30}},\text{cos}\,β=\frac{5}{\sqrt{30}},\) and \(\text{cos}\,γ=\frac{2}{\sqrt{30}};\) b. \(α=101\text{°},\) \(β=24\text{°},\) and \(γ=69\text{°}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\text{u}=\langle 2,3,4\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Consider \(\text{u}=\langle a,b,c\rangle\) a nonzero three-dimensional vector. Let \(\text{cos}\,α,\) \(\text{cos}\,β,\) and \(\text{cos}\,γ\) be the direction cosines of \(\text{u}\) . Show that \({\text{cos}}^{2}α+{\text{cos}}^{2}β+{\text{cos}}^{2}γ=1.\)</p>
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Determine the direction cosines of vector \(\text{u}=\text{i}+2\text{j}+2\text{k}\) and show they satisfy \({\text{cos}}^{2}α+{\text{cos}}^{2}β+{\text{cos}}^{2}γ=1.\)</p>
+</div></div>
+<p>For the following exercises, the vectors \(\text{u}\) and \(\text{v}\) are given.</p>
+<ul class="tight"><li>Find the vector projection \(\text{w}={\text{proj}}_{\text{u}}\text{v}\) of vector \(\text{v}\) onto vector \(\text{u}\) . Express your answer in component form.</li><li>Find the scalar projection \({\text{comp}}_{\text{u}}\text{v}\) of vector \(\text{v}\) onto vector <strong>u.</strong></li></ul>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(\text{u}=5\text{i}+2\text{j},\) \(\text{v}=2\text{i}+3\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{w}=\langle \frac{80}{29},\frac{32}{29}\rangle ;\) b. \({\text{comp}}_{\text{u}}\text{v}=\frac{16}{\sqrt{29}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(\text{u}=\langle -4,7\rangle ,\) \(\text{v}=\langle 3,5\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(\text{u}=3\text{i}+2\text{k},\) \(\text{v}=2\text{j}+4\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{w}=\langle \frac{24}{13},0,\frac{16}{13}\rangle ;\) b. \({\text{comp}}_{\text{u}}\text{v}=\frac{8}{\sqrt{13}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(\text{u}=\langle 4,4,0\rangle ,\) \(\text{v}=\langle 0,4,1\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Consider the vectors \(\text{u}=4\text{i}-3\text{j}\) and \(\text{v}=3\text{i}+2\text{j}.\)</p>
+<ul class="tight"><li>Find the component form of vector \(\text{w}={\text{proj}}_{\text{u}}\text{v}\) that represents the projection of \(\text{v}\) onto \(\text{u}\) .</li><li>Write the decomposition \(\text{v}=\text{w}+\text{q}\) of vector \(\text{v}\) into the orthogonal components \(\text{w}\) and \(\text{q}\) , where \(\text{w}\) is the projection of \(\text{v}\) onto \(\text{u}\) and \(\text{q}\) is a vector orthogonal to the direction of \(\text{u}\) .</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{w}=\langle \frac{24}{25},-\frac{18}{25}\rangle ;\) b. \(\text{q}=\langle \frac{51}{25},\frac{68}{25}\rangle ,\) \(\text{v}=\text{w}+\text{q}=\langle \frac{24}{25},-\frac{18}{25}\rangle +\langle \frac{51}{25},\frac{68}{25}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Consider vectors \(\text{u}=2\text{i}+4\text{j}\) and \(\text{v}=4\text{j}+2\text{k}.\)</p>
+<ul class="tight"><li>Find the component form of vector \(\text{w}={\text{proj}}_{\text{u}}\text{v}\) that represents the projection of \(\text{v}\) onto \(\text{u}\) .</li><li>Write the decomposition \(\text{v}=\text{w}+\text{q}\) of vector \(\text{v}\) into the orthogonal components \(\text{w}\) and \(\text{q}\) , where \(\text{w}\) is the projection of \(\text{v}\) onto \(\text{u}\) and \(\text{q}\) is a vector orthogonal to the direction of \(\text{u}\) .</li></ul>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>A methane molecule has a carbon atom situated at the origin and four hydrogen atoms located at points \(P(1,1,-1),Q(1,-1,1),R(-1,1,1),\,\text{and}\,S(-1,-1,-1)\) (see figure).</p>
+<ul class="tight"><li>Find the distance between the hydrogen atoms located at <strong>P</strong> and <strong>R</strong>.</li><li>Find the angle between vectors \(\overset{\to }{OS}\) and \(\overset{\to }{OR}\) that connect the carbon atom with the hydrogen atoms located at <strong>S</strong> and <strong>R</strong>, which is also called the <strong>bond angle</strong>. Express the answer in degrees rounded to two decimal places.</li></ul>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_012.jpg" alt="This figure is the 3-dimensional coordinate system. There are four points plotted. The first point is labeled “P(1, 1, -1),” the second point is labeled “Q(1, -1, 1),” the third point is labeled “R(-1, 1, 1),” and the fourth point is labeled “S(-1, -1, -1).” There are line segments from Q to P, P to R and R to P. There are also two vectors in standard position. The first has terminal point of R and the second has terminal point of S. The angle between them is represented with an arc." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(2\sqrt{2};\) b. \(109.47\text{°}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p><strong>[T]</strong> Find the vectors that join the center of a clock to the hours 1:00, 2:00, and 3:00. Assume the clock is circular with a radius of 1 unit.</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Find the work done by force \(\text{F}=\langle 5,6,-2\rangle\) (measured in Newtons) that moves a particle from point \(P(3,-1,0)\) to point \(Q(2,3,1)\) along a straight line (the distance is measured in meters).</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(17\text{N}·\text{m}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p><strong>[T]</strong> A sled is pulled by exerting a force of 100 N on a rope that makes an angle of \(25\text{°}\) with the horizontal. Find the work done in pulling the sled 40 m. (Round the answer to one decimal place.)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p><strong>[T]</strong> A father is pulling his son on a sled at an angle of \(20\text{°}\) with the horizontal with a force of 25 lb (see the following image). He pulls the sled in a straight path of 50 ft. How much work was done by the man pulling the sled? (Round the answer to the nearest integer.)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_03_204.jpg" alt="This figure is an image of a person pulling a child on a sled. The rope for pulling the sled is represented by a vector and labeled “25 lb.” There is an angle between the rope vector and the horizontal ground of 20 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>1175 \(\text{ft}·\text{lb}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p><strong>[T]</strong> A car is towed using a force of 1600 N. The rope used to pull the car makes an angle of 25° with the horizontal. Find the work done in towing the car 2 km. Express the answer in joules \((1\text{J}=1\text{N}·\text{m})\) rounded to the nearest integer.</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p><strong>[T]</strong> A boat sails north aided by a wind blowing in a direction of \(\text{N3}0\text{°}\text{E}\) with a magnitude of 500 lb. How much work is performed by the wind as the boat moves 100 ft? (Round the answer to two decimal places.)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>W = 43301.27 \(\text{ft-lb}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Vector \(\text{p}=\langle 150,225,375\rangle\) represents the price of certain models of bicycles sold by a bicycle shop. Vector \(\text{n}=\langle 10,7,9\rangle\) represents the number of bicycles sold of each model, respectively. Compute the dot product \(\text{p}·\text{n}\) and state its meaning.</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p><strong>[T]</strong> Two forces \({\text{F}}_{1}\) and \({\text{F}}_{2}\) are represented by vectors with initial points that are at the origin. The first force has a magnitude of 20 lb and the terminal point of the vector is point \(P(1,1,0).\) The second force has a magnitude of 40 lb and the terminal point of its vector is point \(Q(0,1,1).\) Let <strong>F</strong> be the resultant force of forces \({\text{F}}_{1}\) and \({\text{F}}_{2}.\)</p>
+<ul class="tight"><li>Find the magnitude of <strong>F</strong>. (Round the answer to one decimal place.)</li><li>Find the direction angles of <strong>F</strong>. (Express the answer in degrees rounded to one decimal place.)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\Vert {\text{F}}_{1}+{\text{F}}_{2}\Vert =52.9\) lb; b. The direction angles are \(α=74.5\text{°},\) \(β=36.7\text{°},\) and \(γ=57.7\text{°}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p><strong>[T]</strong> Consider \(\text{r}(t)=\langle \text{cos}\,t,\text{sin}\,t,2t\rangle\) the position vector of a particle at time \(t\in [0,30],\) where the components of <strong>r</strong> are expressed in centimeters and time in seconds. Let \(\overset{\to }{OP}\) be the position vector of the particle after 1 sec.</p>
+<ul class="tight"><li>Show that all vectors \(\overset{\to }{PQ},\) where \(Q(x,y,z)\) is an arbitrary point, orthogonal to the instantaneous velocity vector \(\text{v}(1)\) of the particle after 1 sec, can be expressed as \(\overset{\to }{PQ}=\langle x-\text{cos}\,1,y-\text{sin}\,1,z-2\rangle ,\) where \(x\,\text{sin}\,1-y\,\text{cos}\,1-2z+4=0.\) The set of point <strong>Q</strong> describes a plane called the <strong>normal plane</strong> to the path of the particle at point <strong>P</strong>.</li><li>Use a CAS to visualize the instantaneous velocity vector and the normal plane at point <strong>P</strong> along with the path of the particle.</li></ul>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>direction angles</dt><dd>the angles formed by a nonzero vector and the coordinate axes</dd><dt>direction cosines</dt><dd>the cosines of the angles formed by a nonzero vector and the coordinate axes</dd><dt>dot product or scalar product</dt><dd>\(\text{u}·\text{v}={u}_{1}{v}_{1}+{u}_{2}{v}_{2}+{u}_{3}{v}_{3}\) where \(\text{u}=\langle {u}_{1},{u}_{2},{u}_{3}\rangle\) and \(\text{v}=\langle {v}_{1},{v}_{2},{v}_{3}\rangle\)</dd><dt>scalar projection</dt><dd>the magnitude of the vector projection of a vector</dd><dt>orthogonal vectors</dt><dd>vectors that form a right angle when placed in standard position</dd><dt>vector projection</dt><dd>the component of a vector that follows a given direction</dd><dt>work done by a force</dt><dd>work is generally thought of as the amount of energy it takes to move an object; if we represent an applied force by a vector <strong>F</strong> and the displacement of an object by a vector <strong>s</strong>, then the work done by the force is the dot product of <strong>F</strong> and <strong>s</strong>.</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partial Derivatives · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Partial Derivatives</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 4.3</span>Partial Derivatives</h1>
+<p>Now that we have examined limits and continuity of functions of two variables, we can proceed to study derivatives. Finding derivatives of functions of two variables is the key concept in this chapter, with as many applications in mathematics, science, and engineering as differentiation of single-variable functions. However, we have already seen that limits and continuity of multivariable functions have new issues and require new terminology and ideas to deal with them. This carries over into differentiation as well.</p>
+<h2 id="derivatives-of-a-function-of-two-variables">Derivatives of a Function of Two Variables</h2>
+<p>When studying derivatives of functions of one variable, we found that one interpretation of the derivative is an instantaneous rate of change of \(y\) as a function of \(x.\) Leibniz notation for the derivative is \(dy\text{/}dx,\) which implies that \(y\) is the dependent variable and \(x\) is the independent variable. For a function \(z=f(x,y)\) of two variables, \(x\) and \(y\) are the independent variables and \(z\) is the dependent variable. This raises two questions right away: How do we adapt Leibniz notation for functions of two variables? Also, what is an interpretation of the derivative? The answer lies in partial derivatives.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(f(x,y)\) be a function of two variables. Then the <strong>partial derivative</strong> of \(f\) with respect to \(x,\) written as \(∂f\text{/}∂x,\) or \({f}_{x},\) is defined as</p>
+<p>\[\frac{∂f}{∂x}=\underset{h\to 0}{\text{lim}}\frac{f(x+h,y)-f(x,y)}{h}.\]</p>
+<p>The partial derivative of \(f\) with respect to \(y,\) written as \(∂f\text{/}∂y,\) or \({f}_{y},\) is defined as</p>
+<p>\[\frac{∂f}{∂y}=\underset{k\to 0}{\text{lim}}\frac{f(x,y+k)-f(x,y)}{k}.\]</p>
+</div>
+<p>This definition shows two differences already. First, the notation changes, in the sense that we still use a version of Leibniz notation, but the \(d\) in the original notation is replaced with the symbol \(∂.\) (This rounded \(\text{“d”}\) is usually called “partial,” so \(∂f\text{/}∂x\) is spoken as the “partial of \(f\) with respect to \(x\text{.”})\) This is the first hint that we are dealing with partial derivatives. Second, we now have two different derivatives we can take, since there are two different independent variables. Depending on which variable we choose, we can come up with different partial derivatives altogether, and often do.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Use the definition of the partial derivative as a limit to calculate \(∂f\text{/}∂x\) and \(∂f\text{/}∂y\) for the function</p>
+<p>\[f(x,y)={x}^{2}-3xy+2{y}^{2}-4x+5y-12.\]</p>
+<p class="sol-hint">Compute \(f(x+h,y)\) and plug it into the limit-definition formula for \(∂f\text{/}∂x,\) then do the analogous computation with \(f(x,y+k)\) for \(∂f\text{/}∂y.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, calculate \(f(x+h,y).\)</p>
+<p>\[\begin{array}{ll}f(x+h,y) &amp; ={(x+h)}^{2}-3(x+h)y+2{y}^{2}-4(x+h)+5y-12 \\ &amp; ={x}^{2}+2xh+{h}^{2}-3xy-3hy+2{y}^{2}-4x-4h+5y-12.\end{array}\]</p>
+<p>Next, substitute this into (see original) and simplify:</p>
+<p>\[\begin{array}{ll}\frac{∂f}{∂x} &amp; =\underset{h\to 0}{\text{lim}}\frac{f(x+h,y)-f(x,y)}{h} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{({x}^{2}+2xh+{h}^{2}-3xy-3hy+2{y}^{2}-4x-4h+5y-12)-({x}^{2}-3xy+2{y}^{2}-4x+5y-12)}{h} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{{x}^{2}+2xh+{h}^{2}-3xy-3hy+2{y}^{2}-4x-4h+5y-12-{x}^{2}+3xy-2{y}^{2}+4x-5y+12}{h} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{2xh+{h}^{2}-3hy-4h}{h} \\ &amp; =\underset{h\to 0}{\text{lim}}\frac{h(2x+h-3y-4)}{h} \\ &amp; =\underset{h\to 0}{\text{lim}}(2x+h-3y-4) \\ &amp; =2x-3y-4.\end{array}\]</p>
+<p>To calculate \(\frac{∂f}{∂y},\) first calculate \(f(x,y+k)\text{:}\)</p>
+<p>\[\begin{array}{ll}f(x,y+k) &amp; ={x}^{2}-3x(y+k)+2{(y+k)}^{2}-4x+5(y+k)-12 \\ &amp; ={x}^{2}-3xy-3xk+2{y}^{2}+4yk+2{k}^{2}-4x+5y+5k-12.\end{array}\]</p>
+<p>Next, substitute this into (see original) and simplify:</p>
+<p>\[\begin{array}{ll}\frac{∂f}{∂y} &amp; =\underset{k\to 0}{\text{lim}}\frac{f(x,y+k)-f(x,y)}{k} \\ &amp; =\underset{k\to 0}{\text{lim}}\frac{({x}^{2}-3xy-3xk+2{y}^{2}+4yk+2{k}^{2}-4x+5y+5k-12)-({x}^{2}-3xy+2{y}^{2}-4x+5y-12)}{k} \\ &amp; =\underset{k\to 0}{\text{lim}}\frac{{x}^{2}-3xy-3xk+2{y}^{2}+4yk+2{k}^{2}-4x+5y+5k-12-{x}^{2}+3xy-2{y}^{2}+4x-5y+12}{k} \\ &amp; =\underset{k\to 0}{\text{lim}}\frac{-3xk+4yk+2{k}^{2}+5k}{k} \\ &amp; =\underset{k\to 0}{\text{lim}}\frac{h(-3x+4y+2k+5)}{k} \\ &amp; =\underset{k\to 0}{\text{lim}}(-3x+4y+2k+5) \\ &amp; =-3x+4y+5.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Use the definition of the partial derivative as a limit to calculate \(∂f\text{/}∂x\) and \(∂f\text{/}∂y\) for the function</p>
+<p>\[f(x,y)=4{x}^{2}+2xy-{y}^{2}+3x-2y+5.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{∂f}{∂x}=8x+2y+3,\,\frac{∂f}{∂y}=2x-2y-2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The idea to keep in mind when calculating partial derivatives is to treat all independent variables, other than the variable with respect to which we are differentiating, as constants. Then proceed to differentiate as with a function of a single variable. To see why this is true, first fix \(y\) and define \(g(x)=f(x,y)\) as a function of \(x.\) Then</p>
+<p>\[{g}^{\prime }(x)=\underset{h\to 0}{\text{lim}}\frac{g(x+h)-g(x)}{h}=\underset{h\to 0}{\text{lim}}\frac{f(x+h,y)-f(x,y)}{h}=\frac{∂f}{∂x}.\]</p>
+<p>The same is true for calculating the partial derivative of \(f\) with respect to \(y.\) This time, fix \(x\) and define \(h(y)=f(x,y)\) as a function of \(y.\) Then</p>
+<p>\[{h}^{\prime }(x)=\underset{k\to 0}{\text{lim}}\frac{h(x+k)-h(x)}{k}=\underset{k\to 0}{\text{lim}}\frac{f(x,y+k)-f(x,y)}{k}=\frac{∂f}{∂y}.\]</p>
+<p>All differentiation rules from Introduction to Derivatives apply.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Calculate both partial derivatives for the following functions by holding the opposite variable constant then differentiating:</p>
+<ul class="tight"><li>\(f(x,y)={x}^{2}-3xy+2{y}^{2}-4x+5y-12\)</li><li>\(g(x,y)=\text{sin}({x}^{2}y-2x+4)\)</li></ul>
+<p class="sol-hint">Treat \(y\) as a constant and differentiate with respect to \(x\) using the ordinary sum/difference/power (and chain) rules, then hold \(x\) constant and differentiate with respect to \(y.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>To calculate \(∂f\text{/}∂x,\) treat the variable \(y\) as a constant. Then differentiate \(f(x,y)\) with respect to \(x\) using the sum, difference, and power rules:<br> <br> The derivatives of the third, fifth, and sixth terms are all zero because they do not contain the variable \(x,\) so they are treated as constant terms. The derivative of the second term is equal to the coefficient of \(x,\) which is \(-3y.\) Calculating \(∂f\text{/}∂y\text{:}\) <br> <br> These are the same answers obtained in <a href="#example1">Example 1</a>.<p>\[\begin{array}{ll}\frac{∂f}{∂x} &amp; =\frac{∂}{∂x}[{x}^{2}-3xy+2{y}^{2}-4x+5y-12] \\ &amp; =\frac{∂}{∂x}[{x}^{2}]-\frac{∂}{∂x}[3xy]+\frac{∂}{∂x}[2{y}^{2}]-\frac{∂}{∂x}[4x]+\frac{∂}{∂x}[5y]-\frac{∂}{∂x}[12] \\ &amp; =2x-3y+0-4+0-0 \\ &amp; =2x-3y-4.\end{array}\]</p>
+<p>\[\begin{array}{ll}\frac{∂f}{∂y} &amp; =\frac{∂}{∂y}[{x}^{2}-3xy+2{y}^{2}-4x+5y-12] \\ &amp; =\frac{∂}{∂y}[{x}^{2}]-\frac{∂}{∂y}[3xy]+\frac{∂}{∂y}[2{y}^{2}]-\frac{∂}{∂y}[4x]+\frac{∂}{∂y}[5y]-\frac{∂}{∂y}[12] \\ &amp; =-3x+4y-0+5-0 \\ &amp; =-3x+4y+5.\end{array}\]</p>
+</li><li>To calculate \(∂g\text{/}∂x,\) treat the variable <strong>y</strong> as a constant. Then differentiate \(g(x,y)\) with respect to <strong>x</strong> using the chain rule and power rule:<br> <br> To calculate \(∂g\text{/}∂y,\) treat the variable \(x\) as a constant. Then differentiate \(g(x,y)\) with respect to \(y\) using the chain rule and power rule:<br><p>\[\begin{array}{ll}\frac{∂g}{∂x} &amp; =\frac{∂}{∂x}[\text{sin}({x}^{2}y-2x+4)] \\ &amp; =\text{cos}({x}^{2}y-2x+4)\frac{∂}{∂x}[{x}^{2}y-2x+4] \\ &amp; =(2xy-2)\text{cos}({x}^{2}y-2x+4).\end{array}\]</p>
+<p>\[\begin{array}{ll}\frac{∂g}{∂y} &amp; =\frac{∂}{∂y}[\text{sin}({x}^{2}y-2x+4)] \\ &amp; =\text{cos}({x}^{2}y-2x+4)\frac{∂}{∂y}[{x}^{2}y-2x+4] \\ &amp; ={x}^{2}\text{cos}({x}^{2}y-2x+4).\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Calculate \(∂f\text{/}∂x\) and \(∂f\text{/}∂y\) for the function \(f(x,y)=\text{tan}({x}^{3}-3{x}^{2}{y}^{2}+2{y}^{4})\) by holding the opposite variable constant, then differentiating.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}\frac{∂f}{∂x}=(3{x}^{2}-6x{y}^{2}){\text{sec}}^{2}({x}^{3}-3{x}^{2}{y}^{2}+2{y}^{4}) \\ \frac{∂f}{∂y}=(-6{x}^{2}y+8{y}^{3}){\text{sec}}^{2}({x}^{3}-3{x}^{2}{y}^{2}+2{y}^{4})\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>How can we interpret these partial derivatives? Recall that the graph of a function of two variables is a surface in \({ℝ}^{3}.\) If we remove the limit from the definition of the partial derivative with respect to \(x,\) the difference quotient remains:</p>
+<p>\[\frac{f(x+h,y)-f(x,y)}{h}.\]</p>
+<p>This resembles the difference quotient for the derivative of a function of one variable, except for the presence of the \(y\) variable. <a href="#fig1">Figure 1</a> illustrates a surface described by an arbitrary function \(z=f(x,y).\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_03_001.jpg" alt="A complicated curve in xyz space with a secant line through the points (x, y, f(x, y)) and (x + h, y, f(x + h, y))." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Secant line passing through the points \((x,y,f(x,y))\) and \((x+h,y,f(x+h,y)).\)</figcaption></figure>
+<p>In <a href="#fig1">Figure 1</a>, the value of \(h\) is positive. If we graph \(f(x,y)\) and \(f(x+h,y)\) for an arbitrary point \((x,y),\) then the slope of the secant line passing through these two points is given by</p>
+<p>\[\frac{f(x+h,y)-f(x,y)}{h}.\]</p>
+<p>This line is parallel to the \(x-z \text{plane.}\) Therefore, the slope of the secant line represents an average rate of change of the function \(f\) as we travel parallel to the \(x\text{-axis.}\) As \(h\) approaches zero, the slope of the secant line approaches the slope of the tangent line.</p>
+<p>If we choose to change \(y\) instead of \(x\) by the same incremental value \(h,\) then the secant line is parallel to the \(y\text{-axis}\) and so is the tangent line. Therefore, \(∂f\text{/}∂x\) represents the slope of the tangent line passing through the point \((x,y,f(x,y))\) parallel to the \(x\text{-axis}\) and \(∂f\text{/}∂y\) represents the slope of the tangent line passing through the point \((x,y,f(x,y))\) parallel to the \(y\text{-axis}.\) If we wish to find the slope of a tangent line passing through the same point in any other direction, then we need what are called <strong>directional derivatives</strong>, which we discuss in Directional Derivatives and the Gradient.</p>
+<p>We now return to the idea of contour maps, which we introduced in Functions of Several Variables. We can use a <strong>contour map</strong> to estimate partial derivatives of a function \(g(x,y).\)</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Use a contour map to estimate \(∂g\text{/}∂x\) at the point \((\sqrt{5},0)\) for the function \(g(x,y)=\sqrt{9-{x}^{2}-{y}^{2}}.\)</p>
+<p class="sol-hint">Read off the \(x\text{-intercepts}\) of the two nearest level curves and form a difference-quotient slope estimate between those two points.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The following graph represents a contour map for the function \(g(x,y)=\sqrt{9-{x}^{2}-{y}^{2}}.\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_03_002.jpg" alt="A series of concentric circles with the center the origin. The first is marked c = 0 and has radius 3; the second is marked c = 1 and has radius slightly less than 3; and the third is marked c = 2 and has radius slightly more than 2. The graph is marked with the equation g(x, y) = the square root of the quantity (9 – x2 – y2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Contour map for the function \(g(x,y)=\sqrt{9-{x}^{2}-{y}^{2}},\) using \(\text{c}\,=0,1,2,\) and \(3\) \((c=3\) corresponds to the origin).</figcaption></figure>
+<p>The inner circle on the contour map corresponds to \(c=2\) and the next circle out corresponds to \(c=1.\) The first circle is given by the equation \(2=\sqrt{9-{x}^{2}-{y}^{2}};\) the second circle is given by the equation \(1=\sqrt{9-{x}^{2}-{y}^{2}}.\) The first equation simplifies to \({x}^{2}+{y}^{2}=5\) and the second equation simplifies to \({x}^{2}+{y}^{2}=8.\) The \(x\text{-intercept}\) of the first circle is \((\sqrt{5},0)\) and the \(x\text{-intercept}\) of the second circle is \((2\sqrt{2},0).\) We can estimate the value of \(∂g\text{/}∂x\) evaluated at the point \((\sqrt{5},0)\) using the slope formula:</p>
+<p>\[{\frac{∂g}{∂x}|}_{(x,y)=(\sqrt{5},0)}\approx \frac{g(\sqrt{5},0)-g(2\sqrt{2},0)}{\sqrt{5}-2\sqrt{2}}=\frac{2-1}{\sqrt{5}-2\sqrt{2}}=\frac{1}{\sqrt{5}-2\sqrt{2}}\approx -1.688.\]</p>
+<p>To calculate the exact value of \(∂g\text{/}∂x\) evaluated at the point \((\sqrt{5},0),\) we start by finding \(∂g\text{/}∂x\) using the chain rule. First, we rewrite the function as \(g(x,y)=\sqrt{9-{x}^{2}-{y}^{2}}={(9-{x}^{2}-{y}^{2})}^{1\text{/}2}\) and then differentiate with respect to \(x\) while holding \(y\) constant:</p>
+<p>\[\frac{∂g}{∂x}=\frac{1}{2}{(9-{x}^{2}-{y}^{2})}^{-1\text{/}2}(-2x)=-\frac{x}{\sqrt{9-{x}^{2}-{y}^{2}}}.\]</p>
+<p>Next, we evaluate this expression using \(x=\sqrt{5}\) and \(y=0\text{:}\)</p>
+<p>\[{\frac{∂g}{∂x}|}_{(x,y)=(\sqrt{5},0)}=-\frac{\sqrt{5}}{\sqrt{9-{(\sqrt{5})}^{2}-{(0)}^{2}}}=-\frac{\sqrt{5}}{\sqrt{4}}=-\frac{\sqrt{5}}{2}\approx -1.118.\]</p>
+<p>The estimate for the partial derivative corresponds to the slope of the secant line passing through the points \((\sqrt{5},0,g(\sqrt{5},0))\) and \((2\sqrt{2},0,g(2\sqrt{2},0)).\) It represents an approximation to the slope of the tangent line to the surface through the point \((\sqrt{5},0,g(\sqrt{5},0)),\) which is parallel to the \(x\text{-axis}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Use a contour map to estimate \(∂f\text{/}∂y\) at point \((0,\sqrt{2})\) for the function</p>
+<p>\[f(x,y)={x}^{2}-{y}^{2}.\]</p>
+<p>Compare this with the exact answer.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Using the curves corresponding to \(c=-2\,\text{and}\,c=-3,\) we obtain</p>
+<p>\({\frac{∂f}{∂y}|}_{(x,y)=(0,\sqrt{2})}\approx \frac{f(0,\sqrt{3})-f(0,\sqrt{2})}{\sqrt{3}-\sqrt{2}}=\frac{-3-(-2)}{\sqrt{3}-\sqrt{2}}·\frac{\sqrt{3}+\sqrt{2}}{\sqrt{3}+\sqrt{2}}=\text{-}\sqrt{3}-\sqrt{2}\approx -3.146.\)</p>
+<p>The exact answer is</p>
+<p>\({\frac{∂f}{∂y}|}_{(x,y)=(0,\sqrt{2})}=({-2y|}_{(x,y)=(0,\sqrt{2})}=-2\sqrt{2}\approx -2.828.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="functions-of-more-than-two-variables">Functions of More Than Two Variables</h2>
+<p>Suppose we have a function of three variables, such as \(w=f(x,y,z).\) We can calculate partial derivatives of \(w\) with respect to any of the independent variables, simply as extensions of the definitions for partial derivatives of functions of two variables.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(f(x,y,z)\) be a function of three variables. Then, the <strong>partial derivative of \(f\) with respect to x,</strong> written as \(∂f\text{/}∂x,\) or \({f}_{x},\) is defined to be</p>
+<p>\[\frac{∂f}{∂x}=\underset{h\to 0}{\text{lim}}\frac{f(x+h,y,z)-f(x,y,z)}{h}.\]</p>
+<p>The <strong>partial derivative of</strong> \(f\) <strong>with respect to</strong> \(y,\) written as \(∂f\text{/}∂y,\) or \({f}_{y},\) is defined to be</p>
+<p>\[\frac{∂f}{∂y}=\underset{k\to 0}{\text{lim}}\frac{f(x,y+k,z)-f(x,y,z)}{k}.\]</p>
+<p>The <strong>partial derivative of</strong> \(f\) <strong>with respect to</strong> \(z,\) written as \(∂f\text{/}∂z,\) or \({f}_{z},\) is defined to be</p>
+<p>\[\frac{∂f}{∂z}=\underset{m\to 0}{\text{lim}}\frac{f(x,y,z+m)-f(x,y,z)}{m}.\]</p>
+</div>
+<p>We can calculate a partial derivative of a function of three variables using the same idea we used for a function of two variables. For example, if we have a function \(f\) of \(x,y,\text{and}\,z,\) and we wish to calculate \(∂f\text{/}∂x,\) then we treat the other two independent variables as if they are constants, then differentiate with respect to \(x.\)</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Use the limit definition of partial derivatives to calculate \(∂f\text{/}∂x\) for the function</p>
+<p>\[f(x,y,z)={x}^{2}-3xy+2{y}^{2}-4xz+5y{z}^{2}-12x+4y-3z.\]</p>
+<p>Then, find \(∂f\text{/}∂y\) and \(∂f\text{/}∂z\) by setting the other two variables constant and differentiating accordingly.</p>
+<p class="sol-hint">Compute \(f(x+h,y,z)\) and substitute it into the limit-definition formula for \(∂f\text{/}∂x\) first, then differentiate directly for the other two partials.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We first calculate \(∂f\text{/}∂x\) using (see original), then we calculate the other two partial derivatives by holding the remaining variables constant. To use the equation to find \(∂f\text{/}∂x,\) we first need to calculate \(f(x+h,y,z)\text{:}\)</p>
+<p>\[\begin{array}{ll}f(x+h,y,z) &amp; ={(x+h)}^{2}-3(x+h)y+2{y}^{2}-4(x+h)z+5y{z}^{2}-12(x+h)+4y-3z \\ &amp; ={x}^{2}+2xh+{h}^{2}-3xy-3xh+2{y}^{2}-4xz-4hz+5y{z}^{2}-12x-12h+4y-3z\end{array}\]</p>
+<p>and recall that \(f(x,y,z)={x}^{2}-3xy+2{y}^{2}-4zx+5y{z}^{2}-12x+4y-3z.\) Next, we substitute these two expressions into the equation:</p>
+<p>\[\begin{array}{ll}\frac{∂f}{∂x} &amp; =\underset{h\to 0}{\text{lim}}[\frac{{x}^{2}+2xh+{h}^{2}-3xy-3hy+2{y}^{2}-4xz-4hz+5y{z}^{2}-12x-12h+4y-3z}{h} \\ &amp; \,-\frac{{x}^{2}-3xy+2{y}^{2}-4xz+5y{z}^{2}-12x+4y-3z}{h}] \\ &amp; =\underset{h\to 0}{\text{lim}}[\frac{2xh+{h}^{2}-3hy-4hz-12h}{h}] \\ &amp; =\underset{h\to 0}{\text{lim}}[\frac{h(2x+h-3y-4z-12)}{h}] \\ &amp; =\underset{h\to 0}{\text{lim}}(2x+h-3y-4z-12) \\ &amp; =2x-3y-4z-12.\end{array}\]</p>
+<p>Then we find \(∂f\text{/}∂y\) by holding \(x\,\text{and}\,z\) constant. Therefore, any term that does not include the variable \(y\) is constant, and its derivative is zero. We can apply the sum, difference, and power rules for functions of one variable:</p>
+<p>\[\begin{array}{l}\frac{∂}{∂y}[{x}^{2}-3xy+2{y}^{2}-4xz+5y{z}^{2}-12x+4y-3z] \\ =\frac{∂}{∂y}[{x}^{2}]-\frac{∂}{∂y}[3xy]+\frac{∂}{∂y}[2{y}^{2}]-\frac{∂}{∂y}[4xz]+\frac{∂}{∂y}[5y{z}^{2}]-\frac{∂}{∂y}[12x]+\frac{∂}{∂y}[4y]-\frac{∂}{∂y}[3z] \\ =0-3x+4y-0+5{z}^{2}-0+4-0 \\ =-3x+4y+5{z}^{2}+4.\end{array}\]</p>
+<p>To calculate \(∂f\text{/}∂z,\) we hold <strong>x</strong> and <strong>y</strong> constant and apply the sum, difference, and power rules for functions of one variable:</p>
+<p>\[\begin{array}{l}\frac{∂}{∂z}[{x}^{2}-3xy+2{y}^{2}-4xz+5y{z}^{2}-12x+4y-3z] \\ =\frac{∂}{∂z}[{x}^{2}]-\frac{∂}{∂z}[3xy]+\frac{∂}{∂z}[2{y}^{2}]-\frac{∂}{∂z}[4xz]+\frac{∂}{∂z}[5y{z}^{2}]-\frac{∂}{∂z}[12x]+\frac{∂}{∂z}[4y]-\frac{∂}{∂z}[3z] \\ =0-0+0-4x+10yz-0+0-3 \\ =-4x+10yz-3.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Use the limit definition of partial derivatives to calculate \(∂f\text{/}∂x\) for the function</p>
+<p>\[f(x,y,z)=2{x}^{2}-4{x}^{2}y+2{y}^{2}+5x{z}^{2}-6x+3z-8.\]</p>
+<p>Then find \(∂f\text{/}∂y\) and \(∂f\text{/}∂z\) by setting the other two variables constant and differentiating accordingly.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{∂f}{∂x}=4x-8xy+5{z}^{2}-6,\,\frac{∂f}{∂y}=-4{x}^{2}+4y,\,\frac{∂f}{∂z}=10xz+3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Calculate the three partial derivatives of the following functions.</p>
+<ul class="tight"><li>\(f(x,y,z)=\frac{{x}^{2}y-4xz+{y}^{2}}{x-3yz}\)</li><li>\(g(x,y,z)=\text{sin}({x}^{2}y-z)+\text{cos}({x}^{2}-yz)\)</li></ul>
+<p class="sol-hint">For the quotient, apply the quotient rule while treating the other two variables as constants; for the trig sum, apply the chain rule to each term the same way.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>In each case, treat all variables as constants except the one whose partial derivative you are calculating.</p>
+<ul class="tight"><li>\(\begin{array}{ll}\frac{∂f}{∂x} &amp; =\frac{∂}{∂x}[\frac{{x}^{2}y-4xz+{y}^{2}}{x-3yz}] \\ &amp; =\frac{\frac{∂}{∂x}({x}^{2}y-4xz+{y}^{2})(x-3yz)-({x}^{2}y-4xz+{y}^{2})\frac{∂}{∂x}(x-3yz)}{{(x-3yz)}^{2}} \\ &amp; =\frac{(2xy-4z)(x-3yz)-({x}^{2}y-4xz+{y}^{2})(1)}{{(x-3yz)}^{2}} \\ &amp; =\frac{2{x}^{2}y-6x{y}^{2}z-4xz+12y{z}^{2}-{x}^{2}y+4xz-{y}^{2}}{{(x-3yz)}^{2}} \\ &amp; =\frac{{x}^{2}y-6x{y}^{2}z-4xz+12y{z}^{2}+4xz-{y}^{2}}{{(x-3yz)}^{2}}\end{array}\) <br> \(\begin{array}{ll}\frac{∂f}{∂y} &amp; =\frac{∂}{∂y}[\frac{{x}^{2}y-4xz+{y}^{2}}{x-3yz}] \\ &amp; =\frac{\frac{∂}{∂y}({x}^{2}y-4xz+{y}^{2})(x-3yz)-({x}^{2}y-4xz+{y}^{2})\frac{∂}{∂y}(x-3yz)}{{(x-3yz)}^{2}} \\ &amp; =\frac{({x}^{2}+2y)(x-3yz)-({x}^{2}y-4xz+{y}^{2})(-3z)}{{(x-3yz)}^{2}} \\ &amp; =\frac{{x}^{3}-3{x}^{2}yz+2xy-6{y}^{2}z+3{x}^{2}yz-12x{z}^{2}+3{y}^{2}z}{{(x-3yz)}^{2}} \\ &amp; =\frac{{x}^{3}+2xy-3{y}^{2}z-12x{z}^{2}}{{(x-3yz)}^{2}}\end{array}\) <br> \(\begin{array}{ll}\frac{∂f}{∂z} &amp; =\frac{∂}{∂z}[\frac{{x}^{2}y-4xz+{y}^{2}}{x-3yz}] \\ &amp; =\frac{\frac{∂}{∂z}({x}^{2}y-4xz+{y}^{2})(x-3yz)-({x}^{2}y-4xz+{y}^{2})\frac{∂}{∂z}(x-3yz)}{{(x-3yz)}^{2}} \\ &amp; =\frac{(-4x)(x-3yz)-({x}^{2}y-4xz+{y}^{2})(-3y)}{{(x-3yz)}^{2}} \\ &amp; =\frac{-4{x}^{2}+12xyz+3{x}^{2}{y}^{2}-12xyz+3{y}^{3}}{{(x-3yz)}^{2}} \\ &amp; =\frac{-4{x}^{2}+3{x}^{2}{y}^{2}+3{y}^{3}}{{(x-3yz)}^{2}}\end{array}\)</li><li>\(\begin{array}{ll}\frac{∂f}{∂x} &amp; =\frac{∂}{∂x}[\text{sin}({x}^{2}y-z)+\text{cos}({x}^{2}-yz)] \\ &amp; =(\text{cos}({x}^{2}y-z))\frac{∂}{∂x}({x}^{2}y-z)-(\text{sin}({x}^{2}-yz))\frac{∂}{∂x}({x}^{2}-yz) \\ &amp; =2xy\,\text{cos}({x}^{2}y-z)-2x\,\text{sin}({x}^{2}-yz) \\ \frac{∂f}{∂y} &amp; =\frac{∂}{∂y}[\text{sin}({x}^{2}y-z)+\text{cos}({x}^{2}-yz)] \\ &amp; =(\text{cos}({x}^{2}y-z))\frac{∂}{∂y}({x}^{2}y-z)-(\text{sin}({x}^{2}-yz))\frac{∂}{∂y}({x}^{2}-yz) \\ &amp; ={x}^{2}\text{cos}({x}^{2}y-z)+z\,\text{sin}({x}^{2}-yz) \\ \frac{∂f}{∂z} &amp; =\frac{∂}{∂z}[\text{sin}({x}^{2}y-z)+\text{cos}({x}^{2}-yz)] \\ &amp; =(\text{cos}({x}^{2}y-z))\frac{∂}{∂z}({x}^{2}y-z)-(\text{sin}({x}^{2}-yz))\frac{∂}{∂z}({x}^{2}-yz) \\ &amp; =\text{-}\text{cos}({x}^{2}y-z)+y\,\text{sin}({x}^{2}-yz)\end{array}\)</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Calculate \(∂f\text{/}∂x,\) \(∂f\text{/}∂y,\) and \(∂f\text{/}∂z\) for the function \(f(x,y,z)=\text{sec}({x}^{2}y)-\text{tan}({x}^{3}y{z}^{2}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}\frac{∂f}{∂x}=2xy\,\text{sec}({x}^{2}y)\text{tan}({x}^{2}y)-3{x}^{2}y{z}^{2}{\text{sec}}^{2}({x}^{3}y{z}^{2}) \\ \frac{∂f}{∂y}={x}^{2}\text{sec}({x}^{2}y)\text{tan}({x}^{2}y)-{x}^{3}{z}^{2}{\text{sec}}^{2}({x}^{3}y{z}^{2}) \\ \frac{∂f}{∂z}=-2{x}^{3}yz\,{\text{sec}}^{2}({x}^{3}y{z}^{2})\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="higher-order-partial-derivatives">Higher-Order Partial Derivatives</h2>
+<p>Consider the function</p>
+<p>\[f(x,y)=2{x}^{3}-4x{y}^{2}+5{y}^{3}-6xy+5x-4y+12.\]</p>
+<p>Its partial derivatives are</p>
+<p>\[\frac{∂f}{∂x}=6{x}^{2}-4{y}^{2}-6y+5\,\text{and}\,\frac{∂f}{∂y}=-8xy+15{y}^{2}-6x-4.\]</p>
+<p>Each of these partial derivatives is a function of two variables, so we can calculate partial derivatives of these functions. Just as with derivatives of single-variable functions, we can call these <strong>second-order derivatives, third-order derivatives</strong>, and so on. In general, they are referred to as <strong>higher-order partial derivatives</strong>. There are four second-order partial derivatives for any function (provided they all exist):</p>
+<p>\[\frac{{∂}^{2}f}{∂{x}^{2}}=\frac{∂}{∂x}[\frac{∂f}{∂x}],\,\frac{{∂}^{2}f}{∂x∂y}=\frac{∂}{∂x}[\frac{∂f}{∂y}],\,\frac{{∂}^{2}f}{∂y∂x}=\frac{∂}{∂y}[\frac{∂f}{∂x}],\,\frac{{∂}^{2}f}{∂{y}^{2}}=\frac{∂}{∂y}[\frac{∂f}{∂y}].\]</p>
+<p>An alternative notation for each is \({f}_{xx},{f}_{yx},{f}_{xy},\) and \({f}_{yy},\) respectively. Higher-order partial derivatives calculated with respect to different variables, such as \({f}_{xy}\) and \({f}_{yx},\) are commonly called <strong>mixed partial derivatives</strong>.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Calculate all four second partial derivatives for the function</p>
+<p>\[f(x,y)=x{e}^{-3y}+\text{sin}(2x-5y).\]</p>
+<p class="sol-hint">First find \(∂f\text{/}∂x\) and \(∂f\text{/}∂y,\) then differentiate each of those once more with respect to \(x\) and \(y\) to get all four second partials.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To calculate \({∂}^{2}f\text{/}d{x}^{2}\) and \({∂}^{2}f\text{/}∂y∂x,\) we first calculate \(∂f\text{/}∂x\text{:}\)</p>
+<p>\[\frac{∂f}{∂x}={e}^{-3y}+2\,\text{cos}(2x-5y).\]</p>
+<p>To calculate \({∂}^{2}f\text{/}d{x}^{2},\) differentiate \(∂f\text{/}∂x\) with respect to \(x\text{:}\)</p>
+<p>\[\begin{array}{ll}\frac{{∂}^{2}f}{∂{x}^{2}} &amp; =\frac{∂}{∂x}[\frac{∂f}{∂x}] \\ &amp; =\frac{∂}{∂x}[{e}^{-3y}+2\,\text{cos}(2x-5y)] \\ &amp; =-4\,\text{sin}(2x-5y).\end{array}\]</p>
+<p>To calculate \({∂}^{2}f\text{/}∂y∂x,\) differentiate \(∂f\text{/}∂x\) with respect to \(y\text{:}\)</p>
+<p>\[\begin{array}{ll}\frac{{∂}^{2}f}{∂y∂x} &amp; =\frac{∂}{∂y}[\frac{∂f}{∂x}] \\ &amp; =\frac{∂}{∂y}[{e}^{-3y}+2\,\text{cos}(2x-5y)] \\ &amp; =-3{e}^{-3y}+10\,\text{sin}(2x-5y).\end{array}\]</p>
+<p>To calculate \({∂}^{2}f\text{/}∂x∂y\) and \({∂}^{2}f\text{/}d{y}^{2},\) first calculate \(∂f\text{/}∂y\text{:}\)</p>
+<p>\[\frac{∂f}{∂y}=-3x{e}^{-3y}-5\,\text{cos}(2x-5y).\]</p>
+<p>To calculate \({∂}^{2}f\text{/}∂x∂y,\) differentiate \(∂f\text{/}∂y\) with respect to \(x\text{:}\)</p>
+<p>\[\begin{array}{ll}\frac{{∂}^{2}f}{∂x∂y} &amp; =\frac{∂}{∂x}[\frac{∂f}{∂y}] \\ &amp; =\frac{∂}{∂x}[-3x{e}^{-3y}-5\,\text{cos}(2x-5y)] \\ &amp; =-3{e}^{-3y}+10\,\text{sin}(2x-5y).\end{array}\]</p>
+<p>To calculate \({∂}^{2}f\text{/}∂{y}^{2},\) differentiate \(∂f\text{/}∂y\) with respect to \(y\text{:}\)</p>
+<p>\[\begin{array}{ll}\frac{{∂}^{2}f}{∂{y}^{2}} &amp; =\frac{∂}{∂y}[\frac{∂f}{∂y}] \\ &amp; =\frac{∂}{∂y}[-3x{e}^{-3y}-5\,\text{cos}(2x-5y)] \\ &amp; =9x{e}^{-3y}-25\,\text{sin}(2x-5y).\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Calculate all four second partial derivatives for the function</p>
+<p>\[f(x,y)=\text{sin}(3x-2y)+\text{cos}(x+4y).\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}\frac{{∂}^{2}f}{∂{x}^{2}}=-9\,\text{sin}(3x-2y)-\text{cos}(x+4y) \\ \frac{{∂}^{2}f}{∂x∂y}=6\,\text{sin}(3x-2y)-4\,\text{cos}(x+4y) \\ \frac{{∂}^{2}f}{∂y∂x}=6\,\text{sin}(3x-2y)-4\,\text{cos}(x+4y) \\ \frac{{∂}^{2}f}{∂{y}^{2}}=-4\,\text{sin}(3x-2y)-16\,\text{cos}(x+4y)\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>At this point we should notice that, in both <a href="#example6">Example 6</a> and the checkpoint, it was true that \({∂}^{2}f\text{/}∂x∂y={∂}^{2}f\text{/}∂y∂x.\) Under certain conditions, this is always true. In fact, it is a direct consequence of the following theorem.</p>
+<div class="card definition"><span class="chip">Equality of Mixed Partial Derivatives (Clairaut’s Theorem)</span><p>Suppose that \(f(x,y)\) is defined on an open disk \(D\) that contains the point \((a,b).\) If the functions \({f}_{xy}\) and \({f}_{yx}\) are continuous on \(D,\) then \({f}_{xy}={f}_{yx}.\)</p>
+</div>
+<p>Clairaut’s theorem guarantees that as long as mixed second-order derivatives are continuous, the order in which we choose to differentiate the functions (i.e., which variable goes first, then second, and so on) does not matter. It can be extended to higher-order derivatives as well. The proof of Clairaut’s theorem can be found in most advanced calculus books.</p>
+<p>Two other second-order partial derivatives can be calculated for any function \(f(x,y).\) The partial derivative \({f}_{xx}\) is equal to the partial derivative of \({f}_{x}\) with respect to \(x,\) and \({f}_{yy}\) is equal to the partial derivative of \({f}_{y}\) with respect to \(y.\)</p>
+<h2 id="partial-differential-equations">Partial Differential Equations</h2>
+<p>In Introduction to Differential Equations, we studied differential equations in which the unknown function had one independent variable. A <strong>partial differential equation</strong> is an equation that involves an unknown function of more than one independent variable and one or more of its partial derivatives. Examples of partial differential equations are</p>
+<p>\[{u}_{t}={c}^{2}({u}_{xx}+{u}_{yy})\]</p>
+<p>(<strong>heat equation</strong> in two dimensions)</p>
+<p>\[{u}_{tt}={c}^{2}({u}_{xx}+{u}_{yy})\]</p>
+<p>(<strong>wave equation</strong> in two dimensions)</p>
+<p>\[{u}_{xx}+{u}_{yy}=0\]</p>
+<p>(<strong>Laplace’s equation</strong> in two dimensions)</p>
+<p>In the first two equations, the unknown function \(u\) has three independent variables— \(t,x,\,\text{and}\,y\) —and \(c\) is an arbitrary constant. The independent variables \(x\,\text{and}\,y\) are considered to be spatial variables, and the variable \(t\) represents time. In Laplace’s equation, the unknown function \(u\) has two independent variables \(x\,\text{and}\,y.\)</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Verify that</p>
+<p>\[u(x,y,t)=5\,\text{sin}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t)\]</p>
+<p>is a solution to the wave equation</p>
+<p>\[{u}_{tt}=4({u}_{xx}+{u}_{yy}).\]</p>
+<p class="sol-hint">Compute \({u}_{tt},{u}_{xx},\) and \({u}_{yy}\) separately, then substitute the last two into the right-hand side and check it matches \({u}_{tt}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we calculate \({u}_{tt},{u}_{xx},\) and \({u}_{yy}\text{:}\)</p>
+<p>\[\begin{array}{lll}{u}_{tt} &amp; = &amp; \frac{∂}{∂t}[\frac{∂u}{∂t}] \\ &amp; = &amp; \frac{∂}{∂t}[5\,\text{sin}(3\pi x)\text{sin}(4\pi y)(-10\pi \,\text{sin}(10\pi t))] \\ &amp; = &amp; \frac{∂}{∂t}[-50\pi \,\text{sin}(3\pi x)\text{sin}(4\pi y)\text{sin}(10\pi t)] \\ &amp; = &amp; -500{\pi }^{2}\text{sin}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t) \\ {u}_{xx} &amp; = &amp; \frac{∂}{∂x}[\frac{∂u}{∂x}] \\ &amp; = &amp; \frac{∂}{∂x}[15\pi \,\text{cos}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t)] \\ &amp; = &amp; -45{\pi }^{2}\text{sin}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t) \\ {u}_{yy} &amp; = &amp; \frac{∂}{∂y}[\frac{∂u}{∂y}] \\ &amp; = &amp; \frac{∂}{∂y}[5\,\text{sin}(3\pi x)(4\pi \,\text{cos}(4\pi y))\text{cos}(10\pi t)] \\ &amp; = &amp; \frac{∂}{∂y}[20\pi \,\text{sin}(3\pi x)\text{cos}(4\pi y)\text{cos}(10\pi t)] \\ &amp; = &amp; -80{\pi }^{2}\text{sin}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t).\end{array}\]</p>
+<p>Next, we substitute each of these into the right-hand side of (see original) and simplify:</p>
+<p>\[\begin{array}{ll}4({u}_{xx}+{u}_{yy}) &amp; =4(-45{\pi }^{2}\text{sin}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t)+-80{\pi }^{2}\text{sin}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t)) \\ &amp; =4(-125{\pi }^{2}\text{sin}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t)) \\ &amp; =-500{\pi }^{2}\text{sin}(3\pi x)\text{sin}(4\pi y)\text{cos}(10\pi t) \\ &amp; ={u}_{tt}.\end{array}\]</p>
+<p>This verifies the solution.</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Verify that \(u(x,y,t)=2\,\text{sin}(\frac{x}{3})\text{sin}(\frac{y}{4}){e}^{-25t\text{/}16}\) is a solution to the heat equation</p>
+<p>\[{u}_{t}=9({u}_{xx}+{u}_{yy}).\]</p>
+</div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Since the solution to the two-dimensional heat equation is a function of three variables, it is not easy to create a visual representation of the solution. We can graph the solution for fixed values of <strong>t</strong>, which amounts to snapshots of the heat distributions at fixed times. These snapshots show how the heat is distributed over a two-dimensional surface as time progresses. The graph of the preceding solution at time \(t=0\) appears in the following figure. As time progresses, the extremes level out, approaching zero as <strong>t</strong> approaches infinity.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_03_003.jpg" alt="A complicated curve in xyz space with many sinusoidally alternating local maxima and minima." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<p>If we consider the heat equation in one dimension, then it is possible to graph the solution over time. The heat equation in one dimension becomes</p>
+<p>\[{u}_{t}={c}^{2}{u}_{xx},\]</p>
+<p>where \({c}^{2}\) represents the thermal diffusivity of the material in question. A solution of this differential equation can be written in the form</p>
+<p>\[{u}_{m}(x,t)={e}^{\text{-}{\pi }^{2}{m}^{2}{c}^{2}t}\text{sin}(m\pi x)\]</p>
+<p>where \(m\) is any positive integer. A graph of this solution using \(m=1\) appears in <a href="#fig4">Figure 4</a>, where the initial temperature distribution over a wire of length \(1\) is given by \(u(x,0)=\text{sin}\,\pi x.\) Notice that as time progresses, the wire cools off. This is seen because, from left to right, the highest temperature (which occurs in the middle of the wire) decreases and changes color from red to blue.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_03_004.jpg" alt="A curve in xtu space with a local maximum at (0.5, 0, 12). From this maximum, the values decrease with increasing t and for any value of x." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — Graph of a solution of the heat equation in one dimension over time.</figcaption></figure>
+<div class="card definition"><span class="chip">Lord Kelvin and the Age of Earth</span><figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_03_006.jpg" alt="This figure consists of two figures marked a and b. Figure a show Lord Kelvin, dressed well and with a beard. Figure b shows an image of the planet Earth taken from space." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — (a) William Thomson (Lord Kelvin), 1824-1907, was a British physicist and electrical engineer; (b) Kelvin used the heat diffusion equation to estimate the age of Earth (credit: modification of work by NASA).</figcaption></figure>
+<p>During the late 1800s, the scientists of the new field of geology were coming to the conclusion that Earth must be “millions and millions” of years old. At about the same time, Charles Darwin had published his treatise on evolution. Darwin’s view was that evolution needed many millions of years to take place, and he made a bold claim that the Weald chalk fields, where important fossils were found, were the result of \(300\) million years of erosion.</p>
+<p>At that time, eminent physicist <strong>William Thomson (Lord Kelvin)</strong> used an important partial differential equation, known as the <strong>heat diffusion equation</strong>, to estimate the age of Earth by determining how long it would take Earth to cool from molten rock to what we had at that time. His conclusion was a range of \(20\,\text{to}\,400\) million years, but most likely about \(50\) million years. For many decades, the proclamations of this irrefutable icon of science did not sit well with geologists or with Darwin.</p>
+<div class="card callout"><span class="chip">Media</span><p>Read Kelvin’s <a href="http://www.openstax.org/l/20_KelEarthAge" target="_blank" rel="noopener">paper</a> on estimating the age of the Earth.</p>
+</div>
+<p>Kelvin made reasonable assumptions based on what was known in his time, but he also made several assumptions that turned out to be wrong. One incorrect assumption was that Earth is solid and that the cooling was therefore via conduction only, hence justifying the use of the diffusion equation. But the most serious error was a forgivable one—omission of the fact that Earth contains radioactive elements that continually supply heat beneath Earth’s mantle. The discovery of radioactivity came near the end of Kelvin’s life and he acknowledged that his calculation would have to be modified.</p>
+<p>Kelvin used the simple one-dimensional model applied only to Earth’s outer shell, and derived the age from graphs and the roughly known temperature gradient near Earth’s surface. Let’s take a look at a more appropriate version of the diffusion equation in radial coordinates, which has the form</p>
+<p>\[\frac{∂T}{∂t}=K[\frac{{∂}^{2}T}{{∂}^{2}r}+\frac{2}{r}\,\frac{∂T}{∂r}].\]</p>
+<p>Here, \(T(r,t)\) is temperature as a function of \(r\) (measured from the center of Earth) and time \(t.\) \(K\) is the heat conductivity—for molten rock, in this case. The standard method of solving such a partial differential equation is by separation of variables, where we express the solution as the product of functions containing each variable separately. In this case, we would write the temperature as</p>
+<p>\[T(r,t)=R(r)f(t).\]</p>
+<ul class="tight"><li>Substitute this form into (see original) and, noting that \(f(t)\) is constant with respect to distance \((r)\) and \(R(r)\) is constant with respect to time \((t),\) show that<br><p>\[\frac{1}{f}\,\frac{∂f}{∂t}=\frac{K}{R}[\frac{{∂}^{2}R}{∂{r}^{2}}+\frac{2}{r}\,\frac{∂R}{∂r}].\]</p>
+</li><li>This equation represents the separation of variables we want. The left-hand side is only a function of \(t\) and the right-hand side is only a function of \(r,\) and they must be equal for all values of \(r\,\text{and}\,t.\) Therefore, they both must be equal to a constant. Let’s call that constant \(\text{-}{λ}^{2}.\) (The convenience of this choice is seen on substitution.) So, we have<br> <br> Now, we can verify through direct substitution for each equation that the solutions are \(f(t)=A{e}^{\text{-}{λ}^{2}t}\) and \(R(r)=B(\frac{\text{sin}\,αr}{r})+C(\frac{\text{cos}\,αr}{r}),\) where \(α=λ\text{/}\sqrt{K}.\) Note that \(f(t)=A{e}^{+λ{n}^{2}t}\) is also a valid solution, so we could have chosen \(+{λ}^{2}\) for our constant. Can you see why it would not be valid for this case as time increases?<p>\[\frac{1}{f}\,\frac{∂f}{∂t}=\text{-}{λ}^{2}\,\text{and}\,\frac{K}{R}[\frac{{∂}^{2}R}{∂{r}^{2}}+\frac{2}{r}\,\frac{∂R}{∂r}]=\text{-}{λ}^{2}.\]</p>
+</li><li>Let’s now apply boundary conditions.<ul class="tight"><li>The temperature must be finite at the center of Earth, \(r=0.\) Which of the two constants, \(B\) or \(C,\) must therefore be zero to keep \(R\) finite at \(r=0?\) (Recall that \(\text{sin}(αr)\text{/}r\to α=\) as \(r\to 0,\) but \(\text{cos}(αr)\text{/}r\) behaves very differently.)</li><li>Kelvin argued that when magma reaches Earth’s surface, it cools very rapidly. A person can often touch the surface within weeks of the flow. Therefore, the surface reached a moderate temperature very early and remained nearly constant at a surface temperature \({T}_{s}.\) For simplicity, let’s set \(T=0\,\text{at}\,r={R}_{E}\) and find \(α\) such that this is the temperature there for all time \(t.\) (Kelvin took the value to be \(300\,\text{K}\approx 80\text{°}\text{F}.\) We can add this \(300\,\text{K}\) constant to our solution later.) For this to be true, the sine argument must be zero at \(r={R}_{E}.\) Note that \(α\) has an infinite series of values that satisfies this condition. Each value of \(α\) represents a valid solution (each with its own value for \(A).\) The total or general solution is the sum of all these solutions.</li><li>At \(t=0,\) we assume that all of Earth was at an initial hot temperature \({T}_{0}\) (Kelvin took this to be about \(7000\,\text{K}.)\) The application of this boundary condition involves the more advanced application of Fourier coefficients. As noted in part b. each value of \({α}_{n}\) represents a valid solution, and the general solution is a sum of all these solutions. This results in a series solution:<br><p>\[T(r,t)=(\frac{{T}_{0}{R}_{\text{E}}}{\pi })\underset{n}{∑}\frac{{(-1)}^{n-1}}{n}{e}^{\text{-}λ{n}^{2}t}\frac{\text{sin}({α}_{n}r)}{r},\text{where}\,{α}_{n}=n\pi \text{/}{R}_{\text{E}}.\]</p>
+</li></ul>
+</li></ul>
+<p>Note how the values of \({α}_{n}\) come from the boundary condition applied in part b. The term \(\frac{\text{-}{1}^{n-1}}{n}\) is the constant \({A}_{n}\) for each term in the series, determined from applying the Fourier method. Letting \(β=\frac{\pi }{{R}_{\text{E}}},\) examine the first few terms of this solution shown here and note how \({λ}^{2}\) in the exponential causes the higher terms to decrease quickly as time progresses:</p>
+<p>\[T(r,t)=\frac{{T}_{0}{R}_{\text{E}}}{\pi r}(\begin{array}{l}{e}^{\text{-}K{β}^{2}t}(\text{sin}\,βr)-\frac{1}{2}{e}^{-4K{β}^{2}t}(\text{sin}\,2βr)+\frac{1}{3}{e}^{-9K{β}^{2}t}(\text{sin}\,3βr) \\ -\frac{1}{4}{e}^{-16K{β}^{2}t}(\text{sin}\,4βr)+\frac{1}{5}{e}^{-25K{β}^{2}t}(\text{sin}\,5βr)...\end{array}).\]</p>
+<p>Near time \(t=0,\) many terms of the solution are needed for accuracy. Inserting values for the conductivity \(K\) and \(β=\pi \text{/}{R}_{\text{E}}\) for time approaching merely thousands of years, only the first few terms make a significant contribution. Kelvin only needed to look at the solution near Earth’s surface (<a href="#fig6">Figure 6</a>) and, after a long time, determine what time best yielded the estimated temperature gradient known during his era \((1\text{°}\text{F}\) increase per \(50\,\text{ft}).\) He simply chose a range of times with a gradient close to this value. In <a href="#fig6">Figure 6</a>, the solutions are plotted and scaled, with the \(300-\text{K}\) surface temperature added. Note that the center of Earth would be relatively cool. At the time, it was thought Earth must be solid.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_03_005.jpg" alt="This figure consists of two figures labeled a and b. Figure a shows three curves labeled 20, 50, and 200 million years on a chart showing fraction of the earth’s radius vs. temperature (K). The highest curve is the 20 million one, then the 50 million one, and then the 200 million one, with all of them starting with a mildly decreasing slope until the slope decreases more steeply around x = 0.2 and then they all intersect at roughly (1, 315). Figure b shows a close up near (1, 315) with the x axis marked 4.0 miles below Earth’s surface; the curves all appear linear in this close up, with the slopes increasing as the value of the curve does." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Temperature versus radial distance from the center of Earth. (a) Kelvin’s results, plotted to scale. (b) A close-up of the results at a depth of \(4.0\,\text{mi}\) below Earth’s surface.</figcaption></figure>
+<p><strong>Epilog</strong></p>
+<p>On May \(20,1904,\) physicist <strong>Ernest Rutherford</strong> spoke at the Royal Institution to announce a revised calculation that included the contribution of radioactivity as a source of Earth’s heat. In Rutherford’s own words:</p>
+<p>“I came into the room, which was half-dark, and presently spotted Lord Kelvin in the audience, and realised that I was in for trouble at the last part of my speech dealing with the age of the Earth, where my views conflicted with his. To my relief, Kelvin fell fast asleep, but as I came to the important point, I saw the old bird sit up, open an eye and cock a baleful glance at me.</p>
+<p>Then a sudden inspiration came, and I said Lord Kelvin had limited the age of the Earth, <strong>provided no new source</strong> [<strong>of heat</strong>] <strong>was discovered</strong>. That prophetic utterance referred to what we are now considering tonight, radium! Behold! The old boy beamed upon me.”</p>
+<p>Rutherford calculated an age for Earth of about \(500\) million years. Today’s accepted value of Earth’s age is about \(4.6\) billion years.</p>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A partial derivative is a derivative involving a function of more than one independent variable. (See <a href="#example1">Example 1</a>.)</li><li>To calculate a partial derivative with respect to a given variable, treat all the other variables as constants and use the usual differentiation rules. (See <a href="#example2">Example 2</a> and <a href="#example5">Example 5</a>.)</li><li>Higher-order partial derivatives can be calculated in the same way as higher-order derivatives. (See <a href="#example6">Example 6</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Partial derivative of \(f\) with respect to \(x\)</strong></td><td>\(\frac{∂f}{∂x}=\underset{h\to 0}{\text{lim}}\frac{f(x+h,y)-f(x,y)}{h}\)</td></tr><tr><td><strong>Partial derivative of \(f\) with respect to \(y\)</strong></td><td>\(\frac{∂f}{∂y}=\underset{k\to 0}{\text{lim}}\frac{f(x,y+k)-f(x,y)}{k}\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>For the following exercises, calculate the partial derivative using the limit definitions only.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(\frac{∂z}{∂x}\) for \(z={x}^{2}-3xy+{y}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(\frac{∂z}{∂y}\) for \(z={x}^{2}-3xy+{y}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂z}{∂y}=-3x+2y\)</p>
+</div></div></div></div>
+<p>For the following exercises, calculate the sign of the partial derivative using the graph of the surface.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_03_201.jpg" alt="A partial paraboloid with vertex at the origin and pointing up." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\({f}_{x}(1,1)\)</p>
+</div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\({f}_{x}(-1,1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The sign is negative.</p>
+</div></div></div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\({f}_{y}(1,1)\)</p>
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\({f}_{x}(0,0)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The partial derivative is zero at the origin.</p>
+</div></div></div></div>
+<p>For the following exercises, calculate the partial derivatives.</p>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\frac{∂z}{∂x}\) for \(z=\text{sin}(3x)\text{cos}(3y)\)</p>
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\frac{∂z}{∂y}\) for \(z=\text{sin}(3x)\text{cos}(3y)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂z}{∂y}=-3\,\text{sin}(3x)\text{sin}(3y)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\frac{∂z}{∂x}\) and \(\frac{∂z}{∂y}\) for \(z={x}^{8}{e}^{3y}\)</p>
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\frac{∂z}{∂x}\) and \(\frac{∂z}{∂y}\) for \(z=\text{ln}({x}^{6}+{y}^{4})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂z}{∂x}=\frac{6{x}^{5}}{{x}^{6}+{y}^{4}};\frac{∂z}{∂y}=\frac{4{y}^{3}}{{x}^{6}+{y}^{4}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>Find \({f}_{y}(x,y)\) for \(f(x,y)={e}^{xy}\text{cos}(x)\text{sin}(y).\)</p>
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>Let \(z={e}^{xy}.\) Find \(\frac{∂z}{∂x}\) and \(\frac{∂z}{∂y}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂z}{∂x}=y{e}^{xy};\frac{∂z}{∂y}=x{e}^{xy}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>Let \(z=\text{ln}(\frac{x}{y}).\) Find \(\frac{∂z}{∂x}\) and \(\frac{∂z}{∂y}.\)</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>Let \(z=\text{tan}(2x-y).\) Find \(\frac{∂z}{∂x}\) and \(\frac{∂z}{∂y}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂z}{∂x}=2\,{\text{sec}}^{2}(2x-y),\frac{∂z}{∂y}=\text{-}{\text{sec}}^{2}(2x-y)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>Let \(z=\text{sinh}(2x+3y).\) Find \(\frac{∂z}{∂x}\) and \(\frac{∂z}{∂y}.\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>Let \(f(x,y)=\text{arctan}(\frac{y}{x}).\) Evaluate \({f}_{x}(2,-2)\) and \({f}_{y}(2,-2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}_{x}(2,-2)=\frac{1}{4}={f}_{y}(2,-2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>Let \(f(x,y)=\frac{xy}{x-y}.\) Find \({f}_{x}(2,-2)\) and \({f}_{y}(2,-2).\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>Find \(\frac{∂z}{∂x}\) at \((0,1)\) for \(z={e}^{\text{-}x}\text{cos}(y).\) Evaluate the partial derivatives at point \(P(0,1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂z}{∂x}=\text{-}\text{cos}(1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>Given \(f(x,y,z)={x}^{3}y{z}^{2},\) find \(\frac{{∂}^{2}f}{∂x∂y}\) and \({f}_{z}(1,1,1).\)</p>
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>Given \(f(x,y,z)=2\,\text{sin}(x+y),\) find \({f}_{x}(0,\frac{\pi }{2},-4),\) \({f}_{y}(0,\frac{\pi }{2},-4),\) and \({f}_{z}(0,\frac{\pi }{2},-4).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{lll}{f}_{x}=0, &amp; {f}_{y}=0, &amp; {f}_{z}=0\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>The area of a parallelogram with adjacent side lengths that are \(a\,\text{and}\,b,\) and in which the angle between these two sides is \(θ,\) is given by the function \(A(a,b,θ)=ba\,\text{sin}(θ).\) Find the rate of change of the area of the parallelogram with respect to the following:</p>
+<ul class="tight"><li>Side <strong>a</strong></li><li>Side <strong>b</strong></li><li>\(\text{Angle}\,θ\)</li></ul>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>Express the volume of a right circular cylinder as a function of two variables:</p>
+<ul class="tight"><li>its radius \(r\) and its height \(h.\)</li><li>Show that the rate of change of the volume of the cylinder with respect to its radius is the product of its circumference multiplied by its height.</li><li>Show that the rate of change of the volume of the cylinder with respect to its height is equal to the area of the circular base.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(V(r,h)=\pi {r}^{2}h\) b. \(\frac{∂V}{∂r}=2\pi rh\) c. \(\frac{∂V}{∂h}=\pi {r}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>Calculate \(\frac{∂w}{∂z}\) for \(w=z\,\text{sin}(x{y}^{2}+2z).\)</p>
+</div></div>
+<p>Find the indicated higher-order partial derivatives.</p>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({f}_{xy}\) for \(z=\text{ln}(x-y)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}_{xy}=\frac{1}{{(x-y)}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({f}_{yx}\) for \(z=\text{ln}(x-y)\)</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>Let \(z={x}^{2}+3xy+2{y}^{2}.\) Find \(\frac{{∂}^{2}z}{∂{x}^{2}}\) and \(\frac{{∂}^{2}z}{∂{y}^{2}}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{∂}^{2}z}{∂{x}^{2}}=2,\frac{{∂}^{2}z}{∂{y}^{2}}=4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Given \(z={e}^{x}\text{tan}\,y,\) find \(\frac{{∂}^{2}z}{∂x∂y}\) and \(\frac{{∂}^{2}z}{∂y∂x}.\)</p>
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Given \(f(x,y,z)=xyz,\) find \({f}_{xyy},{f}_{yxy},\) and \({f}_{yyx}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}_{xyy}={f}_{yxy}={f}_{yyx}=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>Given \(f(x,y,z)={e}^{-2x}\text{sin}({z}^{2}y),\) show that \({f}_{xyy}={f}_{yxy}.\)</p>
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>Show that \(z=\frac{1}{2}({e}^{y}-{e}^{\text{-}y})\text{sin}\,x\) is a solution of the differential equation \(\frac{{∂}^{2}z}{∂{x}^{2}}+\frac{{∂}^{2}z}{∂{y}^{2}}=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{lll}\frac{{d}^{2}z}{d{x}^{2}} &amp; = &amp; -\frac{1}{2}({e}^{y}-{e}^{\text{-}y})\text{sin}\,x \\ \frac{{d}^{2}z}{d{y}^{2}} &amp; = &amp; \frac{1}{2}({e}^{y}-{e}^{\text{-}y})\text{sin}\,x \\ \frac{{d}^{2}z}{d{x}^{2}}+\frac{{d}^{2}z}{d{y}^{2}} &amp; = &amp; 0\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>Find \({f}_{xx}(x,y)\) for \(f(x,y)=\frac{4{x}^{2}}{y}+\frac{{y}^{2}}{2x}.\)</p>
+</div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Let \(f(x,y,z)={x}^{2}{y}^{3}z-3x{y}^{2}{z}^{3}+5{x}^{2}z-{y}^{3}z.\) Find \({f}_{xyz}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}_{xyz}=6{y}^{2}x-18y{z}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Let \(F(x,y,z)={x}^{3}y{z}^{2}-2{x}^{2}yz+3xz-2{y}^{3}z.\) Find \({F}_{xyz}.\)</p>
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Given \(f(x,y)={x}^{2}+x-3xy+{y}^{3}-5,\) find all points at which \({f}_{x}={f}_{y}=0\) simultaneously.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\frac{1}{4},\frac{1}{2}),(1,1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Given \(f(x,y)=2{x}^{2}+2xy+{y}^{2}+2x-3,\) find all points at which \(\frac{∂f}{∂x}=0\) and \(\frac{∂f}{∂y}=0\) simultaneously.</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Given \(f(x,y)={y}^{3}-3y{x}^{2}-3{y}^{2}-3{x}^{2}+1,\) find all points on \(f\) at which \({f}_{x}={f}_{y}=0\) simultaneously.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,0),(0,2),(\sqrt{3},-1),(\text{-}\sqrt{3},-1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Given \(f(x,y)=15{x}^{3}-3xy+15{y}^{3},\) find all points at which \({f}_{x}(x,y)={f}_{y}(x,y)=0\) simultaneously.</p>
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Show that \(z={e}^{x}\text{sin}\,y\) satisfies the equation \(\frac{{∂}^{2}z}{∂{x}^{2}}+\frac{{∂}^{2}z}{∂{y}^{2}}=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{∂}^{2}z}{∂{x}^{2}}+\frac{{∂}^{2}z}{∂{y}^{2}}={e}^{x}\text{sin}(y)-{e}^{x}\text{sin}\,y=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Show that \(f(x,y)=\text{ln}({x}^{2}+{y}^{2})\) solves Laplace’s equation \(\frac{{∂}^{2}z}{∂{x}^{2}}+\frac{{∂}^{2}z}{∂{y}^{2}}=0.\)</p>
+</div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Show that \(z={e}^{\text{-}t}\text{cos}(\frac{x}{c})\) satisfies the heat equation \(\frac{∂z}{∂t}={c}^{2}\left(\frac{{∂}^{2}z}{∂{x}^{2}}\right)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({c}^{2}\frac{{∂}^{2}z}{∂{x}^{2}}={e}^{\text{-}t}\text{cos}(\frac{x}{c})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Find \(\underset{\Delta x\to 0}{\text{lim}}\frac{f(x+\Delta x\text{, }y)-f(x,y)}{\Delta x}\) for \(f(x,y)=-7x-2xy+7y.\)</p>
+</div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Find \(\underset{\Delta y\to 0}{\text{lim}}\frac{f(x,y+\Delta y)-f(x,y)}{\Delta y}\) for \(f(x,y)=-7x-2xy+7y.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂f}{∂y}=-2x+7\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Find \(\underset{\Delta x\to 0}{\text{lim}}\frac{\Delta f}{\Delta x}=\underset{\Delta x\to 0}{\text{lim}}\frac{f(x+\Delta x,y)-f(x,y)}{\Delta x}\) for \(f(x,y)={x}^{2}{y}^{2}+xy+y.\)</p>
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find \(\underset{\Delta x\to 0}{\text{lim}}\frac{\Delta f}{\Delta x}=\underset{\Delta x\to 0}{\text{lim}}\frac{f(x+\Delta x,y)-f(x,y)}{\Delta x}\) for \(f(x,y)=\text{sin}(xy).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂f}{∂x}=y\,\text{cos}\,xy\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>The function \(P(T,V)=\frac{nRT}{V}\) gives the pressure at a point in a gas as a function of temperature \(T\) and volume \(V.\) The letters \(n\,\text{and}\,R\) are constants. Find \(\frac{∂P}{∂V}\) and \(\frac{∂P}{∂T},\) and explain what these quantities represent.</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>The equation for heat flow in the \(xy\text{-plane}\) is \(\frac{∂f}{∂t}=\frac{{∂}^{2}f}{∂{x}^{2}}+\frac{{∂}^{2}f}{∂{y}^{2}}.\) Show that \(f(x,y,t)={e}^{-2t}\text{sin}\,x\,\text{sin}\,y\) is a solution.</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>The basic wave equation is \({f}_{tt}={f}_{xx}.\) Verify that \(f(x,t)=\text{sin}(x+t)\) and \(f(x,t)=\text{sin}(x-t)\) are solutions.</p>
+</div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>The law of cosines can be thought of as a function of three variables. Let \(x,y,\) and \(θ\) be two sides of any triangle where the angle \(θ\) is the included angle between the two sides. Then, \(F(x,y,θ)={x}^{2}+{y}^{2}-2xy\,\text{cos}\,θ\) gives the square of the third side of the triangle. Find \(\frac{∂F}{∂θ}\) and \(\frac{∂F}{∂x}\) when \(x=2,y=3,\) and \(θ=\frac{\pi }{6}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂F}{∂θ}=6,\frac{∂F}{∂x}=4-3\sqrt{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Suppose the sides of a rectangle are changing with respect to time. The first side is changing at a rate of \(2\) in./sec whereas the second side is changing at the rate of \(4\) in/sec. How fast is the diagonal of the rectangle changing when the first side measures \(16\) in. and the second side measures \(20\) in.? (Round answer to three decimal places.)</p>
+</div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>A <strong>Cobb-Douglas production function</strong> is \(f(x,y)=200{x}^{0.7}{y}^{0.3},\) where \(x\,\text{and}\,y\) represent the amount of labor and capital available. Let \(x=500\) and \(y=1000.\) Find \(\frac{∂f}{∂x}\) and \(\frac{∂f}{∂y}\) at these values, which represent the marginal productivity of labor and capital, respectively.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{∂f}{∂x}\) at \((500,1000)=172.36,\) \(\frac{∂f}{∂y}\) at \((500,1000)=36.93\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>The apparent temperature index is a measure of how the temperature feels, and it is based on two variables: \(h,\) which is relative humidity, and \(t,\) which is the air temperature.</p>
+<p>\(A=0.885t-22.4h+1.20th-0.544.\) Find \(\frac{∂A}{∂t}\) and \(\frac{∂A}{∂h}\) when \(t=20\text{°}\text{F}\) and \(h=0.90.\)</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>higher-order partial derivatives</dt><dd>second-order or higher partial derivatives, regardless of whether they are mixed partial derivatives</dd><dt>mixed partial derivatives</dt><dd>second-order or higher partial derivatives, in which at least two of the differentiations are with respect to different variables</dd><dt>partial derivative</dt><dd>a derivative of a function of more than one independent variable in which all the variables but one are held constant</dd><dt>partial differential equation</dt><dd>an equation that involves an unknown function of more than one independent variable and one or more of its partial derivatives</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

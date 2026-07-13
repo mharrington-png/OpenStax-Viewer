@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion in Space · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Motion in Space</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.4</span>Motion in Space</h1>
+<p>We have now seen how to describe curves in the plane and in space, and how to determine their properties, such as arc length and curvature. All of this leads to the main goal of this chapter, which is the description of motion along plane curves and space curves. We now have all the tools we need; in this section, we put these ideas together and look at how to use them.</p>
+<h2 id="motion-vectors-in-the-plane-and-in-space">Motion Vectors in the Plane and in Space</h2>
+<p>Our starting point is using <strong>vector-valued functions</strong> to represent the position of an object as a function of time. All of the following material can be applied either to curves in the plane or to space curves. For example, when we look at the orbit of the planets, the curves defining these orbits all lie in a plane because they are elliptical. However, a particle traveling along a helix moves on a curve in three dimensions.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(\text{r}(t)\) be a twice-differentiable vector-valued function of the parameter <strong>t</strong> that represents the position of an object as a function of time. The <strong>velocity vector</strong> \(\text{v}(t)\) of the object is given by</p>
+<p>\[\text{Velocity}=\text{v}(t)={r}^{\prime }(t).\]</p>
+<p>The <strong>acceleration vector</strong> \(\text{a}(t)\) is defined to be</p>
+<p>\[\text{Acceleration}=\text{a}(t)={v}^{\prime }(t)=\text{r}\prime\prime (t).\]</p>
+<p>The <strong>speed</strong> is defined to be</p>
+<p>\[\text{Speed}=v(t)=\Vert \text{v}(t)\Vert =\Vert {r}^{\prime }(t)\Vert =\frac{ds}{dt}.\]</p>
+</div>
+<p>Since \(\text{r}(t)\) can be in either two or three dimensions, these vector-valued functions can have either two or three components. In two dimensions, we define \(\text{r}(t)=x(t)\,\text{i}+y(t)\,\text{j}\) and in three dimensions \(\text{r}(t)=x(t)\,\text{i}+y(t)\,\text{j}+z(t)\,\text{k}.\) Then the velocity, acceleration, and speed can be written as shown in the following table.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Quantity</strong></td><td><strong>Two Dimensions</strong></td><td><strong>Three Dimensions</strong></td></tr><tr><td>Position</td><td>\(\text{r}(t)=x(t)\,\text{i}+y(t)\,\text{j}\)</td><td>\(\text{r}(t)=x(t)\,\text{i}+y(t)\,\text{j}+z(t)\,\text{k}\)</td></tr><tr><td>Velocity</td><td>\(\text{v}(t)={x}^{\prime }(t)\,\text{i}+{y}^{\prime }(t)\,\text{j}\)</td><td>\(\text{v}(t)={x}^{\prime }(t)\,\text{i}+{y}^{\prime }(t)\,\text{j}+{z}^{\prime }(t)\,\text{k}\)</td></tr><tr><td>Acceleration</td><td>\(\text{a}(t)={x}^{\prime\prime }(t)\,\text{i}+{y}^{\prime\prime }(t)\,\text{j}\)</td><td>\(\text{a}(t)={x}^{\prime\prime }(t)\,\text{i}+{y}^{\prime\prime }(t)\,\text{j}+{z}^{\prime\prime }(t)\,\text{k}\)</td></tr><tr><td>Speed</td><td>\(v(t)=\sqrt{{({x}^{\prime }(t))}^{2}+{({y}^{\prime }(t))}^{2}}\)</td><td>\(v(t)=\sqrt{{({x}^{\prime }(t))}^{2}+{({y}^{\prime }(t))}^{2}+{({z}^{\prime }(t))}^{2}}\)</td></tr></tbody></table></div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>A particle moves in a parabolic path defined by the vector-valued function \(\text{r}(t)={t}^{2}\text{i}+\sqrt{5-{t}^{2}}\text{j},\) where <strong>t</strong> measures time in seconds.</p>
+<ul class="tight"><li>Find the velocity, acceleration, and speed as functions of time.</li><li>Sketch the curve along with the velocity vector at time \(t=1.\)</li></ul>
+<p class="sol-hint">Differentiate r(t) once for velocity, again for acceleration, and take the magnitude of the velocity for speed.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>We use (see original), (see original), and (see original):<br><p>\[\begin{array}{lll}\text{v}(t) &amp; = &amp; {r}^{\prime }(t)=2t\,\text{i}-\frac{t}{\sqrt{5-{t}^{2}}}\text{j} \\ \text{a}(t) &amp; = &amp; {v}^{\prime }(t)=2\text{i}-5{(5-{t}^{2})}^{-\frac{3}{2}}\text{j} \\ v(t) &amp; = &amp; \Vert {r}^{\prime }(t)\Vert \\ &amp; = &amp; \sqrt{{(2t)}^{2}+{(-\frac{t}{\sqrt{5-{t}^{2}}})}^{2}} \\ &amp; = &amp; \sqrt{4{t}^{2}+\frac{{t}^{2}}{5-{t}^{2}}} \\ &amp; = &amp; \sqrt{\frac{21{t}^{2}-4{t}^{4}}{5-{t}^{2}}}.\end{array}\]</p>
+</li><li>The graph of \(\text{r}(t)={t}^{2}\text{i}+\sqrt{5-{t}^{2}}\text{j}\) is a portion of a parabola (<a href="#fig1">Figure 1</a>). The velocity vector at \(t=1\) is<br> <br> and the acceleration vector at \(t=1\) is<br> <br> Notice that the velocity vector is tangent to the path, as is always the case.<br><p>\[\text{v}(1)={r}^{\prime }(1)=2(1)\,\text{i}-\frac{1}{\sqrt{5-{(1)}^{2}}}\text{j}=2\text{i}-\frac{1}{2}\text{j}\]</p>
+<p>\[\text{a}(1)={v}^{\prime }(1)=2\text{i}-5{(5-{(1)}^{2})}^{\text{-}3\text{/}2}\text{j}=2\text{i}-\frac{5}{8}\text{j}.\]</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_001.jpg" alt="This figure is the graph of a curve in the first quadrant. The curve begins on the y axis slightly above y=2 and decreases to the x-axis at x=5. On the curve is a tangent vector labeled “v(1)” and is pointing towards the x-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — This graph depicts the velocity vector at time \(t=1\) for a particle moving in a parabolic path.</figcaption></figure>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>A particle moves in a path defined by the vector-valued function \(\text{r}(t)=({t}^{2}-3t)\,\text{i}+(2t-4)\,\text{j}+(t+2)\text{k},\) where <strong>t</strong> measures time in seconds and where distance is measured in feet. Find the velocity, acceleration, and speed as functions of time.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}\text{v}(t)={r}^{\prime }(t)=(2t-3)\,\text{i}+2\text{j}+\text{k} \\ \text{a}(t)={v}^{\prime }(t)=2\text{i} \\ v(t)=\Vert {r}^{\prime }(t)\Vert =\sqrt{{(2t-3)}^{2}+{2}^{2}+{1}^{2}}=\sqrt{4{t}^{2}-12t+14}\end{array}\)</p>
+<p>The units for velocity and speed are feet per second, and the units for acceleration are feet per second squared.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>To gain a better understanding of the velocity and acceleration vectors, imagine you are driving along a curvy road. If you do not turn the steering wheel, you would continue in a straight line and run off the road. The speed at which you are traveling when you run off the road, coupled with the direction, gives a vector representing your velocity, as illustrated in the following figure.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_002.jpg" alt="This figure represents a curving road. On the road is a car. At the car there are two vectors. The first vector is tangent to the back of the car. The second vector comes out of the front of the car in the direction the car is heading. Both of the vectors are labeled “velocity vectors”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — At each point along a road traveled by a car, the velocity vector of the car is tangent to the path traveled by the car.</figcaption></figure>
+<p>However, the fact that you must turn the steering wheel to stay on the road indicates that your velocity is always changing (even if your speed is not) because your <strong>direction</strong> is constantly changing to keep you on the road. As you turn to the right, your acceleration vector also points to the right. As you turn to the left, your acceleration vector points to the left. This indicates that your velocity and acceleration vectors are constantly changing, regardless of whether your actual speed varies (<a href="#fig3">Figure 3</a>).</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_003.jpg" alt="This figure is a car. The path the car is traveling is an increasing curve represented by a dotted line. The center of the car is labeled “tsub0” on the curve. From this point there are two vectors that are orthogonal to each other. The first vector is asubt and the second vector is asubn. In between these two vectors is a vector labeled “a”. It has angle theta between vector a and asubt." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The dashed line represents the trajectory of an object (a car, for example). The acceleration vector points toward the inside of the turn at all times.</figcaption></figure>
+<h2 id="components-of-the-acceleration-vector">Components of the Acceleration Vector</h2>
+<p>We can combine some of the concepts discussed in Arc Length and Curvature with the acceleration vector to gain a deeper understanding of how this vector relates to motion in the plane and in space. Recall that the unit tangent vector <strong>T</strong> and the unit normal vector <strong>N</strong> form an osculating plane at any point <strong>P</strong> on the curve defined by a vector-valued function \(\text{r}(t).\) The following theorem shows that the acceleration vector \(\text{a}(t)\) lies in the osculating plane and can be written as a linear combination of the unit tangent and the unit normal vectors.</p>
+<div class="card definition"><span class="chip">The Plane of the Acceleration Vector</span><p>The acceleration vector \(\text{a}(t)\) of an object moving along a curve traced out by a twice-differentiable function \(\text{r}(t)\) lies in the plane formed by the unit tangent vector \(\text{T}(t)\) and the principal unit normal vector \(\text{N}(t)\) to <strong>C.</strong> Furthermore,</p>
+<p>\[\text{a}(t)={v}^{\prime }(t)\,\text{T}(t)+{[v(t)]}^{2}κ\,\text{N}(t).\]</p>
+<p>Here, \(v(t)\) is the speed of the object and \(κ\) is the curvature of <strong>C</strong> traced out by \(\text{r}(t).\)</p>
+</div>
+<h3 id="proof">Proof</h3>
+<p>Because \(\text{v}(t)={r}^{\prime }(t)\) and \(\text{T}(t)=\frac{{r}^{\prime }(t)}{\Vert {r}^{\prime }(t)\Vert },\) we have \(\text{v}(t)=\Vert {r}^{\prime }(t)\Vert \text{T}(t)=v(t)\,\text{T}(t).\) Now we differentiate this equation:</p>
+<p>\[\text{a}(t)={v}^{\prime }(t)=\frac{d}{dt}(v(t)\,\text{T}(t))={v}^{\prime }(t)\,\text{T}(t)+v(t)\,{T}^{\prime }(t).\]</p>
+<p>Since \(\text{N}(t)=\frac{{T}^{\prime }(t)}{\Vert {T}^{\prime }(t)\Vert },\) we know \({T}^{\prime }(t)=\Vert {T}^{\prime }(t)\Vert \text{N}(t),\) so</p>
+<p>\[\text{a}(t)={v}^{\prime }(t)\,\text{T}(t)+v(t)\Vert {T}^{\prime }(t)\Vert \text{N}(t).\]</p>
+<p>A formula for curvature is \(κ=\frac{\Vert {T}^{\prime }(t)\Vert }{\Vert {r}^{\prime }(t)\Vert },\) so \(\Vert {T}^{\prime }(t)\Vert =κ\Vert {r}^{\prime }(t)\Vert =κv(t).\) This gives \(\text{a}(t)={v}^{\prime }(t)\,\text{T}(t)+κ{(v(t))}^{2}\text{N}(t).\)</p>
+<p>□</p>
+<p>The coefficients of \(\text{T}(t)\) and \(\text{N}(t)\) are referred to as the <strong>tangential component of acceleration</strong> and the <strong>normal component of acceleration</strong>, respectively. We write \({a}_{\text{T}}\) to denote the tangential component and \({a}_{\text{N}}\) to denote the normal component.</p>
+<div class="card definition"><span class="chip">Tangential and Normal Components of Acceleration</span><p>Let \(\text{r}(t)\) be a vector-valued function that denotes the position of an object as a function of time. Then \(\text{a}(t)=\text{r}\prime\prime (t)\) is the acceleration vector. The tangential and normal components of acceleration \({a}_{\text{T}}\) and \({a}_{\text{N}}\) are given by the formulas</p>
+<p>\[{a}_{\text{T}}=\text{a}·\text{T}=\frac{\text{v}·\text{a}}{\Vert \text{v}\Vert }\]</p>
+<p>and</p>
+<p>\[{a}_{\text{N}}=\text{a}·\text{N}=\frac{\Vert \text{v}\,\times \,\text{a}\Vert }{\Vert \text{v}\Vert }=\sqrt{{\Vert \text{a}\Vert }^{2}-{a}_{\text{T}}^{2}}.\]</p>
+<p>These components are related by the formula</p>
+<p>\[\text{a}(t)={a}_{\text{T}}\text{T}(t)+{a}_{\text{N}}\text{N}(t).\]</p>
+<p>Here \(\text{T}(t)\) is the unit tangent vector to the curve defined by \(\text{r}(t),\) and \(\text{N}(t)\) is the unit normal vector to the curve defined by \(\text{r}(t).\)</p>
+</div>
+<p>The normal component of acceleration is also called the <strong>centripetal component of acceleration</strong> or sometimes the <strong>radial component of acceleration</strong>. To understand centripetal acceleration, suppose you are traveling in a car on a circular track at a constant speed. Then, as we saw earlier, the acceleration vector points toward the center of the track at all times. As a rider in the car, you feel a pull toward the <strong>outside</strong> of the track because you are constantly turning. This sensation acts in the opposite direction of centripetal acceleration. The same holds true for noncircular paths. The reason is that your body tends to travel in a straight line and resists the force resulting from acceleration that push it toward the side. Note that at point <strong>B</strong> in <a href="#fig4">Figure 4</a> the acceleration vector is pointing backward. This is because the car is decelerating as it goes into the curve.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_004.jpg" alt="This figure has a curve representing the path of a car. The curve decreases and increases. There are two circles along the path The first circle has point A where the curve meets the circle. At point A there are three vectors. The first vector is asubt and is tangent to the curve at A. The second vector is asubr and is orthogonal to vector asubt. In between these vectors is vector a. The second circle has point B where the curve meets the circle. At point A there are three vectors. The first vector is asubt and is tangent to the curve at A. The second vector is asubr and is orthogonal to vector asubt. In between these vectors is vector a." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The tangential and normal components of acceleration can be used to describe the acceleration vector.</figcaption></figure>
+<p>The tangential and normal unit vectors at any given point on the curve provide a frame of reference at that point. The tangential and normal components of acceleration are the projections of the acceleration vector onto <strong>T</strong> and <strong>N</strong>, respectively.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>A particle moves in a path defined by the vector-valued function \(\text{r}(t)={t}^{2}\text{i}+(2t-3)\,\text{j}+(3{t}^{2}-3t)\,\text{k},\) where <strong>t</strong> measures time in seconds and distance is measured in feet.</p>
+<ul class="tight"><li>Find \({a}_{\text{T}}\) and \({a}_{\text{N}}\) as functions of <strong>t</strong>.</li><li>Find \({a}_{\text{T}}\) and \({a}_{\text{N}}\) at time \(t=2.\)</li></ul>
+<p class="sol-hint">Find v(t) and a(t) first, then apply \({a}_{\text{T}}=\frac{\text{v}·\text{a}}{\Vert \text{v}\Vert }\) and \({a}_{\text{N}}=\sqrt{{\Vert \text{a}\Vert }^{2}-{a}_{\text{T}}^{2}}.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Let’s start with (see original):<br> <br> Then we apply (see original):<br><p>\[\begin{array}{lll}\text{v}(t) &amp; = &amp; {r}^{\prime }(t)=2t\,\text{i}+2\text{j}+(6t-3)\,\text{k} \\ \text{a}(t) &amp; = &amp; {v}^{\prime }(t)=2\text{i}+6\text{k} \\ {a}_{\text{T}} &amp; = &amp; \frac{\text{v}·\text{a}}{\Vert \text{v}\Vert } \\ &amp; = &amp; \frac{(2t\,\text{i}+2\text{j}+(6t-3)\,\text{k})·(2\text{i}+6\text{k})}{\Vert 2t\,\text{i}+2\text{j}+(6t-3)\,\text{k}\Vert } \\ &amp; = &amp; \frac{4t+6(6t-3)}{\sqrt{{(2t)}^{2}+{2}^{2}+{(6t-3)}^{2}}} \\ &amp; = &amp; \frac{40t-18}{\sqrt{40{t}^{2}-36t+13}}.\end{array}\]</p>
+<p>\[\begin{array}{ll}{a}_{\text{N}} &amp; =\sqrt{{\Vert \text{a}\Vert }^{2}-{a\,\text{T}}^{2}} \\ &amp; =\sqrt{{\Vert 2\text{i}+6\text{k}\Vert }^{2}-{(\frac{40t-18}{\sqrt{40{t}^{2}-36t+13}})}^{2}} \\ &amp; =\sqrt{4+36-\frac{{(40t-18)}^{2}}{40{t}^{2}-36t+13}} \\ &amp; =\sqrt{\frac{40(40{t}^{2}-36t+13)-(1600{t}^{2}-1440t+324)}{40{t}^{2}-36t+13}} \\ &amp; =\sqrt{\frac{196}{40{t}^{2}-36t+13}} \\ &amp; =\frac{14}{\sqrt{40{t}^{2}-36t+13}}.\end{array}\]</p>
+</li><li>We must evaluate each of the answers from part a. at \(t=2\text{:}\) <br> <br> The units of acceleration are feet per second squared, as are the units of the normal and tangential components of acceleration.<p>\[\begin{array}{lll}{a}_{\text{T}}(2) &amp; = &amp; \frac{40(2)-18}{\sqrt{40{(2)}^{2}-36(2)+13}} \\ &amp; = &amp; \frac{80-18}{\sqrt{160-72+13}}=\frac{62}{\sqrt{101}} \\ {a}_{\text{N}}(2) &amp; = &amp; \frac{14}{\sqrt{40{(2)}^{2}-36(2)+13}} \\ &amp; = &amp; \frac{14}{\sqrt{160-72+13}}=\frac{14}{\sqrt{101}}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>An object moves in a path defined by the vector-valued function \(\text{r}(t)=4t\,\text{i}+{t}^{2}\text{j},\) where <strong>t</strong> measures time in seconds.</p>
+<ul class="tight"><li>Find \({a}_{\text{T}}\) and \({a}_{\text{N}}\) as functions of <strong>t</strong>.</li><li>Find \({a}_{\text{T}}\) and \({a}_{\text{N}}\) at time \(t=-3.\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>\(\begin{array}{lll}\text{v}(t) &amp; = &amp; {r}^{'}(t)=4\text{i}+2t\,\text{j} \\ \text{a}(t) &amp; = &amp; {v}^{'}(t)=2\text{j} \\ {a}_{\text{T}} &amp; = &amp; \frac{2t}{\sqrt{{t}^{2}+4}},{a}_{\text{N}}=\frac{4}{\sqrt{4+{t}^{2}}}\end{array}\)</li><li>\({a}_{\text{T}}(-3)=-\frac{6\sqrt{13}}{13},{a}_{\text{N}}(-3)=\frac{2\sqrt{13}}{13}\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="projectile-motion">Projectile Motion</h2>
+<p>Now let’s look at an application of vector functions. In particular, let’s consider the effect of gravity on the motion of an object as it travels through the air, and how it determines the resulting trajectory of that object. In the following, we ignore the effect of air resistance. This situation, with an object moving with an initial velocity but with no forces acting on it other than gravity, is known as <strong>projectile motion</strong>. It describes the motion of objects from golf balls to baseballs, and from arrows to cannonballs.</p>
+<p>First we need to choose a coordinate system. If we are standing at the origin of this coordinate system, then we choose the positive <strong>y</strong>-axis to be up, the negative <strong>y-</strong>axis to be down, and the positive <strong>x-</strong>axis to be forward (i.e., away from the thrower of the object). The effect of gravity is in a downward direction, so Newton’s second law tells us that the force on the object resulting from gravity is equal to the mass of the object times the acceleration resulting from to gravity, or \({F}_{g}=mg,\) where \({F}_{g}\) represents the force from gravity and <strong>g</strong> represents the acceleration resulting from gravity at Earth’s surface. The value of <strong>g</strong> in the English system of measurement is approximately 32 ft/sec<sup>2</sup> and it is approximately 9.8 m/sec<sup>2</sup> in the metric system. This is the only force acting on the object. Since gravity acts in a downward direction, we can write the force resulting from gravity in the form \({F}_{g}=\text{-}mg\,\text{j},\) as shown in the following figure.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_005.jpg" alt="This figure is a ball falling in a vertical path. The ball is at the top at the initial position. From the ball a vector is drawn vertically downward labeled “acceleration”. The vertical line is labeled “distance”. At the bottom of the line it is labeled “final position”. There is also grass at the bottom of the figure." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — An object is falling under the influence of gravity.</figcaption></figure>
+<div class="card callout"><span class="chip">Media</span><p>Visit this <a href="http://www.openstax.org/l/20_projectile" target="_blank" rel="noopener">website</a> for a video showing projectile motion.</p>
+</div>
+<p>Newton’s second law also tells us that \(F=m\,\text{a},\) where <strong>a</strong> represents the acceleration vector of the object. This force must be equal to the force of gravity at all times, so we therefore know that</p>
+<p>\[\begin{array}{lll}F &amp; = &amp; {F}_{g} \\ m\,\text{a} &amp; = &amp; \text{-}mg\,\text{j} \\ \text{a} &amp; = &amp; \text{-}g\,\text{j}.\end{array}\]</p>
+<p>Now we use the fact that the acceleration vector is the first derivative of the velocity vector. Therefore, we can rewrite the last equation in the form</p>
+<p>\[{v}^{\prime }(t)=\text{-}g\,\text{j}.\]</p>
+<p>By taking the antiderivative of each side of this equation we obtain</p>
+<p>\[\begin{array}{ll}\text{v}(t) &amp; =∫\text{-}g\,\text{j}dt \\ &amp; =\text{-}gt\,\text{j}+{\text{C}}_{1}\end{array}\]</p>
+<p>for some constant vector \({\text{C}}_{1}.\) To determine the value of this vector, we can use the velocity of the object at a fixed time, say at time \(t=0.\) We call this velocity the <strong>initial velocity</strong>: \(\text{v}(0)={\text{v}}_{0}.\) Therefore, \(\text{v}(0)=\text{-}g(0)\,\text{j}+{\text{C}}_{1}={\text{v}}_{0}\) and \({\text{C}}_{1}={\text{v}}_{0}.\) This gives the velocity vector as \(\text{v}(t)=\text{-}gt\,\text{j}+{\text{v}}_{0}.\)</p>
+<p>Next we use the fact that velocity \(\text{v}(t)\) is the derivative of position \(\text{s}(t).\) This gives the equation</p>
+<p>\[{s}^{\prime }(t)=\text{-}gt\,\text{j}+{\text{v}}_{0}.\]</p>
+<p>Taking the antiderivative of both sides of this equation leads to</p>
+<p>\[\begin{array}{ll}\text{s}(t) &amp; =∫\text{-}gt\,\text{j}+{\text{v}}_{0}dt \\ &amp; =-\frac{1}{2}g{t}^{2}\text{j}+{\text{v}}_{0}t+{\text{C}}_{2},\end{array}\]</p>
+<p>with another unknown constant vector \({\text{C}}_{2}.\) To determine the value of \({\text{C}}_{2},\) we can use the position of the object at a given time, say at time \(t=0.\) We call this position the <strong>initial position</strong>: \(\text{s}(0)={\text{s}}_{0}.\) Therefore, \(\text{s}(0)=\text{-}(1\text{/}2)g{(0)}^{2}\text{j}+{\text{v}}_{0}(0)+{\text{C}}_{2}={\text{s}}_{0}\) and \({\text{C}}_{2}={\text{s}}_{0}.\) This gives the position of the object at any time as</p>
+<p>\[\text{s}(t)=-\frac{1}{2}g{t}^{2}\text{j}+{\text{v}}_{0}t+{\text{s}}_{0}.\]</p>
+<p>Let’s take a closer look at the initial velocity and initial position. In particular, suppose the object is thrown upward from the origin at an angle \(θ\) to the horizontal, with initial speed \({v}_{0}.\) How can we modify the previous result to reflect this scenario? First, we can assume it is thrown from the origin. If not, then we can move the origin to the point from where it is thrown. Therefore, \({\text{s}}_{0}=0,\) as shown in the following figure.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_006.jpg" alt="This figure has an upside down parabolic curve representing projectile motion. The figure is labeled “constant horizontal velocity; constant vertical acceleration”. The curve is in the first quadrant beginning and ending on the x-axis. The height of the curve is labeled “H”. The distance on the x-axis is labeled “R”. Angle theta represents the direction of the projectile at the origin. Five points are labeled on the graph with vectors. The vectors are labeled “v” with subscripts representing directions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Projectile motion when the object is thrown upward at an angle \(θ.\) The horizontal motion is at constant velocity and the vertical motion is at constant acceleration.</figcaption></figure>
+<p>We can rewrite the initial velocity vector in the form \({\text{v}}_{0}={v}_{0}\text{cos}\,θ\,\text{i}+{v}_{0}\text{sin}\,θ\,\text{j}.\) Then the equation for the position function \(\text{s}(t)\) becomes</p>
+<p>\[\begin{array}{ll}\text{s}(t) &amp; =-\frac{1}{2}g{t}^{2}\,\text{j}+{v}_{0}t\,\text{cos}\,θ\,\text{i}+{v}_{0}t\,\text{sin}\,θ\,\text{j} \\ &amp; ={v}_{0}t\,\text{cos}\,θ\,\text{i}+{v}_{0}t\,\text{sin}\,θ\,\text{j}-\frac{1}{2}g{t}^{2}\,\text{j} \\ &amp; ={v}_{0}t\,\text{cos}\,θ\,\text{i}+({v}_{0}t\,\text{sin}\,θ\,-\frac{1}{2}g{t}^{2})\,\text{j}.\end{array}\]</p>
+<p>The coefficient of <strong>i</strong> represents the horizontal component of \(\text{s}(t)\) and is the horizontal distance of the object from the origin at time <strong>t.</strong> The maximum value of the horizontal distance (measured at the same initial and final altitude) is called the range <strong>R</strong>. The coefficient of <strong>j</strong> represents the vertical component of \(\text{s}(t)\) and is the altitude of the object at time <strong>t.</strong> The maximum value of the vertical distance is the height <strong>H</strong>.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>During an Independence Day celebration, a cannonball is fired from a cannon on a cliff toward the water. The cannon is aimed at an angle of 30° above horizontal and the initial speed of the cannonball is \(600\,\text{ft/sec}\text{.}\) The cliff is 100 ft above the water (<a href="#fig7">Figure 7</a>).</p>
+<ul class="tight"><li>Find the maximum height of the cannonball.</li><li>How long will it take for the cannonball to splash into the sea?</li><li>How far out to sea will the cannonball hit the water?<br><figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_007.jpg" alt="This figure has a cannon at the edge of a cliff aimed upwards. There is a cannonball coming out of the cannon. The path of the cannonball is an upside down parabola represented with a broken line. The maximum height is labeled with “?”. The height of the cliff is 100 feet." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — The flight of a cannonball (ignoring air resistance) is projectile motion.</figcaption></figure>
+</li></ul>
+<p class="sol-hint">Set up the position function s(t) using the initial speed, launch angle, and cliff height, then use it for each part — max height where the vertical velocity is zero, splashdown where the height returns to −100, and horizontal distance at that time.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We use the equation</p>
+<p>\[\text{s}(t)={v}_{0}t\,\text{cos}\,θ\,\text{i}+({v}_{0}t\,\text{sin}\,θ-\frac{1}{2}g{t}^{2})\,\text{j}\]</p>
+<p>with \(θ=30\text{°},\) \(g=32{\,\text{ft/sec}}^{2},\) and \({v}_{0}=600\) ft/sec. Then the position equation becomes</p>
+<p>\[\begin{array}{ll}\text{s}(t) &amp; =600t(\text{cos}\,30)\,\text{i}+(600t\,\text{sin}\,30-\frac{1}{2}(32){t}^{2})\,\text{j} \\ &amp; =300t\sqrt{3}\text{i}+(300t-16{t}^{2})\,\text{j}.\end{array}\]</p>
+<ul class="tight"><li>The cannonball reaches its maximum height when the vertical component of its velocity is zero, because the cannonball is neither rising nor falling at that point. The velocity vector is<br> <br> Therefore, the vertical component of velocity is given by the expression \(300-32t.\) Setting this expression equal to zero and solving for <strong>t</strong> gives \(t=9.375\) sec. The height of the cannonball at this time is given by the vertical component of the position vector, evaluated at \(t=9.375.\) <br> <br> Therefore, the maximum height of the cannonball is 1406.39 ft above the cannon, or 1506.39 ft above sea level.<p>\[\begin{array}{ll}\text{v}(t) &amp; ={s}^{\prime }(t) \\ &amp; =300\sqrt{3}\text{i}+(300-32t)\,\text{j}.\end{array}\]</p>
+<p>\[\begin{array}{ll}\text{s}(9.375) &amp; =300(9.375)\sqrt{3}\text{i}+(300(9.375)-16{(9.375)}^{2})\,\text{j} \\ &amp; =4871.39\text{i}+1406.25\text{j}\end{array}\]</p>
+</li><li>When the cannonball lands in the water, it is 100 ft below the cannon. Therefore, the vertical component of the position vector is equal to \(-100.\) Setting the vertical component of \(\text{s}(t)\) equal to \(-100\) and solving, we obtain<br> <br> The positive value of <strong>t</strong> that solves this equation is approximately 19.08. Therefore, the cannonball hits the water after approximately 19.08 sec.<p>\[\begin{array}{lll} \\ 300t-16{t}^{2} &amp; = &amp; -100 \\ 16{t}^{2}-300t-100 &amp; = &amp; 0 \\ 4{t}^{2}-75t-25 &amp; = &amp; 0 \\ t &amp; = &amp; \frac{75\pm \sqrt{{(-75)}^{2}-4(4)(-25)}}{2(4)} \\ &amp; = &amp; \frac{75\pm \sqrt{6025}}{8} \\ &amp; = &amp; \frac{75\pm 5\sqrt{241}}{8}.\end{array}\]</p>
+</li><li>To find the distance out to sea, we simply substitute the answer from part (b) into \(\text{s}(t)\text{:}\) <br> <br> Therefore, the ball hits the water about 9914.26 ft away from the base of the cliff. Notice that the vertical component of the position vector is very close to \(-100,\) which tells us that the ball just hit the water. Note that 9914.26 feet is not the true range of the cannon since the cannonball lands in the ocean at a location below the cannon. The range of the cannon would be determined by finding how far out the cannonball is when its height is 100 ft above the water (the same as the altitude of the cannon).<p>\[\begin{array}{ll}\text{s}(19.08) &amp; =300(19.08)\sqrt{3}\text{i}+(300(19.08)-16{(19.08)}^{2})\,\text{j} \\ &amp; =9914.26\,\text{i}-100.7424\,\text{j}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>An archer fires an arrow at an angle of 40° above the horizontal with an initial speed of 98 m/sec. The height of the archer is 171.5 cm. Find the horizontal distance the arrow travels before it hits the ground.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>967.15 m</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>One final question remains: In general, what is the maximum distance a projectile can travel, given its initial speed? To determine this distance, we assume the projectile is fired from ground level and we wish it to return to ground level. In other words, we want to determine an equation for the range. In this case, the equation of projectile motion is</p>
+<p>\[\text{s}(t)={v}_{0}t\,\text{cos}\,θ\,\text{i}+({v}_{0}t\,\text{sin}\,θ-\frac{1}{2}g{t}^{2})\,\text{j}.\]</p>
+<p>Setting the second component equal to zero and solving for <strong>t</strong> yields</p>
+<p>\[\begin{array}{lll} \\ {v}_{0}t\,\text{sin}\,θ-\frac{1}{2}g{t}^{2} &amp; = &amp; 0 \\ t({v}_{0}\text{sin}\,θ-\frac{1}{2}gt) &amp; = &amp; 0.\end{array}\]</p>
+<p>Therefore, either \(t=0\) or \(t=\frac{2{v}_{0}\text{sin}\,θ}{g}.\) We are interested in the second value of <strong>t</strong>, so we substitute this into \(\text{s}(t),\) which gives</p>
+<p>\[\begin{array}{ll}\text{s}(\frac{2{v}_{0}\text{sin}\,θ}{g}) &amp; ={v}_{0}(\frac{2{v}_{0}\text{sin}\,θ}{g})\text{cos}\,θ\,\text{i}+({v}_{0}(\frac{2{v}_{0}\text{sin}\,θ}{g})\text{sin}\,θ-\frac{1}{2}g{(\frac{2{v}_{0}\text{sin}\,θ}{g})}^{2})\,\text{j} \\ &amp; =(\frac{2{v}_{0}^{2}\text{sin}\,θ\,\text{cos}\,θ}{g})\,\text{i} \\ &amp; =\frac{{v}_{0}^{2}\text{sin}\,2θ}{g}\text{i}.\end{array}\]</p>
+<p>Thus, the expression for the range of a projectile fired at an angle \(θ\) is</p>
+<p>\[R=\frac{{v}_{0}^{2}\text{sin}\,2θ}{g}\text{i}.\]</p>
+<p>The only variable in this expression is \(θ.\) To maximize the distance traveled, take the derivative of the coefficient of <strong>i</strong> with respect to \(θ\) and set it equal to zero:</p>
+<p>\[\begin{array}{lll} \\ \\ \frac{d}{dθ}(\frac{{v}_{0}^{2}\text{sin}\,2θ}{g}) &amp; = &amp; 0 \\ \frac{2{v}_{0}^{2}\text{cos}\,2θ}{g} &amp; = &amp; 0 \\ θ &amp; = &amp; 45\text{°}.\end{array}\]</p>
+<p>This value of \(θ\) is the smallest positive value that makes the derivative equal to zero. Therefore, in the absence of air resistance, the best angle to fire a projectile (to maximize the range) is at a \(45\text{°}\) angle. The distance it travels is given by</p>
+<p>\[\text{s}(\frac{2{v}_{0}\text{sin}\,45}{g})=\frac{{v}_{0}^{2}\text{sin}\,90}{g}\text{i}=\frac{{v}_{0}^{2}}{g}\text{j}.\]</p>
+<p>Therefore, the range for an angle of \(45\text{°}\) is \({v}_{0}^{2}\text{/}g.\)</p>
+<h2 id="kepler-s-laws">Kepler’s Laws</h2>
+<p>During the early 1600s, Johannes <strong>Kepler</strong> was able to use the amazingly accurate data from his mentor Tycho <strong>Brahe</strong> to formulate his three laws of planetary motion, now known as <strong>Kepler’s laws of planetary motion</strong>. These laws also apply to other objects in the solar system in orbit around the Sun, such as comets (e.g., Halley’s comet) and asteroids. Variations of these laws apply to satellites in orbit around Earth.</p>
+<div class="card definition"><span class="chip">Kepler’s Laws of Planetary Motion</span><ul class="tight"><li>The path of any planet about the Sun is elliptical in shape, with the center of the Sun located at one focus of the ellipse (the law of ellipses).</li><li>A line drawn from the center of the Sun to the center of a planet sweeps out equal areas in equal time intervals (the law of equal areas) (<a href="#fig8">Figure 8</a>).</li><li>The ratio of the squares of the periods of any two planets is equal to the ratio of the cubes of the lengths of their semimajor orbital axes (the law of harmonies).</li></ul>
+</div>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_008.jpg" alt="This figure is an elliptical curve labeled “planets orbit”. The sun is represented towards the left inside the ellipse, at a focal point. Along the ellipse there are points A,B,C,D,E,F. There are line segments from the sun to each point." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — Kepler’s first and second laws are pictured here. The Sun is located at a focus of the elliptical orbit of any planet. Furthermore, the shaded areas are all equal, assuming that the amount of time measured as the planet moves is the same for each region.</figcaption></figure>
+<p>Kepler’s third law is especially useful when using appropriate units. In particular, <strong>1 astronomical unit</strong> is defined to be the average distance from Earth to the Sun, and is now recognized to be 149,597,870,700 m or, approximately 93,000,000 mi. We therefore write 1 A.U. = 93,000,000 mi. Since the time it takes for Earth to orbit the Sun is 1 year, we use Earth years for units of time. Then, substituting 1 year for the period of Earth and 1 A.U. for the average distance to the Sun, Kepler’s third law can be written as</p>
+<p>\[{T}_{p}^{2}={D}_{p}^{3}\]</p>
+<p>for any planet in the solar system, where \({T}_{P}\) is the period of that planet measured in Earth years and \({D}_{P}\) is the average distance from that planet to the Sun measured in astronomical units. Therefore, if we know the average distance from a planet to the Sun (in astronomical units), we can then calculate the length of its year (in Earth years), and vice versa.</p>
+<p>Kepler’s laws were formulated based on observations from Brahe; however, they were not proved formally until Sir Isaac Newton was able to apply calculus. Furthermore, Newton was able to generalize Kepler’s third law to other orbital systems, such as a moon orbiting around a planet. Kepler’s original third law only applies to objects orbiting the Sun.</p>
+<h3 id="proof-2">Proof</h3>
+<p>Let’s now prove Kepler’s first law using the calculus of vector-valued functions. First we need a coordinate system. Let’s place the Sun at the origin of the coordinate system and let the vector-valued function \(\text{r}(t)\) represent the location of a planet as a function of time. Newton proved Kepler’s law using his second law of motion and his law of universal gravitation. Newton’s second law of motion can be written as \(\text{F}=m\,\text{a},\) where <strong>F</strong> represents the net force acting on the planet. His law of universal gravitation can be written in the form \(\text{F}=-\frac{GmM}{{\Vert \text{r}\Vert }^{2}}·\frac{\text{r}}{\Vert \text{r}\Vert },\) which indicates that the force resulting from the gravitational attraction of the Sun points back toward the Sun, and has magnitude \(\frac{GmM}{{\Vert \text{r}\Vert }^{2}}\) (<a href="#fig9">Figure 9</a>).</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_009.jpg" alt="This figure is an ellipse with a circle to the left on the inside at a focal point. The circle represents the sun. On the ellipse is a smaller circle representing Earth. The line segment drawn between the circles is labeled “gravitational force”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — The gravitational force between Earth and the Sun is equal to the mass of the earth times its acceleration.</figcaption></figure>
+<p>Setting these two forces equal to each other, and using the fact that \(\text{a}(t)={v}^{\prime }(t),\) we obtain</p>
+<p>\[m\,{v}^{\prime }(t)=-\frac{GmM}{{\Vert \text{r}\Vert }^{2}}·\frac{\text{r}}{\Vert \text{r}\Vert },\]</p>
+<p>which can be rewritten as</p>
+<p>\[\frac{d\,\text{v}}{dt}=-\frac{GM}{{\Vert \text{r}\Vert }^{3}}\text{r}.\]</p>
+<p>This equation shows that the vectors \(d\,\text{v}\text{/}dt\) and <strong>r</strong> are parallel to each other, so \(d\,\text{v}\text{/}dt\,\times \,\text{r}=0.\) Next, let’s differentiate \(\text{r}\,\times \,\text{v}\) with respect to time:</p>
+<p>\[\frac{d}{dt}(\text{r}\,\times \,\text{v})=\frac{d\,\text{r}}{dt}\,\times \,\text{v}+\text{r}\,\times \,\frac{d\,\text{v}}{dt}=\text{v}\,\times \,\text{v}+0=0.\]</p>
+<p>This proves that \(\text{r}\,\times \,\text{v}\) is a constant vector, which we call <strong>C</strong>. Since \(\text{r}\) and <strong>v</strong> are both perpendicular to <strong>C</strong> for all values of <strong>t</strong>, they must lie in a plane perpendicular to <strong>C</strong>. Therefore, the motion of the planet lies in a plane.</p>
+<p>Next we calculate the expression \(d\,\text{v}\text{/}dt\,\times \,\text{C}\text{:}\)</p>
+<p>\[\frac{d\,\text{v}}{dt}\,\times \,\text{C}=-\frac{GM}{{\Vert \text{r}\Vert }^{3}}\text{r}\,\times \,(\text{r}\,\times \,\text{v})=-\frac{GM}{{\Vert \text{r}\Vert }^{3}}[(\text{r}·\text{v})\,\text{r}-(\text{r}·\text{r})\,\text{v}].\]</p>
+<p>The last equality in (see original) is from the triple cross product formula.</p>
+<div class="card callout"><span class="chip">Media</span></div>
+<p>We need an expression for \(\text{r}·\text{v}.\) To calculate this, we differentiate \(\text{r}·\text{r}\) with respect to time:</p>
+<p>\[\frac{d}{dt}(\text{r}·\text{r})=\frac{d\,\text{r}}{dt}·\text{r}+\text{r}·\frac{d\,\text{r}}{dt}=2\text{r}·\frac{d\,\text{r}}{dt}=2\text{r}·\text{v}.\]</p>
+<p>Since \(\text{r}·\text{r}={\Vert \text{r}\Vert }^{2},\) we also have</p>
+<p>\[\frac{d}{dt}(\text{r}·\text{r})=\frac{d}{dt}{\Vert \text{r}\Vert }^{2}=2\Vert \text{r}\Vert \frac{d}{dt}\Vert \text{r}\Vert .\]</p>
+<p>Combining (see original) and (see original), we get</p>
+<p>\[\begin{array}{lll}2\text{r}·\text{v} &amp; = &amp; 2\Vert \text{r}\Vert \frac{d}{dt}\Vert \text{r}\Vert \\ \text{r}·\text{v} &amp; = &amp; \Vert \text{r}\Vert \frac{d}{dt}\Vert \text{r}\Vert .\end{array}\]</p>
+<p>Substituting this into (see original) gives us</p>
+<p>\[\begin{array}{ll}\frac{d\,\text{v}}{dt}\,\times \,\text{C} &amp; =-\frac{GM}{{\Vert \text{r}\Vert }^{3}}[(\text{r}·\text{v})\,\text{r}-(\text{r}·\text{r})\,\text{v}] \\ &amp; =-\frac{GM}{{\Vert \text{r}\Vert }^{3}}[\Vert \text{r}\Vert (\frac{d}{dt}\Vert \text{r}\Vert )\,\text{r}-{\Vert \text{r}\Vert }^{2}\text{v}] \\ &amp; =\text{-}GM[\frac{1}{{\Vert \text{r}\Vert }^{2}}(\frac{d}{dt}\Vert \text{r}\Vert )\,\text{r}-\frac{1}{\Vert \text{r}\Vert }\text{v}] \\ &amp; =GM[\frac{\text{v}}{\Vert \text{r}\Vert }-\frac{\text{r}}{{\Vert \text{r}\Vert }^{2}}(\frac{d}{dt}\Vert \text{r}\Vert )].\end{array}\]</p>
+<p>However,</p>
+<p>\[\begin{array}{ll}\frac{d}{dt}\,\frac{\text{r}}{\Vert \text{r}\Vert } &amp; =\frac{\frac{d}{dt}(\text{r})\Vert \text{r}\Vert -\text{r}\frac{d}{dt}\Vert \text{r}\Vert }{{\Vert \text{r}\Vert }^{2}} \\ &amp; =\frac{\frac{d\,\text{r}}{dt}}{\Vert \text{r}\Vert }-\frac{\text{r}}{{\Vert \text{r}\Vert }^{2}}\,\frac{d}{dt}\Vert \text{r}\Vert \\ &amp; =\frac{\text{v}}{\Vert \text{r}\Vert }-\frac{\text{r}}{{\Vert \text{r}\Vert }^{2}}\,\frac{d}{dt}\Vert \text{r}\Vert .\end{array}\]</p>
+<p>Therefore, (see original) becomes</p>
+<p>\[\frac{d\,\text{v}}{dt}\,\times \,\text{C}=GM(\frac{d}{dt}\,\frac{\text{r}}{\Vert \text{r}\Vert }).\]</p>
+<p>Since <strong>C</strong> is a constant vector, we can integrate both sides and obtain</p>
+<p>\[\text{v}\,\times \,\text{C}=GM\frac{\text{r}}{\Vert \text{r}\Vert }+\text{D},\]</p>
+<p>where <strong>D</strong> is a constant vector. Our goal is to solve for \(\Vert \text{r}\Vert .\) Let’s start by calculating \(\text{r}·(\text{v}\,\times \,\text{C})\text{:}\)</p>
+<p>\[\text{r}·(\text{v}\,\times \,\text{C})=\text{r}·(GM\frac{\text{r}}{\Vert \text{r}\Vert }+\text{D})=GM\frac{{\Vert \text{r}\Vert }^{2}}{\Vert \text{r}\Vert }+\text{r}·\text{D}=GM\Vert \text{r}\Vert +\text{r}·\text{D}.\]</p>
+<p>However, \(\text{r}·(\text{v}\,\times \,\text{C})=(\text{r}\,\times \,\text{v})·\text{C},\) so</p>
+<p>\[(\text{r}\,\times \,\text{v})·\text{C}=GM\Vert \text{r}\Vert +\text{r}·\text{D}.\]</p>
+<p>Since \(\text{r}\,\times \,\text{v}=\text{C},\) we have</p>
+<p>\[{\Vert \text{C}\Vert }^{2}=GM\Vert \text{r}\Vert +\text{r}·\text{D}.\]</p>
+<p>Note that \(\text{r}·\text{D}=\Vert \text{r}\Vert \Vert \text{D}\Vert \text{cos}\,θ,\) where \(θ\) is the angle between <strong>r</strong> and <strong>D.</strong> Therefore,</p>
+<p>\[{\Vert \text{C}\Vert }^{2}=GM\Vert \text{r}\Vert +\Vert \text{r}\Vert \Vert \text{D}\Vert \text{cos}\,θ.\]</p>
+<p>Solving for \(\Vert \text{r}\Vert ,\)</p>
+<p>\[\Vert \text{r}\Vert =\frac{{\Vert \text{C}\Vert }^{2}}{GM+\Vert \text{D}\Vert \text{cos}\,θ}=\frac{{\Vert \text{C}\Vert }^{2}}{GM}(\frac{1}{1+e\,\text{cos}\,θ}),\]</p>
+<p>where \(e=\Vert \text{D}\Vert \text{/}GM.\) This is the polar equation of a conic with a focus at the origin, which we set up to be the Sun. It is a hyperbola if \(e&gt;1,\) a parabola if \(e=1,\) or an ellipse if \(e&lt;1.\) Since planets have closed orbits, the only possibility is an ellipse. However, at this point it should be mentioned that hyperbolic comets do exist. These are objects that are merely passing through the solar system at speeds too great to be trapped into orbit around the Sun. As they pass close enough to the Sun, the gravitational field of the Sun deflects the trajectory enough so the path becomes hyperbolic.</p>
+<p>□</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Kepler’s third law of planetary motion can be modified to the case of one object in orbit around an object other than the Sun, such as the Moon around the Earth. In this case, Kepler’s third law becomes</p>
+<p>\[{P}^{2}=\frac{4{\pi }^{2}{a}^{3}}{G(m+M)},\]</p>
+<p>where <strong>m</strong> is the mass of the Moon and <strong>M</strong> is the mass of Earth, <strong>a</strong> represents the length of the major axis of the elliptical orbit, and <strong>P</strong> represents the period.</p>
+<p>Given that the mass of the Moon is \(7.35\,\times \,{10}^{22}\,\text{kg,}\) the mass of Earth is \(5.97\,\times \,{10}^{24}\,\text{kg,}\) \(G=6.67\,\times \,{10}^{-11}{\text{m}}^{3}\text{/}\text{kg}·{\text{sec}}^{2},\) and the period of the moon is 27.3 days, let’s find the length of the major axis of the orbit of the Moon around Earth.</p>
+<p class="sol-hint">Convert the period to seconds to match the units of G, then substitute everything into the given equation and solve for a.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>It is important to be consistent with units. Since the universal gravitational constant contains seconds in the units, we need to use seconds for the period of the Moon as well:</p>
+<p>\[27.3\,\text{days}\,\times \,\frac{24\,\text{hr}}{1\,\text{day}}\,\times \,\frac{3600\,\text{sec}}{1\,\text{hour}}=2,358,720\,\text{sec}\text{.}\]</p>
+<p>Substitute all the data into (see original) and solve for <strong>a:</strong></p>
+<p>\[\begin{array}{lll}{(2,358,720\,\text{sec})}^{2} &amp; = &amp; \frac{4{\pi }^{2}{a}^{3}}{(6.67\,\times \,{10}^{-11}\,\frac{{\text{m}}^{3}}{\text{kg}·\,{\text{sec}}^{2}})(7.35\,x\,{10}^{22}\text{kg}+5.97\,x\,{10}^{24}\text{kg})} \\ 5.563\,\times \,{10}^{12} &amp; = &amp; \frac{4{\pi }^{2}{a}^{3}}{(6.67\,\times \,{10}^{-11}\,{\text{m}}^{3})(6.04\,x\,{10}^{24})} \\ (5.563\,\times \,{10}^{12})(6.67\,\times \,{10}^{-11}\,{\text{m}}^{3})(6.04\,\times \,{10}^{24}) &amp; = &amp; 4{\pi }^{2}{a}^{3} \\ {a}^{3} &amp; = &amp; \frac{2.241\,\times \,{10}^{27}}{4{\pi }^{2}}{\text{m}}^{3} \\ a &amp; = &amp; 3.84\,\times \,{10}^{8}\text{m} \\ &amp; \approx &amp; 384,000\,\text{km.}\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>According to solarsystem.nasa.gov, the actual average distance from the Moon to Earth is 384,400 km. This is calculated using reflectors left on the Moon by Apollo astronauts back in the 1960s.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Titan is the largest moon of Saturn. The mass of Titan is approximately \(1.35\,\times \,{10}^{23}\) kg. The mass of Saturn is approximately \(5.68\,\times \,{10}^{26}\) kg. Titan takes approximately 16 days to orbit Saturn. Use this information, along with the universal gravitation constant \(G=6.67\,\times \,{10}^{-11}{\text{m}}^{3}\text{/}\text{kg}·{\text{sec}}^{2}\) to estimate the distance from Titan to Saturn.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(a=1.224\,\times \,{10}^{9}\text{m}\approx 1,224,000\,\text{km}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_010.jpg" alt="This is a picture of Halley’s Comet. It is a bright ball of light towards the right of the picture with a tail of trailing light. There are also stars throughout the picture." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>We now return to the chapter opener, which discusses the motion of Halley’s comet around the Sun. Kepler’s first law states that Halley’s comet follows an elliptical path around the Sun, with the Sun as one focus of the ellipse. The period of Halley’s comet is approximately 76.1 years, depending on how closely it passes by Jupiter and Saturn as it passes through the outer solar system. Let’s use \(T=76.1\) years. What is the average distance of Halley’s comet from the Sun?</p>
+<p class="sol-hint">Use \({T}^{2}={D}^{3}\) to find the average distance D, then combine it with the given eccentricity \(e=c/a\) to find the perihelion and aphelion distances.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the equation \({T}^{2}={D}^{3}\) with \(T=76.1,\) we obtain \({D}^{3}=5791.21,\) so \(D\approx 17.96\) A.U. This comes out to approximately \(1.67\,\times \,{10}^{9}\) mi.</p>
+<p>A natural question to ask is: What are the maximum (aphelion) and minimum (perihelion) distances from Halley’s Comet to the Sun? The eccentricity of the orbit of Halley’s Comet is 0.967 (Source: http://nssdc.gsfc.nasa.gov/planetary/factsheet/cometfact.html). Recall that the formula for the eccentricity of an ellipse is \(e=c\text{/}a,\) where <strong>a</strong> is the length of the semimajor axis and <strong>c</strong> is the distance from the center to either focus. Therefore, \(0.967=c\text{/}17.96\) and \(c\approx 17.37\) A.U. Subtracting this from <strong>a</strong> gives the perihelion distance \(p=a-c=17.96-17.37=0.59\) A.U. According to the National Space Science Data Center (Source: http://nssdc.gsfc.nasa.gov/planetary/factsheet/cometfact.html), the perihelion distance for Halley’s comet is 0.587 A.U. To calculate the aphelion distance, we add</p>
+<p>\[P=a+c=17.96+17.37=35.33\,\text{A}\text{.U}\text{.}\]</p>
+<p>This is approximately \(3.3\,\times \,{10}^{9}\) mi. The average distance from Pluto to the Sun is 39.5 A.U. (Source: http://www.oarval.org/furthest.htm), so it would appear that Halley’s Comet stays just within the orbit of Pluto.</p>
+</div></div></div>
+<div class="card definition"><span class="chip">Navigating a Banked Turn</span><p>How fast can a racecar travel through a circular turn without skidding and hitting the wall? The answer could depend on several factors:</p>
+<ul class="tight"><li>The weight of the car;</li><li>The friction between the tires and the road;</li><li>The radius of the circle;</li><li>The “steepness” of the turn.</li></ul>
+<p>In this project we investigate this question for NASCAR racecars at the Bristol Motor Speedway in Tennessee. Before considering this track in particular, we use vector functions to develop the mathematics and physics necessary for answering questions such as this.</p>
+<p>A car of mass <strong>m</strong> moves with constant angular speed \(ω\) around a circular curve of radius <strong>R</strong> (<a href="#fig10">Figure 10</a>). The curve is banked at an angle \(θ.\) If the height of the car off the ground is <strong>h</strong>, then the position of the car at time <strong>t</strong> is given by the function \(r(t)=\langle R\,\text{cos}(ωt),R\,\text{sin}(ωt),h\rangle .\)</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_005.jpg" alt="This figure has two graphics. The first is a circle with a car on the circle. The circle is labeled “overhead view”. From the car there is a vector labeled “v” tangent to the circle. There is also a vector towards the center from the car labeled “a”. The second graphic is labeled “front view”. It is the car at an angle. The angle is labeled “theta”. The height of the cars tilt is labeled “h”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Views of a race car moving around a track.</figcaption></figure>
+<ul class="tight"><li>Find the velocity function \(\text{v}(t)\) of the car. Show that <strong>v</strong> is tangent to the circular curve. This means that, without a force to keep the car on the curve, the car will shoot off of it.</li><li>Show that the speed of the car is \(ωR.\) Use this to show that \((2\pi r)\text{/}|\text{v}|=(2\pi )\text{/}ω.\)</li><li>Find the acceleration <strong>a</strong>. Show that this vector points toward the center of the circle and that \(|\text{a}|=R{ω}^{2}.\)</li><li>The force required to produce this circular motion is called the <strong>centripetal force</strong>, and it is denoted <strong>F</strong><sub>cent</sub>. This force points toward the center of the circle (not toward the ground). Show that \(|{\text{F}}_{\text{cent}}|=(m{|\text{v}|}^{2})\text{/}R.\) <br> As the car moves around the curve, three forces act on it: gravity, the force exerted by the road (this force is perpendicular to the ground), and the friction force (<a href="#fig11">Figure 11</a>). Because describing the frictional force generated by the tires and the road is complex, we use a standard approximation for the frictional force. Assume that \(|\text{f}|=μ|\text{N}|\) for some positive constant \(μ.\) The constant \(μ\) is called the <strong>coefficient of friction</strong>.<br> <br> Let \({v}_{\text{max}}\) denote the maximum speed the car can attain through the curve without skidding. In other words, \({v}_{\text{max}}\) is the fastest speed at which the car can navigate the turn. When the car is traveling at this speed, the magnitude of the centripetal force is<br> <br> The next three questions deal with developing a formula that relates the speed \({v}_{\text{max}}\) to the banking angle \(θ.\)<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_006.jpg" alt="This figure is the front of a car tilted to the left. The angle of the tilt is theta. From the center of the car are three vectors. The first vector is labeled “N” and is coming out of the top of the car perpendicular to the car. The second vector is coming out of the bottom of the car labeled “mg”. The third vector is labeled “f” and is coming out of the side of the car, orthogonal to “N”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — The car has three forces acting on it: gravity (denoted by <strong>m</strong><strong>g</strong>), the friction force <strong>f</strong>, and the force exerted by the road <strong>N</strong>.</figcaption></figure>
+<p>\[|{\text{F}}_{\text{cent}}|=\frac{m{v}_{\text{max}}^{2}}{R}.\]</p>
+</li><li>Show that \(|\text{N}|\,\text{cos}\,θ=mg+|\text{f}|\,\text{sin}\,θ.\) Conclude that \(|\text{N}|=(mg)\text{/}(\text{cos}\,θ-μ\,\text{sin}\,θ).\)</li><li>The centripetal force is the sum of the forces in the horizontal direction, since the centripetal force points toward the center of the circular curve. Show that<br> <br> Conclude that<br><p>\[|{\text{F}}_{\text{cent}|}=|\text{N}|\,\text{sin}\,θ+|\text{f}|\,\text{cos}\,θ.\]</p>
+<p>\[|{\text{F}}_{\text{cent}|}=\frac{\text{sin}\,θ+μ\,\text{cos}\,θ}{\text{cos}\,θ-μ\,\text{sin}\,θ}mg.\]</p>
+</li><li>Show that \({\text{v}}_{\text{max}}^{2}=((\text{sin}\,θ+μ\,\text{cos}\,θ)\text{/}(\text{cos}\,θ-μ\,\text{sin}\,θ))gR.\) Conclude that the maximum speed does not actually depend on the mass of the car.<br> Now that we have a formula relating the maximum speed of the car and the banking angle, we are in a position to answer the questions like the one posed at the beginning of the project.<br> The Bristol Motor Speedway is a NASCAR short track in Bristol, Tennessee. The track has the approximate shape shown in <a href="#fig12">Figure 12</a>. Each end of the track is approximately semicircular, so when cars make turns they are traveling along an approximately circular curve. If a car takes the inside track and speeds along the bottom of turn 1, the car travels along a semicircle of radius approximately 211 ft with a banking angle of 24°. If the car decides to take the outside track and speeds along the top of turn 1, then the car travels along a semicircle with a banking angle of 28°. (The track has variable angle banking.)</li></ul>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_007.jpg" alt="This figure has two graphics. The first is a picture of a raceway. There are cars on the track and fans in the stands. The second graphic is an oval drawing of a raceway. The inner radius of a curve is labeled “211 ft” and the width of the radius is labeled “40 ft”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — At the Bristol Motor Speedway, Bristol, Tennessee (a), the turns have an inner radius of about 211 ft and a width of 40 ft (b). (credit: part (a) photo by Raniel Diaz, Flickr)</figcaption></figure>
+<p>The coefficient of friction for a normal tire in dry conditions is approximately 0.7. Therefore, we assume the coefficient for a NASCAR tire in dry conditions is approximately 0.98.</p>
+<p>Before answering the following questions, note that it is easier to do computations in terms of feet and seconds, and then convert the answers to miles per hour as a final step.</p>
+<ul class="tight"><li>In dry conditions, how fast can the car travel through the bottom of the turn without skidding?</li><li>In dry conditions, how fast can the car travel through the top of the turn without skidding?</li><li>In wet conditions, the coefficient of friction can become as low as 0.1. If this is the case, how fast can the car travel through the bottom of the turn without skidding?</li><li>Suppose the measured speed of a car going along the outside edge of the turn is 105 mph. Estimate the coefficient of friction for the car’s tires.</li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>If \(\text{r}(t)\) represents the position of an object at time <strong>t</strong>, then \(\text{r}\prime (t)\) represents the velocity and \(\text{r}\prime\prime (t)\) represents the acceleration of the object at time <strong>t.</strong> The magnitude of the velocity vector is speed. (See <a href="#example1">Example 1</a>.)</li><li>The acceleration vector always points toward the concave side of the curve defined by \(\text{r}(t).\) The tangential and normal components of acceleration \({a}_{\text{T}}\) and \({a}_{\text{N}}\) are the projections of the acceleration vector onto the unit tangent and unit normal vectors to the curve. (See <a href="#example2">Example 2</a>.)</li><li>Kepler’s three laws of planetary motion describe the motion of objects in orbit around the Sun. His third law can be modified to describe motion of objects in orbit around other celestial objects as well. (See <a href="#example4">Example 4</a> and <a href="#example5">Example 5</a>.)</li><li>Newton was able to use his law of universal gravitation in conjunction with his second law of motion and calculus to prove Kepler’s three laws.</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>Velocity</strong></td><td>\(\text{v}(t)={r}^{\prime }(t)\)</td></tr><tr><td><strong>Acceleration</strong></td><td>\(\text{a}(t)={v}^{\prime }(t)=\text{r}\prime\prime (t)\)</td></tr><tr><td><strong>Speed</strong></td><td>\(v(t)=\Vert \text{v}(t)\Vert =\Vert {r}^{\prime }(t)\Vert =\frac{ds}{dt}\)</td></tr><tr><td><strong>Tangential component of acceleration</strong></td><td>\({a}_{\text{T}}=\text{a}·\text{T}=\frac{\text{v}·\text{a}}{\Vert \text{v}\Vert }\)</td></tr><tr><td><strong>Normal component of acceleration</strong></td><td>\({a}_{\text{N}}=\text{a}·\text{N}=\frac{\Vert \text{v}\,\times \,\text{a}\Vert }{\Vert \text{v}\Vert }=\sqrt{{\Vert \text{a}\Vert }^{2}-{a\,}_{\text{T}}^{2}}\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Given \(\text{r}(t)=(3{t}^{2}-2)\text{i}+(2t-\text{sin}(t))\text{j},\) find the velocity of a particle moving along this curve.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_205.jpg" alt="This figure is a curve in the xy plane. The curve begins in the fourth quadrant towards the y-axis, intersects below 0 to the x axis, then bends around to intersect the positive y-axis and increasing through the first quadrant." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)=(6t)\text{i}+(2-\text{cos}(t))\text{j}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Given \(\text{r}(t)=(3{t}^{2}-2)\text{i}+(2t-\text{sin}(t))\text{j},\) find the acceleration vector of a particle moving along the curve in the preceding exercise.</p>
+</div></div>
+<p>Given the following position functions, find the velocity, acceleration, and speed in terms of the parameter <strong>t</strong>.</p>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(\text{r}(t)=\langle 3\,\text{cos}\,t,3\,\text{sin}\,t,{t}^{2}\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)=\langle -3\,\text{sin}\,t,3\,\text{cos}\,t,2t\rangle ,\) \(\text{a}(t)=\langle -3\,\text{cos}\,t,-3\,\text{sin}\,t,2\rangle ,\) \(\text{speed}=\sqrt{9+4{t}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(\text{r}(t)={e}^{\text{-}t}\text{i}+{t}^{2}\text{j}+\text{tan}\,t\,\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(\text{r}(t)=2\,\text{cos}\,t\,\text{j}+3\,\text{sin}\,t\,\text{k}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(v(t)=-2sin\,t\,j+3\,cos\,t\,k,\) \(\text{a}(t)=-2\,\text{cos}\,t\,\text{j}-3\,\text{sin}\,t\,\text{k},\) \(\text{speed}=\sqrt{4\,{\text{sin}}^{2}t+9{\text{cos}}^{2}t}\)</p>
+</div></div></div></div>
+<p>Find the velocity, acceleration, and speed of a particle with the given position function.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\text{r}(t)=\langle {t}^{2}-1,t\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\text{r}(t)=\langle {e}^{t},{e}^{\text{-}t}\rangle\) . The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_207.jpg" alt="This figure is a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the bottom of the box, from the lower left, and bends through the box to the other side, in the lower right." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)={e}^{t}\text{i}-{e}^{\text{-}t}\text{j},\) \(\text{a}(t)={e}^{t}\text{i}+{e}^{\text{-}t}\text{j},\) speed = \(\Vert \text{v}(t)\Vert =\sqrt{{e}^{2t}+{e}^{-2t}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\text{r}(t)=\langle \text{sin}\,t,t,\text{cos}\,t\rangle .\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>The position function of an object is given by \(\text{r}(t)=\langle {t}^{2},5t,{t}^{2}-16t\rangle .\) At what time is the speed a minimum?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(t=4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>Let \(\text{r}(t)=r\,\text{cosh}(ωt)\text{i}+r\,\text{sinh}(ωt)\text{j}.\) Find the velocity and acceleration vectors and show that the acceleration is proportional to \(\text{r}(t).\)</p>
+</div></div>
+<p>Consider the motion of a point on the circumference of a rolling circle. As the circle rolls, it generates the cycloid \(\text{r}(t)=(ωt-\text{sin}(ωt))\,\text{i}+(1-\text{cos}(ωt))\,\text{j},\) where \(ω\) is the angular velocity of the circle:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_201.jpg" alt="This figure is a curve in the first octant. It is semicircles connected representing humps. It begins at the origin and touches the x axis at 4pi, and 8pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>Find the equations for the velocity, acceleration, and speed of the particle at any time.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)=(ω-ω\,\text{cos}(ωt))\,\text{i}+(ω\,\text{sin}(ωt))\,\text{j},\) <br> \(\text{a}(t)=({ω}^{2}\text{sin}(ωt))\,\text{i}+({ω}^{2}\text{cos}(ωt))\,\text{j},\) <br> \(\text{speed}=\sqrt{{ω}^{2}-2{ω}^{2}\text{cos}(ωt)+{ω}^{2}{\text{cos}}^{2}(ωt)+{ω}^{2}{\text{sin}}^{2}(ωt)}\,\text{=}\,\sqrt{2{ω}^{2}(1-\text{cos}(ωt))}\)</p>
+</div></div></div></div>
+<p>A person on a hang glider is spiraling upward as a result of the rapidly rising air on a path having position vector \(\text{r}(t)=(3\,\text{cos}\,t)\text{i}+(3\,\text{sin}\,t)\text{j}+{t}^{2}\text{k}.\) The path is similar to that of a helix, although it is not a helix. The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_208.jpg" alt="This figure is a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve is connected in the box, from the lower left, and bends through the box to the upper right." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Find the following quantities:</p>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>The velocity and acceleration vectors</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>The glider’s speed at any time</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\Vert \text{v}(t)\Vert =\sqrt{9+4{t}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>The times, if any, at which the glider’s acceleration is orthogonal to its velocity</p>
+</div></div>
+<p>Given that \(\text{r}(t)=\langle {e}^{-5t}\text{sin}\,t,{e}^{-5t}\text{cos}\,t,4{e}^{-5t}\rangle\) is the position vector of a moving particle, find the following quantities:</p>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>The velocity of the particle</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)=\langle {e}^{-5t}(\text{cos}\,t-5\,\text{sin}\,t),\text{-}{e}^{-5t}(\text{sin}\,t+5\,\text{cos}\,t),-20{e}^{-5t}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>The speed of the particle</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>The acceleration of the particle</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{a}(t)={\langle e}^{-5t}(\text{-}\text{sin}\,t-5\,\text{cos}\,t)-5{e}^{-5t}(\text{cos}\,t-5\,\text{sin}\,t),\) \(\text{-}{e}^{-5t}(\text{cos}\,t-5\,\text{sin}\,t)+5{e}^{-5t}(\text{sin}\,t+5\,\text{cos}\,t),100{e}^{-5t}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>Find the maximum speed of a point on the circumference of an automobile tire of radius 1 ft when the automobile is traveling at 55 mph.</p>
+</div></div>
+<p>A projectile is shot in the air from ground level with an initial velocity of 500 m/sec at an angle of 60° with the horizontal. The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_209.jpg" alt="This figure is a curve in the fourth quadrant. The curve is decreasing. It begins at the origin and decreases into the fourth quadrant. Answer the following questions." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>At what time does the projectile reach maximum height?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>44.185 sec</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>What is the approximate maximum height of the projectile?</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>At what time is the maximum range of the projectile attained?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(t=88.37\) sec</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>What is the maximum range?</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>What is the total flight time of the projectile?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>88.37 sec</p>
+</div></div></div></div>
+<p>A projectile is fired at a height of 1.5 m above the ground with an initial velocity of 100 m/sec and at an angle of 30° above the horizontal. Use this information to answer the following questions:</p>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>Determine the maximum height of the projectile.</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>Determine the range of the projectile.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The range is approximately 886.29 m.</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>A golf ball is hit in a horizontal direction off the top edge of a building that is 100 ft tall. How fast must the ball be launched to land 450 ft away?</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>A projectile is fired from ground level at an angle of 8° with the horizontal. The projectile is to have a range of 50 m. Find the minimum velocity necessary to achieve this range.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}=42.16\) m/sec</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Prove that an object moving in a straight line at a constant speed has an acceleration of zero.</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>The acceleration of an object is given by \(\text{a}(t)=t\,\text{j}+t\,\text{k}.\) The velocity at \(t=1\) sec is \(\text{v}(1)=5\text{j}\) and the position of the object at \(t=1\) sec is \(\text{r}(1)=0\text{i}+0\text{j}+0\text{k}.\) Find the object’s position at any time.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{r}(t)=0\text{i}+(\frac{1}{6}{t}^{3}+4.5t-\frac{14}{3})\,\text{j}+(\frac{{t}^{3}}{6}-\frac{1}{2}t+\frac{1}{3})\,\text{k}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>Find \(\text{r}(t)\) given that \(\text{a}(t)=-32\text{j},\) \(\text{v}(0)=600\sqrt{3}\text{i}+600\text{j},\) and \(\text{r}(0)=0.\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>Find the tangential and normal components of acceleration for \(\text{r}(t)=a\,\text{cos}(ωt)\text{i}+a\,\text{sin}(ωt)\text{j}\) at \(t=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{T}=0,\) \({a}_{N}=a{ω}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Given \(\text{r}(t)={t}^{2}\text{i}+2t\,\text{j}\) and \(t=1,\) find the tangential and normal components of acceleration.</p>
+</div></div>
+<p>For each of the following problems, find the tangential and normal components of acceleration.</p>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(\text{r}(t)=\langle {e}^{t}\text{cos}\,t,{e}^{t}\text{sin}\,t,{e}^{t}\rangle .\) The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_210.jpg" alt="This figure is a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the bottom of the box, from the lower left, and bends through the box to the other side, in the upper left." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{T}=\sqrt{3}{e}^{t},\) \({a}_{N}=\sqrt{2}{e}^{t}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(\text{r}(t)=\langle \text{cos}(2t),\text{sin}(2t),1\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(\text{r}(t)=\langle 2t,{t}^{2},\frac{{t}^{3}}{3}\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{T}=2t,\) \({a}_{N}=2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(\text{r}(t)=\langle \frac{2}{3}{(1+t)}^{3\text{/}2},\frac{2}{3}{(1-t)}^{3\text{/}2},\sqrt{2}t\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(\text{r}(t)=\langle 6t,3{t}^{2},2{t}^{3}\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{T}\frac{6t+12{t}^{3}}{\sqrt{1+{t}^{4}+{t}^{2}}},\) \({a}_{N}=6\sqrt{\frac{1+4{t}^{2}+{t}^{4}}{1+{t}^{2}+{t}^{4}}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(\text{r}(t)={t}^{2}\text{i}+{t}^{2}\text{j}+{t}^{3}\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(\text{r}(t)=3\,\text{cos}(2\pi t)\,\text{i}+3\,\text{sin}(2\pi t)\,\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{T}=0,\) \({a}_{N}=12{\pi }^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Find the position vector-valued function \(\text{r}(t),\) given that \(\text{a}(t)=\text{i}+{e}^{t}\text{j},\) \(\text{v}(0)=2\text{j},\) and \(\text{r}(0)=2\text{i}.\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>The force on a particle is given by \(\text{f}(t)=(\text{cos}\,t)\,\text{i}+(\text{sin}\,t)\,\text{j}.\) The particle is located at point \((c,0)\) at \(t=0.\) The initial velocity of the particle is given by \(\text{v}(0)={v}_{0}\text{j}.\) Find the path of the particle of mass <strong>m</strong>. (Recall, \(\text{F}=m·\text{a}.)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{r}(t)=(\frac{-1}{m}\text{cos}\,t+c+\frac{1}{m})\,\text{i}+(\frac{\text{-}\text{sin}\,t}{m}+({v}_{0}+\frac{1}{m})t)\,\text{j}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>An automobile that weighs 2700 lb makes a turn on a flat road while traveling at 56 ft/sec. If the radius of the turn is 70 ft, what is the required frictional force to keep the car from skidding?</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Using Kepler’s laws, it can be shown that \({v}_{0}=\sqrt{\frac{2GM}{{r}_{0}}}\) is the minimum speed needed when \(θ=0\) so that an object will escape from the pull of a central force resulting from mass <strong>M</strong>. Use this result to find the minimum speed when \(θ=0\) for a space capsule to escape from the gravitational pull of Earth if the probe is at an altitude of 300 km above Earth’s surface.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>10.94 km/sec</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find the time in years it takes the dwarf planet Pluto to make one orbit about the Sun given that \(a=39.5\) A.U.</p>
+</div></div>
+<p>Suppose that the position function for an object in three dimensions is given by the equation \(\text{r}(t)=t\,\text{cos}(t)\text{i}+t\,\text{sin}(t)\text{j}+3t\,\text{k}.\)</p>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Show that the particle moves on a circular cone.</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Find the angle between the velocity and acceleration vectors when \(t=1.5.\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Find the tangential and normal components of acceleration when \(t=1.5.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{T}=0.43\,{\text{m/sec}}^{2},\) <br> \({a}_{N}=2.46\,{\text{m/sec}}^{2}\)</p>
+</div></div></div></div>
+</div>
+<h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
+<p><strong>True or False</strong>? Justify your answer with a proof or a counterexample.</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>A parametric equation that passes through points P and Q can be given by \(\text{r}(t)=\langle {t}^{2},3t+1,t-2\rangle ,\) where \(P(1,4,-1)\) and \(Q(16,11,2).\)</p>
+</div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>\(\frac{d}{dt}[\text{u}(t)\,\times \,\text{u}(t)]=2{\text{u}}^{\prime }(t)\,\times \,\text{u}(t)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>False, \(\frac{d}{dt}[\text{u}(t)\,\times \,\text{u}(t)]=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>The curvature of a circle of radius \(r\) is constant everywhere. Furthermore, the curvature is equal to \(1\text{/}r.\)</p>
+</div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>The speed of a particle with a position function \(\text{r}(t)\) is \(({\text{r}}^{\prime }(t))\text{/}(|{\text{r}}^{\prime }(t)|).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>False, it is \(|{\text{r}}^{\prime }(t)|\)</p>
+</div></div></div></div>
+<p>Find the domains of the vector-valued functions.</p>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>\(\text{r}(t)=\langle \text{sin}(t),\text{ln}(t),\sqrt{t}\rangle\)</p>
+</div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>\(\text{r}(t)=\langle {e}^{t},\frac{1}{\sqrt{4-t}},\text{sec}(t)\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(t&lt;4,\) \(t\ne \frac{n\pi }{2}\)</p>
+</div></div></div></div>
+<p>Sketch the curves for the following vector equations. Use a calculator if needed.</p>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p><strong>[T]</strong> \(\text{r}(t)=\langle {t}^{2},{t}^{3}\rangle\)</p>
+</div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p><strong>[T]</strong> \(\text{r}(t)=\langle \text{sin}(20t){e}^{\text{-}t},\text{cos}(20t){e}^{\text{-}t},{e}^{\text{-}t}\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_04_204.jpg" alt="This figure is a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the center of the bottom of the box and spirals to the top of the box, increasing radius as it goes." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>Find a vector function that describes the following curves.</p>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>Intersection of the cylinder \({x}^{2}+{y}^{2}=4\) with the plane \(x+z=6\)</p>
+</div></div>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>Intersection of the cone \(z=\sqrt{{x}^{2}+{y}^{2}}\) and plane \(z=y-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{r}(t)=\langle t,2-\frac{{t}^{2}}{8},-2-\frac{{t}^{2}}{8}\rangle\)</p>
+</div></div></div></div>
+<p>Find the derivatives of \(\text{u}(t),\) \({\text{u}}^{\prime }(t),\) \({\text{u}}^{\prime }(t)\,\times \,\text{u}(t),\) \(\text{u}(t)\,\times \,{\text{u}}^{\prime }(t),\) and \(\text{u}(t)·{\text{u}}^{\prime }(t).\) Find the unit tangent vector.</p>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>\(\text{u}(t)=\langle {e}^{t},{e}^{\text{-}t}\rangle\)</p>
+</div></div>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(\text{u}(t)=\langle {t}^{2},2t+6,4{t}^{5}-12\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({\text{u}}^{\prime }(t)=\langle 2t,2,20{t}^{4}\rangle ,\) \(\text{u}\prime\prime (t)=\langle 2,0,80{t}^{3}\rangle ,\) \(\frac{d}{dt}[{\text{u}}^{\prime }(t)\,\times \,\text{u}(t)]=\langle -480{t}^{3}-160{t}^{4},24+75{t}^{2},12+4t\rangle ,\) \(\frac{d}{dt}[\text{u}(t)\,\times \,{\text{u}}^{\prime }(t)]=\langle 480{t}^{3}+160{t}^{4},-24-75{t}^{2},-12-4t\rangle ,\) \(\frac{d}{dt}[\text{u}(t)·{\text{u}}^{\prime }(t)]=720{t}^{8}-9600{t}^{3}+6{t}^{2}+4,\) unit tangent vector: \(\text{T}(t)=\frac{2t}{\sqrt{400{t}^{8}+4{t}^{2}+4}}\,\text{i}+\frac{2}{\sqrt{400{t}^{8}+4{t}^{2}+4}}\,\text{j}+\frac{20{t}^{4}}{\sqrt{400{t}^{8}+4{t}^{2}+4}}\,\text{k}\)</p>
+</div></div></div></div>
+<p>Evaluate the following integrals.</p>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(∫(\text{tan}(t)\text{sec}(t)\text{i}-t{e}^{3t}\text{j})dt\)</p>
+</div></div>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>\(∫14\text{u}(t)dt,\) with \(\text{u}(t)=\langle \frac{\text{ln}(t)}{t},\frac{1}{\sqrt{t}},\text{sin}(\frac{t\pi }{4})\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\text{ln}{(4)}^{2}}{2}\text{i}+2\text{j}+\frac{2(2+\sqrt{2})}{\pi }\text{k}\)</p>
+</div></div></div></div>
+<p>Find the length for the following curves.</p>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>\(\text{r}(t)=\langle 3t,4\,\text{cos}(t),4\,\text{sin}(t)\rangle\) for \(1\le t\le 4\)</p>
+</div></div>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>\(\text{r}(t)=2\text{i}+\text{t}\,\text{j}+3{t}^{2}\text{k}\) for \(0\le t\le 1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{37}}{2}+\frac{1}{12}{\text{sinh}}^{-1}(6)\)</p>
+</div></div></div></div>
+<p>Reparameterize the following functions with respect to their arc length measured from \(t=0\) in direction of increasing \(t.\)</p>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>\(\text{r}(t)=2t\,\text{i}+(4t-5)\text{j}+(1-3t)\text{k}\)</p>
+</div></div>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>\(\text{r}(t)=\text{cos}(2t)\text{i}+8t\,\text{j}-\text{sin}(2t)\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{r}(t(s))=\text{cos}(\frac{2s}{\sqrt{68}})\text{i}+\frac{8s}{\sqrt{68}}\text{j}-\text{sin}(\frac{2s}{\sqrt{68}})\text{k}\)</p>
+</div></div></div></div>
+<p>Find the curvature for the following vector functions.</p>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>\(\text{r}(t)=(2\,\text{sin}\,t)\text{i}-4t\,\text{j}+(2\,\text{cos}\,t)\text{k}\)</p>
+</div></div>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>\(\text{r}(t)=\sqrt{2}{e}^{t}\text{i}+\sqrt{2}{e}^{\text{-}t}\text{j}+2t\,\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{e}^{2t}}{{({e}^{2t}+1)}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>Find the unit tangent vector, the unit normal vector, and the binormal vector for \(\text{r}(t)=2\,\text{cos}\,t\,\text{i}+3t\,\text{j}+2\,\text{sin}\,t\,\text{k}.\)</p>
+</div></div>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><p>Find the tangential and normal acceleration components with the position vector \(\text{r}(t)=\langle \text{cos}\,t,\text{sin}\,t,{e}^{t}\rangle .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{T}=\frac{{e}^{2t}}{\sqrt{1+{e}^{2t}}},\) \({a}_{N}=\frac{\sqrt{2{e}^{2t}+4{e}^{2t}\text{sin}\,t\,\text{cos}\,t+1}}{\sqrt{1+{e}^{2t}}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><p>A Ferris wheel car is moving at a constant speed \(v\) and has a constant radius \(r.\) Find the tangential and normal acceleration of the Ferris wheel car.</p>
+</div></div>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p>The position of a particle is given by \(\text{r}(t)=\langle {t}^{2},\text{ln}(t),\text{sin}(\pi t)\rangle ,\) where \(t\) is measured in seconds and \(\text{r}\) is measured in meters. Find the velocity, acceleration, and speed functions. What are the position, velocity, speed, and acceleration of the particle at 1 sec?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)=\langle 2t,\frac{1}{t},\pi \text{cos}(\pi t)\rangle\) m/sec, \(\text{a}(t)=\langle 2,-\frac{1}{{t}^{2}},\text{-}{\pi }^{2}\text{sin}(\pi t)\rangle {\,\text{m/sec}}^{2},\) \(\text{speed}=\sqrt{4{t}^{2}+\frac{1}{{t}^{2}}+{{\pi }^{2}\text{cos}}^{2}(\pi t)}\) m/sec; at \(t=1,\) \(\text{r}(1)=\langle 1,0,0\rangle\) m, \(\text{v}(1)=\langle 2,1,-\pi \rangle\) m/sec, \(\text{a}(1)=\langle 2,-1,0\rangle\) m/sec<sup>2</sup>, and \(\text{speed}=\sqrt{5+{\pi }^{2}}\) m/sec</p>
+</div></div></div></div>
+<p>The following problems consider launching a cannonball out of a cannon. The cannonball is shot out of the cannon with an angle \(θ\) and initial velocity \({\text{v}}_{0}.\) The only force acting on the cannonball is gravity, so we begin with a constant acceleration \(\text{a}(t)=\text{-}g\,\text{j}.\)</p>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p>Find the velocity vector function \(\text{v}(t).\)</p>
+</div></div>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>Find the position vector \(\text{r}(t)\) and the parametric representation for the position.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{r}(t)={\text{v}}_{0}t-\frac{g}{2}{t}^{2}\,\text{j},\) \(\text{r}(t)=\langle {\text{v}}_{0}(\text{cos}\,θ)t,{\text{v}}_{0}(\text{sin}\,θ)t,-\frac{g}{2}{t}^{2}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><p>At what angle do you need to fire the cannonball for the horizontal distance to be greatest? What is the total distance it would travel?</p>
+</div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>acceleration vector</dt><dd>the second derivative of the position vector</dd><dt>Kepler’s laws of planetary motion</dt><dd>three laws governing the motion of planets, asteroids, and comets in orbit around the Sun</dd><dt>normal component of acceleration</dt><dd>the coefficient of the unit normal vector <strong>N</strong> when the acceleration vector is written as a linear combination of \(\text{T}\) and \(\text{N}\)</dd><dt>projectile motion</dt><dd>motion of an object with an initial velocity but no force acting on it other than gravity</dd><dt>tangential component of acceleration</dt><dd>the coefficient of the unit tangent vector <strong>T</strong> when the acceleration vector is written as a linear combination of \(\text{T}\) and \(\text{N}\)</dd><dt>velocity vector</dt><dd>the derivative of the position vector</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

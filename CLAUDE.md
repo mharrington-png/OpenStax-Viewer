@@ -98,24 +98,61 @@ Section page contract (what build-section.mjs emits and hand-built pages follow)
 
 ## Workflows
 
-**Add a section (automated):** `node tools/build-section.mjs m49362 6-2 "Graphs of Exponential Functions"`,
-then set `ready: true` in the BOOK manifest, and add the link in index.html.
+**Add a section:** `node tools/build-section.mjs m49362 6-2 "Graphs of Exponential Functions"`
+does the mechanical CNXML → HTML conversion, but its output is a *draft*, not something
+to ship as `ready: true` yet — the hand-pass below is required first, and
+`tools/verify-section.mjs` will hard-fail if it's skipped (see "Verify before delivering").
+Once the hand-pass is done and verify passes, set `ready: true` in the BOOK manifest and
+add the link in index.html.
 
-**Hand-polish a section:** keep each figure as the original OpenStax `<img>` (convention
-6) unless it demonstrates a parameter family, in which case replace it with a Desmos
-`data-desmos` embed (convention 7); add `sol-hint` lines ("try before you peek" prompts);
-verify exercise numbering parity (odd = answer). If the module bundles corequisite
-warm-up content ahead of the real section (common in this Corequisite edition —
-`class="coreq-skills"`), `tools/build-section.mjs` already keeps its examples/exercises
-on separate `Warm-up Example N` / `PN` counters so they don't steal numbers from the
-real section content — no manual fix needed there.
+**Hand-pass a section (required before `ready: true`):**
+- **Sol-hints (required, mechanically enforced).** Every non-warmup `Example` gets exactly
+  one `<p class="sol-hint">...</p>` inserted as the last child of `.ex-body`, right before
+  the `.solution` div. One short sentence pointing at the *first move* only — never the
+  answer. This is a judgment call about the example's content (`build-section.mjs` cannot
+  generate it, since it has no understanding of the math), but `verify-section.mjs` checks
+  the *count* matches the number of non-warmup examples and fails the build if any are
+  missing — so this step can no longer be silently skipped, only its wording needs a human/
+  AI's judgment.
+- **Key Concepts → Examples links (required, mechanically enforced).** Every `Key Concepts`
+  bullet that's demonstrated by a specific worked example should link to it — `(See
+  <a href="#exampleN">Example N</a>.)` — using the `id="exampleN"` anchors `build-section.mjs`
+  already emits. Link to **Examples only, never Exercises** — Exercises get their own
+  `id="exN"`/`id="reviewexN"` anchors (also auto-emitted) as reusable wiring for other
+  features, but Key Concepts on the student-facing page must not surface exercise links.
+  A bullet with no matching worked example (e.g. a pure definition) is fine to leave
+  unlinked. `verify-section.mjs` fails the build if a Key Concepts section links to any
+  `#exN`/`#reviewexN`/`#practiceexN` id, or if a section has examples but zero Key-Concepts
+  links to any of them; it warns (doesn't fail) if only some bullets are linked, since not
+  every bullet has a matching example.
+- **Figures.** Keep each figure as the original OpenStax `<img>` (convention 6) unless it
+  demonstrates a parameter family, in which case replace it with a Desmos `data-desmos`
+  embed (convention 7). This part stays a judgment call — `verify-section.mjs` cannot
+  determine which figures are parameter families — but see convention 7 for the pattern to
+  follow, and if you set an explicit domain restriction on a parametric or polar curve (a
+  curve that needs to sweep further than Desmos's default range), use `curves[].domain:
+  {min,max}` in the JSON spec (which `drawDesmos()` forwards to Desmos's
+  `parametricDomain`/`polarDomain` API options) — **not** a `\left\{min \le t \le max\right\}`
+  restriction embedded in the curve's own `latex`. Desmos auto-adds a separate min/max
+  "domain" UI control for restricted parametric/polar plots that defaults to 0–1 regardless
+  of what an embedded inequality says, silently truncating the curve (found and fixed in
+  calculus-v3 1-1's hypocycloid Figure 10 and 1-3's rose Figure 7).
+- Verify exercise numbering parity (odd = answer). If the module bundles corequisite
+  warm-up content ahead of the real section (common in this Corequisite edition —
+  `class="coreq-skills"`), `tools/build-section.mjs` already keeps its examples/exercises
+  on separate `Warm-up Example N` / `PN` counters so they don't steal numbers from the
+  real section content — no manual fix needed there.
 
-**Verify before delivering (do this after any content change):**
+**Verify before delivering (do this after any content change — `tools/verify-section.mjs`
+automates all of this except the CNXML count cross-check):**
 - Render every `\( \)`/`\[ \]` snippet with KaTeX (`throwOnError: true`) — zero errors.
 - Parse every `data-spec` JSON (both `data-plot` and `data-desmos` figures) and, for
   `data-plot`, eval each curve `fn`.
 - Check HTML tag balance.
 - Count examples / try-its / exercises / answers against the CNXML source.
+- Count of `sol-hint` elements equals the count of non-warmup examples (hard fail if not).
+- Key Concepts links only to Examples, never Exercises, and links to at least one Example
+  if the section has any (hard fail if not; see "Hand-pass a section" above).
 
 **Known environment gotchas (for Claude sessions):**
 - This folder may not mount into the bash sandbox. Use Read/Write/Edit/Grep on the

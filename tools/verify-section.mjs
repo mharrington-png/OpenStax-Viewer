@@ -129,10 +129,59 @@ const counts = {
   answers: count(/<div class="answer">/g),
   warmupExamples: count(/class="card example warmup"/g),
   warmupExercises: count(/class="exercise warmup"/g),
+  solHints: count(/class="sol-hint"/g),
 };
 for (const key of Object.keys(expect)) {
   if (counts[key] === undefined) { warnings.push(`No counter for --${key}, skipped.`); continue; }
   if (counts[key] !== expect[key]) errors.push(`Count mismatch: ${key} expected ${expect[key]}, found ${counts[key]}`);
+}
+
+/* 5. Hand-polish requirements — sol-hints and Key Concepts -> Examples links ---
+   Both used to be an optional, easy-to-forget "hand-polish" pass done long after a
+   section shipped ready:true (see tools/AUTOBUILD_LOG.md). Per the project owner's
+   standing instruction, every ready section must have them, so check for their
+   presence automatically here instead of relying on someone remembering to do a
+   separate pass. This does NOT validate the *content* of a hint or that a given
+   Key Concepts bullet links to the *right* example — that's still a judgment call
+   for whoever writes the hand-polish pass (human or AI) — it only catches the step
+   being skipped entirely. */
+if (counts.examples > 0 && counts.solHints !== counts.examples) {
+  errors.push(`Sol-hints: expected one <p class="sol-hint"> per non-warmup example (${counts.examples}), found ${counts.solHints}. Every Example needs a one-sentence "first move" hint before its Show solution button.`);
+}
+{
+  const kcStart = html.indexOf('id="key-concepts"');
+  if (kcStart === -1 && counts.examples > 0) {
+    warnings.push('No "Key Concepts" section (id="key-concepts") found — skipping the Key-Concepts-link check.');
+  } else if (kcStart !== -1) {
+    // The Key Concepts list often has nested <ul> sub-lists (e.g. a bullet listing several
+    // named properties) — naively taking the FIRST "</ul>" after the heading truncates kc
+    // right after that inner list closes, silently dropping every later bullet (and its
+    // example link) from this check. Walk <ul>/</ul> tags to find the one that actually
+    // closes the outer list.
+    const ulStart = html.indexOf("<ul", kcStart);
+    let kc = html.slice(kcStart);
+    if (ulStart !== -1) {
+      const tagRe = /<\/?ul\b[^>]*>/g;
+      tagRe.lastIndex = ulStart;
+      let depth = 0, end = -1, m;
+      while ((m = tagRe.exec(html))) {
+        if (m[0][1] === "/") { depth--; if (depth === 0) { end = tagRe.lastIndex; break; } }
+        else depth++;
+      }
+      kc = end === -1 ? html.slice(kcStart) : html.slice(kcStart, end);
+    }
+    const liCount = (kc.match(/<li>/g) || []).length;
+    const exampleLinks = kc.match(/href="#example\d+"/g) || [];
+    const exerciseLinks = kc.match(/href="#(?:review|practice)?ex\d+"/g) || [];
+    if (exerciseLinks.length) {
+      errors.push(`Key Concepts links to exercises (${exerciseLinks.join(", ")}) — Key Concepts must link to worked Examples (id="exampleN"), not Exercises. The exercise ids are still there for other uses, just don't surface them from Key Concepts.`);
+    }
+    if (counts.examples > 0 && exampleLinks.length === 0) {
+      errors.push(`Key Concepts has 0 links to worked examples, but this section has ${counts.examples} example(s) — the Key-Concepts-to-Example hand-pass looks like it was skipped.`);
+    } else if (exampleLinks.length < liCount) {
+      warnings.push(`Key Concepts: only ${exampleLinks.length}/${liCount} bullet(s) link to an example — fine if some concepts genuinely have no matching worked example (e.g. a definition-only bullet), but worth a second look.`);
+    }
+  }
 }
 
 /* Report ------------------------------------------------------------------ */

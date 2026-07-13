@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculus of Vector-Valued Functions · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Calculus of Vector-Valued Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.2</span>Calculus of Vector-Valued Functions</h1>
+<p>To study the calculus of vector-valued functions, we follow a similar path to the one we took in studying real-valued functions. First, we define the derivative, then we examine applications of the <strong>derivative</strong>, then we move on to defining integrals. However, we will find some interesting new ideas along the way as a result of the vector nature of these functions and the properties of space curves.</p>
+<h2 id="derivatives-of-vector-valued-functions">Derivatives of Vector-Valued Functions</h2>
+<p>Now that we have seen what a vector-valued function is and how to take its limit, the next step is to learn how to differentiate a vector-valued function. The definition of the derivative of a vector-valued function is nearly identical to the definition of a real-valued function of one variable. However, because the range of a vector-valued function consists of vectors, the same is true for the range of the derivative of a vector-valued function.</p>
+<div class="card definition"><span class="chip">Definition</span><p>The <strong>derivative of a vector-valued function</strong> \(\text{r}(t)\) is</p>
+<p>\[{r}^{\prime }(t)=\underset{\Delta t\to 0}{\text{lim}}\frac{\text{r}(t+\Delta t)-\text{r}(t)}{\Delta t},\]</p>
+<p>provided the limit exists. If \({r}^{\prime }(t)\) exists, then <strong>r</strong> is differentiable at <strong>t.</strong> If \({r}^{\prime }(t)\) exists for all <strong>t</strong> in an open interval \((a,b),\) then <strong>r</strong> is differentiable over the interval \((a,b).\) For the function to be differentiable over the closed interval \([a,b],\) the following two limits must exist as well:</p>
+<p>\[{r}^{\prime }(a)=\underset{\Delta t\to {0}^{+}}{\text{lim}}\frac{\text{r}(a+\Delta t)-\text{r}(a)}{\Delta t}\,\text{and}\,{r}^{\prime }(b)=\underset{\Delta t\to {0}^{-}}{\text{lim}}\frac{\text{r}(b+\Delta t)-\text{r}(b)}{\Delta t}.\]</p>
+</div>
+<p>Many of the rules for calculating derivatives of real-valued functions can be applied to calculating the derivatives of vector-valued functions as well. Recall that the derivative of a real-valued function can be interpreted as the slope of a tangent line or the instantaneous rate of change of the function. The derivative of a vector-valued function can be understood to be an instantaneous rate of change as well; for example, when the function represents the position of an object at a given point in time, the derivative represents its velocity at that same point in time.</p>
+<p>We now demonstrate taking the derivative of a vector-valued function.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Use the definition to calculate the derivative of the function</p>
+<p>\[\text{r}(t)=(3t+4)\,\text{i}+({t}^{2}-4t+3)\,\text{j}.\]</p>
+<p class="sol-hint">Substitute \(\text{r}(t+\Delta t)\) and \(\text{r}(t)\) into the difference quotient, expand each component, then take the limit as \(\Delta t\to 0.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let’s use (see original):</p>
+<p>\[\begin{array}{ll}{r}^{\prime }(t) &amp; =\underset{\Delta t\to 0}{\text{lim}}\frac{\text{r}(t+\Delta t)-\text{r}(t)}{\Delta t} \\ &amp; =\underset{\Delta t\to 0}{\text{lim}}\frac{[(3(t+\Delta t)+4)\,\text{i}+({(t+\Delta t)}^{2}-4(t+\Delta t)+3)\,\text{j}]-[(3t+4)\,\text{i}+({t}^{2}-4t+3)\,\text{j}]}{\Delta t} \\ &amp; =\underset{\Delta t\to 0}{\text{lim}}\frac{(3t+3\Delta t+4)\,\text{i}-(3t+4)\,\text{i}+({t}^{2}+2t\Delta t+{(\Delta t)}^{2}-4t-4\Delta t+3)\,\text{j}-({t}^{2}-4t+3)\,\text{j}}{\Delta t} \\ &amp; =\underset{\Delta t\to 0}{\text{lim}}\frac{(3\Delta t)\,\text{i}+(2t\Delta t+{(\Delta t)}^{2}-4\Delta t)\,\text{j}}{\Delta t} \\ &amp; =\underset{\Delta t\to 0}{\text{lim}}(3\,\text{i}+(2t+\Delta t-4)\,\text{j}) \\ &amp; =3\,\text{i}+(2t-4)\,\text{j}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Use the definition to calculate the derivative of the function \(\text{r}(t)=(2{t}^{2}+3)\,\text{i}+(5t-6)\,\text{j}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({r}^{\prime }(t)=4t\,\text{i}+5\,\text{j}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Notice that in the calculations in <a href="#example1">Example 1</a>, we could also obtain the answer by first calculating the derivative of each component function, then putting these derivatives back into the vector-valued function. This is always true for calculating the derivative of a vector-valued function, whether it is in two or three dimensions. We state this in the following theorem. The proof of this theorem follows directly from the definitions of the limit of a vector-valued function and the derivative of a vector-valued function.</p>
+<div class="card definition"><span class="chip">Differentiation of Vector-Valued Functions</span><p>Let <strong>f, g,</strong> and <strong>h</strong> be differentiable functions of <strong>t.</strong></p>
+<ul class="tight"><li>If \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j},\) then \({r}^{\prime }(t)={f}^{\prime }(t)\,\text{i}+{g}^{\prime }(t)\,\text{j}.\)</li><li>If \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k},\) then \({r}^{\prime }(t)={f}^{\prime }(t)\,\text{i}+{g}^{\prime }(t)\,\text{j}+{h}^{\prime }(t)\,\text{k}.\)</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Use (see original) to calculate the derivative of each of the following functions.</p>
+<ul class="tight"><li>\(\text{r}(t)=(6t+8)\,\text{i}+(4{t}^{2}+2t-3)\,\text{j}\)</li><li>\(\text{r}(t)=3\,\text{cos}\,t\,\text{i}+4\,\text{sin}\,t\,\text{j}\)</li><li>\(\text{r}(t)={e}^{t}\text{sin}\,t\,\text{i}+{e}^{t}\text{cos}\,t\,\text{j}-{e}^{2t}\,\text{k}\)</li></ul>
+<p class="sol-hint">Differentiate each component function separately, then recombine the results into the derivative vector.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We use (see original) and what we know about differentiating functions of one variable.</p>
+<ul class="tight"><li>The first component of \(\text{r}(t)=(6t+8)\,\text{i}+(4{t}^{2}+2t-3)\,\text{j}\) is \(f(t)=6t+8.\) The second component is \(g(t)=4{t}^{2}+2t-3.\) We have \({f}^{\prime }(t)=6\) and \({g}^{\prime }(t)=8t+2,\) so the theorem gives \({r}^{\prime }(t)=6\,\text{i}+(8t+2)\,\text{j}.\)</li><li>The first component is \(f(t)=3\,\text{cos}\,t\) and the second component is \(g(t)=4\,\text{sin}\,t.\) We have \({f}^{\prime }(t)=-3\,\text{sin}\,t\) and \({g}^{\prime }(t)=4\,\text{cos}\,t,\) so we obtain \({r}^{\prime }(t)=-3\,\text{sin}\,t\,\text{i}+4\,\text{cos}\,t\,\text{j}.\)</li><li>The first component of \(\text{r}(t)={e}^{t}\text{sin}\,t\,\text{i}+{e}^{t}\text{cos}\,t\,\text{j}-{e}^{2t}\,\text{k}\) is \(f(t)={e}^{t}\text{sin}\,t,\) the second component is \(g(t)={e}^{t}\text{cos}\,t,\) and the third component is \(h(t)=-{e}^{2t}.\) We have \({f}^{\prime }(t)={e}^{t}(\text{sin}\,t+\text{cos}\,t),\) \({g}^{\prime }(t)={e}^{t}(\text{cos}\,t-\text{sin}\,t),\) and \({h}^{\prime }(t)=-2{e}^{2t},\) so the theorem gives \({r}^{\prime }(t)={e}^{t}(\text{sin}\,t+\text{cos}\,t)\,\text{i}+{e}^{t}(\text{cos}\,t-\text{sin}\,t)\,\text{j}-2{e}^{2t}\,\text{k}.\)</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Calculate the derivative of the function</p>
+<p>\[\text{r}(t)=(t\,\text{ln}\,t)\,\text{i}+(5{e}^{t})\,\text{j}+(\text{cos}\,t-\text{sin}\,t)\,\text{k}.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({r}^{\prime }(t)=(1+\text{ln}\,t)\,\text{i}+5{e}^{t}\,\text{j}-(\text{sin}\,t+\text{cos}\,t)\,\text{k}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We can extend to vector-valued functions the properties of the derivative that we presented in the Introduction to Derivatives. In particular, the <strong>constant multiple rule</strong>, the <strong>sum and difference rules</strong>, the <strong>product rule</strong>, and the <strong>chain rule</strong> all extend to vector-valued functions. However, in the case of the product rule, there are actually three extensions: (1) for a real-valued function multiplied by a vector-valued function, (2) for the dot product of two vector-valued functions, and (3) for the cross product of two vector-valued functions.</p>
+<div class="card definition"><span class="chip">Properties of the Derivative of Vector-Valued Functions</span><p>Let <strong>r</strong> and <strong>u</strong> be differentiable vector-valued functions of <strong>t</strong>, let <strong>f</strong> be a differentiable real-valued function of <strong>t,</strong> and let <strong>c</strong> be a scalar.</p>
+<p>\[\begin{array}{lllllll}\text{i.} &amp; &amp; \frac{d}{dt}[c\,\text{r}(t)] &amp; = &amp; c\,{r}^{\prime }(t) &amp; &amp; \text{Scalar multiple} \\ \text{ii.} &amp; &amp; \frac{d}{dt}[\,\text{r}(t)\pm \,\text{u}(t)] &amp; = &amp; {r}^{\prime }(t)\pm \,{u}^{\prime }(t) &amp; &amp; \text{Sum and difference} \\ \text{iii.} &amp; &amp; \frac{d}{dt}[f(t)\,\text{u}(t)] &amp; = &amp; {f}^{\prime }(t)\,\text{u}(t)+f(t)\,{u}^{\prime }(t) &amp; &amp; \text{Scalar product} \\ \text{iv.} &amp; &amp; \frac{d}{dt}[\,\text{r}(t)·\,\text{u}(t)] &amp; = &amp; {r}^{\prime }(t)·\,\text{u}(t)+\,\text{r}(t)·\,{u}^{\prime }(t) &amp; &amp; \text{Dot product} \\ \text{v.} &amp; &amp; \frac{d}{dt}[\,\text{r}(t)\,\times \,\text{u}(t)] &amp; = &amp; {r}^{\prime }(t)\,\times \,\text{u}(t)+\,\text{r}(t)\,\times \,{u}^{\prime }(t) &amp; &amp; \text{Cross product} \\ \text{vi.} &amp; &amp; \frac{d}{dt}[\,\text{r}(f(t))] &amp; = &amp; {r}^{\prime }(f(t))·{f}^{\prime }(t) &amp; &amp; \text{Chain rule} \\ \text{vii.} &amp; &amp; \text{If}\,\text{r}(t)·\,\text{r}(t) &amp; = &amp; c,\,\text{then}\,\text{r}(t)·\,{r}^{\prime }(t)=0. &amp; &amp; \end{array}\]</p>
+</div>
+<h3 id="proof">Proof</h3>
+<p>The proofs of the first two properties follow directly from the definition of the derivative of a vector-valued function. The third property can be derived from the first two properties, along with the product rule from the Introduction to Derivatives. Let \(\text{u}(t)=g(t)\,\text{i}+h(t)\,\text{j}.\) Then</p>
+<p>\[\begin{array}{ll}\frac{d}{dt}[f(t)\,\text{u}(t)] &amp; =\frac{d}{dt}[f(t)(g(t)\,\text{i}+h(t)\,\text{j})] \\ &amp; =\frac{d}{dt}[f(t)g(t)\,\text{i}+f(t)h(t)\,\text{j}] \\ &amp; =\frac{d}{dt}[f(t)g(t)]\,\text{i}+\frac{d}{dt}[f(t)h(t)]\,\text{j} \\ &amp; =({f}^{\prime }(t)g(t)+f(t){g}^{\prime }(t))\,\text{i}+({f}^{\prime }(t)h(t)+f(t){h}^{\prime }(t))\,\text{j} \\ &amp; ={f}^{\prime }(t)\,\text{u}(t)+f(t)\,{u}^{\prime }(t).\end{array}\]</p>
+<p>To prove property iv. let \(\text{r}(t)={f}_{1}(t)\,\text{i}+{g}_{1}(t)\,\text{j}\) and \(\text{u}(t)={f}_{2}(t)\,\text{i}+{g}_{2}(t)\,\text{j}.\) Then</p>
+<p>\[\begin{array}{ll}\frac{d}{dt}[\,\text{r}(t)·\,\text{u}(t)] &amp; =\frac{d}{dt}[{f}_{1}(t){f}_{2}(t)+{g}_{1}(t){g}_{2}(t)] \\ &amp; ={f}_{1}{}^{\prime }(t){f}_{2}(t)+{f}_{1}(t){f}_{2}{}^{\prime }(t)+{g}_{1}{}^{\prime }(t){g}_{2}(t)+{g}_{1}(t){g}_{2}{}^{\prime }(t) \\ &amp; ={f}_{1}{}^{\prime }(t){f}_{2}(t)+{g}_{1}{}^{\prime }(t){g}_{2}(t)+{f}_{1}(t){f}_{2}{}^{\prime }(t)+{g}_{1}(t){g}_{2}{}^{\prime }(t) \\ &amp; =({f}_{1}{}^{\prime }\,\text{i}+{g}_{1}{}^{\prime }\,\text{j})·({f}_{2}\,\text{i}+{g}_{2}\,\text{j})+({f}_{1}\,\text{i}+{g}_{1}\,\text{j})·({f}_{2}{}^{\prime }\,\text{i}+{g}_{2}{}^{\prime }\,\text{j}) \\ &amp; ={r}^{\prime }(t)·\,\text{u}(t)+\,\text{r}(t)·\,{u}^{\prime }(t).\end{array}\]</p>
+<p>The proof of property v. is similar to that of property iv. Property vi. can be proved using the chain rule. Last, property vii. follows from property iv:</p>
+<p>\[\begin{array}{lll}\frac{d}{dt}[\,\text{r}(t)·\,\text{r}(t)] &amp; = &amp; \frac{d}{dt}[c] \\ {r}^{\prime }(t)·\,\text{r}(t)+\,\text{r}(t)·\,{r}^{\prime }(t) &amp; = &amp; 0 \\ 2\,\text{r}(t)·\,{r}^{\prime }(t) &amp; = &amp; 0 \\ \text{r}(t)·\,{r}^{\prime }(t) &amp; = &amp; 0.\end{array}\]</p>
+<p>□</p>
+<p>Now for some examples using these properties.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Given the vector-valued functions</p>
+<p>\[\text{r}(t)=(6t+8)\,\text{i}+(4{t}^{2}+2t-3)\,\text{j}+5t\,\text{k}\]</p>
+<p>and</p>
+<p>\[\text{u}(t)=({t}^{2}-3)\,\text{i}+(2t+4)\,\text{j}+({t}^{3}-3t)\,\text{k},\]</p>
+<p>calculate each of the following derivatives using the properties of the derivative of vector-valued functions.</p>
+<ul class="tight"><li>\(\frac{d}{dt}[\,\text{r}(t)·\,\text{u}(t)]\)</li><li>\(\frac{d}{dt}[\,\text{u}(t)\,\times \,{u}^{\prime }(t)]\)</li></ul>
+<p class="sol-hint">Find \({r}^{\prime }(t)\) and \({u}^{\prime }(t)\) first, then apply the dot-product rule for part a and the cross-product rule for part b.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>We have \({r}^{\prime }(t)=6\,\text{i}+(8t+2)\,\text{j}+5\,\text{k}\) and \({u}^{\prime }(t)=2t\,\text{i}+2\,\text{j}+(3{t}^{2}-3)\,\text{k}.\) Therefore, according to property iv.:<br><p>\[\begin{array}{ll}\frac{d}{dt}[\,\text{r}(t)·\,\text{u}(t)] &amp; ={r}^{\prime }(t)·\,\text{u}(t)+\,\text{r}(t)·\,{u}^{\prime }(t) \\ &amp; =(6\,\text{i}+(8t+2)\,\text{j}+5\,\text{k})·(({t}^{2}-3)\,\text{i}+(2t+4)\,\text{j}+({t}^{3}-3t)\,\text{k}) \\ &amp; \,+((6t+8)\,\text{i}+(4{t}^{2}+2t-3)\,\text{j}+5t\,\text{k})·(2t\,\text{i}+2\,\text{j}+(3{t}^{2}-3)\,\text{k}) \\ &amp; =6({t}^{2}-3)+(8t+2)(2t+4)+5({t}^{3}-3t) \\ &amp; \,+2t(6t+8)+2(4{t}^{2}+2t-3)+5t(3{t}^{2}-3) \\ &amp; =20{t}^{3}+42{t}^{2}+26t-16.\end{array}\]</p>
+</li><li>First, we need to adapt property v. for this problem:<br> <br> Recall that the cross product of any vector with itself is zero. Furthermore, \(\text{u}\prime\prime (t)\) represents the second derivative of \(\text{u}(t)\text{:}\)<br> <br> Therefore,<br><p>\[\frac{d}{dt}[\,\text{u}(t)\,\times \,{u}^{\prime }(t)]={u}^{\prime }(t)\,\times \,{u}^{\prime }(t)+\,\text{u}(t)\,\times \,\text{u}\prime\prime (t).\]</p>
+<p>Recall that the cross product of any vector with itself is zero. Furthermore, \(\text{u}\prime\prime (t)\) represents the second derivative of \(\text{u}(t)\text{:}\)</p>
+<p>\[\text{u}\prime\prime (t)=\frac{d}{dt}[\,{u}^{\prime }(t)]=\frac{d}{dt}[2t\,\text{i}+2\,\text{j}+(3{t}^{2}-3)\,\text{k}]=2\,\text{i}+6t\,\text{k}.\]</p>
+<p>Therefore,</p>
+<p>\[\begin{array}{ll}\frac{d}{dt}[\,\text{u}(t)\,\times \,{u}^{\prime }(t)] &amp; =0+(({t}^{2}-3)\,\text{i}+(2t+4)\,\text{j}+({t}^{3}-3t)\,\text{k})\,\times \,(2\,\text{i}+6t\,\text{k}) \\ &amp; =|\begin{array}{lll}\text{i} &amp; \text{j} &amp; \text{k} \\ {t}^{2}-3 &amp; 2t+4 &amp; {t}^{3}-3t \\ 2 &amp; 0 &amp; 6t\end{array}| \\ &amp; =6t(2t+4)\,\text{i}-(6t({t}^{2}-3)-2({t}^{3}-3t))\,\text{j}-2(2t+4)\,\text{k} \\ &amp; =(12{t}^{2}+24t)\,\text{i}+(12t-4{t}^{3})\,\text{j}-(4t+8)\,\text{k}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Given the vector-valued functions \(\text{r}(t)=\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}-{e}^{2t}\,\text{k}\) and \(\text{u}(t)=t\,\text{i}+\text{sin}\,t\,\text{j}+\text{cos}\,t\,\text{k},\) calculate \(\frac{d}{dt}[\,\text{r}(t)·\,{r}^{\prime }(t)]\) and \(\frac{d}{dt}[\,\text{u}(t)\,\times \,\text{r}(t)].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{d}{dt}[\,\text{r}(t)·\,{r}^{\prime }(t)]=8{e}^{4t}\)</p>
+<p>\(\begin{array}{l}\frac{d}{dt}[\,\text{u}(t)\,\times \,\text{r}(t)] \\ =-({e}^{2t}(\text{cos}\,t+2\,\text{sin}\,t)+\text{cos}\,2t)\,\text{i}+({e}^{2t}(2t+1)-\text{sin}\,2t)\,\text{j}+(t\,\text{cos}\,t+\text{sin}\,t-\text{cos}\,2t)\,\text{k}\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="tangent-vectors-and-unit-tangent-vectors">Tangent Vectors and Unit Tangent Vectors</h2>
+<p>Recall from the Introduction to Derivatives that the derivative at a point can be interpreted as the slope of the tangent line to the graph at that point. In the case of a vector-valued function, the derivative provides a tangent vector to the curve represented by the function. Consider the vector-valued function \(\text{r}(t)=\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}.\) The derivative of this function is \({r}^{\prime }(t)=-\text{sin}\,t\,\text{i}+\text{cos}\,t\,\text{j}.\) If we substitute the value \(t=\pi \text{/}6\) into both functions we get</p>
+<p>\[\text{r}(\frac{\pi }{6})=\frac{\sqrt{3}}{2}\,\text{i}+\frac{1}{2}\,\text{j}\,\text{and}\,{r}^{\prime }(\frac{\pi }{6})=-\frac{1}{2}\,\text{i}+\frac{\sqrt{3}}{2}\,\text{j}.\]</p>
+<p>The graph of this function appears in <a href="#fig1">Figure 1</a>, along with the vectors \(\text{r}(\frac{\pi }{6})\) and \({r}^{\prime }(\frac{\pi }{6}).\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_001.jpg" alt="This figure is the graph of a circle represented by the vector-valued function r(t) = cost i + sint j. It is a circle centered at the origin with radius of 1, and counter-clockwise orientation. It has a vector from the origin pointing to the curve and labeled r(pi/6). At the same point on the circle there is a tangent vector labeled “r’(pi/6)”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The tangent line at a point is calculated from the derivative of the vector-valued function \(\text{r}(t).\)</figcaption></figure>
+<p>Notice that the vector \({r}^{\prime }(\frac{\pi }{6})\) is tangent to the circle at the point corresponding to \(t=\pi \text{/}6.\) This is an example of a <strong>tangent vector</strong> to the plane curve defined by \(\text{r}(t)=\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}.\)</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let C be a curve defined by a vector-valued function <strong>r,</strong> and assume that \({r}^{\prime }(t)\) exists when \(t={t}_{0}.\) A tangent vector <strong>v</strong> at \(t={t}_{0}\) is any vector such that, when the tail of the vector is placed at point \(\text{r}({t}_{0})\) on the graph, vector <strong>v</strong> is tangent to curve <strong>C.</strong> Vector \({r}^{\prime }({t}_{0})\) is an example of a tangent vector at point \(t={t}_{0}.\) Furthermore, assume that \({r}^{\prime }(t)\ne \,0.\) The <strong>principal unit tangent vector</strong> at <strong>t</strong> is defined to be</p>
+<p>\[\text{T}(t)=\frac{{r}^{\prime }(t)}{\Vert \,{r}^{\prime }(t)\Vert },\]</p>
+<p>provided \(\Vert \,{r}^{\prime }(t)\Vert \ne 0.\)</p>
+</div>
+<p>The unit tangent vector is exactly what it sounds like: a unit vector that is tangent to the curve. To calculate a unit tangent vector, first find the derivative \({r}^{\prime }(t).\) Second, calculate the magnitude of the derivative. The third step is to divide the derivative by its magnitude.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the unit tangent vector for each of the following vector-valued functions:</p>
+<ul class="tight"><li>\(\text{r}(t)=\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}\)</li><li>\(\text{u}(t)=(3{t}^{2}+2t)\,\text{i}+(2-4{t}^{3})\,\text{j}+(6t+5)\,\text{k}\)</li></ul>
+<p class="sol-hint">Find the derivative, compute its magnitude, then divide the derivative by that magnitude.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li><br> \(\begin{array}{llll}\text{First step:} &amp; {r}^{\prime }(t) &amp; = &amp; -sin\,t\,\text{i}+\text{cos}\,t\,\text{j} \\ \text{Second step:} &amp; \Vert \,{r}^{\prime }(t)\Vert &amp; = &amp; \sqrt{{(\text{-}\text{sin}\,t)}^{2}+{(\text{cos}\,t)}^{2}}=1 \\ \text{Third step:} &amp; \text{T}(t) &amp; = &amp; \frac{{r}^{\prime }(t)}{\Vert \,{r}^{\prime }(t)\Vert }=\frac{\text{-sin}\,t\,\text{i}+\text{cos}\,t\,\text{j}}{1}=\text{-sin}\,t\,\text{i}+\text{cos}\,t\,\text{j}\end{array}\)</li><li><br> \(\begin{array}{llll}\text{First step:} &amp; {u}^{\prime }(t) &amp; = &amp; (6t+2)\,\text{i}-12{t}^{2}\,\text{j}+6\,\text{k} \\ \text{Second step:} &amp; \Vert \,{u}^{\prime }(t)\Vert &amp; = &amp; \sqrt{{(6t+2)}^{2}+{(-12{t}^{2})}^{2}+{6}^{2}} \\ &amp; &amp; = &amp; \sqrt{144{t}^{4}+36{t}^{2}+24t+40} \\ &amp; &amp; = &amp; 2\sqrt{36{t}^{4}+9{t}^{2}+6t+10} \\ \text{Third step:} &amp; \text{T}(t) &amp; = &amp; \frac{{u}^{\prime }(t)}{\Vert \,{u}^{\prime }(t)\Vert }=\frac{(6t+2)\,\text{i}-12{t}^{2}\,\text{j}+6\,\text{k}}{2\sqrt{36{t}^{4}+9{t}^{2}+6t+10}} \\ &amp; &amp; = &amp; \frac{3t+1}{\sqrt{36{t}^{4}+9{t}^{2}+6t+10}}\,\text{i}-\frac{6{t}^{2}}{\sqrt{36{t}^{4}+9{t}^{2}+6t+10}}\,\text{j}+\frac{3}{\sqrt{36{t}^{4}+9{t}^{2}+6t+10}}\,\text{k}\end{array}\)</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Find the unit tangent vector for the vector-valued function</p>
+<p>\[\text{r}(t)=({t}^{2}-3)\,\text{i}+(2t+1)\,\text{j}+(t-2)\,\text{k}.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\text{T}(t)=\frac{2t}{\sqrt{4{t}^{2}+5}}\,\text{i}+\frac{2}{\sqrt{4{t}^{2}+5}}\,\text{j}+\frac{1}{\sqrt{4{t}^{2}+5}}\,\text{k}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="integrals-of-vector-valued-functions">Integrals of Vector-Valued Functions</h2>
+<p>We introduced antiderivatives of real-valued functions in Antiderivatives and definite integrals of real-valued functions in The Definite Integral. Each of these concepts can be extended to vector-valued functions. Also, just as we can calculate the derivative of a vector-valued function by differentiating the component functions separately, we can calculate the antiderivative in the same manner. Furthermore, the Fundamental Theorem of Calculus applies to vector-valued functions as well.</p>
+<p>The antiderivative of a vector-valued function appears in applications. For example, if a vector-valued function represents the velocity of an object at time <strong>t</strong>, then its antiderivative represents position. Or, if the function represents the acceleration of the object at a given time, then the antiderivative represents its velocity.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let <strong>f, g,</strong> and <strong>h</strong> be integrable real-valued functions over the closed interval \([a,b].\)</p>
+<ul class="tight"><li>The <strong>indefinite integral of a vector-valued function</strong> \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\) is<br> <br> The <strong>definite integral of a vector-valued function</strong> is<br><p>\[∫[f(t)\,\text{i}+g(t)\,\text{j}]dt=[\,∫f(t)dt]\,\text{i}+[\,∫g(t)dt]\,\text{j}.\]</p>
+<p>\[{∫}_{a}^{b}[f(t)\,\text{i}+g(t)\,\text{j}]dt=[\,{∫}_{a}^{b}f(t)dt]\,\text{i}+[\,{∫}_{a}^{b}g(t)dt]\,\text{j}.\]</p>
+</li><li>The indefinite integral of a vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}\) is<br> <br> The definite integral of the vector-valued function is<br><p>\[∫[f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}]dt=[\,∫f(t)dt]\,\text{i}+[\,∫g(t)dt]\,\text{j}+[\,∫h(t)dt]\,\text{k}.\]</p>
+<p>\[{∫}_{a}^{b}[f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}]dt=[\,{∫}_{a}^{b}f(t)dt]\,\text{i}+[\,{∫}_{a}^{b}g(t)dt]\,\text{j}+[\,{∫}_{a}^{b}h(t)dt]\,\text{k}.\]</p>
+</li></ul>
+</div>
+<p>Since the indefinite integral of a vector-valued function involves indefinite integrals of the component functions, each of these component integrals contains an integration constant. They can all be different. For example, in the two-dimensional case, we can have</p>
+<p>\[∫f(t)dt=F(t)+{C}_{1}\,\text{and}\,∫g(t)dt=G(t)+{C}_{2},\]</p>
+<p>where <strong>F</strong> and <strong>G</strong> are antiderivatives of <strong>f</strong> and <strong>g,</strong> respectively. Then</p>
+<p>\[\begin{array}{ll}∫[f(t)\,\text{i}+g(t)\,\text{j}]dt &amp; =[\,∫f(t)dt]\,\text{i}+[\,∫g(t)dt]\,\text{j} \\ &amp; =(F(t)+{C}_{1})\,\text{i}+(G(t)+{C}_{2})\,\text{j} \\ &amp; =F(t)\,\text{i}+G(t)\,\text{j}+{C}_{1}\,\text{i}+{C}_{2}\,\text{j} \\ &amp; =F(t)\,\text{i}+G(t)\,\text{j}+\,\text{C},\end{array}\]</p>
+<p>where \(\text{C}={C}_{1}\,\text{i}+{C}_{2}\,\text{j}.\) Therefore, the integration constant becomes a constant vector.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Calculate each of the following integrals:</p>
+<ul class="tight"><li>\(∫[(3{t}^{2}+2t)\,\text{i}+(3t-6)\,\text{j}+(6{t}^{3}+5{t}^{2}-4)\,\text{k}]\,dt\)</li><li>\(∫[\langle t,{t}^{2},{t}^{3}\rangle \,\times \,\langle {t}^{3},{t}^{2},t\rangle ]\,dt\)</li><li>\({∫}_{0}^{\pi \text{/}3}[\text{sin}\,2t\,\text{i}+\text{tan}\,t\,\text{j}+{e}^{-2t}\,\text{k}]\,dt\)</li></ul>
+<p class="sol-hint">Integrate each component function separately (computing the cross product first in part b), then combine into a vector — remember the constant of integration is itself a vector for the indefinite integrals.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>We use the first part of the definition of the integral of a space curve:<br><p>\[\begin{array}{l}∫[(3{t}^{2}+2t)\,\text{i}+(3t-6)\,\text{j}+(6{t}^{3}+5{t}^{2}-4)\,\text{k}]dt \\ \\ \,=[\,∫3{t}^{2}+2t\,dt]\,\text{i}+[\,∫3t-6dt]\,\text{j}+[\,∫6{t}^{3}+5{t}^{2}-4dt]\,\text{k} \\ \,=({t}^{3}+{t}^{2})\,\text{i}+(\frac{3}{2}{t}^{2}-6t)\,\text{j}+(\frac{3}{2}{t}^{4}+\frac{5}{3}{t}^{3}-4t)\,\text{k}+\,\text{C}.\end{array}\]</p>
+</li><li>First calculate \(\langle t,{t}^{2},{t}^{3}\rangle \,\times \,\langle {t}^{3},{t}^{2},t\rangle \text{:}\) <br> <br> Next, substitute this back into the integral and integrate:<br><p>\[\begin{array}{ll}\langle t,{t}^{2},{t}^{3}\rangle \,\times \,\langle {t}^{3},{t}^{2},t\rangle &amp; =|\begin{array}{lll}\text{i} &amp; \text{j} &amp; \text{k} \\ t &amp; {t}^{2} &amp; {t}^{3} \\ {t}^{3} &amp; {t}^{2} &amp; t\end{array}| \\ &amp; =({t}^{2}(t)-{t}^{3}({t}^{2}))\,\text{i}-({t}^{2}-{t}^{3}({t}^{3}))\,\text{j}+(t({t}^{2})-{t}^{2}({t}^{3}))\,\text{k} \\ &amp; =({t}^{3}-{t}^{5})\,\text{i}+({t}^{6}-{t}^{2})\,\text{j}+({t}^{3}-{t}^{5})\,\text{k}.\end{array}\]</p>
+<p>\[\begin{array}{ll}∫[\langle t,{t}^{2},{t}^{3}\rangle \,\times \,\langle {t}^{3},{t}^{2},t\rangle ]dt &amp; =∫({t}^{3}-{t}^{5})\,\text{i}+({t}^{6}-{t}^{2})\,\text{j}+({t}^{3}-{t}^{5})\,\text{k}\,dt \\ &amp; =(\frac{{t}^{4}}{4}-\frac{{t}^{6}}{6})\,\text{i}+(\frac{{t}^{7}}{7}-\frac{{t}^{3}}{3})\,\text{j}+(\frac{{t}^{4}}{4}-\frac{{t}^{6}}{6})\,\text{k}+\,\text{C}.\end{array}\]</p>
+</li><li>Use the second part of the definition of the integral of a space curve:<br><p>\[\begin{array}{l}{∫}_{0}^{\pi \text{/}3}[\text{sin}\,2t\,\text{i}+\text{tan}\,t\,\text{j}+{e}^{-2t}\,\text{k}]dt \\ \\ =[\,{∫}_{0}^{\pi \text{/}3}\text{sin}\,2tdt]\,\text{i}+[\,{∫}_{0}^{\pi \text{/}3}\text{tan}\,tdt]\,\text{j}+[\,{∫}_{0}^{\pi \text{/}3}{e}^{-2t}dt]\,\text{k} \\ ={(-\frac{1}{2}\text{cos}\,2t)|}_{0}^{\pi \text{/}3}\,\text{i}-{(\text{ln}(\text{cos}\,t))|}_{0}^{\pi \text{/}3}\,\text{j}-{(\frac{1}{2}{e}^{-2t})|}_{0}^{\pi \text{/}3}\,\text{k} \\ =(-\frac{1}{2}\text{cos}\,\frac{2\pi }{3}+\frac{1}{2}\text{cos}\,0)\,\text{i}-(\text{ln}(\text{cos}\,\frac{\pi }{3})-\text{ln}(\text{cos}\,0))\,\text{j}-(\frac{1}{2}{e}^{-2\pi \text{/}3}-\frac{1}{2}{e}^{-2(0)})\,\text{k} \\ =(\frac{1}{4}+\frac{1}{2})\,\text{i}-(\text{-}\text{ln}\,2)\,\text{j}-(\frac{1}{2}{e}^{-2\pi \text{/}3}-\frac{1}{2})\,\text{k} \\ =\frac{3}{4}\,\text{i}+(\text{ln}\,2)\,\text{j}+(\frac{1}{2}-\frac{1}{2}{e}^{-2\pi \text{/}3})\,\text{k}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Calculate the following integral:</p>
+<p>\[{∫}_{1}^{3}[(2t+4)\,\text{i}+(3{t}^{2}-4t)\,\text{j}]dt.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({∫}_{1}^{3}[(2t+4)\,\text{i}+(3{t}^{2}-4t)\,\text{j}]dt=16\,\text{i}+10\,\text{j}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>To calculate the derivative of a vector-valued function, calculate the derivatives of the component functions, then put them back into a new vector-valued function. (See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.)</li><li>Many of the properties of differentiation from the Introduction to Derivatives also apply to vector-valued functions. (See <a href="#example3">Example 3</a>.)</li><li>The derivative of a vector-valued function \(\text{r}(t)\) is also a tangent vector to the curve. The unit tangent vector \(\text{T}(t)\) is calculated by dividing the derivative of a vector-valued function by its magnitude. (See <a href="#example4">Example 4</a>.)</li><li>The antiderivative of a vector-valued function is found by finding the antiderivatives of the component functions, then putting them back together in a vector-valued function. (See <a href="#example5">Example 5</a>.)</li><li>The definite integral of a vector-valued function is found by finding the definite integrals of the component functions, then putting them back together in a vector-valued function. (See <a href="#example5">Example 5</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Derivative of a vector-valued function</strong></td><td>\({r}^{\prime }(t)=\underset{\Delta t\to 0}{\text{lim}}\frac{\text{r}(t+\Delta t)-\text{r}(t)}{\Delta t}\)</td></tr><tr><td><strong>Principal unit tangent vector</strong></td><td>\(\text{T}(t)=\frac{{r}^{\prime }(t)}{\Vert \,{r}^{\prime }(t)\Vert }\)</td></tr><tr><td><strong>Indefinite integral of a vector-valued function</strong></td><td>\(∫[f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}]dt=[\,∫f(t)dt]\,\text{i}+[\,∫g(t)dt]\,\text{j}+[\,∫h(t)dt]\,\text{k}\)</td></tr><tr><td><strong>Definite integral of a vector-valued function</strong></td><td>\({∫}_{a}^{b}[f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}]dt=[\,{∫}_{a}^{b}f(t)dt]\,\text{i}+[\,{∫}_{a}^{b}g(t)dt]\,\text{j}+[\,{∫}_{a}^{b}h(t)dt]\,\text{k}\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>Compute the derivatives of the vector-valued functions.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(\text{r}(t)={t}^{3}\,\text{i}+3{t}^{2}\,\text{j}+\frac{{t}^{3}}{6}\,\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle 3{t}^{2},6t,\frac{1}{2}{t}^{2}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(\text{r}(t)=\text{sin}(t)\,\text{i}+\text{cos}(t)\,\text{j}+{e}^{t}\,\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(\text{r}(t)={e}^{\text{-}t}\,\text{i}+\text{sin}(3t)\,\,\text{j}+10\sqrt{t}\,\text{k}.\) A sketch of the graph is shown here. Notice the varying periodic nature of the graph.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_202.jpg" alt="This figure is a 3 dimensional graph. It is a curve inside of a box. The curve starts at the bottom of the box and spirals around the middle, with upward orientation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle \text{-}{e}^{\text{-}t},3\,\text{cos}(3t),\frac{5}{\sqrt{t}}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(\text{r}(t)={e}^{t}\,\text{i}+2{e}^{t}\,\text{j}+\,\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(\text{r}(t)=\text{i}+\,\text{j}+\,\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle 0,0,0\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\text{r}(t)=t{e}^{t}\,\text{i}+t\,\text{ln}(t)\,\text{j}+\text{sin}(3t)\,\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\text{r}(t)=\frac{1}{t+1}\,\text{i}+\text{arctan}(t)\,\text{j}+\text{ln}\,{t}^{3}\,\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle \frac{-1}{{(t+1)}^{2}},\frac{1}{1+{t}^{2}},\frac{3}{t}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\text{r}(t)=\text{tan}(2t)\,\text{i}+\text{sec}(2t)\,\text{j}+{\text{sin}}^{2}(t)\,\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\text{r}(t)=3\,\text{i}+4\,\text{sin}(3t)\,\text{j}+t\,\text{cos}(t)\,\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle 0,12\,\text{cos}(3t),\text{cos}\,t-t\,\text{sin}\,t\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\text{r}(t)={t}^{2}\,\text{i}+t{e}^{-2t}\,\text{j}-5{e}^{-4t}\,\text{k}\)</p>
+</div></div>
+<p>For the following problems, find a tangent vector at the indicated value of <strong>t</strong>.</p>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\text{r}(t)=t\,\text{i}+\text{sin}(2t)\,\text{j}+\text{cos}(3t)\,\text{k};t=\frac{\pi }{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle 1,-1,0\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\text{r}(t)=3{t}^{3}\,\text{i}+2{t}^{2}\,\text{j}+\frac{1}{t}\,\text{k};t=1\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\text{r}(t)=3{e}^{t}\,\text{i}+2{e}^{-3t}\,\text{j}+4{e}^{2t}\,\text{k};\) \(t=\text{ln}(2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle 6,-\frac{3}{4},32\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\text{r}(t)=\text{cos}(2t)\,\text{i}+2\,\text{sin}\,t\,\text{j}+{t}^{2}\,\text{k};t=\frac{\pi }{2}\)</p>
+</div></div>
+<p>Find the unit tangent vector for the following parameterized curves.</p>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\text{r}(t)=6\,\text{i}+\text{cos}(3t)\,\text{j}+3\,\text{sin}(4t)\,\text{k},\) \(0\le t&lt;2\pi\) . Two views of this curve are presented here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_203.jpg" alt="This figure has two graphs. The first graph is inside a 3 dimensional box. It has a lattice-look to the graph in the middle of the box, crossing over itself. The second graph is the same as the first, with a different position of the box for a different perspective of the lattice-looking curve." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{\sqrt{9\,{\text{sin}}^{2}(3t)+144\,{\text{cos}}^{2}(4t)}}\langle 0,-3\,\text{sin}(3t),12\,\text{cos}(4t)\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\text{r}(t)=\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}+\text{sin}\,t\,\text{k},\) \(0\le t&lt;2\pi .\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\text{r}(t)=3\,\text{cos}(4t)\,\text{i}+3\,\text{sin}(4t)\,\text{j}+5t\,\text{k},1\le t\le 2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{T}(t)=\frac{-12}{13}\text{sin}(4t)\,\text{i}+\frac{12}{13}\text{cos}(4t)\,\text{j}+\frac{5}{13}\,\text{k}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\text{r}(t)=t\,\text{i}+3t\,\text{j}+{t}^{2}\,\text{k}\)</p>
+</div></div>
+<p>Let \(\text{r}(t)=t\,\text{i}+{t}^{2}\,\text{j}-{t}^{4}\,\text{k}\) and \(\text{s}(t)=\text{sin}(t)\,\text{i}+{e}^{t}\,\text{j}+\text{cos}(t)\,\text{k}.\) Here is the graph of the function:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_204.jpg" alt="This figure is a 3 dimensional graph. It is inside of a box. The box represents an octant. The curve in the graph starts at the lower left corner of the box and bends upward and out towards the other end of the box." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Find the following.</p>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\frac{d}{dt}[\text{r}({t}^{2})]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle 2t,4{t}^{3},-8{t}^{7}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\frac{d}{dt}[{t}^{2}·\text{s}(t)]\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\frac{d}{dt}[\text{r}(t)·\text{s}(t)]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{sin}(t)+2t{e}^{t}-4{t}^{3}\text{cos}(t)+t\,\text{cos}(t)+{t}^{2}{e}^{t}+{t}^{4}\text{sin}(t)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>Compute the first, second, and third derivatives of \(\text{r}(t)=3t\,\text{i}+6\,\text{ln}(t)\,\text{j}+5{e}^{-3t}\,\text{k}.\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>Find \(\text{r}\prime (t)·\,\text{r}\prime\prime (t)\,\text{for}\,\text{r}(t)=-3{t}^{5}\,\text{i}+5t\,\text{j}+2{t}^{2}\,\text{k}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(900{t}^{7}+16t\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>The acceleration function, initial velocity, and initial position of a particle are<br> \(\text{a}(t)=-5\,\text{cos}\,t\,\text{i}-5\,\text{sin}\,t\,\text{j},\,\text{v}(0)=9\,\text{i}+2\,\text{j},\,\text{and}\,\text{r}(0)=5\,\text{i}.\) <br> Find \(\text{v}(t)\,\text{and}\,\text{r}(t).\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>The position vector of a particle is \(\text{r}(t)=5\,\text{sec}(2t)\,\text{i}-4\,\text{tan}(t)\,\text{j}+7{t}^{2}\,\text{k}.\)</p>
+<ul class="tight"><li>Graph the position function and display a view of the graph that illustrates the asymptotic behavior of the function.</li><li>Find the velocity as <strong>t</strong> approaches but is not equal to \(\pi \text{/}4\) (if it exists).</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li><br><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_205.jpg" alt="This figure is a graph of a curve in 3 dimensions. The curve has asymptotes and from the above view, the curve resembles the secant function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>Undefined or infinite</li></ul>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>Find the velocity and the speed of a particle with the position function \(\text{r}(t)=(\frac{2t-1}{2t+1})\,\text{i}+\text{ln}(1-4{t}^{2})\,\text{j}.\) The speed of a particle is the magnitude of the velocity and is represented by \(\Vert {r}^{'}(t)\Vert .\)</p>
+</div></div>
+<p>A particle moves on a circular path of radius <strong>b</strong> according to the function \(\text{r}(t)=b\,\text{cos}(ωt)\,\text{i}+b\,\text{sin}(ωt)\,\text{j},\) where \(ω\) is the angular velocity, \(dθ\text{/}dt.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_201.jpg" alt="This figure is the graph of a circle centered at the origin with radius of 3. The orientation of the circle is counter-clockwise. Also, in the fourth quadrant there are two vectors. The first starts on the circle and terminates at the origin. The second vector is tangent at the same point in the fourth quadrant towards the x-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Find the velocity function and show that \(\text{v}(t)\) is always orthogonal to \(\text{r}(t).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{r}'(t)=-bω\,\text{sin}(ωt)\,\text{i}+bω\,\text{cos}(ωt)\,\text{j}.\) To show orthogonality, note that \(\text{r}'(t)·\,\text{r}(t)=0.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Show that the speed of the particle is proportional to the angular velocity.</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>Evaluate \(\frac{d}{dt}[\,\text{u}(t)\,\times \,{u}^{\prime }(t)]\) given \(\text{u}(t)={t}^{2}\,\text{i}-2t\,\text{j}+\,\text{k}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\,\text{i}+2\,\text{j}+4t\,\text{k}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>Find the antiderivative of \(\text{r}'(t)=\text{cos}(2t)\,\text{i}-2\,\text{sin}\,t\,\text{j}+\frac{1}{1+{t}^{2}}\,\text{k}\) that satisfies the initial condition \(\text{r}(0)=3\,\text{i}-2\,\text{j}+\,\text{k}.\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>Evaluate \({∫}_{0}^{3}\Vert t\,\text{i}+{t}^{2}\,\text{j}\Vert dt.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{3}({10}^{3\text{/}2}-1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>An object starts from rest at point \(P(1,2,0)\) and moves with an acceleration of \(\text{a}(t)=\text{j}+2\,\text{k},\) where \(\Vert \,\text{a}(t)\Vert\) is measured in feet per second per second. Find the location of the object after \(t=2\) sec.</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Show that if the speed of a particle traveling along a curve represented by a vector-valued function is constant, then the velocity function is always perpendicular to the acceleration function.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> \(\begin{array}{lll}\Vert \,\text{v}(t)\Vert &amp; = &amp; k \\ \text{v}(t)·\,\text{v}(t) &amp; = &amp; k \\ \frac{d}{dt}(\,\text{v}(t)·\,\text{v}(t)) &amp; = &amp; \frac{d}{dt}k=0 \\ \text{v}(t)·\,\text{v}'(t)+\,\text{v}'(t)·\,\text{v}(t) &amp; = &amp; 0 \\ 2\,\text{v}(t)·\,\text{v}'(t) &amp; = &amp; 0 \\ \text{v}(t)·\,\text{v}'(t) &amp; = &amp; 0.\end{array}\) <br> The last statement implies that the velocity and acceleration are perpendicular or orthogonal.<br></p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Given \(\text{r}(t)=t\,\text{i}+3t\,\text{j}+{t}^{2}\,\text{k}\) and \(\text{u}(t)=4t\,\text{i}+{t}^{2}\,\text{j}+{t}^{3}\,\text{k},\) find \(\frac{d}{dt}(\,\text{r}(t)\,\times \,\text{u}(t)).\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Given \(\text{r}(t)=\langle t+\text{cos}\,t,t-\text{sin}\,t\rangle ,\) find the velocity and the speed at any time.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)=\langle 1-\text{sin}\,t,1-\text{cos}\,t\rangle ,\) \(\text{speed}\,=\Vert \,\text{v}(t)\Vert =\sqrt{3-2(\text{sin}\,t+\text{cos}\,t)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Find the velocity vector for the function \(\text{r}(t)=\langle {e}^{t},{e}^{\text{-}t},0\rangle .\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Find an equation of the tangent line to the curve \(\text{r}(t)=\langle {e}^{t},{e}^{\text{-}t},0\rangle\) at \(t=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=t+1,y=-t+1,z=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Describe and sketch the curve represented by the vector-valued function \(\text{r}(t)=\langle 6t,6t-{t}^{2}\rangle .\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Locate the highest point on the curve \(\text{r}(t)=\langle 6t,6t-{t}^{2}\rangle\) and give the value of the function at this point.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{r}(t)=\langle 18,9\rangle\) at \(t=3\)</p>
+</div></div></div></div>
+<p>The position vector for a particle is \(\text{r}(t)=t\,\text{i}+{t}^{2}\,\text{j}+{t}^{3}\,\text{k}.\) The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_207.jpg" alt="This figure is the graph of a curve in 3 dimensions. The curve is inside of a box. The box represents an octant. The curve begins at the bottom of the box to the left and curves upward to the top right corner." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Find the velocity vector at any time.</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Find the speed of the particle at time \(t=2\) sec.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{161}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Find the acceleration at time \(t=2\) sec.</p>
+</div></div>
+<p>A particle travels along the path of a helix with the equation \(\text{r}(t)=\text{cos}(t)\,\text{i}+\text{sin}(t)\,\text{j}+t\,\text{k}.\) See the graph presented here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_208.jpg" alt="This figure is the graph of a curve in 3 dimensions. The curve is inside of a box. The box represents an octant. The curve is a helix and begins at the bottom of the box to the right and spirals upward." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Find the following:</p>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Velocity of the particle at any time</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)=\langle \text{-}\text{sin}\,t,\text{cos}\,t,1\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Speed of the particle at any time</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Acceleration of the particle at any time</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{a}(t)=-\text{cos}\,t\,\text{i}-\text{sin}\,t\,\text{j}+0\,\text{j}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Find the unit tangent vector for the helix.</p>
+</div></div>
+<p>A particle travels along the path of an ellipse with the equation \(\text{r}(t)=\text{cos}\,t\,\text{i}+2\,\text{sin}\,t\,\text{j}+0\,\text{k}.\) Find the following:</p>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Velocity of the particle</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{v}(t)=\langle \text{-}\text{sin}\,t,2\,\text{cos}\,t,0\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Speed of the particle at \(t=\frac{\pi }{4}\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Acceleration of the particle at \(t=\frac{\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{a}(t)=\langle -\frac{\sqrt{2}}{2},-\sqrt{2},0\rangle\)</p>
+</div></div></div></div>
+<p>Given the vector-valued function \(\text{r}(t)=\langle \text{tan}\,t,\text{sec}\,t,0\rangle\) (graph is shown here), find the following:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_209.jpg" alt="This figure is the graph of a curve in 3 dimensions. The curve is inside of a box. The box represents an octant. The curve has asymptotes that are the diagonals of the box. The curve is hyperbolic." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Velocity</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Speed</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\Vert \,\text{v}(t)\Vert =\sqrt{{\text{sec}}^{4}t+{\text{sec}}^{2}t\,{\text{tan}}^{2}t}=\sqrt{{\text{sec}}^{2}t({\text{sec}}^{2}t+{\text{tan}}^{2}t)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Acceleration</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Find the minimum speed of a particle traveling along the curve \(\text{r}(t)=\langle t+\text{cos}\,t,t-\text{sin}\,t\rangle\) \(t\in [0,2\pi ).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{3-2\sqrt{2}}\)</p>
+</div></div></div></div>
+<p>Given \(\text{r}(t)=t\,\text{i}+2\,\text{sin}\,t\,\text{j}+2\,\text{cos}\,t\,\text{k}\) and \(\text{u}(t)=\frac{1}{t}\,\text{i}+2\,\text{sin}\,t\,\text{j}+2\,\text{cos}\,t\,\text{k},\) find the following:</p>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(\text{r}(t)\,\times \,\text{u}(t)\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(\frac{d}{dt}(\,\text{r}(t)\,\times \,\text{u}(t))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle 0,2\,\text{sin}\,t(t-\frac{1}{t})-2\,\text{cos}\,t(1+\frac{1}{{t}^{2}}),2\,\text{sin}\,t(1+\frac{1}{{t}^{2}})+2\,\text{cos}\,t(t-\frac{2}{t})\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Now, use the product rule for the derivative of the cross product of two vectors and show this result is the same as the answer for the preceding problem.</p>
+</div></div>
+<p>Find the unit tangent vector <strong>T</strong>(<strong>t</strong>) for the following vector-valued functions.</p>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\(\text{r}(t)=\langle t,\frac{1}{t}\rangle .\) The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_02_210.jpg" alt="This figure is the graph of a hyperbolic curve. The y-axis is a vertical asymptote and the x-axis is the horizontal asymptote." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{T}(t)=\langle \frac{{t}^{2}}{\sqrt{{t}^{4}+1}},\frac{-1}{\sqrt{{t}^{4}+1}}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\(\text{r}(t)=\langle t\,\text{cos}\,t,t\,\text{sin}\,t\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>\(\text{r}(t)=\langle t+1,2t+1,2t+2\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{T}(t)=\frac{1}{3}\langle 1,2,2\rangle\)</p>
+</div></div></div></div>
+<p>Evaluate the following integrals:</p>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\(∫({e}^{t}\,\text{i}+\text{sin}\,t\,\text{j}+\frac{1}{2t-1}\,\text{k})dt\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>\({∫}_{0}^{1}\,\text{r}(t)dt,\) where \(\text{r}(t)=\langle \sqrt[3]{t},\frac{1}{t+1},{e}^{\text{-}t}\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3}{4}\,\text{i}+ln(2)\,\text{j}+(1-\frac{1}{e})\,\text{k}\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>definite integral of a vector-valued function</dt><dd>the vector obtained by calculating the definite integral of each of the component functions of a given vector-valued function, then using the results as the components of the resulting function</dd><dt>derivative of a vector-valued function</dt><dd>the derivative of a vector-valued function \(\text{r}(t)\) is \({r}^{\prime }(t)=\underset{\Delta t\to 0}{\text{lim}}\frac{\text{r}(t+\Delta t)-\text{r}(t)}{\Delta t},\) provided the limit exists</dd><dt>indefinite integral of a vector-valued function</dt><dd>a vector-valued function with a derivative that is equal to a given vector-valued function</dd><dt>principal unit tangent vector</dt><dd>a unit vector tangent to a curve <strong>C</strong></dd><dt>tangent vector</dt><dd>to \(\text{r}(t)\) at \(t={t}_{0}\) any vector <strong>v</strong> such that, when the tail of the vector is placed at point \(\text{r}({t}_{0})\) on the graph, vector <strong>v</strong> is tangent to curve <strong>C</strong></dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

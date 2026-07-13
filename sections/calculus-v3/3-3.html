@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arc Length and Curvature · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Arc Length and Curvature</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.3</span>Arc Length and Curvature</h1>
+<p>In this section, we study formulas related to curves in both two and three dimensions, and see how they are related to various properties of the same curve. For example, suppose a vector-valued function describes the motion of a particle in space. We would like to determine how far the particle has traveled over a given time interval, which can be described by the arc length of the path it follows. Or, suppose that the vector-valued function describes a road we are building and we want to determine how sharply the road curves at a given point. This is described by the curvature of the function at that point. We explore each of these concepts in this section.</p>
+<h2 id="arc-length-for-vector-functions">Arc Length for Vector Functions</h2>
+<p>We have seen how a vector-valued function describes a curve in either two or three dimensions. Recall (see original), which states that the formula for the arc length of a curve defined by the parametric functions \(x=x(t),y=y(t),{t}_{1}\le t\le {t}_{2}\) is given by</p>
+<p>\[s={∫}_{{t}_{1}}^{{t}_{2}}\sqrt{{({x}^{\prime }(t))}^{2}+{({y}^{\prime }(t))}^{2}}dt.\]</p>
+<p>In a similar fashion, if we define a smooth curve using a vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j},\) where \(a\le t\le b,\) the arc length is given by the formula</p>
+<p>\[s={∫}_{a}^{b}\sqrt{{({f}^{\prime }(t))}^{2}+{({g}^{\prime }(t))}^{2}}dt.\]</p>
+<p>In three dimensions, if the vector-valued function is described by \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}\) over the same interval \(a\le t\le b,\) the arc length is given by</p>
+<p>\[s={∫}_{a}^{b}\sqrt{{({f}^{\prime }(t))}^{2}+{({g}^{\prime }(t))}^{2}+{({h}^{\prime }(t))}^{2}}dt.\]</p>
+<div class="card definition"><span class="chip">Arc-Length Formulas</span><ul class="tight"><li><strong>Plane curve</strong>: Given a smooth curve <strong>C</strong> defined by the function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j},\) where <strong>t</strong> lies within the interval \([a,b],\) the arc length of <strong>C</strong> over the interval is<br><p>\[s={∫}_{a}^{b}\sqrt{\,{[{f}^{\prime }(t)]}^{2}+{[{g}^{\prime }(t)]}^{2}}dt={∫}_{a}^{b}\Vert {r}^{\prime }(t)\Vert \,dt.\]</p>
+</li><li><strong>Space curve</strong>: Given a smooth curve <strong>C</strong> defined by the function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k},\) where <strong>t</strong> lies within the interval \([a,b],\) the arc length of <strong>C</strong> over the interval is<br><p>\[s={∫}_{a}^{b}\sqrt{\,{[{f}^{\prime }(t)]}^{2}+{[{g}^{\prime }(t)]}^{2}+{[{h}^{\prime }(t)]}^{2}}dt={∫}_{a}^{b}\Vert {r}^{\prime }(t)\Vert \,dt.\]</p>
+</li></ul>
+</div>
+<p>The two formulas are very similar; they differ only in the fact that a space curve has three component functions instead of two. Note that the formulas are defined for smooth curves: curves where the vector-valued function \(\text{r}(t)\) is continuously differentiable with a non-zero derivative. The smoothness condition guarantees that the curve has no cusps (or corners) that could make the formula problematic.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Calculate the arc length for each of the following vector-valued functions:</p>
+<ul class="tight"><li>\(\text{r}(t)=(3t-2)\,\text{i}+(4t+5)\,\text{j},1\le t\le 5\)</li><li>\(\text{r}(t)=\langle t\,\text{cos}\,t,t\,\text{sin}\,t,2t\rangle ,0\le t\le 2\pi\)</li></ul>
+<p class="sol-hint">Compute \({r}^{\prime }(t),\) take its magnitude, then integrate that magnitude over the given interval.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Using (see original), \({r}^{\prime }(t)=3\text{i}+4\text{j},\) so<br><p>\[\begin{array}{ll}s &amp; ={∫}_{a}^{b}\Vert {r}^{\prime }(t)\Vert \,dt \\ &amp; ={∫}_{a}^{5}\sqrt{{3}^{2}+{4}^{2}}dt \\ &amp; ={∫}_{1}^{5}5\,dt={5t|}_{1}^{5}=20.\end{array}\]</p>
+</li><li>Using (see original), \({r}^{\prime }(t)=\langle \text{cos}\,t-t\,\text{sin}\,t,\text{sin}\,t+t\,\text{cos}\,t,2\rangle ,\) so<br> <br> Here we can use a table integration formula<br> <br> so we obtain<br><p>\[\begin{array}{ll}s &amp; ={∫}_{a}^{b}\Vert {r}^{\prime }(t)\Vert \,dt \\ &amp; ={∫}_{0}^{2\pi }\sqrt{{(\text{cos}\,t-t\,\text{sin}\,t)}^{2}+{(\text{sin}\,t+t\,\text{cos}\,t)}^{2}+{2}^{2}}dt \\ &amp; ={∫}_{0}^{2\pi }\sqrt{({\text{cos}}^{2}t-2t\,\text{sin}\,t\,\text{cos}\,t+{t}^{2}{\text{sin}}^{2}t)+({\text{sin}}^{2}t+2t\,\text{sin}\,t\,\text{cos}\,t+{t}^{2}{\text{cos}}^{2}t)+4}\,dt \\ &amp; ={∫}_{0}^{2\pi }\sqrt{{\text{cos}}^{2}t+{\text{sin}}^{2}t+{t}^{2}({\text{cos}}^{2}t+{\text{sin}}^{2}t)+4}\,dt \\ &amp; ={∫}_{0}^{2\pi }\sqrt{{t}^{2}+5}\,dt.\end{array}\]</p>
+<p>\[∫\sqrt{{u}^{2}+{a}^{2}}\,du=\frac{u}{2}\sqrt{{u}^{2}+{a}^{2}}+\frac{{a}^{2}}{2}\text{ln}\,|u+\sqrt{{u}^{2}+{a}^{2}}|+C,\]</p>
+<p>\[\begin{array}{ll}{∫}_{0}^{2\pi }\sqrt{{t}^{2}+5}\,dt &amp; =\frac{1}{2}{(t\sqrt{{t}^{2}+5}+5\,\text{ln}\,|t+\sqrt{{t}^{2}+5}|)}_{0}^{2\pi } \\ &amp; =\frac{1}{2}(2\pi \sqrt{4{\pi }^{2}+5}+5\,\text{ln}\,(2\pi +\sqrt{4{\pi }^{2}+5}))-\frac{5}{2}\,\text{ln}\,\sqrt{5} \\ &amp; \approx 25.343.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Calculate the arc length of the parameterized curve</p>
+<p>\[\text{r}(t)=\langle 2{t}^{2}+1,2{t}^{2}-1,{t}^{3}\rangle ,0\le t\le 3.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({r}^{\prime }(t)=\langle 4t,4t,3{t}^{2}\rangle ,\) so \(s=\frac{1}{27}({113}^{3\text{/}2}-{32}^{3\text{/}2})\approx 37.785\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We now return to the helix introduced earlier in this chapter. A vector-valued function that describes a helix can be written in the form</p>
+<p>\[\text{r}(t)=R\,\text{cos}(\frac{2\pi Nt}{h})\,\text{i}+R\,\text{sin}(\frac{2\pi Nt}{h})\,\text{j}+t\,\text{k},\,0\le t\le h,\]</p>
+<p>where <strong>R</strong> represents the radius of the helix, <strong>h</strong> represents the height (distance between two consecutive turns), and the helix completes <strong>N</strong> turns. Let’s derive a formula for the arc length of this helix using (see original). First of all,</p>
+<p>\[{r}^{\prime }(t)=-\frac{2\pi NR}{h}\text{sin}(\frac{2\pi Nt}{h})\,\text{i}+\frac{2\pi NR}{h}\text{cos}(\frac{2\pi Nt}{h})\,\text{j}+\text{k}.\]</p>
+<p>Therefore,</p>
+<p>\[\begin{array}{ll}s &amp; ={∫}_{a}^{b}\Vert {r}^{\prime }(t)\Vert \,dt \\ &amp; ={∫}_{0}^{h}\sqrt{{(-\frac{2\pi NR}{h}\text{sin}(\frac{2\pi Nt}{h}))}^{2}+{(\frac{2\pi NR}{h}\text{cos}(\frac{2\pi Nt}{h}))}^{2}+{1}^{2}}dt \\ &amp; ={∫}_{0}^{h}\sqrt{\frac{4{\pi }^{2}{N}^{2}{R}^{2}}{{h}^{2}}({\text{sin}}^{2}(\frac{2\pi Nt}{h})+{\text{cos}}^{2}(\frac{2\pi Nt}{h}))+1}dt \\ &amp; ={∫}_{0}^{h}\sqrt{\frac{4{\pi }^{2}{N}^{2}{R}^{2}}{{h}^{2}}+1}dt \\ &amp; ={[t\sqrt{\frac{4{\pi }^{2}{N}^{2}{R}^{2}}{{h}^{2}}+1}]}_{0}^{h} \\ &amp; =h\sqrt{\frac{4{\pi }^{2}{N}^{2}{R}^{2}+{h}^{2}}{{h}^{2}}} \\ &amp; =\sqrt{4{\pi }^{2}{N}^{2}{R}^{2}+{h}^{2}}.\end{array}\]</p>
+<p>This gives a formula for the length of a wire needed to form a helix with <strong>N</strong> turns that has radius <strong>R</strong> and height <strong>h.</strong></p>
+<h2 id="arc-length-parameterization">Arc-Length Parameterization</h2>
+<p>We now have a formula for the arc length of a curve defined by a vector-valued function. Let’s take this one step further and examine what an <strong>arc-length function</strong> is.</p>
+<p>If a vector-valued function represents the position of a particle in space as a function of time, then the arc-length function measures how far that particle travels as a function of time. The formula for the arc-length function follows directly from the formula for arc length:</p>
+<p>\[s(t)={∫}_{a}^{t}\sqrt{{({f}^{\prime }(u))}^{2}+{({g}^{\prime }(u))}^{2}+{({h}^{\prime }(u))}^{2}}du.\]</p>
+<p>If the curve is in two dimensions, then only two terms appear under the square root inside the integral. The reason for using the independent variable <strong>u</strong> is to distinguish between time and the variable of integration. Since \(s(t)\) measures distance traveled as a function of time, \({s}^{\prime }(t)\) measures the speed of the particle at any given time. Since we have a formula for \(s(t)\) in (see original), we can differentiate both sides of the equation:</p>
+<p>\[\begin{array}{ll}{s}^{\prime }(t) &amp; =\frac{d}{dt}[{∫}_{a}^{t}\sqrt{{({f}^{\prime }(u))}^{2}+{({g}^{\prime }(u))}^{2}+{({h}^{\prime }(u))}^{2}}du] \\ &amp; =\frac{d}{dt}[{∫}_{a}^{t}\Vert {r}^{\prime }(u)\Vert \,du] \\ &amp; =\Vert {r}^{\prime }(t)\Vert .\end{array}\]</p>
+<p>If we assume that \(\text{r}(t)\) defines a smooth curve, then the arc length is always increasing, so \({s}^{\prime }(t)&gt;0\) for \(t&gt;a.\) Last, if \(\text{r}(t)\) is a curve on which \(\Vert {r}^{\prime }(t)\Vert =1\) for all <strong>t</strong>, then</p>
+<p>\[s(t)={∫}_{a}^{t}\Vert {r}^{\prime }(u)\Vert \,du={∫}_{a}^{t}1\,du=t-a,\]</p>
+<p>which means that <strong>t</strong> represents the arc length as long as \(a=0.\)</p>
+<div class="card definition"><span class="chip">Arc-Length Function</span><p>Let \(\text{r}(t)\) describe a smooth curve for \(t\ge a.\) Then the arc-length function is given by</p>
+<p>\[s(t)={∫}_{a}^{t}\Vert {r}^{\prime }(u)\Vert \,du.\]</p>
+<p>Furthermore, \(\frac{ds}{dt}=\Vert {r}^{\prime }(t)\Vert &gt;0.\) If \(\Vert {r}^{\prime }(t)\Vert =1\) for all \(t\ge a,\) then the parameter <strong>t</strong> represents the arc length from the starting point at \(t=a.\)</p>
+</div>
+<p>A useful application of this theorem is to find an alternative parameterization of a given curve, called an <strong>arc-length parameterization</strong>. Recall that any vector-valued function can be reparameterized via a change of variables. For example, if we have a function \(\text{r}(t)=\langle 3\,\text{cos}\,t,3\,\text{sin}\,t\rangle ,0\le t\le 2\pi\) that parameterizes a circle of radius 3, we can change the parameter from <strong>t</strong> to \(4t,\) obtaining a new parameterization \(\text{r}(t)=\langle 3\,\text{cos}\,4t,3\,\text{sin}\,4t\rangle .\) The new parameterization still defines a circle of radius 3, but now we need only use the values \(0\le t\le \pi \text{/}2\) to traverse the circle once.</p>
+<p>Suppose that we find the arc-length function \(s(t)\) and are able to solve this function for <strong>t</strong> as a function of <strong>s.</strong> We can then reparameterize the original function \(\text{r}(t)\) by substituting the expression for <strong>t</strong> back into \(\text{r}(t).\) The vector-valued function is now written in terms of the parameter <strong>s.</strong> Since the variable <strong>s</strong> represents the arc length, we call this an <strong>arc-length parameterization</strong> of the original function \(\text{r}(t).\) One advantage of finding the arc-length parameterization is that the distance traveled along the curve starting from \(s=0\) is now equal to the parameter <strong>s.</strong> The arc-length parameterization also appears in the context of curvature (which we examine later in this section) and line integrals, which we study in the Introduction to Vector Calculus.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find the arc-length parameterization for each of the following curves:</p>
+<ul class="tight"><li>\(\text{r}(t)=4\,\text{cos}\,t\,\text{i}+4\,\text{sin}\,t\,\text{j},t\ge 0\)</li><li>\(\text{r}(t)=\langle t+3,\,2t-4,2t\rangle ,t\ge 3\)</li></ul>
+<p class="sol-hint">Find the arc-length function \(s(t)={∫}_{a}^{t}\Vert {r}^{\prime }(u)\Vert \,du,\) solve it for t in terms of s, then substitute back into \(\text{r}(t).\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>First we find the arc-length function using (see original):<br> <br> which gives the relationship between the arc length <strong>s</strong> and the parameter <strong>t</strong> as \(s=4t;\) so, \(t=s\text{/}4.\) Next we replace the variable <strong>t</strong> in the original function \(\text{r}(t)=4\,\text{cos}\,t\,\text{i}+4\,\text{sin}\,t\,\text{j}\) with the expression \(s\text{/}4\) to obtain<br> <br> This is the arc-length parameterization of \(\text{r}(t).\) Since the original restriction on <strong>t</strong> was given by \(t\ge 0,\) the restriction on <strong>s</strong> becomes \(s\text{/}4\ge 0,\) or \(s\ge 0.\)<p>\[\begin{array}{ll}s(t) &amp; ={∫}_{a}^{t}\Vert {r}^{\prime }(u)\Vert \,du \\ &amp; ={∫}_{0}^{t}\Vert \langle -4\,\text{sin}\,u,4\,\text{cos}\,u\rangle \Vert \,du \\ &amp; ={∫}_{0}^{t}\sqrt{{(-4\,\text{sin}\,u)}^{2}+{(4\,\text{cos}\,u)}^{2}}\,du \\ &amp; ={∫}_{0}^{t}\sqrt{16\,{\text{sin}}^{2}u+16\,{\text{cos}}^{2}u}\,du \\ &amp; ={∫}_{0}^{t}4\,du=4t,\end{array}\]</p>
+<p>\[\text{r}(t)=4\,\text{cos}(\frac{s}{4})\,\text{i}+4\,\text{sin}(\frac{s}{4})\,\text{j}\text{.}\]</p>
+</li><li>The arc-length function is given by (see original):<br> <br> Therefore, the relationship between the arc length <strong>s</strong> and the parameter <strong>t</strong> is \(s=3t-9,\) so \(t=\frac{s}{3}+3.\) Substituting this into the original function \(\text{r}(t)=\langle t+3,\,2t-4,2t\rangle\) yields<br> <br> This is an arc-length parameterization of \(\text{r}(t).\) The original restriction on the parameter \(t\) was \(t\ge 3,\) so the restriction on <strong>s</strong> is \((s\text{/}3)+3\ge 3,\) or \(s\ge 0.\)<p>\[\begin{array}{ll}s(t) &amp; ={∫}_{a}^{t}\Vert {r}^{\prime }(u)\Vert \,du \\ &amp; ={∫}_{3}^{t}\Vert \langle 1,2,2\rangle \Vert \,du \\ &amp; ={∫}_{3}^{t}\sqrt{{1}^{2}+{2}^{2}+{2}^{2}}\,du \\ &amp; ={∫}_{3}^{t}3\,du \\ &amp; =3t-9.\end{array}\]</p>
+<p>\[\text{r}(s)=\langle (\frac{s}{3}+3)+3,\,2(\frac{s}{3}+3)-4,2(\frac{s}{3}+3)\rangle =\langle \frac{s}{3}+6,\,\frac{2s}{3}+2,\frac{2s}{3}+6\rangle .\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find the arc-length function for the helix</p>
+<p>\[\text{r}(t)=\langle 3\,\text{cos}\,t,3\,\text{sin}\,t,4t\rangle ,t\ge 0.\]</p>
+<p>Then, use the relationship between the arc length and the parameter <strong>t</strong> to find an arc-length parameterization of \(\text{r}(t).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(s=5t,\) or \(t=s\text{/}5.\) Substituting this into \(\text{r}(t)=\langle 3\,\text{cos}\,t,3\,\text{sin}\,t,4t\rangle\) gives</p>
+<p>\(\text{r}(s)=\langle 3\,\text{cos}(\frac{s}{5}),\,3\,\text{sin}(\frac{s}{5}),\frac{4s}{5}\rangle ,s\ge 0.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="curvature">Curvature</h2>
+<p>An important topic related to arc length is curvature. The concept of curvature provides a way to measure how sharply a smooth curve turns. A circle has constant curvature. The smaller the radius of the circle, the greater the curvature.</p>
+<p>Think of driving down a road. Suppose the road lies on an arc of a large circle. In this case you would barely have to turn the wheel to stay on the road. Now suppose the radius is smaller. In this case you would need to turn more sharply to stay on the road. In the case of a curve other than a circle, it is often useful first to inscribe a circle to the curve at a given point so that it is tangent to the curve at that point and “hugs” the curve as closely as possible in a neighborhood of the point (<a href="#fig1">Figure 1</a>). The curvature of the graph at that point is then defined to be the same as the curvature of the inscribed circle.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_001.jpg" alt="This figure is the graph of a curve. The curve rises and falls in the first quadrant. Along the curve, where the curve changes from decreasing to increasing there is a circle. The bottom of the circle curves the same as the graph of the curve. There is also a second smaller circle where the curve goes from increasing to decreasing. Part of the circle falls on the curve. Both circles have the radius r represented." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The graph represents the curvature of a function \(y=f(x).\) The sharper the turn in the graph, the greater the curvature, and the smaller the radius of the inscribed circle.</figcaption></figure>
+<div class="card definition"><span class="chip">Definition</span><p>Let <strong>C</strong> be a smooth curve in the plane or in space given by \(\text{r}(s),\) where \(s\) is the arc-length parameter. The <strong>curvature</strong> \(κ\) at <strong>s</strong> is</p>
+<p>\[κ=\Vert \frac{d\,\text{T}}{ds}\Vert =\Vert {T}^{\prime }(s)\Vert .\]</p>
+</div>
+<div class="card callout"><span class="chip">Media</span><p>Visit this <a href="http://www.openstax.org/l/20_spacecurve" target="_blank" rel="noopener">website</a> for more information about the curvature of a space curve.</p>
+</div>
+<p>The formula in the definition of curvature is not very useful in terms of calculation. In particular, recall that \(\text{T}(t)\) represents the unit tangent vector to a given vector-valued function \(\text{r}(t),\) and the formula for \(\text{T}(t)\) is \(\text{T}(t)=\frac{{r}^{\prime }(t)}{\Vert {r}^{\prime }(t)\Vert }.\) To use the formula for curvature, it is first necessary to express \(\text{r}(t)\) in terms of the arc-length parameter <strong>s</strong>, then find the unit tangent vector \(\text{T}(s)\) for the function \(\text{r}(s),\) then take the derivative of \(\text{T}(s)\) with respect to <strong>s.</strong> This is a tedious process. Fortunately, there are equivalent formulas for curvature.</p>
+<div class="card definition"><span class="chip">Alternative Formulas for Curvature</span><p>If <strong>C</strong> is a smooth curve given by \(\text{r}(t),\) then the curvature \(κ\) of <strong>C</strong> at <strong>t</strong> is given by</p>
+<p>\[κ=\frac{\Vert {T}^{\prime }(t)\Vert }{\Vert {r}^{\prime }(t)\Vert }.\]</p>
+<p>If <strong>C</strong> is a three-dimensional curve, then the curvature can be given by the formula</p>
+<p>\[κ=\frac{\Vert {r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t)\Vert }{{\Vert {r}^{\prime }(t)\Vert }^{3}}.\]</p>
+<p>If <strong>C</strong> is the graph of a function \(y=f(x)\) and both \({y}^{\prime }\) and \({y}^{\prime\prime }\) exist, then the curvature \(κ\) at point \((x,y)\) is given by</p>
+<p>\[κ=\frac{|{y}^{\prime\prime }|}{{[1+{({y}^{\prime })}^{2}]}^{3\text{/}2}}.\]</p>
+</div>
+<h3 id="proof">Proof</h3>
+<p>The first formula follows directly from the chain rule:</p>
+<p>\[\frac{d\text{T}}{dt}=\frac{d\text{T}}{ds}\,\frac{ds}{dt},\]</p>
+<p>where <strong>s</strong> is the arc length along the curve <strong>C.</strong> Dividing both sides by \(ds\text{/}dt,\) and taking the magnitude of both sides gives</p>
+<p>\[\Vert \frac{d\text{T}}{ds}\Vert =\Vert \frac{{T}^{\prime }(t)}{\frac{ds}{dt}}\Vert .\]</p>
+<p>Since \(ds\text{/}dt=\Vert {r}^{\prime }(t)\Vert ,\) this gives the formula for the curvature \(κ\) of a curve <strong>C</strong> in terms of any parameterization of <strong>C</strong>:</p>
+<p>\[κ=\frac{\Vert {T}^{\prime }(t)\Vert }{\Vert {r}^{\prime }(t)\Vert }.\]</p>
+<p>In the case of a three-dimensional curve, we start with the formulas \(\text{T}(t)=({r}^{\prime }(t))\text{/}\Vert {r}^{\prime }(t)\Vert\) and \(ds\text{/}dt=\Vert {r}^{\prime }(t)\Vert .\) Therefore, \({r}^{\prime }(t)=(ds\text{/}dt)\,\text{T}(t).\) We can take the derivative of this function using the scalar product formula:</p>
+<p>\[{r}^{\prime\prime }(t)=\frac{{d}^{2}s}{d{t}^{2}}\text{T}(t)+\frac{ds}{dt}{T}^{\prime }(t).\]</p>
+<p>Using these last two equations we get</p>
+<p>\[\begin{array}{ll}{r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t) &amp; =\frac{ds}{dt}\text{T}(t)\,\times \,(\frac{{d}^{2}s}{d{t}^{2}}\text{T}(t)+\frac{ds}{dt}{T}^{\prime }(t)) \\ &amp; =\frac{ds}{dt}\,\frac{{d}^{2}s}{d{t}^{2}}\text{T}(t)\,\times \,\text{T}(t)+{(\frac{ds}{dt})}^{2}\text{T}(t)\,\times \,{T}^{\prime }(t).\end{array}\]</p>
+<p>Since \(\text{T}(t)\,\times \,\text{T}(t)=0,\) this reduces to</p>
+<p>\[{r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t)={(\frac{ds}{dt})}^{2}\text{T}(t)\,\times \,{T}^{\prime }(t).\]</p>
+<p>Because \(T(t)\) is a unit vector, \(\Vert T(t)\Vert =1\) for all values of \(t\) . So, \(T\left(t\right)·T\left(t\right)=\) \({\Vert T(t)\Vert }^{2}=1\) .</p>
+<p>By (see original), we have Therefore, \({T}^{\prime }\cdot T=0\) showing that \(T\) and \({T}^{\prime }\) are perpendicular. This means that</p>
+<p>\[0=\frac{d}{dt}(T(t)\cdot T(t))={T}^{\prime }(t)\cdot T(t)+T(t)\cdot {T}^{\prime }(t)=2{T}^{\prime }(t)\cdot T(t).\]</p>
+<p>\[\Vert T\times {T}^{\prime }\Vert =\Vert T\Vert . \Vert {T}^{\prime }\Vert \text{sin}\frac{\pi }{2}\text{=}\Vert {T}^{'}\Vert \text{, so}\]</p>
+<p>\[\Vert {r}^{'}(t)\,\times \,{r}^{\prime\prime }(t)\Vert ={(\frac{ds}{dt})}^{2}\Vert {T}^{'}(t)\Vert .\]</p>
+<p>Now we solve this equation for \(\Vert {T}^{\prime }(t)\Vert\) and use the fact that \(ds\text{/}dt=\Vert {r}^{\prime }(t)\Vert \text{:}\)</p>
+<p>\[\Vert {T}^{\prime }(t)\Vert =\frac{\Vert {r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t)\Vert }{{\Vert {r}^{\prime }(t)\Vert }^{2}}.\]</p>
+<p>Then, we divide both sides by \(\Vert {r}^{\prime }(t)\Vert .\) This gives</p>
+<p>\[κ=\frac{\Vert {T}^{\prime }(t)\Vert }{\Vert {r}^{\prime }(t)\Vert }=\frac{\Vert {r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t)\Vert }{{\Vert {r}^{\prime }(t)\Vert }^{3}}.\]</p>
+<p>This proves (see original). To prove (see original), we start with the assumption that curve <strong>C</strong> is defined by the function \(y=f(x).\) Then, we can define \(\text{r}(t)=x\,\text{i}+f(x)\,\text{j}+0\,\text{k}.\) Using the previous formula for curvature:</p>
+<p>\[\begin{array}{ll}{r}^{\prime }(t) &amp; =\text{i}+{f}^{\prime }(x)\,\text{j} \\ {r}^{\prime\prime }(t) &amp; ={f}^{\prime\prime }(x)\,\text{j} \\ {r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t) &amp; =|\begin{array}{lll}\text{i} &amp; \text{j} &amp; \text{k} \\ 1 &amp; {f}^{\prime }(x) &amp; 0 \\ 0 &amp; {f}^{\prime\prime }(x) &amp; 0\end{array}|={f}^{\prime\prime }(x)\,\text{k}.\end{array}\]</p>
+<p>Therefore,</p>
+<p>\[κ=\frac{\Vert {r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t)\Vert }{{\Vert {r}^{\prime }(t)\Vert }^{3}}=\frac{|{f}^{\prime\prime }(x)|}{{(1+[{({f}^{\prime }(x))}^{2}])}^{3\text{/}2}}.\]</p>
+<p>□</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the curvature for each of the following curves at the given point:</p>
+<ul class="tight"><li>\(\text{r}(t)=4\,\text{cos}\,t\,\text{i}+4\,\text{sin}\,t\,\text{j}+3t\,\text{k},t=\frac{4\pi }{3}\)</li><li>\(f(x)=\sqrt{4x-{x}^{2}},x=2\)</li></ul>
+<p class="sol-hint">For the vector function use \(κ=\frac{\Vert {r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t)\Vert }{{\Vert {r}^{\prime }(t)\Vert }^{3}};\) for the \(y=f(x)\) curve use \(κ=\frac{|{y}^{\prime\prime }|}{{[1+{({y}^{\prime })}^{2}]}^{3\text{/}2}}.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>This function describes a helix.<br> <br> The curvature of the helix at \(t=(4\pi )\text{/}3\) can be found by using (see original). First, calculate \(\text{T}(t)\text{:}\) <br> <br> Next, calculate \({T}^{\prime }(t)\text{:}\) <br> <br> Last, apply (see original):<br> <br> The curvature of this helix is constant at all points on the helix.<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_002.jpg" alt="This figure is the graph of a curve in 3 dimensions. The curve is a helix that spirals around the z-axis. It begins below the xy plane and spirals up with orientation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>\[\begin{array}{ll}\text{T}(t) &amp; =\frac{{r}^{\prime }(t)}{\Vert {r}^{\prime }(t)\Vert } \\ &amp; =\frac{\langle -4\,\text{sin}\,t,4\,\text{cos}\,t,3\rangle }{\sqrt{{(-4\,\text{sin}\,t)}^{2}+{(4\,\text{cos}\,t)}^{2}+{3}^{2}}} \\ &amp; =\langle -\frac{4}{5}\text{sin}\,t,\frac{4}{5}\text{cos}\,t,\frac{3}{5}\rangle .\end{array}\]</p>
+<p>\[{T}^{\prime }(t)=\langle -\frac{4}{5}\text{cos}\,t,-\frac{4}{5}\text{sin}\,t,0\rangle .\]</p>
+<p>\[\begin{array}{ll}κ &amp; =\frac{\Vert {T}^{\prime }(t)\Vert }{\Vert {r}^{\prime }(t)\Vert }=\frac{\Vert \langle -\frac{4}{5}\text{cos}\,t,-\frac{4}{5}\text{sin}\,t,0\rangle \Vert }{\Vert \langle -4\,\text{sin}\,t,4\,\text{cos}\,t,3\rangle \Vert } \\ &amp; =\frac{\sqrt{{(-\frac{4}{5}\text{cos}\,t)}^{2}+{(-\frac{4}{5}\text{sin}\,t)}^{2}+{0}^{2}}}{\sqrt{{(-4\,\text{sin}\,t)}^{2}+{(4\,\text{cos}\,t)}^{2}+{3}^{2}}} \\ &amp; =\frac{4\text{/}5}{5}=\frac{4}{25}.\end{array}\]</p>
+</li><li>This function describes a semicircle.<br> <br> To find the curvature of this graph, we must use (see original). First, we calculate \({y}^{\prime }\) and \({y}^{\prime\prime }\text{:}\) <br> <br> Then, we apply (see original):<br> <br> The curvature of this circle is equal to the reciprocal of its radius. There is a minor issue with the absolute value in (see original); however, a closer look at the calculation reveals that the denominator is positive for any value of <strong>x.</strong><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_003.jpg" alt="This figure is the graph of a semicircle. It is in the first quadrant. The semicircle begins at the origin and stops at 4 on the x-axis. The semicircle represents the function f(x) = the square root of (4x-x^2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>\[\begin{array}{ll}y &amp; =\sqrt{4x-{x}^{2}}={(4x-{x}^{2})}^{1\text{/}2} \\ {y}^{\prime } &amp; =\frac{1}{2}{(4x-{x}^{2})}^{-1\text{/}2}(4-2x)=(2-x){(4x-{x}^{2})}^{-1\text{/}2} \\ {y}^{\prime\prime } &amp; =-{(4x-{x}^{2})}^{-1\text{/}2}+(2-x)(-\frac{1}{2}){(4x-{x}^{2})}^{-3\text{/}2}(4-2x) \\ &amp; =-\frac{4x-{x}^{2}}{{(4x-{x}^{2})}^{3\text{/}2}}-\frac{{(2-x)}^{2}}{{(4x-{x}^{2})}^{3\text{/}2}} \\ &amp; =\frac{{x}^{2}-4x-(4-4x+{x}^{2})}{{(4x-{x}^{2})}^{3\text{/}2}} \\ &amp; =-\frac{4}{{(4x-{x}^{2})}^{3\text{/}2}}.\end{array}\]</p>
+<p>\[\begin{array}{ll}κ &amp; =\frac{|{y}^{\prime\prime }|}{{[1+{({y}^{\prime })}^{2}]}^{3\text{/}2}} \\ &amp; =\frac{|-\frac{4}{{(4x-{x}^{2})}^{3\text{/}2}}|}{{[1+{((2-x){(4x-{x}^{2})}^{-1\text{/}2})}^{2}]}^{3\text{/}2}}=\frac{|\frac{4}{{(4x-{x}^{2})}^{3\text{/}2}}|}{{[1+\frac{{(2-x)}^{2}}{4x-{x}^{2}}]}^{3\text{/}2}} \\ &amp; =\frac{|\frac{4}{{(4x-{x}^{2})}^{3\text{/}2}}|}{{[\frac{4x-{x}^{2}+{x}^{2}-4x+4}{4x-{x}^{2}}]}^{3\text{/}2}}=|\frac{4}{{(4x-{x}^{2})}^{3\text{/}2}}|·\frac{{(4x-{x}^{2})}^{3\text{/}2}}{8} \\ &amp; =\frac{1}{2}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the curvature of the curve defined by the function</p>
+<p>\[y=3{x}^{2}-2x+4\]</p>
+<p>at the point \(x=2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(κ=\frac{6}{{101}^{3\text{/}2}}\approx 0.0059\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="the-normal-and-binormal-vectors">The Normal and Binormal Vectors</h2>
+<p>We have seen that the derivative \({r}^{\prime }(t)\) of a vector-valued function is a tangent vector to the curve defined by \(\text{r}(t),\) and the unit tangent vector \(\text{T}(t)\) can be calculated by dividing \({r}^{\prime }(t)\) by its magnitude. When studying motion in three dimensions, two other vectors are useful in describing the motion of a particle along a path in space: the <strong>principal unit normal vector</strong> and the <strong>binormal vector</strong>.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let <strong>C</strong> be a three-dimensional <strong>smooth</strong> curve represented by <strong>r</strong> over an open interval <strong>I.</strong> If \({T}^{\prime }(t)\ne 0,\) then the principal unit normal vector at <strong>t</strong> is defined to be</p>
+<p>\[\text{N}(t)=\frac{{T}^{\prime }(t)}{\Vert {T}^{\prime }(t)\Vert }.\]</p>
+<p>The binormal vector at <strong>t</strong> is defined as</p>
+<p>\[\text{B}(t)=\text{T}(t)\,\times \,\text{N}(t),\]</p>
+<p>where \(\text{T}(t)\) is the unit tangent vector.</p>
+</div>
+<p>Note that, by definition, the binormal vector is orthogonal to both the unit tangent vector and the normal vector. Furthermore, \(\text{B}(t)\) is always a unit vector. This can be shown using the formula for the magnitude of a cross product</p>
+<p>\[\Vert \text{B}(t)\Vert =\Vert \text{T}(t)\,\times \,\text{N}(t)\Vert =\Vert \text{T}(t)\Vert \Vert \text{N}(t)\Vert \text{sin}\,θ,\]</p>
+<p>where \(θ\) is the angle between \(\text{T}(t)\) and \(\text{N}(t).\) Since \(\text{N}(t)\) is the derivative of a unit vector, property (vii) of the derivative of a vector-valued function tells us that \(\text{T}(t)\) and \(\text{N}(t)\) are orthogonal to each other, so \(θ=\pi \text{/}2.\) Furthermore, they are both unit vectors, so their magnitude is 1. Therefore, \(\Vert \text{T}(t)\Vert \Vert \text{N}(t)\Vert \text{sin}\,θ=(1)(1)\text{sin}(\pi \text{/}2)=1\) and \(\text{B}(t)\) is a unit vector.</p>
+<p>The principal unit normal vector can be challenging to calculate because the unit tangent vector involves a quotient, and this quotient often has a square root in the denominator. In the three-dimensional case, finding the cross product of the unit tangent vector and the unit normal vector can be even more cumbersome. Fortunately, we have alternative formulas for finding these two vectors, and they are presented in Motion in Space.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>For each of the following vector-valued functions, find the principal unit normal vector. Then, if possible, find the binormal vector.</p>
+<ul class="tight"><li>\(\text{r}(t)=4\,\text{cos}\,t\,\text{i}-4\,\text{sin}\,t\,\text{j}\)</li><li>\(\text{r}(t)=(6t+2)\,\text{i}+5{t}^{2}\,\text{j}-8t\,\text{k}\)</li></ul>
+<p class="sol-hint">Find \(\text{T}(t)\) first, then \(\text{N}(t)=\frac{{T}^{\prime }(t)}{\Vert {T}^{\prime }(t)\Vert },\) and if the curve is three-dimensional, \(\text{B}(t)=\text{T}(t)\,\times \,\text{N}(t).\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>This function describes a circle.<br> <br> To find the principal unit normal vector, we first must find the unit tangent vector \(\text{T}(t)\text{:}\) <br> <br> Next, we use (see original):<br> <br> Notice that the unit tangent vector and the principal unit normal vector are orthogonal to each other for all values of <strong>t</strong>:<br> <br> Furthermore, the principal unit normal vector points toward the center of the circle from every point on the circle. Since \(\text{r}(t)\) defines a curve in two dimensions, we cannot calculate the binormal vector.<br><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_004.jpg" alt="This figure is the graph of a circle centered at the origin with radius of 2. The orientation of the circle is clockwise. It represents the vector-valued function r(t) = 4costi – 4 sintj." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>\[\begin{array}{ll}\text{T}(t) &amp; =\frac{{r}^{\prime }(t)}{\Vert {r}^{\prime }(t)\Vert } \\ &amp; =\frac{-4\,\text{sin}\,t\,\text{i}-4\,\text{cos}\,t\,\text{j}}{\sqrt{{(-4\,\text{sin}\,t)}^{2}+{(-4\,\text{cos}\,t)}^{2}}} \\ &amp; =\frac{-4\,\text{sin}\,t\,\text{i}-4\,\text{cos}\,t\,\text{j}}{\sqrt{16\,{\text{sin}}^{2}t+16\,{\text{cos}}^{2}t}} \\ &amp; =\frac{-4\,\text{sin}\,t\,\text{i}-4\,\text{cos}\,t\,\text{j}}{\sqrt{16({\text{sin}}^{2}t+{\text{cos}}^{2}t)}} \\ &amp; =\frac{-4\,\text{sin}\,t\,\text{i}-4\,\text{cos}\,t\,\text{j}}{4} \\ &amp; =-\text{sin}\,t\,\text{i}-\text{cos}\,t\,\text{j}.\end{array}\]</p>
+<p>\[\begin{array}{ll}\text{N}(t) &amp; =\frac{{T}^{\prime }(t)}{\Vert {T}^{\prime }(t)\Vert } \\ &amp; =\frac{\text{-}\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}}{\sqrt{{(\text{-}\text{cos}\,t)}^{2}+{(\text{sin}\,t)}^{2}}} \\ &amp; =\frac{\text{-}\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}}{\sqrt{{\text{cos}}^{2}t+{\text{sin}}^{2}t}} \\ &amp; =-\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}.\end{array}\]</p>
+<p>\[\begin{array}{ll}\text{T}(t)·\text{N}(t) &amp; =\langle \text{-}\text{sin}\,t,-\text{cos}\,t\rangle ·\langle \text{-}\text{cos}\,t,\text{sin}\,t\rangle \\ &amp; =\text{sin}\,t\,\text{cos}\,t-\text{cos}\,t\,\text{sin}\,t \\ &amp; =0.\end{array}\]</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_005.jpg" alt="This figure is the graph of a circle centered at the origin with radius of 2. The orientation of the circle is clockwise. It represents the vector-valued function r(t) = 4costi – 4 sintj. On the circle in the first quadrant is a vector pointing inward. It is labeled “principal unit normal vector”." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>This function looks like this:<br> <br> To find the principal unit normal vector, we first find the unit tangent vector \(\text{T}(t)\text{:}\) <br> <br> Next, we calculate \({T}^{\prime }(t)\) and \(\Vert {T}^{\prime }(t)\Vert \text{:}\) <br> <br> Therefore, according to (see original):<br> <br> Once again, the unit tangent vector and the principal unit normal vector are orthogonal to each other for all values of <strong>t</strong>:<br> <br> Last, since \(\text{r}(t)\) represents a three-dimensional curve, we can calculate the binormal vector using (see original):<br><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_011.jpg" alt="This figure is a curve in 3 dimensions. It is inside of a box. The box represents the first octant. The curve starts at the bottom right of the box and curves through the box in a parabolic curve to the top." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>\[\begin{array}{ll}\text{T}(t) &amp; =\frac{{r}^{\prime }(t)}{\Vert {r}^{\prime }(t)\Vert } \\ &amp; =\frac{6\,\text{i}+10t\,\text{j}-8\,\text{k}}{\sqrt{{6}^{2}+{(10t)}^{2}+{(-8)}^{2}}} \\ &amp; =\frac{6\,\text{i}+10t\,\text{j}-8\,\text{k}}{\sqrt{36+100{t}^{2}+64}} \\ &amp; =\frac{6\,\text{i}+10t\,\text{j}-8\text{k}}{\sqrt{100({t}^{2}+1)}} \\ &amp; =\frac{3\,\text{i}+5t\,\text{j}-4\text{k}}{5\sqrt{{t}^{2}+1}} \\ &amp; =\frac{3}{5}{({t}^{2}+1)}^{-1\text{/}2}\text{i}+t{({t}^{2}+1)}^{-1\text{/}2}\text{j}-\frac{4}{5}{({t}^{2}+1)}^{-1\text{/}2}\text{k}.\end{array}\]</p>
+<p>\[\begin{array}{ll}{T}^{\prime }(t) &amp; =\frac{3}{5}(-\frac{1}{2}){({t}^{2}+1)}^{-3\text{/}2}(2t)\,\text{i}+({({t}^{2}+1)}^{-1\text{/}2}-t(\frac{1}{2}){({t}^{2}+1)}^{-3\text{/}2}(2t))\,\text{j} \\ &amp; \,-\frac{4}{5}(-\frac{1}{2}){({t}^{2}+1)}^{-3\text{/}2}(2t)\,\text{k} \\ &amp; =-\frac{3t}{5{({t}^{2}+1)}^{3\text{/}2}}\text{i}+\frac{1}{{({t}^{2}+1)}^{3\text{/}2}}\text{j}+\frac{4t}{5{({t}^{2}+1)}^{3\text{/}2}}\text{k} \\ \Vert {T}^{\prime }(t)\Vert &amp; =\sqrt{{(-\frac{3t}{5{({t}^{2}+1)}^{3\text{/}2}})}^{2}+{(-\frac{1}{{({t}^{2}+1)}^{3\text{/}2}})}^{2}+{(\frac{4t}{5{({t}^{2}+1)}^{3\text{/}2}})}^{2}} \\ &amp; =\sqrt{\frac{9{t}^{2}}{25{({t}^{2}+1)}^{3}}+\frac{1}{{({t}^{2}+1)}^{3}}+\frac{16{t}^{2}}{25{({t}^{2}+1)}^{3}}} \\ &amp; =\sqrt{\frac{25{t}^{2}+25}{25{({t}^{2}+1)}^{3}}} \\ &amp; =\sqrt{\frac{1}{{({t}^{2}+1)}^{2}}} \\ &amp; =\frac{1}{{t}^{2}+1}.\end{array}\]</p>
+<p>\[\begin{array}{ll}\text{N}(t) &amp; =\frac{{T}^{\prime }(t)}{\Vert {T}^{\prime }(t)\Vert } \\ &amp; =(-\frac{3t}{5{({t}^{2}+1)}^{3\text{/}2}}\text{i}+\frac{1}{{({t}^{2}+1)}^{3\text{/}2}}\text{j}+\frac{4t}{5{({t}^{2}+1)}^{3\text{/}2}}\text{k})({t}^{2}+1) \\ &amp; =-\frac{3t}{5{({t}^{2}+1)}^{1\text{/}2}}\text{i}+\frac{5}{5{({t}^{2}+1)}^{1\text{/}2}}\text{j}+\frac{4t}{5{({t}^{2}+1)}^{1\text{/}2}}\text{k} \\ &amp; =-\frac{3t\,\text{i}-5\text{j}-4t\,\text{k}}{5\sqrt{{t}^{2}+1}}.\end{array}\]</p>
+<p>\[\begin{array}{ll}\text{T}(t)·\text{N}(t) &amp; =(\frac{3\,\text{i}+5t\,\text{j}-4\text{k}}{5\sqrt{{t}^{2}+1}})·(-\frac{3t\,\text{i}-5\text{j}-4t\,\text{k}}{5\sqrt{{t}^{2}+1}}) \\ &amp; =\frac{3(-3t)-5t(-5)-4(4t)}{5\sqrt{{t}^{2}+1}} \\ &amp; =\frac{-9t+25t-16t}{5\sqrt{{t}^{2}+1}} \\ &amp; =0.\end{array}\]</p>
+<p>\[\begin{array}{ll}\text{B}(t) &amp; =\text{T}(t)\,\times \,\text{N}(t) \\ &amp; =|\begin{array}{lll}\text{i} &amp; \text{j} &amp; \text{k} \\ \frac{3}{5\sqrt{{t}^{2}+1}} &amp; +\frac{5t}{5\sqrt{{t}^{2}+1}} &amp; -\frac{4}{5\sqrt{{t}^{2}+1}} \\ -\frac{3t}{5\sqrt{{t}^{2}+1}} &amp; +\frac{5}{5\sqrt{{t}^{2}+1}} &amp; \frac{4t}{5\sqrt{{t}^{2}+1}}\end{array}| \\ &amp; =((+\frac{5t}{5\sqrt{{t}^{2}+1}})(\frac{4t}{5\sqrt{{t}^{2}+1}})-(-\frac{4}{5\sqrt{{t}^{2}+1}})(+\frac{5}{5\sqrt{{t}^{2}+1}}))\,\text{i} \\ &amp; \,+((\frac{3}{5\sqrt{{t}^{2}+1}})(\frac{4t}{5\sqrt{{t}^{2}+1}})-(-\frac{4}{5\sqrt{{t}^{2}+1}})(-\frac{3t}{5\sqrt{{t}^{2}+1}}))\,\text{j} \\ &amp; \,+((\frac{3}{5\sqrt{{t}^{2}+1}})(+\frac{5}{5\sqrt{{t}^{2}+1}})-(+\frac{5t}{5\sqrt{{t}^{2}+1}})(-\frac{3t}{5\sqrt{{t}^{2}+1}}))\,\text{k} \\ &amp; =(\frac{20{t}^{2}+20}{25({t}^{2}+1)})\,\text{i}+(\frac{-15-15{t}^{2}}{25({t}^{2}+1)})\,\text{k} \\ &amp; =20(\frac{{t}^{2}+1}{25({t}^{2}+1)})\,\text{i+}15(\frac{{t}^{2}+1}{25({t}^{2}+1)})\,\text{k} \\ &amp; =\frac{4}{5}\text{i+}\frac{3}{5}\text{k}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Find the unit normal vector for the vector-valued function \(\text{r}(t)=({t}^{2}-3t)\,\text{i}+(4t+1)\,\text{j}\) and evaluate it at \(t=2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\text{N}(2)=\frac{\sqrt{2}}{2}(\text{i}-\text{j})\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>For any smooth curve in three dimensions that is defined by a vector-valued function, we now have formulas for the unit tangent vector <strong>T</strong>, the unit normal vector <strong>N</strong>, and the binormal vector <strong>B</strong>. The unit normal vector and the binormal vector form a plane that is perpendicular to the curve at any point on the curve, called the <strong>normal plane</strong>. In addition, these three vectors form a frame of reference in three-dimensional space called the <strong>Frenet frame of reference</strong> (also called the <strong>TNB</strong> frame) (<a href="#fig2">Figure 2</a>). Last, the plane determined by the vectors <strong>T</strong> and <strong>N</strong> forms the osculating plane of <strong>C</strong> at any point <strong>P</strong> on the curve.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_006.jpg" alt="This figure is the graph of a curve increasing and decreasing. Along the curve at 4 different points are 3 vectors at each point. The first vector is labeled “T” and is tangent to the curve at the point. The second vector is labeled “N” and is normal to the curve at the point. The third vector is labeled “B” and is orthogonal to T and N." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — This figure depicts a Frenet frame of reference. At every point <strong>P</strong> on a three-dimensional curve, the unit tangent, unit normal, and binormal vectors form a three-dimensional frame of reference.</figcaption></figure>
+<p>Suppose we form a circle in the osculating plane of <strong>C</strong> at point <strong>P</strong> on the curve. Assume that the circle has the same curvature as the curve does at point <strong>P</strong> and let the circle have radius <strong>r.</strong> Then, the curvature of the circle is given by \(1\text{/}r.\) We call <strong>r</strong> the <strong>radius of curvature</strong> of the curve, and it is equal to the reciprocal of the curvature. If this circle lies on the concave side of the curve and is tangent to the curve at point <strong>P,</strong> then this circle is called the <strong>osculating circle</strong> of <strong>C</strong> at <strong>P</strong>, as shown in the following figure.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_007.jpg" alt="This figure is the graph of a curve with a circle in the middle. The bottom of the circle is the same as part of the curve. Inside of the circle is a vector labeled “r”. It starts at point “P” on the circle and points towards the radius. There is also a line segment perpendicular to the radius and tangent to point P." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — In this osculating circle, the circle is tangent to curve <strong>C</strong> at point <strong>P</strong> and shares the same curvature.</figcaption></figure>
+<div class="card callout"><span class="chip">Media</span><p>For more information on osculating circles, see this <a href="http://www.openstax.org/l/20_OsculCircle1" target="_blank" rel="noopener">demonstration</a> on curvature and torsion, this <a href="http://www.openstax.org/l/20_OsculCircle3" target="_blank" rel="noopener">article</a> on osculating circles, and this <a href="http://www.openstax.org/l/20_OsculCircle2" target="_blank" rel="noopener">discussion</a> of Serret formulas.</p>
+</div>
+<p>To find the equation of an osculating circle in two dimensions, we need find only the center and radius of the circle.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find an equation of the osculating circle of the curve defined by the function \(y={x}^{3}-3x+1\) at \(x=1.\)</p>
+<p class="sol-hint">Find the curvature at the given point to get the radius \(R=1/κ,\) then locate the center along the normal direction from that point on the curve.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><a href="#fig4">Figure 4</a> shows the graph of \(y={x}^{3}-3x+1.\)</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_008.jpg" alt="This figure is the graph of a cubic function y = x^3-3x+1. The curve increases, reaches a maximum at x=-1, decreases passing through the y-axis at 1, then reaching a minimum at x =1 before increasing again." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — We want to find the osculating circle of this graph at the point where \(t=1.\)</figcaption></figure>
+<p>First, let’s calculate the curvature at \(x=1\text{:}\)</p>
+<p>\[κ=\frac{|{f}^{\prime\prime }(x)|}{{(1+{[{f}^{\prime }(x)]}^{2})}^{3\text{/}2}}=\frac{|6x|}{{(1+{[3{x}^{2}-3]}^{2})}^{3\text{/}2}}.\]</p>
+<p>This gives \(κ=6.\) Therefore, the radius of the osculating circle is given by \(R=\frac{1}{κ}=\frac{1}{6}.\) Next, we then calculate the coordinates of the center of the circle. When \(x=1,\) the slope of the tangent line is zero. Therefore, the center of the osculating circle is directly above the point on the graph with coordinates \((1,-1).\) The center is located at \((1,-\frac{5}{6}).\) The formula for a circle with radius <strong>r</strong> and center \((h,k)\) is given by \({(x-h)}^{2}+{(y-k)}^{2}={r}^{2}.\) Therefore, the equation of the osculating circle is \({(x-1)}^{2}+{(y+\frac{5}{6})}^{2}=\frac{1}{36}.\) The graph and its osculating circle appears in the following graph.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_009.jpg" alt="This figure is the graph of a cubic function y = x^3-3x+1. The curve increases, reaches a maximum at x=-1, decreases passing through the y-axis at 1, then reaching a minimum at x =1 before increasing again. There is a small circle inside of the bend of the cure at x = 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The osculating circle has radius \(R=1\text{/}6.\)</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Find an equation of the osculating circle of the curve defined by the vector-valued function \(y=2{x}^{2}-4x+5\) at \(x=1.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(κ=\frac{4}{{[1+{(4x-4)}^{2}]}^{3\text{/}2}}\)</p>
+<p>At the point \(x=1,\) the curvature is equal to 4. Therefore, the radius of the osculating circle is \(\frac{1}{4}.\)</p>
+<p>A graph of this function appears next:<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_010.jpg" alt="This figure is the graph of the function y = 2x^2-4x+5. The curve is a parabola opening up with vertex at (1, 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The vertex of this parabola is located at the point \((1,3).\) Furthermore, the center of the osculating circle is directly above the vertex. Therefore, the coordinates of the center are \((1,\frac{13}{4}).\) The equation of the osculating circle is</p>
+<p>\({(x-1)}^{2}+{(y-\frac{13}{4})}^{2}=\frac{1}{16}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The arc-length function for a vector-valued function is calculated using the integral formula \(s(t)={∫}_{a}^{t}\Vert {r}^{\prime }(u)\Vert \,du.\) This formula is valid in both two and three dimensions. (See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.)</li><li>The curvature of a curve at a point in either two or three dimensions is defined to be the curvature of the inscribed circle at that point. The arc-length parameterization is used in the definition of curvature.</li><li>There are several different formulas for curvature. The curvature of a circle is equal to the reciprocal of its radius. (See <a href="#example3">Example 3</a>.)</li><li>The principal unit normal vector at <strong>t</strong> is defined to be<br><p>\[\text{N}(t)=\frac{{T}^{\prime }(t)}{\Vert {T}^{\prime }(t)\Vert }.\]</p>
+(See <a href="#example4">Example 4</a>.)
+</li><li>The binormal vector at <strong>t</strong> is defined as \(\text{B}(t)=\text{T}(t)\,\times \,\text{N}(t),\) where \(\text{T}(t)\) is the unit tangent vector. (See <a href="#example4">Example 4</a>.)</li><li>The Frenet frame of reference is formed by the unit tangent vector, the principal unit normal vector, and the binormal vector.</li><li>The osculating circle is tangent to a curve at a point and has the same curvature as the tangent curve at that point. (See <a href="#example5">Example 5</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Arc length of space curve</strong></td><td>\(s={∫}_{a}^{b}\sqrt{\,{[{f}^{\prime }(t)]}^{2}+{[{g}^{\prime }(t)]}^{2}+{[{h}^{\prime }(t)]}^{2}}\,dt={∫}_{a}^{b}\Vert {r}^{\prime }(t)\Vert dt\)</td></tr><tr><td><strong>Arc-length function</strong></td><td>\(s(t)={∫}_{a}^{t}\sqrt{{({f}^{\prime }(u))}^{2}+{({g}^{\prime }(u))}^{2}+{({h}^{\prime }(u))}^{2}}du\,\text{or}\,s(t)={∫}_{a}^{t}\Vert {r}^{\prime }(u)\Vert \,du\)</td></tr><tr><td><strong>Curvature</strong></td><td>\(κ=\frac{\Vert {T}^{\prime }(t)\Vert }{\Vert {r}^{\prime }(t)\Vert }\,\text{or}\,κ=\frac{\Vert {r}^{\prime }(t)\,\times \,{r}^{\prime\prime }(t)\Vert }{{\Vert {r}^{\prime }(t)\Vert }^{3}}\,\text{or}\,κ=\frac{|{y}^{\prime\prime }|}{{[1+{({y}^{\prime })}^{2}]}^{3\text{/}2}}\)</td></tr><tr><td><strong>Principal unit normal vector</strong></td><td>\(\text{N}(t)=\frac{{T}^{\prime }(t)}{\Vert {T}^{\prime }(t)\Vert }\)</td></tr><tr><td><strong>Binormal vector</strong></td><td>\(\text{B}(t)=\text{T}(t)\,\times \,\text{N}(t)\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>Find the arc length of the curve on the given interval.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(\text{r}(t)={t}^{2}\text{i}+14t\text{j},\,0\le t\le 7.\) This portion of the graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_203.jpg" alt="This figure is the graph of a curve beginning at the origin and increasing." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(\text{r}(t)={t}^{2}\text{i}+(2{t}^{2}+1)\text{j},\,1\le t\le 3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(8\sqrt{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(\text{r}(t)=\langle 2\,\text{sin}\,t,5t,2\,\text{cos}\,t\rangle ,0\le t\le \pi .\) This portion of the graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_204.jpg" alt="This figure is the graph of a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the upper right corner of the box and bends through the box to the other side." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(\text{r}(t)=\langle {t}^{2}+1,4{t}^{3}+3\rangle ,\,-1\le t\le 0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{54}({37}^{3\text{/}2}-1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(\text{r}(t)=\langle {e}^{\text{-}t}\text{cos}\,t,{e}^{\text{-}t}\text{sin}\,t\rangle\) over the interval \([0,\frac{\pi }{2}].\) Here is the portion of the graph on the indicated interval:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_205.jpg" alt="This figure is the graph of a curve in the first quadrant. It begins approximately at 0.20 on the y axis and increases to approximately where x = 0.3. Then the curve decreases, meeting the x-axis at 1.0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>Find the length of one turn of the helix given by \(\text{r}(t)=\frac{1}{2}\text{cos}\,t\text{i}+\frac{1}{2}\text{sin}\,t\text{j}+\sqrt{\frac{3}{4}}\,t\,\text{k}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Length \(=2\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>Find the arc length of the vector-valued function \(\text{r}(t)=-t\text{i}+4t\text{j}+3t\text{k}\) over \([0,1].\)</p>
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>A particle travels once around a circle with the equation of motion \(\text{r}(t)=3\,\text{cos}\,t\text{i}+3\,\text{sin}\,t\text{j}+0\text{k}.\) Find the distance traveled around the circle by the particle.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(6\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>Set up an integral to find the circumference of the ellipse with the equation \(\text{r}(t)=\text{cos}\,t\text{i}+2\,\text{sin}\,t\text{j}+0\text{k}.\)</p>
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>Find the length of the curve \(\text{r}(t)=\langle \sqrt{2}t,{e}^{t},{e}^{\text{-}t}\rangle\) over the interval \(0\le t\le 1.\) The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_206.jpg" alt="This figure is the graph of a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the upper left corner of the box and bends through the box to the bottom of the other side." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(e-\frac{1}{e}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>Find the length of the curve \(\text{r}(t)=\langle 2\,\text{sin}\,t,5t,2\,\text{cos}\,t\rangle\) for \(t\in [-10,10].\)</p>
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>The position function for a particle is \(\text{r}(t)=a\,\text{cos}(ωt)\text{i}+b\,\text{sin}(ωt)\text{j}.\) Find the unit tangent vector and the unit normal vector at \(t=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{T}(0)=\text{j},\) \(\text{N}(0)=-\text{i}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>Given \(\text{r}(t)=a\,\text{cos}(ωt)\text{i}+b\,\text{sin}(ωt)\text{j},\) find the binormal vector \(\text{B}(0).\)</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>Given \(\text{r}(t)=\langle 2{e}^{t},{e}^{t}\text{cos}\,t,{e}^{t}\text{sin}\,t\rangle ,\) determine the tangent vector \(\text{T}(t).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{T}(t)=\langle \frac{2}{\sqrt{6}},\frac{\text{cos}\,t-\text{sin}\,t}{\sqrt{6}},\frac{\text{cos}\,t+\text{sin}\,t}{\sqrt{6}}\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>Given \(\text{r}(t)=\langle 2{e}^{t},{e}^{t}\text{cos}\,t,{e}^{t}\text{sin}\,t\rangle ,\) determine the unit tangent vector \(\text{T}(t)\) evaluated at \(t=0.\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>Given \(\text{r}(t)=\langle 2{e}^{t},{e}^{t}\text{cos}\,t,{e}^{t}\text{sin}\,t\rangle ,\) find the unit normal vector \(\text{N}(t)\) evaluated at \(t=0,\) \(\text{N}(0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{N}\left(0\right)=⟨0,-\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}⟩\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>Given \(\text{r}(t)=\langle 2{e}^{t},{e}^{t}\text{cos}\,t,{e}^{t}\text{sin}\,t\rangle ,\) find the unit binormal vector evaluated at \(t=0.\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>Given \(\text{r}(t)=t\text{i}+{t}^{2}\text{j}+t\text{k},\) find the unit tangent vector \(\text{T}(t).\) The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_207.jpg" alt="This figure is the graph of a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve begins in the bottom left corner of the box and bends through the box to the upper left side." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{T}(t)=\frac{1}{\sqrt{4{t}^{2}+2}}&lt;1,2t,1&gt;\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>Find the unit tangent vector \(\text{T}(t)\) and unit normal vector \(\text{N}(t)\) at \(t=0\) for the plane curve \(\text{r}(t)=\langle {t}^{3}-4t,5{t}^{2}-2\rangle .\) The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_208.jpg" alt="This figure is the graph of a curve above the x-axis. The curve decreases in the second quadrant, passes through the y-axis at y=20. Then it intersects the origin. The curve loops at the origin, increasing back through y=20 into the first quadrant." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>Find the unit tangent vector \(\text{T}(t)\) for \(\text{r}(t)=3t\text{i}+5{t}^{2}\text{j}+2t\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{T}(t)=\frac{1}{\sqrt{100{t}^{2}+13}}(3\text{i}+10t\text{j}+2\text{k})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>Find the principal normal vector to the curve \(\text{r}(t)=\langle 6\,\text{cos}\,t,6\,\text{sin}\,t\rangle\) at the point determined by \(t=\pi \text{/}3.\)</p>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>Find \(\text{T}(t)\) for the curve \(\text{r}(t)=({t}^{3}-4t)\,\text{i}+(5{t}^{2}-2)\,\text{j}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{T}(t)=\frac{1}{\sqrt{9{t}^{4}+76{t}^{2}+16}}([3{t}^{2}-4]\text{i}+10t\text{j})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>Find \(\text{N}(t)\) for the curve \(\text{r}(t)=({t}^{3}-4t)\,\text{i}+(5{t}^{2}-2)\,\text{j}.\)</p>
+</div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>Find the unit normal vector \(\text{N}(t)\) for \(\text{r}(t)=\langle 2\,\text{sin}\,t,5t,2\,\text{cos}\,t\rangle .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{N}(t)=\langle \text{-}\text{sin}\,t,0,-\text{cos}\,t\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>Find the unit tangent vector \(\text{T}(t)\) for \(\text{r}(t)=\langle 2\,\text{sin}\,t,5t,2\,\text{cos}\,t\rangle .\)</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>Find the arc-length function \(s(t)\) for the line segment given by \(\text{r}(t)=\langle 3-3t,4t\rangle .\) Write <strong>r</strong> as a parameter of <strong>s.</strong></p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Arc-length function: \(s(t)=5t;\) r as a parameter of <strong>s</strong>: \(\text{r}(s)=(3-\frac{3s}{5})\,\text{i}+\frac{4s}{5}\text{j}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Parameterize the helix \(\text{r}(t)=\text{cos}\,t\text{i}+\text{sin}\,t\text{j}+t\text{k}\) using the arc-length parameter <strong>s</strong>, from \(t=0.\)</p>
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Parameterize the curve using the arc-length parameter <strong>s</strong>, at the point at which \(t=0\) for \(\text{r}(t)={e}^{t}\text{sin}\,t\text{i}+{e}^{t}\text{cos}\,t\text{j}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{r}(s)=(1+\frac{s}{\sqrt{2}})\,\text{sin}(\text{ln}(1+\frac{s}{\sqrt{2}}))\,\text{i}+(1+\frac{s}{\sqrt{2}})\,\text{cos}[\text{ln}(1+\frac{s}{\sqrt{2}})]\text{j}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>Find the curvature of the curve \(\text{r}(t)=5\,\text{cos}\,t\text{i}+4\,\text{sin}\,t\text{j}\) at \(t=\pi \text{/}3.\) (<strong>Note:</strong> The graph is an ellipse.)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_209.jpg" alt="This figure is the graph of an ellipse. The ellipse is oval along the x-axis. It is centered at the origin and intersects the y-axis at -4 and 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>Find the <strong>x</strong>-coordinate at which the curvature of the curve \(y=1\text{/}x\) is a maximum value.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The maximum value of the curvature occurs at \(x=1.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>Find the curvature of the curve \(\text{r}(t)=5\,\text{cos}\,t\text{i}+5\,\text{sin}\,t\text{j}.\) Does the curvature depend upon the parameter <strong>t</strong>?</p>
+</div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Find the curvature \(κ\) for the curve \(y=x-\frac{1}{4}{x}^{2}\) at the point \(x=2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Find the curvature \(κ\) for the curve \(y=\frac{1}{3}{x}^{3}\) at the point \(x=1.\)</p>
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Find the curvature \(κ\) of the curve \(\text{r}(t)=t\text{i}+6{t}^{2}\text{j}+4t\,\text{k}.\) The graph is shown here:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_03_210.jpg" alt="This figure is the graph of a curve in 3 dimensions. It is inside of a box. The box represents an octant. The curve has a parabolic shape in the middle of the box." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(κ\approx \frac{49.477}{{(17+144{t}^{2})}^{3\text{/}2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Find the curvature of \(\text{r}(t)=\langle 2\,\text{sin}\,t,5t,2\,\text{cos}\,t\rangle .\)</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Find the curvature of \(\text{r}(t)=\sqrt{2}t\text{i}+{e}^{t}\text{j}+{e}^{\text{-}t}\text{k}\) at point \(P(0,1,1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2\sqrt{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>At what point does the curve \(y={e}^{x}\) have maximum curvature?</p>
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>What happens to the curvature as \(x\to \infty\) for the curve \(y={e}^{x}?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The curvature approaches zero.</p>
+</div></div></div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Find the point of maximum curvature on the curve \(y=\text{ln}\,x.\)</p>
+</div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Find the equations of the normal plane and the osculating plane of the curve \(\text{r}(t)=\langle 2\,\text{sin}(3t),t,2\,\text{cos}(3t)\rangle\) at point \((0,\pi ,-2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=6x+\pi\) and \(x+6y=6\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Find equations of the osculating circles of the ellipse \(4{y}^{2}+9{x}^{2}=36\) at the points \((2,0)\) and \((0,3).\)</p>
+</div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Find the equation for the osculating plane at point \(t=\pi \text{/}4\) on the curve \(\text{r}(t)=\text{cos}(2t)\text{i}+\text{sin}(2t)\text{j}+t\text{k}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x+2z=\frac{\pi }{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Find the radius of curvature of \(6y={x}^{3}\) at the point \((2,\frac{4}{3}).\)</p>
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find the curvature at each point \((x,y)\) on the hyperbola \(\text{r}(t)=\langle a\,\text{cosh}(t),b\,\text{sinh}(t)\rangle .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{a}^{4}{b}^{4}}{{({b}^{4}{x}^{2}+{a}^{4}{y}^{2})}^{3\text{/}2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Calculate the curvature of the circular helix \(\text{r}(t)=r\,\text{sin}(t)\text{i}+r\,\text{cos}(t)\text{j}+t\,\text{k}.\)</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Find the radius of curvature of \(y=\text{ln}(x+1)\) at point \((2,\text{ln}\,3).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{10\sqrt{10}}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Find the radius of curvature of the hyperbola \(xy=1\) at point \((1,1).\)</p>
+</div></div>
+<p>A particle moves along the plane curve C described by \(\text{r}(t)=t\text{i}+{t}^{2}\text{j}.\) Solve the following problems.</p>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Find the length of the curve over the interval \([0,2].\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{4}ln\left(\sqrt{17}+4\right)+\sqrt{17}\approx 4.647\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Find the curvature of the plane curve at \(t=0,1,2.\)</p>
+</div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Describe the curvature as <strong>t</strong> increases from \(t=0\) to \(t=2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The curvature is decreasing over this interval.</p>
+</div></div></div></div>
+<p>The surface of a large cup is formed by revolving the graph of the function \(y=0.25{x}^{1.6}\) from \(x=0\) to \(x=5\) about the <strong>y</strong>-axis (measured in centimeters).</p>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p><strong>[T]</strong> Use technology to graph the surface.</p>
+</div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Find the curvature \(κ\) of the generating curve as a function of <strong>x.</strong></p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(κ=\frac{6}{{x}^{2\text{/}5}(25+4{x}^{6\text{/}5})}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p><strong>[T]</strong> Use technology to graph the curvature function.</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>arc-length function</dt><dd>a function \(s(t)\) that describes the arc length of curve <strong>C</strong> as a function of <strong>t</strong></dd><dt>arc-length parameterization</dt><dd>a reparameterization of a vector-valued function in which the parameter is equal to the arc length</dd><dt>binormal vector</dt><dd>a unit vector orthogonal to the unit tangent vector and the unit normal vector</dd><dt>curvature</dt><dd>the derivative of the unit tangent vector with respect to the arc-length parameter</dd><dt>Frenet frame of reference</dt><dd>(TNB frame) a frame of reference in three-dimensional space formed by the unit tangent vector, the unit normal vector, and the binormal vector</dd><dt>normal plane</dt><dd>a plane that is perpendicular to a curve at any point on the curve</dd><dt>osculating circle</dt><dd>a circle that is tangent to a curve <strong>C</strong> at a point <strong>P</strong> and that shares the same curvature</dd><dt>osculating plane</dt><dd>the plane determined by the unit tangent and the unit normal vector</dd><dt>principal unit normal vector</dt><dd>a vector orthogonal to the unit tangent vector, given by the formula \(\frac{{T}^{\prime }(t)}{\Vert {T}^{\prime }(t)\Vert }\)</dd><dt>radius of curvature</dt><dd>the reciprocal of the curvature</dd><dt>smooth</dt><dd>curves where the vector-valued function \(\text{r}(t)\) is differentiable with a non-zero derivative</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

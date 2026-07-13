@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double Integrals over General Regions · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Double Integrals over General Regions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 5.2</span>Double Integrals over General Regions</h1>
+<p>In Double Integrals over Rectangular Regions, we studied the concept of double integrals and examined the tools needed to compute them. We learned techniques and properties to integrate functions of two variables over rectangular regions. We also discussed several applications, such as finding the volume bounded above by a function over a rectangular region, finding area by integration, and calculating the average value of a function of two variables.</p>
+<p>In this section we consider double integrals of functions defined over a general bounded region \(D\) on the plane. Most of the previous results hold in this situation as well, but some techniques need to be extended to cover this more general case.</p>
+<h2 id="general-regions-of-integration">General Regions of Integration</h2>
+<p>An example of a general bounded region \(D\) on a plane is shown in <a href="#fig1">Figure 1</a>. Since \(D\) is bounded on the plane, there must exist a rectangular region \(R\) on the same plane that encloses the region \(D,\) that is, a rectangular region \(R\) exists such that \(D\) is a subset of \(R(D⊆R).\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_001.jpg" alt="A rectangle R with a shape D inside of it. Inside D, there is a point labeled g(x, y) = f(x, y). Outside D but still inside R, there is a point labeled g(x, y) = 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — For a region \(D\) that is a subset of \(R,\) we can define a function \(g(x,y)\) to equal \(f(x,y)\) at every point in \(D\) and \(0\) at every point of \(R\) not in \(D.\)</figcaption></figure>
+<p>Suppose \(z=f(x,y)\) is defined on a general planar bounded region \(D\) as in <a href="#fig1">Figure 1</a>. In order to develop double integrals of \(f\) over \(D,\) we extend the definition of the function to include all points on the rectangular region \(R\) and then use the concepts and tools from the preceding section. But how do we extend the definition of \(f\) to include all the points on \(R?\) We do this by defining a new function \(g(x,y)\) on \(R\) as follows:</p>
+<p>\[g(x,y)=\left\{\begin{array}{ll}f(x,y) &amp; \text{if}\,(x,y)\,\text{is in}\,D \\ 0 &amp; \text{if}\,(x,y)\,\text{is in}\,R\,\text{but not in}\,D\end{array}\right.\]</p>
+<p>Note that we might have some technical difficulties if the boundary of \(D\) is complicated. So we assume the boundary to be a piecewise smooth and continuous simple closed curve. Also, since all the results developed in Double Integrals over Rectangular Regions used an integrable function \(f(x,y),\) we must be careful about \(g(x,y)\) and verify that \(g(x,y)\) is an integrable function over the rectangular region \(R.\) This happens as long as the region \(D\) is bounded by simple closed curves. For now we will concentrate on the descriptions of the regions rather than the function and extend our theory appropriately for integration.</p>
+<p>We consider two types of planar bounded regions.</p>
+<div class="card definition"><span class="chip">Definition</span><p>A region \(D\) in the \((x,y)\) -plane is of <strong>Type I</strong> if it lies between two vertical lines and the graphs of two continuous functions \({g}_{1}(x)\) and \({g}_{2}(x).\) That is (<a href="#fig2">Figure 2</a>),</p>
+<p>\[D=\{(x,y)|a\le x\le b,{g}_{1}(x)\le y\le {g}_{2}(x)\}.\]</p>
+<p>A region \(D\) in the \(xy\) plane is of <strong>Type II</strong> if it lies between two horizontal lines and the graphs of two continuous functions \({h}_{1}(y)\,\text{and}\,{h}_{2}(y).\) That is (<a href="#fig3">Figure 3</a>),</p>
+<p>\[D=\{(x,y)|c\le y\le d,{h}_{1}(y)\le x\le {h}_{2}(y)\}.\]</p>
+</div>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_002.jpg" alt="The graphs showing a region marked D. In all instances, between a and b, there is a shape that is defined by two functions g1(x) and g2(x). In one instance, the two functions do not touch; in another instance, they touch at the end point a, and in the last instance they touch at both end points." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — A Type I region lies between two vertical lines and the graphs of two functions of \(x.\)</figcaption></figure>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_003.jpg" alt="The graphs show a region marked D. In all instances, between c and d, there is a shape that is defined by two vertically oriented functions x = h1(y) and x = h2(y). In one instance, the two functions do not touch; in the other instance, they touch at the end point c." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — A Type II region lies between two horizontal lines and the graphs of two functions of \(y.\)</figcaption></figure>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Consider the region in the first quadrant between the functions \(y=\sqrt{x}\) and \(y={x}^{3}\) (<a href="#fig4">Figure 4</a>). Describe the region first as Type I and then as Type II.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_004.jpg" alt="The region D is drawn between two functions, namely, y = the square root of x and y = x3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — Region \(D\) can be described as Type I or as Type II.</figcaption></figure>
+<p class="sol-hint">Sketch the region and determine which curve bounds it above and below for Type I, then which bounds it left and right for Type II.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>When describing a region as Type I, we need to identify the function that lies above the region and the function that lies below the region. Here, region \(D\) is bounded above by \(y=\sqrt{x}\) and below by \(y={x}^{3}\) in the interval for \(x\,\text{in}\,[0,1].\) Hence, as Type I, \(D\) is described as the set \(\{(x,y)|0\le x\le 1,{x}^{3}\le y\le \sqrt{x}\}.\)</p>
+<p>However, when describing a region as Type II, we need to identify the function that lies on the left of the region and the function that lies on the right of the region. Here, the region \(D\) is bounded on the left by \(x={y}^{2}\) and on the right by \(x=\sqrt[3]{y}\) in the interval for <strong>y</strong> in \([0,1].\) Hence, as Type II, \(D\) is described as the set \(\{(x,y)|0\le y\le 1,{y}^{2}\le x\le \sqrt[3]{y}\}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Consider the region in the first quadrant between the functions \(y=2x\) and \(y={x}^{2}.\) Describe the region first as Type I and then as Type II.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Type I and Type II are expressed as \(\{(x,y)|0\le x\le 2,{x}^{2}\le y\le 2x\}\) and \(\{(x,y)|0\le y\le 4,\frac{1}{2}y\le x\le \sqrt{y}\},\) respectively.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="double-integrals-over-nonrectangular-regions">Double Integrals over Nonrectangular Regions</h2>
+<p>To develop the concept and tools for evaluation of a double integral over a general, nonrectangular region, we need to first understand the region and be able to express it as Type I or Type II or a combination of both. Without understanding the regions, we will not be able to decide the limits of integrations in double integrals. As a first step, let us look at the following theorem.</p>
+<div class="card definition"><span class="chip">Double Integrals over Nonrectangular Regions</span><p>Suppose \(g(x,y)\) is the extension to the rectangle \(R\) of the integrable function \(f(x,y)\) defined on the region \(D\) , where \(D\) is inside \(R\) . Sample regions are as shown in <a href="#fig1">Figure 1</a>. Then \(g(x,y)\) is integrable and we define the double integral of \(f(x,y)\) over \(D\) by</p>
+<p>\[\underset{D}{∬}f(x,y)dA=\underset{R}{∬}g(x,y)dA.\]</p>
+</div>
+<p>The right-hand side of this equation is what we have seen before, so this theorem is reasonable because \(R\) is a rectangle and \(\underset{R}{∬}g(x,y)dA\) has been discussed in the preceding section. Also, the equality works because the values of \(g(x,y)\) are \(0\) for any point \((x,y)\) that lies outside \(D,\) and hence these points do not add anything to the integral. However, it is important that the rectangle \(R\) contains the region \(D.\)</p>
+<p>As a matter of fact, if the region \(D\) is bounded by smooth curves on a plane and we are able to describe it as Type I or Type II or a mix of both, then we can use the following theorem and not have to find a rectangle \(R\) containing the region.</p>
+<div class="card definition"><span class="chip">Fubini’s Theorem (Strong Form)</span><p>For a function \(f(x,y)\) that is continuous on a region \(D\) of Type I, we have</p>
+<p>\[\underset{D}{∬}f(x,y)dA=\underset{D}{∬}f(x,y)dy\,dx=∫ab[∫{g}_{1}(x){g}_{2}(x)f(x,y)dy]dx.\]</p>
+<p>Similarly, for a function \(f(x,y)\) that is continuous on a region \(D\) of Type II, we have</p>
+<p>\[\underset{D}{∬}f(x,y)dA=\underset{D}{∬}f(x,y)dx\,dy=∫cd[∫{h}_{1}(y){h}_{2}(y)f(x,y)dx]dy.\]</p>
+</div>
+<p>The integral in each of these expressions is an iterated integral, similar to those we have seen before. Notice that, in the inner integral in the first expression, we integrate \(f(x,y)\) with \(x\) being held constant and the limits of integration being \({g}_{1}(x)\,\text{and}\,{g}_{2}(x).\) In the inner integral in the second expression, we integrate \(f(x,y)\) with \(y\) being held constant and the limits of integration are \({h}_{1}(y)\,\text{and}\,{h}_{2}(y).\)</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{D}{∬}{x}^{2}{e}^{xy}dA\) where \(D\) is shown in <a href="#fig5">Figure 5</a>.</p>
+<p class="sol-hint">Set up D as a Type I region first, writing the inequalities for x and y, then convert to an iterated integral.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First construct the region \(D\) as a Type I region (<a href="#fig5">Figure 5</a>). Here \(D=\{(x,y)|0\le x\le 2,\frac{1}{2}x\le y\le 1\}.\) Then we have</p>
+<p>\[\underset{D}{∬}{x}^{2}{e}^{xy}dA=∫x=0x=2\,∫y=1\text{/}2xy=1{x}^{2}{e}^{xy}dy\,dx.\]</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_005.jpg" alt="A triangle marked D drawn with lines y = 1/2 x and y = 1, with vertices (0, 0), (2, 1), and (0, 1). Here, there is a pair of red arrows reaching vertically from one edge to the other." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — We can express region \(D\) as a Type I region and integrate from \(y=\frac{1}{2}x\) to \(y=1,\) between the lines \(x=0\,\text{and}\,x=2.\)</figcaption></figure>
+<p>Therefore, we have</p>
+<p>\[\begin{array}{lllll}∫x=0x=2\,∫y=\frac{1}{2}xy=1{x}^{2}{e}^{xy}dy\,dx &amp; =∫x=0x=2[∫y=1\text{/}2xy=1{x}^{2}{e}^{xy}dy]dx &amp; &amp; &amp; \text{Iterated integral for a Type I region.} \\ &amp; =∫x=0x=2{[{x}^{2}\frac{{e}^{xy}}{x}]|}_{y=1\text{/}2x}^{y=1}dx &amp; &amp; &amp; \begin{array}{l}\text{Integrate with respect to}\,y\,\text{using} \\ u\text{-substitution with}\,u=xy\,\text{where}\,x\,\text{is held} \\ \text{constant.}\end{array} \\ &amp; =∫x=0x=2[x{e}^{x}-x{e}^{{x}^{2}\text{/}2}]dx &amp; &amp; &amp; \begin{array}{l}\text{Integrate with respect to}\,x\,\text{using} \\ u\text{-substitution with}\,u=\frac{1}{2}{x}^{2}.\end{array} \\ &amp; ={[x{e}^{x}-{e}^{x}-{e}^{\frac{1}{2}{x}^{2}}]|}_{x=0}^{x=2}=2 &amp; &amp; &amp; \end{array}\]</p>
+</div></div></div>
+<p>In <a href="#example2">Example 2</a>, we could have looked at the region in another way, such as \(D=\{(x,y)|0\le y\le 1,0\le x\le 2y\}\) (<a href="#fig6">Figure 6</a>).</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_006.jpg" alt="A triangle marked D drawn with lines x = 2y and y = 1, with vertices (0, 0), (2, 1), and (0, 1). Here there is a pair of red arrows reaching horizontally from one edge to the other." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<p>This is a Type II region and the integral would then look like</p>
+<p>\[\underset{D}{∬}{x}^{2}{e}^{xy}dA=∫y=0y=1\,∫x=0x=2y{x}^{2}{e}^{xy}dx\,dy.\]</p>
+<p>However, if we integrate first with respect to \(x,\) this integral is lengthy to compute because we have to use integration by parts twice.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{D}{∬}(3{x}^{2}+{y}^{2})dA\) where \(=\{(x,y)|-2\le y\le 3,{y}^{2}-3\le x\le y+3\}.\)</p>
+<p class="sol-hint">Compare describing D as Type I versus Type II and choose the simpler Type II description before setting up the iterated integral.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Notice that \(D\) can be seen as either a Type I or a Type II region, as shown in <a href="#fig7">Figure 7</a>. However, in this case describing \(D\) as Type \(\text{I}\) is more complicated than describing it as Type II. Therefore, we use \(D\) as a Type II region for the integration.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_007.jpg" alt="This figure consists of two figures labeled a and b. In figure a, a region is bounded by y = the square root of the quantity (x + 3), y = the negative of the square root of the quantity (x + 3), and y = x minus 3, which has points of intersection (6, 3), (1, negative 2), and (0, negative 3). There are vertical lines in the shape, and it is noted that this is a type I region: integrate first with respect to y. In figure b, a region is bounded by x = y2 minus 3 and x = y + 3, which has points of intersection (6, 3), (1, negative 2), and (0, negative 3). There are horizontal lines in the shape, and it is noted that this is a type II region: integrate first with respect to x." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — The region \(D\) in this example can be either (a) Type I or (b) Type II.</figcaption></figure>
+<p>Choosing this order of integration, we have</p>
+<p>\[\begin{array}{lllll}\underset{D}{∬}(3{x}^{2}+{y}^{2})dA &amp; =∫y=-2y=3\,∫x={y}^{2}-3x=y+3(3{x}^{2}+{y}^{2})dx\,dy &amp; &amp; &amp; \text{Iterated integral, Type II region.} \\ &amp; ={∫y=-2y=3({x}^{3}+x{y}^{2})|}_{{y}^{2}-3}^{y+3}dy &amp; &amp; &amp; \text{Integrate with respect to}\,x. \\ &amp; =∫y=-2y=3({(y+3)}^{3}+(y+3){y}^{2}-{({y}^{2}-3)}^{3}-({y}^{2}-3){y}^{2})dy &amp; &amp; &amp; \\ &amp; =∫-23(54+27y-12{y}^{2}+2{y}^{3}+8{y}^{4}-{y}^{6})dy &amp; &amp; &amp; \text{Integrate with respect to}\,y. \\ &amp; ={[54y+\frac{27{y}^{2}}{2}-4{y}^{3}+\frac{{y}^{4}}{2}+\frac{8{y}^{5}}{5}-\frac{{y}^{7}}{7}]|}_{-2}^{3} &amp; &amp; &amp; \\ &amp; =\frac{2375}{7}. &amp; &amp; &amp; \end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Sketch the region \(D\) and evaluate the iterated integral \(\underset{D}{∬}xy\,dy\,dx\) where \(D\) is the region bounded by the curves \(y=\text{cos}\,x\) and \(y=\text{sin}\,x\) in the interval \([-3\pi \text{/}4,\pi \text{/}4].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\pi \text{/}4\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Recall from Double Integrals over Rectangular Regions the properties of double integrals. As we have seen from the examples here, all these properties are also valid for a function defined on a nonrectangular bounded region on a plane. In particular, property \(3\) states:</p>
+<p>If \(R=S∪T\) and \(S∩T=\varnothing\) except at their boundaries, then</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{S}{∬}f(x,y)dA+\underset{T}{∬}f(x,y)dA.\]</p>
+<p>Similarly, we have the following property of double integrals over a nonrectangular bounded region on a plane.</p>
+<div class="card definition"><span class="chip">Decomposing Regions into Smaller Regions</span><p>Suppose the region \(D\) can be expressed as \(D={D}_{1}∪{D}_{2}\) where \({D}_{1}\) and \({D}_{2}\) do not overlap except at their boundaries. Then</p>
+<p>\[\underset{D}{∬}f(x,y)dA=\underset{{D}_{1}}{∬}f(x,y)dA+\underset{{D}_{2}}{∬}f(x,y)dA.\]</p>
+</div>
+<p>This theorem is particularly useful for nonrectangular regions because it allows us to split a region into a union of regions of Type I and Type II. Then we can compute the double integral on each piece in a convenient way, as in the next example.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Express the region \(D\) shown in <a href="#fig8">Figure 8</a> as a union of regions of Type I or Type II, and evaluate the integral</p>
+<p>\[\underset{D}{∬}(2x+5y)dA.\]</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_008.jpg" alt="A complicated shape enclosed by the lines y = (x + 2) squared, x = 16y minus y cubed, x = negative 2, and y = negative 4. This graph has intersection points (0, 4), (negative 2, 0), (0, negative 4), and (negative 2, negative 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — This region can be decomposed into a union of three regions of Type I or Type II.</figcaption></figure>
+<p class="sol-hint">Break the region into pieces D1, D2, D3 that are each individually Type I or Type II, then sum the integrals over each piece.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The region \(D\) is not easy to decompose into any one type; it is actually a combination of different types. So we can write it as a union of three regions \({D}_{1},{D}_{2},\text{and}\,{D}_{3}\) where, \({D}_{1}=\{(x,y)|-2\le x\le 0,0\le y\le {(x+2)}^{2}\},\) \({D}_{2}=\{(x,y)|0\le y\le 4,0\le x\le (y-\frac{1}{16}{y}^{3})\},\) \({D}_{3}=\left(\left(x,y\right)-4\le y\le 0,-2\le x\le y-\frac{{y}^{3}}{16}\right).\) These regions are illustrated more clearly in <a href="#fig9">Figure 9</a>.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_009.jpg" alt="The same complicated shape enclosed by the lines y = (x + 2) squared, x = 16y minus y cubed, x = negative 2, and y = negative 4. This graph has intersection points (0, 4), (negative 2, 0), (0, negative 4), and (negative 2, negative 4). The area in the first quadrant is marked as D2 and a Type II region. The region in the second quadrant is marked as D1 and is a Type I region. The region in the third quadrant is marked as D3 and is a Type II region." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Breaking the region into three subregions makes it easier to set up the integration.</figcaption></figure>
+<p>Here \({D}_{1}\) is Type \(\text{I}\) and \({D}_{2}\) and \({D}_{3}\) are both of Type II. Hence,</p>
+<p>\[\begin{array}{ll}\underset{D}{∬}(2x+5y)dA &amp; =\underset{{D}_{1}}{∬}(2x+5y)dA+\underset{{D}_{2}}{∬}(2x+5y)dA+\underset{{D}_{3}}{∬}(2x+5y)dA \\ &amp; =∫x=-2x=0\,∫y=0y={(x+2)}^{2}(2x+5y)dy\,dx+∫y=0y=4\,∫x=0x=y-(1\text{/}16){y}^{3}(2+5y)dx\,dy+∫y=-4y=0\,∫x=-2x=y-(1\text{/}16){y}^{3}(2x+5y)dx\,dy \\ &amp; =∫x=-2x=0[\frac{1}{2}{(2+x)}^{2}(20+24x+5{x}^{2})]dx+∫y=0y=4[\frac{1}{256}{y}^{6}-\frac{7}{16}{y}^{4}+6{y}^{2}]dy \\ &amp; \,+∫y=-4y=0[\frac{1}{256}{y}^{6}-\frac{7}{16}{y}^{4}+6{y}^{2}+10y-4]dy \\ &amp; =\frac{40}{3}+\frac{1664}{35}-\frac{1696}{35}=\frac{1304}{105}.\end{array}\]</p>
+<p>Now we could redo this example using a union of two Type II regions (see the Checkpoint).</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Consider the region bounded by the curves \(y=\text{ln}\,x\) and \(y={e}^{x}\) in the interval \([1,2].\) Decompose the region into smaller regions of Type II.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\{(x,y)|0\le y\le ln2,1\le x\le {e}^{y}\}∪\{(x,y)|ln2\le y\le e,1\le x\le 2\}∪\{(x,y)|e\le y\le {e}^{2},\text{ln}\,y\le x\le 2\}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Redo <a href="#example4">Example 4</a> using a union of two Type II regions.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Same as in the example shown.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="changing-the-order-of-integration">Changing the Order of Integration</h2>
+<p>As we have already seen when we evaluate an iterated integral, sometimes one order of integration leads to a computation that is significantly simpler than the other order of integration. Sometimes the order of integration does not matter, but it is important to learn to recognize when a change in order will simplify our work.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Reverse the order of integration in the iterated integral \(∫x=0x=\sqrt{2}\,∫y=0y=2-{x}^{2}x{e}^{{x}^{2}}dy\,dx.\) Then evaluate the new iterated integral.</p>
+<p class="sol-hint">Rewrite the Type I region as Type II by solving y=2-x² for x, then swap the order of integration.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The region as presented is of Type I. To reverse the order of integration, we must first express the region as Type II. Refer to <a href="#fig10">Figure 10</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_010.jpg" alt="This figure consists of two figures labeled Type I and Type II. In the Type I figure, a curve is given as y = 2 minus x squared, which forms a shape with the x and y axes. There is a vertical line with arrows on the end of it within this shape. In the Type II figure, a curve is given as x = the square root of the quantity (2 minus y), which forms a shape with the x and y axes. There is a horizontal line with arrows on the end of it within this shape." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Converting a region from Type I to Type II.</figcaption></figure>
+<p>We can see from the limits of integration that the region is bounded above by \(y=2-{x}^{2}\) and below by \(y=0,\) where \(x\) is in the interval \([0,\sqrt{2}].\) By reversing the order, we have the region bounded on the left by \(x=0\) and on the right by \(x=\sqrt{2-y}\) where \(y\) is in the interval \([0,2].\) We solved \(y=2-{x}^{2}\) in terms of \(x\) to obtain \(x=\sqrt{2-y}.\)</p>
+<p>Hence</p>
+<p>\[\begin{array}{lllll}∫0\sqrt{2}\,∫02-{x}^{2}x{e}^{{x}^{2}}dy\,dx &amp; =∫02\,∫0\sqrt{2-y}x{e}^{{x}^{2}}dx\,dy &amp; &amp; &amp; \begin{array}{l}\text{Reverse the order of} \\ \text{integration then use} \\ \text{substitution.}\end{array} \\ &amp; =∫02[\frac{1}{2}{{{e}^{x}}^{2}|}_{0}^{\sqrt{2-y}}]dy=∫02\frac{1}{2}({e}^{2-y}-1)dy={-\frac{1}{2}({e}^{2-y}+y)|}_{0}^{2} &amp; &amp; &amp; \\ &amp; =\frac{1}{2}({e}^{2}-3). &amp; &amp; &amp; \end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Consider the iterated integral \(\underset{R}{∬}f(x,y)dx\,dy\) where \(z=f(x,y)=x-2y\) over a triangular region \(R\) that has sides on \(x=0,y=0,\) and the line \(x+y=1.\) Sketch the region, and then evaluate the iterated integral by</p>
+<ul class="tight"><li>integrating first with respect to \(y\) and then</li><li>integrating first with respect to \(x.\)</li></ul>
+<p class="sol-hint">Sketch the triangular region bounded by x=0, y=0, and x+y=1, then set up the iterated integral with y as the inner variable.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>A sketch of the region appears in <a href="#fig11">Figure 11</a>.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_011.jpg" alt="The line y = 1 minus x is drawn, and it is also marked as x = 1 minus y. There is a shaded region around x = 0 that comes from the y axis, which projects down to make a shaded region marked y = 0 from the x axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — A triangular region \(R\) for integrating in two ways.</figcaption></figure>
+<p>We can complete this integration in two different ways.</p>
+<ul class="tight"><li>One way to look at it is by first integrating \(y\) from \(y=0\,\text{to}\,y=1-x\) vertically and then integrating \(x\) from \(x=0\,\text{to}\,x=1\text{:}\) <br><p>\[\begin{array}{ll}\underset{R}{∬}f(x,y)dx\,dy &amp; =∫x=0x=1\,∫y=0y=1-x(x-2y)dy\,dx=∫x=0x=1{[xy-{y}^{2}]}_{y=0}^{y=1-x}dx \\ &amp; =∫x=0x=1[x(1-x)-{(1-x)}^{2}]dx=∫x=0x=1[-1+3x-2{x}^{2}]dx={[\text{-}x+\frac{3}{2}{x}^{2}-\frac{2}{3}{x}^{3}]}_{x=0}^{x=1}=-\frac{1}{6}.\end{array}\]</p>
+</li><li>The other way to do this problem is by first integrating \(x\) from \(x=0\,\text{to}\,x=1-y\) horizontally and then integrating \(y\) from \(y=0\,\text{to}\,y=1\text{:}\) <br><p>\[\begin{array}{ll}\underset{R}{∬}f(x,y)dx\,dy &amp; =∫y=0y=1\,∫x=0x=1-y(x-2y)dx\,dy=∫y=0y=1{[\frac{1}{2}{x}^{2}-2xy]}_{x=0}^{x=1-y}dy \\ &amp; =∫y=0y=1[\frac{1}{2}{(1-y)}^{2}-2y(1-y)]dy=∫y=0y=1[\frac{1}{2}-3y+\frac{5}{2}{y}^{2}]dy \\ &amp; ={[\frac{1}{2}y-\frac{3}{2}{y}^{2}+\frac{5}{6}{y}^{3}]}_{y=0}^{y=1}=-\frac{1}{6}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Evaluate the iterated integral \(\underset{D}{∬}({x}^{2}+{y}^{2})dA\) over the region \(D\) in the first quadrant between the functions \(y=2x\) and \(y={x}^{2}.\) Evaluate the iterated integral by integrating first with respect to \(y\) and then integrating first with resect to \(x.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{216}{35}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="calculating-volumes-areas-and-average-values">Calculating Volumes, Areas, and Average Values</h2>
+<p>We can use double integrals over general regions to compute volumes, areas, and average values. The methods are the same as those in Double Integrals over Rectangular Regions, but without the restriction to a rectangular region, we can now solve a wider variety of problems.</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find the volume of the solid bounded by the planes \(x=0,y=0,z=0,\) and \(2x+3y+z=6.\)</p>
+<p class="sol-hint">Identify the base region D as Type I (or Type II), bounded by x=0, y=0, and 2x+3y=6, then integrate the height function 6-2x-3y over it.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The solid is a tetrahedron with the base on the \(xy\) -plane and a height \(z=6-2x-3y.\) The base is the region \(D\) bounded by the lines, \(x=0,y=0\) and \(2x+3y=6\) where \(z=0\) (<a href="#fig12">Figure 12</a>). Note that we can consider the region \(D\) as Type I or as Type II, and we can integrate in both ways.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_012.jpg" alt="This figure shows a tetrahedron bounded by x = 0, y = 0, z = 0, and 2x + 3y = 6 (or z = 6 minus 2x minus 3y)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — A tetrahedron consisting of the three coordinate planes and the plane \(z=6-2x-3y,\) with the base bound by \(x=0,y=0,\) and \(2x+3y=6.\)</figcaption></figure>
+<p>First, consider \(D\) as a Type I region, and hence \(D=\{(x,y)|0\le x\le 3,0\le y\le 2-\frac{2}{3}x\}.\)</p>
+<p>Therefore, the volume is</p>
+<p>\[\begin{array}{ll}V &amp; =∫x=0x=3\,∫y=0y=2-(2x\text{/}3)(6-2x-3y)dy\,dx=∫x=0x=3[{(6y-2xy-\frac{3}{2}{y}^{2})|}_{y=0}^{y=2-(2x\text{/}3)}]dx \\ &amp; =∫x=0x=3[\frac{2}{3}{(x-3)}^{2}]dx=6.\end{array}\]</p>
+<p>Now consider \(D\) as a Type II region, so \(D=\{(x,y)|0\le y\le 2,0\le x\le 3-\frac{3}{2}y\}.\) In this calculation, the volume is</p>
+<p>\[\begin{array}{ll}V &amp; =∫y=0y=2\,∫x=0x=3-(3y\text{/}2)(6-2x-3y)dx\,dy=∫y=0y=2[{(6x-{x}^{2}-3xy)|}_{x=0}^{x=3-(3y\text{/}2)}]dy \\ &amp; =∫y=0y=2[\frac{9}{4}{(y-2)}^{2}]dy=6.\end{array}\]</p>
+<p>Therefore, the volume is \(6\) cubic units.</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Find the volume of the solid bounded above by \(f(x,y)=10-2x+y\) over the region enclosed by the curves \(y=0\) and \(y={e}^{x},\) where \(x\) is in the interval \([0,1].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{{e}^{2}}{4}+10e-\frac{49}{4}\) cubic units</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Finding the area of a rectangular region is easy, but finding the area of a nonrectangular region is not so easy. As we have seen, we can use double integrals to find a rectangular area. As a matter of fact, this comes in very handy for finding the area of a general nonrectangular region, as stated in the next definition.</p>
+<div class="card definition"><span class="chip">Definition</span><p>The area of a plane-bounded region \(D\) is defined as the double integral \(\underset{D}{∬}1dA.\)</p>
+</div>
+<p>We have already seen how to find areas in terms of single integration. Here we are seeing another way of finding areas by using double integrals, which can be very useful, as we will see in the later sections of this chapter.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find the area of the region bounded below by the curve \(y={x}^{2}\) and above by the line \(y=2x\) in the first quadrant (<a href="#fig13">Figure 13</a>).</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_013.jpg" alt="The line y = 2 x (also marked x = y/2) is shown, as is y = x squared (also marked x = the square root of y). There are vertical and horizontal shadings giving for small stretch of this region, denoting that it can be treated as a Type I or Type II area." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — The region bounded by \(y={x}^{2}\) and \(y=2x.\)</figcaption></figure>
+<p class="sol-hint">Set up the double integral of the constant function 1 over the region bounded by y=x² and y=2x.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We just have to integrate the constant function \(f(x,y)=1\) over the region. Thus, the area \(A\) of the bounded region is \(∫x=0x=2\,∫y={x}^{2}y=2xdy\,dx\) or \(∫y=0x=4\,∫x=y\text{/}2x=\sqrt{y}dx\,dy\text{:}\)</p>
+<p>\[A=\underset{D}{∬}1dx\,dy=∫x=0x=2\,∫y={x}^{2}y=2x1dy\,dx=∫x=0x=2[{y|}_{y={x}^{2}}^{y=2x}]dx=∫x=0x=2(2x-{x}^{2})dx={{x}^{2}-\frac{{x}^{3}}{3}|}_{0}^{2}=\frac{4}{3}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Find the area of a region bounded above by the curve \(y={x}^{3}\) and below by \(y=0\) over the interval \([0,3].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{81}{4}\) square units</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We can also use a double integral to find the average value of a function over a general region. The definition is a direct extension of the earlier formula.</p>
+<div class="card definition"><span class="chip">Definition</span><p>If \(f(x,y)\) is integrable over a plane-bounded region \(D\) with positive area \(A(D),\) then the average value of the function is</p>
+<p>\[{f}_{ave}=\frac{1}{A(D)}\underset{D}{∬}f(x,y)dA.\]</p>
+<p>Note that the area is \(A(D)=\underset{D}{∬}1dA.\)</p>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Find the average value of the function \(f(x,y)=7x{y}^{2}\) on the region bounded by the line \(x=y\) and the curve \(x=\sqrt{y}\) (<a href="#fig14">Figure 14</a>).</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_014.jpg" alt="The lines x = y and x = the square root of y bound a shaded region. There are horizontal dashed lines marked throughout the region." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14 — The region bounded by \(x=y\) and \(x=\sqrt{y}.\)</figcaption></figure>
+<p class="sol-hint">First compute the area A(D) by integrating 1 over the region, then divide the integral of f by that area.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First find the area \(A(D)\) where the region \(D\) is given by the figure. We have</p>
+<p>\[A(D)=\underset{D}{∬}1dA=∫y=0y=1\,∫x=yx=\sqrt{y}1dx\,dy=∫y=0y=1[{x|}_{x=y}^{x=\sqrt{y}}]dy=∫y=0y=1(\sqrt{y}-y)dy=\frac{2}{3}{y}^{3\text{/}2}-{\frac{{y}^{2}}{2}|}_{0}^{1}=\frac{1}{6}.\]</p>
+<p>Then the average value of the given function over this region is</p>
+<p>\[\begin{array}{ll}{f}_{ave} &amp; =\frac{1}{A(D)}\underset{D}{∬}f(x,y)dA=\frac{1}{A(D)}∫y=0y=1\,∫x=yx=\sqrt{y}7x{y}^{2}dx\,dy=\frac{1}{1\text{/}6}∫y=0y=1[{\frac{7}{2}{x}^{2}{y}^{2}|}_{x=y}^{x=\sqrt{y}}]dy \\ &amp; =6∫y=0y=1[\frac{7}{2}{y}^{2}(y-{y}^{2})]dy=6∫y=0y=1[\frac{7}{2}({y}^{3}-{y}^{4})]dy=\frac{42}{2}{(\frac{{y}^{4}}{4}-\frac{{y}^{5}}{5})|}_{0}^{1}=\frac{42}{40}=\frac{21}{20}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Find the average value of the function \(f(x,y)=xy\) over the triangle with vertices \((0,0),(1,0)\,\text{and}\,(1,3).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{3}{4}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="improper-double-integrals">Improper Double Integrals</h2>
+<p>An <strong>improper double integral</strong> is an integral \(\underset{D}{∬}f\,dA\) where either \(D\) is an unbounded region or \(f\) is an unbounded function. For example, \(D=\{(x,y)||x-y|\ge 2\}\) is an unbounded region, and the function \(f(x,y)=1\text{/}(1-{x}^{2}-2{y}^{2})\) over the ellipse \({x}^{2}+2{y}^{2}\le 1\) is an unbounded function. Hence, both of the following integrals are improper integrals:</p>
+<ul class="tight"><li>\(\underset{D}{∬}xy\,dA\) where \(D=\{(x,y)||x-y|\ge 2\};\)</li><li>\(\underset{D}{∬}\frac{1}{1-{x}^{2}-2{y}^{2}}dA\) where \(D=\{(x,y)|{x}^{2}+2{y}^{2}\le 1\}.\)</li></ul>
+<p>In this section we would like to deal with improper integrals of functions over rectangles or simple regions such that \(f\) has only finitely many discontinuities. Not all such improper integrals can be evaluated; however, a form of Fubini’s theorem does apply for some types of improper integrals.</p>
+<div class="card definition"><span class="chip">Fubini’s Theorem for Improper Integrals</span><p>If \(D\) is a bounded rectangle or simple region in the plane defined by \(\{(x,y)\text{:}\,a\le x\le b,g(x)\le y\le h(x)\}\) and also by \(\{(x,y)\text{:}\,c\le y\le d,j(y)\le x\le k(y)\}\) and \(f\) is a nonnegative function on \(D\) with finitely many discontinuities in the interior of \(D,\) then</p>
+<p>\[\underset{D}{∬}f\,dA=∫x=ax=b\,∫y=g(x)y=h(x)f(x,y)dy\,dx=∫y=cy=d\,∫x=j(y)x=k(y)f(x,y)dx\,dy.\]</p>
+</div>
+<p>It is very important to note that we required that the function be nonnegative on \(D\) for the theorem to work. We consider only the case where the function has finitely many discontinuities inside \(D.\)</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Consider the function \(f(x,y)=\frac{{e}^{y}}{y}\) over the region \(D=\{(x,y)\text{:}\,0\le x\le 1,x\le y\le \sqrt{x}\}.\)</p>
+<p>Notice that the function is nonnegative and continuous at all points on \(D\) except \((0,0).\) Use Fubini’s theorem to evaluate the improper integral.</p>
+<p class="sol-hint">Rewrite D as a Type II region so the integration order avoids the discontinuity at the origin, then apply Fubini's theorem for improper integrals.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we plot the region \(D\) (<a href="#fig15">Figure 15</a>); then we express it in another way.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_015.jpg" alt="The line y = x is shown, as is y = the square root of x." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15 — The function \(f\) is continuous at all points of the region \(D\) except \((0,0).\)</figcaption></figure>
+<p>The other way to express the same region \(D\) is</p>
+<p>\[D=\{(x,y)\text{:}\,0\le y\le 1,{y}^{2}\le x\le y\}.\]</p>
+<p>Thus we can use Fubini’s theorem for improper integrals and evaluate the integral as</p>
+<p>\[∫y=0y=1\,∫x={y}^{2}x=y\frac{{e}^{y}}{y}dx\,dy.\]</p>
+<p>Therefore, we have</p>
+<p>\[∫y=0y=1\,∫x={y}^{2}x=y\frac{{e}^{y}}{y}dx\,dy=∫y=0y=1\frac{{e}^{y}}{y}{x|}_{x={y}^{2}}^{x=y}dy=∫y=0y=1\frac{{e}^{y}}{y}(y-{y}^{2})dy=∫01({e}^{y}-y{e}^{y})dy=e-2.\]</p>
+</div></div></div>
+<p>As mentioned before, we also have an improper integral if the region of integration is unbounded. Suppose now that the function \(f\) is continuous in an unbounded rectangle \(R.\)</p>
+<div class="card definition"><span class="chip">Improper Integrals on an Unbounded Region</span><p>If \(R\) is an unbounded rectangle such as \(R=\{(x,y)\text{:}\,a\le x&lt;\infty ,c\le y&lt;\infty \},\) then when the limit exists, we have \(\underset{R}{∬}f(x,y)dA=\underset{(b,d)\to (\infty ,\infty )}{\text{lim}}∫ab(∫cdf(x,y)dy)dx=\underset{(b,d)\to (\infty ,\infty )}{\text{lim}}∫cd(∫abf(x,y)dx)dy.\)</p>
+</div>
+<p>The following example shows how this theorem can be used in certain cases of improper integrals.</p>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{R}{∬}xy{e}^{\text{-}{x}^{2}-{y}^{2}}dA\) where \(R\) is the first quadrant of the plane.</p>
+<p class="sol-hint">Replace the unbounded limits with variables b and d, evaluate the resulting iterated integral, then take the limit as b, d go to infinity.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The region \(R\) is the first quadrant of the plane, which is unbounded. So</p>
+<p>\[\begin{array}{ll}\underset{R}{∬}xy{e}^{\text{-}{x}^{2}-{y}^{2}}dA &amp; =\underset{(b,d)\to (\infty ,\infty )}{\text{lim}}∫x=0x=b(∫y=0y=dxy{e}^{\text{-}{x}^{2}-{y}^{2}}dy)dx=\underset{(b,d)\to (\infty ,\infty )}{\text{lim}}∫y=0y=d(∫x=0x=bxy{e}^{\text{-}{x}^{2}-{y}^{2}}dx)dy \\ &amp; =\underset{(b,d)\to (\infty ,\infty )}{\text{lim}}\frac{1}{4}(1-{e}^{\text{-}{b}^{2}})(1-{e}^{\text{-}{d}^{2}})=\frac{1}{4}\end{array}\]</p>
+<p>Thus, \(\underset{R}{∬}xy{e}^{\text{-}{x}^{2}-{y}^{2}}dA\) is convergent and the value is \(\frac{1}{4}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Evaluate the improper integral \(\underset{D}{∬}\frac{y}{\sqrt{1-{x}^{2}-{y}^{2}}}dA\) where \(D=\{(x,y)|x\ge 0,y\ge 0,{x}^{2}+{y}^{2}\le 1\}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{\pi }{4}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>In some situations in probability theory, we can gain insight into a problem when we are able to use double integrals over general regions. Before we go over an example with a double integral, we need to set a few definitions and become familiar with some important properties.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Consider a pair of continuous random variables \(X\) and \(Y,\) such as the birthdays of two people or the number of sunny and rainy days in a month. The <strong>joint density function</strong> \(f\) of \(X\) and \(Y\) satisfies the probability that \((X,Y)\) lies in a certain region \(D\text{:}\)</p>
+<p>\[P((X,Y)\in D)=\underset{D}{∬}f(x,y)dA.\]</p>
+<p>Since the probabilities can never be negative and must lie between \(0\) and \(1,\) the joint density function satisfies the following inequality and equation:</p>
+<p>\[f(x,y)\ge 0\,\text{and}\,\underset{{R}^{2}}{∬}f(x,y)dA=1.\]</p>
+</div>
+<div class="card definition"><span class="chip">Definition</span><p>The variables \(X\) and \(Y\) are said to be <strong>independent random variables</strong> if their joint density function is the product of their individual density functions:</p>
+<p>\[f(x,y)={f}_{1}(x){f}_{2}(y).\]</p>
+</div>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>At Sydney’s Restaurant, customers must wait an average of \(15\) minutes for a table. From the time they are seated until they have finished their meal requires an additional \(40\) minutes, on average. What is the probability that a customer spends less than an hour and a half at the diner, assuming that waiting for a table and completing the meal are independent events?</p>
+<p class="sol-hint">Build the joint density function as the product of the two independent exponential densities, then integrate it over the triangular region x+y≤90.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Waiting times are mathematically modeled by exponential density functions, with \(m\) being the average waiting time, as</p>
+<p>\[f(t)=\left\{\begin{array}{ll}0 &amp; \text{if}\,t&lt;0, \\ \frac{1}{m}{e}^{\text{-}t\text{/}m} &amp; \text{if}\,t\ge 0.\end{array}\right.\]</p>
+<p>If \(X\) and \(Y\) are random variables for ‘waiting for a table’ and ‘completing the meal,’ then the probability density functions are, respectively,</p>
+<p>\[{f}_{1}(x)=\left\{\begin{array}{ll}0 &amp; \text{if}\,x&lt;0, \\ \frac{1}{15}{e}^{\text{-}x\text{/}15} &amp; \text{if}\,x\ge 0.\end{array}\right.\,\text{and}\,{f}_{2}(y)=\left\{\begin{array}{ll}0 &amp; \text{if}\,y&lt;0, \\ \frac{1}{40}{e}^{\text{-}y\text{/}40} &amp; \text{if}\,y\ge 0.\end{array}\right.\]</p>
+<p>Clearly, the events are independent and hence the joint density function is the product of the individual functions</p>
+<p>\[f(x,y)={f}_{1}(x){f}_{2}(y)=\left\{\begin{array}{ll}0 &amp; \text{if}\,x&lt;0\,\text{or}\,y&lt;0, \\ \frac{1}{600}{e}^{\text{-}x\text{/}15}{e}^{\text{-}y\text{/}60} &amp; \text{if}\,x,y\ge 0.\end{array}\right.\]</p>
+<p>We want to find the probability that the combined time \(X+Y\) is less than \(90\) minutes. In terms of geometry, it means that the region \(D\) is in the first quadrant bounded by the line \(x+y=90\) (<a href="#fig16">Figure 16</a>).</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_016.jpg" alt="The line x + y = 90 is shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16 — The region of integration for a joint probability density function.</figcaption></figure>
+<p>Hence, the probability that \((X,Y)\) is in the region \(D\) is</p>
+<p>\[P(X+Y\le 90)=P((X,Y)\in D)=\underset{D}{∬}f(x,y)dA=\underset{D}{∬}\frac{1}{600}{e}^{\text{-}x\text{/}15}{e}^{\text{-}y\text{/}40}dA.\]</p>
+<p>Since \(x+y=90\) is the same as \(y=90-x,\) we have a region of Type I, so</p>
+<p>\[\begin{array}{lll}D &amp; = &amp; \{(x,y)|0\le x\le 90,0\le y\le 90-x\}, \\ P(X+Y\le 90) &amp; = &amp; \begin{array}{ll}\frac{1}{600} &amp; ∫x=0x=90∫y=0y=90-x{e}^{\text{-}x\text{/}15}{e}^{\text{-}y\text{/}40}dy dx\end{array} \\ &amp; = &amp; \begin{array}{ll}\frac{1}{600} &amp; ∫x=0x=90∫y=0y=90-x{e}^{\text{-}(x\text{/}15+y\text{/}40)}dy dx=0.8328.\end{array}\end{array}\]</p>
+<p>Thus, there is an \(83.28\text{\%}\) chance that a customer spends less than an hour and a half at the restaurant.</p>
+</div></div></div>
+<p>Another important application in probability that can involve improper double integrals is the calculation of expected values. First we define this concept and then show an example of a calculation.</p>
+<div class="card definition"><span class="chip">Definition</span><p>In probability theory, we denote the <strong>expected values</strong> \(E(X)\) and \(E(Y),\) respectively, as the most likely outcomes of the events. The expected values \(E(X)\) and \(E(Y)\) are given by</p>
+<p>\[E(X)=\underset{S}{∬}xf(x,y)dA\,\text{and}\,E(Y)=\underset{S}{∬}yf(x,y)dA,\]</p>
+<p>where \(S\) is the sample space of the random variables \(X\) and \(Y.\)</p>
+</div>
+<div class="card example" id="example13"><div class="ex-head"><span class="num">Example 13</span><span class="t"></span></div><div class="ex-body"><p>Find the expected time for the events ‘waiting for a table’ and ‘completing the meal’ in <a href="#example12">Example 12</a>.</p>
+<p class="sol-hint">Set up the improper double integral for E(X) using the joint density from the restaurant example, and evaluate it as a product of two one-variable limits.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the first quadrant of the rectangular coordinate plane as the sample space, we have improper integrals for \(E(X)\) and \(E(Y).\) The expected time for a table is</p>
+<p>\[\begin{array}{ll}E(X) &amp; =\underset{S}{∬}x\frac{1}{600}{e}^{\text{-}x\text{/}15}{e}^{\text{-}y\text{/}40}dA=\frac{1}{600}∫x=0x=\infty \,∫y=0y=\infty x{e}^{\text{-}x\text{/}15}{e}^{\text{-}y\text{/}40}dA \\ &amp; =\frac{1}{600}\underset{(a,b)\to (\infty ,\infty )}{\text{lim}}∫x=0x=a\,∫y=0y=bx{e}^{\text{-}x\text{/}15}{e}^{\text{-}y\text{/}40}dx\,dy \\ &amp; =\frac{1}{600}(\underset{a\to \infty }{\text{lim}}∫x=0x=ax{e}^{\text{-}x\text{/}15}dx)(\underset{b\to \infty }{\text{lim}}∫y=0y=b{e}^{\text{-}y\text{/}40}dy) \\ &amp; =\frac{1}{600}({(\underset{a\to \infty }{\text{lim}}(-15{e}^{\text{-}x\text{/}15}(x+15)))|}_{x=0}^{x=a})({(\underset{b\to \infty }{\text{lim}}(-40{e}^{\text{-}y\text{/}40}))|}_{y=0}^{y=b}) \\ &amp; =\frac{1}{600}(\underset{a\to \infty }{\text{lim}}(-15{e}^{\text{-}a\text{/}15}(x+15)+225))(\underset{b\to \infty }{\text{lim}}(-40{e}^{\text{-}b\text{/}40}+40)) \\ &amp; =\frac{1}{600}(225)(40) \\ &amp; =15.\end{array}\]</p>
+<p>A similar calculation shows that \(E(Y)=40.\) This means that the expected values of the two random events are the average waiting time and the average dining time, respectively.</p>
+</div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>The joint density function for two random variables \(X\) and \(Y\) is given by</p>
+<p>\[f(x,y)=\begin{array}{ll}\frac{1}{16250}({x}^{2}+{y}^{2}) &amp; \text{if}\,0\le x\le 15,0\le y\le 10 \\ 0 &amp; \text{otherwise}\end{array}\]</p>
+<p>Find the probability that \(X\) is at most \(10\) and \(Y\) is at least \(5.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{11}{39}\approx 0.282\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A general bounded region \(D\) on the plane is a region that can be enclosed inside a rectangular region. We can use this idea to define a double integral over a general bounded region. (See <a href="#example1">Example 1</a>.)</li><li>To evaluate an iterated integral of a function over a general nonrectangular region, we sketch the region and express it as a Type I or as a Type II region or as a union of several Type I or Type II regions that overlap only on their boundaries. (See <a href="#example2">Example 2</a>, <a href="#example3">Example 3</a>, and <a href="#example4">Example 4</a>.)</li><li>We can use double integrals to find volumes, areas, and average values of a function over general regions, similarly to calculations over rectangular regions. (See <a href="#example7">Example 7</a>, <a href="#example8">Example 8</a>, and <a href="#example9">Example 9</a>.)</li><li>We can use Fubini’s theorem for improper integrals to evaluate some types of improper integrals. (See <a href="#example10">Example 10</a> and <a href="#example11">Example 11</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Iterated integral over a Type I region</strong></td><td>\(\underset{D}{∬}f(x,y)dA=\underset{D}{∬}f(x,y)dy\,dx=∫ab[∫{g}_{1}(x){g}_{2}(x)f(x,y)dy]dx\)</td></tr><tr><td><strong>Iterated integral over a Type II region</strong></td><td>\(\underset{D}{∬}f(x,y)dA=\underset{D}{∬}f(x,y)dx\,dy=∫cd[∫{h}_{1}(y){h}_{2}(y)f(x,y)dx]dy\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, specify whether the region is of Type I or Type II.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>The region \(D\) bounded by \(y={x}^{3},\) \(y={x}^{3}+1,\) \(x=0,\) and \(x=1\) as given in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_201.jpg" alt="A region is bounded by y = 1 + x cubed, y = x cubed, x = 0, and x = 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Find the average value of the function \(f(x,y)=3xy\) on the region graphed in the previous exercise.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{27}{20}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Find the area of the region \(D\) given in the previous exercise.</p>
+</div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>The region \(D\) bounded by \(y=\text{sin}\,x,y=1+\text{sin}\,x,x=0,\,\text{and}\,x=\frac{\pi }{2}\) as given in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_202.jpg" alt="A region is bounded by y = 1 + sin x, y = sin x, x = 0, and x = pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>Type I but not Type II</p>
+</div></div></div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Find the average value of the function \(f(x,y)=\text{cos}\,x\) on the region graphed in the previous exercise.</p>
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>Find the area of the region \(D\) given in the previous exercise.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>The region \(D\) bounded by \(x={y}^{2}-1\) and \(x=\sqrt{1-{y}^{2}}\) as given in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_203.jpg" alt="A region is bounded by x = negative 1 + y squared and x = the square root of the quantity (1 minus y squared)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>Find the volume of the solid under the graph of the function \(f(x,y)=xy+1\) and above the region in the figure in the previous exercise.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{6}(8+3\pi )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>The region \(D\) bounded by \(y=0,x=-10+y,\,\text{and}\,x=10-y\) as given in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_204.jpg" alt="A region is bounded by x = negative 10 + y, x = 10 minus y, and y = 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>Find the signed volume of the solid under the graph of the function \(f(x,y)=x+y\) and above the region in the figure from the previous exercise.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1000}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>The region \(D\) bounded by \(y=0,x=y-1,\) \(x=\frac{\pi }{2}\) as given in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_205.jpg" alt="A region is bounded by x = pi/2, y = 0, and x = negative 1 + y." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>The region \(D\) bounded by \(y=0\) and \(y={x}^{2}-1\) as given in the following figure.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_206.jpg" alt="A region is bounded by y = 0 and y = negative 1 + x squared." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>Type I and Type II</p>
+</div></div></div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>Let \(D\) be the region bounded by the curve \(y=2-{x}^{2}\) and below the equations \(y=x,y=\text{-}x,\) Explain why \(D\) is neither of Type I nor II.</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>Let \(D\) be the region bounded above by the curve of the equation \(y=4-{x}^{2}\) and below by \(y=\text{cos}x\) and the \(x\) -axis. Explain why \(D\) is neither of Type I nor II.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The region \(D\) is not of Type I: it does not lie between two vertical lines and the graphs of two continuous functions \({g}_{1}(x)\) and \({g}_{2}(x).\) The region \(D\) is not of Type II: it does not lie between two horizontal lines and the graphs of two continuous functions \({h}_{1}(y)\) and \({h}_{2}(y).\)</p>
+</div></div></div></div>
+<p>In the following exercises, evaluate the double integral \(\underset{D}{∬}f(x,y)dA\) over the region \(D.\)</p>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(f(x,y)=2x+5y\) and \(D=\{(x,y)|0\le x\le 1,{x}^{3}\le y\le {x}^{3}+1\}\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(f(x,y)=1\) and \(D=\{(x,y)|0\le x\le \frac{\pi }{2},\text{sin}\,x\le y\le 1+\text{sin}\,x\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x,y)=2\) and \(D=\{(x,y)|0\le y\le 1,y-1\le x\le \text{arccos}\,y\}\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(f(x,y)=xy\) and \(D=\{(x,y)|-1\le y\le 1,{y}^{2}-1\le x\le \sqrt{1-{y}^{2}}\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(f(x,y)=\text{sin}\,y\) and \(D\) is the triangular region with vertices \((0,0),(0,3),\,\text{and}\,(3,0)\)</p>
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(f(x,y)=\text{-}x+1\) and \(D\) is the triangular region with vertices \((0,0),(0,2),\,\text{and}\,(2,2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2}{3}\)</p>
+</div></div></div></div>
+<p>Evaluate the iterated integrals.</p>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(∫01\,∫2x3x(x+{y}^{2})dy\,dx\)</p>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(∫01\,∫2\sqrt{x}2\sqrt{x}+1(xy+1)dy\,dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{41}{20}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(∫e{e}^{2}\,∫\text{ln}\,u2(v+\text{ln}\,u)dv\,du\)</p>
+</div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(∫12\,∫\text{-}{u}^{2}-1\text{-}u(8uv)dv\,du\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-63\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(∫01\,∫\text{-}\sqrt{1-{y}^{2}}\sqrt{1-{y}^{2}}(2x+4{x}^{3})dx\,dy\)</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(∫01\text{/}2\,∫\text{-}\sqrt{1-4{y}^{2}}\sqrt{1-4{y}^{2}}4dx\,dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Let \(D\) be the region in the first quadrant bounded by \(y=1-{x}^{2},y=4-{x}^{2},\) and the \(x\) - and \(y\) -axes.</p>
+<ul class="tight"><li>Show that \(\underset{D}{∬}x\,dA=∫01\,∫1-{x}^{2}4-{x}^{2}x\,dy\,dx+∫12\,∫04-{x}^{2}x\,dy\,dx\) by dividing the region \(D\) into two regions of Type I.</li><li>Evaluate the integral \(\underset{D}{∬}x\,dA.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Let \(D\) be the region bounded by \(y=1,\) \(y=x,\) \(y=\text{ln}\,x,\) and the \(x\) -axis.</p>
+<ul class="tight"><li>Show that \(\underset{D}{∬}y\,dA=∫01\,∫0xy\,dy\,dx+∫1e\,∫\text{ln}\,x1y\,dy\,dx\) by dividing \(D\) into two regions of Type I.</li><li>Evaluate the integral \(\underset{D}{∬}y\,dA.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. Answers may vary; b. \(\frac{2}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><ul class="tight"><li>Show that \(\underset{D}{∬}{y}^{2}dA=∫-10\,∫\text{-}x2-{x}^{2}{y}^{2}dy\,dx+∫01\,∫x2-{x}^{2}{y}^{2}dy\,dx\) by dividing the region \(D\) into two regions of Type I, where \(D=\{(x,y)|y\ge x,y\ge -x,y\le 2-{x}^{2}\}.\)</li><li>Evaluate the integral \(\underset{D}{∬}{y}^{2}dA.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>Let \(D\) be the region bounded by \(y={x}^{2},y=x+2,\) and \(y=\text{-}x.\)</p>
+<ul class="tight"><li>Show that \(\underset{D}{∬}x\,dA=∫01\,∫\text{-}y\sqrt{y}x\,dx\,dy+∫14\,∫y-2\sqrt{y}x\,dx\,dy\) by dividing the region \(D\) into two regions of Type II, where \(D=\{(x,y)|y\ge {x}^{2},y\ge -x,y\le x+2\}.\)</li><li>Evaluate the integral \(\underset{D}{∬}x\,dA.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. Answers may vary; b. \(\frac{7}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>The region \(D\) bounded by \(x=0,y={x}^{5}+1,\) and \(y=3-{x}^{2}\) is shown in the following figure. Find the area \(A(D)\) of the region \(D.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_207.jpg" alt="A region is bounded by y = 1 + x to the fifth power, y = 3 minus x squared, and x = 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>The region \(D\) bounded by \(y=\text{cos}\,x,y=4+\text{cos}\,x,\) and \(x=\pm \frac{\pi }{3}\) is shown in the following figure. Find the area \(A(D)\) of the region \(D.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_208.jpg" alt="A region is bounded by y = cos x, y = 4 + cos x, x = negative 1, and x = 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{8\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Find the area \(A(D)\) of the region \(D=\{(x,y)|y\ge 1-{x}^{2},y\le 4-{x}^{2},y\ge 0,x\ge 0\}.\)</p>
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Let \(D\) be the region bounded by \(y=1,y=x,y=\text{ln}\,x,\) and the \(x\) -axis. Find the area \(A(D)\) of the region \(D.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(e-\frac{3}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Find the average value of the function \(f(x,y)=\text{sin}\,y\) on the triangular region with vertices \((0,0),(0,3),\) and \((3,0).\)</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Find the average value of the function \(f(x,y)=\text{-}x+1\) on the triangular region with vertices \((0,0),(0,2),\) and \((2,2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{3}\)</p>
+</div></div></div></div>
+<p>In the following exercises, change the order of integration and evaluate the integral.</p>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(∫-1\pi \text{/}2\,∫0x+1\text{sin}\,x\,dy\,dx\)</p>
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(∫01\,∫x-11-xx\,dy\,dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(∫01\,∫x-11-xx\,dy\,dx=∫-10\,∫0y+1x\,dx\,dy+∫01\,∫01-yx\,dxdy=\frac{1}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(∫-10\,∫\text{-}\sqrt{y+1}\sqrt{y+1}{y}^{2}dx\,dy\)</p>
+</div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(∫\text{-1}1\,∫\text{-}\sqrt{1-{y}^{2}}\sqrt{1-{y}^{2}}y\,dx\,dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(∫\text{-1}1\,∫\text{-}\sqrt{1-{y}^{2}}\sqrt{1-{y}^{2}}y\,dx\,dy=∫\text{-1}1\,∫\text{-}\sqrt{1-{x}^{2}}\sqrt{1-{x}^{2}}y\,dy\,dx=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>The region \(D\) is shown in the following figure. Evaluate the double integral \(\underset{D}{∬}({x}^{2}+y)dA\) by using the easier order of integration.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_209.jpg" alt="A region is bounded by y = negative 4 + x squared and y = 4 minus x squared." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>The region \(D\) is given in the following figure. Evaluate the double integral \(\underset{D}{∬}({x}^{2}-{y}^{2})dA\) by using the easier order of integration.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_210.jpg" alt="A region is bounded by y to the fourth power = 1 minus x and y to the fourth power = 1 + x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{D}{∬}({x}^{2}-{y}^{2})dA=∫-11\,∫{y}^{4}-11-{y}^{4}({x}^{2}-{y}^{2})dx\,dy=\frac{464}{4095}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Find the volume of the solid under the surface \(z=2x+{y}^{2}\) and above the region bounded by \(y={x}^{5}\) and \(y=x.\)</p>
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find the volume in the first octant of the solid under the plane \(z=3x+y\) and above the region determined by \(y={x}^{7}\) and \(y=x.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{4}{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Find the volume of the solid under the plane \(z=x-y\) and above the region bounded by \(x=\text{tan}\,y,x=\text{-}\text{tan}\,y,\) and \(x=1.\)</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Find the volume of the solid under the surface \(z={x}^{3}\) and above the plane region bounded by \(x=\text{sin}\,y,x=\text{-}\text{sin}\,y,\) and \(x=1\) for values of \(y\) between \(y=\frac{-\pi }{2}\,\text{ and }\,y=\frac{\pi }{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{5\pi }{32}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Let \(g\) be a positive, increasing, and differentiable function on the interval \([a,b].\) Show that the volume of the solid under the surface \(z=g\prime (x)\) and above the region bounded by \(y=0,\) \(y=g(x),\) \(x=a,\) and \(x=b\) is given by \(\frac{1}{2}({g}^{2}(b)-{g}^{2}(a)).\)</p>
+</div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Let \(g\) be a positive, increasing, and differentiable function on the interval \([a,b],\) and let \(k\) be a positive real number. Show that the volume of the solid under the surface \(z=g\prime (x)\) and above the region bounded by \(y=g(x),y=g(x)+k,x=a,\) and \(x=b\) is given by \(k(g(b)-g(a)).\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Find the volume of the solid situated in the first octant and determined by the planes \(z=2,\) \(z=0,x+y=1,x=0,\,\text{and}\,y=0.\)</p>
+</div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Find the volume of the solid situated in the first octant and bounded by the planes \(x+2y=1,\) \(x=0,y=0,z=4,\,\text{and}\,z=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Find the volume of the solid bounded by the planes \(x+y=1,x-y=1,x=0,z=0,\) and \(z=10.\)</p>
+</div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Find the volume of the solid bounded by the planes \(x+y=1,x-y=1,x+y=-1,\) \(x-y=-1,z=1\,\text{and}\,z=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Let \({S}_{1}\) and \({S}_{2}\) be the solids situated in the first octant under the planes \(x+y+z=1\) and \(x+y+2z=1,\) respectively, and let \(S\) be the solid situated between \({S}_{1},{S}_{2},x=0,\,\text{and}\,y=0.\)</p>
+<ul class="tight"><li>Find the volume of the solid \({S}_{1}.\)</li><li>Find the volume of the solid \({S}_{2}.\)</li><li>Find the volume of the solid \(S\) by subtracting the volumes of the solids \({S}_{1}\,\text{and}\,{S}_{2}.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Let \({S}_{1}\,\text{and}\,{S}_{2}\) be the solids situated in the first octant under the planes \(2x+2y+z=2\) and \(x+y+z=1,\) respectively, and let \(S\) be the solid situated between \({S}_{1},{S}_{2},x=0,\,\text{and}\,y=0.\)</p>
+<ul class="tight"><li>Find the volume of the solid \({S}_{1}.\)</li><li>Find the volume of the solid \({S}_{2}.\)</li><li>Find the volume of the solid \(S\) by subtracting the volumes of the solids \({S}_{1}\,\text{and}\,{S}_{2}.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\frac{1}{3};\) b. \(\frac{1}{6};\) c. \(\frac{1}{6}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>Let \({S}_{1}\,\text{and}\,{S}_{2}\) be the solids situated in the first octant under the plane \(x+y+z=2\) and under the sphere \({x}^{2}+{y}^{2}+{z}^{2}=4,\) respectively. If the volume of the solid \({S}_{2}\) is \(\frac{4\pi }{3},\) determine the volume of the solid \(S\) situated between \({S}_{1}\) and \({S}_{2}\) by subtracting the volumes of these solids.</p>
+</div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Consider the plane \(x + y + z = 2\) and the cylinder \({x}^{2} + {y}^{2} = 4\) in the first octant.</p>
+<ul class="tight"><li>Find the volume under the plane.</li><li>Find the volume inside the cylinder under the plane \(z = 2\) .</li><li>Find the volume above the plane, inside the cylinder, and below the plane \(z = 2\) .</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\frac{4}{3};\) b. \(2\pi ;\) c. \(\frac{6\pi -4}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p><strong>[T]</strong> The following figure shows the region \(D\) bounded by the curves \(y=\text{sin}\,x,\) \(x=0,\) and \(y={x}^{4}.\) Use a graphing calculator or CAS to find the \(x\) -coordinates of the intersection points of the curves and to determine the area of the region \(D.\) Round your answers to six decimal places.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_211.jpg" alt="A region is bounded by y = sin x, y = x to the fourth power, and x = 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p><strong>[T]</strong> The region \(D\) bounded by the curves \(y=\text{cos}\,x,x=0,\,\text{and}\,y={x}^{3}\) is shown in the following figure. Use a graphing calculator or CAS to find the <strong>x</strong>-coordinates of the intersection points of the curves and to determine the area of the region \(D.\) Round your answers to six decimal places.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_212.jpg" alt="A region is bounded by y = cos x, y = x cubed, and x = 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\,\text{and}\,0.865474;\) \(A(D)=0.621135\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Suppose that \((X,Y)\) is the outcome of an experiment that must occur in a particular region \(S\) in the \(xy\) -plane. In this context, the region \(S\) is called the sample space of the experiment and \(X\,\text{and}\,Y\) are random variables. If \(D\) is a region included in \(S,\) then the probability of \((X,Y)\) being in \(D\) is defined as \(P[(X,Y)\in D]=\underset{D}{∬}p(x,y)dx\,dy,\) where \(p(x,y)\) is the joint probability density of the experiment. Here, \(p(x,y)\) is a nonnegative function for which \(\underset{S}{∬}p(x,y)dx\,dy=1.\) Assume that a point \((X,Y)\) is chosen arbitrarily in the square \([0,3]\,\times \,[0,3]\) with the probability density</p>
+<p>\(p(x,y)=\left\{\begin{array}{ll}\frac{1}{9} &amp; (x,y)\in [0,3]\,\times \,[0,3], \\ 0 &amp; \text{otherwise}\text{.}\end{array}\right.\)</p>
+<p>Find the probability that the point \((X,Y)\) is inside the unit square and interpret the result.</p>
+</div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>Consider \(X\,\text{and}\,Y\) two random variables of probability densities \({p}_{1}(x)\) and \({p}_{2}(y),\) respectively. The random variables \(X\,\text{and}\,Y\) are said to be independent if their joint density function is given by \(p(x,y)={p}_{1}(x){p}_{2}(y).\) At a drive-thru restaurant, customers spend, on average, \(3\) minutes placing their orders and an additional \(5\) minutes paying for and picking up their meals. Assume that placing the order and paying for/picking up the meal are two independent events \(X\) and \(Y.\) If the waiting times are modeled by the exponential probability densities</p>
+<p>\(\begin{array}{lllllll}{p}_{1}(x)=\left\{\begin{array}{ll}\frac{1}{3}{e}^{\text{-}x\text{/}3} &amp; x\ge 0, \\ 0 &amp; \text{otherwise,}\end{array}\right. &amp; &amp; &amp; \text{and} &amp; &amp; &amp; {p}_{2}(y)=\left\{\begin{array}{ll}\frac{1}{5}{e}^{\text{-}y\text{/}5} &amp; y\ge 0, \\ 0 &amp; \text{otherwise,}\end{array}\right.\end{array}\)</p>
+<p>respectively, the probability that a customer will spend less than 6 minutes in the drive-thru line is given by \(P[X+Y\le 6]=\underset{D}{∬}p(x,y)dx\,dy,\) where \(D=\{(x,y)\}|x\ge 0,y\ge 0,x+y\le 6\}.\) Find \(P[X+Y\le 6]\) and interpret the result.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(P[X+Y\le 6]=1+\frac{3}{2{e}^{2}}-\frac{5}{{e}^{6\text{/}5}}\approx 0.45;\) there is a \(45\text{\%}\) chance that a customer will spend \(6\) minutes in the drive-thru line.</p>
+</div></div></div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p><strong>[T]</strong> The <strong>Reuleaux triangle</strong> consists of an equilateral triangle and three regions, each of them bounded by a side of the triangle and an arc of a circle of radius <strong>s</strong> centered at the opposite vertex of the triangle. Show that the area of the Reuleaux triangle in the following figure of side length \(s\) is \(\frac{{s}^{2}}{2}(\pi -\sqrt{3}).\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_213.jpg" alt="An equilateral triangle with additional regions consisting of three arcs of a circle with radius equal to the length of the side of the triangle. These arcs connect two adjacent vertices, and the radius is taken from the opposite vertex." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p><strong>[T]</strong> Show that the area of the <strong>lunes of Alhazen</strong>, the two blue lunes in the following figure, is the same as the area of the right triangle <strong>ABC</strong>. The outer boundaries of the lunes are semicircles of diameters \(AB\,\text{and}\,BC,\) respectively, and the inner boundaries are formed by the circumcircle of the triangle \(ABC.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_02_214.jpg" alt="A right triangle with points A, B, and C. Point B has the right angle. There are two lunes drawn from A to B and from B to C with outer diameters AB and AC, respectively, and with the inner boundaries formed by the circumcircle of the triangle ABC." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>improper double integral</dt><dd>a double integral over an unbounded region or of an unbounded function</dd><dt>Type I</dt><dd>a region \(D\) in the \(xy\) -plane is Type I if it lies between two vertical lines and the graphs of two continuous functions \({g}_{1}(x)\) and \({g}_{2}(x)\)</dd><dt>Type II</dt><dd>a region \(D\) in the \(xy\) -plane is Type II if it lies between two horizontal lines and the graphs of two continuous functions \({h}_{1}(y)\,\text{and}\,{h}_{2}(y)\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

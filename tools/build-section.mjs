@@ -140,13 +140,28 @@ const qd = (n, tag) => (n.children || []).find(c => c.tag === tag); // direct ch
 /* ------------------------------------------------------------------ */
 /* MathML -> LaTeX                                                      */
 /* ------------------------------------------------------------------ */
-const OPS = { "−": "-", "–": "-", "×": "\\times ", "⋅": "\\cdot ", "≈": "\\approx ", "≠": "\\ne ",
+const OPS = { "−": "-", "–": "-", "—": "-", "×": "\\times ", "⋅": "\\cdot ", "≈": "\\approx ", "≠": "\\ne ",
   "≤": "\\le ", "≥": "\\ge ", "→": "\\to ", "±": "\\pm ", "∞": "\\infty ", "∈": "\\in ",
   "π": "\\pi ", "⁢": "", "⁡": "", " ": "\\,", " ": "\\,",
   // LaTeX-reserved ASCII characters that sometimes show up as literal text (e.g. "$" for
   // currency, "%" for percent) inside <mi>/<mn>/<mo> — must be escaped or KaTeX either
   // errors (stray $) or silently eats the rest of the line as a comment (stray %).
   "$": "\\$", "#": "\\#", "%": "\\%", "&": "\\&",
+  // Literal "{"/"}" used as set-builder braces (e.g. "D={(x,y)|...}") show up as bare
+  // <mo>{</mo>/<mo>}</mo> characters, not LaTeX grouping syntax. Left unescaped they're
+  // either silently swallowed as invisible LaTeX grouping (when balanced) or, when the
+  // matching brace is nested deeper in the tree than the mrow piecewise-brace check below
+  // can see, produce an early "}" that breaks a \left\{...\right. wrap outright. Escaping
+  // both to \{ / \} makes them visible glyphs instead of grouping chars either way. Found
+  // building 5-1/5-2 (m53949/m53963) double-integral region definitions.
+  "{": "\\{", "}": "\\}",
+  // Empty-set symbol (used in region-decomposition/improper-integral discussions, e.g.
+  // 5-1/5-2's "D1 ∩ D2 = ∅") has no default KaTeX glyph. Found building 5-1/5-2.
+  "∅": "\\varnothing ",
+  // Capital omega (solid regions/domains in triple-integral and PDE sections, e.g. "Ω")
+  // and nabla (gradient/divergence/curl operator, ubiquitous in ch. 6 vector calculus)
+  // have no default KaTeX glyph in math mode. Found building 4-4/4-5/7-3 and 6-1/6-3/6-4/6-5.
+  "Ω": "\\Omega ", "∇": "\\nabla ",
   // Capital delta (rate-of-change notation "Δy/Δx", central to 3.3) has no KaTeX-mapped
   // glyph for the bare Unicode character — renders as an "unknown symbol" warning/tofu
   // box unless mapped to \Delta. Zero-width space (U+200B) shows up as an empty
@@ -170,7 +185,21 @@ const OPS = { "−": "-", "–": "-", "×": "\\times ", "⋅": "\\cdot ", "≈":
   // same class of bug — literal Unicode math symbol with a direct KaTeX command available
   // (\angle, \cdots) instead of a font glyph. Found building calculus-v3 1-1 (m53834,
   // parametrized-line angle diagrams) and 1-2 (m53850, Riemann-sum "…" notation).
-  "′": "\\prime ", "∠": "\\angle ", "⋯": "\\cdots " };
+  "′": "\\prime ", "∠": "\\angle ", "⋯": "\\cdots ",
+  // Double vertical bar (‖, U+2016, vector norm/magnitude "‖v‖") and angle brackets
+  // (〈〉, U+3008/U+3009, component notation "⟨x,y,z⟩") are pervasive throughout the
+  // Vectors in Space / Vector-Valued Functions chapters — same class of bug as prime/
+  // angle/ellipsis above, no KaTeX glyph for the bare Unicode characters. \Vert, \langle,
+  // \rangle are the correct commands. Found building calculus-v3 2-1 (m53900) — over 600
+  // unknownSymbol warnings in that one section alone before this fix.
+  "‖": "\\Vert ", "〈": "\\langle ", "〉": "\\rangle ",
+  // Double prime (″) is the second-derivative counterpart to prime -- same fix,
+  // two \prime commands (no single-glyph "\dprime" in KaTeX). Degree sign written as the
+  // masculine ordinal indicator (º -- not the real degree sign U+00B0, but this is
+  // what OpenStax's editor emits for angle values like "30º") has no glyph either; map
+  // to a raised circle. Found building calculus-v3 2-2/3-2/3-3/3-4 (second derivatives of
+  // vector-valued functions) and 2-4 (torque angle in degrees).
+  "″": "\\prime\\prime ", "º": "^{\\circ}" };
 // NOTE: deliberately does NOT .trim() the mapped result — several OPS entries (\cdot ,
 // \approx , \pi , \times , etc.) carry an intentional trailing space so the next token
 // doesn't get glued onto the command name (e.g. "\cdotx", "\approxP", or a bare "\" when
@@ -236,7 +265,7 @@ function m2l(n) {
       // delimiters and drop the bare command (valid here since mtext content is always
       // reached from inside an outer math-mode context) between \text{}-wrapped literal
       // segments instead of embedding the character inside \text{}.
-      const MATHCMD = { "Δ": "\\Delta ", "±": "\\pm ", "π": "\\pi ", "∠": "\\angle ", "⋯": "\\cdots " };
+      const MATHCMD = { "Δ": "\\Delta ", "±": "\\pm ", "π": "\\pi ", "∠": "\\angle ", "⋯": "\\cdots ", "‖": "\\Vert ", "〈": "\\langle ", "〉": "\\rangle ", "×": "\\times ", "″": "\\prime\\prime ", "º": "^{\\circ}", "′": "\\prime " , "•": "\\bullet ", "θ": "\\theta ", "Ω": "\\Omega ", "∇": "\\nabla " };
       const re = new RegExp(`(${Object.keys(MATHCMD).join("|")})`);
       const parts = raw.split(re);
       return parts.map(seg => MATHCMD[seg] ?? (seg ? `\\text{${seg.replace(/[$#%&_{}]/g, m => "\\" + m)}}` : "")).join("");
@@ -309,7 +338,22 @@ function inline(n) { // serialize inline content of a para/entry/item
       // unescaped, a stray "<letter" (e.g. "0<b<1") is parsed by the browser as the start
       // of an HTML tag and corrupts the page. KaTeX's auto-render reads decoded
       // textContent, so escaping here is transparent to it. Found in 6.2/6.4 Key Concepts.
-      case "math": out += ` \\(${esc(m2l(c).replace(/\s+/g, " ").trim())}\\) `; break;
+      case "math": {
+        // OpenStax's source occasionally has a genuinely empty inline <m:math/> stuck
+        // mid-sentence (e.g. "Dot product of <m:math/>u and v" — apparently meant to put
+        // "u and v" in bold math but the math element itself carries no content). Emitting
+        // the usual "\(${content}\)" wrapper unconditionally produces a literal "\(\)" —
+        // and because content-between-delimiters is zero characters, verify-section.mjs's
+        // (and the browser's actual auto-render's) "\((.+?)\)" matcher can't pair those two
+        // delimiters at all (.+? requires >=1 char), so it skips forward and mismatches the
+        // stray "\)" against some unrelated LATER "\(" in the page, corrupting an unrelated
+        // KaTeX snippet ("Can't use function '\)' in math mode"). Skip the wrapper entirely
+        // for empty math nodes — there's nothing to render. Found building calculus-v3 2-3
+        // (m53902)'s dot-product summary table.
+        const content = esc(m2l(c).replace(/\s+/g, " ").trim());
+        if (content) out += ` \\(${content}\\) `;
+        break;
+      }
       case "term": case "emphasis": out += `<strong>${inline(c)}</strong>`; break;
       case "sub": out += `<sub>${inline(c)}</sub>`; break;
       case "sup": out += `<sup>${inline(c)}</sup>`; break;

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double Integrals in Polar Coordinates · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Double Integrals in Polar Coordinates</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 5.3</span>Double Integrals in Polar Coordinates</h1>
+<p>Double integrals are sometimes much easier to evaluate if we change rectangular coordinates to polar coordinates. However, before we describe how to make this change, we need to establish the concept of a double integral in a polar rectangular region.</p>
+<h2 id="polar-rectangular-regions-of-integration">Polar Rectangular Regions of Integration</h2>
+<p>When we defined the double integral for a continuous function in rectangular coordinates—say, \(g\) over a region \(R\) in the \(xy\) -plane—we divided \(R\) into subrectangles with sides parallel to the coordinate axes. These sides have either constant \(x\) -values and/or constant \(y\) -values. In polar coordinates, the shape we work with is a <strong>polar rectangle</strong>, whose sides have constant \(r\) -values and/or constant \(θ\) -values. This means we can describe a polar rectangle as in <a href="#fig1">Figure 1</a>(a), with \(R=\{(r,θ)|a\le r\le b,α\le θ\le β\}.\)</p>
+<p>In this section, we are looking to integrate over polar rectangles. Consider a function \(f(r,θ)\) over a polar rectangle \(R.\) We divide the interval \([a,b]\) into \(m\) subintervals \([{r}_{i-1},{r}_{i}]\) of length \(\Delta r=(b-a)\text{/}m\) and divide the interval \([α,β]\) into \(n\) subintervals \([{θ}_{j-1},{θ}_{j}]\) of width \(\Delta θ=(β-α)\text{/}n.\) This means that the circles \(r={r}_{i}\) and rays \(θ={θ}_{j}\) for \(1\le i\le m\) and \(1\le j\le n\) divide the polar rectangle \(R\) into smaller polar subrectangles \({R}_{ij}\) (<a href="#fig1">Figure 1</a>(b)).</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_001.jpg" alt="This figure consists of three figures labeled a, b, and c. In figure a, a sector of an annulus is shown in the polar coordinate plane with radii a and b and angles alpha and beta from the theta = 0 axis. In figure b, this sector of an annulus is cut up into subsectors in a manner similar to the way in which previous spaces were cut up into subrectangles. In figure c, one of these subsectors is shown with angle Delta theta, distance between inner and outer radii Delta r, and area Delta A = r* sub theta Delta r Delta theta, where the center point is given as (r* sub i j, theta* sub i j)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — (a) A polar rectangle \(R\) (b) divided into subrectangles \({R}_{ij}.\) (c) Close-up of a subrectangle.</figcaption></figure>
+<p>As before, we need to find the area \(\Delta A\) of the polar subrectangle \({R}_{ij}\) and the “polar” volume of the thin box above \({R}_{ij}.\) Recall that, in a circle of radius \(r,\) the length \(s\) of an arc subtended by a central angle of \(θ\) radians is \(s=rθ.\) Notice that the polar rectangle \({R}_{ij}\) looks a lot like a trapezoid with parallel sides \({r}_{i-1}\Delta θ\) and \({r}_{i}\Delta θ\) and with a width \(\Delta r.\) Hence the area of the polar subrectangle \({R}_{ij}\) is</p>
+<p>\[\Delta A=\frac{1}{2}\Delta r({r}_{i-1}\Delta θ+{r}_{i}\Delta θ).\]</p>
+<p>Simplifying and letting \({r}_{ij}^{*}=\frac{1}{2}({r}_{i-1}+{r}_{i}),\) we have \(\Delta A={r}_{ij}^{*}\Delta r\Delta θ.\) Therefore, the polar volume of the thin box above \({R}_{ij}\) (<a href="#fig2">Figure 2</a>) is</p>
+<p>\[f({r}_{ij}^{*},{θ}_{ij}^{*})\Delta A=f({r}_{ij}^{*},{θ}_{ij}^{*}){r}_{ij}^{*}\Delta r\Delta θ.\]</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_002.jpg" alt="In x y z space, there is a surface f (r, theta). On the x y plane, a series of subsectors of annuli are drawn as in the previous figure with radius between annuli Delta r and angle between subsectors Delta theta. A subsector from the surface f(r, theta) is projected down onto one of these subsectors. This subsector has center point marked (r* sub i j, theta* sub i j)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Finding the volume of the thin box above polar rectangle \({R}_{ij}.\)</figcaption></figure>
+<p>Using the same idea for all the subrectangles and summing the volumes of the rectangular boxes, we obtain a double Riemann sum as</p>
+<p>\[∑i=1m∑j=1nf({r}_{ij}^{*},{θ}_{ij}^{*}){r}_{ij}^{*}\Delta r\Delta θ.\]</p>
+<p>As we have seen before, we obtain a better approximation to the polar volume of the solid above the region \(R\) when we let \(m\) and \(n\) become larger. Hence, we define the polar volume as the limit of the double Riemann sum,</p>
+<p>\[V=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({r}_{ij}^{*},{θ}_{ij}^{*}){r}_{ij}^{*}\Delta r\Delta θ.\]</p>
+<p>This becomes the expression for the double integral.</p>
+<div class="card definition"><span class="chip">Definition</span><p>The double integral of the function \(f(r,θ)\) over the polar rectangular region \(R\) in the \(rθ\) -plane is defined as</p>
+<p>\[\underset{R}{∬}f(r,θ)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({r}_{ij}^{*},{θ}_{ij}^{*})\Delta A=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({r}_{ij}^{*},{θ}_{ij}^{*}){r}_{ij}^{*}\Delta r\Delta θ.\]</p>
+</div>
+<p>Again, just as in Double Integrals over Rectangular Regions, the double integral over a polar rectangular region can be expressed as an iterated integral in polar coordinates. Hence,</p>
+<p>\[\underset{R}{∬}f(r,θ)dA=\underset{R}{∬}f(r,θ)r\,dr\,dθ=∫θ=αθ=β\,∫r=ar=bf(r,θ)r\,dr\,dθ.\]</p>
+<p>Notice that the expression for \(dA\) is replaced by \(r\,dr\,dθ\) when working in polar coordinates. Another way to look at the polar double integral is to change the double integral in rectangular coordinates by substitution. When the function \(f\) is given in terms of \(x\) and \(y,\) using \(x=r\,\text{cos}\,θ,y=r\,\text{sin}\,θ,\,\text{and}\,dA=r\,dr\,dθ\) changes it to</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{R}{∬}f(r\,\text{cos}\,θ,r\,\text{sin}\,θ)r\,dr\,dθ.\]</p>
+<p>Note that all the properties listed in Double Integrals over Rectangular Regions for the double integral in rectangular coordinates hold true for the double integral in polar coordinates as well, so we can use them without hesitation.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Sketch the polar rectangular region \(R=\{(r,θ)|1\le r\le 3,0\le θ\le \pi \}.\)</p>
+<p class="sol-hint">Plot the two bounding circles r=1 and r=3, then note how the theta range sweeps out the upper half-plane.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As we can see from <a href="#fig3">Figure 3</a>, \(r=1\) and \(r=3\) are circles of radius \(1\,\text{and}\,3\) and \(0\le θ\le \pi\) covers the entire top half of the plane. Hence the region \(R\) looks like a semicircular band.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_003.jpg" alt="Half an annulus R is drawn with inner radius 1 and outer radius 3. That is, the inner semicircle is given by x squared + y squared = 1, whereas the outer semicircle is given by x squared + y squared = 9." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The polar region \(\text{R}\) lies between two semicircles.</figcaption></figure>
+</div></div></div>
+<p>Now that we have sketched a polar rectangular region, let us demonstrate how to evaluate a double integral over this region by using polar coordinates.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{R}{∬}3x\,dA\) over the region \(R=\{(r,θ)|1\le r\le 2,0\le θ\le \pi \}.\)</p>
+<p class="sol-hint">Convert x to r cos θ and dA to r dr dθ, then set up the iterated integral over the polar rectangle.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we sketch a figure similar to <a href="#fig3">Figure 3</a> but with outer radius \(2.\) From the figure we can see that we have</p>
+<p>\[\begin{array}{lllll}\underset{R}{∬}3x\,dA &amp; =∫θ=0θ=\pi \,∫r=1r=23r\,\text{cos}\,θr\,dr\,dθ &amp; &amp; &amp; \begin{array}{l}\text{Use an iterated integral with correct limits} \\ \text{of integration.}\end{array} \\ &amp; =∫θ=0θ=\pi \text{cos}\,θ[{{r}^{3}|}_{r=1}^{r=2}]dθ &amp; &amp; &amp; \text{Integrate first with respect to}\,r. \\ &amp; =∫θ=0θ=\pi 7\,\text{cos}\,θ\,dθ={7\,\text{sin}\,θ|}_{θ=0}^{θ=\pi }=0. &amp; &amp; &amp; \end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Sketch the region \(R=\{(r,θ)|1\le r\le 2,-\frac{\pi }{2}\le θ\le \frac{\pi }{2}\},\) and evaluate \(\underset{R}{∬}x\,dA.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{14}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{R}{∬}(1-{x}^{2}-{y}^{2})dA\) where \(R\) is the unit disk on the \(xy\) -plane.</p>
+<p class="sol-hint">Write the unit disk as the polar rectangle 0≤r≤1, 0≤θ≤2π and substitute x²+y²=r² before integrating.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The region \(R\) is a unit disk, so we can describe it as \(R=\{(r,θ)|0\le r\le 1,0\le θ\le 2\pi \}.\)</p>
+<p>Using the conversion \(x=r\,\text{cos}\,θ,y=r\,\text{sin}\,θ,\) and \(dA=r\,dr\,dθ,\) we have</p>
+<p>\[\begin{array}{ll}\underset{R}{∬}(1-{x}^{2}-{y}^{2})dA &amp; =∫02\pi \,∫01(1-{r}^{2})r\,dr\,dθ=∫02\pi \,∫01(r-{r}^{3})dr\,dθ \\ &amp; =∫02\pi {[\frac{{r}^{2}}{2}-\frac{{r}^{4}}{4}]}_{0}^{1}dθ=∫02\pi \frac{1}{4}dθ=\frac{\pi }{2}.\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{R}{∬}(x+y)dA\) where \(R=\{(x,y)|1\le {x}^{2}+{y}^{2}\le 4,x\le 0\}.\)</p>
+<p class="sol-hint">Convert the annular region 1≤x²+y²≤4, x≤0 into its polar description 1≤r≤2, π/2≤θ≤3π/2.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can see that \(R\) is an annular region that can be converted to polar coordinates and described as \(R=\{(r,θ)|1\le r\le 2,\frac{\pi }{2}\le θ\le \frac{3\pi }{2}\}\) (see the following graph).</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_004.jpg" alt="Two semicircles are drawn in the second and third quadrants, with equations x squared + y squared = 1 and x squared + y squared = 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The annular region of integration \(R.\)</figcaption></figure>
+<p>Hence, using the conversion \(x=r\,\text{cos}\,θ,y=r\,\text{sin}\,θ,\) and \(dA=r\,dr\,dθ,\) we have</p>
+<p>\[\begin{array}{ll}\underset{R}{∬}(x+y)dA &amp; =∫θ=\pi \text{/}2θ=3\pi \text{/}2\,∫r=1r=2(r\,\text{cos}\,θ+r\,\text{sin}\,θ)r\,dr\,dθ \\ &amp; =(∫r=1r=2{r}^{2}dr)(∫\pi \text{/}23\pi \text{/}2(\text{cos}\,θ+\text{sin}\,θ)dθ) \\ &amp; ={[\frac{{r}^{3}}{3}]}_{1}^{2}{[\text{sin}\,θ-\text{cos}\,θ]|}_{\pi \text{/}2}^{3\pi \text{/}2} \\ &amp; =-\frac{14}{3}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Evaluate the integral \(\underset{R}{∬}(4-{x}^{2}-{y}^{2})dA\) where \(R\) is the circle of radius \(2\) on the \(xy\) -plane.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(8\pi\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="general-polar-regions-of-integration">General Polar Regions of Integration</h2>
+<p>To evaluate the double integral of a continuous function by iterated integrals over general polar regions, we consider two types of regions, analogous to Type I and Type II as discussed for rectangular coordinates in Double Integrals over General Regions. It is more common to write polar equations as \(r=f(θ)\) than \(θ=f(r),\) so we describe a general polar region as \(D=\{(r,θ)|α\le θ\le β,{h}_{1}(θ)\le r\le {h}_{2}(θ)\}\) (see the following figure).</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_005.jpg" alt="A region D is shown in polar coordinates with edges given by theta = alpha, theta = beta, r = h2(theta), and r = h1(theta)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — A general polar region between \(α\le θ\le β\) and \({h}_{1}(θ)\le r\le {h}_{2}(θ).\)</figcaption></figure>
+<div class="card definition"><span class="chip">Double Integrals over General Polar Regions</span><p>If \(f(r,θ)\) is continuous on a general polar region \(D\) as described above, then</p>
+<p>\[\underset{D}{∬}f(r,θ)r\,dr\,dθ=∫θ=αθ=β\,∫r={h}_{1}(θ)r={h}_{2}(θ)f(r,θ)r\,dr\,dθ\]</p>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{D}{∬}{r}^{2} · sin θ · r\,dr\,dθ\) where \(D\) is the region bounded by the polar axis and the upper half of the cardioid \(r=1+\text{cos}\,θ.\)</p>
+<p class="sol-hint">Describe the region under the cardioid r=1+cos θ as a general polar region with r running from 0 to 1+cos θ.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can describe the region \(D\) as \(\{(r,θ)|0\le θ\le \pi ,0\le r\le 1+\text{cos}\,θ\}\) as shown in the following figure.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_006.jpg" alt="A region D is given as the top half of a cardioid with equation r = 1 + cos theta." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — The region \(D\) is the top half of a cardioid.</figcaption></figure>
+<p>Hence, we have</p>
+<p>\[\begin{array}{ll}\underset{D}{∬}{r}^{2} · sin θ · r\,dr\,dθ &amp; =∫θ=0θ=\pi \,∫r=0r=1+\text{cos }θ{r}^{3} · sin θ\,dr\,dθ \\ &amp; =\frac{1}{4}∫θ=0θ=\pi {[{r}^{4}]}_{r=0}^{r=1+\text{cos}\,θ}\text{sin}\,θ\,dθ \\ &amp; =\frac{1}{4}∫θ=0θ=\pi {(1+\text{cos}\,θ)}^{4}\text{sin}\,θ\,dθ \\ &amp; =-\frac{1}{4}{[\frac{{(1+\text{cos}\,θ)}^{5}}{5}]}_{0}^{\pi }=\frac{8}{5}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Evaluate the integral</p>
+<p>\[\underset{D}{∬}{r}^{2}{\text{sin}}^{2}\left(2θ\right)r\,dr\,dθ\,\text{where}\,D=\{(r,θ)|-\frac{\pi }{4}\le θ\le \frac{\pi }{4}, 0\le r\le 2\sqrt{\text{cos}\,2θ}\}.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\pi \text{/}4\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="polar-areas-and-volumes">Polar Areas and Volumes</h2>
+<p>As in rectangular coordinates, if a solid \(S\) is bounded by the surface \(z=f(r,θ),\) as well as by the surfaces \(r=a,r=b,θ=α,\) and \(θ=β,\) we can find the volume \(V\) of \(S\) by double integration, as</p>
+<p>\[V=\underset{R}{∬}f(r,θ)r\,dr\,dθ=∫θ=αθ=β\,∫r=ar=bf(r,θ)r\,dr\,dθ.\]</p>
+<p>If the base of the solid can be described as \(D=\{(r,θ)|α\le θ\le β,{h}_{1}(θ)\le r\le {h}_{2}(θ)\},\) then the double integral for the volume becomes</p>
+<p>\[V=\underset{D}{∬}f(r,θ)r\,dr\,dθ=∫θ=αθ=β\,∫r={h}_{1}(θ)r={h}_{2}(θ)f(r,θ)r\,dr\,dθ.\]</p>
+<p>We illustrate this idea with some examples.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find the volume of the solid that lies under the paraboloid \(z=1-{x}^{2}-{y}^{2}\) and above the unit circle on the \(xy\) -plane (see the following figure).</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_007.jpg" alt="The paraboloid z = 1 minus x squared minus y squared is shown, which in this graph looks like a sheet with the middle gently puffed up and the corners anchored." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — The paraboloid \(z=1-{x}^{2}-{y}^{2}\) .</figcaption></figure>
+<p class="sol-hint">Recognize this volume integral is the same double integral already evaluated for the unit disk, just reinterpreted geometrically.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>By the method of double integration, we can see that the volume is the iterated integral of the form \(\underset{R}{∬}(1-{x}^{2}-{y}^{2})dA\) where \(R=\{(r,θ)|0\le r\le 1,0\le θ\le 2\pi \}.\)</p>
+<p>This integration was shown before in <a href="#example3">Example 3</a>, so the volume is \(\frac{\pi }{2}\) cubic units.</p>
+</div></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find the volume of the solid that lies under the paraboloid \(z=4-{x}^{2}-{y}^{2}\) and above the disk \({(x-1)}^{2}+{y}^{2}=1\) on the \(xy\) -plane. See the paraboloid in <a href="#fig8">Figure 8</a> intersecting the cylinder \({(x-1)}^{2}+{y}^{2}=1\) above the \(xy\) -plane.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_008.jpg" alt="A paraboloid with equation z = 4 minus x squared minus y squared is intersected by a cylinder with equation (x minus 1) squared + y squared = 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — Finding the volume of a solid with a paraboloid cap and a circular base.</figcaption></figure>
+<p class="sol-hint">Convert the shifted circle (x-1)²+y²=1 to polar form to find r=2cos θ as the outer boundary of the region.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First change the disk \({(x-1)}^{2}+{y}^{2}=1\) to polar coordinates. Expanding the square term, we have \({x}^{2}-2x+1+{y}^{2}=1.\) Then simplify to get \({x}^{2}+{y}^{2}=2x,\) which in polar coordinates becomes \({r}^{2}=2r\,\text{cos}\,θ\) and then either \(r=0\) or \(r=2\,\text{cos}\,θ.\) Similarly, the equation of the paraboloid changes to \(z=4-{r}^{2}.\) Therefore we can describe the disk \({(x-1)}^{2}+{y}^{2}=1\) on the \(xy\) -plane as the region</p>
+<p>\[D=\{(r,θ)|0\le θ\le \pi ,0\le r\le 2\,\text{cos}\,θ\}.\]</p>
+<p>Hence the volume of the solid below the paraboloid \(z=4-{x}^{2}-{y}^{2}\) and above \(r=2\,\text{cos}\,θ\) is</p>
+<p>\[\begin{array}{ll}V &amp; =\underset{D}{∬}f(r,θ)r\,dr\,dθ=∫θ=-\frac{\pi }{2}θ=\frac{\pi }{2}\,∫r=0r=2\,\text{cos}\,θ(4-{r}^{2})r\,dr\,dθ \\ &amp; =∫θ=-\frac{\pi }{2}θ=\frac{\pi }{2}[4\frac{{r}^{2}}{2}-{\frac{{r}^{4}}{4}|}_{0}^{2\,\text{cos}\,θ}]dθ \\ &amp; =∫-\frac{\pi }{2}\frac{\pi }{2}[8\,{\text{cos}}^{2}θ-4\,{\text{cos}}^{4}θ]dθ={[\frac{5}{2}θ+\frac{5}{2}\text{sin}\,\text{2}θ-\frac{1}{8}\text{sin}\,\text{4}θ]}_{-\frac{\pi }{2}}^{\frac{\pi }{2}}=\frac{5}{2}\pi .\end{array}\]</p>
+</div></div></div>
+<p>Notice in the next example that integration is not always easy with polar coordinates. Complexity of integration depends on the function and also on the region over which we need to perform the integration. If the region has a more natural expression in polar coordinates or if \(f\) has a simpler antiderivative in polar coordinates, then the change in polar coordinates is appropriate; otherwise, use rectangular coordinates.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find the volume of the region that lies under the paraboloid \(z={x}^{2}+{y}^{2}\) and above the triangle enclosed by the lines \(y=x,x=0,\) and \(x+y=2\) in the \(xy\) -plane (<a href="#fig9">Figure 9</a>).</p>
+<p class="sol-hint">Set up the region and integral in polar coordinates first, notice the resulting integral is messy, then switch to rectangular coordinates instead.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First examine the region over which we need to set up the double integral and the accompanying paraboloid.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_009.jpg" alt="This figure consists of three figures. The first is simply a paraboloid that opens up. The second shows the region D bounded by x = 0, y = x, and x + y = 2 with a vertical double-sided arrow within the region. The second shows the same region but in polar coordinates, so the lines bounding D are theta = pi/2, r = 2/(cos theta + sin theta), and theta = pi/4, with a double-sided arrow that has one side pointed at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Finding the volume of a solid under a paraboloid and above a given triangle.</figcaption></figure>
+<p>The region \(D\) is \(\{(x,y)|0\le x\le 1,x\le y\le 2-x\}.\) Converting the lines \(y=x,x=0,\) and \(x+y=2\) in the \(xy\) -plane to functions of \(r\) and \(θ,\) we have \(θ=\pi \text{/}4,\) \(θ=\pi \text{/}2,\) and \(r=2\text{/}(\text{cos}\,θ+\text{sin}\,θ),\) respectively. Graphing the region on the \(xy\) -plane, we see that it looks like \(D=\{(r,θ)|\pi \text{/}4\le θ\le \pi \text{/}2,0\le r\le 2\text{/}(\text{cos}\,θ+\text{sin}\,θ)\}.\) Now converting the equation of the surface gives \(z={x}^{2}+{y}^{2}={r}^{2}.\) Therefore, the volume of the solid is given by the double integral</p>
+<p>\[\begin{array}{ll}V &amp; =\underset{D}{∬}f(r,θ)r\,dr\,dθ=∫θ=\pi \text{/}4θ=\pi \text{/}2\,∫r=0r=2\text{/}(\text{cos}\,θ+\text{sin}\,θ){r}^{2}r\,dr\,dθ={∫\pi \text{/}4\pi \text{/}2[\frac{{r}^{4}}{4}]}_{0}^{2\text{/}(\text{cos}\,θ+\text{sin}\,θ)}dθ \\ &amp; =\frac{1}{4}{∫\pi \text{/}4\pi \text{/}2(\frac{2}{\text{cos}\,θ+\text{sin}\,θ})}^{4}dθ=\frac{16}{4}{∫\pi \text{/}4\pi \text{/}2(\frac{1}{\text{cos}\,θ+\text{sin}\,θ})}^{4}dθ=4{∫\pi \text{/}4\pi \text{/}2(\frac{1}{\text{cos}\,θ+\text{sin}\,θ})}^{4}dθ.\end{array}\]</p>
+<p>As you can see, this integral is very complicated. So, we can instead evaluate this double integral in rectangular coordinates as</p>
+<p>\[V=∫01\,∫x2-x({x}^{2}+{y}^{2})dy\,dx.\]</p>
+<p>Evaluating gives</p>
+<p>\[\begin{array}{ll}V &amp; =∫01\,∫x2-x({x}^{2}+{y}^{2})dy\,dx={∫01[{x}^{2}y+\frac{{y}^{3}}{3}]|}_{x}^{2-x}dx \\ &amp; =∫01\frac{8}{3}-4x+4{x}^{2}-\frac{8{x}^{3}}{3}dx \\ &amp; ={[\frac{8x}{3}-2{x}^{2}+\frac{4{x}^{3}}{3}-\frac{2{x}^{4}}{3}]|}_{0}^{1}=\frac{4}{3}.\end{array}\]</p>
+</div></div></div>
+<p>To answer the question of how the formulas for the volumes of different standard solids such as a sphere, a cone, or a cylinder are found, we want to demonstrate an example and find the volume of an arbitrary cone.</p>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Use polar coordinates to find the volume inside the cone \(z=2-\sqrt{{x}^{2}+{y}^{2}}\) and above the \(xy\text{-plane}\text{.}\)</p>
+<p class="sol-hint">Find the circular base of the cone by setting z=0, then set up the polar double integral for the height function 2-r.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The region \(D\) for the integration is the base of the cone, which appears to be a circle on the \(xy\text{-plane}\) (see the following figure).</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_010.jpg" alt="A cone given by z = 2 minus the square root of (x squared plus y squared) and a circle given by x squared plus y squared = 4. The cone is above the circle in xyz space." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Finding the volume of a solid inside the cone and above the \(xy\) -plane.</figcaption></figure>
+<p>We find an equation of the circle by setting \(z=0\text{:}\)</p>
+<p>\[\begin{array}{lll}0 &amp; = &amp; 2-\sqrt{{x}^{2}+{y}^{2}} \\ 2 &amp; = &amp; \sqrt{{x}^{2}+{y}^{2}} \\ {x}^{2}+{y}^{2} &amp; = &amp; 4.\end{array}\]</p>
+<p>This means the radius of the circle is \(2,\) so for the integration we have \(0\le θ\le 2\pi\) and \(0\le r\le 2.\) Substituting \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ\) in the equation \(z=2-\sqrt{{x}^{2}+{y}^{2}}\) we have \(z=2-r.\) Therefore, the volume of the cone is</p>
+<p>\(∫θ=0θ=2\pi \,∫r=0r=2(2-r)r\,dr\,dθ=2\pi \frac{4}{3}=\frac{8\pi }{3}\) cubic units.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that if we were to find the volume of an arbitrary cone with radius \(a\) units and height \(h\) units, then the equation of the cone would be \(z=h-\frac{h}{a}\sqrt{{x}^{2}+{y}^{2}}.\)</p>
+<p>We can still use <a href="#fig10">Figure 10</a> and set up the integral as \(∫θ=0θ=2\pi \,∫r=0r=a(h-\frac{h}{a}r)r\,dr\,dθ.\)</p>
+<p>Evaluating the integral, we get \(\frac{1}{3}\pi {a}^{2}h.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Use polar coordinates to find an iterated integral for finding the volume of the solid enclosed by the paraboloids \(z={x}^{2}+{y}^{2}\) and \(z=16-{x}^{2}-{y}^{2}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(V=∫02\pi \,∫02\sqrt{2}(16-2{r}^{2})r\,dr\,dθ=64\pi\) cubic units</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>As with rectangular coordinates, we can also use polar coordinates to find areas of certain regions using a double integral. As before, we need to understand the region whose area we want to compute. Sketching a graph and identifying the region can be helpful to realize the limits of integration. Generally, the area formula in double integration will look like</p>
+<p>\[\text{Area}\,A=∫αβ\,∫{h}_{1}(θ){h}_{2}(θ)1r\,dr\,dθ.\]</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the area bounded by the curve \(r=\text{cos}\,4θ.\)</p>
+<p class="sol-hint">Use symmetry to find the area of a single petal by integrating from θ=-π/8 to π/8, then multiply by 8.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Sketching the graph of the function \(r=\text{cos}\,4θ\) reveals that it is a polar rose with eight petals (see the following figure).</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_011.jpg" alt="A rose with eight petals given by r = cos (4 theta)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — Finding the area of a polar rose with eight petals.</figcaption></figure>
+<p>Using <strong>symmetry</strong>, we can see that we need to find the area of one petal and then multiply it by \(8.\) Notice that the values of \(θ\) for which the graph passes through the origin are the zeros of the function \(\text{cos}\,4θ,\) and these are odd multiples of \(\pi \text{/}8.\) Thus, one of the petals corresponds to the values of \(θ\) in the interval \([\text{-}\pi \text{/}8,\pi \text{/}8].\) Therefore, the area bounded by the curve \(r=\text{cos}\,4θ\) is</p>
+<p>\[\begin{array}{ll}A &amp; =8∫θ=\text{-}\pi \text{/}8θ=\pi \text{/}8\,∫r=0r=\text{cos}\,4θ1r\,dr\,dθ \\ &amp; =8∫\text{-}\pi \text{/}8\pi \text{/}8[\frac{1}{2}{{r}^{2}|}_{0}^{\text{cos}\,4θ}]dθ=8∫\text{-}\pi \text{/}8\pi \text{/}8\frac{1}{2}{\text{cos}}^{2}4θ\,dθ=8[\frac{1}{4}θ+{\frac{1}{16}\text{sin}\,4θ\,\text{cos}\,4θ|}_{\text{-}\pi \text{/}8}^{\pi \text{/}8}]=8[\frac{\pi }{16}]=\frac{\pi }{2}.\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Find the area enclosed by the circle \(r=3\,\text{cos}\,θ\) and the cardioid \(r=1+\text{cos}\,θ.\)</p>
+<p class="sol-hint">Find the angle where the circle and cardioid intersect, then split the area into two polar integrals over the two subintervals.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First and foremost, sketch the graphs of the region (<a href="#fig12">Figure 12</a>).</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_012.jpg" alt="A cardioid with equation 1 + cos theta is shown overlapping a circle given by r = 3 cos theta, which is a circle of radius 3 with center (1.5, 0). The area bounded by the x axis, the cardioid, and the dashed line connecting the origin to the intersection of the cardioid and circle on the r = 2 line is shaded." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — Finding the area enclosed by both a circle and a cardioid.</figcaption></figure>
+<p>We can from see the symmetry of the graph that we need to find the points of intersection. Setting the two equations equal to each other gives</p>
+<p>\[3\,\text{cos}\,θ=1+\text{cos}\,θ.\]</p>
+<p>One of the points of intersection is \(θ=\pi \text{/}3.\) The area above the polar axis consists of two parts, with one part defined by the cardioid from \(θ=0\) to \(θ=\pi \text{/}3\) and the other part defined by the circle from \(θ=\pi \text{/}3\) to \(θ=\pi \text{/}2.\) By symmetry, the total area is twice the area above the polar axis. Thus, we have</p>
+<p>\[A=2[∫θ=0θ=\pi \text{/}3\,∫r=0r=1+\text{cos}\,θ1r\,dr\,dθ+∫θ=\pi \text{/}3θ=\pi \text{/}2\,∫r=0r=3\,\text{cos}\,θ1r\,dr\,dθ].\]</p>
+<p>Evaluating each piece separately, we find that the area is</p>
+<p>\[A=2(\frac{1}{4}\pi +\frac{9}{16}\sqrt{3}+\frac{3}{8}\pi -\frac{9}{16}\sqrt{3})=2(\frac{5}{8}\pi )=\frac{5}{4}\pi \,\text{square units}\text{.}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Find the area enclosed inside the cardioid \(r=3-3\,\text{sin}\,θ\) and outside the cardioid \(r=1+\text{sin}\,θ.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(A=2∫\text{-}\pi \text{/}2\pi \text{/}6\,∫1+\text{sin}\,θ3-3\,\text{sin}\,θr\,dr\,dθ=8\pi +9\sqrt{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the integral \(\underset{{ℝ}^{2}}{∬}{e}^{-10({x}^{2}+{y}^{2})}dx\,dy.\)</p>
+<p class="sol-hint">Convert to polar coordinates over the whole plane (0≤r<∞), then evaluate the r-integral as a limit as the outer radius goes to infinity.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This is an improper integral because we are integrating over an unbounded region \({ℝ}^{2}.\) In polar coordinates, the entire plane \({ℝ}^{2}\) can be seen as \(0\le θ\le 2\pi ,\) \(0\le r&lt;\infty .\)</p>
+<p>Using the changes of variables from rectangular coordinates to polar coordinates, we have</p>
+<p>\[\begin{array}{ll}\underset{{ℝ}^{2}}{∬}{e}^{-10({x}^{2}+{y}^{2})}dx\,dy &amp; =∫θ=0θ=2\pi \,∫r=0r=\infty {e}^{-10{r}^{2}}r\,dr\,dθ=∫θ=0θ=2\pi (\underset{a\to \infty }{\text{lim}}∫r=0r=a{e}^{-10{r}^{2}}r\,dr)dθ \\ &amp; =(∫θ=0θ=2\pi dθ)(\underset{a\to \infty }{\text{lim}}∫r=0r=a{e}^{-10{r}^{2}}r\,dr) \\ &amp; =2\pi (\underset{a\to \infty }{\text{lim}}∫r=0r=a{e}^{-10{r}^{2}}r\,dr) \\ &amp; =2\pi \underset{a\to \infty }{\text{lim}}(-\frac{1}{20})({{e}^{-10{r}^{2}}|}_{0}^{a}) \\ &amp; =2\pi (-\frac{1}{20})\underset{a\to \infty }{\text{lim}}({e}^{-10{a}^{2}}-1) \\ &amp; =\frac{\pi }{10}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Evaluate the integral \(\underset{{ℝ}^{2}}{∬}{e}^{-4({x}^{2}+{y}^{2})}dx\,dy.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{\pi }{4}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>To apply a double integral to a situation with circular symmetry, it is often convenient to use a double integral in polar coordinates. We can apply these double integrals over a polar rectangular region or a general polar region, using an iterated integral similar to those used with rectangular double integrals. (See <a href="#example1">Example 1</a> and <a href="#example5">Example 5</a>.)</li><li>The area \(dA\) in polar coordinates becomes \(r\,dr\,dθ.\)</li><li>Use \(x=r\,\text{cos}\,θ,\) \(y=r\,\text{sin}\,θ,\) and \(dA=r\,dr\,dθ\) to convert an integral in rectangular coordinates to an integral in polar coordinates. (See <a href="#example2">Example 2</a> and <a href="#example3">Example 3</a>.)</li><li>Use \({r}^{2}={x}^{2}+{y}^{2}\) and \(θ={\text{tan}}^{-1}(\frac{y}{x})\) to convert an integral in polar coordinates to an integral in rectangular coordinates, if needed. (See <a href="#example8">Example 8</a>.)</li><li>To find the volume in polar coordinates bounded above by a surface \(z=f(r,θ)\) over a region on the \(xy\) -plane, use a double integral in polar coordinates. (See <a href="#example6">Example 6</a>, <a href="#example7">Example 7</a>, and <a href="#example9">Example 9</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Double integral over a polar rectangular region \(R\)</strong></td><td>\(\underset{R}{∬}f(r,θ)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({r}_{ij}*,{θ}_{ij}*)\Delta A=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({r}_{ij}*,{θ}_{ij}*){r}_{ij}*\Delta r\Delta θ\)</td></tr><tr><td><strong>Double integral over a general polar region</strong></td><td>\(\underset{D}{∬}f(r,θ)r\,dr\,dθ=∫θ=αθ=β\,∫r={h}_{1}(θ)r={h}_{2}(θ)f(r,θ)r\,dr\,dθ\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, express the region \(D\) in polar coordinates.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(D\) is the region of the disk of radius \(2\) centered at the origin that lies in the first quadrant.</p>
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(D\) is the region between the circles of radius \(4\) and radius \(5\) centered at the origin that lies in the second quadrant.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(D=\{(r,θ)|4\le r\le 5,\frac{\pi }{2}\le θ\le \pi \}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(D\) is the region bounded by the \(y\) -axis and \(x=\sqrt{1-{y}^{2}}.\)</p>
+</div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(D\) is the region bounded by the \(x\) -axis and \(y=\sqrt{2-{x}^{2}}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(D=\{(r,θ)|0\le r\le \sqrt{2},0\le θ\le \pi \}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(D=\{(x,y)|{x}^{2}+{y}^{2}\le 4x\}\)</p>
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(D=\{(x,y)|{x}^{2}+{y}^{2}\le 4y\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(D=\{(r,θ)|0\le r\le 4\,\text{sin}\,θ,0\le θ\le \pi \}\)</p>
+</div></div></div></div>
+<p>In the following exercises, the graph of the polar rectangular region \(D\) is given. Express \(D\) in polar coordinates.</p>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_201.jpg" alt="Half an annulus D is drawn in the first and second quadrants with inner radius 3 and outer radius 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_202.jpg" alt="A sector of an annulus D is drawn between theta = pi/4 and theta = pi/2 with inner radius 3 and outer radius 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(D=\{(r,θ)|3\le r\le 5,\frac{\pi }{4}\le θ\le \frac{\pi }{2}\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_203.jpg" alt="Half of an annulus D is drawn between theta = pi/4 and theta = 5 pi/4 with inner radius 3 and outer radius 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_204.jpg" alt=" A sector of an annulus D is drawn between theta = 3 pi/4 and theta = 5 pi/4 with inner radius 3 and outer radius 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(D=\{(r,θ)|3\le r\le 5,\frac{3\pi }{4}\le θ\le \frac{5\pi }{4}\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>In the following graph, the region \(D\) is situated below \(y=x\) and is bounded by \(x=1,x=5,\) and \(y=0.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_205.jpg" alt="A region D is given that is bounded by y = 0, x = 1, x = 5, and y = x, that is, a right triangle with a corner cut off." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>In the following graph, the region \(D\) is bounded by \(y=x\) and \(y={x}^{2}.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_206.jpg" alt="A region D is drawn between y = x and y = x squared, which looks like a deformed lens, with the bulbous part below the straight part." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(D=\{(r,θ)|0\le r\le \text{tan}\,θ\,\text{sec}\,θ,0\le θ\le \frac{\pi }{4}\}\)</p>
+</div></div></div></div>
+<p>In the following exercises, evaluate the double integral \(\underset{R}{∬}f(x,y)dA\) over the polar rectangular region \(D.\)</p>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(f(x,y)={x}^{2}+{y}^{2},D=\{(r,θ)|3\le r\le 5,0\le θ\le 2\pi \}\)</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(f(x,y)=x+y,\,\,\,D=\{(r,θ)|3\le r\le 5,0\le θ\le 2\pi \}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(f(x,y)={x}^{2}+xy,D=\{(r,θ)|1\le r\le 2,\pi \le θ\le 2\pi \}\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(f(x,y)={x}^{4}+{y}^{4},D=\{(r,θ)|1\le r\le 2,\frac{3\pi }{2}\le θ\le 2\pi \}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{63\pi }{16}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x,y)=\sqrt[3]{{x}^{2}+{y}^{2}},\) where \(D=\{(r,θ)|0\le r\le 1,\frac{\pi }{2}\le θ\le \pi \}.\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(f(x,y)={x}^{4}+2{x}^{2}{y}^{2}+{y}^{4},\) where \(D=\{(r,θ)|3\le r\le 4,\frac{\pi }{3}\le θ\le \frac{2\pi }{3}\}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3367\pi }{18}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(f(x,y)=\text{sin}(\text{arctan}\,\frac{y}{x}),\) where \(D=\{(r,θ)|1\le r\le 2,\frac{\pi }{6}\le θ\le \frac{\pi }{3}\}\)</p>
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(f(x,y)=\text{arctan}(\frac{y}{x}),\) where \(D=\{(r,θ)|2\le r\le 3,\frac{\pi }{4}\le θ\le \frac{\pi }{3}\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{35{\pi }^{2}}{576}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\underset{D}{∬}{e}^{{x}^{2}+{y}^{2}}[1+2\,\text{arctan}(\frac{y}{x})]dA\text{,}\,D=\{(r,θ)|1\le r\le 2,\frac{\pi }{6}\le θ\le \frac{\pi }{3}\}\)</p>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\underset{D}{∬}({e}^{{x}^{2}+{y}^{2}}+{x}^{4}+2{x}^{2}{y}^{2}+{y}^{4})\text{arctan}(\frac{y}{x})dA\text{,}\,D=\{(r,θ)|1\le r\le 2,\frac{\pi }{4}\le θ\le \frac{\pi }{3}\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{7{\pi }^{2}}{576}\left(21-{e}^{2}+{e}^{4}\right)\)</p>
+</div></div></div></div>
+<p>In the following exercises, the integrals have been converted to polar coordinates. Verify that the identities are true and choose the easiest way to evaluate the integrals, in rectangular or polar coordinates.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(∫12\,∫0x({x}^{2}+{y}^{2})dy\,dx=∫0\frac{\pi }{4}\,∫\text{sec}\,θ2\,\text{sec}\,θ{r}^{3}dr\,dθ\)</p>
+</div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(∫23\,∫0x\frac{x}{\sqrt{{x}^{2}+{y}^{2}}}dy\,dx=∫0\pi \text{/}4\,∫2\,\text{sec}\,θ3\text{sec}\,θr\,\text{cos}\,θ\,dr\,dθ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{5}{2}\text{ln}(1+\sqrt{2})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(∫01\,∫{x}^{2}x\frac{1}{\sqrt{{x}^{2}+{y}^{2}}}dy\,dx=∫0\pi \text{/}4\,∫0\text{tan}\,θ\,\text{sec}\,θdr\,dθ\)</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(∫01\,∫{x}^{2}x\frac{y}{\sqrt{{x}^{2}+{y}^{2}}}dy\,dx=∫0\pi \text{/}4\,∫0\text{tan}\,θ\,\text{sec}\,θr\,\text{sin}\,θ\,dr\,dθ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{6}(2-\sqrt{2})\)</p>
+</div></div></div></div>
+<p>In the following exercises, convert the integrals to polar coordinates and evaluate them.</p>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(∫03\,∫0\sqrt{9-{y}^{2}}({x}^{2}+{y}^{2})dx\,dy\)</p>
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(∫02\,∫\text{-}\sqrt{4-{y}^{2}}\sqrt{4-{y}^{2}}{({x}^{2}+{y}^{2})}^{2}dx\,dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(∫0\pi \,∫02{r}^{5}dr\,dθ=\frac{32\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(∫01\,∫0\sqrt{1-{x}^{2}}(x+y)dy\,dx\)</p>
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(∫04\,∫\text{-}\sqrt{16-{x}^{2}}\sqrt{16-{x}^{2}}\text{sin}({x}^{2}+{y}^{2})dy\,dx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(∫\text{-}\pi \text{/}2\pi \text{/}2\,∫04r\,\text{sin}({r}^{2})dr\,dθ=\pi \,{\text{sin}}^{2}8\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>Evaluate the integral \(\underset{D}{∬}r\,dA\) where \(D\) is the region bounded by the polar axis and the upper half of the cardioid \(r=1+\text{cos}\,θ.\)</p>
+</div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Find the area of the region \(D\) bounded by the polar axis and the upper half of the cardioid \(r=1+\text{cos}\,θ.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Evaluate the integral \(\underset{D}{∬}\,dA,\) where \(D\) is the region bounded by the part of the four-leaved rose \(r=\text{sin}\,2θ\) situated in the first quadrant (see the following figure).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_207.jpg" alt="A region D is drawn in the first quadrant petal of the four petal rose given by r = sin (2 theta)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Find the total area of the region enclosed by the four-leaved rose \(r=\text{sin}\,2θ\) (see the figure in the previous exercise).</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Find the area of the region \(D,\) which is the region bounded by \(y=\sqrt{4-{x}^{2}},\) \(x=\sqrt{3},\) \(x=2,\) and \(y=0.\)</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Find the area of the region \(D,\) which is the region inside the disk \({x}^{2}+{y}^{2}\le 4\) and to the right of the line \(x=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{3}(4\pi -3\sqrt{3})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Determine the average value of the function \(f(x,y)={x}^{2}+{y}^{2}\) over the region \(D\) bounded by the polar curve \(r=\text{cos}\,2θ,\) where \(-\frac{\pi }{4}\le θ\le \frac{\pi }{4}\) (see the following graph).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_208.jpg" alt="The first/fourth-quadrant petal of the four-petal rose given by r = cos (2 theta) is shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Determine the average value of the function \(f(x,y)=\sqrt{{x}^{2}+{y}^{2}}\) over the region \(D\) bounded by the polar curve \(r=3\,\text{sin}\,2θ,\) where \(0\le θ\le \frac{\pi }{2}\) (see the following graph).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_209.jpg" alt="The first-quadrant petal of the four-petal rose given by r = 3sin (2 theta) is shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{16}{3\pi }\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Find the volume of the solid situated in the first octant and bounded by the paraboloid \(z=1-4{x}^{2}-4{y}^{2}\) and the planes \(x=0,y=0,\) and \(z=0.\)</p>
+</div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Find the volume of the solid bounded by the paraboloid \(z=2-9{x}^{2}-9{y}^{2}\) and the plane \(z=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{18}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><ul class="tight"><li>Find the volume of the solid \({S}_{1}\) bounded by the cylinder \({x}^{2}+{y}^{2}=1\) and the planes \(z=0\) and \(z=1.\)</li><li>Find the volume of the solid \({S}_{2}\) outside the double cone \({z}^{2}={x}^{2}+{y}^{2},\) inside the cylinder \({x}^{2}+{y}^{2}=1,\) and above the plane \(z=0.\)</li><li>Find the volume of the solid inside the cone \({z}^{2}={x}^{2}+{y}^{2}\) and below the plane \(z=1\) by subtracting the volumes of the solids \({S}_{1}\) and \({S}_{2}.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><ul class="tight"><li>Find the volume of the solid \({S}_{1}\) inside the unit sphere \({x}^{2}+{y}^{2}+{z}^{2}=1\) and above the plane \(z=0.\)</li><li>Find the volume of the solid \({S}_{2}\) inside the double cone \({(z-1)}^{2}={x}^{2}+{y}^{2}\) and above the plane \(z=0.\)</li><li>Find the volume of the solid outside the double cone \({(z-1)}^{2}={x}^{2}+{y}^{2}\) and inside the sphere \({x}^{2}+{y}^{2}+{z}^{2}=1.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\frac{2\pi }{3};\) b. \(\frac{\pi }{3};\) c. \(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<p>For the following two exercises, consider a spherical ring, which is a sphere with a cylindrical hole cut so that the axis of the cylinder passes through the center of the sphere (see the following figure).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_210.jpg" alt="A spherical ring is shown, that is, a sphere with a cylindrical hole going all the way through it." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>If the sphere has radius \(4\) and the cylinder has radius \(2,\) find the volume of the spherical ring.</p>
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>A cylindrical hole of diameter \(6\) cm is bored through a sphere of radius \(5\) cm such that the axis of the cylinder passes through the center of the sphere. Find the volume of the resulting spherical ring.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{256\pi }{3}\,{\text{cm}}^{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Find the volume of the solid that lies under the double cone \({z}^{2}=4{x}^{2}+4{y}^{2},\) inside the cylinder \({x}^{2}+{y}^{2}=x,\) and above the plane \(z=0.\)</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Find the volume of the solid that lies under the paraboloid \(z={x}^{2}+{y}^{2},\) inside the cylinder \({x}^{2}+{y}^{2}=x,\) and above the plane \(z=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3\pi }{32}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Find the volume of the solid that lies under the plane \(x+y+z=10\) and above the disk \({x}^{2}+{y}^{2}=4x.\)</p>
+</div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Find the volume of the solid that lies under the plane \(2x+y+2z=8\) and above the unit disk \({x}^{2}+{y}^{2}=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4\pi\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>A radial function \(f\) is a function whose value at each point depends only on the distance between that point and the origin of the system of coordinates; that is, \(f(x,y)=g(r),\) where \(r=\sqrt{{x}^{2}+{y}^{2}}.\) Show that if \(f\) is a continuous radial function, then \(\underset{D}{∬}f(x,y)dA=({θ}_{2}-{θ}_{1})[G({R}_{2})-G({R}_{1})],\) where \(G\prime (r)=rg(r)\) and \((x,y)\in D=\{(r,θ)|{R}_{1}\le r\le {R}_{2},{θ}_{1}\le θ\le {θ}_{2}\},\) with \(0\le {R}_{1}&lt;{R}_{2}\) and \(0\le {θ}_{1}&lt;{θ}_{2}\le 2\pi .\)</p>
+</div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Use the information from the preceding exercise to calculate the integral \(\underset{D}{∬}{({x}^{2}+{y}^{2})}^{3}dA,\) where \(D\) is the unit disk.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Let \(f(x,y)=\frac{F\prime (r)}{r}\) be a continuous radial function defined on the annular region \(D=\{(r,θ)|{R}_{1}\le r\le {R}_{2},0\le θ\le 2\pi \},\) where \(r=\sqrt{{x}^{2}+{y}^{2}},\) \(0&lt;{R}_{1}&lt;{R}_{2},\) and \(F\) is a differentiable function. Show that \(\underset{D}{∬}f(x,y)dA=2\pi [F({R}_{2})-F({R}_{1})].\)</p>
+</div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Apply the preceding exercise to calculate the integral \(\underset{D}{∬}\frac{{e}^{\sqrt{{x}^{2}+{y}^{2}}}}{\sqrt{{x}^{2}+{y}^{2}}}dx\,dy,\) where \(D\) is the annular region between the circles of radii \(1\) and \(2\) situated in the third quadrant.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}\pi e(e-1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Let \(f\) be a continuous function that can be expressed in polar coordinates as a product of a function of \(r\) only and a function of \(θ\) only; that is, \(f(x,y)=h(θ),\) where \((x,y)\in D=\{(r,θ)|{R}_{1}\le r\le {R}_{2},{θ}_{1}\le θ\le {θ}_{2}\},\) with \(0\le {R}_{1}&lt;{R}_{2}\) and \(0\le {θ}_{1}&lt;{θ}_{2}\le 2\pi .\) Show that \(\underset{D}{∬}f(x,y)dA=\frac{1}{2}({R}_{2}^{2}-{R}_{1}^{2})[H({θ}_{2})-H({θ}_{1})],\) where \(H\) is an antiderivative of \(h.\)</p>
+</div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Apply the preceding exercise to calculate the integral \(\underset{D}{∬}\frac{{y}^{2}}{{x}^{2}}dA,\) where \(D=\{(r,θ)|1\le r\le 2,\frac{\pi }{6}\le θ\le \frac{\pi }{3}\}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{3}-\frac{\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>Let \(f\) be a continuous function that can be expressed in polar coordinates as a product of a function of \(r\) only and function of \(θ\) only; that is, \(f(x,y)=g(r)h(θ),\) where \((x,y)\in D=\{(r,θ)|{R}_{1}\le r\le {R}_{2},{θ}_{1}\le θ\le {θ}_{2}\}\) with \(0\le {R}_{1}&lt;{R}_{2}\) and \(0\le {θ}_{1}&lt;{θ}_{2}\le 2\pi .\) Show that \(\underset{D}{∬}f(x,y)dA=[G({R}_{2})-G({R}_{1})]\,[H({θ}_{2})-H({θ}_{1})],\) where \(G(r)\) and \(H(θ)\) are antiderivatives of \(rg(r)\) and \(h(θ)\) , respectively.</p>
+</div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Evaluate \(\underset{D}{∬}\text{arctan}(\frac{y}{x})\sqrt{{x}^{2}+{y}^{2}}dA,\) where \(D=\{(r,θ)|2\le r\le 3,\frac{\pi }{4}\le θ\le \frac{\pi }{3}\}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{133{\pi }^{2}}{864}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>A spherical cap is the region of a sphere that lies above or below a given plane.</p>
+<ul class="tight"><li>Show that the volume of the spherical cap in the figure below is \(\frac{1}{6}\pi h(3{a}^{2}+{h}^{2}).\) <br><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_211.jpg" alt="A sphere of radius R has a circle inside of it h units from the top of the sphere. This circle has radius a, which is less than R." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>A spherical segment is the solid defined by intersecting a sphere with two parallel planes. If the distance between the planes is \(h,\) show that the volume of the spherical segment in the figure below is \(\frac{1}{6}\pi h(3{a}^{2}+3{b}^{2}+{h}^{2}).\) <br> b."&gt;<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_03_212.jpg" alt="" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li></ul>
+</div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>In statistics, the joint density for two independent, normally distributed events with a mean \(μ=0\) and a standard distribution \(σ\) is defined by \(p(x,y)=\frac{1}{2\pi {σ}^{2}}{e}^{-\frac{{x}^{2}+{y}^{2}}{2{σ}^{2}}}.\) Consider \((X,Y),\) the Cartesian coordinates of a ball in the resting position after it was released from a position on the <strong>z</strong>-axis toward the \(xy\) -plane. Assume that the coordinates of the ball are independently normally distributed with a mean \(μ=0\) and a standard deviation of \(σ\) (in feet). The probability that the ball will stop no more than \(a\) feet from the origin is given by \(P[{X}^{2}+{Y}^{2}\le {a}^{2}]=\underset{D}{∬}p(x,y)dy\,dx,\) where \(D\) is the disk of radius <strong>a</strong> centered at the origin. Show that \(P[{X}^{2}+{Y}^{2}\le {a}^{2}]=1-{e}^{\text{-}{a}^{2}\text{/}2{σ}^{2}}.\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>The double improper integral \(∫\text{-}\infty \infty \,∫\text{-}\infty \infty {e}^{\text{-}({x}^{2}+{y}^{2})\text{/}2}dy\,dx\) may be defined as the limit value of the double integrals \(\underset{{D}_{a}}{∬}{e}^{\text{-}({x}^{2}+{y}^{2})\text{/}2}dA\) over disks \({D}_{a}\) of radii <strong>a</strong> centered at the origin, as <strong>a</strong> increases without bound; that is, \(∫\text{-}\infty \infty \,∫\text{-}\infty \infty {e}^{\text{-}({x}^{2}+{y}^{2})\text{/}2}dy\,dx=\underset{a\to \infty }{\text{lim}}\underset{{D}_{a}}{∬}{e}^{\text{-}({x}^{2}+{y}^{2})\text{/}2}dA.\)</p>
+<ul class="tight"><li>Use polar coordinates to show that \(∫\text{-}\infty \infty \,∫\text{-}\infty \infty {e}^{\text{-}({x}^{2}+{y}^{2})\text{/}2}dy\,dx=2\pi .\)</li><li>Show that \(∫\text{-}\infty \infty {e}^{\text{-}{x}^{2}\text{/}2}dx=\sqrt{2\pi },\) by using the relation \(∫\text{-}\infty \infty \,∫\text{-}\infty \infty {e}^{\text{-}({x}^{2}+{y}^{2})\text{/}2}dy\,dx=(∫\text{-}\infty \infty {e}^{\text{-}{x}^{2}\text{/}2}dx)(∫\text{-}\infty \infty {e}^{\text{-}{y}^{2}\text{/}2}dy).\)</li></ul>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>polar rectangle</dt><dd>the region enclosed between the circles \(r=a\) and \(r=b\) and the angles \(θ=α\) and \(θ=β;\) it is described as \(R=\{(r,θ)|a\le r\le b,α\le θ\le β\}\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

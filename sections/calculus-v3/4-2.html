@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limits and Continuity · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Limits and Continuity</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 4.2</span>Limits and Continuity</h1>
+<p>We have now examined functions of more than one variable and seen how to graph them. In this section, we see how to take the limit of a function of more than one variable, and what it means for a function of more than one variable to be continuous at a point in its domain. It turns out these concepts have aspects that just don’t occur with functions of one variable.</p>
+<h2 id="limit-of-a-function-of-two-variables">Limit of a Function of Two Variables</h2>
+<p>Recall from The Limit of a Function the definition of a limit of a function of one variable:</p>
+<p>Let \(f(x)\) be defined for all \(x\ne a\) in an open interval containing \(a.\) Let \(L\) be a real number. Then</p>
+<p>\[\underset{x\to a}{\text{lim}}f(x)=L\]</p>
+<p>if for every \(ε&gt;0,\) there exists a \(δ&gt;0,\) such that if \(0&lt;|x-a|&lt;δ\) for all \(x\) in the domain of \(f,\) then</p>
+<p>\[|f(x)-L|&lt;ε.\]</p>
+<p>Before we can adapt this definition to define a limit of a function of two variables, we first need to see how to extend the idea of an open interval in one variable to an open interval in two variables.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Consider a point \((a,b)\in {ℝ}^{2}.\) A <strong>\(δ\) disk</strong> centered at point \((a,b)\) is defined to be an open disk of radius \(δ\) centered at point \((a,b)\) —that is,</p>
+<p>\[\{(x,y)\in {ℝ}^{2}|{(x-a)}^{2}+{(y-b)}^{2}&lt;{δ}^{2}\}\]</p>
+<p>as shown in the following graph.</p>
+</div>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_001.jpg" alt="On the xy plane, the point (2, 1) is shown, which is the center of a circle of radius δ." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — A \(δ\) disk centered around the point \((2,1).\)</figcaption></figure>
+<p>The idea of a \(δ\) disk appears in the definition of the limit of a function of two variables. If \(δ\) is small, then all the points \((x,y)\) in the \(δ\) disk are close to \((a,b).\) This is completely analogous to \(x\) being close to \(a\) in the definition of a limit of a function of one variable. In one dimension, we express this restriction as</p>
+<p>\[a-δ&lt;x&lt;a+δ.\]</p>
+<p>In more than one dimension, we use a \(δ\) disk.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(f\) be a function of two variables, \(x\) and \(y.\) The limit of \(f(x,y)\) as \((x,y)\) approaches \((a,b)\) is \(L,\) written</p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)=L\]</p>
+<p>if for each \(ε&gt;0\) there exists a small enough \(δ&gt;0\) such that for all points \((x,y)\) in a \(δ\) disk around \((a,b),\) except possibly for \((a,b)\) itself, the value of \(f(x,y)\) is no more than \(ε\) away from \(L\) (<a href="#fig2">Figure 2</a>). Using symbols, we write the following: For any \(ε&gt;0,\) there exists a number \(δ&gt;0\) such that</p>
+<p>\[|f(x,y)-L|&lt;ε\,\text{whenever}\,0&lt;\sqrt{{(x-a)}^{2}+{(y-b)}^{2}}&lt;δ.\]</p>
+</div>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_002.jpg" alt="In xyz space, a function is drawn with point L. This point L is the center of a circle of radius ॉ, with points L ± ॉ marked. On the xy plane, there is a point (a, b) drawn with a circle of radius δ around it. This is denoted the δ-disk. There are dashed lines up from the δ-disk to make a disk on the function, which is called the image of delta disk. Then there are dashed lines from this disk to the circle around the point L, which is called the ॉ-neighborhood of L." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The limit of a function involving two variables requires that \(f(x,y)\) be within \(ε\) of \(L\) whenever \((x,y)\) is within \(δ\) of \((a,b).\) The smaller the value of \(ε,\) the smaller the value of \(δ.\)</figcaption></figure>
+<p>Proving that a limit exists using the definition of a <strong>limit of a function of two variables</strong> can be challenging. Instead, we use the following theorem, which gives us shortcuts to finding limits. The formulas in this theorem are an extension of the formulas in the limit laws theorem in The Limit Laws.</p>
+<div class="card definition"><span class="chip">Limit laws for functions of two variables</span><p>Let \(f(x,y)\) and \(g(x,y)\) be defined for all \((x,y)\ne (a,b)\) in a neighborhood around \((a,b),\) and assume the neighborhood is contained completely inside the domain of \(f.\) Assume that \(L\) and \(M\) are real numbers such that \(\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)=L\) and \(\underset{(x,y)\to (a,b)}{\text{lim}}g(x,y)=M,\) and let \(c\) be a constant. Then each of the following statements holds:</p>
+<p><strong>Constant Law:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}c=c\]</p>
+<p><strong>Identity Laws:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}x=a\]</p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}y=b\]</p>
+<p><strong>Sum Law:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}(f(x,y)+g(x,y))=L+M\]</p>
+<p><strong>Difference Law:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}(f(x,y)-g(x,y))=L-M\]</p>
+<p><strong>Constant Multiple Law:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}(cf(x,y))=cL\]</p>
+<p><strong>Product Law:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}(f(x,y)g(x,y))=LM\]</p>
+<p><strong>Quotient Law:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}\frac{f(x,y)}{g(x,y)}=\frac{L}{M}\,\text{for}\,M\ne 0\]</p>
+<p><strong>Power Law:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}{(f(x,y))}^{n}={L}^{n}\]</p>
+<p>for any positive integer \(n.\)</p>
+<p><strong>Root Law:</strong></p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}\sqrt[n]{f(x,y)}=\sqrt[n]{L}\]</p>
+<p>for all \(L\) if \(n\) is odd and positive, and for \(L\ge 0\) if \(n\) is even and positive provided that \(f(x,y)\ge 0\) for all \((x,y)\ne (a,b)\) in neighborhood of \((a,b)\) .</p>
+</div>
+<p>The proofs of these properties are similar to those for the limits of functions of one variable. We can apply these laws to finding limits of various functions.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find each of the following limits:</p>
+<ul class="tight"><li>\(\underset{(x,y)\to (2,-1)}{\text{lim}}({x}^{2}-2xy+3{y}^{2}-4x+3y-6)\)</li><li>\(\underset{(x,y)\to (2,-1)}{\text{lim}}\frac{2x+3y}{4x-3y}\)</li></ul>
+<p class="sol-hint">Break the limit apart term by term using the sum, difference, and constant multiple laws, then finish with the identity and power laws.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>First use the sum and difference laws to separate the terms:<br> <br> Next, use the constant multiple law on the second, third, fourth, and fifth limits:<br> <br> Now, use the power law on the first and third limits, and the product law on the second limit:<br> <br> Last, use the identity laws on the first six limits and the constant law on the last limit:<br> \(\begin{array}{ll}\underset{(x,y)\to (2,-1)}{\text{lim}}({x}^{2}-2xy+3{y}^{2}-4x+3y-6) &amp; ={(2)}^{2}-2(2)(-1)+3{(-1)}^{2}-4(2)+3(-1)-6 \\ &amp; =-6.\end{array}\)<p>\[\begin{array}{l} \\ \underset{(x,y)\to (2,-1)}{\text{lim}}({x}^{2}-2xy+3{y}^{2}-4x+3y-6) \\ =(\underset{(x,y)\to (2,-1)}{\text{lim}}{x}^{2})-(\underset{(x,y)\to (2,-1)}{\text{lim}}2xy)+(\underset{(x,y)\to (2,-1)}{\text{lim}}3{y}^{2})-(\underset{(x,y)\to (2,-1)}{\text{lim}}4x) \\ \,+(\underset{(x,y)\to (2,-1)}{\text{lim}}3y)-(\underset{(x,y)\to (2,-1)}{\text{lim}}6).\end{array}\]</p>
+<p>\[\begin{array}{l} \\ \\ =(\underset{(x,y)\to (2,-1)}{\text{lim}}{x}^{2})-2(\underset{(x,y)\to (2,-1)}{\text{lim}}xy)+3(\underset{(x,y)\to (2,-1)}{\text{lim}}{y}^{2})-4(\underset{(x,y)\to (2,-1)}{\text{lim}}x) \\ \,+3(\underset{(x,y)\to (2,-1)}{\text{lim}}y)-\underset{(x,y)\to (2,-1)}{\text{lim}}6.\end{array}\]</p>
+<p>\[\begin{array}{l} \\ \\ \\ ={(\underset{(x,y)\to (2,-1)}{\text{lim}}x)}^{2}-2(\underset{(x,y)\to (2,-1)}{\text{lim}}x)(\underset{(x,y)\to (2,-1)}{\text{lim}}y)+3{(\underset{(x,y)\to (2,-1)}{\text{lim}}y)}^{2} \\ \,-4(\underset{(x,y)\to (2,-1)}{\text{lim}}x)+3(\underset{(x,y)\to (2,-1)}{\text{lim}}y)-\underset{(x,y)\to (2,-1)}{\text{lim}}6.\end{array}\]</p>
+</li><li>Before applying the quotient law, we need to verify that the limit of the denominator is nonzero. Using the difference law, constant multiple law, and identity law,<br> <br> Since the limit of the denominator is nonzero, the quotient law applies. We now calculate the limit of the numerator using the difference law, constant multiple law, and identity law:<br> <br> Therefore, according to the quotient law we have<br><p>\[\begin{array}{ll}\underset{(x,y)\to (2,-1)}{\text{lim}}(4x-3y) &amp; =\underset{(x,y)\to (2,-1)}{\text{lim}}4x-\underset{(x,y)\to (2,-1)}{\text{lim}}3y \\ &amp; =4(\underset{(x,y)\to (2,-1)}{\text{lim}}x)-3(\underset{(x,y)\to (2,-1)}{\text{lim}}y) \\ &amp; =4(2)-3(-1)=11.\end{array}\]</p>
+<p>\[\begin{array}{ll}\underset{(x,y)\to (2,-1)}{\text{lim}}(2x+3y) &amp; =\underset{(x,y)\to (2,-1)}{\text{lim}}2x+\underset{(x,y)\to (2,-1)}{\text{lim}}3y \\ &amp; =2(\underset{(x,y)\to (2,-1)}{\text{lim}}x)+3(\underset{(x,y)\to (2,-1)}{\text{lim}}y) \\ &amp; =2(2)+3(-1) \\ &amp; =1.\end{array}\]</p>
+<p>\[\underset{(x,y)\to (2,-1)}{\text{lim}}\frac{2x+3y}{4x-3y}=\frac{\underset{(x,y)\to (2,-1)}{\text{lim}}(2x+3y)}{\underset{(x,y)\to (2,-1)}{\text{lim}}(4x-3y)}=\frac{1}{11}.\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Evaluate the following limit:</p>
+<p>\[\underset{(x,y)\to (5,-2)}{\text{lim}}\sqrt[3]{\frac{{x}^{2}-y}{{y}^{2}+x-1}}.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\underset{(x,y)\to (5,-2)}{\text{lim}}\sqrt[3]{\frac{{x}^{2}-y}{{y}^{2}+x-1}}=\frac{3}{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Since we are taking the limit of a function of two variables, the point \((a,b)\) is in \({ℝ}^{2},\) and it is possible to approach this point from an infinite number of directions. Sometimes when calculating a limit, the answer varies depending on the path taken toward \((a,b).\) If this is the case, then the limit fails to exist. In other words, the limit must be unique, regardless of path taken.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Show that neither of the following limits exist:</p>
+<ul class="tight"><li>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{2xy}{3{x}^{2}+{y}^{2}}\)</li><li>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4x{y}^{2}}{{x}^{2}+3{y}^{4}}\)</li></ul>
+<p class="sol-hint">Substitute in a couple of different straight-line (or curved) paths through the origin, like \(y=0\) and \(y=x,\) and compare the resulting values.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>The domain of the function \(f(x,y)=\frac{2xy}{3{x}^{2}+{y}^{2}}\) consists of all points in the \(xy\text{-plane}\) except for the point \((0,0)\) (<a href="#fig3">Figure 3</a>). To show that the limit does not exist as \((x,y)\) approaches \((0,0),\) we note that it is impossible to satisfy the definition of a limit of a function of two variables because of the fact that the function takes different values along different lines passing through point \((0,0).\) First, consider the line \(y=0\) in the \(xy\text{-plane.}\) Substituting \(y=0\) into \(f(x,y)\) gives<br> <br> for any value of \(x.\) Therefore the value of \(f\) remains constant for any point on the \(x\text{-axis,}\) and as \(y\) approaches zero, the function remains fixed at zero.<br> Next, consider the line \(y=x.\) Substituting \(y=x\) into \(f(x,y)\) gives<br> <br> This is true for any point on the line \(y=x.\) If we let \(x\) approach zero while staying on this line, the value of the function remains fixed at \(\frac{1}{2},\) regardless of how small \(x\) is.<br> Choose a value for \(ε\) that is less than \(1\text{/}2\) —say, \(1\text{/}4.\) Then, no matter how small a \(δ\) disk we draw around \((0,0),\) the values of \(f(x,y)\) for points inside that \(δ\) disk will include both \(0\) and \(\frac{1}{2}.\) Therefore, the definition of limit at a point is never satisfied and the limit fails to exist.<br> <br> In a similar fashion to a., we can approach the origin along any straight line passing through the origin. If we try the \(x\text{-axis}\) (i.e., \(y=0),\) then the function remains fixed at zero. The same is true for the \(y\text{-axis.}\) Suppose we approach the origin along a straight line of slope \(k.\) The equation of this line is \(y=kx.\) Then the limit becomes<br> <br> regardless of the value of \(k.\) It would seem that the limit is equal to zero. What if we chose a curve passing through the origin instead? For example, we can consider the parabola given by the equation \(x={y}^{2}.\) Substituting \({y}^{2}\) in place of \(x\) in \(f(x,y)\) gives<br> <br> By the same logic in a., it is impossible to find a \(δ\) disk around the origin that satisfies the definition of the limit for any value of \(ε&lt;1.\) Therefore, \(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4x{y}^{2}}{{x}^{2}+3{y}^{4}}\) does not exist.<p>\[f(x,0)=\frac{2x(0)}{3{x}^{2}+{0}^{2}}=0\]</p>
+<p>\[f(x,x)=\frac{2x(x)}{3{x}^{2}+{x}^{2}}=\frac{2{x}^{2}}{4{x}^{2}}=\frac{1}{2}.\]</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_003.jpg" alt="In xyz space, the function f(x, y) = 2xy/(3x2 + y2) is shown, which is a slightly twisted plane, with values of 0 along the line y = 0 and values of ½ along the line y = x." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Graph of the function \(f(x,y)=(2xy)\text{/}(3{x}^{2}+{y}^{2}).\) Along the line \(y=0,\) the function is equal to zero; along the line \(y=x,\) the function is equal to \(\frac{1}{2}.\)</figcaption></figure>
+<p>\[\begin{array}{ll}\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4x{y}^{2}}{{x}^{2}+3{y}^{4}} &amp; =\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4x{(kx)}^{2}}{{x}^{2}+3{(kx)}^{4}} \\ &amp; =\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4{k}^{2}{x}^{3}}{{x}^{2}+3{k}^{4}{x}^{4}} \\ &amp; =\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4{k}^{2}x}{1+3{k}^{4}{x}^{2}} \\ &amp; =\frac{\underset{(x,y)\to (0,0)}{\text{lim}}(4{k}^{2}x)}{\underset{(x,y)\to (0,0)}{\text{lim}}(1+3{k}^{4}{x}^{2})} \\ &amp; =0\end{array}\]</p>
+<p>\[\begin{array}{ll}\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4x{y}^{2}}{{x}^{2}+3{y}^{4}} &amp; =\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4({y}^{2}){y}^{2}}{{({y}^{2})}^{2}+3{y}^{4}} \\ &amp; =\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4{y}^{4}}{{y}^{4}+3{y}^{4}} \\ &amp; =\underset{(x,y)\to (0,0)}{\text{lim}}1 \\ &amp; =1.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Show that</p>
+<p>\[\underset{(x,y)\to (2,1)}{\text{lim}}\frac{(x-2)(y-1)}{{(x-2)}^{2}+{(y-1)}^{2}}\]</p>
+<p>does not exist.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>If \(y=k(x-2)+1,\) then \(\underset{(x,y)\to (2,1)}{\text{lim}}\frac{(x-2)(y-1)}{{(x-2)}^{2}+{(y-1)}^{2}}=\frac{k}{1+{k}^{2}}.\) Since the answer depends on \(k,\) the limit fails to exist.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="interior-points-and-boundary-points">Interior Points and Boundary Points</h2>
+<p>To study continuity and differentiability of a function of two or more variables, we first need to learn some new terminology.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let <strong>S</strong> be a subset of \({ℝ}^{2}\) (<a href="#fig4">Figure 4</a>).</p>
+<ul class="tight"><li>A point \({P}_{0}\) is called an <strong>interior point</strong> of \(S\) if there is a \(δ\) disk centered around \({P}_{0}\) contained completely in \(S.\)</li><li>A point \({P}_{0}\) is called a <strong>boundary point</strong> of \(S\) if every \(δ\) disk centered around \({P}_{0}\) contains points both inside and outside \(S.\)</li></ul>
+</div>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_004.jpg" alt="On the xy plane, a closed shape is drawn. There is a point (–1, 1) drawn on the inside of the shape, and there is a point (2, 3) drawn on the boundary. Both of these points are the centers of small circles." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — In the set \(S\) shown, \((-1,1)\) is an interior point and \((2,3)\) is a boundary point.</figcaption></figure>
+<div class="card definition"><span class="chip">Definition</span><p>Let <strong>S</strong> be a subset of \({ℝ}^{2}\) (<a href="#fig4">Figure 4</a>).</p>
+<ul class="tight"><li>\(S\) is called an <strong>open set</strong> if every point of \(S\) is an interior point.</li><li>\(S\) is called a <strong>closed set</strong> if it contains all its boundary points.</li></ul>
+</div>
+<p>An example of an open set is a \(δ\) disk. If we include the boundary of the disk, then it becomes a closed set. A set that contains some, but not all, of its boundary points is neither open nor closed. For example if we include half the boundary of a \(δ\) disk but not the other half, then the set is neither open nor closed.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let <strong>S</strong> be a subset of \({ℝ}^{2}\) (<a href="#fig4">Figure 4</a>).</p>
+<ul class="tight"><li>An open set \(S\) is a <strong>connected set</strong> if it cannot be represented as the union of two or more disjoint, nonempty open subsets.</li><li>A set \(S\) is a <strong>region</strong> if it is open, connected, and nonempty.</li></ul>
+</div>
+<p>The definition of a limit of a function of two variables requires the \(δ\) disk to be contained inside the domain of the function. However, if we wish to find the limit of a function at a boundary point of the domain, the \(δ\,\text{disk}\) is not contained inside the domain. By definition, some of the points of the \(δ\,\text{disk}\) are inside the domain and some are outside. Therefore, we need only consider points that are inside both the \(δ\) disk and the domain of the function. This leads to the definition of the limit of a function at a boundary point.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(f\) be a function of two variables, \(x\) and \(y,\) and suppose \((a,b)\) is on the boundary of the domain of \(f.\) Then, the limit of \(f(x,y)\) as \((x,y)\) approaches \((a,b)\) is \(L,\) written</p>
+<p>\[\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)=L,\]</p>
+<p>if for any \(ε&gt;0,\) there exists a number \(δ&gt;0\) such that for any point \((x,y)\) inside the domain of \(f\) and within a suitably small distance positive \(δ\) of \((a,b),\) the value of \(f(x,y)\) is no more than \(ε\) away from \(L\) (<a href="#fig2">Figure 2</a>). Using symbols, we can write: For any \(ε&gt;0,\) there exists a number \(δ&gt;0\) such that</p>
+<p>\[|f(x,y)-L|&lt;ε\,\text{whenever}\,0&lt;\sqrt{{(x-a)}^{2}+{(y-b)}^{2}}&lt;δ.\]</p>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Prove \(\underset{(x,y)\to (4,3)}{\text{lim}}\sqrt{25-{x}^{2}-{y}^{2}}=0.\)</p>
+<p class="sol-hint">Note that \((4,3)\) sits on the boundary of the domain, then apply the limit laws (including the root law) directly to the expression under the radical.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The domain of the function \(f(x,y)=\sqrt{25-{x}^{2}-{y}^{2}}\) is \(\{(x,y)\in {ℝ}^{2}|{x}^{2}+{y}^{2}\le 25\},\) which is a circle of radius \(5\) centered at the origin, along with its interior as shown in the following graph.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_005.jpg" alt="A circle with radius 5 centered at the origin with its interior filled in." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — Domain of the function \(f(x,y)=\sqrt{25-{x}^{2}-{y}^{2}}.\)</figcaption></figure>
+<p>We can use the limit laws, which apply to limits at the boundary of domains as well as interior points:</p>
+<p>\[\begin{array}{ll}\underset{(x,y)\to (4,3)}{\text{lim}}\sqrt{25-{x}^{2}-{y}^{2}} &amp; =\sqrt{\underset{(x,y)\to (4,3)}{\text{lim}}(25-{x}^{2}-{y}^{2})} \\ &amp; =\sqrt{\underset{(x,y)\to (4,3)}{\text{lim}}25-\underset{(x,y)\to (4,3)}{\text{lim}}{x}^{2}-\underset{(x,y)\to (4,3)}{\text{lim}}{y}^{2}} \\ &amp; =\sqrt{25-{4}^{2}-{3}^{2}} \\ &amp; =0.\end{array}\]</p>
+<p>See the following graph.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_006.jpg" alt="The upper hemisphere in xyz space with radius 5 and center the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Graph of the function \(f(x,y)=\sqrt{25-{x}^{2}-{y}^{2}}.\)</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Evaluate the following limit:</p>
+<p>\[\underset{(x,y)\to (5,-2)}{\text{lim}}\sqrt{29-{x}^{2}-{y}^{2}}.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\underset{(x,y)\to (5,-2)}{\text{lim}}\sqrt{29-{x}^{2}-{y}^{2}}=0\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="continuity-of-functions-of-two-variables">Continuity of Functions of Two Variables</h2>
+<p>In Continuity, we defined the continuity of a function of one variable and saw how it relied on the limit of a function of one variable. In particular, three conditions are necessary for \(f(x)\) to be continuous at point \(x=a\text{:}\)</p>
+<ul class="tight"><li>\(f(a)\) exists.</li><li>\(\underset{x\to a}{\text{lim}}f(x)\) exists.</li><li>\(\underset{x\to a}{\text{lim}}f(x)=f(a).\)</li></ul>
+<p>These three conditions are necessary for continuity of a function of two variables as well.</p>
+<div class="card definition"><span class="chip">Definition</span><p>A function \(f(x,y)\) is continuous at a point \((a,b)\) in its domain if the following conditions are satisfied:</p>
+<ul class="tight"><li>\(f(a,b)\) exists.</li><li>\(\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)\) exists.</li><li>\(\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)=f(a,b).\)</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Show that the function \(f(x,y)=\frac{3x+2y}{x+y+1}\) is continuous at point \((5,-3).\)</p>
+<p class="sol-hint">Check the three continuity conditions in order: that \(f(5,-3)\) exists, that the limit exists there, and that the two values agree.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>There are three conditions to be satisfied, per the definition of continuity. In this example, \(a=5\) and \(b=-3.\)</p>
+<ul class="tight"><li>\(f(a,b)\) exists. This is true because the domain of the function \(f\) consists of those ordered pairs for which the denominator is nonzero (i.e., \(x+y+1\ne 0).\) Point \((5,-3)\) satisfies this condition. Furthermore,<br><p>\[f(a,b)=f(5,-3)=\frac{3(5)+2(-3)}{5+(-3)+1}=\frac{15-6}{2+1}=3.\]</p>
+</li><li>\(\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)\) exists. This is also true:<br><p>\[\begin{array}{ll}\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y) &amp; =\underset{(x,y)\to (5,-3)}{\text{lim}}\frac{3x+2y}{x+y+1} \\ &amp; =\frac{\underset{(x,y)\to (5,-3)}{\text{lim}}(3x+2y)}{\underset{(x,y)\to (5,-3)}{\text{lim}}(x+y+1)} \\ &amp; =\frac{15-6}{5-3+1} \\ &amp; =3.\end{array}\]</p>
+</li><li>\(\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)=f(a,b).\) This is true because we have just shown that both sides of this equation equal three.</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Show that the function \(f(x,y)=\sqrt{26-2{x}^{2}-{y}^{2}}\) is continuous at point \((2,-3).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>The domain of \(f\) contains the ordered pair \((2,-3)\) because \(f(a,b)=f(2,-3)=\sqrt{16-2{(2)}^{2}-{(-3)}^{2}}=3\)</li><li>\(\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)=3\)</li><li>\(\underset{(x,y)\to (a,b)}{\text{lim}}f(x,y)=f(a,b)=3\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Continuity of a function of any number of variables can also be defined in terms of delta and epsilon. A function of two variables is continuous at a point \(({x}_{0},{y}_{0})\) in its domain if for every \(ε&gt;0\) there exists a \(δ&gt;0\) such that, whenever \(\sqrt{{(x-{x}_{0})}^{2}+{(y-{y}_{0})}^{2}}&lt;δ\) it is true, \(|f(x,y)-f(a,b)|&lt;ε.\) This definition can be combined with the formal definition (that is, the <strong>epsilon–delta definition</strong>) of continuity of a function of one variable to prove the following theorems:</p>
+<div class="card definition"><span class="chip">The Sum of Continuous Functions Is Continuous</span><p>If \(f(x,y)\) is continuous at \(({x}_{0},{y}_{0}),\) and \(g(x,y)\) is continuous at \(({x}_{0},{y}_{0}),\) then \(f(x,y)+g(x,y)\) is continuous at \(({x}_{0},{y}_{0}).\)</p>
+</div>
+<div class="card definition"><span class="chip">The Product of Continuous Functions Is Continuous</span><p>If \(g(x)\) is continuous at \({x}_{0}\) and \(h(y)\) is continuous at \({y}_{0},\) then \(f(x,y)=g(x)h(y)\) is continuous at \(({x}_{0},{y}_{0}).\)</p>
+</div>
+<div class="card definition"><span class="chip">The Composition of Continuous Functions Is Continuous</span><p>Let \(g\) be a function of two variables from a domain \(D⊆{ℝ}^{2}\) to a range \(R⊆ℝ.\) Suppose \(g\) is continuous at some point \(({x}_{0},{y}_{0})\in D\) and define \({z}_{0}=g({x}_{0},{y}_{0}).\) Let \(f\) be a function that maps \(ℝ\) to \(ℝ\) such that \({z}_{0}\) is in the domain of \(f.\) Last, assume \(f\) is continuous at \({z}_{0}.\) Then \(f∘g\) is continuous at \(({x}_{0},{y}_{0})\) as shown in the following figure.</p>
+</div>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_007.jpg" alt="A shape is shown labeled the domain of g with point (x, y) inside of it. From the domain of g there is an arrow marked g pointing to the range of g, which is a straight line with point z on it. The range of g is also marked the domain of f. Then there is another arrow marked f from this shape to a line marked range of f." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — The composition of two continuous functions is continuous.</figcaption></figure>
+<p>Let’s now use the previous theorems to show continuity of functions in the following examples.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Show that the functions \(f(x,y)=4{x}^{3}{y}^{2}\) and \(g(x,y)=\text{cos}(4{x}^{3}{y}^{2})\) are continuous everywhere.</p>
+<p class="sol-hint">Break \(f\) into the product of the single-variable polynomials \(4{x}^{3}\) and \({y}^{2},\) then apply the product-of-continuous-functions theorem, and the composition theorem for \(g.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The polynomials \(g(x)=4{x}^{3}\) and \(h(y)={y}^{2}\) are continuous at every real number, and therefore by the product of continuous functions theorem, \(f(x,y)=4{x}^{3}{y}^{2}\) is continuous at every point \((x,y)\) in the \(xy\text{-plane.}\) Since \(f(x,y)=4{x}^{3}{y}^{2}\) is continuous at every point \((x,y)\) in the \(xy\text{-plane}\) and \(g(x)=\text{cos}\,x\) is continuous at every real number \(x,\) the continuity of the composition of functions tells us that \(g(x,y)=\text{cos}(4{x}^{3}{y}^{2})\) is continuous at every point \((x,y)\) in the \(xy\text{-plane.}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Show that the functions \(f(x,y)=2{x}^{2}{y}^{3}+3\) and \(g(x,y)={(2{x}^{2}{y}^{3}+3)}^{4}\) are continuous everywhere.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The polynomials \(g(x)=2{x}^{2}\) and \(h(y)={y}^{3}\) are continuous at every real number; therefore, by the product of continuous functions theorem, \(f(x,y)=2{x}^{2}{y}^{3}\) is continuous at every point \((x,y)\) in the \(xy\text{-plane.}\) Furthermore, any constant function is continuous everywhere, so \(g(x,y)=3\) is continuous at every point \((x,y)\) in the \(xy\text{-plane.}\) Therefore, \(f(x,y)=2{x}^{2}{y}^{3}+3\) is continuous at every point \((x,y)\) in the \(xy\text{-plane.}\) Last, \(h(x)={x}^{4}\) is continuous at every real number \(x,\) so by the continuity of composite functions theorem \(g(x,y)={(2{x}^{2}{y}^{3}+3)}^{4}\) is continuous at every point \((x,y)\) in the \(xy\text{-plane.}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="functions-of-three-or-more-variables">Functions of Three or More Variables</h2>
+<p>The limit of a function of three or more variables occurs readily in applications. For example, suppose we have a function \(f(x,y,z)\) that gives the temperature at a physical location \((x,y,z)\) in three dimensions. Or perhaps a function \(g(x,y,z,t)\) can indicate air pressure at a location \((x,y,z)\) at time \(t.\) How can we take a limit at a point in \({ℝ}^{3}?\) What does it mean to be continuous at a point in four dimensions?</p>
+<p>The answers to these questions rely on extending the concept of a \(δ\) disk into more than two dimensions. Then, the ideas of the limit of a function of three or more variables and the continuity of a function of three or more variables are very similar to the definitions given earlier for a function of two variables.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let \(({x}_{0},{y}_{0},{z}_{0})\) be a point in \({ℝ}^{3}.\) Then, a <strong>\(δ\) ball</strong> in three dimensions consists of all points in \({ℝ}^{3}\) lying at a distance of less than \(δ\) from \(({x}_{0},{y}_{0},{z}_{0})\) —that is,</p>
+<p>\[\{(x,y,z)\in {ℝ}^{3}|\sqrt{{(x-{x}_{0})}^{2}+{(y-{y}_{0})}^{2}+{(z-{z}_{0})}^{2}}&lt;δ\}.\]</p>
+<p>To define a \(δ\) ball in higher dimensions, add additional terms under the radical to correspond to each additional dimension. For example, given a point \(P=({w}_{0},{x}_{0},{y}_{0},{z}_{0})\) in \({ℝ}^{4},\) a \(δ\) ball around \(P\) can be described by</p>
+<p>\[\{(w,x,y,z)\in {ℝ}^{4}|\sqrt{{(w-{w}_{0})}^{2}+{(x-{x}_{0})}^{2}+{(y-{y}_{0})}^{2}+{(z-{z}_{0})}^{2}}&lt;δ\}.\]</p>
+</div>
+<p>To show that a limit of a function of three variables exists at a point \(({x}_{0},{y}_{0},{z}_{0}),\) it suffices to show that for any point in a \(δ\) ball centered at \(({x}_{0},{y}_{0},{z}_{0}),\) the value of the function at that point is arbitrarily close to a fixed value (the limit value). All the limit laws for functions of two variables hold for functions of more than two variables as well.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find \(\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}\frac{{x}^{2}y-3z}{2x+5y-z}.\)</p>
+<p class="sol-hint">Before applying the quotient law, first confirm the limit of the denominator is nonzero.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Before we can apply the quotient law, we need to verify that the limit of the denominator is nonzero. Using the difference law, the identity law, and the constant law,</p>
+<p>\[\begin{array}{ll}\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}(2x+5y-z) &amp; =2(\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}x)+5(\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}y)-(\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}z) \\ &amp; =2(4)+5(1)-(-3) \\ &amp; =16.\end{array}\]</p>
+<p>Since this is nonzero, we next find the limit of the numerator. Using the product law, difference law, constant multiple law, and identity law,</p>
+<p>\[\begin{array}{ll}\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}({x}^{2}y-3z) &amp; ={(\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}x)}^{2}(\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}y)-3\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}z \\ &amp; =({4}^{2})(1)-3(-3) \\ &amp; =16+9 \\ &amp; =25.\end{array}\]</p>
+<p>Last, applying the quotient law:</p>
+<p>\[\begin{array}{ll}\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}\frac{{x}^{2}y-3z}{2x+5y-z} &amp; =\frac{\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}({x}^{2}y-3z)}{\underset{(x,y,z)\to (4,1,-3)}{\text{lim}}(2x+5y-z)} \\ &amp; =\frac{25}{16}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Find \(\underset{(x,y,z)\to (4,-1,3)}{\text{lim}}\sqrt{13-{x}^{2}-2{y}^{2}+{z}^{2}}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\underset{(x,y,z)\to (4,-1,3)}{\text{lim}}\sqrt{13-{x}^{2}-2{y}^{2}+{z}^{2}}=2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>To study limits and continuity for functions of two variables, we use a \(δ\) disk centered around a given point.</li><li>A function of several variables has a limit if for any point in a \(δ\) ball centered at a point \(P,\) the value of the function at that point is arbitrarily close to a fixed value (the limit value). (See <a href="#example6">Example 6</a>.)</li><li>The limit laws established for a function of one variable have natural extensions to functions of more than one variable. (See <a href="#example1">Example 1</a> and <a href="#example3">Example 3</a>.)</li><li>A function of two variables is continuous at a point if the limit exists at that point, the function exists at that point, and the limit and function are equal at that point. (See <a href="#example4">Example 4</a> and <a href="#example5">Example 5</a>.)</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>For the following exercises, find the limit of the function.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(\underset{(x,y)\to (1,2)}{\text{lim}}x\)</p>
+</div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(\underset{(x,y)\to (1,2)}{\text{lim}}\frac{5{x}^{2}y}{{x}^{2}+{y}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2.0</p>
+</div></div></div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Show that the limit \(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{5{x}^{2}y}{{x}^{2}+{y}^{2}}\) exists and is the same along the paths: \(y\text{-axis}\) and \(x\text{-axis,}\) and along \(y=x.\)</p>
+</div></div>
+<p>For the following exercises, evaluate the limits at the indicated values of \(x\,\text{and}\,y.\) If the limit does not exist, state this and explain why the limit does not exist.</p>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{4{x}^{2}+10{y}^{2}+4}{4{x}^{2}-10{y}^{2}+6}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(\underset{(x,y)\to (11,13)}{\text{lim}}\sqrt{\frac{1}{xy}}\)</p>
+</div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\underset{(x,y)\to (0,1)}{\text{lim}}\frac{{y}^{2}\text{sin}\,x}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\text{sin}(\frac{{x}^{8}+{y}^{7}}{x-y+10})\)</p>
+</div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\underset{(x,y)\to (\pi \text{/}4,1)}{\text{lim}}\frac{y\,\text{tan}\,x}{y+1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\underset{(x,y)\to (0,\pi \text{/}4)}{\text{lim}}\frac{\text{sec}\,x+2}{3x-\text{tan}\,y}\)</p>
+</div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\underset{(x,y)\to (2,5)}{\text{lim}}(\frac{1}{x}-\frac{5}{y})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\underset{(x,y)\to (4,4)}{\text{lim}}x\,\text{ln}\,y\)</p>
+</div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\underset{(x,y)\to (4,4)}{\text{lim}}{e}^{\text{-}{x}^{2}-{y}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({e}^{-32}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\sqrt{9-{x}^{2}-{y}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\underset{(x,y)\to (1,2)}{\text{lim}}({x}^{2}{y}^{3}-{x}^{3}{y}^{2}+3x+2y)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(11.0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\underset{(x,y)\to (\pi ,\pi )}{\text{lim}}x\,\text{sin}(\frac{x+y}{4})\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{xy+1}{{x}^{2}+{y}^{2}+1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1.0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{{x}^{2}+{y}^{2}}{\sqrt{{x}^{2}+{y}^{2}+1}-1}\)</p>
+</div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\text{ln}({x}^{2}+{y}^{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The limit does not exist because when \(x\) and \(y\) both approach zero, the function approaches \(\text{ln}\,0,\) which is undefined (approaches negative infinity).</p>
+</div></div></div></div>
+<p>For the following exercises, complete the statement.</p>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>A point \(({x}_{0},{y}_{0})\) in a plane region \(R\) is an interior point of \(R\) if _________________.</p>
+</div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>A point \(({x}_{0},{y}_{0})\) in a plane region \(R\) is called a boundary point of \(R\) if ___________.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>every open disk centered at \(({x}_{0},{y}_{0})\) contains points inside \(R\) and outside \(R\)</p>
+</div></div></div></div>
+<p>For the following exercises, use algebraic techniques to evaluate the limit.</p>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\underset{(x,y)\to (2,1)}{\text{lim}}\frac{x-y-1}{\sqrt{x-y}-1}\)</p>
+</div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{{x}^{4}-4{y}^{4}}{{x}^{2}+2{y}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0.0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{{x}^{3}-{y}^{3}}{x-y}\)</p>
+</div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{{x}^{2}-xy}{\sqrt{x}-\sqrt{y}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0.00\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the limits of the functions of three variables.</p>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(\underset{(x,y,z)\to (1,2,3)}{\text{lim}}\frac{x{z}^{2}-{y}^{2}z}{xyz-1}\)</p>
+</div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\underset{(x,y,z)\to (0,0,0)}{\text{lim}}\frac{{x}^{2}-{y}^{2}-{z}^{2}}{{x}^{2}+{y}^{2}-{z}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The limit does not exist.</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the limit of the function by determining the value the function approaches along the indicated paths. If the limit does not exist, explain why not.</p>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{xy+{y}^{3}}{{x}^{2}+{y}^{2}}\)</p>
+<ul class="tight"><li>Along the \(x\text{-axis}\) \((y=0)\)</li><li>Along the \(y\text{-axis}\) \((x=0)\)</li><li>Along the path \(y=2x\)</li></ul>
+</div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Evaluate \(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{xy+{y}^{3}}{{x}^{2}+{y}^{2}}\) using the results of previous problem.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The limit does not exist. The function approaches two different values along different paths.</p>
+</div></div></div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{{x}^{2}y}{{x}^{4}+{y}^{2}}\)</p>
+<ul class="tight"><li>Along the <strong>x</strong>-axis \((y=0)\)</li><li>Along the <strong>y</strong>-axis \((x=0)\)</li><li>Along the path \(y={x}^{2}\)</li></ul>
+</div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>Evaluate \(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{{x}^{2}y}{{x}^{4}+{y}^{2}}\) using the results of previous problem.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The limit does not exist because the function approaches two different values along the paths.</p>
+</div></div></div></div>
+<p>Discuss the continuity of the following functions. Find the largest region in the \(xy\text{-plane}\) in which the following functions are continuous.</p>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(f(x,y)=\text{sin}(xy)\)</p>
+</div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(f(x,y)=\text{ln}(x+y)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function \(f\) is continuous in the region \(y&gt;\text{-}x.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(f(x,y)={e}^{3xy}\)</p>
+</div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(f(x,y)=\frac{1}{xy}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function \(f\) is continuous on the set \(R=\left(\left(x,y\right)|x\ne 0,y\ne 0\right)\)</p>
+</div></div></div></div>
+<p>For the following two exercises, determine the region in which the function is continuous. Explain your answer.</p>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(f(x,y)=\frac{{x}^{2}y}{{x}^{2}+{y}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(f(x,y)=\frac{\text{sin}({x}^{2}+{y}^{2})}{{x}^{2}+{y}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function is discontinuous at \((0,0)\) since \((0,0)\) is not in the domain.</p>
+</div></div></div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Determine whether \(f\left(x,y\right)\) is continuous at \(\left(0,0\right)\) . \(f(x,y)=\{\begin{array}{ll}\frac{{x}^{2}y}{{x}^{2}+{y}^{2}} &amp; \text{if}\,(x,y)\ne (0,0) \\ 0 &amp; \text{if}\,(x,y)=(0,0)\end{array}\}\)</p>
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Determine whether \(g(x,y)=\frac{{x}^{2}-{y}^{2}}{{x}^{2}+{y}^{2}}\) is continuous at \((0,0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function is discontinuous at \((0,0).\) The limit at \((0,0)\) fails to exist and \(g(0,0)\) does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Create a plot using graphing software to determine where the limit does not exist. Find where in the coordinate plane \(f(x,y)=\frac{1}{{x}^{2}-y}\) is continuous.</p>
+</div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Determine the region of the \(xy\text{-plane}\) in which the function \(g(x,y)=\text{arctan}(\frac{x{y}^{2}}{x+y})\) is continuous. Use technology to support your conclusion.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Since the function \(\text{arctan}\,x\) is continuous over \((\text{-}\infty ,\infty ),\) \(g(x,y)=\text{arctan}(\frac{x{y}^{2}}{x+y})\) is continuous where \(z=\frac{x{y}^{2}}{x+y}\) is continuous. The inner function \(z\) is continuous on all points of the \(xy\text{-plane}\) except where \(y=\text{-}x.\) Thus, \(g(x,y)=\text{arctan}(\frac{x{y}^{2}}{x+y})\) is continuous on all points of the coordinate plane <strong>except</strong> at points at which \(y=\text{-}x.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Determine the region of the \(xy\text{-plane}\) in which \(f(x,y)=\text{ln}({x}^{2}+{y}^{2}-1)\) is continuous. Use technology to support your conclusion. (<strong>Hint</strong>: Choose the range of values for \(x\,\text{and}\,y\) carefully!)</p>
+</div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>At what points in space is \(g(x,y,z)={x}^{2}+{y}^{2}-2{z}^{2}\) continuous?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>All points \(P(x,y,z)\) in space</p>
+</div></div></div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>At what points in space is \(g(x,y,z)=\frac{1}{{x}^{2}+{z}^{2}-1}\) continuous?</p>
+</div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Show that \(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{1}{{x}^{2}+{y}^{2}}\) does not exist at \((0,0)\) by plotting the graph of the function.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph increases without bound as \(x\,\text{and}\,y\) both approach zero.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_201.jpg" alt="On xyz space, there is a shape drawn that decreases to 0 as x and y increase or decrease but that increases greatly closer to the origin. It increases to such an extent that the graph is cut off above z = 10, which coincides with a circle of radius 0.6 around (0, 0, 10)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p><strong>[T]</strong> Evaluate \(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{\text{-}x{y}^{2}}{{x}^{2}+{y}^{4}}\) by plotting the function using a CAS. Determine analytically the limit along the path \(x={y}^{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p><strong>[T]</strong></p>
+<ul class="tight"><li>Use a CAS to draw a contour map of \(z=\sqrt{9-{x}^{2}-{y}^{2}}.\)</li><li>What is the name of the geometric shape of the level curves?</li><li>Give the general equation of the level curves.</li><li>What is the maximum value of \(z?\)</li><li>What is the domain of the function?</li><li>What is the range of the function?</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a.<br> <br> b. The level curves are circles centered at \((0,0)\) with radius \(9-c.\) c. \({x}^{2}+{y}^{2}=9-c\) d. \(z=3\) e. \(\{(x,y)\in {ℝ}^{2}|{x}^{2}+{y}^{2}\le 9\}\) f. \(\{z|0\le z\le 3\}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_14_02_203.jpg" alt="A series of five concentric circles, with radii 3, 2.75, 2.5, 2.2, and 1.75. The areas between the circles are colored, with the darkest color between the circles of radii 3 and 2.75." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p><strong>True or False</strong>: If we evaluate \(\underset{(x,y)\to (0,0)}{\text{lim}}f(x)\) along several paths and each time the limit is \(1,\) we can conclude that \(\underset{(x,y)\to (0,0)}{\text{lim}}f(x)=1.\)</p>
+</div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Use polar coordinates to find \(\underset{(x,y)\to (0,0)}{\text{lim}}\frac{\text{sin}\sqrt{{x}^{2}+{y}^{2}}}{\sqrt{{x}^{2}+{y}^{2}}}.\) You can also find the limit using L’Hôpital’s rule.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1.0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Use polar coordinates to find \(\underset{(x,y)\to (0,0)}{\text{lim}}\text{cos}({x}^{2}+{y}^{2}).\)</p>
+</div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Discuss the continuity of \(f(g(x,y))\) where \(f(t)=1\text{/}t\) and \(g(x,y)=2x-5y.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(g(x,y))\) is continuous at all points \((x,y)\) that are not on the line \(2x-5y=0.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Given \(f(x,y)={x}^{2}-4y,\) find \(\underset{h\to 0}{\text{lim}}\frac{f(x+h,y)-f(x,y)}{h}.\)</p>
+</div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Given \(f(x,y)={x}^{2}-4y,\) find \(\underset{h\to 0}{\text{lim}}\frac{f(1+h,y)-f(1,y)}{h}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2.0\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>boundary point</dt><dd>a point \({P}_{0}\) of \(R\) is a boundary point if every \(δ\) disk centered around \({P}_{0}\) contains points both inside and outside \(R\)</dd><dt>closed set</dt><dd>a set \(S\) that contains all its boundary points</dd><dt>connected set</dt><dd>an open set \(S\) that cannot be represented as the union of two or more disjoint, nonempty open subsets</dd><dt>\(δ\) disk</dt><dd>an open disk of radius \(δ\) centered at point \((a,b)\)</dd><dt>\(δ\) ball</dt><dd>all points in \({ℝ}^{3}\) lying at a distance of less than \(δ\) from \(({x}_{0},{y}_{0},{z}_{0})\)</dd><dt>interior point</dt><dd>a point \({P}_{0}\) of \(R\) is a boundary point if there is a \(δ\) disk centered around \({P}_{0}\) contained completely in \(R\)</dd><dt>open set</dt><dd>a set \(S\) that contains none of its boundary points</dd><dt>region</dt><dd>an open, connected, nonempty subset of \({ℝ}^{2}\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equations of Lines and Planes in Space · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Equations of Lines and Planes in Space</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 2.5</span>Equations of Lines and Planes in Space</h1>
+<p>By now, we are familiar with writing equations that describe a line in two dimensions. To write an equation for a line, we must know two points on the line, or we must know the direction of the line and at least one point through which the line passes. In two dimensions, we use the concept of slope to describe the orientation, or direction, of a line. In three dimensions, we describe the direction of a line using a vector parallel to the line. In this section, we examine how to use equations to describe lines and planes in space.</p>
+<h2 id="equations-for-a-line-in-space">Equations for a Line in Space</h2>
+<p>Let’s first explore what it means for two vectors to be parallel. Recall that parallel vectors must have the same or opposite directions. If two nonzero vectors, \(\text{u}\) and \(\text{v},\) are parallel, we claim there must be a scalar, \(k,\) such that \(\text{u}=k\text{v}.\) If \(\text{u}\) and \(\text{v}\) have the same direction, simply choose \(k=\frac{\Vert \text{u}\Vert }{\Vert \text{v}\Vert }.\) If \(\text{u}\) and \(\text{v}\) have opposite directions, choose \(k=-\frac{\Vert \text{u}\Vert }{\Vert \text{v}\Vert }.\) Note that the converse holds as well. If \(\text{u}=k\text{v}\) for some scalar \(\text{k},\) then either \(\text{u}\) and \(\text{v}\) have the same direction \((k&gt;0)\) or opposite directions \((k&lt;0),\) so \(\text{u}\) and \(\text{v}\) are parallel. Therefore, two nonzero vectors \(\text{u}\) and \(\text{v}\) are parallel if and only if \(\text{u}=k\text{v}\) for some scalar \(\text{k}.\) By convention, the zero vector \(0\) is considered to be parallel to all vectors.</p>
+<p>As in two dimensions, we can describe a line in space using a point on the line and the direction of the line, or a parallel vector, which we call the <strong>direction vector</strong> (<a href="#fig1">Figure 1</a>). Let \(L\) be a line in space passing through point \(P({x}_{0},{y}_{0},{z}_{0}).\) Let \(\text{v}=\langle a,b,c\rangle\) be a vector parallel to \(L.\) Then, for any point \(Q(x,y,z)\) on line \(L\) , we know that \(\overset{\to }{PQ}\) is parallel to \(\text{v}.\) Thus, as we just discussed, there is a scalar, \(t,\) such that \(\overset{\to }{PQ}=t\text{v},\) which gives</p>
+<p>\[\begin{array}{lll}\overset{\to }{PQ} &amp; = &amp; t\text{v} \\ \langle x-{x}_{0},y-{y}_{0},z-{z}_{0}\rangle &amp; = &amp; t\langle a,b,c\rangle \\ \langle x-{x}_{0},y-{y}_{0},z-{z}_{0}\rangle &amp; = &amp; \langle ta,tb,tc\rangle .\end{array}\]</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_001.jpg" alt="" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Vector <strong>v</strong> is the direction vector for \(\overset{\to }{PQ}.\)</figcaption></figure>
+<p>Using vector operations, we can rewrite (see original) as</p>
+<p>\[\begin{array}{lll}\langle x-{x}_{0},y-{y}_{0},z-{z}_{0}\rangle &amp; = &amp; \langle ta,tb,tc\rangle \\ \langle x,y,z\rangle -\langle {x}_{0},{y}_{0},{z}_{0}\rangle &amp; = &amp; t\langle a,b,c\rangle \\ \langle x,y,z\rangle &amp; = &amp; \langle {x}_{0},{y}_{0},{z}_{0}\rangle +t\langle a,b,c\rangle .\end{array}\]</p>
+<p>Setting \(\text{r}=\langle x,y,z\rangle\) and \({\text{r}}_{0}=\langle {x}_{0},{y}_{0},{z}_{0}\rangle ,\) we now have the <strong>vector equation of a line</strong>:</p>
+<p>\[\text{r}={\text{r}}_{0}+t\text{v}.\]</p>
+<p>Equating components, (see original) shows that the following equations are simultaneously true: \(x-{x}_{0}=ta,\) \(y-{y}_{0}=tb,\) and \(z-{z}_{0}=tc.\) If we solve each of these equations for the component variables \(x,y,\,\text{and}\,z,\) we get a set of equations in which each variable is defined in terms of the parameter <strong>t</strong> and that, together, describe the line. This set of three equations forms a set of <strong>parametric equations of a line</strong>:</p>
+<p>\[x={x}_{0}+ta\,y={y}_{0}+tb\,z={z}_{0}+tc.\]</p>
+<p>If we solve each of the equations for \(t\) assuming \(a,b,\,\text{and}\,c\) are nonzero, we get a different description of the same line:</p>
+<p>\[\frac{x-{x}_{0}}{a}=t\,\frac{y-{y}_{0}}{b}=t\,\frac{z-{z}_{0}}{c}=t.\]</p>
+<p>Because each expression equals <strong>t</strong>, they all have the same value. We can set them equal to each other to create <strong>symmetric equations of a line</strong>:</p>
+<p>\[\frac{x-{x}_{0}}{a}=\frac{y-{y}_{0}}{b}=\frac{z-{z}_{0}}{c}.\]</p>
+<p>We summarize the results in the following theorem.</p>
+<div class="card definition"><span class="chip">Parametric and Symmetric Equations of a Line</span><p>A line \(L\) parallel to vector \(\text{v}=\langle a,b,c\rangle\) and passing through point \(P({x}_{0},{y}_{0},{z}_{0})\) can be described by the following parametric equations:</p>
+<p>\[x={x}_{0}+ta,y={y}_{0}+tb,\,\text{and}\,z={z}_{0}+tc.\]</p>
+<p>If the constants \(a,b,\,\text{and}\,c\) are all nonzero, then \(L\) can be described by the symmetric equation of the line:</p>
+<p>\[\frac{x-{x}_{0}}{a}=\frac{y-{y}_{0}}{b}=\frac{z-{z}_{0}}{c}.\]</p>
+</div>
+<p>The parametric equations of a line are not unique. Using a different parallel vector or a different point on the line leads to a different, equivalent representation. Each set of parametric equations leads to a related set of symmetric equations, so it follows that a symmetric equation of a line is not unique either.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find parametric and symmetric equations of the line passing through points \((1,4,-2)\) and \((-3,5,0).\)</p>
+<p class="sol-hint">Find a direction vector by subtracting the two points, then use it with either point to build parametric equations, and solve each for t to get the symmetric form.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, identify a vector parallel to the line:</p>
+<p>\[\text{v}=\langle -3-1,5-4,0-(-2)\rangle =\langle -4,1,2\rangle .\]</p>
+<p>Use either of the given points on the line to complete the parametric equations:</p>
+<p>\[x=1-4t,y=4+t,\,\text{and}\,z=-2+2t.\]</p>
+<p>Solve each equation for \(t\) to create the symmetric equation of the line:</p>
+<p>\[\frac{x-1}{-4}=y-4=\frac{z+2}{2}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Find parametric and symmetric equations of the line passing through points \((1,-3,2)\) and \((5,-2,8).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Possible set of parametric equations: \(x=1+4t,y=-3+t,z=2+6t;\)</p>
+<p>related set of symmetric equations: \(\frac{x-1}{4}=y+3=\frac{z-2}{6}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Sometimes we don’t want the equation of a whole line, just a line segment. In this case, we limit the values of our parameter \(t.\) For example, let \(P({x}_{0},{y}_{0},{z}_{0})\) and \(Q({x}_{1},{y}_{1},{z}_{1})\) be points on a line, and let \(\text{p}=\langle {x}_{0},{y}_{0},{z}_{0}\rangle\) and \(\text{q}=\langle {x}_{1},{y}_{1},{z}_{1}\rangle\) be the associated position vectors. In addition, let \(\text{r}=\langle x,y,z\rangle .\) We want to find a vector equation for the line segment between \(P\) and \(Q.\) Using \(P\) as our known point on the line, and \(\overset{\to }{PQ}=\langle {x}_{1}-{x}_{0},{y}_{1}-{y}_{0},{z}_{1}-{z}_{0}\rangle\) as the direction vector equation, (see original) gives</p>
+<p>\[\text{r}=\text{p}+t(\overset{\to }{PQ}).\]</p>
+<p>Using properties of vectors, then</p>
+<p>\[\begin{array}{ll}\text{r} &amp; =\text{p}+t(\overset{\to }{PQ}) \\ &amp; =\langle {x}_{0},{y}_{0},{z}_{0}\rangle +t\langle {x}_{1}-{x}_{0},{y}_{1}-{y}_{0},{z}_{1}-{z}_{0}\rangle \\ &amp; =\langle {x}_{0},{y}_{0},{z}_{0}\rangle +t(\langle {x}_{1},{y}_{1},{z}_{1}\rangle -\langle {x}_{0},{y}_{0},{z}_{0}\rangle ) \\ &amp; =\langle {x}_{0},{y}_{0},{z}_{0}\rangle +t\langle {x}_{1},{y}_{1},{z}_{1}\rangle -t\langle {x}_{0},{y}_{0},{z}_{0}\rangle \\ &amp; =(1-t)\langle {x}_{0},{y}_{0},{z}_{0}\rangle +t\langle {x}_{1},{y}_{1},{z}_{1}\rangle \\ &amp; =(1-t)\text{p}+t\text{q}.\end{array}\]</p>
+<p>Thus, the vector equation of the line passing through \(P\) and \(Q\) is</p>
+<p>\[\text{r}=(1-t)\text{p}+t\text{q}.\]</p>
+<p>Remember that we didn’t want the equation of the whole line, just the line segment between \(P\) and \(Q.\) Notice that when \(t=0,\) we have \(r=p,\) and when \(t=1,\) we have \(r=q.\) Therefore, the vector equation of the line segment between \(P\) and \(Q\) is</p>
+<p>\[\text{r}=(1-t)\text{p}+t\text{q},0\le t\le 1.\]</p>
+<p>Going back to (see original), we can also find parametric equations for this line segment. We have</p>
+<p>\[\begin{array}{lll}\text{r} &amp; = &amp; \text{p}+t(\overset{\to }{PQ}) \\ \langle x,y,z\rangle &amp; = &amp; \langle {x}_{0},{y}_{0},{z}_{0}\rangle +t\langle {x}_{1}-{x}_{0},{y}_{1}-{y}_{0},{z}_{1}-{z}_{0}\rangle \\ &amp; = &amp; \langle {x}_{0}+t({x}_{1}-{x}_{0}),{y}_{0}+t({y}_{1}-{y}_{0}),{z}_{0}+t({z}_{1}-{z}_{0})\rangle .\end{array}\]</p>
+<p>Then, the parametric equations are</p>
+<p>\[x={x}_{0}+t({x}_{1}-{x}_{0}),y={y}_{0}+t({y}_{1}-{y}_{0}),z={z}_{0}+t({z}_{1}-{z}_{0}),0\le t\le 1.\]</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find parametric equations of the line segment between the points \(P(2,1,4)\) and \(Q(3,-1,3).\)</p>
+<p class="sol-hint">Apply \(x={x}_{0}+t({x}_{1}-{x}_{0})\) component-by-component, restricting the parameter to \(0\le t\le 1.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>By (see original), we have</p>
+<p>\[x={x}_{0}+t({x}_{1}-{x}_{0}),y={y}_{0}+t({y}_{1}-{y}_{0}),z={z}_{0}+t({z}_{1}-{z}_{0}),0\le t\le 1.\]</p>
+<p>Working with each component separately, we get</p>
+<p>\[\begin{array}{ll}x &amp; ={x}_{0}+t({x}_{1}-{x}_{0}) \\ &amp; =2+t(3-2) \\ &amp; =2+t,\end{array}\]</p>
+<p>\[\begin{array}{ll}y &amp; ={y}_{0}+t({y}_{1}-{y}_{0}) \\ &amp; =1+t(-1-1) \\ &amp; =1-2t,\end{array}\]</p>
+<p>and</p>
+<p>\[\begin{array}{ll}z &amp; ={z}_{0}+t({z}_{1}-{z}_{0}) \\ &amp; =4+t(3-4) \\ &amp; =4-t.\end{array}\]</p>
+<p>Therefore, the parametric equations for the line segment are</p>
+<p>\[x=2+t,y=1-2t,z=4-t,0\le t\le 1.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find parametric equations of the line segment between points \(P(-1,3,6)\) and \(Q(-8,2,4).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=-1-7t,y=3-t,z=6-2t,0\le t\le 1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="distance-between-a-point-and-a-line">Distance between a Point and a Line</h2>
+<p>We already know how to calculate the distance between two points in space. We now expand this definition to describe the distance between a point and a line in space. Several real-world contexts exist when it is important to be able to calculate these distances. When building a home, for example, builders must consider “setback” requirements, when structures or fixtures have to be a certain distance from the property line. Air travel offers another example. Airlines are concerned about the distances between populated areas and proposed flight paths.</p>
+<p>Let \(L\) be a line in the plane and let \(M\) be any point not on the line. Then, we define distance \(d\) from \(M\) to \(L\) as the length of line segment \(\bar{MP},\) where \(P\) is a point on \(L\) such that \(\bar{MP}\) is perpendicular to \(L\) (<a href="#fig2">Figure 2</a>).</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_002.jpg" alt="This figure has two line segments. The first line is labeled “L” and has point P on the segment. The second line segment is drawn from point P to point M and is perpendicular to line L. The second line segment is labeled “d.”" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The distance from point \(M\) to line \(L\) is the length of \(\bar{MP}.\)</figcaption></figure>
+<p>When we’re looking for the distance between a line and a point in space, <a href="#fig2">Figure 2</a> still applies. We still define the distance as the length of the perpendicular line segment connecting the point to the line. In space, however, there is no clear way to know which point on the line creates such a perpendicular line segment, so we select an arbitrary point on the line and use properties of vectors to calculate the distance. Therefore, let \(P\) be an arbitrary point on line \(L\) and let \(\text{v}\) be a direction vector for \(L\) (<a href="#fig3">Figure 3</a>).</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_003.jpg" alt="This figure has a line segment labeled “L.” On the line segment L there is point P. There is a vector drawn from point P to another point M. Also, from M there is a line segment drawn to line L. This segment is perpendicular to line L. There is also a vector labeled “v” on line segment L. A parallelogram has been formed with vector v, line segment P M, and two other segments back to line L." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Vectors \(\overset{\to }{PM}\) and <strong>v</strong> form two sides of a parallelogram with base \(\Vert \text{v}\Vert\) and height \(d,\) which is the distance between a line and a point in space.</figcaption></figure>
+<p>By (see original), vectors \(\overset{\to }{PM}\) and \(\text{v}\) form two sides of a parallelogram with area \(\Vert \overset{\to }{PM}\,\times \,\text{v}\Vert .\) Using a formula from geometry, the area of this parallelogram can also be calculated as the product of its base and height:</p>
+<p>\[\Vert \overset{\to }{PM}\,\times \,\text{v}\Vert =\Vert \text{v}\Vert d.\]</p>
+<p>We can use this formula to find a general formula for the distance between a line in space and any point not on the line.</p>
+<div class="card definition"><span class="chip">Distance from a Point to a Line</span><p>Let \(L\) be a line in space passing through point \(P\) with direction vector \(\text{v}.\) If \(M\) is any point not on \(L,\) then the distance from \(M\) to \(L\) is</p>
+<p>\[d=\frac{\Vert \overset{\to }{PM}\,\times \,\text{v}\Vert }{\Vert \text{v}\Vert }.\]</p>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the distance between the point \(M=(1,1,3)\) and line \(\frac{x-3}{4}=\frac{y+1}{2}=z-3.\)</p>
+<p class="sol-hint">Read a direction vector v and a point P off the symmetric equations, form \(\overset{\to }{PM},\) then apply \(d=\frac{\Vert \overset{\to }{PM}\,\times \,\text{v}\Vert }{\Vert \text{v}\Vert }.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>From the symmetric equations of the line, we know that vector \(\text{v}=\langle 4,2,1\rangle\) is a direction vector for the line. Setting the symmetric equations of the line equal to zero, we see that point \(P(3,-1,3)\) lies on the line. Then,</p>
+<p>\[\overset{\to }{PM}=\langle 1-3,1-(-1),3-3\rangle =\langle -2,2,0\rangle .\]</p>
+<p>To calculate the distance, we need to find \(\overset{\to }{PM}\,\times \,\text{v}\text{:}\)</p>
+<p>\[\begin{array}{ll}\overset{\to }{PM}\,\times \,\text{v} &amp; =|\begin{array}{lll}\text{i} &amp; \text{j} &amp; \text{k} \\ -2 &amp; 2 &amp; 0 \\ 4 &amp; 2 &amp; 1\end{array}| \\ &amp; =(2-0)\text{i}-(-2-0)\text{j}+(-4-8)\text{k} \\ &amp; =2\text{i}+2\text{j}-12\text{k}.\end{array}\]</p>
+<p>Therefore, the distance between the point and the line is (<a href="#fig4">Figure 4</a>)</p>
+<p>\[\begin{array}{ll}d &amp; =\frac{\Vert \overset{\to }{PM}\,\times \,\text{v}\Vert }{\Vert \text{v}\Vert } \\ &amp; =\frac{\sqrt{{2}^{2}+{2}^{2}+{12}^{2}}}{\sqrt{{4}^{2}+{2}^{2}+{1}^{2}}} \\ &amp; =\frac{2\sqrt{38}}{\sqrt{21}}.\end{array}\]</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_004.jpg" alt="This figure is the first octant of the 3-dimensional coordinate system. There is a 3-dimensional box drawn in the octant. There is a point labeled at (1, 1, 3). There is a line segment labeled “L” inside of the box. Also, there is a perpendicular line segment from the point to line L." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — Point \((1,1,3)\) is approximately \(2.7\) units from the line with symmetric equations \(\frac{x-3}{4}=\frac{y+1}{2}=z-3.\)</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the distance between point \((0,3,6)\) and the line with parametric equations \(x=1-t,y=1+2t,z=5+3t.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\sqrt{\frac{10}{7}}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="relationships-between-lines">Relationships between Lines</h2>
+<p>Given two lines in the two-dimensional plane, the lines are equal, they are parallel but not equal, or they intersect in a single point. In three dimensions, a fourth case is possible. If two lines in space are not parallel, but do not intersect, then the lines are said to be <strong>skew lines</strong> (<a href="#fig5">Figure 5</a>).</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_005.jpg" alt="This figure has two line segments. They are 3-dimensional, are not parallel, and do not intersect. The directions are different and one is above the other." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — In three dimensions, it is possible that two lines do not cross, even when they have different directions.</figcaption></figure>
+<p>To classify lines as parallel but not equal, equal, intersecting, or skew, we need to know two things: whether the direction vectors are parallel and whether the lines share a point (<a href="#fig6">Figure 6</a>).</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_006.jpg" alt="This figure is a table with two rows and two columns. Above the columns is the question “Lines share a common point?” The first column is labeled “yes,” and the second column is labeled “no.” To the left of the rows is the question “Direction vectors are parallel?” The first row is labeled “yes,” and the second row is labeled “no.” The entries of the first row are “equal” and “parallel but not equal.” The entries in the second row are “intersecting” and “skew.”" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Determine the relationship between two lines based on whether their direction vectors are parallel and whether they share a point.</figcaption></figure>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>For each pair of lines, determine whether the lines are equal, parallel but not equal, skew, or intersecting.</p>
+<ul class="tight"><li>\({L}_{1}:x=2s-1,y=s-1,z=s-4\) <br> \({L}_{2}:x=t-3,y=3t+8,z=5-2t\)</li><li>\({L}_{1}\text{:}\) \(x=\text{-}y=z\) <br> \({L}_{2}:\frac{x-3}{2}=y=z-2\)</li><li>\({L}_{1}:x=6s-1,y=-2s,z=3s+1;s\ne 0\) <br> \({L}_{2}:\frac{x-4}{6}=\frac{y+3}{-2}=\frac{z-1}{3}\)</li></ul>
+<p class="sol-hint">Compare the direction vectors first — if they're not parallel, set up a system of equations to check whether the lines share a common point.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Line \({L}_{1}\) has direction vector \({\text{v}}_{1}=\langle 2,1,1\rangle ;\) line \({L}_{2}\) has direction vector \({\text{v}}_{2}=\langle 1,3,-2\rangle .\) Because the direction vectors are not parallel vectors, the lines are either intersecting or skew. To determine whether the lines intersect, we see if there is a point, \((x,y,z),\) that lies on both lines. To find this point, we use the parametric equations to create a system of equalities:<br> <br> By the first equation, \(t=2s+2.\) Substituting into the second equation yields<br> <br> Substitution into the third equation, however, yields a contradiction:<br> <br> There is no single point that satisfies the parametric equations for \({L}_{1}\,\text{and}\,{L}_{2}\) simultaneously. These lines do not intersect, so they are skew (see the following figure).<br><p>\[2s-1=t-3;\,s-1=3t+8;\,s-4=5-2t.\]</p>
+<p>\[\begin{array}{lll}s-1 &amp; = &amp; 3(2s+2)+8 \\ s-1 &amp; = &amp; 6s+6+8 \\ 5s &amp; = &amp; -15 \\ s &amp; = &amp; -3.\end{array}\]</p>
+<p>\[\begin{array}{lll}s-4 &amp; = &amp; 5-2(2s+2) \\ s-4 &amp; = &amp; 5-4s-4 \\ 5s &amp; = &amp; 5 \\ s &amp; = &amp; 1.\end{array}\]</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_011.jpg" alt="This figure is the 3-dimensional coordinate system. There are two skew lines drawn. They do not intersect and are not parallel." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>Line <strong>L<sub>1</sub></strong> has direction vector \({\text{v}}_{1}=\langle 1,-1,1\rangle\) and passes through the origin, \((0,0,0).\) Line \({L}_{2}\) has a different direction vector, \({\text{v}}_{2}=\langle 2,1,1\rangle ,\) so these lines are not parallel or equal. Let \(r\) represent the parameter for line \({L}_{1}\) and let \(s\) represent the parameter for \({L}_{2}\text{:}\) <br> <br> Solve the system of equations to find \(r=1\) and \(s=-1.\) If we need to find the point of intersection, we can substitute these parameters into the original equations to get \((1,-1,1)\) (see the following figure).<br><p>\[\begin{array}{llll}\begin{array}{ll}x &amp; =r \\ y &amp; =\text{-}r \\ z &amp; =r\end{array} &amp; &amp; &amp; \begin{array}{ll}x &amp; =2s+3 \\ y &amp; =s \\ z &amp; =s+2.\end{array}\end{array}\]</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_012.jpg" alt="This figure is the 3-dimensional coordinate system. There are two skew lines drawn. They do not intersect and are not parallel." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>Lines \({L}_{1}\) and \({L}_{2}\) have equivalent direction vectors: \(\text{v}=\langle 6,-2,3\rangle .\) These two lines are parallel (see the following figure).<br><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_013.jpg" alt="This figure is the 3-dimensional coordinate system. There are two skew lines drawn. They do not intersect and are not parallel." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Describe the relationship between the lines with the following parametric equations:</p>
+<p>\[x=1-4t,y=3+t,z=8-6t\]</p>
+<p>\[x=2+3s,y=2s,z=-1-3s.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>These lines are skew because their direction vectors are not parallel and there is no point \((x,y,z)\) that lies on both lines.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="equations-for-a-plane">Equations for a Plane</h2>
+<p>We know that a line is determined by two points. In other words, for any two distinct points, there is exactly one line that passes through those points, whether in two dimensions or three. Similarly, given any three points that do not all lie on the same line, there is a unique plane that passes through these points. Just as a line is determined by two points, a plane is determined by three.</p>
+<p>This may be the simplest way to characterize a plane, but we can use other descriptions as well. For example, given two distinct, intersecting lines, there is exactly one plane containing both lines. A plane is also determined by a line and any point that does not lie on the line. These characterizations arise naturally from the idea that a plane is determined by three points. Perhaps the most surprising characterization of a plane is actually the most useful.</p>
+<p>Imagine a pair of orthogonal vectors that share an initial point. Visualize grabbing one of the vectors and twisting it. As you twist, the other vector spins around and sweeps out a plane. Here, we describe that concept mathematically. Let \(\text{n}=\langle a,b,c\rangle\) be a vector and \(P=({x}_{0},{y}_{0},{z}_{0})\) be a point. Then the set of all points \(Q=(x,y,z)\) such that \(\overset{\to }{PQ}\) is orthogonal to \(\text{n}\) forms a plane (<a href="#fig7">Figure 7</a>). We say that \(\text{n}\) is a <strong>normal vector</strong>, or perpendicular to the plane. Remember, the dot product of orthogonal vectors is zero. This fact generates the <strong>vector equation of a plane</strong>: \(\text{n}·\overset{\to }{PQ}=0.\) Rewriting this equation provides additional ways to describe the plane:</p>
+<p>\[\begin{array}{lll} \\ \text{n}·\overset{\to }{PQ} &amp; = &amp; 0 \\ \langle a,b,c\rangle ·\langle x-{x}_{0},y-{y}_{0},z-{z}_{0}\rangle &amp; = &amp; 0 \\ a(x-{x}_{0})+b(y-{y}_{0})+c(z-{z}_{0}) &amp; = &amp; 0.\end{array}\]</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_007.jpg" alt="This figure is a parallelogram representing a plane. In the plane is a vector from point P to point Q. Perpendicular to the vector P Q is the vector n." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — Given a point \(P\) and vector \(\text{n},\) the set of all points \(Q\) with \(\overset{\to }{PQ}\) orthogonal to \(\text{n}\) forms a plane.</figcaption></figure>
+<div class="card definition"><span class="chip">Definition</span><p>Given a point \(P\) and vector \(\text{n},\) the set of all points \(Q\) satisfying the equation \(\text{n}·\overset{\to }{PQ}=0\) forms a plane. The equation</p>
+<p>\[\text{n}·\overset{\to }{PQ}=0\]</p>
+<p>is known as the vector equation of a plane.</p>
+<p>The <strong>scalar equation of a plane</strong> containing point \(P=({x}_{0},{y}_{0},{z}_{0})\) with normal vector \(\text{n}=\langle a,b,c\rangle\) is</p>
+<p>\[a(x-{x}_{0})+b(y-{y}_{0})+c(z-{z}_{0})=0.\]</p>
+<p>This equation can be expressed as \(ax+by+cz+d=0,\) where \(d=\text{-}a{x}_{0}-b{y}_{0}-c{z}_{0}.\) This form of the equation is sometimes called the <strong>general form of the equation of a plane</strong>.</p>
+</div>
+<p>As described earlier in this section, any three points that do not all lie on the same line determine a plane. Given three such points, we can find an equation for the plane containing these points.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Write an equation for the plane containing points \(P=(1,1,-2),\) \(Q=(0,2,1),\) and \(R=(-1,-1,0)\) in both standard and general forms.</p>
+<p class="sol-hint">Form two vectors from the points, take their cross product to get a normal vector, then plug it and one of the points into the point-normal plane formula.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To write an equation for a plane, we must find a normal vector for the plane. We start by identifying two vectors in the plane:</p>
+<p>\[\begin{array}{lll}\overset{\to }{PQ} &amp; = &amp; \langle 0-1,2-1,1-(-2)\rangle =\langle -1,1,3\rangle \\ \overset{\to }{QR} &amp; = &amp; \langle -1-0,-1-2,0-1\rangle =\langle -1,-3,-1\rangle .\end{array}\]</p>
+<p>The cross product \(\overset{\to }{PQ}\,\times \,\overset{\to }{QR}\) is orthogonal to both \(\overset{\to }{PQ}\) and \(\overset{\to }{QR},\) so it is normal to the plane that contains these two vectors:</p>
+<p>\[\begin{array}{ll}\text{n} &amp; =\overset{\to }{PQ}\,\times \,\overset{\to }{QR} \\ &amp; =|\begin{array}{lll}\text{i} &amp; \text{j} &amp; \text{k} \\ -1 &amp; 1 &amp; 3 \\ -1 &amp; -3 &amp; -1\end{array}| \\ &amp; =(-1+9)\text{i}-(1+3)\text{j}+(3+1)\text{k} \\ &amp; =8\text{i}-4\text{j}+4\text{k}.\end{array}\]</p>
+<p>Thus, \(\text{n}=\langle 8,-4,4\rangle ,\) and we can choose any of the three given points to write an equation of the plane:</p>
+<p>\[\begin{array}{lll}8(x-1)-4(y-1)+4(z+2) &amp; = &amp; 0 \\ 8x-4y+4z+4 &amp; = &amp; 0.\end{array}\]</p>
+</div></div></div>
+<p>The scalar equations of a plane vary depending on the normal vector and point chosen.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find an equation of the plane that passes through point \((1,4,3)\) and contains the line given by \(x=\frac{y-1}{2}=z+1.\)</p>
+<p class="sol-hint">Get one vector from the line's direction and a second from a point on the line to the given point, cross them for a normal vector, then apply the point-normal formula.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Symmetric equations describe the line that passes through point \((0,1,\text{-}1)\) parallel to vector \({\text{v}}_{1}=\langle 1,2,1\rangle\) (see the following figure). Use this point and the given point, \((1,4,3),\) to identify a second vector parallel to the plane:</p>
+<p>\[{\text{v}}_{2}=\langle 1-0,4-1,3-(-1)\rangle =\langle 1,3,4\rangle .\]</p>
+<p>Use the cross product of these vectors to identify a normal vector for the plane:</p>
+<p>\[\begin{array}{ll}\text{n} &amp; ={\text{v}}_{1}\,\times \,{\text{v}}_{2} \\ &amp; =|\begin{array}{lll}\text{i} &amp; \text{j} &amp; \text{k} \\ 1 &amp; 2 &amp; 1 \\ 1 &amp; 3 &amp; 4\end{array}| \\ &amp; =(8-3)\text{i}-(4-1)\text{j}+(3-2)\text{k} \\ &amp; =5\text{i}-3\text{j}+\text{k}.\end{array}\]</p>
+<p>The scalar equations for the plane are \(5x-3(y-1)+(z+1)=0\) and \(5x-3y+z+4=0.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_014.jpg" alt="This figure is the 3-dimensional coordinate system. There is a plane sketched. It is vertical, but skew to the z-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Find an equation of the plane containing the lines \({L}_{1}\) and \({L}_{2}\text{:}\)</p>
+<p>\[\begin{array}{l}{L}_{1}:x=\text{-}y=z \\ {L}_{2}:\frac{x-3}{2}=y=z-2.\end{array}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-2(x-1)+(y+1)+3(z-1)=0\) or \(-2x+y+3z=0\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Now that we can write an equation for a plane, we can use the equation to find the distance \(d\) between a point \(P\) and the plane. It is defined as the shortest possible distance from \(P\) to a point on the plane.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_008.jpg" alt="This figure is the sketch of a parallelogram representing a plane. In the plane are points Q and R. there is a broken line from Q to R on the plane. There is a vector n out of the plane at point Q. Also, there is a vector labeled “R P” from point R to point P which is above the plane. This vector is perpendicular to the plane." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — We want to find the shortest distance from point <strong>P</strong> to the plane. Let point \(R\) be the point in the plane such that, for any other point in the plane \(Q,\) \(\Vert \overset{\to }{RP}\Vert &lt;\Vert \overset{\to }{QP}\Vert .\)</figcaption></figure>
+<p>Just as we find the two-dimensional distance between a point and a line by calculating the length of a line segment perpendicular to the line, we find the three-dimensional distance between a point and a plane by calculating the length of a line segment perpendicular to the plane. Let \(R\) be the point in the plane such that \(\overset{\to }{RP}\) is orthogonal to the plane, and let \(Q\) be an arbitrary point in the plane. Then the projection of vector \(\overset{\to }{QP}\) onto the normal vector describes vector \(\overset{\to }{RP},\) as shown in <a href="#fig8">Figure 8</a>.</p>
+<div class="card definition"><span class="chip">The Distance between a Plane and a Point</span><p>Suppose a plane with normal vector \(\text{n}\) passes through point \(Q.\) The distance \(d\) from the plane to a point \(P\) not in the plane is given by</p>
+<p>\[d=\Vert {\text{proj}}_{\text{n}}\overset{\to }{QP}\Vert =|{\text{comp}}_{\text{n}}\overset{\to }{QP}|=\frac{|\overset{\to }{QP}·\text{n}|}{\Vert \text{n}\Vert }.\]</p>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find the distance between point \(P=(3,1,2)\) and the plane given by \(x-2y+z=5\) (see the following figure).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_015.jpg" alt="This figure is the 3-dimensional coordinate system. There is a point drawn at (3, 1, 2). The point is labeled “P(3, 1, 2).” There is a plane drawn. There is a perpendicular line from the plane to point P(3, 1, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p class="sol-hint">Read a normal vector off the plane's coefficients, pick any point Q in the plane, then apply \(d=\frac{|\overset{\to }{QP}·\text{n}|}{\Vert \text{n}\Vert }.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The coefficients of the plane’s equation provide a normal vector for the plane: \(\text{n}=\langle 1,-2,1\rangle .\) To find vector \(\overset{\to }{QP},\) we need a point in the plane. Any point will work, so set \(y=z=0\) to see that point \(Q=(5,0,0)\) lies in the plane. Find the component form of the vector from \(Q\,\text{to}\,P\text{:}\)</p>
+<p>\[\overset{\to }{QP}=\langle 3-5,1-0,2-0\rangle =\langle -2,1,2\rangle .\]</p>
+<p>Apply the distance formula from (see original):</p>
+<p>\[\begin{array}{ll}d &amp; =\frac{|\overset{\to }{QP}·\text{n}|}{\Vert \text{n}\Vert } \\ &amp; =\frac{|\langle -2,1,2\rangle ·\langle 1,-2,1\rangle |}{\sqrt{{1}^{2}+{(-2)}^{2}+{1}^{2}}} \\ &amp; =\frac{|-2-2+2|}{\sqrt{6}} \\ &amp; =\frac{2}{\sqrt{6}}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Find the distance between point \(P=(5,-1,0)\) and the plane given by \(4x+2y-z=3.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{15}{\sqrt{21}}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="parallel-and-intersecting-planes">Parallel and Intersecting Planes</h2>
+<p>We have discussed the various possible relationships between two lines in two dimensions and three dimensions. When we describe the relationship between two planes in space, we have only two possibilities: the two distinct planes are parallel or they intersect. When two planes are parallel, their normal vectors are parallel. When two planes intersect, the intersection is a line (<a href="#fig9">Figure 9</a>).</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_009.jpg" alt="This figure is two planes that are intersecting. The intersection forms a line segment." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — The intersection of two nonparallel planes is always a line.</figcaption></figure>
+<p>We can use the equations of the two planes to find parametric equations for the line of intersection.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find parametric and symmetric equations for the line formed by the intersection of the planes given by \(x+y+z=0\) and \(2x-y+z=0\) (see the following figure).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_016.jpg" alt="This figure is two planes intersecting in the 3-dimensional coordinate system." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p class="sol-hint">Combine the two plane equations to eliminate one variable, then express the remaining variables in terms of a single parameter t.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Note that the two planes have nonparallel normals, so the planes intersect. Further, the origin satisfies each equation, so we know the line of intersection passes through the origin. Add the plane equations so we can eliminate the one of the variables, in this case, \(y\text{:}\)</p>
+<p>\[\begin{array}{l}\underset{\text{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}{\begin{array}{lllllll}x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 0 \\ 2x &amp; - &amp; y &amp; + &amp; z &amp; = &amp; 0\end{array}} \\ \\ \,3x\,+2z\,=\,0.\end{array}\]</p>
+<p>This gives us \(x=-\frac{2}{3}z.\) We substitute this value into the first equation to express \(y\) in terms of \(z\text{:}\)</p>
+<p>\[\begin{array}{lll}x+y+z &amp; = &amp; 0 \\ -\frac{2}{3}z+y+z &amp; = &amp; 0 \\ y+\frac{1}{3}z &amp; = &amp; 0 \\ y &amp; = &amp; -\frac{1}{3}z.\end{array}\]</p>
+<p>We now have the first two variables, \(x\) and \(y,\) in terms of the third variable, \(z.\) Now we define \(z\) in terms of \(t.\) To eliminate the need for fractions, we choose to define the parameter \(t\) as \(t=-\frac{1}{3}z.\) Then, \(z=-3t.\) Substituting the parametric representation of \(z\) back into the other two equations, we see that the parametric equations for the line of intersection are \(x=2t,y=t,z=-3t.\) The symmetric equations for the line are \(\frac{x}{2}=y=\frac{z}{-3}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Find parametric equations for the line formed by the intersection of planes \(x+y-z=3\) and \(3x-y+3z=5.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=t,y=7-3t,z=4-2t\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>In addition to finding the equation of the line of intersection between two planes, we may need to find the angle formed by the intersection of two planes. For example, builders constructing a house need to know the angle where different sections of the roof meet to know whether the roof will look good and drain properly. We can use normal vectors to calculate the angle between the two planes. We can do this because the angle between the normal vectors is the same as the angle between the planes. <a href="#fig10">Figure 10</a> shows why this is true.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_010.jpg" alt="This figure is two parallelograms representing planes. The planes intersect forming angle theta between them. The first plane as vector “n sub 1” normal to the plane. The second vector has vector “n sub 2” normal to the plane. The normal vectors intersect and form the angle theta." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — The angle between two planes has the same measure as the angle between the normal vectors for the planes.</figcaption></figure>
+<p>We can find the measure of the angle <strong>θ</strong> between two intersecting planes by first finding the cosine of the angle, using the following equation:</p>
+<p>\[\text{cos}\,θ=\frac{|{\text{n}}_{1}·{\text{n}}_{2}|}{\Vert {\text{n}}_{1}\Vert \Vert {\text{n}}_{2}\Vert }.\]</p>
+<p>We can then use the angle to determine whether two planes are parallel or orthogonal or if they intersect at some other angle.</p>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Determine whether each pair of planes is parallel, orthogonal, or neither. If the planes are intersecting, but not orthogonal, find the measure of the angle between them. Give the answer in radians and round to two decimal places.</p>
+<ul class="tight"><li>\(x+2y-z=8\,\text{and}\,2x+4y-2z=10\)</li><li>\(2x-3y+2z=3\,\text{and}\,6x+2y-3z=1\)</li><li>\(x+y+z=4\,\text{and}\,x-3y+5z=1\)</li></ul>
+<p class="sol-hint">Compare the normal vectors — scalar multiples means parallel, a zero dot product means orthogonal, otherwise use \(\text{cos}\,θ=\frac{|{\text{n}}_{1}·{\text{n}}_{2}|}{\Vert {\text{n}}_{1}\Vert \Vert {\text{n}}_{2}\Vert }.\)</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>The normal vectors for these planes are \({\text{n}}_{1}=\langle 1,2,-1\rangle\) and \({\text{n}}_{2}=\langle 2,4,-2\rangle .\) These two vectors are scalar multiples of each other. The normal vectors are parallel, so the planes are parallel.</li><li>The normal vectors for these planes are \({\text{n}}_{1}=\langle 2,-3,2\rangle\) and \({\text{n}}_{2}=\langle 6,2,-3\rangle .\) Taking the dot product of these vectors, we have<br> <br> The normal vectors are orthogonal, so the corresponding planes are orthogonal as well.<p>\[{\text{n}}_{1}·{\text{n}}_{2}=\langle 2,-3,2\rangle ·\langle 6,2,-3\rangle =2(6)-3(2)+2(-3)=0.\]</p>
+</li><li>The normal vectors for these planes are \({\text{n}}_{1}=\langle 1,1,1\rangle\) and \({\text{n}}_{2}=\langle 1,-3,5\rangle \text{:}\) <br> <br> The angle between the two planes is \(1.27\) rad, or approximately \(73\text{°}.\)<p>\[\begin{array}{ll}\text{cos}\,θ &amp; =\frac{|{\text{n}}_{1}·{\text{n}}_{2}|}{\Vert {\text{n}}_{1}\Vert \Vert {\text{n}}_{2}\Vert } \\ &amp; =\frac{|\langle 1,1,1\rangle ·\langle 1,-3,5\rangle |}{\sqrt{{1}^{2}+{1}^{2}+{1}^{2}}\,\sqrt{{1}^{2}+{(-3)}^{2}+{5}^{2}}} \\ &amp; =\frac{3}{\sqrt{105}}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Find the measure of the angle between planes \(x+y-z=3\) and \(3x-y+3z=5.\) Give the answer in radians and round to two decimal places.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(1.44\) rad</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>When we find that two planes are parallel, we may need to find the distance between them. To find this distance, we simply select a point in one of the planes. The distance from this point to the other plane is the distance between the planes.</p>
+<p>Previously, we introduced the formula for calculating this distance in (see original):</p>
+<p>\[d=\frac{\overset{\to }{QP}·\text{n}}{\Vert \text{n}\Vert },\]</p>
+<p>where \(Q\) is a point on the plane, \(P\) is a point not on the plane, and \(\text{n}\) is the normal vector that passes through point \(Q.\) Consider the distance from point \(({x}_{0},{y}_{0},{z}_{0})\) to plane \(ax+by+cz+k=0.\) Let \(({x}_{1},{y}_{1},{z}_{1})\) be any point in the plane. Substituting into the formula yields</p>
+<p>\[\begin{array}{ll}d &amp; =\frac{|a({x}_{0}-{x}_{1})+b({y}_{0}-{y}_{1})+c({z}_{0}-{z}_{1})|}{\sqrt{{a}^{2}+{b}^{2}+{c}^{2}}} \\ &amp; =\frac{|a{x}_{0}+b{y}_{0}+c{z}_{0}+k|}{\sqrt{{a}^{2}+{b}^{2}+{c}^{2}}}.\end{array}\]</p>
+<p>We state this result formally in the following theorem.</p>
+<div class="card definition"><span class="chip">Distance from a Point to a Plane</span><p>Let \(P({x}_{0},{y}_{0},{z}_{0})\) be a point. The distance from \(P\) to plane \(ax+by+cz+k=0\) is given by</p>
+<p>\[d=\frac{|a{x}_{0}+b{y}_{0}+c{z}_{0}+k|}{\sqrt{{a}^{2}+{b}^{2}+{c}^{2}}}.\]</p>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Find the distance between the two parallel planes given by \(2x+y-z=2\) and \(2x+y-z=8.\)</p>
+<p class="sol-hint">Pick any point on one plane, then apply the point-to-plane distance formula using the other plane's coefficients.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Point \((1,0,0)\) lies in the first plane. The desired distance, then, is</p>
+<p>\[\begin{array}{ll}d &amp; =\frac{|a{x}_{0}+b{y}_{0}+c{z}_{0}+k|}{\sqrt{{a}^{2}+{b}^{2}+{c}^{2}}} \\ &amp; =\frac{|2(1)+1(0)+(-1)(0)+(-8)|}{\sqrt{{2}^{2}+{1}^{2}+{(-1)}^{2}}} \\ &amp; =\frac{6}{\sqrt{6}}=\sqrt{6}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Find the distance between parallel planes \(5x-2y+z=6\) and \(5x-2y+z=-3.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{9}{\sqrt{30}}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card definition"><span class="chip">Distance between Two Skew Lines</span><figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_017.jpg" alt="This figure shows a system of pipes running in different directions in an industrial plant. Two skew pipes are highlighted in red." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — Industrial pipe installations often feature pipes running in different directions. How can we find the distance between two skew pipes?</figcaption></figure>
+<p>Finding the distance from a point to a line or from a line to a plane seems like a pretty abstract procedure. But, if the lines represent pipes in a chemical plant or tubes in an oil refinery or roads at an intersection of highways, confirming that the distance between them meets specifications can be both important and awkward to measure. One way is to model the two pipes as lines, using the techniques in this chapter, and then calculate the distance between them. The calculation involves forming vectors along the directions of the lines and using both the cross product and the dot product.</p>
+<p>The symmetric forms of two lines, \({L}_{1}\) and \({L}_{2},\) are</p>
+<p>\[\begin{array}{l} \\ \\ {L}_{1}:\frac{x-{x}_{1}}{{a}_{1}}=\frac{y-{y}_{1}}{{b}_{1}}=\frac{z-{z}_{1}}{{c}_{1}} \\ {L}_{2}:\frac{x-{x}_{2}}{{a}_{2}}=\frac{y-{y}_{2}}{{b}_{2}}=\frac{z-{z}_{2}}{{c}_{2}}.\end{array}\]</p>
+<p>You are to develop a formula for the distance \(d\) between these two lines, in terms of the values \({a}_{1},{b}_{1},{c}_{1};{a}_{2},{b}_{2},{c}_{2};{x}_{1},{y}_{1},{z}_{1};\,\text{and}\,{x}_{2},{y}_{2},{z}_{2}.\) The distance between two lines is usually taken to mean the minimum distance, so this is the length of a line segment or the length of a vector that is perpendicular to both lines and intersects both lines.</p>
+<ul class="tight"><li>First, write down two vectors, \({\text{v}}_{1}\) and \({\text{v}}_{2},\) that lie along \({L}_{1}\) and \({L}_{2},\) respectively.</li><li>Find the cross product of these two vectors and call it \(\text{N}.\) This vector is perpendicular to \({\text{v}}_{1}\,\text{and}\,{\text{v}}_{2},\) and hence is perpendicular to both lines.</li><li>From vector \(\text{N},\) form a unit vector \(\text{n}\) in the same direction.</li><li>Use symmetric equations to find a convenient vector \({\text{v}}_{12}\) that lies between any two points, one on each line. Again, this can be done directly from the symmetric equations.</li><li>The dot product of two vectors is the magnitude of the projection of one vector onto the other times the magnitude of the other vector—that is, \(\text{A}·\text{B}=\Vert \text{A}\Vert \Vert \text{B}\Vert \text{cos}\,θ,\) where \(θ\) is the angle between the vectors. Using the dot product, find the projection of vector \({\text{v}}_{12}\) found in step \(4\) onto unit vector \(\text{n}\) found in step 3. This projection is perpendicular to both lines, and hence its length must be the perpendicular distance \(d\) between them. Note that the value of \(d\) may be negative, depending on your choice of vector \({\text{v}}_{12}\) or the order of the cross product, so use absolute value signs around the numerator.</li><li>Check that your formula gives the correct distance of \(|-25|\text{/}\sqrt{198}\approx 1.78\) between the following two lines:<br><p>\[\begin{array}{l} \\ \\ {L}_{1}:\frac{x-5}{2}=\frac{y-3}{4}=\frac{z-1}{3} \\ {L}_{2}:\frac{x-6}{3}=\frac{y-1}{5}=\frac{z}{7}.\end{array}\]</p>
+</li><li>Is your general expression valid when the lines are parallel? If not, why not? (<strong>Hint:</strong> What do you know about the value of the cross product of two parallel vectors? Where would that result show up in your expression for \(d?)\)</li><li>Demonstrate that your expression for the distance is zero when the lines intersect. Recall that two lines intersect if they are not parallel and they are in the same plane. Hence, consider the direction of \(\text{n}\) and \({\text{v}}_{12}.\) What is the result of their dot product?</li><li>Consider the following application. Engineers at a refinery have determined they need to install support struts between many of the gas pipes to reduce damaging vibrations. To minimize cost, they plan to install these struts at the closest points between adjacent skewed pipes. Because they have detailed schematics of the structure, they are able to determine the correct lengths of the struts needed, and hence manufacture and distribute them to the installation crews without spending valuable time making measurements.<br> The rectangular frame structure has the dimensions \(4.0\,\times \,15.0\,\times \,10.0\,\text{m}\) (height, width, and depth). One sector has a pipe entering the lower corner of the standard frame unit and exiting at the diametrically opposed corner (the one farthest away at the top); call this \({L}_{1}.\) A second pipe enters and exits at the two different opposite lower corners; call this \({L}_{2}\) (<a href="#fig12">Figure 12</a>).<br> <br> Write down the vectors along the lines representing those pipes, find the cross product between them from which to create the unit vector \(\text{n},\) define a vector that spans two points on each line, and finally determine the minimum distance between the lines. (Take the origin to be at the lower corner of the first pipe.) Similarly, you may also develop the symmetric equations for each line and substitute directly into your formula.<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_018.jpg" alt="This figure is a three-dimensional box in an x y z coordinate system. The box has dimensions x = 10 m, y = 15 m, and z = 4 m. Line L1 passes through a main diagonal of the box from the origin to the far corner. Line L2 passes through a diagonal in the base of the box with x-intercept 10 and y-intercept 15." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — Two pipes cross through a standard frame unit.</figcaption></figure>
+</li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>In three dimensions, the direction of a line is described by a direction vector. The vector equation of a line with direction vector \(\text{v}=\langle a,b,c\rangle\) passing through point \(P=({x}_{0},{y}_{0},{z}_{0})\) is \(\text{r}={\text{r}}_{0}+t\text{v},\) where \({\text{r}}_{0}=\langle {x}_{0},{y}_{0},{z}_{0}\rangle\) is the position vector of point \(P.\) This equation can be rewritten to form the parametric equations of the line: \(x={x}_{0}+ta,\) \(y={y}_{0}+tb,\) and \(z={z}_{0}+tc.\) The line can also be described with the symmetric equations \(\frac{x-{x}_{0}}{a}=\frac{y-{y}_{0}}{b}=\frac{z-{z}_{0}}{c}.\) (See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.)</li><li>Let \(L\) be a line in space passing through point \(P\) with direction vector \(\text{v}.\) If \(Q\) is any point not on \(L,\) then the distance from \(Q\) to \(L\) is \(d=\frac{\Vert \overset{\to }{PQ}\,\times \,\text{v}\Vert }{\Vert \text{v}\Vert }.\) (See <a href="#example3">Example 3</a>.)</li><li>In three dimensions, two lines may be parallel but not equal, equal, intersecting, or skew. (See <a href="#example4">Example 4</a>.)</li><li>Given a point \(P\) and vector \(\text{n},\) the set of all points \(Q\) satisfying equation \(\text{n}·\overset{\to }{PQ}=0\) forms a plane. Equation \(\text{n}·\overset{\to }{PQ}=0\) is known as the <strong>vector equation of a plane.</strong> (See <a href="#example5">Example 5</a>.)</li><li>The scalar equation of a plane containing point \(P=({x}_{0},{y}_{0},{z}_{0})\) with normal vector \(\text{n}=\langle a,b,c\rangle\) is \(a(x-{x}_{0})+b(y-{y}_{0})+c(z-{z}_{0})=0.\) This equation can be expressed as \(ax+by+cz+d=0,\) where \(d=\text{-}a{x}_{0}-b{y}_{0}-c{z}_{0}.\) This form of the equation is sometimes called the <strong>general form of the equation of a plane</strong>. (See <a href="#example5">Example 5</a> and <a href="#example6">Example 6</a>.)</li><li>Suppose a plane with normal vector <strong>n</strong> passes through point \(Q.\) The distance \(D\) from the plane to point \(P\) not in the plane is given by<br><p>\[D=\Vert {\text{proj}}_{\text{n}}\overset{\to }{QP}\Vert =|{\text{comp}}_{\text{n}}\overset{\to }{QP}|=\frac{|\overset{\to }{QP}·\text{n}|}{\Vert \text{n}\Vert }.\]</p>
+(See <a href="#example7">Example 7</a>.)</li><li>The normal vectors of parallel planes are parallel. When two planes intersect, they form a line. (See <a href="#example8">Example 8</a>.)</li><li>The measure of the angle \(θ\) between two intersecting planes can be found using the equation: \(\text{cos}\,θ=\frac{|{\text{n}}_{1}·{\text{n}}_{2}|}{\Vert {\text{n}}_{1}\Vert \Vert {\text{n}}_{2}\Vert },\) where \({\text{n}}_{1}\) and \({\text{n}}_{2}\) are normal vectors to the planes. (See <a href="#example9">Example 9</a>.)</li><li>The distance \(D\) from point \(({x}_{0},{y}_{0},{z}_{0})\) to plane \(ax+by+cz+d=0\) is given by<br><p>\[D=\frac{|a({x}_{0}-{x}_{1})+b({y}_{0}-{y}_{1})+c({z}_{0}-{z}_{1})|}{\sqrt{{a}^{2}+{b}^{2}+{c}^{2}}}=\frac{|a{x}_{0}+b{y}_{0}+c{z}_{0}+d|}{\sqrt{{a}^{2}+{b}^{2}+{c}^{2}}}.\]</p>
+(See <a href="#example10">Example 10</a>.)
+</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Vector Equation of a Line</strong></td><td>\(\text{r}={\text{r}}_{0}+t\text{v}\)</td></tr><tr><td><strong>Parametric Equations of a Line</strong></td><td>\(\frac{x-{x}_{0}}{a}=\frac{y-{y}_{0}}{b}=\frac{z-{z}_{0}}{c}\)</td></tr><tr><td><strong>Vector Equation of a Plane</strong></td><td>\(\text{n}·\overset{\to }{PQ}=0\)</td></tr><tr><td><strong>Scalar Equation of a Plane</strong></td><td>\(a(x-{x}_{0})+b(y-{y}_{0})+c(z-{z}_{0})=0\)</td></tr><tr><td><strong>Distance between a Plane and a Point</strong></td><td>\(d=\Vert {\text{proj}}_{\text{n}}\overset{\to }{QP}\Vert =|{\text{comp}}_{\text{n}}\overset{\to }{QP}|=\frac{|\overset{\to }{QP}·\text{n}|}{\Vert \text{n}\Vert }\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<p>In the following exercises, points \(P\) and \(Q\) are given. Let \(L\) be the line passing through points \(P\) and \(Q.\)</p>
+<ul class="tight"><li>Find the vector equation of line \(L.\)</li><li>Find parametric equations of line \(L.\)</li><li>Find symmetric equations of line \(L.\)</li><li>Find parametric equations of the line segment determined by \(P\) and \(Q.\)</li></ul>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>\(P(-3,5,9),\) \(Q(4,-7,2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{r}=\langle -3,5,9\rangle +t\langle 7,-12,-7\rangle ,\) \(t\in ℝ\text{;}\) b. \(x=-3+7t,y=5-12t,z=9-7t,\) \(t\in ℝ\text{;}\) c. \(\frac{x+3}{7}=\frac{y-5}{-12}=\frac{z-9}{-7};\) d. \(x=-3+7t,y=5-12t,z=9-7t,\) \(t\in [0,1]\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>\(P(4,0,5),Q(2,3,1)\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(P(-1,0,5),\) \(Q(4,0,3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{r}=\langle -1,0,5\rangle +t\langle 5,0,-2\rangle ,\) \(t\in ℝ;\) b. \(x=-1+5t,y=0,z=5-2t,\) \(t\in ℝ;\) c. \(\frac{x+1}{5}=\frac{z-5}{-2},y=0;\) d. \(x=-1+5t,y=0,z=5-2t,\) \(t\in [0,1]\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(P(7,-2,6),\) \(Q(-3,0,6)\)</p>
+</div></div>
+<p>For the following exercises, point \(P\) and vector \(\text{v}\) are given. Let \(L\) be the line passing through point \(P\) with direction \(\text{v}.\)</p>
+<ul class="tight"><li>Find parametric equations of line \(L.\)</li><li>Find symmetric equations of line \(L.\)</li><li>Find the intersection of the line with the <strong>xy</strong>-plane.</li></ul>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(P(1,-2,3),\) \(\text{v}=\langle 1,2,3\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(x=1+t,y=-2+2t,z=3+3t,\) \(t\in ℝ\text{;}\) b. \(\frac{x-1}{1}=\frac{y+2}{2}=\frac{z-3}{3};\) c. \((0,-4,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(P(3,1,5),\) \(\text{v}=\langle 1,1,1\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(P(3,1,5),\) \(\text{v}=\overset{\to }{QR},\) where \(Q(2,2,3)\) and \(R(3,2,3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(x=3+t,y=1,z=5,\) \(t\in ℝ;\) b. \(y=1,z=5;\) c. The line does not intersect the <strong>xy</strong>-plane.</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(P(2,3,0),\) \(\text{v}=\overset{\to }{QR},\) where \(Q(0,4,5)\) and \(R(0,4,6)\)</p>
+</div></div>
+<p>For the following exercises, line \(L\) is given.</p>
+<ul class="tight"><li>Find point \(P\) that belongs to the line and direction vector \(\text{v}\) of the line. Express \(\text{v}\) in component form.</li><li>Find the distance from the origin to line \(L.\)</li></ul>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(x=1+t,y=3+t,z=5+4t,\) \(t\in ℝ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(P(1,3,5),\) \(v=\langle 1,1,4\rangle ;\) b. \(\sqrt{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\text{-}x=y+1,z=2\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>Find the distance between point \(A(-3,1,1)\) and the line of symmetric equations</p>
+<p>\(x=\text{-}y=\text{-}z.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2\sqrt{2}}{\sqrt{3}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>Find the distance between point \(A(4,2,5)\) and the line of parametric equations</p>
+<p>\(x=-1-t,y=\text{-}t,z=2,\) \(t\in ℝ.\)</p>
+</div></div>
+<p>For the following exercises, lines \({L}_{1}\) and \({L}_{2}\) are given.</p>
+<ul class="tight"><li>Verify whether lines \({L}_{1}\) and \({L}_{2}\) are parallel.</li><li>If the lines \({L}_{1}\) and \({L}_{2}\) are parallel, then find the distance between them.</li></ul>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\({L}_{1}:x=1+t,y=t,z=2+t,\) \(t\in ℝ,\) \({L}_{2}:x-3=y-1=z-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. Parallel; b. \(\frac{\sqrt{2}}{\sqrt{3}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\({L}_{1}:x=2,y=1,z=t,\) \({L}_{2}:x=1,y=1,z=2-3t,\) \(t\in ℝ\)</p>
+</div></div>
+<p><br></p>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>Show that the line passing through points \(P(3,1,0)\) and \(Q(1,4,-3)\) is perpendicular to the line with equations \(x = 3 + 3t, y = 1 + 8t, z = 6t,\) \(t\in ℝ.\)</p>
+</div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>Are the lines of equations \(x=-2+2t,y=-6,z=2+6t\) and \(x=-1+t,y=1+t,z=t,\) \(t\in ℝ,\) perpendicular to each other?</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>Find the point of intersection of the lines of equations \(x=-2y=3z\) and \(x=-5-t,y=-1+t,z=t-11,\) \(t\in ℝ.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-12,6,-4)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>Find the intersection point of the <strong>x</strong>-axis with the line of parametric equations</p>
+<p>\(x=10+t,y=2-2t,z=-3+3t,\) \(t\in ℝ.\)</p>
+</div></div>
+<p>For the following exercises, lines \({L}_{1}\) and \({L}_{2}\) are given. Determine whether the lines are equal, parallel but not equal, skew, or intersecting.</p>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\({L}_{1}:x=y-1=\text{-}z\) and \({L}_{2}:x-2=\text{-}y=\frac{z}{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The lines are skew.</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\({L}_{1}:x=2t,y=0,z=3,\) \(t\in ℝ\) and \({L}_{2}:x=0,y=8+s,z=7+s,\) \(s\in ℝ\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\({L}_{1}:x=-1+2t,y=1+3t,z=7t,\) \(t\in ℝ\) and \({L}_{2}:x-1=\frac{2}{3}(y-4)=\frac{2}{7}z-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The lines are equal.</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\({L}_{1}:3x=y+1=2z\) and \({L}_{2}:x=6+2t,y=17+6t,z=9+3t,\) \(t\in ℝ\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>Consider line \(L\) of symmetric equations \(x-2=\text{-}y=\frac{z}{2}\) and point \(A(1,1,1).\)</p>
+<ul class="tight"><li>Find parametric equations for a line parallel to \(L\) that passes through point \(A.\)</li><li>Find symmetric equations of a line skew to \(L\) and that passes through point \(A.\)</li><li>Find symmetric equations of a line that intersects \(L\) and passes through point \(A.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(x=1+t,y=1-t,z=1+2t,\) \(t\in ℝ;\) b. For instance, the line passing through \(A\) with direction vector \(\text{j}:x=1,z=1;\) c. For instance, the line passing through \(A\) and point \((2,0,0)\) that belongs to \(L\) is a line that intersects; \(L:\frac{x-1}{-1}=y-1=z-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>Consider line \(L\) of parametric equations \(x=t,y=2t,z=3,\) \(t\in ℝ.\)</p>
+<ul class="tight"><li>Find parametric equations for a line parallel to \(L\) that passes through the origin.</li><li>Find parametric equations of a line skew to \(L\) that passes through the origin.</li><li>Find symmetric equations of a line that intersects \(L\) and passes through the origin.</li></ul>
+</div></div>
+<p>For the following exercises, point \(P\) and vector \(\text{n}\) are given.</p>
+<ul class="tight"><li>Find the scalar equation of the plane that passes through \(P\) and has normal vector \(\text{n}.\)</li><li>Find the general form of the equation of the plane that passes through \(P\) and has normal vector \(\text{n}.\)</li></ul>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(P(0,0,0),\) \(\text{n}=3\text{i}-2\text{j}+4\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(3x-2y+4z=0;\) b. \(3x-2y+4z=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(P(3,2,2),\) \(\text{n}=2\text{i}+3\text{j}-\text{k}\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(P(1,2,3),\) \(\text{n}=\langle 1,2,3\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \((x-1)+2(y-2)+3(z-3)=0;\) b. \(x+2y+3z-14=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(P(0,0,0),\) \(\text{n}=\langle -3,2,-1\rangle\)</p>
+</div></div>
+<p>For the following exercises, the equation of a plane is given.</p>
+<ul class="tight"><li>Find normal vector \(\text{n}\) to the plane. Express \(\text{n}\) using standard unit vectors.</li><li>Find the intersections of the plane with the coordinate axes.</li><li>Sketch the plane.</li></ul>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p><strong>[T]</strong> \(4x+5y+10z-20=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{n}=4\text{i}+5\text{j}+10\text{k};\) b. \((5,0,0),\) \((0,4,0),\) and \((0,0,2);\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_201.jpg" alt="This figure is the first octant of the 3-dimensional coordinate system. It has a triangle drawn with vertices on the x, y, and z axes." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(3x+4y-12=0\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(3x-2y+4z=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{n}=3\text{i}-2\text{j}+4\text{k};\) b. \((0,0,0);\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_203.jpg" alt="This figure is the 3-dimensional coordinate system represented in a box. It has a tilted parallelogram inside the box representing a plane." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(x+z=0\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Given point \(P(1,2,3)\) and vector \(\text{n}=\text{i}+\text{j},\) find point \(Q\) on the <strong>x</strong>-axis such that \(\overset{\to }{PQ}\) and \(\text{n}\) are orthogonal.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((3,0,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Show there is no plane perpendicular to \(\text{n}=\text{i}+\text{j}\) that passes through points \(P(1,2,3)\) and \(Q(2,3,4).\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Find parametric equations of the line passing through point \(P(-2,1,3)\) that is perpendicular to the plane of equation \(2x-3y+z=7.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-2+2t,y=1-3t,z=3+t,\) \(t\in ℝ\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Find symmetric equations of the line passing through point \(P(2,5,4)\) that is perpendicular to the plane of equation \(2x+3y-5z=0.\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Show that line \(\frac{x-1}{2}=\frac{y+1}{3}=\frac{z-2}{4}\) is parallel to plane \(x-2y+z=6.\)</p>
+</div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Find the real number \(α\) such that the line of parametric equations \(x=t,y=2-t,z=3+t,\) \(t\in ℝ\) is parallel to the plane of equation \(αx+5y+z-10=0.\)</p>
+</div></div>
+<p>For the following exercises, points \(P,Q,\,\text{and}\,R\) are given.</p>
+<ul class="tight"><li>Find the general equation of the plane passing through \(P,Q,\,\text{and}\,R.\)</li><li>Write the vector equation \(\text{n}·\overset{\to }{PS}=0\) of the plane at a., where \(S(x,y,z)\) is an arbitrary point of the plane.</li><li>Find parametric equations of the line passing through the origin that is perpendicular to the plane passing through \(P,Q,\,\text{and}\,R.\)</li></ul>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(P(1,1,1),Q(2,4,3),\) and \(R(-1,-2,-1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(-2y+3z-1=0;\) b. \(\langle 0,-2,3\rangle ·\langle x-1,y-1,z-1\rangle =0;\) c. \(x=0,y=-2t,z=3t,\) \(t\in ℝ\)</p>
+<p>Answers may vary by a sign, depending on how the vector cross multiplication is performed.</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(P(-2,1,4),Q(3,1,3),\) and \(R(-2,1,0)\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Consider the planes of equations \(x+y+z=1\) and \(x+z=0.\)</p>
+<ul class="tight"><li>Show that the planes intersect.</li><li>Find symmetric equations of the line passing through point \(P(1,4,6)\) that is parallel to the line of intersection of the planes.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. Answers may vary; b. \(\frac{x-1}{1}=\frac{z-6}{-1},y=4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Consider the planes of equations \(\text{-}y+z-2=0\) and \(x-y=0.\)</p>
+<ul class="tight"><li>Show that the planes intersect.</li><li>Find parametric equations of the line passing through point \(P(-8,0,2)\) that is parallel to the line of intersection of the planes.</li></ul>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Find the scalar equation of the plane that passes through point \(P(-1,2,1)\) and is perpendicular to the line of intersection of planes \(x+y-z-2=0\) and \(2x-y+3z-1=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2x-5y-3z+15=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find the general equation of the plane that passes through the origin and is perpendicular to the line of intersection of planes \(\text{-}x+y+2=0\) and \(z-3=0.\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Determine whether the line of parametric equations \(x=1+2t,y=-2t,z=2+t,\) \(t\in ℝ\) intersects the plane with equation \(3x+4y+6z-7=0.\) If it does intersect, find the point of intersection.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The line intersects the plane at point \(P(-3,4,0).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Determine whether the line of parametric equations \(x=5,y=4-t,z=2t,\) \(t\in ℝ\) intersects the plane with equation \(2x-y+z=5.\) If it does intersect, find the point of intersection.</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Find the distance from point \(P(1,5,-4)\) to the plane of equation \(3x-y+2z-6=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{16}{\sqrt{14}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Find the distance from point \(P(1,-2,3)\) to the plane of equation \((x-3)+2(y+1)-4z=0.\)</p>
+</div></div>
+<p>For the following exercises, the equations of two planes are given.</p>
+<ul class="tight"><li>Determine whether the planes are parallel, orthogonal, or neither.</li><li>If the planes are neither parallel nor orthogonal, then find the measure of the angle between the planes. Express the answer in degrees rounded to the nearest integer.</li></ul>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p><strong>[T]</strong> \(x+y+z=0,\) \(2x-y+z-7=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. The planes are neither parallel nor orthogonal; b. \(62\text{°}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(5x-3y+z=4,\) \(x+4y+7z=1\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(x-5y-z=1,\) \(5x-25y-5z=-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. The planes are parallel.</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p><strong>[T]</strong> \(x-3y+6z=4,\) \(5x+y-z=4\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Show that the lines of equations \(x=t,y=1+t,z=2+t,\) \(t\in ℝ\text{,}\) and \(\frac{x}{2}=\frac{y-1}{3}=z-3\) are skew, and find the distance between them.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{\sqrt{6}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Show that the lines of equations \(x=-1+t,y=-2+t,z=3t,\) \(t\in ℝ,\) and \(x=5+s,y=-8+2s,z=7s,\) \(s\in ℝ\) are skew, and find the distance between them.</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>Consider point \(C(-3,2,4)\) and the plane of equation \(2x+4y-3z=8.\)</p>
+<ul class="tight"><li>Find the radius of the sphere with center \(C\) tangent to the given plane.</li><li>Find point <strong>P</strong> of tangency.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\frac{18}{\sqrt{29}};\) b. \(P(-\frac{51}{29},\frac{130}{29},\frac{62}{29})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Consider the plane of equation \(x-y-z-8=0.\)</p>
+<ul class="tight"><li>Find an equation of the sphere with center \(C\) at the origin that is tangent to the given plane.</li><li>Find parametric equations of the line passing through the origin and the point of tangency.</li></ul>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Two children are playing with a ball. The girl throws the ball to the boy. The ball travels in</p>
+<p>the air, curves \(3\) ft to the right, and falls \(5\) ft away from the girl (see the following figure). If the plane that contains the trajectory of the ball is perpendicular to the ground, find its equation.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_205.jpg" alt="This figure is the image of two children throwing a ball. The path of the ball is represented with an arc. The distance from the child throwing the ball to the point where the ball hits is 5 feet. The distance from the second child to where the ball hits is 3 feet." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4x-3y=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p><strong>[T]</strong> John allocates \(d\) dollars to consume monthly three goods of prices \(a,b,\,\text{and}\,c.\) In this context, the budget equation is defined as \(ax+by+cz=d,\) where \(x\ge 0,y\ge 0,\) and \(z\ge 0\) represent the number of items bought from each of the goods. The budget set is given by \({(x,y,z)|ax+by+cz\le d,x\ge 0,y\ge 0,z\ge 0},\) and the budget plane is the part of the plane of equation \(ax+by+cz=d\) for which \(x\ge 0,y\ge 0,\) and \(z\ge 0.\) Consider \(a=\text{\$}8,\) \(b=\text{\$}5,\) \(c=\text{\$}10,\) and \(d=\text{\$}500.\)</p>
+<ul class="tight"><li>Use a CAS to graph the budget set and budget plane.</li><li>For \(z=25,\) find the new budget equation and graph the budget set in the same system of coordinates.</li></ul>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p><strong>[T]</strong> Consider \(\text{r}(t)=\langle \text{sin}\,t,\text{cos}\,t,2t\rangle\) the position vector of a particle at time \(t\in [0,3],\) where the components of <strong>r</strong> are expressed in centimeters and time is measured in seconds. Let \(\overset{\to }{OP}\) be the position vector of the particle after \(1\) sec.</p>
+<ul class="tight"><li>Determine the velocity vector \(\text{v}(1)\) of the particle after \(1\) sec.</li><li>Find the scalar equation of the plane that is perpendicular to \(\text{v}(1)\) and passes through point \(P.\) This plane is called the <strong>normal plane</strong> to the path of the particle at point \(P.\)</li><li>Use a CAS to visualize the path of the particle along with the velocity vector and normal plane at point \(P.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\text{v}(1)=\langle \text{cos}\,1,\text{-}\text{sin}\,1,2\rangle ;\) b. \((\text{cos}\,1)(x-\text{sin}\,1)-(\text{sin}\,1)(y-\text{cos}\,1)+2(z-2)=0;\) <br> c.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_05_207.jpg" alt="This figure is the first octant of the 3-dimensional coordinate system. It has a parallelogram grid drawn representing a plane. There is a curve from y = 1 increasing. The curve intersects the plane. At the point the curve intersects the plane, there is a vector labeled “v(1).” It is upward parallel to the z-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p><strong>[T]</strong> A solar panel is mounted on the roof of a house. The panel may be regarded as positioned at the points of coordinates (in meters) \(A(8,0,0),\) \(B(8,18,0),\) \(C(0,18,8),\) and \(D(0,0,8)\) (see the following figure).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_12_04_214.jpg" alt="This figure is a picture of a rectangular solar grid on a roof. The corners of the rectangle are labeled A, B, C, D. There are two vectors, the first is from A to D. The second is from A to B." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<ul class="tight"><li>Find the general form of the equation of the plane that contains the solar panel by using points \(A,B,\,\text{and}\,C,\) and show that its normal vector is equivalent to \(\overset{\to }{AB}\,\times \,\overset{\to }{AD}.\)</li><li>Find parametric equations of line \({L}_{1}\) that passes through the center of the solar panel and has direction vector \(\text{s}=\frac{1}{\sqrt{3}}\text{i}+\frac{1}{\sqrt{3}}\text{j}+\frac{1}{\sqrt{3}}\text{k},\) which points toward the position of the Sun at a particular time of day.</li><li>Find symmetric equations of line \({L}_{2}\) that passes through the center of the solar panel and is perpendicular to it.</li><li>Determine the angle of elevation of the Sun above the solar panel by using the angle between lines \({L}_{1}\) and \({L}_{2}.\)</li></ul>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>direction vector</dt><dd>a vector parallel to a line that is used to describe the direction, or orientation, of the line in space</dd><dt>general form of the equation of a plane</dt><dd>an equation in the form \(ax+by+cz+d=0,\) where \(\text{n}=\langle a,b,c\rangle\) is a normal vector of the plane, \(P=({x}_{0},{y}_{0},{z}_{0})\) is a point on the plane, and \(d=\text{-}a{x}_{0}-b{y}_{0}-c{z}_{0}\)</dd><dt>normal vector</dt><dd>a vector perpendicular to a plane</dd><dt>parametric equations of a line</dt><dd>the set of equations \(x={x}_{0}+ta,\) \(y={y}_{0}+tb,\) and \(z={z}_{0}+tc\) describing the line with direction vector \(\text{v}=\langle a,b,c\rangle\) passing through point \(({x}_{0},{y}_{0},{z}_{0})\)</dd><dt>scalar equation of a plane</dt><dd>the equation \(a(x-{x}_{0})+b(y-{y}_{0})+c(z-{z}_{0})=0\) used to describe a plane containing point \(P=({x}_{0},{y}_{0},{z}_{0})\) with normal vector \(\text{n}=\langle a,b,c\rangle\) or its alternate form \(ax+by+cz+d=0,\) where \(d=\text{-}a{x}_{0}-b{y}_{0}-c{z}_{0}\)</dd><dt>skew lines</dt><dd>two lines that are not parallel but do not intersect</dd><dt>symmetric equations of \(\text{a}\) line</dt><dd>the equations \(\frac{x-{x}_{0}}{a}=\frac{y-{y}_{0}}{b}=\frac{z-{z}_{0}}{c}\) describing the line with direction vector \(\text{v}=\langle a,b,c\rangle\) passing through point \(({x}_{0},{y}_{0},{z}_{0})\)</dd><dt>vector equation of a line</dt><dd>the equation \(\text{r}={\text{r}}_{0}+t\text{v}\) used to describe a line with direction vector \(\text{v}=\langle a,b,c\rangle\) passing through point \(P=({x}_{0},{y}_{0},{z}_{0}),\) where \({\text{r}}_{0}=\langle {x}_{0},{y}_{0},{z}_{0}\rangle ,\) is the position vector of point \(P\)</dd><dt>vector equation of a plane</dt><dd>the equation \(\text{n}·\overset{\to }{PQ}=0,\) where \(P\) is a given point in the plane, \(Q\) is any point in the plane, and \(\text{n}\) is a normal vector of the plane</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

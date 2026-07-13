@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vector-Valued Functions and Space Curves · MX Calculus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="calculus-v3">
+<header class="topbar">
+  <a class="brand" href="../../books/calculus-v3/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Vector-Valued Functions and Space Curves</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.1</span>Vector-Valued Functions and Space Curves</h1>
+<p>Our study of vector-valued functions combines ideas from our earlier examination of single-variable calculus with our description of vectors in three dimensions from the preceding chapter. In this section we extend concepts from earlier chapters and also examine new ideas concerning curves in three-dimensional space. These definitions and theorems support the presentation of material in the rest of this chapter and also in the remaining chapters of the text.</p>
+<h2 id="definition-of-a-vector-valued-function">Definition of a Vector-Valued Function</h2>
+<p>Our first step in studying the calculus of vector-valued functions is to define what exactly a vector-valued function is. We can then look at graphs of vector-valued functions and see how they define curves in both two and three dimensions.</p>
+<div class="card definition"><span class="chip">Definition</span><p>A <strong>vector-valued function</strong> is a function of the form</p>
+<p>\[\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\,\text{or}\,\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k},\]</p>
+<p>where the <strong>component functions</strong> <strong>f, g,</strong> and <strong>h</strong>, are real-valued functions of the parameter <strong>t.</strong> Vector-valued functions are also written in the form</p>
+<p>\[\text{r}(t)=\langle f(t),g(t)\rangle \,\text{or}\,\text{r}(t)=\langle f(t),g(t),h(t)\rangle .\]</p>
+<p>In both cases, the first form of the function defines a two-dimensional vector-valued function; the second form describes a three-dimensional vector-valued function.</p>
+</div>
+<p>The parameter <strong>t</strong> can lie between two real numbers: \(a\le t\le b.\) Another possibility is that the value of <strong>t</strong> might take on all real numbers. Last, the component functions themselves may have domain restrictions that enforce restrictions on the value of <strong>t.</strong> We often use <strong>t</strong> as a parameter because <strong>t</strong> can represent time.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>For each of the following vector-valued functions, evaluate \(\text{r}(0),\,\text{r}(\frac{\pi }{2}),\text{and}\,\text{r}(\frac{2\pi }{3}).\) Do any of these functions have domain restrictions?</p>
+<ul class="tight"><li>\(\text{r}(t)=4\,\text{cos}\,t\,\text{i}+3\,\text{sin}\,t\,\text{j}\)</li><li>\(\text{r}(t)=3\,\text{tan}\,t\,\text{i}+4\,\text{sec}\,t\,\text{j}+5t\,\text{k}\)</li></ul>
+<p class="sol-hint">Substitute each t value into every component function separately, then check each component individually for values of t where it's undefined.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>To calculate each of the function values, substitute the appropriate value of <strong>t</strong> into the function:<br> <br> To determine whether this function has any domain restrictions, consider the component functions separately. The first component function is \(f(t)=4\,\text{cos}\,t\) and the second component function is \(g(t)=3\,\text{sin}\,t.\) Neither of these functions has a domain restriction, so the domain of \(\text{r}(t)=4\,\text{cos}\,t\,\text{i}+3\,\text{sin}\,t\,\text{j}\) is all real numbers.<p>\[\begin{array}{lll}\text{r}(0) &amp; = &amp; 4\,\text{cos}(0)\,\text{i}+3\,\text{sin}(0)\,\text{j} \\ &amp; = &amp; 4\,\text{i}+0\,\text{j}=4\,\text{i} \\ \text{r}(\frac{\pi }{2}) &amp; = &amp; 4\,\text{cos}(\frac{\pi }{2})\,\text{i}+3\,\text{sin}(\frac{\pi }{2})\,\text{j} \\ &amp; = &amp; 0\,\text{i}+3\,\text{j}=3\,\text{j} \\ \text{r}(\frac{2\pi }{3}) &amp; = &amp; 4\,\text{cos}(\frac{2\pi }{3})\,\text{i}+3\,\text{sin}(\frac{2\pi }{3})\,\text{j} \\ &amp; = &amp; 4(-\frac{1}{2})\,\text{i}+3(\frac{\sqrt{3}}{2})\,\text{j}=-2\,\text{i}+\frac{3\sqrt{3}}{2}\,\text{j}.\end{array}\]</p>
+</li><li>To calculate each of the function values, substitute the appropriate value of <strong>t</strong> into the function:<br> <br> To determine whether this function has any domain restrictions, consider the component functions separately. The first component function is \(f(t)=3\,\text{tan}\,t,\) the second component function is \(g(t)=4\,\text{sec}\,t,\) and the third component function is \(h(t)=5t.\) The first two functions are not defined for odd multiples of \(\pi \text{/}2,\) so the function is not defined for odd multiples of \(\pi \text{/}2.\) Therefore, \(\text{dom}(\,\text{r}(t))={t\,|t\ne \frac{(2n+1)\pi }{2}},\) where <strong>n</strong> is any integer.<p>\[\begin{array}{lll}\,\text{r}(0) &amp; = &amp; 3\,\text{tan}(0)\,\text{i}+4\,\text{sec}(0)\,\text{j}+5(0)\,\text{k} \\ &amp; = &amp; 0\,\text{i}+4\,\text{j}+0\,\text{k}=4\,\text{j} \\ \,\text{r}(\frac{\pi }{2}) &amp; = &amp; 3\,\text{tan}(\frac{\pi }{2})\,\text{i}+4\,\text{sec}(\frac{\pi }{2})\,\text{j}+5(\frac{\pi }{2})\,\text{k},\text{which does not exist} \\ \,\text{r}(\frac{2\pi }{3}) &amp; = &amp; 3\,\text{tan}(\frac{2\pi }{3})\,\text{i}+4\,\text{sec}(\frac{2\pi }{3})\,\text{j}+5(\frac{2\pi }{3})\,\text{k} \\ &amp; = &amp; 3(-\sqrt{3})\,\text{i}+4(-2)\,\text{j}+\frac{10\pi }{3}\,\text{k} \\ &amp; = &amp; -3\sqrt{3}\,\text{i}-8\,\text{j}+\frac{10\pi }{3}\,\text{k}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>For the vector-valued function \(\text{r}(t)=({t}^{2}-3t)\,\text{i}+(4t+1)\,\text{j},\) evaluate \(\text{r}(0),\,\text{r}(1),\text{and}\,\text{r}(-4).\) Does this function have any domain restrictions?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\text{r}(0)=\text{j},\,\text{r}(1)=-2\,\text{i}+5\,\text{j},\,\text{r}(-4)=28\,\text{i}-15\,\text{j}\)</p>
+<p>The domain of \(\text{r}(t)=({t}^{2}-3t)\,\text{i}+(4t+1)\,\text{j}\) is all real numbers.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p><a href="#example1">Example 1</a> illustrates an important concept. The domain of a vector-valued function consists of real numbers. The domain can be all real numbers or a subset of the real numbers. The range of a vector-valued function consists of vectors. Each real number in the domain of a vector-valued function is mapped to either a two- or a three-dimensional vector.</p>
+<h2 id="graphing-vector-valued-functions">Graphing Vector-Valued Functions</h2>
+<p>Recall that a plane vector consists of two quantities: direction and magnitude. Given any point in the plane (the <strong><strong>initial point</strong></strong>), if we move in a specific direction for a specific distance, we arrive at a second point. This represents the <strong><strong>terminal point</strong></strong> of the vector. We calculate the components of the vector by subtracting the coordinates of the initial point from the coordinates of the terminal point.</p>
+<p>A vector is considered to be in <strong><strong>standard position</strong></strong> if the initial point is located at the origin. When graphing a vector-valued function, we typically graph the vectors in the domain of the function in standard position, because doing so guarantees the uniqueness of the graph. This convention applies to the graphs of three-dimensional vector-valued functions as well. The graph of a vector-valued function of the form \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\) consists of the set of all \((t,\,\text{r}(t)),\) and the path it traces is called a <strong>plane curve</strong>. The graph of a vector-valued function of the form \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}\) consists of the set of all \((t,\,\text{r}(t)),\) and the path it traces is called a <strong>space curve</strong>. Any representation of a plane curve or space curve using a vector-valued function is called a <strong>vector parameterization</strong> of the curve.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Create a graph of each of the following vector-valued functions:</p>
+<ul class="tight"><li>The plane curve represented by \(\text{r}(t)=4\,\text{cos}\,t\,\text{i}+3\,\text{sin}\,t\,\text{j},\) \(0\le t\le 2\pi\)</li><li>The plane curve represented by \(\text{r}(t)=4\,\,\text{cos}\,\text{cos}2t\text{i}+3\,\text{sin}\,\text{sin}2\,t\text{j},\) \(0\le t\le \pi\)</li><li>The space curve represented by \(\text{r}(t)=4\text{cos}\,t\,\text{i}+4\text{sin}\,t\,\text{j}+t\,\text{k},\) \(0\le t\le 4\pi\)</li></ul>
+<p class="sol-hint">Build a table of r(t) values across the given t-interval, then plot each vector in standard position and connect the terminal points.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>As with any graph, we start with a table of values. We then graph each of the vectors in the second column of the table in standard position and connect the terminal points of each vector to form a curve (<a href="#fig1">Figure 1</a>). This curve turns out to be an ellipse centered at the origin.<br><div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>t</strong></td><td>\(\text{r}(t)\)</td><td><strong>t</strong></td><td>\(\text{r}(t)\)</td></tr><tr><td>0</td><td>\(4\,\text{i}\)</td><td>\(\pi\)</td><td>\(-4\,\text{i}\)</td></tr><tr><td>\(\frac{\pi }{4}\)</td><td>\(2\sqrt{2}\,\text{i}+\frac{3\sqrt{2}}{2}\,\text{j}\)</td><td>\(\frac{5\pi }{4}\)</td><td>\(-2\sqrt{2}\,\text{i}-\frac{3\sqrt{2}}{2}\,\text{j}\)</td></tr><tr><td>\(\frac{\pi }{2}\)</td><td>\(3\,\text{j}\)</td><td>\(\frac{3\pi }{2}\)</td><td>\(-3\,\text{j}\)</td></tr><tr><td>\(\frac{3\pi }{4}\)</td><td>\(-2\sqrt{2}\,\text{i}+\frac{3\sqrt{2}}{2}\,\text{j}\)</td><td>\(\frac{7\pi }{4}\)</td><td>\(2\sqrt{2}\,\text{i}-\frac{3\sqrt{2}}{2}\,\text{j}\)</td></tr><tr><td>\(2\pi\)</td><td>\(4\,\text{i}\)</td><td></td><td></td></tr></tbody></table></div>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_001.jpg" alt="This figure is a graph of an ellipse centered at the origin. The graph is the vector-valued function r(t)=4cost i + 3sint j. The ellipse has arrows on the curve representing counter-clockwise orientation. There are also line segments inside of the ellipse to the curve at different increments of t. The increments are t=0, t=pi/4, t=pi/2, t=3pi/4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The graph of the first vector-valued function is an ellipse.</figcaption></figure>
+</li><li>The table of values for \(\text{r}(t)=4\text{cos}\,\,\text{cos}2t\text{i}+3\,\text{sin}\,\text{sin}2\,t\text{j},\) \(0\le t\le \pi\) is as follows:<br> <br> The graph of this curve is also an ellipse centered at the origin.<br><div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>t</strong></td><td>\(\text{r}(t)\)</td><td><strong>t</strong></td><td>\(\text{r}(t)\)</td></tr><tr><td>0</td><td>\(4\,\text{i}\)</td><td>\(\frac{\pi }{2}\)</td><td>\(-4\,\text{i}\)</td></tr><tr><td>\(\frac{\pi }{8}\)</td><td>\(2\sqrt{2}\,\text{i}+\frac{3\sqrt{2}}{2}\,\text{j}\)</td><td>\(\frac{5\pi }{8}\)</td><td>\(-2\sqrt{2}\,\text{i}-\frac{3\sqrt{2}}{2}\,\text{j}\)</td></tr><tr><td>\(\frac{\pi }{4}\)</td><td>\(3\,\text{j}\)</td><td>\(\frac{3\pi }{4}\)</td><td>\(-3\,\text{j}\)</td></tr><tr><td>\(\frac{3\pi }{8}\)</td><td>\(-2\sqrt{2}\,\text{i}+\frac{3\sqrt{2}}{2}\,\text{j}\)</td><td>\(\frac{7\pi }{8}\)</td><td>\(2\sqrt{2}\,\text{i}-\frac{3\sqrt{2}}{2}\,\text{j}\)</td></tr><tr><td></td><td></td><td>\(\pi\)</td><td>\(4\,\text{i}\)</td></tr></tbody></table></div>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_002.jpg" alt="This figure is a graph of an ellipse centered at the origin. The graph is the vector-valued function r(t)=4cost^3 i + 3sint^3 j." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The graph of the second vector-valued function is also an ellipse.</figcaption></figure>
+</li><li>We go through the same procedure for a three-dimensional vector function.<br> <br> The values then repeat themselves, except for the fact that the coefficient of k is always increasing (<a href="#fig3">Figure 3</a>). This curve is called a <strong>helix</strong>. Notice that if the <strong>k</strong> component is eliminated, then the function becomes \(\text{r}(t)=\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j},\) which is a unit circle centered at the origin.<br><div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td><strong>t</strong></td><td>\(\text{r}(t)\)</td><td><strong>t</strong></td><td>\(\text{r}(t)\)</td></tr><tr><td>0</td><td>\(4\,\text{i}\)</td><td>\(\pi\)</td><td>\(-4\,\text{j}+\pi \,\text{k}\)</td></tr><tr><td>\(\frac{\pi }{4}\)</td><td>\(2\sqrt{2}\,\text{i}+2\sqrt{2}\,\text{j}+\frac{\pi }{4}\,\text{k}\)</td><td>\(\frac{5\pi }{4}\)</td><td>\(-2\sqrt{2}\,\text{i}-2\sqrt{2}\,\text{j}+\frac{5\pi }{4}\,\text{k}\)</td></tr><tr><td>\(\frac{\pi }{2}\)</td><td>\(4\,\text{j}+\frac{\pi }{2}\,\text{k}\)</td><td>\(\frac{3\pi }{2}\)</td><td>\(-4\,\text{j}+\frac{3\pi }{2}\,\text{k}\)</td></tr><tr><td>\(\frac{3\pi }{4}\)</td><td>\(-2\sqrt{2}\,\text{i}+2\sqrt{2}\,\text{j}+\frac{3\pi }{4}\,\text{k}\)</td><td>\(\frac{7\pi }{4}\)</td><td>\(2\sqrt{2}\,\text{i}-2\sqrt{2}\,\text{j}+\frac{7\pi }{4}\,\text{k}\)</td></tr><tr><td>\(2\pi\)</td><td>\(4\,\text{i}+2\pi \,\text{k}\)</td><td></td><td></td></tr></tbody></table></div>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_003.jpg" alt="This figure is the graph of a helix in the 3 dimensional coordinate system. The curve represents the function r(t) = cost i + sint j + tk. The curve spirals in a circular path around the vertical z-axis and has the look of a spring. The arrows on the curve represent orientation." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The graph of the third vector-valued function is a helix.</figcaption></figure>
+</li></ul>
+</div></div></div>
+<p>You may notice that the graphs in parts a. and b. are identical. This happens because the function describing curve b is a so-called <strong>reparameterization</strong> of the function describing curve a. In fact, any curve has an infinite number of reparameterizations; for example, we can replace <strong>t</strong> with \(2t\) in any of the three previous curves without changing the shape of the curve. The interval over which <strong>t</strong> is defined may change, but that is all. We return to this idea later in this chapter when we study arc-length parameterization.</p>
+<p>As mentioned, the name of the shape of the curve of the graph in <a href="#example2">Example 2</a>c. is a <strong>helix</strong> (<a href="#fig3">Figure 3</a>). The curve resembles a spring, with a circular cross-section looking down along the <strong>z</strong>-axis. It is possible for a helix to be elliptical in cross-section as well. For example, the vector-valued function \(\text{r}(t)=4\,\text{cos}\,t\,\text{i}+3\,\text{sin}\,t\,\text{j}+t\,\text{k}\) describes an elliptical helix. The projection of this helix into the \(x,y\text{-plane}\) is an ellipse. Last, the arrows in the graph of this helix indicate the orientation of the curve as <strong>t</strong> progresses from 0 to \(4\pi .\)</p>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Create a graph of the vector-valued function \(\text{r}(t)=({t}^{2}-1)\,\text{i}+(2t-3)\,\text{j},\) \(0\le t\le 3.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_004.jpg" alt="This figure is a graph of the function r(t) = (t^2-1)i + (2t-3)j, for the values of t from 0 to 3. The curve begins in the 3rd quadrant at the ordered pair (-1,-3) and increases up through the 1st quadrant. It is increasing and has arrows on the curve representing orientation to the right." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>At this point, you may notice a similarity between vector-valued functions and parameterized curves. Indeed, given a vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j},\) we can define \(x=f(t)\) and \(y=g(t).\) If a restriction exists on the values of <strong>t</strong> (for example, <strong>t</strong> is restricted to the interval \([a,b]\) for some constants \(a&lt;b),\) then this restriction is enforced on the parameter. The graph of the parameterized function would then agree with the graph of the vector-valued function, except that the vector-valued graph would represent vectors rather than points. Since we can parameterize a curve defined by a function \(y=f(x),\) it is also possible to represent an arbitrary plane curve by a vector-valued function.</p>
+<h2 id="limits-and-continuity-of-a-vector-valued-function">Limits and Continuity of a Vector-Valued Function</h2>
+<p>We now take a look at the <strong>limit of a vector-valued function</strong>. This is important to understand to study the calculus of vector-valued functions.</p>
+<div class="card definition"><span class="chip">Definition</span><p>A vector-valued function <strong>r</strong> approaches the limit <strong>L</strong> as <strong>t</strong> approaches <strong>a,</strong> written</p>
+<p>\[\underset{t\to a}{\text{lim}}\,\text{r}(t)=\text{L},\]</p>
+<p>provided</p>
+<p>\[\underset{t\to a}{\text{lim}}||\,\text{r}(t)-\text{L}||=0.\]</p>
+</div>
+<p>This is a rigorous definition of the limit of a vector-valued function. In practice, we use the following theorem:</p>
+<div class="card definition"><span class="chip">Limit of a Vector-Valued Function</span><p>Let <strong>f, g,</strong> and <strong>h</strong> be functions of <strong>t.</strong> Then the limit of the vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\) as <strong>t</strong> approaches <strong>a</strong> is given by</p>
+<p>\[\underset{t\to a}{\text{lim}}\,\text{r}(t)=[\underset{t\to a}{\text{lim}}f(t)]\,\text{i}+[\underset{t\to a}{\text{lim}}g(t)]\,\text{j},\]</p>
+<p>provided the limits \(\underset{t\to a}{\text{lim}}f(t)\,\text{and}\,\underset{t\to a}{\text{lim}}g(t)\) exist. Similarly, the limit of the vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}\) <strong></strong> as <strong>t</strong> approaches <strong>a</strong> is given by</p>
+<p>\[\underset{t\to a}{\text{lim}}\,\text{r}(t)=[\underset{t\to a}{\text{lim}}f(t)]\,\text{i}+[\underset{t\to a}{\text{lim}}g(t)]\,\text{j}+[\underset{t\to a}{\text{lim}}h(t)]\,\text{k},\]</p>
+<p>provided the limits \(\underset{t\to a}{\text{lim}}f(t),\,\underset{t\to a}{\text{lim}}g(t)\text{and}\,\underset{t\to a}{\text{lim}}h(t)\) exist.</p>
+</div>
+<p>In the following example, we show how to calculate the limit of a vector-valued function.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>For each of the following vector-valued functions, calculate \(\underset{t\to 3}{\text{lim}}\,\text{r}(t)\) for</p>
+<ul class="tight"><li>\(\text{r}(t)=({t}^{2}-3t+4)\,\text{i}+(4t+3)\,\text{j}\)</li><li>\(\text{r}(t)=\frac{2t-4}{t+1}\,\text{i}+\frac{t}{{t}^{2}+1}\,\text{j}+(4t-3)\,\text{k}\)</li></ul>
+<p class="sol-hint">Take the limit of each component function separately, then recombine the results into a vector.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Use (see original) and substitute the value \(t=3\) into the two component expressions:<br><p>\[\begin{array}{ll}\underset{t\to 3}{\text{lim}}\,\text{r}(t) &amp; =\underset{t\to 3}{\text{lim}}[({t}^{2}-3t+4)\,\text{i}+(4t+3)\,\text{j}] \\ &amp; =[\underset{t\to 3}{\text{lim}}({t}^{2}-3t+4)]\,\text{i}+[\underset{t\to 3}{\text{lim}}(4t+3)]\,\text{j} \\ &amp; =4\,\text{i}+15\,\text{j}.\end{array}\]</p>
+</li><li>Use (see original) and substitute the value \(t=3\) into the three component expressions:<br><p>\[\begin{array}{ll}\underset{t\to 3}{\text{lim}}\,\text{r}(t) &amp; =\underset{t\to 3}{\text{lim}}(\frac{2t-4}{t+1}\,\text{i}+\frac{t}{{t}^{2}+1}\,\text{j}+(4t-3)\,\text{k}) \\ &amp; =[\underset{t\to 3}{\text{lim}}(\frac{2t-4}{t+1})]\,\text{i}+[\underset{t\to 3}{\text{lim}}(\frac{t}{{t}^{2}+1})]\,\text{j}+[\underset{t\to 3}{\text{lim}}(4t-3)]\,\text{k} \\ &amp; =\frac{1}{2}\,\text{i}+\frac{3}{10}\,\text{j}+9\,\text{k}.\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Calculate \(\underset{t\to -2}{\text{lim}}\,\text{r}(t)\) for the function \(\text{r}(t)=\sqrt{{t}^{2}-3t-1}\,\text{i}+(4t+3)\,\text{j}+\text{sin}\,\frac{(t+1)\pi }{2}\,\text{k}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\underset{t\to -2}{\text{lim}}\,\text{r}(t)=3\,\text{i}-5\,\text{j}-\text{k}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Now that we know how to calculate the limit of a vector-valued function, we can define continuity at a point for such a function.</p>
+<div class="card definition"><span class="chip">Definition</span><p>Let <strong>f, g,</strong> and <strong>h</strong> be functions of <strong>t.</strong> Then, the vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\) is continuous at point \(t=a\) if the following three conditions hold:</p>
+<ul class="tight"><li>\(\text{r}(a)\) exists</li><li>\(\underset{t\to a}{\text{lim}}\,\text{r}(t)\) exists</li><li>\(\underset{t\to a}{\text{lim}}\,\text{r}(t)=\text{r}(a)\)</li></ul>
+<p>Similarly, the vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}\) is continuous at point \(t=a\) if the following three conditions hold:</p>
+<ul class="tight"><li>\(\text{r}(a)\) exists</li><li>\(\underset{t\to a}{\text{lim}}\,\text{r}(t)\) exists</li><li>\(\underset{t\to a}{\text{lim}}\,\text{r}(t)=\text{r}(a)\)</li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A vector-valued function is a function of the form \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\) or \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k},\) where the component functions <strong>f, g,</strong> and <strong>h</strong> are real-valued functions of the parameter <strong>t</strong>. (See <a href="#example1">Example 1</a>.)</li><li>The graph of a vector-valued function of the form \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\) is called a <strong>plane curve</strong>. The graph of a vector-valued function of the form \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}\) is called a <strong>space curve</strong>. (See <a href="#example2">Example 2</a>.)</li><li>It is possible to represent an arbitrary plane curve by a vector-valued function.</li><li>To calculate the limit of a vector-valued function, calculate the limits of the component functions separately. (See <a href="#example3">Example 3</a>.)</li></ul>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td><strong>Vector-valued function</strong></td><td>\(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\,\text{or}\,\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k},\,\text{or}\,\text{r}(t)=\langle f(t),g(t)\rangle \,\text{or}\,\text{r}(t)=\langle f(t),g(t),h(t)\rangle\)</td></tr><tr><td><strong>Limit of a vector-valued function</strong></td><td>\(\underset{t\to a}{\text{lim}}\,\text{r}(t)=[\underset{t\to a}{\text{lim}}f(t)]\,\text{i}+[\underset{t\to a}{\text{lim}}g(t)]\,\text{j}\,\text{or}\,\underset{t\to a}{\text{lim}}\,\text{r}(t)=[\underset{t\to a}{\text{lim}}f(t)]\,\text{i}+[\underset{t\to a}{\text{lim}}g(t)]\,\text{j}+[\underset{t\to a}{\text{lim}}h(t)]\,\text{k}\)</td></tr></tbody></table></div>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Give the component functions \(x=f(t)\) and \(y=g(t)\) for the vector-valued function \(\text{r}(t)=3\,\text{sec}\,t\,\text{i}+2\,\text{tan}\,t\,\text{j}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(t)=3\,\text{sec}\,t,g(t)=2\,\text{tan}\,t\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Given \(\text{r}(t)=3\,\text{sec}\,t\,\text{i}+2\,\text{tan}\,t\,\text{j},\) find the following values (if possible).</p>
+<ul class="tight"><li>\(\text{r}(\frac{\pi }{4})\)</li><li>\(\text{r}(\pi )\)</li><li>\(\text{r}(\frac{\pi }{2})\)</li></ul>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Sketch the curve of the vector-valued function \(\text{r}(t)=3\,\text{sec}\,t\,\text{i}+2\,\text{tan}\,t\,\text{j}\) and give the orientation of the curve. Sketch asymptotes as a guide to the graph.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_201.jpg" alt="This figure is the graph of the function r(t) = 3sect i + 2tant j. The graph has two slant asymptotes. They are diagonal and pass through the origin. The curve has two parts, one to the left of the y-axis with a hyperbolic bend. Also, there is a second part of the curve to the right of the y-axis with a hyperbolic bend. The orientation is represented by arrows on the curve. Both curves have orientation that is rising." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Evaluate \(\underset{t\to 0}{\text{lim}}\langle {e}^{t}\,,\frac{\text{sin}\,t}{t}\,,{e}^{\text{-}t}\rangle .\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Given the vector-valued function \(\text{r}(t)=\langle \text{cos}\,t,\text{sin}\,t\rangle ,\) find the following values:</p>
+<ul class="tight"><li>\(\underset{t\to \frac{\pi }{3}}{\text{lim}}\,\text{r}(t)\)</li><li>\(\text{r}(\frac{\pi }{3})\)</li><li>Is \(\text{r}(t)\) continuous at \(t=\frac{\pi }{3}?\)</li><li>Graph \(\text{r}(t).\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\langle \frac{1}{2},\frac{\sqrt{3}}{2}\rangle ,\) b. \(\langle \frac{1}{2},\frac{\sqrt{3}}{2}\rangle ,\) c. Yes, the limit as <strong>t</strong> approaches \(\pi \text{/}3\) is equal to \(\text{r}(\pi \text{/}3),\) d.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_202.jpg" alt="This figure is a graph of a circle centered at the origin. The circle has radius of 1 and has counter-clockwise orientation with arrows representing the orientation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>Given the vector-valued function \(\text{r}(t)=\langle t,{t}^{2}+1\rangle ,\) find the following values:</p>
+<ul class="tight"><li>\(\underset{t\to -3}{\text{lim}}\,\text{r}(t)\)</li><li>\(\text{r}(-3)\)</li><li>Is \(\text{r}(t)\) continuous at \(t=-3?\)</li><li>\(\text{r}(t+2)-\text{r}(t)\)</li></ul>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>Let \(\text{r}(t)={e}^{t}\,\text{i}+\text{sin}\,t\,\text{j}+\text{ln}\,t\,\text{k}.\) Find the following values:</p>
+<ul class="tight"><li>\(\text{r}(\frac{\pi }{4})\)</li><li>\(\underset{t\to \pi \text{/}4}{\text{lim}}\,\text{r}(t)\)</li><li>Is \(\text{r}(t)\) continuous at \(t=\frac{\pi }{4}?\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\langle {e}^{\pi \text{/}4},\frac{\sqrt{2}}{2},\text{ln}(\frac{\pi }{4})\rangle ;\) b. \(\langle {e}^{\pi \text{/}4},\frac{\sqrt{2}}{2},\text{ln}(\frac{\pi }{4})\rangle ;\) c. Yes</p>
+</div></div></div></div>
+<p>Find the limit of the following vector-valued functions at the indicated value of <strong>t</strong>.</p>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\underset{t\to 4}{\text{lim}}\langle \sqrt{t-3},\frac{\sqrt{t}-2}{t-4},\text{tan}(\frac{\pi }{t})\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\underset{t\to \pi \text{/}2}{\text{lim}}\,\text{r}(t)\) for \(\text{r}(t)={e}^{t}\,\text{i}+\text{sin}\,t\,\text{j}+\text{ln}\,t\,\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\langle {e}^{\pi \text{/}2},1,\text{ln}(\frac{\pi }{2})\rangle\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\underset{t\to \infty }{\text{lim}}\langle {e}^{-2t},\frac{2t+3}{3t-1},\text{arctan}(2t)\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\underset{t\to {e}^{2}}{\text{lim}}\langle t\,\text{ln}(t),\frac{\text{ln}\,t}{{t}^{2}},\sqrt{\text{ln}\,({t}^{2})}\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2{e}^{2}\,\text{i}+\frac{2}{{e}^{4}}\,\text{j}+2\,\text{k}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\underset{t\to \pi \text{/}6}{\text{lim}}\langle {\text{cos}}^{2}t,{\text{sin}}^{2}t,1\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\underset{t\to \infty }{\text{lim}}\,\text{r}(t)\) for \(\text{r}(t)=2{e}^{\text{-}t}\,\text{i}+{e}^{\text{-}t}\,\text{j}+\text{ln}(t-1)\,\text{k}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The limit does not exist because the limit of \(\text{ln}(t-1)\) as <strong>t</strong> approaches infinity does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>Describe the curve defined by the vector-valued function \(\text{r}(t)=(1+t)\,\text{i}+(2+5t)\,\text{j}+(-1+6t)\,\text{k}.\)</p>
+</div></div>
+<p>Find the domain of the vector-valued functions.</p>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>Domain: \(\text{r}(t)=\langle {t}^{2},\text{tan}\,t,\text{ln}\,t\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(t&gt;0,t\ne (2k+1)\frac{\pi }{2},\) where k is an integer</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>Domain: \(\text{r}(t)=\langle {t}^{2},\sqrt{t-3},\frac{3}{2t+1}\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>Domain: \(\text{r}(t)=\langle \text{csc}(t),\frac{1}{\sqrt{t-3}},\text{ln}(t-2)\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(t&gt;3,t\ne n\pi ,\) where <strong>n</strong> is an integer</p>
+</div></div></div></div>
+<p>Let \(\text{r}(t)=\langle \text{cos}\,t,t,\text{sin}\,t\rangle\) and use it to answer the following questions.</p>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>For what values of <strong>t</strong> is \(\text{r}(t)\) continuous?</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>Sketch the graph of \(\text{r}(t).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_203.jpg" alt="This figure has two graphs. The first graph is labeled “cross section” and is a circle centered at the origin with radius of 1. It has counter-clockwise orientation. The section graph is labeled “side view” and is a 3 dimensional helix. The helix has counterclockwise orientation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>Find the domain of \(\text{r}(t)=2{e}^{\text{-}t}\,\text{i}+{e}^{\text{-}t}\,\text{j}+\text{ln}(t-1)\,\text{k}.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>For what values of <strong>t</strong> is \(\text{r}(t)=2{e}^{\text{-}t}\,\text{i}+{e}^{\text{-}t}\,\text{j}+\text{ln}(t-1)\,\text{k}\) continuous?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>All <strong>t</strong> such that \(t\in (1,\infty )\)</p>
+</div></div></div></div>
+<p>Eliminate the parameter <strong>t</strong>, write the equation in Cartesian coordinates, then sketch the graphs of the vector-valued functions.</p>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\text{r}(t)=2t\,\text{i}+{t}^{2}\,\text{j}\) (<strong>Hint:</strong> Let \(x=2t\) and \(y={t}^{2}.\) Solve the first equation for <strong>x</strong> in terms of <strong>t</strong> and substitute this result into the second equation.)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\text{r}(t)={t}^{3}\,\text{i}+2t\,\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=2\sqrt[3]{x},\) a variation of the cube-root function<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_205.jpg" alt="This figure is the graph of y = 2 times the cube root of x. It is an increasing function passing through the origin. The curve becomes more vertical near the origin. It has orientation to the right represented with arrows on the curve." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(\text{r}(t)=2(\text{sinh}\,t)\,\text{i}+2(\text{cosh}\,t)\,\text{j},t&gt;0\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(\text{r}(t)=3(\text{cos}\,t)\,\text{i}+3(\text{sin}\,t)\,\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{2}+{y}^{2}=9,\) a circle centered at \((0,0)\) with radius 3, and a counterclockwise orientation<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_207.jpg" alt="This figure is the graph of x^2 + y^2 = 9. It is a circle centered at the origin with radius 3. It has orientation counter-clockwise represented with arrows on the curve." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\text{r}(t)=\langle 3\,\text{sin}\,t,3\,\text{cos}\,t\rangle\)</p>
+</div></div>
+<p>Use a graphing utility to sketch each of the following vector-valued functions:</p>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p><strong>[T]</strong> \(\text{r}(t)=\left(2\,{\text{cos}}^{2}\,t\right)\,\text{i}+(2-\sqrt{t})\,\text{j}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_208.jpg" alt="This figure is the graph of r(t) = 2cost^2 i + (2 – the square root of t) j. The curve spirals in the first quadrant, touching the y-axis. As the curve gets closer to the x-axis, the spirals become tighter. It has the look of a spring being compressed. The arrows on the curve represent orientation going downward." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p><strong>[T]</strong> \(\text{r}(t)=\langle {e}^{\text{cos}(3t)},{e}^{\text{-}\text{sin}(t)}\rangle\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p><strong>[T]</strong> \(\text{r}(t)=\langle 2-\text{sin}(2t),3+2\,\text{cos}\,t\rangle\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br> <br> Find a vector-valued function that traces out the given curve in the indicated direction.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_210.jpg" alt="This figure has two graphs. The first is 3 dimensional and is a curve making a figure eight on its side inside of a box. The box represents the first octant. The second graph is 2 dimensional. It represents the same curve from a “view in the yt plane”. The horizontal axis is labeled “t”. The curve is connected and crosses over itself in the first quadrant resembling a figure eight." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(4{x}^{2}+9{y}^{2}=36;\) clockwise and counterclockwise</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(\text{r}(t)=\langle t,{t}^{2}\rangle ;\) from left to right</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>For left to right, \(y={x}^{2},\) where t increases</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>The line through <strong>P</strong> and <strong>Q</strong> where <strong>P</strong> is \((1,4,-2)\) and <strong>Q</strong> is \((3,9,6)\)</p>
+</div></div>
+<p>Consider the curve described by the vector-valued function \(\text{r}(t)=(50{e}^{\text{-}t}\text{cos}\,t)\,\text{i}+(50{e}^{\text{-}t}\text{sin}\,t)\,\text{j}+(5-5{e}^{\text{-}t})\,\text{k}.\)</p>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>What is the initial point of the path corresponding to \(\text{r}(0)?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((50,0,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>What is \(\underset{t\to \infty }{\text{lim}}\,\text{r}(t)?\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p><strong>[T]</strong> Use technology to sketch the curve.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_211.jpg" alt="This figure is a graph in the 3 dimensional coordinate system. It is a curve starting at the middle of the box and curving towards the upper left corner The box represents an octant of the coordinate system." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Eliminate the parameter <strong>t</strong> to show that \(z=5-\frac{r}{10}\) where \({r}^{2}={x}^{2}+{y}^{2}.\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p><strong>[T]</strong> Let \(r(t)=\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}+0.3\,\text{sin}(2t)\,\text{k}.\) Use technology to graph the curve (called the <strong>roller-coaster curve</strong>) over the interval \([0,2\pi ).\) Choose at least two views to determine the peaks and valleys.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_212.jpg" alt="This figure has two graphs. The first is 3 dimensional and is a connected curve with counter-clockwise orientation inside of a box. The second graph is 3 dimensional. It represents the same curve from different view of the box. From the side of the box the curve is connected and has depth to it." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p><strong>[T]</strong> Use the result of the preceding problem to construct an equation of a roller coaster with a steep drop from the peak and steep incline from the “valley.” Then, use technology to graph the equation.</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Use the results of the preceding two problems to construct an equation of a path of a roller coaster with more than two turning points (peaks and valleys).</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>One possibility is \(r(t)=\text{cos}\,t\,\text{i}+\text{sin}\,t\,\text{j}+\text{sin}(4t)\,\text{k}.\) By increasing the coefficient of <strong>t</strong> in the third component, the number of turning points will increase.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_13_01_214.jpg" alt="This figure is a 3 dimensional graph. It is a connected curve inside of a box. The curve has orientation. As the orientation travels around the curve, it does go up and down in depth." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><ul class="tight"><li>Graph the curve \(\text{r}(t)=(4+\text{cos}(18t))\text{cos}(t)\,\text{i}+(4+\text{cos}(18t)\text{sin}(t))\,\text{j}+0.3\,\text{sin}(18t)\,\text{k}\) using two viewing angles of your choice to see the overall shape of the curve.</li><li>Does the curve resemble a “slinky”?</li><li>What changes to the equation should be made to increase the number of coils of the slinky?</li></ul>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>component functions</dt><dd>the component functions of the vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\) are \(f(t)\) and \(g(t),\) and the component functions of the vector-valued function \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k}\) are \(f(t),\) \(g(t)\) and \(h(t)\)</dd><dt>helix</dt><dd>a three-dimensional curve in the shape of a spiral</dd><dt>limit of a vector-valued function</dt><dd>a vector-valued function \(\text{r}(t)\) has a limit <strong>L</strong> as <strong>t</strong> approaches <strong>a</strong> if \(\underset{t\to a}{\text{lim}}|\,\text{r}(t)-\text{L}|=0\)</dd><dt>plane curve</dt><dd>the set of ordered pairs \((f(t),g(t))\) together with their defining parametric equations \(x=f(t)\) and \(y=g(t)\)</dd><dt>reparameterization</dt><dd>an alternative parameterization of a given vector-valued function</dd><dt>space curve</dt><dd>the set of ordered triples \((f(t),g(t),h(t))\) together with their defining parametric equations \(x=f(t),\) \(y=g(t)\) and \(z=h(t)\)</dd><dt>vector parameterization</dt><dd>any representation of a plane or space curve using a vector-valued function</dd><dt>vector-valued function</dt><dd>a function of the form \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}\) or \(\text{r}(t)=f(t)\,\text{i}+g(t)\,\text{j}+h(t)\,\text{k},\) where the component functions <strong>f, g,</strong> and <strong>h</strong> are real-valued functions of the parameter <strong>t</strong></dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/calculus-volume-3">OpenStax Calculus Volume 3</a> by Gilbert Strang, Edwin “Jed” Herman, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>
