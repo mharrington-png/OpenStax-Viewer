@@ -105,6 +105,24 @@ to ship as `ready: true` yet — the hand-pass below is required first, and
 Once the hand-pass is done and verify passes, set `ready: true` in the BOOK manifest and
 add the link in index.html.
 
+**Chapter-end sections get two extra sidebar rows (standard, not optional).** OpenStax
+bundles "Chapter Review Exercises" and (College Algebra/Precalc only — Calculus doesn't
+have this) "Practice Test" into the *last* section's own page rather than giving them their
+own module/file (see the `reviewExN`/`practiceExN` note above). Left as pure in-page content,
+they're only reachable via that page's own outline — not visible anywhere in the "Book
+contents" sidebar fold that lists the rest of the book. Whenever the section you just built
+is the last one in its chapter and its page has `id="chapter-review-exercises"` and/or
+`id="practice-test"` headings, add sibling entries right after that section's own entry in
+the BOOK manifest (`assets/app.js`), e.g.:
+```js
+{ id: "3-7", title: "3.7 Inverse Functions", file: "3-7.html", ready: true },
+{ id: "3-7-review", title: "Chapter Review Exercises", file: "3-7.html#chapter-review-exercises", ready: true },
+{ id: "3-7-practice", title: "Practice Test", file: "3-7.html#practice-test", ready: true },
+```
+No number prefix on the title (matches the page's own un-numbered heading). This applies
+per book, not just College Algebra 2e — every Calculus volume's chapters need the Review
+Exercises row too, just without a Practice Test row.
+
 **Hand-pass a section (required before `ready: true`):**
 - **Sol-hints (required, mechanically enforced).** Every non-warmup `Example` gets exactly
   one `<p class="sol-hint">...</p>` inserted as the last child of `.ex-body`, right before
