@@ -486,10 +486,15 @@ function initSearch(root, topbar) {
 
   const input = box.querySelector(".search-input");
   const resultsEl = box.querySelector(".search-results");
-  let indexPromise = null, activeIdx = -1;
+  let indexPromise = null, activeIdx = -1, indexError = false;
 
+  // fetch() of a local assets/search-index.json fails under file:// (browsers block it as
+  // cross-origin, "null" origin) — surface that as a visible message rather than silently
+  // returning zero hits for every query, which looks indistinguishable from a broken index.
   const loadIndex = () => indexPromise || (indexPromise =
-    fetch(`${root}/assets/search-index.json`).then(r => r.ok ? r.json() : []).catch(() => []));
+    fetch(`${root}/assets/search-index.json`)
+      .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .catch(err => { indexError = true; console.warn("Search index failed to load:", err); return []; }));
 
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const highlight = (text, q) => {
@@ -522,6 +527,11 @@ function initSearch(root, topbar) {
     if (q.length < 2) { resultsEl.hidden = true; resultsEl.innerHTML = ""; return; }
     debounceT = setTimeout(async () => {
       const data = await loadIndex();
+      if (indexError) {
+        resultsEl.innerHTML = `<div class="search-empty">Search index couldn't load. If you opened this page directly from a file (a file:// address), browsers block that fetch — run a local server (e.g. <code>npx serve .</code>) instead, or use the hosted site.</div>`;
+        resultsEl.hidden = false;
+        return;
+      }
       const scored = [];
       for (const e of data) {
         const t = e.text.toLowerCase();
