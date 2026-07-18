@@ -20,20 +20,30 @@ const BOOK_DEFAULTS = {
   "college-algebra-2e": {
     repo: "osbooks-college-algebra-bundle",
     sectionsDir: "sections", // legacy: flat, no book subfolder, for backward compatibility
+    brand: "MX Algebra",
     license: { name: "Creative Commons Attribution 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
     source: { name: "OpenStax College Algebra 2e", url: "https://openstax.org/books/college-algebra-2e", author: "Jay Abramson" },
   },
   "calculus-v1": {
     repo: "osbooks-calculus-bundle",
     sectionsDir: "sections/calculus-v1",
+    brand: "MX Calculus",
     license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
     source: { name: "OpenStax Calculus Volume 1", url: "https://openstax.org/books/calculus-volume-1", author: "Gilbert Strang, Edwin “Jed” Herman" },
   },
   "calculus-v3": {
     repo: "osbooks-calculus-bundle",
     sectionsDir: "sections/calculus-v3",
+    brand: "MX Calculus",
     license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
     source: { name: "OpenStax Calculus Volume 3", url: "https://openstax.org/books/calculus-volume-3", author: "Gilbert Strang, Edwin “Jed” Herman" },
+  },
+  "intermediate-algebra-2e": {
+    repo: "osbooks-prealgebra-bundle",
+    sectionsDir: "sections/intermediate-algebra-2e",
+    brand: "MX Algebra",
+    license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
+    source: { name: "OpenStax Intermediate Algebra 2e", url: "https://openstax.org/books/intermediate-algebra-2e", author: "Lynn Marecek, Andrea Honeycutt Mathis" },
   },
 };
 
@@ -413,7 +423,15 @@ function inline(n) { // serialize inline content of a para/entry/item
           // verify-section.mjs also hard-fails on the literal placeholder text now, so this
           // can no longer slip through unnoticed even if the warning is missed.
           console.warn(`⚠ unresolved <link target-id="${tid}"> — no matching figure/table/example/equation/note; emitting "(see original)" placeholder, fix by hand`);
-          out += "(see original)";
+          // Cross-module links (<link target-id="X" document="mNNNNN"/>, e.g. "Be Prepared"
+          // quiz items referencing an earlier chapter's example) can't be resolved here at
+          // all — this module was rendered in isolation, with no numbering map for any other
+          // module. Stamp the raw target-id/document into an HTML comment right next to the
+          // placeholder so a later cross-module resolver pass (tools/resolve-crossrefs.mjs)
+          // can look the target up in the *other* module's own numbering and patch this link
+          // in place, instead of a human having to re-derive target-id/document by hand from
+          // the original CNXML (which the rendered HTML no longer carries).
+          out += `<!--xref target-id="${esc(tid || "")}" document="${esc(c.attrs.document || "")}"-->(see original)`;
         }
         break;
       }
@@ -630,8 +648,8 @@ const body = blocks(doc, { depth: 2 });
 // Book home (topbar brand link) — not the top-level picker hub, which is reached via the
 // sidebar's "All books" link instead (see assets/app.js).
 const bookHome = `${rootUp}books/${bookId}/index.html`;
-const brandText = bookId === "college-algebra-2e" ? "MX Algebra" : "MX Calculus";
-const brandLabel = bookId === "college-algebra-2e" ? "MX <span>Algebra</span>" : "MX <span>Calculus</span>";
+const brandText = bookDef.brand;
+const brandLabel = brandText.replace(/^(\S+)\s+(.+)$/, "$1 <span>$2</span>");
 
 const page = `<!DOCTYPE html>
 <html lang="en">

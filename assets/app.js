@@ -183,6 +183,106 @@ const BOOKS = {
       ]},
     ],
   },
+  "intermediate-algebra-2e": {
+    title: "Intermediate Algebra",
+    license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
+    source: { name: "OpenStax Intermediate Algebra 2e", url: "https://openstax.org/books/intermediate-algebra-2e", author: "Lynn Marecek, Andrea Honeycutt Mathis" },
+    sectionsDir: "sections/intermediate-algebra-2e",
+    chapters: [
+      { n: 1, title: "Foundations", sections: [
+        { id: "1-1", title: "1.1 Use the Language of Algebra", file: "1-1.html", ready: true },
+        { id: "1-2", title: "1.2 Integers", file: "1-2.html", ready: true },
+        { id: "1-3", title: "1.3 Fractions", file: "1-3.html", ready: true },
+        { id: "1-4", title: "1.4 Decimals", file: "1-4.html", ready: true },
+        { id: "1-5", title: "1.5 Properties of Real Numbers", file: "1-5.html", ready: true },
+        { id: "1-5-review", title: "Chapter Review Exercises", file: "1-5.html#chapter-review-exercises", ready: true },
+        { id: "1-5-practice", title: "Practice Test", file: "1-5.html#practice-test", ready: true },
+      ]},
+      { n: 2, title: "Solving Linear Equations", sections: [
+        { id: "2-1", title: "2.1 Use a General Strategy to Solve Linear Equations", file: "2-1.html", ready: true },
+        { id: "2-2", title: "2.2 Use a Problem Solving Strategy", file: "2-2.html", ready: true },
+        { id: "2-3", title: "2.3 Solve a Formula for a Specific Variable", file: "2-3.html", ready: true },
+        { id: "2-4", title: "2.4 Solve Mixture and Uniform Motion Applications", file: "2-4.html", ready: true },
+        { id: "2-5", title: "2.5 Solve Linear Inequalities", file: "2-5.html", ready: true },
+        { id: "2-6", title: "2.6 Solve Compound Inequalities", file: "2-6.html", ready: true },
+        { id: "2-7", title: "2.7 Solve Absolute Value Inequalities", file: "2-7.html", ready: true },
+        { id: "2-7-review", title: "Chapter Review Exercises", file: "2-7.html#chapter-review-exercises", ready: true },
+        { id: "2-7-practice", title: "Practice Test", file: "2-7.html#practice-test", ready: true },
+      ]},
+      { n: 3, title: "Graphs and Functions", sections: [
+        { id: "3-1", title: "3.1 Graph Linear Equations in Two Variables", file: "3-1.html", ready: true },
+        { id: "3-2", title: "3.2 Slope of a Line", file: "3-2.html", ready: true },
+        { id: "3-3", title: "3.3 Find the Equation of a Line", file: "3-3.html", ready: true },
+        { id: "3-4", title: "3.4 Graph Linear Inequalities in Two Variables", file: "3-4.html", ready: true },
+        { id: "3-5", title: "3.5 Relations and Functions", file: "3-5.html", ready: true },
+        { id: "3-6", title: "3.6 Graphs of Functions", file: "3-6.html", ready: true },
+        { id: "3-6-review", title: "Chapter Review Exercises", file: "3-6.html#chapter-review-exercises", ready: true },
+        { id: "3-6-practice", title: "Practice Test", file: "3-6.html#practice-test", ready: true },
+      ]},
+      { n: 4, title: "Systems of Linear Equations", sections: [
+        { id: "4-1", title: "4.1 Solve Systems of Linear Equations with Two Variables", file: "4-1.html", ready: true },
+        { id: "4-2", title: "4.2 Solve Applications with Systems of Equations", file: "4-2.html", ready: true },
+        { id: "4-3", title: "4.3 Solve Mixture Applications with Systems of Equations", file: "4-3.html", ready: true },
+        { id: "4-4", title: "4.4 Solve Systems of Equations with Three Variables", file: "4-4.html", ready: true },
+        { id: "4-5", title: "4.5 Solve Systems of Equations Using Matrices", file: "4-5.html", ready: true },
+        { id: "4-6", title: "4.6 Solve Systems of Equations Using Determinants", file: "4-6.html", ready: true },
+        { id: "4-7", title: "4.7 Graphing Systems of Linear Inequalities", file: "4-7.html", ready: true },
+        { id: "4-7-review", title: "Chapter Review Exercises", file: "4-7.html#chapter-review-exercises", ready: true },
+        { id: "4-7-practice", title: "Chapter Practice Test", file: "4-7.html#chapter-practice-test", ready: true },
+      ]},
+      { n: 5, title: "Polynomials and Polynomial Functions", sections: [
+        { id: "5-1", title: "5.1 Add and Subtract Polynomials", file: "5-1.html", ready: true },
+        { id: "5-2", title: "5.2 Properties of Exponents and Scientific Notation", file: "5-2.html", ready: true },
+        { id: "5-3", title: "5.3 Multiply Polynomials", file: "5-3.html", ready: true },
+        { id: "5-4", title: "5.4 Dividing Polynomials", file: "5-4.html", ready: true },
+        { id: "5-4-review", title: "Chapter Review Exercises", file: "5-4.html#chapter-review-exercises", ready: true },
+        { id: "5-4-practice", title: "Chapter Practice Test", file: "5-4.html#chapter-practice-test", ready: true },
+      ]},
+      { n: 6, title: "Factoring", sections: [
+        { id: "6-1", title: "6.1 Greatest Common Factor and Factor by Grouping", file: "6-1.html", ready: true },
+        { id: "6-2", title: "6.2 Factor Trinomials", file: "6-2.html", ready: true },
+        { id: "6-3", title: "6.3 Factor Special Products", file: "6-3.html", ready: true },
+        { id: "6-4", title: "6.4 General Strategy for Factoring Polynomials", file: "6-4.html", ready: true },
+        { id: "6-5", title: "6.5 Polynomial Equations", file: "6-5.html", ready: true },
+        { id: "6-5-review", title: "Chapter Review Exercises", file: "6-5.html#chapter-review-exercises", ready: true },
+        { id: "6-5-practice", title: "Chapter Practice Test", file: "6-5.html#chapter-practice-test", ready: true },
+      ]},
+      { n: 7, title: "Rational Expressions and Functions", sections: [
+        { id: "7-1", title: "7.1 Multiply and Divide Rational Expressions", file: "7-1.html", ready: true },
+        { id: "7-2", title: "7.2 Add and Subtract Rational Expressions", file: "7-2.html", ready: true },
+        { id: "7-3", title: "7.3 Simplify Complex Rational Expressions", file: "7-3.html", ready: true },
+        { id: "7-4", title: "7.4 Solve Rational Equations", file: "7-4.html", ready: true },
+        { id: "7-5", title: "7.5 Solve Applications with Rational Equations", file: "7-5.html", ready: true },
+        { id: "7-6", title: "7.6 Solve Rational Inequalities", file: "7-6.html", ready: true },
+        { id: "7-6-review", title: "Chapter Review Exercises", file: "7-6.html#chapter-review-exercises", ready: true },
+        { id: "7-6-practice", title: "Practice Test", file: "7-6.html#practice-test", ready: true },
+      ]},
+      { n: 8, title: "Roots and Radicals", sections: [
+        { id: "8-1", title: "8.1 Simplify Expressions with Roots", file: "8-1.html", ready: true },
+        { id: "8-2", title: "8.2 Simplify Radical Expressions", file: "8-2.html", ready: true },
+        { id: "8-3", title: "8.3 Simplify Rational Exponents", file: "8-3.html", ready: true },
+        { id: "8-4", title: "8.4 Add, Subtract, and Multiply Radical Expressions", file: "8-4.html", ready: true },
+        { id: "8-5", title: "8.5 Divide Radical Expressions", file: "8-5.html", ready: true },
+        { id: "8-6", title: "8.6 Solve Radical Equations", file: "8-6.html", ready: true },
+        { id: "8-7", title: "8.7 Use Radicals in Functions", file: "8-7.html", ready: true },
+        { id: "8-8", title: "8.8 Use the Complex Number System", file: "8-8.html", ready: true },
+        { id: "8-8-review", title: "Chapter Review Exercises", file: "8-8.html#chapter-review-exercises", ready: true },
+        { id: "8-8-practice", title: "Practice Test", file: "8-8.html#practice-test", ready: true },
+      ]},
+      { n: 9, title: "Quadratic Equations and Functions", sections: [
+        { id: "9-1", title: "9.1 Solve Quadratic Equations Using the Square Root Property", file: "9-1.html", ready: true },
+        { id: "9-2", title: "9.2 Solve Quadratic Equations by Completing the Square", file: "9-2.html", ready: true },
+        { id: "9-3", title: "9.3 Solve Quadratic Equations Using the Quadratic Formula", file: "9-3.html", ready: true },
+        { id: "9-4", title: "9.4 Solve Equations in Quadratic Form", file: "9-4.html", ready: true },
+        { id: "9-5", title: "9.5 Solve Applications of Quadratic Equations", file: "9-5.html", ready: true },
+        { id: "9-6", title: "9.6 Graph Quadratic Functions Using Properties", file: "9-6.html", ready: true },
+        { id: "9-7", title: "9.7 Graph Quadratic Functions Using Transformations", file: "9-7.html", ready: true },
+        { id: "9-8", title: "9.8 Solve Quadratic Inequalities", file: "9-8.html", ready: true },
+        { id: "9-8-review", title: "Chapter Review Exercises", file: "9-8.html#chapter-review-exercises", ready: true },
+        { id: "9-8-practice", title: "Practice Test", file: "9-8.html#practice-test", ready: true },
+      ]},
+    ],
+  },
 };
 const DEFAULT_BOOK = "college-algebra-2e";
 
@@ -265,6 +365,11 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", () => { on = !on; localStorage.setItem(key, on ? "1" : "0"); apply(on); });
     }
   }
+
+  // site-wide search — independent of the sidebar so it also appears on the top-level
+  // book-picker page (index.html), which has a topbar but no .sidebar nav.
+  const topbarEl = document.querySelector(".topbar");
+  if (topbarEl) initSearch(root, topbarEl);
 
   // theme button
   document.querySelectorAll("[data-theme-toggle]").forEach(b => b.addEventListener("click", toggleTheme));
@@ -361,6 +466,91 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-plot]").forEach(drawPlot);
   document.querySelectorAll("[data-desmos]").forEach(drawDesmos);
 });
+
+/* ---------- site-wide search ----------
+   Searches topic headings, Key Concepts bullets ("learning objectives"), and glossary
+   terms across every book at once, from a static JSON index (assets/search-index.json,
+   built by tools/build-search-index.mjs — re-run that script after any hand-pass edit
+   that changes headings/Key-Concepts/glossary content). Deliberately keyword/substring
+   matching, not semantic search — no server, fits this site's no-build-step constraint,
+   and is enough to jump from e.g. a Calculus page to the Precalc section that first
+   covers "vertical asymptote". */
+function initSearch(root, topbar) {
+  const box = document.createElement("div");
+  box.className = "searchbox";
+  box.innerHTML =
+    `<input type="search" class="search-input" placeholder="Search topics, skills, or objectives…" aria-label="Search all books" autocomplete="off">` +
+    `<div class="search-results" hidden></div>`;
+  const spacer = topbar.querySelector(".spacer");
+  if (spacer) spacer.after(box); else topbar.appendChild(box);
+
+  const input = box.querySelector(".search-input");
+  const resultsEl = box.querySelector(".search-results");
+  let indexPromise = null, activeIdx = -1;
+
+  const loadIndex = () => indexPromise || (indexPromise =
+    fetch(`${root}/assets/search-index.json`).then(r => r.ok ? r.json() : []).catch(() => []));
+
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const highlight = (text, q) => {
+    const i = text.toLowerCase().indexOf(q);
+    if (i === -1) return esc(text);
+    return esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(text.slice(i + q.length));
+  };
+
+  function render(items, q) {
+    activeIdx = -1;
+    if (!items.length) {
+      resultsEl.innerHTML = `<div class="search-empty">No matches for “${esc(q)}”.</div>`;
+      resultsEl.hidden = false;
+      return;
+    }
+    resultsEl.innerHTML = items.map(e => {
+      const href = `${root}/${e.path}#${e.anchor}`;
+      const detail = e.detail ? `<div class="search-detail">${esc(e.detail)}</div>` : "";
+      return `<a class="search-result" href="${href}">` +
+        `<div class="search-eyebrow">${esc(e.bookTitle)} · ${esc(e.sectionTitle)}</div>` +
+        `<div class="search-main">${highlight(e.text, q)}</div>${detail}</a>`;
+    }).join("");
+    resultsEl.hidden = false;
+  }
+
+  let debounceT;
+  input.addEventListener("input", () => {
+    clearTimeout(debounceT);
+    const q = input.value.trim().toLowerCase();
+    if (q.length < 2) { resultsEl.hidden = true; resultsEl.innerHTML = ""; return; }
+    debounceT = setTimeout(async () => {
+      const data = await loadIndex();
+      const scored = [];
+      for (const e of data) {
+        const t = e.text.toLowerCase();
+        let idx = t.indexOf(q), inDetail = false;
+        if (idx === -1 && e.detail) { idx = e.detail.toLowerCase().indexOf(q); inDetail = true; }
+        if (idx === -1) continue;
+        const typeWeight = e.type === "heading" ? 3 : e.type === "glossary" ? 2.5 : 2;
+        const score = typeWeight * 100 - idx * 0.5 - t.length * 0.02 - (inDetail ? 50 : 0);
+        scored.push({ e, score });
+      }
+      scored.sort((a, b) => b.score - a.score);
+      render(scored.slice(0, 8).map(s => s.e), q);
+    }, 120);
+  });
+
+  const updateActive = items => {
+    items.forEach((el, i) => el.classList.toggle("active", i === activeIdx));
+    if (items[activeIdx]) items[activeIdx].scrollIntoView({ block: "nearest" });
+  };
+  input.addEventListener("keydown", ev => {
+    const items = resultsEl.querySelectorAll(".search-result");
+    if (ev.key === "Escape") { resultsEl.hidden = true; input.blur(); }
+    else if (ev.key === "ArrowDown" && items.length) { ev.preventDefault(); activeIdx = Math.min(activeIdx + 1, items.length - 1); updateActive(items); }
+    else if (ev.key === "ArrowUp" && items.length) { ev.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); updateActive(items); }
+    else if (ev.key === "Enter") { const target = items[activeIdx] || items[0]; if (target) { ev.preventDefault(); target.click(); } }
+  });
+  input.addEventListener("focus", () => { if (resultsEl.innerHTML) resultsEl.hidden = false; });
+  document.addEventListener("click", ev => { if (!box.contains(ev.target)) resultsEl.hidden = true; });
+}
 
 /* ---------- page outline: collapsible groups per section heading ---------- */
 function buildOutline(container) {

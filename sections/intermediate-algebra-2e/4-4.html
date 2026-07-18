@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solve Systems of Equations with Three Variables · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="intermediate-algebra-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/intermediate-algebra-2e/index.html">MX <span>Algebra</span></a>
+  <span class="crumb">Solve Systems of Equations with Three Variables</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 4.4</span>Solve Systems of Equations with Three Variables</h1>
+<div class="card definition" id="fs-id1167829709277"><span class="chip">Definition</span><p>Before you get started, take this readiness quiz.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Evaluate \(5x-2y+3z\) when \(x=-2,\) \(y=-4,\) and \(z=3.\) <br> If you missed this problem, review <a href="1-2.html#example10">Example 10</a>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(7\)</p>
+</div></div></div></div>
+</div>
+<div class="card definition" id="fs-idm301326080"><span class="chip">Definition</span><div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Classify the equations as a conditional equation, an identity, or a contradiction and then state the solution. \(\left\{\begin{array}{l}-2x+y=-11 \\ x+3y=9\end{array}\right..\) <br> If you missed this problem, review <a href="2-1.html#example6">Example 6</a>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>conditional; one solution</p>
+</div></div></div></div>
+</div>
+<div class="card definition" id="fs-idm325665696"><span class="chip">Definition</span><div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Classify the equations as a conditional equation, an identity, or a contradiction and then state the solution. \(\left\{\begin{array}{l}7x+8y=4 \\ 3x-5y=27\end{array}\right..\) <br> If you missed this problem, review <a href="2-1.html#example8">Example 8</a>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>conditional; one solution</p>
+</div></div></div></div>
+</div>
+<h2 id="determine-whether-an-ordered-triple-is-a-solution-of-a-system-of-three-linear-equations-with-three-variables">Determine Whether an Ordered Triple is a Solution of a System of Three Linear Equations with Three Variables</h2>
+<p>In this section, we will extend our work of solving a system of linear equations. So far we have worked with <strong>systems of equations</strong> with two equations and two variables. Now we will work with systems of three equations with three variables. But first let's review what we already know about solving equations and systems involving up to two variables.</p>
+<p>We learned earlier that the graph of a <strong>linear equation</strong>, \(ax+by=c,\) is a line. Each point on the line, an ordered pair \((x,y),\) is a solution to the equation. For a system of two equations with two variables, we graph two lines. Then we can see that all the points that are solutions to each equation form a line. And, by finding what the lines have in common, we’ll find the solution to the system.</p>
+<p>Most linear equations in one variable have one solution, but we saw that some equations, called contradictions, have no solutions and for other equations, called identities, all numbers are solutions</p>
+<p>We know when we solve a system of two linear equations represented by a graph of two lines in the same plane, there are three possible cases, as shown.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_001_img_new.jpg" alt="Figure shows three graphs. In the first one, two lines intersect. Intersecting lines have one point in common. There is one solution to this system. The graph is labeled Consistent Independent. In the second graph, two lines are parallel. Parallel lines have no points in common. There is no solution to this system. The graph is labeled inconsistent. In the third graph, there is just one line. Both equations give the same line. Because we have just one line, there are infinitely many solutions. It is labeled consistent dependent." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Similarly, for a linear equation with three variables \(ax+by+cz=d,\) every solution to the equation is an ordered triple, \((x,y,z)\) , that makes the equation true.</p>
+<div class="card definition" id="fs-id1167836321732"><span class="chip">Linear Equation in Three Variables</span><p>A linear equation with three variables, where <strong>a, b, c,</strong> and <strong>d</strong> are real numbers and <strong>a, b</strong>, and <strong>c</strong> are not all 0, is of the form</p>
+<p id="eq1">\[ax+by+cz=d\]</p>
+<p>Every solution to the equation is an ordered triple, \((x,y,z)\) that makes the equation true.</p>
+</div>
+<p>All the points that are solutions to one equation form a plane in three-dimensional space. And, by finding what the planes have in common, we’ll find the solution to the system.</p>
+<p>When we solve a system of three linear equations represented by a graph of three planes in space, there are three possible cases.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_002h_img_new.jpg" alt="Eight figures are shown. The first one shows three intersecting planes with one point in common. It is labeled Consistent system and Independent equations. The second figure has three parallel planes with no points in common. It is labeled Inconsistent system. In the third figure two planes are coincident and parallel to the third plane. The planes have no points in common. In the fourth figure, two planes are parallel and each intersects the third plane. The planes have no points in common. In the fifth figure, each plane intersects the other two, but all three share no points. The planes have no points in common. In the sixth figure, three planes intersect in one line. There is just one line, so there are infinitely many solutions. In the seventh figure, two planes are coincident and intersect the third plane in a line. There is just one line, so there are infinitely many solutions. In the last figure, three planes are coincident. There is just one plane, so there are infinitely many solutions." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_002a_img_new.jpg" alt="Three parallel planes demonstrate an inconsistent system with no solution. As parallel planes never intersect, they have no points in common." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_002b_img_new.jpg" alt="Text states 'Two planes are coincident and parallel to the third plane. The planes have no points in common.' An illustration shows two distinct parallel planes, highlighting the contradictory nature of the statements." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_002c_img_new.jpg" alt="Two parallel planes (blue) are shown, each intersected by a third plane (orange). The illustration emphasizes that the two parallel planes themselves have no points in common." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_002d_img_new.jpg" alt="Three planes are depicted, intersecting pairwise with each other. Notably, there is no single point where all three planes converge, illustrating a unique geometric relationship." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_002e_img_new.jpg" alt="Three planes intersect along a single line, illustrating a consistent system with dependent equations and infinitely many solutions, as there are endless points along the shared line." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_002f_img_new.jpg" alt="Depiction of two planes intersecting, illustrating a scenario where two coincident planes intersect a third in a line, resulting in infinitely many solutions as described by the text." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_002g_img_new.jpg" alt="Three coincident planes are represented by a single blue plane, illustrating that there is only one distinct plane and thus infinitely many solutions." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>To solve a system of three linear equations, we want to find the values of the variables that are solutions to all three equations. In other words, we are looking for the ordered triple \((x,y,z)\) that makes all three equations true. These are called the <strong>solutions of the system of three linear equations with three variables</strong>.</p>
+<div class="card definition" id="fs-id1167829752800"><span class="chip">Solutions of a System of Linear Equations with Three Variables</span><p>Solutions of a system of equations are the values of the variables that make all the equations true. A solution is represented by an <strong>ordered triple</strong> \((x,y,z).\)</p>
+</div>
+<p>To determine if an ordered triple is a solution to a system of three equations, we substitute the values of the variables into each equation. If the ordered triple makes all three equations true, it is a solution to the system.</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Determine whether the ordered triple is a solution to the system: \(\left\{\begin{array}{l}x-y+z=2 \\ 2x-y-z=-6 \\ 2x+2y+z=-3\end{array}\right..\)</p>
+<p>ⓐ \((-2,-1,3)\) ⓑ \((-4,-3,4)\)</p>
+</div><p class="sol-hint">Substitute each ordered triple's x, y, and z values into all three equations to see whether every one comes out true.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>ⓐ <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_003_img_new.jpg" alt="The equations are x minus y plus z equals 2, 2x minus y minus z equals minus 6 and 2x plus 2y plus z equals minus 3. Substituting minus 2 for x, minus 1 for y and 3 for z into all three equations, we find that all three hold true. Hence, minus 2, minus 1, 3 is a solution." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>ⓑ <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_004_img_new.jpg" alt="The equations are x minus y plus z equals 2, 2x minus y minus z equals minus 6 and 2x plus 2y plus z equals minus 3. Substituting minus minus 4 for x, minus 3 for y and 4 for z into all three equations, we find that all three hold true. Hence, minus 4, minus 3, 4 is not a solution." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Determine whether the ordered triple is a solution to the system: \(\left\{\begin{array}{l}3x+y+z=2 \\ x+2y+z=-3 \\ 3x+y+2z=4\end{array}\right..\)</p>
+<p>ⓐ \((1,-3,2)\) ⓑ \((4,-1,-5)\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ⓐ yes ⓑ no</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Determine whether the ordered triple is a solution to the system: \(\left\{\begin{array}{l}x-3y+z=-5 \\ -3x-y-z=1 \\ 2x-2y+3z=1\end{array}\right..\)</p>
+<p>ⓐ \((2,-2,3)\) ⓑ \((-2,2,3)\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ⓐ no ⓑ yes</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solve-a-system-of-linear-equations-with-three-variables">Solve a System of Linear Equations with Three Variables</h2>
+<p>To solve a system of linear equations with three variables, we basically use the same techniques we used with systems that had two variables. We start with two pairs of equations and in each pair we eliminate the same variable. This will then give us a system of equations with only two variables and then we know how to solve that system!</p>
+<p>Next, we use the values of the two variables we just found to go back to the original equation and find the third variable. We write our answer as an ordered triple and then check our results.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t">How to Solve a System of Equations With Three Variables by Elimination</span></div><div class="ex-body"><p>Solve the system by elimination: \(\left\{\begin{array}{l}x-2y+z=3 \\ 2x+y+z=4 \\ 3x+4y+3z=-1\end{array}\right..\)</p>
+</div><p class="sol-hint">Pick a variable to eliminate, then combine two different pairs of the three equations to eliminate it from each pair.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_005a_img_new.jpg" alt="The equations are x minus 2y plus z equals 3, 2x plus y plus z equals 4 and 3x plus 4y plus 3z equals minus 1. Step 1 is to write the equations in standard form. They are. If any coefficients are fractions, clear them. There are none." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_005b_img_new.jpg" alt="Step 2 is to eliminate the same variable from two equations. Decide which variable you will eliminate. We can eliminate the y’s from equations 1 and 2 by multiplying equation 2 by 2. Work with a pair of equations to eliminate the chosen variable. Multiply one or both equations so that the coefficients of that variable are opposites. Add the equations resulting from Step 2 to eliminate one variable. The new equation we get is 5x plus 3z equals 11." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_005c_img_new.jpg" alt="Step 3 is to repeat step 2 using two other equations and eliminate the same variable as in step 2. We can again eliminate the y’s using the equations 1, 3 by multiplying equation 1 by 2. Add the new equations and the result will be 5x plus 5z equals 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_005d_img_new.jpg" alt="Step 4. The two new equations form a system of two equations with two variables. Solve this system. Eliminating x, we get z equal to minus 3. Substituting this in one of the new equations, we get x equal to 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_005e_img_new.jpg" alt="Step 5 is to use the values of the two variables found in step 4 to find the third variable. Substituting values of x and z in one of the original equations, we get y equal to minus 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_005f_img_new.jpg" alt="Step 6 is to write the solution as an ordered triple 4, minus 1, minus 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_005g_img_new.jpg" alt="Step 7 is to check that the ordered triple is a solution to all three original equations. It makes all three equations true." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Solve the system by elimination: \(\left\{\begin{array}{l}3x+y-z=2 \\ 2x-3y-2z=1 \\ 4x-y-3z=0\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((2,-1,3)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Solve the system by elimination: \(\left\{\begin{array}{l}4x+y+z=-1 \\ -2x-2y+z=2 \\ 2x+3y-z=1\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((-2,3,4)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>The steps are summarized here.</p>
+<div class="card definition" id="fs-id1167836665602"><span class="chip">Solve a system of linear equations with three variables.</span><ul class="tight"><li>Write the equations in standard form<ul class="tight"><li>If any coefficients are fractions, clear them.</li></ul>
+</li><li>Eliminate the same variable from two equations.<ul class="tight"><li>Decide which variable you will eliminate.</li><li>Work with a pair of equations to eliminate the chosen variable.</li><li>Multiply one or both equations so that the coefficients of that variable are opposites.</li><li>Add the equations resulting from Step 2 to eliminate one variable</li></ul>
+</li><li>Repeat Step 2 using two other equations and eliminate the same variable as in Step 2.</li><li>The two new equations form a system of two equations with two variables. Solve this system.</li><li>Use the values of the two variables found in Step 4 to find the third variable.</li><li>Write the solution as an ordered triple.</li><li>Check that the ordered triple is a solution to <strong>all three</strong> original equations.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Solve: \(\left\{\begin{array}{l}3x-4z=0 \\ 3y+2z=-3 \\ 2x+3y=-5\end{array}\right..\)</p>
+</div><p class="sol-hint">Eliminate z from the first two equations, since each is already missing one of the three variables.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq2">\[\left\{\begin{array}{l}3x-4z=0\,(1) \\ 3y+2z=-3\,(2) \\ 2x+3y=-5\,(3)\end{array}\right.\]</p>
+<p>We can eliminate \(z\) from equations (1) and (2) by multiplying equation (2) by 2 and then adding the resulting equations.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_006a_img_new.jpg" alt="The equations are 3 x minus 4 equals 0, 3y plus 2 z equals minus 3 and 2 x plus 3 y equals minus 5. Multiply equation 2 by 2 and add to equation 1. We get 3 x plus 6 y equals minus 6." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Notice that equations (3) and (4) both have the variables \(x\) and \(y\) . We will solve this new system for \(x\) and \(y\) .</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_006b_img_new.jpg" alt="Multiply equation 3 by minus 2 and add that to equation 4. We get x equal to minus 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>To solve for <strong>y</strong>, we substitute \(x=-4\) into equation (3).</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_006c_img_new.jpg" alt="Substitute minus 4 into equation 3 and solve for y. We get y equal to 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>We now have \(x=-4\) and \(y=1.\) We need to solve for <strong>z</strong>. We can substitute \(x=-4\) into equation (1) to find <strong>z</strong>.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_006d_img_new.jpg" alt="Substituting minus 4 into equation 1 for x, we get z equal to minus 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>We write the solution as an ordered triple. \(\,(-4,1,-3)\)</p>
+<p>We check that the solution makes all three equations true.</p>
+<p>\(\begin{array}{lllllll}\begin{array}{lll}3x-4z &amp; = &amp; 0(1) \\ 3(-4)-4(-3) &amp; \overset{?}{=} &amp; 0 \\ 0 &amp; = &amp; 0✓\end{array} &amp; &amp; &amp; \begin{array}{lll}3y+2z &amp; = &amp; -3(2) \\ 3(1)+2(-3) &amp; \overset{?}{=} &amp; -3 \\ -3 &amp; = &amp; -3✓\end{array} &amp; &amp; &amp; \begin{array}{l} \\ \\ \begin{array}{lll}2x+3y &amp; = &amp; -5(3) \\ 2(-4)+3(1) &amp; \overset{?}{=} &amp; -5 \\ -5 &amp; = &amp; -5✓\end{array} \\ \text{The solution is}\,(-4,1,-3).\end{array}\end{array}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Solve: \(\left\{\begin{array}{l}3x-4z=-1 \\ 2y+3z=2 \\ 2x+3y=6\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((-3,4,-2)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Solve: \(\left\{\begin{array}{l}4x-3z=-5 \\ 3y+2z=7 \\ 3x+4y=6\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((-2,3,-1)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>When we solve a system and end up with no variables and a false statement, we know there are no solutions and that the system is inconsistent. The next example shows a system of equations that is inconsistent.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Solve the system of equations: \(\left\{\begin{array}{l}x+2y-3z=-1 \\ x-3y+z=1 \\ 2x-y-2z=2\end{array}\right..\)</p>
+</div><p class="sol-hint">Eliminate z from equations (1) and (2), then eliminate z again from (2) and (3), and see what happens when you combine the two results.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq3">\[\left\{\begin{array}{l}x+2y-3z=-1\,(1) \\ x-3y+z=1\,(2) \\ 2x-y-2z=2\,(3)\end{array}\right.\]</p>
+<p>Use equation (1) and (2) to eliminate <strong>z</strong>.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_007a_img_new.jpg" alt="The equations are x plus 2y minus 3z equals minus 1, x minus 3y plus z equals 1 and 2x minus y minus 2z equals 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Use (2) and (3) to eliminate \(z\) again.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_007b_img_new.jpg" alt="Multiplying equation 2 by 3 and adding it to equation 1, we get equation 4, 4x minus 7y equals 2. Multiplying equation 2 by 2 and adding it to equation 3, we get equation 5, 4x minus 7y equals 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Use (4) and (5) to eliminate a variable.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_007c_img_new.jpg" alt="Equations 4 and 5 both have 2 variables. Multiply equation 5 by minus 1 and add it to equation 4. We get 0 equal to minus 2, which is false." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>There is no solution.</p>
+<p>We are left with a false statement and this tells us the system is inconsistent and has no solution.</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Solve the system of equations: \(\left\{\begin{array}{l}x+2y+6z=5 \\ -x+y-2z=3 \\ x-4y-2z=1\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>no solution</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Solve the system of equations: \(\left\{\begin{array}{l}2x-2y+3z=6 \\ 4x-3y+2z=0 \\ -2x+3y-7z=1\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>no solution</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>When we solve a system and end up with no variables but a true statement, we know there are infinitely many solutions. The system is consistent with dependent equations. Our solution will show how two of the variables depend on the third.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Solve the system of equations: \(\left\{\begin{array}{l}x+2y-z=1 \\ 2x+7y+4z=11 \\ x+3y+z=4\end{array}\right..\)</p>
+</div><p class="sol-hint">Eliminate x from equations (1) and (3), then eliminate x again from (1) and (2), and see what the resulting pair of equations tells you.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq4">\[\left\{\begin{array}{l}x+2y-z=1\,(1) \\ 2x+7y+4z=11\,(2) \\ x+3y+z=4\,(3)\end{array}\right.\]</p>
+<p>Use equation (1) and (3) to eliminate <strong>x</strong>.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_008a_img_new.jpg" alt="The equations are x plus 2y minus z equals 1, 2x plus 7y plus 4z equals 11 and x plus 3y plus z equals 4. Multiply equation 1 with minus 1 and add it to equation 3. We get equation 4, y plus 2z equals 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Use equation (1) and (2) to eliminate <strong>x</strong> again.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_008b_img_new.jpg" alt="Multiply equation 1 with minus 2 and add it to equation 2. We get equation 5, 3y plus 6z equals 9." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Use equation (4) and (5) to eliminate \(y\) .</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_008c_img_new.jpg" alt="Multiply equation 4 with minus 3 and add it to equation 5. We get 0 equal to 0. There are infinite many solutions. Solving equation 4 for y, we get y equal to minus 2z plus 3. Substituting this into equation 1, we get x equal to 5z minus 5. The true statement 0 equal to 0 tells us that this is a dependent system that has infinitely many solutions. The solutions are of the form x, y, z where x is 5z minus 5, y is minus 2z plus 3 and z is any real number." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td></td><td>There are infinitely many solutions.</td></tr><tr><td>Solve equation (4) for <strong>y</strong>.</td><td>Represent the solution showing how <strong>x</strong> and <strong>y</strong> are dependent on <strong>z</strong>.<br> \(\begin{array}{lll}y+2z &amp; = &amp; 3 \\ y &amp; = &amp; -2z+3\end{array}\)</td></tr><tr><td>Use equation (1) to solve for <strong>x</strong>.</td><td>\(\,x+2y-z=1\)</td></tr><tr><td>Substitute \(y=-2z+3.\)</td><td>\(\begin{array}{lll}x+2(-2z+3)-z &amp; = &amp; 1 \\ x-4z+6-z &amp; = &amp; 1 \\ x-5z+6 &amp; = &amp; 1 \\ x &amp; = &amp; 5z-5\end{array}\)</td></tr></tbody></table></div>
+<p>The true statement \(0=0\) tells us that this is a dependent system that has infinitely many solutions. The solutions are of the form \((x,y,z)\) where \(x=5z-5;y=-2z+3\) and <strong>z</strong> is any real number.</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Solve the system by equations: \(\left\{\begin{array}{l}x+y-z=0 \\ 2x+4y-2z=6 \\ 3x+6y-3z=9\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>infinitely many solutions \((x,3,z)\) where \(x=z-3;y=3;z\) is any real number</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>Solve the system by equations: \(\left\{\begin{array}{l}x-y-z=1 \\ -x+2y-3z=-4 \\ 3x-2y-7z=0\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>infinitely many solutions \((x,y,z)\) where \(x=5z-2;y=4z-3;z\) is any real number</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solve-applications-using-systems-of-linear-equations-with-three-variables">Solve Applications using Systems of Linear Equations with Three Variables</h2>
+<p>Applications that are modeled by a systems of equations can be solved using the same techniques we used to solve the systems. Many of the application are just extensions to three variables of the types we have solved earlier.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>The community college theater department sold three kinds of tickets to its latest play production. The adult tickets sold for $15, the student tickets for $10 and the child tickets for $8. The theater department was thrilled to have sold 250 tickets and brought in $2,825 in one night. The number of student tickets sold is twice the number of adult tickets sold. How many of each type did the department sell?</p>
+</div><p class="sol-hint">Let x, y, and z be the numbers of adult, student, and child tickets, then translate the total-tickets, total-value, and "twice as many" facts into three equations.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>We will use a chart to organize the information.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_009a_img.jpg" alt="A table displays ticket pricing details for adults, students, and children. It shows the number of each type (x, y, z), their individual values ($15, $10, $8), and their total values (15x, 10y, 8z). The total number of tickets is 250, and the total value is $2825." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Number of students is twice number of adults.</td><td></td></tr><tr><td>Rewrite the equation in standard form.</td><td>\(\begin{array}{lll}y &amp; = &amp; 2x \\ 2x-y &amp; = &amp; 0\end{array}\)</td></tr><tr><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_009b_img.jpg" alt="The image displays a mathematical problem with the prompt 'Write the system of equations.' To the right, a system of three linear equations with variables x, y, and z is presented." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Use equations (1) and (2) to eliminate <strong>z</strong>.</td><td></td></tr><tr><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_009c_img.jpg" alt="Solving a system of linear equations by multiplying the first equation by -8 and adding it to the second equation to eliminate 'z', resulting in 7x + 2y = 825." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Use (3) and (4) to eliminate \(y.\)</td><td></td></tr><tr><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_009d_img.jpg" alt="A step-by-step solution demonstrating how to solve a system of linear equations by elimination. The first equation (-2x + y = 0) is multiplied by -2 to yield 4x - 2y = 0, which is then added to the second equation (7x + 2y = 825) to eliminate 'y', resulting in 11x = 825." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Solve for <strong>x</strong>.</td><td>\(\, x\,=75\) adult tickets</td></tr><tr><td>Use equation (3) to find <strong>y</strong>.</td><td>\(\,-2x+y=0\)</td></tr><tr><td>Substitute \(x=75.\)</td><td>\(\,\begin{array}{lll}-2(75)+y &amp; = &amp; 0 \\ -150+y &amp; = &amp; 0 \\ y &amp; = &amp; 150\,\text{student tickets}\end{array}\)</td></tr><tr><td>Use equation (1) to find <strong>z</strong>.</td><td>\(\,x+y+z=250\)</td></tr><tr><td>Substitute in the values<br> \(x=75,\,y=150.\)</td><td><br> \(\,\begin{array}{lll}75+150+z &amp; = &amp; 250 \\ 225+z &amp; = &amp; 250 \\ z &amp; = &amp; 25\,\text{child tickets}\end{array}\)</td></tr><tr><td>Write the solution.</td><td>The theater department sold 75 adult tickets,<br>150 student tickets, and 25 child tickets.</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-11"><div class="ex-head"><span class="num">Try It #11</span></div><div class="ex-body"><p>The community college fine arts department sold three kinds of tickets to its latest dance presentation. The adult tickets sold for $20, the student tickets for $12 and the child tickets for $10.The fine arts department was thrilled to have sold 350 tickets and brought in $4,650 in one night. The number of child tickets sold is the same as the number of adult tickets sold. How many of each type did the department sell?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The fine arts department sold 75 adult tickets, 200 student tickets, and 75 child tickets.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-12"><div class="ex-head"><span class="num">Try It #12</span></div><div class="ex-body"><p>The community college soccer team sold three kinds of tickets to its latest game. The adult tickets sold for $10, the student tickets for $8 and the child tickets for $5. The soccer team was thrilled to have sold 600 tickets and brought in $4,900 for one game. The number of adult tickets is twice the number of child tickets. How many of each type did the soccer team sell?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The soccer team sold 200 adult tickets, 300 student tickets, and 100 child tickets.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1167836509791"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with solving a linear system in three variables with no or infinite solutions.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/37linsys3var" target="_blank" rel="noopener">Solving a Linear System in Three Variables with No or Infinite Solutions</a></li><li><a href="https://openstax.org/l/37variableapp" target="_blank" rel="noopener">3 Variable Application</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li><strong>Linear Equation in Three Variables:</strong> A linear equation with three variables, where <strong>a, b, c</strong>, and <strong>d</strong> are real numbers and <strong>a, b,</strong> and <strong>c</strong> are not all 0, is of the form<br> <br> Every solution to the equation is an ordered triple, \((x,y,z)\) that makes the equation true.<p id="eq5">\[ax+by+cz=d\]</p>
+See <a href="#example1">Example 1</a>.
+</li><li><strong>How to solve a system of linear equations with three variables.</strong><ul class="tight"><li>Write the equations in standard form<br> If any coefficients are fractions, clear them.</li><li>Eliminate the same variable from two equations.<br> Decide which variable you will eliminate.<br> Work with a pair of equations to eliminate the chosen variable.<br> Multiply one or both equations so that the coefficients of that variable are opposites.<br> Add the equations resulting from Step 2 to eliminate one variable</li><li>Repeat Step 2 using two other equations and eliminate the same variable as in Step 2.</li><li>The two new equations form a system of two equations with two variables. Solve this system.</li><li>Use the values of the two variables found in Step 4 to find the third variable.</li><li>Write the solution as an ordered triple.</li><li>Check that the ordered triple is a solution to <strong>all three</strong> original equations.</li></ul>
+See <a href="#example2">Example 2</a>, <a href="#example3">Example 3</a>, <a href="#example4">Example 4</a>, <a href="#example5">Example 5</a>, and <a href="#example6">Example 6</a>.
+</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="practice-makes-perfect">Practice Makes Perfect</h3>
+<p><strong>Determine Whether an Ordered Triple is a Solution of a System of Three Linear Equations with Three Variables</strong></p>
+<p>In the following exercises, determine whether the ordered triple is a solution to the system.</p>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(\left\{\begin{array}{l}2x-6y+z=3 \\ 3x-4y-3z=2 \\ 2x+3y-2z=3\end{array}\right.\)</p>
+<p>ⓐ \((3,1,3)\) ⓑ \((4,3,7)\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(\left\{\begin{array}{l}-3x+\,\,\,y+z=-4 \\ -x+2y-2z=1 \\ 2x-\,\,\,y-z=-1\end{array}\right.\)</p>
+<p>ⓐ \((-5,-7,4)\) ⓑ \((5,7,4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>ⓐ no ⓑ yes</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\left\{\begin{array}{l}y-10z=-8 \\ 2x-y=2 \\ x-5z=3\end{array}\right.\)</p>
+<p>ⓐ \((7,12,2)\) ⓑ \((2,2,1)\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\left\{\begin{array}{l}x+3y-z=15 \\ y=\frac{2}{3}x-2 \\ x-3y+z=-2\end{array}\right.\)</p>
+<p>ⓐ \((-6,5,\frac{1}{2})\) ⓑ \((5,\frac{4}{3},-3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>ⓐ no ⓑ no</p>
+</div></div></div></div>
+<p><strong>Solve a System of Linear Equations with Three Variables</strong></p>
+<p>In the following exercises, solve the system of equations.</p>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\left\{\begin{array}{l}5x+2y+z=5 \\ -3x-y+2z=6 \\ 2x+3y-3z=5\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\left\{\begin{array}{l}6x-5y+2z=3 \\ 2x+y-4z=5 \\ 3x-3y+z=-1\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((4,5,2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\left\{\begin{array}{l}2x-5y+3z=8 \\ 3x-y+4z=7 \\ x+3y+2z=-3\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\left\{\begin{array}{l}5x-3y+2z=-5 \\ 2x-y-z=4 \\ 3x-2y+2z=-7\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((7,12,-2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\left\{\begin{array}{l}3x-5y+4z=5 \\ 5x+2y+z=0 \\ 2x+3y-2z=3\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\left\{\begin{array}{l}4x-3y+z=7 \\ 2x-5y-4z=3 \\ 3x-2y-2z=-7\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-3,-5,4)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\left\{\begin{array}{l}3x+8y+2z=-5 \\ 2x+5y-3z=0 \\ x+2y-2z=-1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\left\{\begin{array}{l}11x+9y+2z=-9 \\ 7x+5y+3z=-7 \\ 4x+3y+z=-3\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((2,-3,-2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\left\{\begin{array}{l}\frac{1}{3}x-y-z=1 \\ x+\frac{5}{2}y+z=-2 \\ 2x+2y+\frac{1}{2}z=-4\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\left\{\begin{array}{l}x+\frac{1}{2}y+\frac{1}{2}z=0 \\ \frac{1}{5}x-\frac{1}{5}y+z=0 \\ \frac{1}{3}x-\frac{1}{3}y+2z=-1\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((6,-9,-3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\left\{\begin{array}{l}x+\frac{1}{3}y-2z=-1 \\ \frac{1}{3}x+y+\frac{1}{2}z=0 \\ \frac{1}{2}x+\frac{1}{3}y-\frac{1}{2}z=-1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\left\{\begin{array}{l}\frac{1}{3}x-y+\frac{1}{2}z=4 \\ \frac{2}{3}x+\frac{5}{2}y-4z=0 \\ x-\frac{1}{2}y+\frac{3}{2}z=2\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((3,-4,-2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\left\{\begin{array}{l}x+2z=0 \\ 4y+3z=-2 \\ 2x-5y=3\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\left\{\begin{array}{l}2x+5y=4 \\ 3y-z=3 \\ 4x+3z=-3\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-3,2,3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\left\{\begin{array}{l}2y+3z=-1 \\ 5x+3y=-6 \\ 7x+z=1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\left\{\begin{array}{l}3x-z=-3 \\ 5y+2z=-6 \\ 4x+3y=-8\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-2,0,-3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(\left\{\begin{array}{l}4x-3y+2z=0 \\ -2x+3y-7z=1 \\ 2x-2y+3z=6\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(\left\{\begin{array}{l}x-2y+2z=1 \\ -2x+y-z=2 \\ x-y+z=5\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>no solution</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\left\{\begin{array}{l}2x+3y+z=12 \\ x+y+z=9 \\ 3x+4y+2z=20\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\left\{\begin{array}{l}x+4y+z=-8 \\ 4x-y+3z=9 \\ 2x+7y+z=0\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=\frac{203}{16};y=\frac{-25}{16};z=\frac{-231}{16};\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(\left\{\begin{array}{l}x+2y+z=4 \\ x+y-2z=3 \\ -2x-3y+z=-7\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(\left\{\begin{array}{l}x+y-2z=3 \\ -2x-3y+z=-7 \\ x+2y+z=4\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((x,y,z)\) where \(x=5z+2;y=-3z+1;z\) is any real number</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(\left\{\begin{array}{l}x+y-3z=-1 \\ y-z=0 \\ -x+2y=1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(\left\{\begin{array}{l}x-2y+3z=1 \\ x+y-3z=7 \\ 3x-4y+5z=7\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((x,y,z)\) where \(x=5z-2;y=4z-3;z\) is any real number</p>
+</div></div></div></div>
+<p><strong>Solve Applications using Systems of Linear Equations with Three Variables</strong></p>
+<p>In the following exercises, solve the given problem.</p>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>The sum of the measures of the angles of a triangle is 180. The sum of the measures of the second and third angles is twice the measure of the first angle. The third angle is twelve more than the second. Find the measures of the three angles.</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>The sum of the measures of the angles of a triangle is 180. The sum of the measures of the second and third angles is three times the measure of the first angle. The third angle is fifteen more than the second. Find the measures of the three angles.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>45 degrees, 60 degrees, 75 degrees</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>After watching a major musical production at the theater, the patrons can purchase souvenirs. If a family purchases 4 t-shirts, the video, and 1 stuffed animal, their total is $135.</p>
+<p>A couple buys 2 t-shirts, the video, and 3 stuffed animals for their nieces and spends $115. Another couple buys 2 t-shirts, the video, and 1 stuffed animal and their total is $85. What is the cost of each item?</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>The church youth group is selling snacks to raise money to attend their convention. Amy sold 2 pounds of candy, 3 boxes of cookies and 1 can of popcorn for a total sales of $65. Brian sold 4 pounds of candy, 6 boxes of cookies and 3 cans of popcorn for a total sales of $140. Paulina sold 8 pounds of candy, 8 boxes of cookies and 5 cans of popcorn for a total sales of $250. What is the cost of each item?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>$20, $5, $10</p>
+</div></div></div></div>
+<h3 id="writing-exercises">Writing Exercises</h3>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>In your own words explain the steps to solve a system of linear equations with three variables by elimination.</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>How can you tell when a system of three linear equations with three variables has no solution? Infinitely many solutions?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<h3 id="self-check">Self Check</h3>
+<p>ⓐ After completing the exercises, use this checklist to evaluate your mastery of the objectives of this section.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_04_201_img_new.jpg" alt="This table has 4 columns, 3 rows and a header row. The header row labels each column I can, confidently, with some help and no, I don’t get it. The first row contains the following statements: determine whether an ordered triple is a solution of a system of three linear equations with three variables, solve a system of linear equations with three variables, solve applications using systems of linear equations with three variables. The remaining columns are blank." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>ⓑ On a scale of 1-10, how would you rate your mastery of this section in light of your responses on the checklist? How can you improve this?</p>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>solutions of a system of linear equations with three variables</dt><dd>The solutions of a system of equations are the values of the variables that make all the equations true; a solution is represented by an ordered triple \((x,y,z).\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/intermediate-algebra-2e">OpenStax Intermediate Algebra 2e</a> by Lynn Marecek, Andrea Honeycutt Mathis, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

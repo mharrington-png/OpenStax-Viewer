@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solve Systems of Equations Using Determinants · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="intermediate-algebra-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/intermediate-algebra-2e/index.html">MX <span>Algebra</span></a>
+  <span class="crumb">Solve Systems of Equations Using Determinants</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 4.6</span>Solve Systems of Equations Using Determinants</h1>
+<div class="card definition" id="fs-id1167835309939"><span class="chip">Definition</span><p>Before you get started, take this readiness quiz.</p>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Simplify: \(5(-2)-(-4)(1).\) <br> If you missed this problem, review <a href="1-2.html#example9">Example 9</a>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-6\)</p>
+</div></div></div></div>
+</div>
+<div class="card definition" id="fs-idm328833408"><span class="chip">Definition</span><div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Simplify: \(-3(8-10)+(-2)(6-3)-4(-3-(-4)).\) <br> If you missed this problem, review <a href="1-2.html#example8">Example 8</a>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-4\)</p>
+</div></div></div></div>
+</div>
+<div class="card definition" id="fs-idm347549520"><span class="chip">Definition</span><div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Simplify: \(\frac{-12}{-8}.\) <br> If you missed this problem, review <a href="1-2.html#example7">Example 7</a>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3}{2}\)</p>
+</div></div></div></div>
+</div>
+<p>In this section we will learn of another method to solve systems of linear equations called Cramer’s rule. Before we can begin to use the rule, we need to learn some new definitions and notation.</p>
+<h2 id="evaluate-the-determinant-of-a-2-2-matrix">Evaluate the Determinant of a \(2\,\times \,2\) Matrix</h2>
+<p>If a matrix has the same number of rows and columns, we call it a <strong>square matrix</strong>. Each square matrix has a real number associated with it called its <strong>determinant</strong>. To find the determinant of the square matrix \([\begin{array}{l}a\,b \\ c\,d\end{array}],\) we first write it as \(|\begin{array}{l}a\,b \\ c\,d\end{array}|.\) To get the real number value of the determinant we subtract the products of the diagonals, as shown.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_001_img_new.jpg" alt="A 2 by 2 determinant is show, with its first row being a, b and second one being c, d. These values are written between two vertical lines instead of brackets as in the case of matrices. Two arrows are shown, one from a to d, the other from c to b. This determinant is equal to ad minus bc." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card definition" id="fs-id1167835374978"><span class="chip">Determinant</span><p>The determinant of any square matrix \([\begin{array}{l}a\,b \\ c\,d\end{array}],\) where <strong>a, b, c,</strong> and <strong>d</strong> are real numbers, is</p>
+<p id="eq1">\[|\begin{array}{l}a\,b \\ c\,d\end{array}|=ad-bc\]</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the determinant of ⓐ \([\begin{array}{l}4\,-2 \\ 3\,-1\end{array}]\) ⓑ \([\begin{array}{llll}-3 &amp; &amp; &amp; -4 \\ -2 &amp; &amp; &amp; 0\end{array}].\)</p>
+</div><p class="sol-hint">Apply ad - bc to each matrix, using its own a, b, c, and d entries.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>ⓐ <br> <br><br> ⓑ <br></p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_002a_img.jpg" alt="A 2x2 matrix is shown, containing the numbers 4, -2, 3, and -1. The first row elements are 4 and -2, while the second row elements are 3 and -1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the determinant.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_002b_img.jpg" alt="A 2x2 matrix with values 4, -2, 3, -1, illustrating diagonal multiplication with blue arrows, often used for determinants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Subtract the products of the diagonals.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_002c_img.jpg" alt="A mathematical expression showing 4 multiplied by -1, minus 3 multiplied by -2. The expression is 4(-1) - 3(-2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_002d_img.jpg" alt="The mathematical expression -4 + 6 is displayed in a dark gray font against a white background, showing the addition of a negative number and a positive number." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_002e_img.jpg" alt="The numeral 2 is prominently displayed in the center of a plain white background, rendered in a dark gray hue with a slight gradient effect." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_003a_img.jpg" alt="A 2x2 matrix is shown, containing the elements -3, -4 in the first row and -2, 0 in the second row, enclosed within square brackets." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the determinant.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_003b_img.jpg" alt="A mathematical diagram showing cross-multiplication with numbers -3, -4, -2, and 0 arranged in a grid, featuring diagonal blue arrows indicating pairings." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Subtract the products of the diagonals.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_003c_img.jpg" alt="An algebraic expression featuring multiplication and subtraction of integers: -3(0) - (-2)(-4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_003d_img.jpg" alt="The image displays the numbers '0-8' in a simple, grayscale font on a plain white background, likely representing a range or identifier." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_003e_img.jpg" alt="A vertical representation of the number -8, with the minus sign positioned to the left of the numeral eight, against a plain white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Evaluate the determinant of ⓐ \([\begin{array}{l}5\,-3 \\ 2\,-4\end{array}]\) ⓑ \([\begin{array}{llll}-4 &amp; &amp; &amp; -6 \\ 0 &amp; &amp; &amp; 7\end{array}].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ⓐ \(-14;\) ⓑ \(-28\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Evaluate the determinant of ⓐ \([\begin{array}{l}-1\,3 \\ -2\,4\end{array}]\) ⓑ \([\begin{array}{llll}-7 &amp; &amp; &amp; -3 \\ -5 &amp; &amp; &amp; 0\end{array}].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ⓐ 2 ⓑ \(-15\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="evaluate-the-determinant-of-a-3-3-matrix">Evaluate the Determinant of a \(3\,\times \,3\) Matrix</h2>
+<p>To evaluate the determinant of a \(3\,\times \,3\) matrix, we have to be able to evaluate the <strong>minor of an entry</strong> in the determinant. The minor of an entry is the \(2\,\times \,2\) determinant found by eliminating the row and column in the \(3\,\times \,3\) determinant that contains the entry.</p>
+<div class="card definition" id="fs-id1167834124754"><span class="chip">Minor of an entry in \(3\,\times \,3\) a Determinant</span><p>The <strong>minor of an entry</strong> in a \(3\,\times \,3\) determinant is the \(2\,\times \,2\) determinant found by eliminating the row and column in the \(3\,\times \,3\) determinant that contains the entry.</p>
+</div>
+<p>To find the minor of entry \({a}_{1},\) we eliminate the row and column which contain it. So we eliminate the first row and first column. Then we write the \(2\,\times \,2\) determinant that remains.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_004_img_new.jpg" alt="The first row of the 3 by 3 determinant is a1, b1, c1. Row 2 is a2, b2, c2. Row 3 is a3, b3, c3. a1 is highlighted. Lines strike out the first row and the first column. What remains is called minor of a1. It is shown as a separate determinant whose first row is b2, c2 and second row is b3, c3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>To find the minor of entry \({b}_{2},\) we eliminate the row and column that contain it. So we eliminate the 2<sup>nd</sup> row and 2<sup>nd</sup> column. Then we write the \(2\,\times \,2\) determinant that remains.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_005_img_new.jpg" alt="The first row of the 3 by 3 determinant is a1, b1, c1. Row 2 is a2, b2, c2. Row 3 is a3, b3, c3. b2 is highlighted. Lines strike out the second row and second column. What remains is minor of b2. It is written as a separate determinant whose first row is a1, c1 and second row is a3, c3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>For the determinant \(|\begin{array}{lllllll}4 &amp; &amp; &amp; -2 &amp; &amp; &amp; 3 \\ 1 &amp; &amp; &amp; 0 &amp; &amp; &amp; -3 \\ -2 &amp; &amp; &amp; -4 &amp; &amp; &amp; 2\end{array}|,\) find and then evaluate the minor of ⓐ \({a}_{1}\) ⓑ \({b}_{3}\) ⓒ \({c}_{2}.\)</p>
+</div><p class="sol-hint">For each entry, cross out its row and column, then evaluate the 2x2 determinant that remains.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>ⓐ <br> <br><br> ⓑ <br> <br><br> ⓒ <br></p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_006a_img.jpg" alt="A 3x3 matrix with elements [4, -2, 3; 1, 0, -3; -2, -4, 2] enclosed by vertical bars, typically denoting a determinant or the absolute value of the matrix." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Eliminate the row and column that contains \({a}_{1}.\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_006b_img.jpg" alt="A 3x3 matrix showing numerical values: top row is 4, -2, 3; middle row is 1, 0, -3; and bottom row is -2, -4, 2. Vertical and horizontal lines are drawn over some of the numbers." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the \(2\,\times \,2\) determinant that remains.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_006c_img.jpg" alt="A mathematical expression showing the minor of a1 as a 2x2 matrix with elements 0, -3 in the first row and -4, 2 in the second row, enclosed by vertical lines indicating a determinant." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_006d_img.jpg" alt="A mathematical expression 0(2) - (-3)(-4) is displayed, requiring calculation of a product of zero and two, minus the product of negative three and negative four." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_006e_img.jpg" alt="The image displays the number -12." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>Eliminate the row and column that contains \({b}_{3}.\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_007a_img.jpg" alt="A 3x3 matrix with values: 4, -2, 3 in the first row; 1, 0, -3 in the second; and 2, 4, 2 in the third. Light brown grid lines intersect between the numbers." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the \(2\,\times \,2\) determinant that remains.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_007b_img.jpg" alt="The image shows the mathematical notation for the minor of b_3, which is represented by a 2x2 determinant with the first row containing 4 and 3, and the second row containing 1 and -3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_007c_img.jpg" alt="A mathematical expression displaying 4 multiplied by -3, followed by a subtraction sign, and then the product of 1 and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_007d_img.jpg" alt="The number -15 is centrally displayed in a bold, sans-serif font against a plain white background, appearing as simple numerical text." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_008a_img.jpg" alt="A 3x3 matrix with integer entries. The first row is 4, -2, 3. The second row is 1, 0, -3. The third row is -2, -4, 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Eliminate the row and column that contains \({c}_{2}.\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_008b_img.jpg" alt="A 3x3 mathematical matrix is shown with elements 4, -2, 3; 1, 0, -3; -2, -4, 2. Red horizontal and vertical lines highlight specific rows and columns, indicating a calculation step." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the \(2\,\times \,2\) determinant that remains.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_008c_img.jpg" alt="The image displays the mathematical expression 'minor of c₂' next to a 2x2 matrix. The matrix contains the elements 4, -2 in the first row and -2, -4 in the second row, enclosed by vertical bars." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_008d_img.jpg" alt="A mathematical expression showing the calculation: 4 multiplied by -4, minus the product of -2 and -2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_008e_img.jpg" alt="The number negative twenty (-20) isolated on a white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>For the determinant \(|\begin{array}{lllllll}1 &amp; &amp; &amp; -1 &amp; &amp; &amp; 4 \\ 0 &amp; &amp; &amp; 2 &amp; &amp; &amp; -1 \\ -2 &amp; &amp; &amp; -3 &amp; &amp; &amp; 3\end{array}|,\) find and then evaluate the minor of ⓐ \({a}_{1}\) ⓑ \({b}_{2}\) ⓒ \({c}_{3}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ⓐ 3 ⓑ 11 ⓒ 2</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>For the determinant \(|\begin{array}{lllllll}-2 &amp; &amp; &amp; -1 &amp; &amp; &amp; 0 \\ 3 &amp; &amp; &amp; 0 &amp; &amp; &amp; -1 \\ -1 &amp; &amp; &amp; -2 &amp; &amp; &amp; 3\end{array}|,\) find and then evaluate the minor of ⓐ \({a}_{2}\) ⓑ \({b}_{3}\) ⓒ \({c}_{2}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ⓐ \(-3\) ⓑ 2 ⓒ 3</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>We are now ready to evaluate a \(3\,\times \,3\) determinant. To do this we expand by minors, which allows us to evaluate the \(3\,\times \,3\) determinant using \(2\,\times \,2\) determinants—which we already know how to evaluate!</p>
+<p>To evaluate a \(3\,\times \,3\) determinant by expanding by minors along the first row, we use the following pattern:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_009_img_new.jpg" alt="A 3 by 3 determinant is equal to a1 times minor of a1 minus b1 times minor of b1 plus c1 times minor of c1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Remember, to find the minor of an entry we eliminate the row and column that contains the entry.</p>
+<div class="card definition" id="fs-id1167834397786"><span class="chip">Expanding by Minors along the First Row to Evaluate a \(3\,\times \,3\) Determinant</span><p>To evaluate a \(3\,\times \,3\) determinant by <strong>expanding by minors along the first row</strong>, the following pattern:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_021_img.jpg" alt="A 3 by 3 determinant is equal to a1 times minor of a1 minus b1 times minor of b1 plus c1 times minor of c1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the determinant \(|\begin{array}{lllllll}2 &amp; &amp; &amp; -3 &amp; &amp; &amp; -1 \\ 3 &amp; &amp; &amp; 2 &amp; &amp; &amp; 0 \\ -1 &amp; &amp; &amp; -1 &amp; &amp; &amp; -2\end{array}|\) by expanding by minors along the first row.</p>
+</div><p class="sol-hint">Use the pattern a1·(minor of a1) − b1·(minor of b1) + c1·(minor of c1), evaluating each 2x2 minor as you go.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_010a_img.jpg" alt="A 3x3 matrix with numerical entries. The first row, in red, is 2, -3, -1. The second row is 3, 2, 0. The third row is -1, -1, -2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Expand by minors along the first row</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_010b_img.jpg" alt="Calculation of a 3x3 matrix determinant using cofactor expansion, with minors of 2, -3, and -1 explicitly shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate each determinant.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_010c_img.jpg" alt="A mathematical expression reads 2(4-0)+3(6-0)-1(-3-(-2)), presented in a horizontal line with red-orange coloring on the leading coefficients and plus/minus signs." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_010d_img.jpg" alt="A mathematical expression displays 2 multiplied by -4, added to 3 multiplied by -6, and then subtracting 1 multiplied by -1. The calculation is 2(-4) + 3(-6) - 1(-1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_010e_img.jpg" alt="A mathematical expression displays the numbers -8, -18, and +1, representing an arithmetic problem involving addition and subtraction of integers." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_010f_img.jpg" alt="The number -25 is displayed in a dark gray font on a plain white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Evaluate the determinant \(|\begin{array}{lllllll}3 &amp; &amp; &amp; -2 &amp; &amp; &amp; 4 \\ 0 &amp; &amp; &amp; -1 &amp; &amp; &amp; -2 \\ 2 &amp; &amp; &amp; 3 &amp; &amp; &amp; -1\end{array}|,\) by expanding by minors along the first row.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>37</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Evaluate the determinant \(|\begin{array}{lllllll}3 &amp; &amp; &amp; -2 &amp; &amp; &amp; -2 \\ 2 &amp; &amp; &amp; -1 &amp; &amp; &amp; 4 \\ -1 &amp; &amp; &amp; 0 &amp; &amp; &amp; -3\end{array}|,\) by expanding by minors along the first row.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>7</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>To evaluate a \(3\,\times \,3\) determinant we can expand by minors using any row or column. Choosing a row or column other than the first row sometimes makes the work easier.</p>
+<p>When we expand by any row or column, we must be careful about the sign of the terms in the expansion. To determine the sign of the terms, we use the following sign pattern chart.</p>
+<p id="eq2">\[|\begin{array}{l}+\,-\,+ \\ -\,+\,- \\ +\,-\,+\end{array}|\]</p>
+<div class="card definition" id="fs-id1167834383296"><span class="chip">Sign Pattern</span><p>When expanding by minors using a row or column, the sign of the terms in the expansion follow the following pattern.</p>
+<p id="eq3">\[|\begin{array}{l}+\,-\,+ \\ -\,+\,- \\ +\,-\,+\end{array}|\]</p>
+</div>
+<p>Notice that the sign pattern in the first row matches the signs between the terms in the expansion by the first row.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_011_img_new.jpg" alt="A 3 by 3 determinant has row 1: plus, minus, plus, row 2: minus, plus, minus and row 3: plus, minus, plus. The three signs in the first row each point to a minor determinant in the expansion of a 3 by 3 determinant. Plus points to minor of a1, minus to the minor of b1 and plus to the minor of c1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Since we can expand by any row or column, how do we decide which row or column to use? Usually we try to pick a row or column that will make our calculation easier. If the determinant contains a 0, using the row or column that contains the 0 will make the calculations easier.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the determinant \(|\begin{array}{lllllll}4 &amp; &amp; &amp; -1 &amp; &amp; &amp; -3 \\ 3 &amp; &amp; &amp; 0 &amp; &amp; &amp; 2 \\ 5 &amp; &amp; &amp; -4 &amp; &amp; &amp; -3\end{array}|\) by expanding by minors.</p>
+</div><p class="sol-hint">Look for a row or column containing a zero — expanding along it eliminates one term of the calculation entirely.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To expand by minors, we look for a row or column that will make our calculations easier. Since 0 is in the second row and second column, expanding by either of those is a good choice. Since the second row has fewer negatives than the second column, we will expand by the second row.</p>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_012a_img.jpg" alt="A 3x3 determinant with elements: first row (4, -1, -3), second row (3, 0, 2) in red, and third row (5, -4, -3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Expand using the second row.</td><td></td></tr><tr><td>Be careful of the signs.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_012b_img.jpg" alt="This image illustrates the process of calculating a 3x3 determinant using cofactor expansion. It shows the alternating sign pattern for cofactors and the terms for the expansion, where each term is a coefficient multiplied by its 2x2 minor." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate each determinant.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_012c_img.jpg" alt="A mathematical expression featuring negative numbers, parentheses, and arithmetic operations: -3(3-12)+0(-12-(-15))-2(-16-(-5))." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_012d_img.jpg" alt="A mathematical expression featuring negative numbers, multiplication, and addition/subtraction: -3(-9) + 0 - 2(-11)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_012e_img.jpg" alt="The image displays the mathematical expression '27 + 0 + 22' in bold, dark gray text against a plain white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Add.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_012f_img.jpg" alt="The number 49 is displayed." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Evaluate the determinant \(|\begin{array}{lllllll}2 &amp; &amp; &amp; -1 &amp; &amp; &amp; -3 \\ 0 &amp; &amp; &amp; 3 &amp; &amp; &amp; -4 \\ 3 &amp; &amp; &amp; -4 &amp; &amp; &amp; -3\end{array}|\) by expanding by minors.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-11\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Evaluate the determinant \(|\begin{array}{lllllll}-2 &amp; &amp; &amp; -1 &amp; &amp; &amp; -3 \\ -1 &amp; &amp; &amp; 2 &amp; &amp; &amp; 2 \\ 4 &amp; &amp; &amp; -4 &amp; &amp; &amp; 0\end{array}|\) by expanding by minors.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-12\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="use-cramer-s-rule-to-solve-systems-of-equations">Use Cramer’s Rule to Solve Systems of Equations</h2>
+<p>Cramer’s Rule is a method of solving systems of equations using determinants. It can be derived by solving the general form of the systems of equations by elimination. Here we will demonstrate the rule for both systems of two equations with two variables and for systems of three equations with three variables.</p>
+<p>Let’s start with the systems of two equations with two variables.</p>
+<div class="card definition" id="fs-id1167831180556"><span class="chip">Cramer’s Rule for Solving a System of Two Equations</span><p>For the system of equations \(\left\{\begin{array}{l}{a}_{1}x+{b}_{1}y={k}_{1} \\ {a}_{2}x+{b}_{2}y={k}_{2}\end{array}\right.,\) the solution \((x,y)\) can be determined by</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_013_img_new.jpg" alt="x is Dx upon D and y is Dy upon D where D is determinant with row 1: a1, b1 and row 2 a2, b2, use coefficients of the variables; Dx is determinant with row 1: k1, b1 and row 2: k2, b2, replace the x coefficients with the consonants; Dy is determinant with row 1: a1, k1 and row 2: a2, k2, replace the y coefficients with constants" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div>
+<p>Notice that to form the determinant <strong>D</strong>, we use take the coefficients of the variables.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_014_img_new.jpg" alt="The equations are a1x plus b1y equals k1 and a2x plus b2y equals k2. Here, a1, a2, b1, b2 are coefficients. The determinant is D with row 1: a1, b1 and row 2: a2, b2. Column 1 has coefficients of x and column 2 has coefficients of" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Notice that to form the determinant \({D}_{x}\) and \({D}_{y},\) we substitute the constants for the coefficients of the variable we are finding.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_015_img_new.jpg" alt="The equations are a1x plus b1y equals k1 and a2x plus b2y equals k2. Here, a1, a2, b1, b2 are coefficients. The determinant is Dx has row 1: k1, b1 and row 2: k2, b2. Here columns 1 and 2 re constants and coefficients of y respectively. Determinant Dy has row 1: a1, k1 and row 2: a2, k2. Here, columns 1 and 2 are coefficients of x and constants respectively." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t">How to Solve a System of Equations Using Cramer’s Rule</span></div><div class="ex-body"><p>Solve using Cramer’s Rule: \(\left\{\begin{array}{l}2x+y=-4 \\ 3x-2y=-6\end{array}\right..\)</p>
+</div><p class="sol-hint">Start by evaluating the determinant D from the coefficients of x and y, since both Dx and Dy get divided by it.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_016a_img_new.jpg" alt="The equations are 2x plus y equals minus 4 and 3x minus 2y equals minus 6. Step 1. Evaluate the determinant D, using the coefficients of the variables. Determinant D has row 1: 2, 1 and row 2: 3, minus 2. So, D is minus 7." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_016b_img_new.jpg" alt="Step 2. Evaluate the determinant Dx. Use the constants in place of the x coefficients. We replace the coefficients of x, 2 and 3, with the constants, negative 4 and negative 6. We get Dx equal to 14." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_016c_img_new.jpg" alt="Step 3. Evaluate the determinant Dy. Use the constants in place of the y coefficients. We replace the coefficients of y, 1 and 2, with the constants, negative 4 and negative 6. We get Dy equal to 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_016d_img_new.jpg" alt="Step 4. Find x and y. Substituting values of D, Dx and Dy in the equations x equal to Dx upon D and y equal to Dy upon D, we get x equal to minus 2 and y equal to 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_016e_img_new.jpg" alt="Step 5. Write the solution as an ordered pair minus 2, 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_016f_img_new.jpg" alt="Step 6. Check that the ordered pair is a solution to both original equations." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Solve using Cramer’s rule: \(\left\{\begin{array}{l}3x+y=-3 \\ 2x+3y=6\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((-\frac{15}{7},\frac{24}{7})\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>Solve using Cramer’s rule: \(\left\{\begin{array}{l}\text{-}x+y=2 \\ 2x+y=-4\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((-2,0)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card definition" id="fs-id1167834431139"><span class="chip">Solve a system of two equations using Cramer’s rule.</span><ul class="tight"><li>Evaluate the determinant <strong>D</strong>, using the coefficients of the variables.</li><li>Evaluate the determinant \({D}_{x}.\) Use the constants in place of the <strong>x</strong> coefficients.</li><li>Evaluate the determinant \({D}_{y}.\) Use the constants in place of the <strong>y</strong> coefficients.</li><li>Find <strong>x</strong> and <strong>y</strong>. \(x=\frac{{D}_{x}}{D},\) \(y=\frac{{D}_{y}}{D}\)</li><li>Write the solution as an ordered pair.</li><li>Check that the ordered pair is a solution to both original equations.</li></ul>
+</div>
+<p>To solve a system of three equations with three variables with Cramer’s Rule, we basically do what we did for a system of two equations. However, we now have to solve for three variables to get the solution. The determinants are also going to be \(3\,\times \,3\) which will make our work more interesting!</p>
+<div class="card definition" id="fs-id1167835352342"><span class="chip">Cramer’s Rule for Solving a System of Three Equations</span><p>For the system of equations \(\left\{\begin{array}{l}{a}_{1}x+{b}_{1}y+{c}_{1}z={k}_{1} \\ {a}_{2}x+{b}_{2}y+{c}_{2}z={k}_{2} \\ {a}_{3}x+{b}_{3}y+{c}_{3}z={k}_{3}\end{array}\right.,\) the solution \((x,y,z)\) can be determined by</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_017_img_new.jpg" alt="The image shows equations for x, y, and z expressed as determinants. Each determinant uses variables a through c and k through d. The first determinant's first column contains the variable x coefficients. The second determinant’s first column contains the variable y coefficients. The third determinant’s first column contains the variable z coefficients." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Solve the system of equations using Cramer’s Rule: \(\left\{\begin{array}{l}3x-5y+4z=5 \\ 5x+2y+z=0 \\ 2x+3y-2z=3\end{array}\right..\)</p>
+</div><p class="sol-hint">Evaluate D first, using the coefficients of x, y, and z, then form Dx, Dy, and Dz by swapping in the constants column by column.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td>Evaluate the determinant <strong>D</strong>.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018d_img.jpg" alt="Matrix D with highlighted elements in the first column, showing their rows: (3, -5, 4), (5, 2, 1) and (2, 3, -2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Expand by minors using column 1.</td><td></td></tr><tr><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018a_img.jpg" alt="Be careful with the signs." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018e_img.jpg" alt="Expansion of a 3x3 determinant by cofactors to calculate D." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinants.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018f_img.jpg" alt="A mathematical equation involving operations with whole numbers, including multiplication and subtraction within parentheses to be solved." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018g_img.jpg" alt="The image shows the equation D = 3(-7) - 5(-2) + 2(-13), a mathematical operation with integers." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018h_img.jpg" alt="A mathematical equation showing D is equal to negative 21 plus 10 minus 26." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018i_img.jpg" alt="The image shows the equation D = -37." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinant \({D}_{x}.\) Use the<br>constants to replace the coefficients of <strong>x</strong>.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018j_img.jpg" alt="A 3x3 Dx matrix with elements 5, -5, 4 in the first row; 0, 2, 1 in the second; and 3, 3, -2 in the third. The first column is highlighted in red." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Expand by minors using column 1.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018k_img.jpg" alt="Calculation of the determinant D_x using cofactor expansion, showing the algebraic sum of products of elements and subdeterminants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinants.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018l_img.jpg" alt="A mathematical equation for Dx is shown on a white background: Dx = 5(-4-3) - 0(10-12) + 3(-5-8). The numbers 5, 0, and 3 are highlighted in red." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018m_img.jpg" alt="Mathematical expression: Dx is equal to 5 multiplied by -7, minus 0, plus 3 multiplied by -13. Numbers in red highlight specific terms of the operation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018n_img.jpg" alt="The equation D subscript x equals -74 is displayed on a white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinant \({D}_{y}.\) Use the<br>constants to replace the coefficients of <strong>y</strong>.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018o_img.jpg" alt="The 3x3 matrix D_y with numeric elements, where the second column (5, 0, 3) is highlighted in red." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018b_img.jpg" alt="Math instructions: 'Expand by minors using column 2. Be careful with the signs.' A 3x3 matrix is ​​shown with the pattern of alternating signs (+ - + / - + - / + - +) to remember." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018p_img.jpg" alt="Calculation of Dy through the expansion of a 3x3 determinant. The numbers in red indicate the elements used in the cofactor expansion for the first row." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinants.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018q_img.jpg" alt="A mathematical equation that calculates Dy: Dy = -5(-10-2) + 0(-10-12) - 3(3-20). Some numbers appear in red, possibly indicating key steps or coefficients." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018r_img.jpg" alt="A mathematical equation, Dy = -5(-12) + 0 - 3(-17), is shown in black text on a white background, detailing a calculation with positive and negative integers." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018s_img.jpg" alt="Equation showing Dy equal to the sum of 60, 0, and 51." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018t_img.jpg" alt="D sub y is equal to 111." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinant \({D}_{z}.\) Use the<br>constants to replace the coefficients of <strong>z</strong>.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018u_img.jpg" alt="D_z matrix with the third column highlighted in red, showing the values ​​5, 0 and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018c_img.jpg" alt="Expand by minors using column 3. Be careful with signs. (A sign matrix for cofactor expansion is shown)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018v_img.jpg" alt="Calculation of the determinant D_x through expansion by cofactors." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinants.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018w_img.jpg" alt="A mathematical equation is displayed: Dx = 5(15-4) - 0(9-(-10)) + 3(6-(-25))." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018x_img.jpg" alt="A mathematical expression for D subscript x showing the calculation as 5 multiplied by 11, minus 0, plus 3 multiplied by 31." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018y_img.jpg" alt="Mathematical equation with D sub x equal to fifty-five minus zero plus ninety-three, showing a simple arithmetic operation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018z_img.jpg" alt="A close-up view of the equation Dx = 148 against a white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Find <strong>x</strong>, <strong>y</strong>, and <strong>z</strong>.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018aa_img.jpg" alt="Formulas to calculate x, y, and z using the determinants Dx, Dy, Dz, and the principal determinant D, as in Cramer's Rule." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Substitute in the values.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018bb_img.jpg" alt="The equations show values ​​for x, y, and z as fractions: x = -74/-37, y = 111/-37, and z = 148/-37." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018cc_img.jpg" alt="The values ​​of the variables are shown: x is equal to 2, y is equal to -3, and z is equal to -4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the solution as an ordered triple.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_018dd_img.jpg" alt="A set of three-dimensional coordinates, (2, -3, -4), is displayed in dark gray text against a plain white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Check that the ordered triple is a solution<br>to <strong>all three</strong> original equations.</td><td>We leave the check to you.</td></tr><tr><td></td><td>The solution is \((2,-3,-4).\)</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-11"><div class="ex-head"><span class="num">Try It #11</span></div><div class="ex-body"><p>Solve the system of equations using Cramer’s Rule: \(\left\{\begin{array}{l}3x+8y+2z=-5 \\ 2x+5y-3z=0 \\ x+2y-2z=-1\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((-9,3,-1)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-12"><div class="ex-head"><span class="num">Try It #12</span></div><div class="ex-body"><p>Solve the system of equations using Cramer’s Rule: \(\left\{\begin{array}{l}3x+y-6z=-3 \\ 2x+6y+3z=0 \\ 3x+2y-3z=-6\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((-6,3,-2)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Cramer’s rule does not work when the value of the <strong>D</strong> determinant is 0, as this would mean we would be dividing by 0. But when \(D=0,\) the system is either inconsistent or dependent.</p>
+<p>When the value of \(D=0\) and \({D}_{x},{D}_{y}\) and \({D}_{z}\) are all zero, the system is consistent and dependent and there are infinitely many solutions.</p>
+<p>When the value of \(D=0\) and \({D}_{x},{D}_{y}\) and \({D}_{z}\) are not all zero, the system is inconsistent and there is no solution.</p>
+<div class="card definition" id="fs-id1167835253988"><span class="chip">Dependent and Inconsistent Systems of Equations</span><p>For any system of equations, where the <strong>value of the determinant</strong> \(D=0,\) <br> \(\begin{array}{lllllll}\text{Value of determinants} &amp; &amp; &amp; \text{Type of system} &amp; &amp; &amp; \text{Solution} \\ D=0\,\text{and}\,{D}_{x},{D}_{y}\,\text{and}\,{D}_{z}\,\text{are all zero} &amp; &amp; &amp; \text{consistent and dependent} &amp; &amp; &amp; \text{infinitely many solutions} \\ D=0\,\text{and}\,{D}_{x},{D}_{y}\,\text{and}\,{D}_{z}\,\text{are not all zero} &amp; &amp; &amp; \text{inconsistent} &amp; &amp; &amp; \text{no solution}\end{array}\)</p>
+</div>
+<p>In the next example, we will use the values of the determinants to find the solution of the system.</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Solve the system of equations using Cramer’s rule : \(\left\{\begin{array}{l}x+3y=4 \\ -2x-6y=3\end{array}\right..\)</p>
+</div><p class="sol-hint">Evaluate D first — if it turns out to be 0, Cramer's Rule can't give x and y directly, so check Dx to see whether the system is inconsistent or dependent.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>\(\begin{array}{llllll} &amp; &amp; &amp; &amp; &amp; \left\{\begin{array}{l}x+3y=4 \\ \text{-}2x-6y=3\end{array}\right. \\ \begin{array}{l}\text{Evaluate the determinant}\,D,\,\text{using the} \\ \text{coefficients of the variables.}\end{array} &amp; &amp; &amp; &amp; &amp; D=|\begin{array}{llll}1 &amp; &amp; &amp; 3 \\ -2 &amp; &amp; &amp; -6\end{array}| \\ &amp; &amp; &amp; &amp; &amp; D=-6-(-6) \\ &amp; &amp; &amp; &amp; &amp; D=0\end{array}\)</p>
+<p>We cannot use Cramer’s Rule to solve this system. But by looking at the value of the determinants \({D}_{x}\) and \({D}_{y},\) we can determine whether the system is dependent or inconsistent.</p>
+<p>\(\begin{array}{llllll}\text{Evaluate the determinant}\,{D}_{x}. &amp; &amp; &amp; &amp; &amp; \,{D}_{x}=|\begin{array}{llll}4 &amp; &amp; &amp; 3 \\ 3 &amp; &amp; &amp; -6\end{array}| \\ &amp; &amp; &amp; &amp; &amp; \,{D}_{x}=-24-9 \\ &amp; &amp; &amp; &amp; &amp; \,{D}_{x}=-33\end{array}\)</p>
+<p>Since all the determinants are not zero, the system is inconsistent. There is no solution.</p>
+</div></div></div>
+<div class="tryit" id="tryit-13"><div class="ex-head"><span class="num">Try It #13</span></div><div class="ex-body"><p>Solve the system of equations using Cramer’s rule: \(\left\{\begin{array}{l}4x-3y=8 \\ 8x-6y=14\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>no solution</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-14"><div class="ex-head"><span class="num">Try It #14</span></div><div class="ex-body"><p>Solve the system of equations using Cramer’s rule: \(\left\{\begin{array}{l}x=-3y+4 \\ 2x+6y=8\end{array}\right..\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>infinite solutions</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solve-applications-using-determinants">Solve Applications using Determinants</h2>
+<p>An interesting application of determinants allows us to test if points are collinear. Three points \(({x}_{1},{y}_{1}),\) \(({x}_{2},{y}_{2})\) and \(({x}_{3},{y}_{3})\) are collinear if and only if the determinant below is zero.</p>
+<p id="eq4">\[|\begin{array}{l}{x}_{1}\,{y}_{1}\,1 \\ {x}_{2}\,{y}_{2}\,1 \\ {x}_{3}\,{y}_{3}\,1\end{array}|=0\]</p>
+<div class="card definition" id="fs-id1167835345043"><span class="chip">Test for Collinear Points</span><p>Three points \(({x}_{1},{y}_{1}),\) \(({x}_{2},{y}_{2})\) and \(({x}_{3},{y}_{3})\) are collinear if and only if</p>
+<p id="eq5">\[|\begin{array}{l}{x}_{1}\,{y}_{1}\,1 \\ {x}_{2}\,{y}_{2}\,1 \\ {x}_{3}\,{y}_{3}\,1\end{array}|=0\]</p>
+</div>
+<p>We will use this property in the next example.</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Determine whether the points \((5,-5),\) \((4,-3),\) and \((3,-1)\) are collinear.</p>
+</div><p class="sol-hint">Substitute the three points' coordinates into the collinearity determinant and evaluate it — collinear points make it equal 0.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_019a_img.jpg" alt="Mathematical matrix or determinant showing three points (x1, y1), (x2, y2), (x3, y3) and a column of ones, commonly used in geometry for area calculations or collinearity tests." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Substitute the values into the determinant.<br> \((5,-5),\) \((4,-3),\) and \((3,-1)\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_019b_img.jpg" alt="A 3x3 determinant is shown with values 5, -5, 1 in the first row; 4, -3, 1 in the second; and 3, -1, 1 in the third row." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinant by expanding<br>by minors using column 3.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_019c_img.jpg" alt="A mathematical expression showing the cofactor expansion of a 3x3 determinant, represented as a sum and difference of three 2x2 determinants with coefficients 1, -1, and 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Evaluate the determinants.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_019d_img.jpg" alt="A mathematical expression involving integers and operations is shown, featuring the sum and differences of parenthesized terms: 1(-4-(-9)) - 1(-5-(-15)) + 1(-15-(-20))." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_019e_img.jpg" alt="A mathematical expression 1(5) - 1(10) + 1(5) is shown on a white background, which simplifies to 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Simplify.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_019f_img.jpg" alt="A minimal black vertical line with a slight oval curvature is centered on a plain white background, creating a stark and simple abstract design." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td></td><td>The value of the determinant is 0, so the<br>points are collinear.</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-15"><div class="ex-head"><span class="num">Try It #15</span></div><div class="ex-body"><p>Determine whether the points \((3,-2),\) \((5,-3),\) and \((1,-1)\) are collinear.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>yes</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-16"><div class="ex-head"><span class="num">Try It #16</span></div><div class="ex-body"><p>Determine whether the points \((-4,-1),\) \((-6,2),\) and \((-2,-4)\) are collinear.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>yes</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1167834196491"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with solving systems of linear equations using determinants or Cramer's Rule.</p>
+<ul class="tight"><li><a href="https://www.openstax.org/l/37sysdeterm" target="_blank" rel="noopener">Solving Systems of Linear Equations Using Determinants</a></li><li><a href="https://www.openstax.org/l/37syscramer" target="_blank" rel="noopener">Solving Systems of Linear Equations Using Cramer's Rule</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li><strong>Determinant:</strong> The determinant of any square matrix \([\begin{array}{l}a\,b \\ c\,d\end{array}],\) where <strong>a, b, c,</strong> and <strong>d</strong> are real numbers, is<br><p id="eq6">\[|\begin{array}{l}a\,b \\ c\,d\end{array}|=ad-bc\]</p>
+See <a href="#example1">Example 1</a>.
+</li><li><strong>Expanding by Minors along the First Row to Evaluate a 3 × 3 Determinant:</strong> To evaluate a \(3\,\times \,3\) determinant by expanding by minors along the first row, the following pattern:<br><img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_022_img_new.jpg" alt="A 3 by 3 determinant is equal to a1 times minor of a1 minus b1 times minor of b1 plus c1 times minor of c1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+See <a href="#example2">Example 2</a> and <a href="#example3">Example 3</a>.
+</li><li><strong>Sign Pattern:</strong> When expanding by minors using a row or column, the sign of the terms in the expansion follow the following pattern.<br><p id="eq7">\[|\begin{array}{l}+\,-\,+ \\ -\,+\,- \\ +\,-\,+\end{array}|\]</p>
+See <a href="#example4">Example 4</a>.
+</li><li><strong>Cramer’s Rule:</strong> For the system of equations \(\left\{\begin{array}{l}{a}_{1}x+{b}_{1}y={k}_{1} \\ {a}_{2}x+{b}_{2}y={k}_{2}\end{array}\right.,\) the solution \((x,y)\) can be determined by<br> <br> Notice that to form the determinant <strong>D</strong>, we use take the coefficients of the variables.<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_023_img_new.jpg" alt="x is Dx upon D and y is Dy upon D where D is determinant with row 1: a1, b1 and row 2 a2, b2, use coefficients of the variables; Dx is determinant with row 1: k1, b1 and row 2: k2, b2, replace the x coefficients with the consonants; Dy is determinant with row 1: a1, k1 and row 2: a2, k2, replace the y coefficients with constants." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li><strong>How to solve a system of two equations using Cramer’s rule.</strong><ul class="tight"><li>Evaluate the determinant <strong>D</strong>, using the coefficients of the variables.</li><li>Evaluate the determinant \({D}_{x}.\) Use the constants in place of the <strong>x</strong> coefficients.</li><li>Evaluate the determinant \({D}_{y}.\) Use the constants in place of the <strong>y</strong> coefficients.</li><li>Find <strong>x</strong> and <strong>y</strong>. \(x=\frac{{D}_{x}}{D},\) \(y=\frac{{D}_{y}}{D}.\)</li><li>Write the solution as an ordered pair.</li><li>Check that the ordered pair is a solution to <strong>both</strong> original equations.</li><li><strong>Dependent and Inconsistent Systems of Equations:</strong> For any system of equations, where the <strong>value of the determinant</strong> \(D=0,\) <br> \(\begin{array}{lllllll}\text{Value of determinants} &amp; &amp; &amp; \text{Type of system} &amp; &amp; &amp; \text{Solution} \\ D=0\,\text{and}\,{D}_{x},{D}_{y}\,\text{and}\,{D}_{z}\,\text{are all zero} &amp; &amp; &amp; \text{consistent and dependent} &amp; &amp; &amp; \text{infinitely many solutions} \\ D=0\,\text{and}\,{D}_{x},{D}_{y}\,\text{and}\,{D}_{z}\,\text{are not all zero} &amp; &amp; &amp; \text{inconsistent} &amp; &amp; &amp; \text{no solution}\end{array}\)</li></ul>
+See <a href="#example5">Example 5</a>, <a href="#example6">Example 6</a>, and <a href="#example7">Example 7</a>.
+</li><li><strong>Test for Collinear Points:</strong> Three points \(({x}_{1},{y}_{1}),\) \(({x}_{2},{y}_{2}),\) and \(({x}_{3},{y}_{3})\) are collinear if and only if<br><p id="eq8">\[|\begin{array}{l}{x}_{1}\,{y}_{1}\,1 \\ {x}_{2}\,{y}_{2}\,1 \\ {x}_{3}\,{y}_{3}\,1\end{array}|=0\]</p>
+See <a href="#example8">Example 8</a>.
+</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="practice-makes-perfect">Practice Makes Perfect</h3>
+<p><strong>Evaluate the Determinant of a 2 × 2 Matrix</strong></p>
+<p>In the following exercises, evaluate the determinant of each square matrix.</p>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\([\begin{array}{l}6\,-2 \\ 3\,-1\end{array}]\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\([\begin{array}{l}-4\,8 \\ -3\,5\end{array}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\([\begin{array}{llll}-3 &amp; &amp; &amp; 5 \\ 0 &amp; &amp; &amp; -4\end{array}]\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\([\begin{array}{llll}-2 &amp; &amp; &amp; 0 \\ 7 &amp; &amp; &amp; -5\end{array}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>10</p>
+</div></div></div></div>
+<p><strong>Evaluate the Determinant of a 3 × 3 Matrix</strong></p>
+<p>In the following exercises, find and then evaluate the indicated minors.</p>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(|\begin{array}{lllllll}3 &amp; &amp; &amp; -1 &amp; &amp; &amp; 4 \\ -1 &amp; &amp; &amp; 0 &amp; &amp; &amp; -2 \\ -4 &amp; &amp; &amp; 1 &amp; &amp; &amp; 5\end{array}|\) <br>Find the minor ⓐ \({a}_{1}\) ⓑ \({b}_{2}\) ⓒ \({c}_{3}\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(|\begin{array}{lllllll}-1 &amp; &amp; &amp; -3 &amp; &amp; &amp; 2 \\ 4 &amp; &amp; &amp; -2 &amp; &amp; &amp; -1 \\ -2 &amp; &amp; &amp; 0 &amp; &amp; &amp; -3\end{array}|\) <br>Find the minor ⓐ \({a}_{1}\) ⓑ \({b}_{1}\) ⓒ \({c}_{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>ⓐ 6 ⓑ \(-14\) ⓒ \(-6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(|\begin{array}{lllllll}2 &amp; &amp; &amp; -3 &amp; &amp; &amp; -4 \\ -1 &amp; &amp; &amp; 2 &amp; &amp; &amp; -3 \\ 0 &amp; &amp; &amp; -1 &amp; &amp; &amp; -2\end{array}|\) <br>Find the minor ⓐ \({a}_{2}\) ⓑ \({b}_{2}\) ⓒ \({c}_{2}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(|\begin{array}{lllllll}-2 &amp; &amp; &amp; -2 &amp; &amp; &amp; 3 \\ 1 &amp; &amp; &amp; -3 &amp; &amp; &amp; 0 \\ -2 &amp; &amp; &amp; 3 &amp; &amp; &amp; -2\end{array}|\) <br>Find the minor ⓐ \({a}_{3}\) ⓑ \({b}_{3}\) ⓒ \({c}_{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>ⓐ 9 ⓑ \(-3\) ⓒ 8</p>
+</div></div></div></div>
+<p>In the following exercises, evaluate each determinant by expanding by minors along the first row.</p>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(|\begin{array}{lllllll}-2 &amp; &amp; &amp; 3 &amp; &amp; &amp; -1 \\ -1 &amp; &amp; &amp; 2 &amp; &amp; &amp; -2 \\ 3 &amp; &amp; &amp; 1 &amp; &amp; &amp; -3\end{array}|\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(|\begin{array}{lllllll}4 &amp; &amp; &amp; -1 &amp; &amp; &amp; -2 \\ -3 &amp; &amp; &amp; -2 &amp; &amp; &amp; 1 \\ -2 &amp; &amp; &amp; -5 &amp; &amp; &amp; 7\end{array}|\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-77\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(|\begin{array}{lllllll}-2 &amp; &amp; &amp; -3 &amp; &amp; &amp; -4 \\ 5 &amp; &amp; &amp; -6 &amp; &amp; &amp; 7 \\ -1 &amp; &amp; &amp; 2 &amp; &amp; &amp; 0\end{array}|\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(|\begin{array}{lllllll}1 &amp; &amp; &amp; 3 &amp; &amp; &amp; -2 \\ 5 &amp; &amp; &amp; -6 &amp; &amp; &amp; 4 \\ 0 &amp; &amp; &amp; -2 &amp; &amp; &amp; -1\end{array}|\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>49</p>
+</div></div></div></div>
+<p>In the following exercises, evaluate each determinant by expanding by minors.</p>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(|\begin{array}{lllllll}-5 &amp; &amp; &amp; -1 &amp; &amp; &amp; -4 \\ 4 &amp; &amp; &amp; 0 &amp; &amp; &amp; -3 \\ 2 &amp; &amp; &amp; -2 &amp; &amp; &amp; 6\end{array}|\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(|\begin{array}{lllllll}4 &amp; &amp; &amp; -1 &amp; &amp; &amp; 3 \\ 3 &amp; &amp; &amp; -2 &amp; &amp; &amp; 2 \\ -1 &amp; &amp; &amp; 0 &amp; &amp; &amp; 4\end{array}|\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-24\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(|\begin{array}{lllllll}3 &amp; &amp; &amp; 5 &amp; &amp; &amp; 4 \\ -1 &amp; &amp; &amp; 3 &amp; &amp; &amp; 0 \\ -2 &amp; &amp; &amp; 6 &amp; &amp; &amp; 1\end{array}|\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(|\begin{array}{lllllll}2 &amp; &amp; &amp; -4 &amp; &amp; &amp; -3 \\ 5 &amp; &amp; &amp; -1 &amp; &amp; &amp; -4 \\ 3 &amp; &amp; &amp; 2 &amp; &amp; &amp; 0\end{array}|\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>25</p>
+</div></div></div></div>
+<p><strong>Use Cramer’s Rule to Solve Systems of Equations</strong></p>
+<p>In the following exercises, solve each system of equations using Cramer’s Rule.</p>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\left\{\begin{array}{l}-2x+3y=3 \\ x+3y=12\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\left\{\begin{array}{l}x-2y=-5 \\ 2x-3y=-4\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((7,6)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\left\{\begin{array}{l}x-3y=-9 \\ 2x+5y=4\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\left\{\begin{array}{l}2x+y=-4 \\ 3x-2y=-6\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-2,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(\left\{\begin{array}{l}x-2y=-5 \\ 2x-3y=-4\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(\left\{\begin{array}{l}x-3y=-9 \\ 2x+5y=4\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-3,2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\left\{\begin{array}{l}5x-3y=-1 \\ 2x-y=2\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\left\{\begin{array}{l}3x+8y=-3 \\ 2x+5y=-3\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-9,3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(\left\{\begin{array}{l}6x-5y+2z=3 \\ 2x+y-4z=5 \\ 3x-3y+z=-1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(\left\{\begin{array}{l}4x-3y+z=7 \\ 2x-5y-4z=3 \\ 3x-2y-2z=-7\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-3,-5,4)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(\left\{\begin{array}{l}2x-5y+3z=8 \\ 3x-y+4z=7 \\ x+3y+2z=-3\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(\left\{\begin{array}{l}11x+9y+2z=-9 \\ 7x+5y+3z=-7 \\ 4x+3y+z=-3\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((2,-3,-2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(\left\{\begin{array}{l}x+2z=0 \\ 4y+3z=-2 \\ 2x-5y=3\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(\left\{\begin{array}{l}2x+5y=4 \\ 3y-z=3 \\ 4x+3z=-3\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-3,2,3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(\left\{\begin{array}{l}2y+3z=-1 \\ 5x+3y=-6 \\ 7x+z=1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(\left\{\begin{array}{l}3x-z=-3 \\ 5y+2z=-6 \\ 4x+3y=-8\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-2,0,-3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(\left\{\begin{array}{l}2x+y=3 \\ 6x+3y=9\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(\left\{\begin{array}{l}x-4y=-1 \\ -3x+12y=3\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>infinitely many solutions</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(\left\{\begin{array}{l}-3x-y=4 \\ 6x+2y=-16\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(\left\{\begin{array}{l}4x+3y=2 \\ 20x+15y=5\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>inconsistent</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(\left\{\begin{array}{l}x+y-3z=-1 \\ y-z=0 \\ \text{-}x+2y=1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(\left\{\begin{array}{l}2x+3y+z=12 \\ x+y+z=9 \\ 3x+4y+2z=20\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>inconsistent</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\left\{\begin{array}{l}3x+4y-3z=-2 \\ 2x+3y-z=-12 \\ x+y-2z=6\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(\left\{\begin{array}{l}x-2y+3z=1 \\ x+y-3z=7 \\ 3x-4y+5z=7\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>infinitely many solutions</p>
+</div></div></div></div>
+<p><strong>Solve Applications Using Determinants</strong></p>
+<p>In the following exercises, determine whether the given points are collinear.</p>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\((0,1),\) \((2,0),\) and \((-2,2).\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\((0,-5),\) \((-2,-2),\) and \((2,-8).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>yes</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\((4,-3),\) \((6,-4),\) and \((2,-2).\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\((-2,1),\) \((-4,4),\) and \((0,-2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>yes</p>
+</div></div></div></div>
+<h3 id="writing-exercises">Writing Exercises</h3>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Explain the difference between a square matrix and its determinant. Give an example of each.</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Explain what is meant by the minor of an entry in a square matrix.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Explain how to decide which row or column you will use to expand a \(3\,\times \,3\) determinant.</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Explain the steps for solving a system of equations using Cramer’s rule.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<h3 id="self-check">Self Check</h3>
+<p>ⓐ After completing the exercises, use this checklist to evaluate your mastery of the objectives of this section.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-prealgebra-bundle/main/media/CNX_IntAlg_Figure_04_06_201_img_new.jpg" alt="This table has 4 columns, 4 rows and a header row. The header row labels each column: I ca, confidently, with some help and no, I don’t get it. The first column has the following statements: Evaluate the Determinant of a 2 by 2 Matrix, Evaluate the Determinant of a 3 by 3 Matrix, Use Cramer’s Rule to Solve Systems of Equations, Solve Applications Using Determinants. The remaining columns are blank." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>ⓑ After reviewing this checklist, what will you do to become confident for all objectives?</p>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>determinant</dt><dd>Each square matrix has a real number associated with it called its determinant.</dd><dt>minor of an entry in a \(3\,\times \,3\) determinant</dt><dd>The minor of an entry in a \(3\,\times \,3\) determinant is the \(2\,\times \,2\) determinant found by eliminating the row and column in the \(3\,\times \,3\) determinant that contains the entry.</dd><dt>square matrix</dt><dd>A square matrix is a matrix with the same number of rows and columns.</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/intermediate-algebra-2e">OpenStax Intermediate Algebra 2e</a> by Lynn Marecek, Andrea Honeycutt Mathis, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>
