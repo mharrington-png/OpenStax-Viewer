@@ -5,15 +5,15 @@
    <body data-book="...">; missing/unset defaults to "college-algebra-2e" so
    existing pages built before multi-book support keep working unchanged.
    `sectionsDir` is the path (relative to site root) where that book's section
-   files live — College Algebra 2e's files stay at the root sections/ folder
-   for backward compatibility; new books are scoped under sections/<book-id>/
-   to avoid chapter-number collisions (e.g. Calculus Vol 1's own Chapter 2). */
+   files live — every book (including College Algebra 2e) is scoped under
+   sections/<book-id>/ to avoid chapter-number collisions (e.g. Calculus Vol 1's
+   own Chapter 2). */
 const BOOKS = {
   "college-algebra-2e": {
     title: "College Algebra",
     license: { name: "Creative Commons Attribution 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
     source: { name: "OpenStax College Algebra 2e", url: "https://openstax.org/books/college-algebra-2e", author: "Jay Abramson" },
-    sectionsDir: "sections",
+    sectionsDir: "sections/college-algebra-2e",
     chapters: [
       { n: 3, title: "Functions", sections: [
         { id: "3-1", title: "3.1 Functions and Function Notation", file: "3-1.html", ready: true },
@@ -299,10 +299,9 @@ function toggleTheme() {
 document.addEventListener("DOMContentLoaded", () => {
   const isSection = location.pathname.includes("/sections/");
   // Derive the path back to the site root from this page's own <script src="…assets/app.js">
-  // tag rather than assuming a fixed nesting depth: College Algebra 2e section files sit
-  // one level down (sections/6-1.html, root "..") but new books are scoped one level
-  // deeper (sections/calculus-v1/2-1.html, root "../..") and books/<id>/index.html is
-  // also one level down. Reading it off the script tag works at any depth automatically.
+  // tag rather than assuming a fixed nesting depth: section files sit two levels down
+  // (sections/<book-id>/6-1.html, root "../..") while books/<id>/index.html is one level
+  // down. Reading it off the script tag works at any depth automatically.
   const appScript = document.querySelector('script[src$="assets/app.js"]');
   const scriptSrc = appScript ? appScript.getAttribute("src") : "assets/app.js";
   const root = scriptSrc.replace(/assets\/app\.js$/, "").replace(/\/$/, "") || ".";
@@ -315,9 +314,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* sidebar: collapsible book contents + auto-generated page outline */
   const sb = document.querySelector(".sidebar");
   if (sb) {
-    // section files may live at root sections/ (College Algebra 2e, legacy) or a
-    // book-scoped subfolder sections/<book-id>/ (new books) — sectionsDir already
-    // encodes which, relative to site root.
+    // every book's section files live in a book-scoped subfolder sections/<book-id>/ —
+    // sectionsDir already encodes the path, relative to site root.
     let book = "";
     for (const ch of BOOK.chapters) {
       book += `<h4>Chapter ${ch.n} · ${ch.title}</h4>`;

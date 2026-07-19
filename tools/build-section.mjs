@@ -19,7 +19,7 @@ import { fileURLToPath } from "node:url";
 const BOOK_DEFAULTS = {
   "college-algebra-2e": {
     repo: "osbooks-college-algebra-bundle",
-    sectionsDir: "sections", // legacy: flat, no book subfolder, for backward compatibility
+    sectionsDir: "sections/college-algebra-2e",
     brand: "MX Algebra",
     license: { name: "Creative Commons Attribution 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
     source: { name: "OpenStax College Algebra 2e", url: "https://openstax.org/books/college-algebra-2e", author: "Jay Abramson" },
@@ -82,9 +82,9 @@ const title = titleParts.join(" ") || slug;
 const RAW = `https://raw.githubusercontent.com/openstax/${repo}/main/modules/${moduleId}/index.cnxml`;
 const MEDIA = `https://raw.githubusercontent.com/openstax/${repo}/main/media/`;
 // Section files for a book nest sectionsDir.split("/").length levels below the site
-// root (College Algebra 2e's legacy flat "sections" = 1 level, e.g. sections/6-1.html;
-// a book-scoped "sections/calculus-v1" = 2 levels, e.g. sections/calculus-v1/2-1.html) —
-// asset/index links in the emitted page must climb back out that many levels.
+// root (every book is scoped under sections/<book-id>/, 2 levels, e.g.
+// sections/calculus-v1/2-1.html) — asset/index links in the emitted page must climb
+// back out that many levels.
 const rootUp = "../".repeat(bookDef.sectionsDir.split("/").length);
 
 const xmlText = localFile ? readFileSync(localFile, "utf8") : await (await fetch(RAW)).text();

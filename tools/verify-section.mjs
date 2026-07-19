@@ -11,7 +11,7 @@
  *      source or from build-section.mjs's own console output).
  *
  * Usage:
- *   node tools/verify-section.mjs sections/6-3.html \
+ *   node tools/verify-section.mjs sections/college-algebra-2e/6-3.html \
  *     --examples=8 --tryits=8 --exercises=66 --answers=33
  *
  * Requires the `katex` npm package (npm install katex --no-save).

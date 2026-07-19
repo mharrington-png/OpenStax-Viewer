@@ -14,8 +14,15 @@ Owner: Mike Harrington (mharrington@mxschool.edu), Math Department.
 ## Non-negotiable conventions
 
 1. **Content fidelity.** Text, examples, Try Its, exercises, numbering, and answers must
-   match the OpenStax source exactly. Never paraphrase, renumber, or invent content.
-   Source of truth: CNXML modules in OpenStax GitHub repos (see README for module IDs).
+   match the OpenStax source exactly. Never paraphrase, renumber, or invent content on
+   your own initiative. Source of truth: CNXML modules in OpenStax GitHub repos (see
+   README for module IDs). This is a default, not an absolute — the Math Department can
+   authorize a local departure from the source text (a reworded example, a swapped
+   exercise) after course/department discussion (see EDITING-GUIDE.md); that's editing
+   *this project's copy*, never OpenStax's own upstream content, which is untouched
+   either way. If you find a section that already diverges from its CNXML source, don't
+   assume it's an error and "fix" it back to match — check with Mike first, since it may
+   be exactly this kind of intentional, approved local change.
 2. **Student-facing voice.** This IS the students' textbook. Never reference "the book,"
    "the original," or OpenStax in student-facing UI text (attribution footer excepted).
 3. **Attribution.** Every page keeps the CC BY 4.0 attribution footer. Required by license.
@@ -38,7 +45,7 @@ Owner: Mike Harrington (mharrington@mxschool.edu), Math Department.
    stretch/compression, reflections, the general `y=ab^x` or `y=ab^(x+c)+d` forms, etc.)
    should be a `figure.plot[data-desmos]` with slider(s) — see `drawDesmos()` in
    `assets/app.js` for the JSON schema (`bounds`, `sliders`, `curves`, `alt`) and
-   `sections/6-2.html` for worked examples. Keep the same functions/values the source
+   `sections/college-algebra-2e/6-2.html` for worked examples. Keep the same functions/values the source
    figure used as slider defaults — don't invent new scenarios, just make the existing
    one draggable. Requires a Desmos Graphing Calculator API script tag in the page
    `<head>` (see convention 8) and `window.Desmos` to be loaded; `drawDesmos()` no-ops
@@ -50,7 +57,7 @@ Owner: Mike Harrington (mharrington@mxschool.edu), Math Department.
    (`64dd35f0fdbe40c5bb00a4a5df4237b6`) — **this is a 90-day free trial key.**
    **Swap this for the production key from desmos.com/my-api once Mike's Desmos API
    request is approved.** It's a single string to find-and-replace across
-   `sections/*.html`. (Prior to this, the project used Desmos's public demo key,
+   `sections/**/*.html`. (Prior to this, the project used Desmos's public demo key,
    `dcb31709b452b1cf9dc26972add0fda6`.)
 9. **No frameworks, no build step.** Plain HTML/CSS/JS (third-party CDN scripts for
    KaTeX and Desmos are fine, same as existing precedent). Single shared stylesheet +
@@ -59,9 +66,9 @@ Owner: Mike Harrington (mharrington@mxschool.edu), Math Department.
 ## Architecture
 
 ```
-index.html                book home; chapter list is hand-maintained here
-sections/<slug>.html      one page per section (e.g. 6-1.html)
-assets/style.css          all styling, light + dark themes
+index.html                        book home; chapter list is hand-maintained here
+sections/<book-id>/<slug>.html    one page per section (e.g. sections/college-algebra-2e/6-1.html)
+assets/style.css                  all styling, light + dark themes
 assets/app.js             BOOK manifest + all behavior (see below)
 tools/build-section.mjs   Node 18+ script: CNXML → section page (no AI needed)
 README.md                 hosting guide + module ID tables

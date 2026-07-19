@@ -77,7 +77,8 @@ check actually checks something.
   transformation, or the figure caption/alt describes two+ cases of the *same* relationship,
   e.g. "b>1" vs "0<b<1", or a general shift/stretch/reflection) → convert to
   `data-desmos` with slider(s). Mirror the exact bounds/slider/curve JSON shape already
-  used in `sections/6-1.html` and `sections/6-2.html` — don't invent a new schema. Reuse
+  used in `sections/college-algebra-2e/6-1.html` and `sections/college-algebra-2e/6-2.html`
+  — don't invent a new schema. Reuse
   slider ranges from those pages when the situation matches (e.g. shift sliders are
   typically min -5 max 5 step 0.5 value 3; stretch sliders min 0.1 max 5 step 0.1 value 3;
   reflection sliders are a single toggle, min -1 max 1 step 2).
@@ -96,14 +97,16 @@ check actually checks something.
   filename** (e.g. `CNX_Precalc_Figure_04_04_013` might be the *10th* figure in the doc,
   i.e. `id="fig10"`). Get this wrong and you'll silently overwrite the wrong figure. Verify
   the mapping with `grep -o 'id="fig[0-9]*"><img[^>]*alt="[^"]\{0,60\}' sections/6-N.html`
+  (that's the sandbox scratch copy; the real project path is `sections/college-algebra-2e/6-N.html`)
   before writing any replacement — match by the alt text, not by assumption.
 - If you add any `data-desmos` figure, add the Desmos API `<script>` tag to `<head>`
   (see CLAUDE.md convention 8) — `verify-section.mjs` now fails the build if you forget it.
 
 **Sol-hints.** Every non-warmup `Example` gets one `<p class="sol-hint">...</p>` inserted
 between its `ex-body`'s closing `</div>` and the following `<div class="solution">`. One
-short sentence pointing at the *first move*, never the answer. See `sections/6-1.html` for
-tone/length (the class exists in `style.css` already).
+short sentence pointing at the *first move*, never the answer. See
+`sections/college-algebra-2e/6-1.html` for tone/length (the class exists in `style.css`
+already).
 
 ## 4. Known bugs already fixed — use the current `tools/build-section.mjs`, don't rewrite it
 
@@ -124,14 +127,17 @@ If you're regenerating the pipeline scripts from scratch instead of copying the 
 ## 5. Deliver
 
 1. Copy the finished, verified `sections/6-N.html` from the sandbox scratch dir to the real
-   project path with Write (read the sandbox file's content, write it to the project path —
-   for files too large to Read in one call, either chunk it with offset/limit or delegate the
-   mechanical copy to a subagent so the bulk text doesn't fill your own context).
+   project's `sections/college-algebra-2e/6-N.html` with Write (read the sandbox file's
+   content, write it to the project path — for files too large to Read in one call, either
+   chunk it with offset/limit or delegate the mechanical copy to a subagent so the bulk text
+   doesn't fill your own context).
 2. In `assets/app.js`, change that section's manifest entry from `{ id, title, module }` to
-   `{ id, title, file: "6-N.html", ready: true }`.
-3. In `index.html`, change the `<span>6.N ...</span>` placeholder to
-   `<a href="sections/6-N.html">6.N ...</a>` — **re-read the file immediately before editing**
-   in case another concurrent session already touched nearby lines.
+   `{ id, title, file: "6-N.html", ready: true }` (just the filename — `sectionsDir` already
+   points at `sections/college-algebra-2e`).
+3. In `books/college-algebra-2e/index.html`, change the `<span>6.N ...</span>` placeholder to
+   `<a href="../../sections/college-algebra-2e/6-N.html">6.N ...</a>` — **re-read the file
+   immediately before editing** in case another concurrent session already touched nearby
+   lines.
 4. Append a dated entry to `tools/AUTOBUILD_LOG.md`.
 
 ## 6. On failure

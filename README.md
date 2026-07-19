@@ -12,8 +12,8 @@ Same content, same exercises, same numbering as the OpenStax book, presented wit
 ## Files
 
 ```
-index.html            book home / table of contents
-sections/6-1.html     Section 6.1 Exponential Functions (complete)
+index.html                            book home / table of contents
+sections/college-algebra-2e/6-1.html  Section 6.1 Exponential Functions (complete)
 assets/style.css      design system (light + dark)
 assets/app.js         behavior + the BOOK manifest (sidebar nav)
 tools/build-section.mjs   generate more sections yourself — no AI needed
