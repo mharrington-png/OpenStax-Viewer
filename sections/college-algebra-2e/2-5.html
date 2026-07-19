@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.5 Quadratic Equations · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="college-algebra-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/college-algebra-2e/index.html">MX <span>Algebra</span></a>
+  <span class="crumb">2.5 Quadratic Equations</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 2.5</span>2.5 Quadratic Equations</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Recognize and use the appropriate method to factor a polynomial completely (IA 6.4.1)</li></ul>
+<h3 id="objective-1-recognize-and-use-the-appropriate-method-to-factor-a-polynomial-completely-ia-6-4-1">Objective 1: Recognize and use the appropriate method to factor a polynomial completely (IA 6.4.1)</h3>
+<p>The following chart summarizes the factoring methods and outlines a strategy you should use when factoring polynomials.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_06_04_002_img_new.jpg" alt="This chart shows the general strategies for factoring polynomials. It shows ways to find GCF of binomials, trinomials and polynomials with more than 3 terms. For binomials, we have difference of squares: a squared minus b squared equals a minus b, a plus b; sum of squares do not factor; sub of cubes: a cubed plus b cubed equals open parentheses a plus b close parentheses open parentheses a squared minus ab plus b squared close parentheses; difference of cubes: a cubed minus b cubed equals open parentheses a minus b close parentheses open parentheses a squared plus ab plus b squared close parentheses. For trinomials, we have x squared plus bx plus c where we put x as a term in each factor and we have a squared plus bx plus c. Here, if a and c are squares, we have a plus b whole squared equals a squared plus 2 ab plus b squared and a minus b whole squared equals a squared minus 2 ab plus b squared. If a and c are not squares, we use the ac method. For polynomials with more than 3 terms, we use grouping." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<div class="card howto" id="eip-743"><span class="chip">How To</span><ul class="tight"><li>Is there a factor common to all terms? Factor it out.</li><li>Consider the number of terms in the original polynomial.<ul class="tight"><li>If it is a sum of squared terms, this does not factor further. We refer to this as prime.</li><li>If it is a difference of perfect square terms, factor using the difference of two squares form.</li><li>If it is a sum of perfect cubed terms, factor using the sum of two cubes form.</li><li>If it is a difference of perfect cubed terms, factor using the difference of two cubes form.</li></ul>
+<ul class="tight"><li>If the coefficient of \({x}^{2}\) is \(1\) , \({x}^{2}+bx+c\) , try to find two factors of \(c\) that add to \(b\) . If you find these, the trinomial is factorable.</li><li>If the coefficient of \({x}^{2}\) is not \(1\) , \(a{x}^{2}+bx+c\) , try to find two factors of \(ac\) that add to \(b\) . If you find these, the trinomial is factorable. You can factor using trial and error or the \(ac\) method from here.</li><li>If you notice that \(a{x}^{2}\) and \(c\) are perfect squares, you are working with a perfect square trinomial which can be factored as the square of a binomial.</li></ul>
+<ul class="tight"><li>Try to factor by grouping two terms, or three terms and finding factors common to those terms.</li></ul>
+</li><li>Check your work. Is the polynomial factored completely? Do the factors multiply to give you the original polynomial?</li></ul>
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><p>Recognize and use the appropriate method to factor a polynomial completely.</p>
+<div class="ex-body"><ul class="tight"><li>ⓐ \(5{x}^{3}-15{x}^{2}-50x\)</li><li>ⓑ \(4{x}^{2}+20xy+25{y}^{2}\)</li><li>ⓒ \(9{x}^{2}-16\)</li><li>ⓓ \(8{x}^{3}+27{y}^{3}\)</li><li>ⓔ \(16{x}^{2}+24xy-4x-6y\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>ⓐ</td><td>\(5{x}^{3}-15{x}^{2}-50x\)</td></tr><tr><td>First let's factor out the common factor of \(5x\) .</td><td>\(5x({x}^{2}-3x-10)\)</td></tr><tr><td>Consider the resulting trinomial with a leading coefficient of \(1\) . Are there two factors of \(-10\) that add to \(-3\) ? Yes, \(-5\) and \(2\) , multiply to \(-10\) and add to \(-3\) . Use these factors.</td><td>\(5x(x-5)(x+2)\)</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>ⓑ</td><td>\(4{x}^{2}+20xy+25{y}^{2}\)</td></tr><tr><td>There are no factors common to all three terms in the trinomial. Notice that the first term, \(4{x}^{2}\) is a perfect square \((2x{)}^{2}\) and last term, \(25{y}^{2}\) , is a perfect square \((5y{)}^{2}\) , so this may be a perfect square trinomial.</td><td>\((a+b{)}^{2}={a}^{2}+2ab+{b}^{2}\)</td></tr><tr><td>Check the middle term to see if it is equivalent to \(2ab\) , or \(2(2x)(5y)=20xy\) , and it is.</td><td>\(ad(2x+5y)(2x+5y)=(2x+5y{)}^{2}\)</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>ⓒ</td><td>\(9{x}^{2}-16\)</td></tr><tr><td>There are no factors common to both terms in the binomial. Notice that the first term, \(9{x}^{2}\) is a perfect square \((3x{)}^{2}\) and last term, \(16\) , is a perfect square \({4}^{2}\) , so this form is a difference of two squares.</td><td>\({a}^{2}-{b}^{2}=(a-b)(a+b)\)</td></tr><tr><td></td><td>\(9{x}^{2}-16=(3x-4)(3x+4)\)</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>ⓓ</td><td>\(8{x}^{3}+27{y}^{3}\)</td></tr><tr><td>There are no factors common to both terms in the binomial. Notice that the first term, \(8{x}^{3}\) is a perfect cube \((2x{)}^{3}\) and last term, \(27{y}^{3}\) , so this form is a sum of two cubes.</td><td>\({a}^{3}+{b}^{3}=(a+b)({a}^{2}-ab+{b}^{2})\)</td></tr><tr><td></td><td>\({(2x)}^{3}+{(3y)}^{3}=(2x+3y)(4{x}^{2}-6xy+9{y}^{2})\)</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>ⓔ</td><td>\(16{x}^{2}+24xy-4x-6y\)</td></tr><tr><td>First, let’s factor out the common factor of \(2\) .</td><td>\(2(8{x}^{2}+12xy-2x-3y)\)</td></tr><tr><td>The first two terms in the parentheses have a 4x in common, let’s factor that out. Since the second two terms have nothing in common, but are both negative, we’ll factor out a negative \(1\) .</td><td>\(2[4x(2x+3y)-1(2x+3y)]\)</td></tr><tr><td>Inside the parentheses, the four terms have become two terms with a common factor of \((2x+3y)\) Factor this from the two terms</td><td>\(2[(2x+3y)(4x-1)]\)</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Recognize and use the appropriate method to factor a polynomial completely.Factor each of the following polynomials completely, if a polynomial does not factor label it as prime.</p>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>\({x}^{2}+10x+24\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>\({y}^{2}-20y+36\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>\(2{x}^{2}+16x+30\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex4"><div class="n">P4</div><div class="body"><p>\(9{x}^{2}+42x+49\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex5"><div class="n">P5</div><div class="body"><p>\(25{n}^{2}-90n+81\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex6"><div class="n">P6</div><div class="body"><p>\(10{x}^{3}y+65{x}^{2}y-35xy\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex7"><div class="n">P7</div><div class="body"><p>\(121{q}^{2}-100\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex8"><div class="n">P8</div><div class="body"><p>\(50{m}^{2}+72\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex9"><div class="n">P9</div><div class="body"><p>\(125{z}^{3}+27\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex10"><div class="n">P10</div><div class="body"><p>\(12ab-6a+10b-5\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex11"><div class="n">P11</div><div class="body"><p>\(18{x}^{2}-12xy+2{y}^{2}-98\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex12"><div class="n">P12</div><div class="body"><p>\({(3x-5)}^{2}-7(3x-5)+12\)</p>
+</div></div>
+</div></details>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_05_001.jpg" alt="Two televisions side-by-side. The right television is slightly larger than the left. " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>The computer monitor on the left in <a href="#fig2">Figure 2</a> is a 23.6-inch model and the one on the right is a 27-inch model. Proportionally, the monitors appear very similar. If there is a limited amount of space and we desire the largest monitor possible, how do we decide which one to choose? In this section, we will learn how to solve problems such as this using four different methods.</p>
+<h2 id="solving-quadratic-equations-by-factoring">Solving Quadratic Equations by Factoring</h2>
+<p>An equation containing a second-degree polynomial is called a <strong>quadratic equation</strong>. For example, equations such as \(2{x}^{2}+3x-1=0\) and \({x}^{2}-4=0\) are quadratic equations. They are used in countless ways in the fields of engineering, architecture, finance, biological science, and, of course, mathematics.</p>
+<p>Often the easiest method of solving a quadratic equation is <strong>factoring</strong>. Factoring means finding expressions that can be multiplied together to give the expression on one side of the equation.</p>
+<p>If a quadratic equation can be factored, it is written as a product of linear terms. Solving by factoring depends on the zero-product property, which states that if \(a\cdot b=0,\) then \(a=0\) or \(b=0,\) where <strong>a</strong>and <strong>b</strong>are real numbers or algebraic expressions. In other words, if the product of two numbers or two expressions equals zero, then one of the numbers or one of the expressions must equal zero because zero multiplied by anything equals zero.</p>
+<p>Multiplying the factors expands the equation to a string of terms separated by plus or minus signs. So, in that sense, the operation of multiplication undoes the operation of factoring. For example, expand the factored expression \((x-2)(x+3)\) by multiplying the two factors together.</p>
+<p id="eq1">\[\begin{array}{lll}(x-2)(x+3) &amp; = &amp; {x}^{2}+3x-2x-6 \\ &amp; = &amp; {x}^{2}+x-6\end{array}\]</p>
+<p>The product is a quadratic expression. Set equal to zero, \({x}^{2}+x-6=0\) is a quadratic equation. If we were to factor the equation, we would get back the factors we multiplied.</p>
+<p>The process of factoring a quadratic equation depends on the leading coefficient, whether it is 1 or another integer. We will look at both situations; but first, we want to confirm that the equation is written in standard form, \(a{x}^{2}+bx+c=0,\) where <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> are real numbers, and \(a\ne 0.\) The equation \({x}^{2}+x-6=0\) is in standard form.</p>
+<p>We can use the zero-product property to solve quadratic equations in which we first have to factor out the <strong>greatest common factor</strong> (GCF), and for equations that have special factoring formulas as well, such as the difference of squares, both of which we will see later in this section.</p>
+<div class="card definition" id="fs-id1318343"><span class="chip">The Zero-Product Property and Quadratic Equations</span><p>The <strong>zero-product property</strong> states</p>
+<p id="eq2">\[\text{If }a\cdot b=0,\,\text{then }a=0\,\text{or }b=0,\]</p>
+<p>where <strong>a</strong>and <strong>b</strong>are real numbers or algebraic expressions.</p>
+<p>A <strong>quadratic equation</strong> is an equation containing a second-degree polynomial; for example</p>
+<p id="eq3">\[a{x}^{2}+bx+c=0\]</p>
+<p>where <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> are real numbers, and if \(a\ne 0,\) it is in standard form.</p>
+</div>
+<h3 id="solving-quadratics-with-a-leading-coefficient-of-1">Solving Quadratics with a Leading Coefficient of 1</h3>
+<p>In the quadratic equation \({x}^{2}+x-6=0,\) the leading coefficient, or the coefficient of \({x}^{2},\) is 1. We have one method of factoring quadratic equations in this form.</p>
+<div class="card howto" id="fs-id2048827"><span class="chip">How To</span><p><strong>Given a quadratic equation with the leading coefficient of 1, factor it.</strong></p>
+<ul class="tight"><li>Find two numbers whose product equals <strong>c</strong> and whose sum equals <strong>b</strong>.</li><li>Use those numbers to write two factors of the form \((x+k)\,\text{or }(x-k),\) where <strong>k</strong>is one of the numbers found in step 1. Use the numbers exactly as they are. In other words, if the two numbers are 1 and \(-2,\) the factors are \((x+1)(x-2).\)</li><li>Solve using the zero-product property by setting each factor equal to zero and solving for the variable.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Factor and solve the equation: \({x}^{2}+x-6=0.\)</p>
+<p class="sol-hint">Find two numbers that multiply to \(-6\) and add to \(1\) — those give you the two factors.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To factor \({x}^{2}+x-6=0,\) we look for two numbers whose product equals \(-6\) and whose sum equals 1. Begin by looking at the possible factors of \(-6.\)</p>
+<p id="eq4">\[\begin{array}{l}1\cdot (-6) \\ (-6)\cdot 1 \\ 2\cdot (-3) \\ 3\cdot (-2)\end{array}\]</p>
+<p>The last pair, \(3\cdot (-2)\) sums to 1, so these are the numbers. Note that only one pair of numbers will work. Then, write the factors.</p>
+<p id="eq5">\[(x-2)(x+3)=0\]</p>
+<p>To solve this equation, we use the zero-product property. Set each factor equal to zero and solve.</p>
+<p id="eq6">\[\begin{array}{lll}(x-2)(x+3) &amp; = &amp; 0 \\ (x-2) &amp; = &amp; 0 \\ x &amp; = &amp; 2 \\ (x+3) &amp; = &amp; 0 \\ x &amp; = &amp; -3\end{array}\]</p>
+<p>The two solutions are \(2\) and \(-3.\) We can see how the solutions relate to the graph in <a href="#fig3">Figure 3</a>. The solutions are the <strong>x-</strong>intercepts of \(y={x}^{2}+x-6=0.\)</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_05_002.jpg" alt="Coordinate plane with the x-axis ranging from negative 5 to 5 and the y-axis ranging from negative 7 to 7. The function x squared plus x minus six equals zero is graphed, with the x-intercepts (-3,0) and (2,0), plotted as well." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Factor and solve the quadratic equation: \({x}^{2}-5x-6=0.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((x-6)(x+1)=0;x=6,\,x=-1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Solve the quadratic equation by factoring: \({x}^{2}+8x+15=0.\)</p>
+<p class="sol-hint">Find two numbers that multiply to \(15\) and add to \(8\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Find two numbers whose product equals \(15\) and whose sum equals \(8.\) List the factors of \(15.\)</p>
+<p id="eq7">\[\begin{array}{l}1\cdot 15 \\ 3\cdot 5 \\ (-1)\cdot (-15) \\ (-3)\cdot (-5)\end{array}\]</p>
+<p>The numbers that add to 8 are 3 and 5. Then, write the factors, set each factor equal to zero, and solve.</p>
+<p id="eq8">\[\begin{array}{lll}(x+3)(x+5) &amp; = &amp; 0 \\ (x+3) &amp; = &amp; 0 \\ x &amp; = &amp; -3 \\ (x+5) &amp; = &amp; 0 \\ x &amp; = &amp; -5\end{array}\]</p>
+<p>The solutions are \(-3\) and \(-5.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Solve the quadratic equation by factoring: \({x}^{2}-4x-21=0.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((x-7)(x+3)=0,\,\) \(x=7,\) \(x=-3.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Solve the difference of squares equation using the zero-product property: \({x}^{2}-9=0.\)</p>
+<p class="sol-hint">Recognize this as a difference of squares and factor it as \((x-3)(x+3)\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Recognizing that the equation represents the difference of squares, we can write the two factors by taking the square root of each term, using a minus sign as the operator in one factor and a plus sign as the operator in the other. Solve using the zero-factor property.</p>
+<p id="eq9">\[\begin{array}{lll}{x}^{2}-9 &amp; = &amp; 0 \\ (x-3)(x+3) &amp; = &amp; 0 \\ (x-3) &amp; = &amp; 0 \\ x &amp; = &amp; 3 \\ (x+3) &amp; = &amp; 0 \\ x &amp; = &amp; -3\end{array}\]</p>
+<p>The solutions are \(3\) and \(-3.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Solve by factoring: \({x}^{2}-25=0.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((x+5)(x-5)=0,\) \(x=-5,\) \(x=5.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="solving-a-quadratic-equation-by-factoring-when-the-leading-coefficient-is-not-1">Solving a Quadratic Equation by Factoring when the Leading Coefficient is not 1</h3>
+<p>When the leading coefficient is not 1, we factor a quadratic equation using the method called grouping, which requires four terms. With the equation in standard form, let’s review the grouping procedures:</p>
+<ul class="tight"><li>With the quadratic in standard form, \(a{x}^{2}+bx+c=0,\) multiply \(a\cdot c.\)</li><li>Find two numbers whose product equals \(ac\) and whose sum equals \(b.\)</li><li>Rewrite the equation replacing the \(bx\) term with two terms using the numbers found in step 2 as coefficients of <strong>x.</strong></li><li>Factor the first two terms and then factor the last two terms. The expressions in parentheses must be exactly the same to use grouping.</li><li>Factor out the expression in parentheses.</li><li>Set the expressions equal to zero and solve for the variable.</li></ul>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Use grouping to factor and solve the quadratic equation: \(4{x}^{2}+15x+9=0.\)</p>
+<p class="sol-hint">Multiply \(a\cdot c\), find two factors of that product that add to \(b\), then split the middle term and factor by grouping.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, multiply \(ac:4(9)=36.\) Then list the factors of \(36.\)</p>
+<p id="eq10">\[\begin{array}{l}1\cdot 36 \\ 2\cdot 18 \\ 3\cdot 12 \\ 4\cdot 9 \\ 6\cdot 6\end{array}\]</p>
+<p>The only pair of factors that sums to \(15\) is \(3+12.\) Rewrite the equation replacing the <strong>b</strong>term, \(15x,\) with two terms using 3 and 12 as coefficients of <strong>x</strong>. Factor the first two terms, and then factor the last two terms.</p>
+<p id="eq11">\[\begin{array}{lll}4{x}^{2}+3x+12x+9 &amp; = &amp; 0 \\ x(4x+3)+3(4x+3) &amp; = &amp; 0 \\ (4x+3)(x+3) &amp; = &amp; 0\end{array}\]</p>
+<p>Solve using the zero-product property.</p>
+<p id="eq12">\[\begin{array}{lll}(4x+3)(x+3) &amp; = &amp; 0 \\ (4x+3) &amp; = &amp; 0 \\ x &amp; = &amp; -\frac{3}{4} \\ (x+3) &amp; = &amp; 0 \\ x &amp; = &amp; -3\end{array}\]</p>
+<p>The solutions are \(-\frac{3}{4},\,\) and \(-3.\) See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_05_003n.jpg" alt="Coordinate plane with the x-axis ranging from negative 6 to 2 with every other tick mark labeled and the y-axis ranging from negative 6 to 2 with each tick mark numbered. The equation: four x squared plus fifteen x plus nine is graphed with its x-intercepts: (-3/4,0) and (-3,0) plotted as well." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Solve using factoring by grouping: \(12{x}^{2}+11x+2=0.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((3x+2)(4x+1)=0,\) \(x=-\frac{2}{3},\) \(x=-\frac{1}{4}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Solve the equation by factoring: \(-3{x}^{3}-5{x}^{2}-2x=0.\)</p>
+<p class="sol-hint">Factor out the GCF first, then use grouping on what's left.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This equation does not look like a quadratic, as the highest power is 3, not 2. Recall that the first thing we want to do when solving any equation is to factor out the GCF, if one exists. And it does here. We can factor out \(-x\) from all of the terms and then proceed with grouping.</p>
+<p id="eq13">\[\begin{array}{lll}-3{x}^{3}-5{x}^{2}-2x &amp; = &amp; 0 \\ -x(3{x}^{2}+5x+2) &amp; = &amp; 0\end{array}\]</p>
+<p>Use grouping on the expression in parentheses.</p>
+<p id="eq14">\[\begin{array}{lll}-x(3{x}^{2}+3x+2x+2) &amp; = &amp; 0 \\ -x[3x(x+1)+2(x+1)] &amp; = &amp; 0 \\ -x(3x+2)(x+1) &amp; = &amp; 0\end{array}\]</p>
+<p>Now, we use the zero-product property. Notice that we have three factors.</p>
+<p id="eq15">\[\begin{array}{lll}-x &amp; = &amp; 0 \\ x &amp; = &amp; 0 \\ 3x+2 &amp; = &amp; 0 \\ x &amp; = &amp; -\frac{2}{3} \\ x+1 &amp; = &amp; 0 \\ x &amp; = &amp; -1\end{array}\]</p>
+<p>The solutions are \(0,\) \(-\frac{2}{3},\) and \(-1.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Solve by factoring: \({x}^{3}+11{x}^{2}+10x=0.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=0,x=-10,x=-1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-the-square-root-property">Using the Square Root Property</h2>
+<p>When there is no linear term in the equation, another method of solving a quadratic equation is by using the <strong>square root property</strong>, in which we isolate the \({x}^{2}\) term and take the square root of the number on the other side of the equals sign. Keep in mind that sometimes we may have to manipulate the equation to isolate the \({x}^{2}\) term so that the square root property can be used.</p>
+<div class="card definition" id="fs-id1831215"><span class="chip">The Square Root Property</span><p>With the \({x}^{2}\) term isolated, the square root property states that:</p>
+<p id="eq16">\[\text{if}\,{x}^{2}=k,\text{then}\,x=\pm \sqrt{k}\]</p>
+<p>where <strong>k</strong>is a nonzero real number.</p>
+</div>
+<div class="card howto" id="fs-id1521248"><span class="chip">How To</span><p><strong>Given a quadratic equation with an \({x}^{2}\) term but no \(x\) term, use the square root property to solve it.</strong></p>
+<ul class="tight"><li>Isolate the \({x}^{2}\) term on one side of the equal sign.</li><li>Take the square root of both sides of the equation, putting a \(\pm\) sign before the expression on the side opposite the squared term.</li><li>Simplify the numbers on the side with the \(\pm\) sign.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Solve the quadratic using the square root property: \({x}^{2}=8.\)</p>
+<p class="sol-hint">Take the square root of both sides, remembering the \(\pm\) sign.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Take the square root of both sides, and then simplify the radical. Remember to use a \(\pm\) sign before the radical symbol.</p>
+<p id="eq17">\[\begin{array}{lll}{x}^{2} &amp; = &amp; 8 \\ x &amp; = &amp; \pm \sqrt{8} \\ &amp; = &amp; \pm 2\sqrt{2}\end{array}\]</p>
+<p>The solutions are \(2\sqrt{2},\) \(-2\sqrt{2}.\)</p>
+</div></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Solve the quadratic equation: \(4{x}^{2}+1=\text{7.}\)</p>
+<p class="sol-hint">Isolate the \({x}^{2}\) term first, then apply the square root property.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, isolate the \({x}^{2}\) term. Then take the square root of both sides.</p>
+<p id="eq18">\[\begin{array}{lll}4{x}^{2}+1 &amp; = &amp; 7 \\ 4{x}^{2} &amp; = &amp; 6 \\ {x}^{2} &amp; = &amp; \frac{6}{4} \\ x &amp; = &amp; \pm \frac{\sqrt{6}}{2}\end{array}\]</p>
+<p>The solutions are \(\frac{\sqrt{6}}{2},\,\) and \(-\frac{\sqrt{6}}{2}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Solve the quadratic equation using the square root property: \(3{(x-4)}^{2}=15.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=4\pm \sqrt{5}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="completing-the-square">Completing the Square</h2>
+<p>Not all quadratic equations can be factored or can be solved in their original form using the square root property. In these cases, we may use a method for solving a <strong>quadratic equation</strong> known as <strong>completing the square</strong>. Using this method, we add or subtract terms to both sides of the equation until we have a perfect square trinomial on one side of the equal sign. We then apply the square root property. To complete the square, the leading coefficient, <strong>a</strong>, must equal 1. If it does not, then divide the entire equation by <strong>a</strong>. Then, we can use the following procedures to solve a quadratic equation by completing the square.</p>
+<p>We will use the example \({x}^{2}+4x+1=0\) to illustrate each step.</p>
+<ul class="tight"><li>Given a quadratic equation that cannot be factored, and with \(a=1,\) first add or subtract the constant term to the right side of the equal sign.<p>Given a quadratic equation that cannot be factored, and with \(a=1,\) first add or subtract the constant term to the right side of the equal sign.</p>
+<p id="eq19">\[{x}^{2}+4x=-1\]</p>
+</li><li>Multiply the <strong>b</strong>term by \(\frac{1}{2}\) and square it.<p>Multiply the <strong>b</strong>term by \(\frac{1}{2}\) and square it.</p>
+<p id="eq20">\[\begin{array}{lll}\frac{1}{2}(4) &amp; = &amp; 2 \\ {2}^{2} &amp; = &amp; 4\end{array}\]</p>
+</li><li>Add \({(\frac{1}{2}b)}^{2}\) to both sides of the equal sign and simplify the right side. We have<p>Add \({(\frac{1}{2}b)}^{2}\) to both sides of the equal sign and simplify the right side. We have</p>
+<p id="eq21">\[\begin{array}{lll}{x}^{2}+4x+4 &amp; = &amp; -1+4 \\ {x}^{2}+4x+4 &amp; = &amp; 3\end{array}\]</p>
+</li><li>The left side of the equation can now be factored as a perfect square.<p>The left side of the equation can now be factored as a perfect square.</p>
+<p id="eq22">\[\begin{array}{lll}{x}^{2}+4x+4 &amp; = &amp; 3 \\ {(x+2)}^{2} &amp; = &amp; 3\end{array}\]</p>
+</li><li>Use the square root property and solve.<p>Use the square root property and solve.</p>
+<p id="eq23">\[\begin{array}{lll}\sqrt{{(x+2)}^{2}} &amp; = &amp; \pm \sqrt{3} \\ x+2 &amp; = &amp; \pm \sqrt{3} \\ x &amp; = &amp; -2\pm \sqrt{3}\end{array}\]</p>
+</li><li>The solutions are \(-2+\sqrt{3},\,\) and \(-2-\sqrt{3}.\)<p>The solutions are \(-2+\sqrt{3},\,\) and \(-2-\sqrt{3}.\)</p>
+</li></ul>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Solve the quadratic equation by completing the square: \({x}^{2}-3x-5=0.\)</p>
+<p class="sol-hint">Move the constant to the other side, then add \({(\frac{b}{2})}^{2}\) to both sides to complete the square.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, move the constant term to the right side of the equal sign.</p>
+<p id="eq24">\[{x}^{2}-3x=5\]</p>
+<p>Then, take \(\frac{1}{2}\) of the <strong>b</strong>term and square it.</p>
+<p id="eq25">\[\begin{array}{lll}\frac{1}{2}(-3) &amp; = &amp; -\frac{3}{2} \\ {(-\frac{3}{2})}^{2} &amp; = &amp; \frac{9}{4}\end{array}\]</p>
+<p>Add the result to both sides of the equal sign.</p>
+<p id="eq26">\[\begin{array}{lll}{x}^{2}-3x+{(-\frac{3}{2})}^{2} &amp; = &amp; 5+{(-\frac{3}{2})}^{2} \\ {x}^{2}-3x+\frac{9}{4} &amp; = &amp; 5+\frac{9}{4}\end{array}\]</p>
+<p>Factor the left side as a perfect square and simplify the right side.</p>
+<p id="eq27">\[{(x-\frac{3}{2})}^{2}=\frac{29}{4}\]</p>
+<p>Use the square root property and solve.</p>
+<p id="eq28">\[\begin{array}{lll}\sqrt{{(x-\frac{3}{2})}^{2}} &amp; = &amp; \pm \sqrt{\frac{29}{4}} \\ (x-\frac{3}{2}) &amp; = &amp; \pm \frac{\sqrt{29}}{2} \\ x &amp; = &amp; \frac{3}{2}\pm \frac{\sqrt{29}}{2}\end{array}\]</p>
+<p>The solutions are \(\frac{3+\sqrt{29}}{2}\) and \(\frac{3-\sqrt{29}}{2}\) .</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Solve by completing the square: \({x}^{2}-6x=13.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=3\pm \sqrt{22}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-the-quadratic-formula">Using the Quadratic Formula</h2>
+<p>The fourth method of solving a <strong>quadratic equation</strong> is by using the <strong>quadratic formula</strong>, a formula that will solve all quadratic equations. Although the quadratic formula works on any quadratic equation in standard form, it is easy to make errors in substituting the values into the formula. Pay close attention when substituting, and use parentheses when inserting a negative number.</p>
+<p>We can derive the quadratic formula by <strong>completing the square</strong>. We will assume that the leading coefficient is positive; if it is negative, we can multiply the equation by \(-1\) and obtain a positive <strong>a</strong>. Given \(a{x}^{2}+bx+c=0,\) \(a\ne 0,\) we will complete the square as follows:</p>
+<ul class="tight"><li>First, move the constant term to the right side of the equal sign:<p>First, move the constant term to the right side of the equal sign:</p>
+<p id="eq29">\[a{x}^{2}+bx=-c\]</p>
+</li><li>As we want the leading coefficient to equal 1, divide through by <strong>a</strong>:<p>As we want the leading coefficient to equal 1, divide through by <strong>a</strong>:</p>
+<p id="eq30">\[{x}^{2}+\frac{b}{a}x=-\frac{c}{a}\]</p>
+</li><li>Then, find \(\frac{1}{2}\) of the middle term, and add \({(\frac{1}{2}\frac{b}{a})}^{2}=\frac{{b}^{2}}{4{a}^{2}}\) to both sides of the equal sign:<p>Then, find \(\frac{1}{2}\) of the middle term, and add \({(\frac{1}{2}\frac{b}{a})}^{2}=\frac{{b}^{2}}{4{a}^{2}}\) to both sides of the equal sign:</p>
+<p id="eq31">\[{x}^{2}+\frac{b}{a}x+\frac{{b}^{2}}{4{a}^{2}}=\frac{{b}^{2}}{4{a}^{2}}-\frac{c}{a}\]</p>
+</li><li>Next, write the left side as a perfect square. Find the common denominator of the right side and write it as a single fraction:<p>Next, write the left side as a perfect square. Find the common denominator of the right side and write it as a single fraction:</p>
+<p id="eq32">\[{(x+\frac{b}{2a})}^{2}=\frac{{b}^{2}-4ac}{4{a}^{2}}\]</p>
+</li><li>Now, use the square root property, which gives<p>Now, use the square root property, which gives</p>
+<p id="eq33">\[\begin{array}{lll}x+\frac{b}{2a} &amp; = &amp; \pm \sqrt{\frac{{b}^{2}-4ac}{4{a}^{2}}} \\ x+\frac{b}{2a} &amp; = &amp; \frac{\pm \sqrt{{b}^{2}-4ac}}{2a}\end{array}\]</p>
+</li><li>Finally, add \(-\frac{b}{2a}\) to both sides of the equation and combine the terms on the right side. Thus,<p>Finally, add \(-\frac{b}{2a}\) to both sides of the equation and combine the terms on the right side. Thus,</p>
+<p id="eq34">\[x=\frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a}\]</p>
+</li></ul>
+<div class="card definition" id="fs-id2500151"><span class="chip">The Quadratic Formula</span><p>Written in standard form, \(a{x}^{2}+bx+c=0,\) any quadratic equation can be solved using the <strong>quadratic formula</strong>:</p>
+<p id="eq35">\[x=\frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a}\]</p>
+<p>where <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> are real numbers and \(a\ne 0.\)</p>
+</div>
+<div class="card howto" id="fs-id1480868"><span class="chip">How To</span><p><strong>Given a quadratic equation, solve it using the quadratic formula</strong></p>
+<ul class="tight"><li>Make sure the equation is in standard form: \(a{x}^{2}+bx+c=0.\)</li><li>Make note of the values of the coefficients and constant term, \(a,b,\) and \(c.\)</li><li>Carefully substitute the values noted in step 2 into the equation. To avoid needless errors, use parentheses around each number input into the formula.</li><li>Calculate and solve.</li></ul>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Solve the quadratic equation: \({x}^{2}+5x+1=0.\)</p>
+<p class="sol-hint">Identify a, b, and c, then substitute carefully into the quadratic formula.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Identify the coefficients: \(a=1,b=5,c=1.\) Then use the quadratic formula.</p>
+<p id="eq36">\[\begin{array}{lll}x &amp; = &amp; \frac{-(5)\pm \sqrt{{(5)}^{2}-4(1)(1)}}{2(1)} \\ &amp; = &amp; \frac{-5\pm \sqrt{25-4}}{2} \\ &amp; = &amp; \frac{-5\pm \sqrt{21}}{2}\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Use the quadratic formula to solve \({x}^{2}+x+2=0.\)</p>
+<p class="sol-hint">Substitute a, b, c into the quadratic formula — a negative discriminant means the answer will involve \(i\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we identify the coefficients: \(a=1,b=1,\) and \(c=2.\)</p>
+<p>Substitute these values into the quadratic formula.</p>
+<p id="eq37">\[\begin{array}{lll}x &amp; = &amp; \frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a} \\ &amp; = &amp; \frac{-(1)\pm \sqrt{{(1)}^{2}-(4)\cdot (1)\cdot (2)}}{2\cdot 1} \\ &amp; = &amp; \frac{-1\pm \sqrt{1-8}}{2} \\ &amp; = &amp; \frac{-1\pm \sqrt{-7}}{2} \\ &amp; = &amp; \frac{-1\pm i\sqrt{7}}{2}\end{array}\]</p>
+<p>The solutions to the equation are \(\frac{-1+i\sqrt{7}}{2}\) and \(\frac{-1-i\sqrt{7}}{2}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Solve the quadratic equation using the quadratic formula: \(9{x}^{2}+3x-2=0.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=-\frac{2}{3},\) \(x=\frac{1}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="the-discriminant">The Discriminant</h2>
+<p>The <strong>quadratic formula</strong> not only generates the solutions to a quadratic equation, it tells us about the nature of the solutions when we consider the <strong>discriminant</strong>, or the expression under the radical, \({b}^{2}-4ac.\) The discriminant tells us whether the solutions are real numbers or complex numbers, and how many solutions of each type to expect. <a href="#tab6">Table 6</a> relates the value of the discriminant to the solutions of a quadratic equation.</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>Value of Discriminant</td><td>Results</td></tr><tr><td>\({b}^{2}-4ac=0\)</td><td>One rational solution (double solution)</td></tr><tr><td>\({b}^{2}-4ac&gt;0,\) perfect square</td><td>Two rational solutions</td></tr><tr><td>\({b}^{2}-4ac&gt;0,\) not a perfect square</td><td>Two irrational solutions</td></tr><tr><td>\({b}^{2}-4ac&lt;0\)</td><td>Two complex solutions</td></tr></tbody></table></div>
+<div class="card definition" id="fs-id2495380"><span class="chip">The Discriminant</span><p>For \(a{x}^{2}+bx+c=0\) , where \(a\) , \(b\) , and \(c\) are real numbers, the <strong>discriminant</strong> is the expression under the radical in the quadratic formula: \({b}^{2}-4ac.\) It tells us whether the solutions are real numbers or complex numbers and how many solutions of each type to expect.</p>
+</div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Use the discriminant to find the nature of the solutions to the following quadratic equations:</p>
+<ul class="tight"><li>ⓐ \({x}^{2}+4x+4=0\)</li><li>ⓑ \(8{x}^{2}+14x+3=0\)</li><li>ⓒ \(3{x}^{2}-5x-2=0\)</li><li>ⓓ \(3{x}^{2}-10x+15=0\)</li></ul>
+<p class="sol-hint">Compute \({b}^{2}-4ac\) for each equation and check its sign (and whether it's a perfect square).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Calculate the discriminant \({b}^{2}-4ac\) for each equation and state the expected type of solutions.</p>
+<ul class="tight"><li>ⓐ\({x}^{2}+4x+4=0\) \({b}^{2}-4ac={(4)}^{2}-4(1)(4)=0.\) There will be one rational double solution.<p>\({x}^{2}+4x+4=0\)</p>
+<p>\({b}^{2}-4ac={(4)}^{2}-4(1)(4)=0.\) There will be one rational double solution.</p>
+</li><li>ⓑ\(8{x}^{2}+14x+3=0\) \({b}^{2}-4ac={(14)}^{2}-4(8)(3)=100.\) As \(100\) is a perfect square, there will be two rational solutions.<p>\(8{x}^{2}+14x+3=0\)</p>
+<p>\({b}^{2}-4ac={(14)}^{2}-4(8)(3)=100.\) As \(100\) is a perfect square, there will be two rational solutions.</p>
+</li><li>ⓒ\(3{x}^{2}-5x-2=0\)\({b}^{2}-4ac={(-5)}^{2}-4(3)(-2)=49.\) As \(49\) is a perfect square, there will be two rational solutions.<p>\(3{x}^{2}-5x-2=0\)</p>
+<p>\({b}^{2}-4ac={(-5)}^{2}-4(3)(-2)=49.\) As \(49\) is a perfect square, there will be two rational solutions.</p>
+</li><li>ⓓ\(3{x}^{2}-10x+15=0\) \({b}^{2}-4ac={(-10)}^{2}-4(3)(15)=-80.\) There will be two complex solutions.<p>\(3{x}^{2}-10x+15=0\)</p>
+<p>\({b}^{2}-4ac={(-10)}^{2}-4(3)(15)=-80.\) There will be two complex solutions.</p>
+</li></ul>
+</div></div></div>
+<h2 id="using-the-pythagorean-theorem">Using the Pythagorean Theorem</h2>
+<p>One of the most famous formulas in mathematics is the <strong>Pythagorean Theorem</strong>. It is based on a right triangle, and states the relationship among the lengths of the sides as \({a}^{2}+{b}^{2}={c}^{2},\) where \(a\) and \(b\) refer to the legs of a right triangle adjacent to the \(90°\) angle, and \(c\) refers to the hypotenuse. It has immeasurable uses in architecture, engineering, the sciences, geometry, trigonometry, and algebra, and in everyday applications.</p>
+<p>We use the Pythagorean Theorem to solve for the length of one side of a triangle when we have the lengths of the other two. Because each of the terms is squared in the theorem, when we are solving for a side of a triangle, we have a quadratic equation. We can use the methods for solving quadratic equations that we learned in this section to solve for the missing side.</p>
+<p>The Pythagorean Theorem is given as</p>
+<p id="eq38">\[{a}^{2}+{b}^{2}={c}^{2}\]</p>
+<p>where \(a\) and \(b\) refer to the legs of a right triangle adjacent to the \({90}^{∘}\) angle, and \(c\) refers to the hypotenuse, as shown in <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_05_004.jpg" alt="Right triangle with the base labeled: a, the height labeled: b, and the hypotenuse labeled: c" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Find the length of the missing side of the right triangle in <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_05_005.jpg" alt="Right triangle with the base labeled: a, the height labeled: 4, and the hypotenuse labeled 12." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<p class="sol-hint">Substitute the two known side lengths into \({a}^{2}+{b}^{2}={c}^{2}\) and solve for the missing one.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As we have measurements for side <strong>b</strong> and the hypotenuse, the missing side is <strong>a.</strong></p>
+<p id="eq39">\[\begin{array}{lll}{a}^{2}+{b}^{2} &amp; = &amp; {c}^{2} \\ {a}^{2}+{(4)}^{2} &amp; = &amp; {(12)}^{2} \\ {a}^{2}+16 &amp; = &amp; 144 \\ {a}^{2} &amp; = &amp; 128 \\ a &amp; = &amp; \sqrt{128} \\ &amp; = &amp; 8\sqrt{2}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Use the Pythagorean Theorem to solve the right triangle problem: Leg <strong>a</strong>measures 4 units, leg <strong>b</strong>measures 3 units. Find the length of the hypotenuse.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(5\) units</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1762359"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with quadratic equations.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/quadreqfactor" target="_blank" rel="noopener">Solving Quadratic Equations by Factoring</a></li><li><a href="https://openstax.org/l/zeroprodprop" target="_blank" rel="noopener">The Zero-Product Property</a></li><li><a href="https://openstax.org/l/complthesqr" target="_blank" rel="noopener">Completing the Square</a></li><li><a href="https://openstax.org/l/quadrformrat" target="_blank" rel="noopener">Quadratic Formula with Two Rational Solutions</a></li><li><a href="https://openstax.org/l/leglengthtri" target="_blank" rel="noopener">Length of a leg of a right triangle</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>quadratic formula</td><td>\(x=\frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a}\)</td></tr><tr><td>Distance</td><td>\(d=\sqrt{{\left({x}_{2}-{x}_{1}\right)}^{2}+{\left({y}_{2}-{y}_{1}\right)}^{2}}\)</td></tr><tr><td>Slope of a line</td><td>\(m=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}\)</td></tr><tr><td>Point-Slope equation of a line</td><td>\(y-{y}_{1}=m\left(x-{x}_{1}\right)\)</td></tr><tr><td>Adding Complex Numbers</td><td>\((a+bi)+(c+di)=(a+c)+(b+d)i\)</td></tr><tr><td>Subtracting Complex Numbers</td><td>\((a+bi)-(c+di)=(a-c)+(b-d)i\)</td></tr><tr><td>Square Root Property</td><td>\(\text{ If }{x}^{2}=k\text{ then }x=\pm \sqrt{k}\)</td></tr><tr><td>Quadratic Formula</td><td>\(\text{ If }a{x}^{2}+bx+c=0\text{ then }x=\frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a}\)</td></tr><tr><td>Rational Exponents</td><td>\({a}^{\frac{m}{n}}={\left({a}^{\frac{1}{n}}\right)}^{m}={\left({a}^{m}\right)}^{\frac{1}{n}}=\sqrt[n]{{a}^{m}}=(\sqrt[n]{a}{)}^{m}\)</td></tr><tr><td>Absolute Value</td><td>\(\text{ If }x\ge 0,|x|=x\text{; If }x&lt;0,|x|=-x\)</td></tr><tr><td>Addition Property of Inequalities</td><td>\(\text{ If }a&lt;b\text{ then }a+c&lt;b+c\)</td></tr><tr><td>Multiplication Property of Inequalities</td><td>\(\begin{array}{l}\text{If }a&lt;b \text{and }c&gt;0\text{,} \text{then }ac&lt;bc \\ \text{If }a&lt;b \text{and }c&lt;0\text{,} \text{then }ac&gt;bc\end{array}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Many quadratic equations can be solved by factoring when the equation has a leading coefficient of 1 or if the equation is a difference of squares. The zero-product property is then used to find solutions. See <a href="#example1">Example 1</a>, <a href="#example2">Example 2</a>, and <a href="#example3">Example 3</a>.</li><li>Many quadratic equations with a leading coefficient other than 1 can be solved by factoring using the grouping method. See <a href="#example4">Example 4</a> and <a href="#example5">Example 5</a>.</li><li>Another method for solving quadratics is the square root property. The variable is squared. We isolate the squared term and take the square root of both sides of the equation. The solution will yield a positive and negative solution. See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.</li><li>Completing the square is a method of solving quadratic equations when the equation cannot be factored. See <a href="#example8">Example 8</a>.</li><li>A highly dependable method for solving quadratic equations is the quadratic formula, based on the coefficients and the constant term in the equation. See <a href="#example9">Example 9</a> and <a href="#example10">Example 10</a>.</li><li>The discriminant is used to indicate the nature of the roots that the quadratic equation will yield: real or complex, rational or irrational, and how many of each. See <a href="#example11">Example 11</a>.</li><li>The Pythagorean Theorem, among the most famous theorems in history, is used to solve right-triangle problems and has applications in numerous fields. Solving for the length of one side of a right triangle requires solving a quadratic equation. See <a href="#example12">Example 12</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>How do we recognize when an equation is quadratic?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>It is a second-degree equation (the highest variable exponent is 2).</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>When we solve a quadratic equation, how many solutions should we always start out seeking? Explain why when solving a quadratic equation in the form \(a{x}^{2}+bx+c=0\) we may graph the equation \(y=a{x}^{2}+bx+c\) and have no zeroes (<strong>x</strong>-intercepts).</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>When we solve a quadratic equation by factoring, why do we move all terms to one side, having zero on the other side?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>We want to take advantage of the zero property of multiplication in the fact that if \(a\cdot b=0\) then it must follow that each factor separately offers a solution to the product being zero: \(a=0\,\,or\,\text{b}=0.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>In the quadratic formula, what is the name of the expression under the radical sign \({b}^{2}-4ac,\) and how does it determine the number of and nature of our solutions?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Describe two scenarios where using the square root property to solve a quadratic equation would be the most efficient method.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>One, when no linear term is present (no <strong>x</strong> term), such as \({x}^{2}=16.\) Two, when the equation is already in the form \({(ax+b)}^{2}=d.\)</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, solve the quadratic equation by factoring.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\({x}^{2}+4x-21=0\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\({x}^{2}-9x+18=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=6,\) \(x=3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(2{x}^{2}+9x-5=0\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(6{x}^{2}+17x+5=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=\frac{-5}{2},\) \(x=\frac{-1}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(4{x}^{2}-12x+8=0\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(3{x}^{2}-75=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=5,\) \(x=-5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(8{x}^{2}+6x-9=0\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(4{x}^{2}=9\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=\frac{-3}{2},\) \(x=\frac{3}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(2{x}^{2}+14x=36\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(5{x}^{2}=5x+30\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-2,3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(4{x}^{2}=5x\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(7{x}^{2}+3x=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=0,\) \(x=\frac{-3}{7}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\frac{x}{3}-\frac{9}{x}=2\)</p>
+</div></div>
+<p>For the following exercises, solve the quadratic equation by using the square root property.</p>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\({x}^{2}=36\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-6,\) \(x=6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\({x}^{2}=49\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\({(x-1)}^{2}=25\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=6,\) \(x=-4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\({(x-3)}^{2}=7\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\({(2x+1)}^{2}=9\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=1,\) \(x=-2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({(x-5)}^{2}=4\)</p>
+</div></div>
+<p>For the following exercises, solve the quadratic equation by completing the square. Show each step.</p>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({x}^{2}-9x-22=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-2,\) \(x=11\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(2{x}^{2}-8x-5=0\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\({x}^{2}-6x=13\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=3\pm \sqrt{22}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({x}^{2}+\frac{2}{3}x-\frac{1}{3}=0\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(2+z=6{z}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(z=\frac{2}{3},\) \(z=-\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(6{p}^{2}+7p-20=0\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(2{x}^{2}-3x-1=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=\frac{3\pm \sqrt{17}}{4}\)</p>
+</div></div></div></div>
+<p>For the following exercises, determine the discriminant, and then state how many solutions there are and the nature of the solutions. Do not solve.</p>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(2{x}^{2}-6x+7=0\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\({x}^{2}+4x+7=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Not real</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(3{x}^{2}+5x-8=0\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(9{x}^{2}-30x+25=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>One rational</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(2{x}^{2}-3x-7=0\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(6{x}^{2}-x-2=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Two real; rational</p>
+</div></div></div></div>
+<p>For the following exercises, solve the quadratic equation by using the quadratic formula. If the solutions are not real, state <strong>No Real Solution</strong>.</p>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(2{x}^{2}+5x+3=0\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\({x}^{2}+x=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=\frac{-1\pm \sqrt{17}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(2{x}^{2}-8x-5=0\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(3{x}^{2}-5x+1=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=\frac{5\pm \sqrt{13}}{6}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\({x}^{2}+4x+2=0\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(4+\frac{1}{x}-\frac{1}{{x}^{2}}=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=\frac{-1\pm \sqrt{17}}{8}\)</p>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, enter the expressions into your graphing utility and find the zeroes to the equation (the <strong>x</strong>-intercepts) by using <strong>2<sup>nd</sup> CALC 2:zero</strong>. Recall finding zeroes will ask left bound (move your cursor to the left of the zero,enter), then right bound (move your cursor to the right of the zero,enter), then guess (move your cursor between the bounds near the zero, enter). Round your answers to the nearest thousandth.</p>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\({\text{Y}}_{1}=4{x}^{2}+3x-2\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\({\text{Y}}_{1}=-3{x}^{2}+8x-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\approx 0.131\) and \(x\approx 2.535\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\({\text{Y}}_{1}=0.5{x}^{2}+x-7\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>To solve the quadratic equation \({x}^{2}+5x-7=4,\) we can graph these two equations</p>
+<p>\(\begin{array}{l} \\ \begin{array}{l}{\text{Y}}_{1}={x}^{2}+5x-7 \\ {\text{Y}}_{2}=4\end{array}\end{array}\)</p>
+<p>and find the points of intersection. Recall 2<sup>nd</sup> CALC 5:intersection. Do this and find the solutions to the nearest tenth.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\approx -6.7\) and \(x\approx 1.7\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>To solve the quadratic equation \(0.3{x}^{2}+2x-4=2,\) we can graph these two equations</p>
+<p>\(\begin{array}{l} \\ \begin{array}{l}{\text{Y}}_{1}=0.3{x}^{2}+2x-4 \\ {\text{Y}}_{2}=2\end{array}\end{array}\)</p>
+<p>and find the points of intersection. Recall 2<sup>nd</sup> CALC 5:intersection. Do this and find the solutions to the nearest tenth.</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Beginning with the general form of a quadratic equation, \(a{x}^{2}+bx+c=0,\) solve for <strong>x</strong> by using the completing the square method, thus deriving the quadratic formula.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{lll}a{x}^{2}+bx+c &amp; = &amp; 0 \\ {x}^{2}+\frac{b}{a}x &amp; = &amp; \frac{-c}{a} \\ {x}^{2}+\frac{b}{a}x+\frac{{b}^{2}}{4{a}^{2}} &amp; = &amp; \frac{-c}{a}+\frac{b}{4{a}^{2}} \\ {(x+\frac{b}{2a})}^{2} &amp; = &amp; \frac{{b}^{2}-4ac}{4{a}^{2}} \\ x+\frac{b}{2a} &amp; = &amp; \pm \sqrt{\frac{{b}^{2}-4ac}{4{a}^{2}}} \\ x &amp; = &amp; \frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Show that the sum of the two solutions to the quadratic equation is \(-\frac{b}{a}\) .</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>A person has a garden that has a length 10 feet longer than the width. Set up a quadratic equation to find the dimensions of the garden if its area is 119 ft.<sup>2</sup>. Solve the quadratic equation to find the length and width.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x(x+10)=119;\) 7 ft. and 17 ft.</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Abercrombie and Fitch stock had a price given as \(P=0.2{t}^{2}-5.6t+50.2,\) where \(t\) is the time in months from 1999 to 2001. ( \(t=1\) is January 1999). Find the two months in which the price of the stock was $30.</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Suppose that an equation is given \(p=-2{x}^{2}+280x-1000,\) where \(x\) represents the number of items sold at an auction and \(p\) is the profit made by the business that ran the auction. How many items sold would make this profit a maximum? Solve this by graphing the expression in your graphing utility and finding the maximum using 2<sup>nd</sup> CALC maximum. To obtain a good window for the curve, set \(x\) [0,200] and \(y\) [0,10000].</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>maximum at \(x=70\)</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>A formula for the normal systolic blood pressure for a man age \(A,\) measured in mmHg, is given as \(P=0.006{A}^{2}-0.02A+120.\) Find the age to the nearest year of a man whose normal blood pressure measures 125 mmHg.</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>The cost function for a certain company is \(C=60x+300\) and the revenue is given by \(R=100x-0.5{x}^{2}.\) Recall that profit is revenue minus cost. Set up a quadratic equation and find two values of <strong>x</strong> (production level) that will create a profit of $300.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The quadratic equation would be \((100x-0.5{x}^{2})-(60x+300)=300.\) The two values of \(x\) are 20 and 60.</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>A falling object travels a distance given by the formula \(d=5t+16{t}^{2}\) ft, where \(t\) is measured in seconds. How long will it take for the object to travel 74 ft?</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>A vacant lot is being converted into a community garden. The garden and the walkway around its perimeter have an area of 378 ft<sup>2</sup>. Find the width of the walkway if the garden is 12 ft. wide by 15 ft. long.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_05_201.jpg" alt="A rectangle inside of a larger rectangle. The smaller rectangle has the length labeled: 15 feet and the width labeled: 12 feet. The distance between the two rectangles is labeled as x on all four sides." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>3 feet</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>An epidemiological study of the spread of a certain influenza strain that hit a small school population found that the total number of students, \(P\) , who contracted the flu \(t\) days after it broke out is given by the model \(P=-{t}^{2}+13t+130,\) where \(1\le t\le 6.\) Find the day that 160 students had the flu. Recall that the restriction on \(t\) is at most 6.</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>completing the square</dt><dd>a process for solving quadratic equations in which terms are added to or subtracted from both sides of the equation in order to make one side a perfect square</dd><dt>discriminant</dt><dd>the expression under the radical in the quadratic formula that indicates the nature of the solutions, real or complex, rational or irrational, single or double roots.</dd><dt>Pythagorean Theorem</dt><dd>a theorem that states the relationship among the lengths of the sides of a right triangle, used to solve right triangle problems</dd><dt>quadratic equation</dt><dd>an equation containing a second-degree polynomial; can be solved using multiple methods</dd><dt>quadratic formula</dt><dd>a formula that will solve all quadratic equations</dd><dt>square root property</dt><dd>one of the methods used to solve a quadratic equation, in which the \({x}^{2}\) term is isolated so that the square root of both sides of the equation can be taken to solve for <strong>x</strong></dd><dt>zero-product property</dt><dd>the property that formally states that multiplication by zero is zero, so that each factor of a quadratic equation can be set equal to zero to solve equations</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/college-algebra-2e">OpenStax College Algebra 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

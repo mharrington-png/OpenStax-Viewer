@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.2 Linear Equations in One Variable · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="college-algebra-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/college-algebra-2e/index.html">MX <span>Algebra</span></a>
+  <span class="crumb">2.2 Linear Equations in One Variable</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 2.2</span>2.2 Linear Equations in One Variable</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Simplify expressions using order of operations (IA 1.1.3)</li><li>Solve linear equations using a general strategy (IA 2.1.1)</li></ul>
+<h3 id="objective-1-simplify-expressions-using-order-of-operations-ia-1-1-3">Objective 1: Simplify expressions using order of operations (IA 1.1.3)</h3>
+<div class="card howto" id="fs-id1167836543296"><span class="chip">How To</span><ul class="tight"><li>Parentheses and Other Grouping Symbols<ul class="tight"><li>Simplify all expressions inside the parentheses or other grouping symbols, working on the innermost parentheses first.</li></ul>
+</li><li>Exponents<ul class="tight"><li>Simplify all expressions with exponents.</li></ul>
+</li><li>Multiplication and Division<ul class="tight"><li>Perform all multiplication and division in order from left to right. These operations have equal priority.</li></ul>
+</li><li>Addition and Subtraction<ul class="tight"><li>Perform all addition and subtraction in order from left to right. These operations have equal priority.</li></ul>
+</li></ul>
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Simplify: \(5+{2}^{3}+3[6-3(4-2)].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010a_img.jpg" alt="The image displays a mathematical expression: 5 + 2^3 + 3[6 - 3(4 - 2)]. It involves several arithmetic operations, including addition, exponentiation (2 to the power of 3), and multiplication with nested parentheses and brackets. The structure follows the order of operations, starting with the innermost parenthesis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Are there any parentheses (or other<br>grouping symbols)? Yes.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010b_img.jpg" alt="The image displays a mathematical expression written in a single line, which is 5 + 2^3 + 3[6 - 3(4 - 2)]. The portion '3(4 - 2)' is highlighted in red, indicating a specific focus or a step in solving the expression." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Focus on the parentheses that are inside the<br>brackets. Subtract.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010c_img.jpg" alt="A mathematical expression reads 5 plus 2 raised to the power of 3, plus 3 multiplied by the quantity 6 minus 3 multiplied by 2, all enclosed in brackets." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Continue inside the brackets and multiply.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010d_img.jpg" alt="A mathematical expression reads 5 plus 2 to the power of 3, plus 3 multiplied by the quantity 6 minus 6 in brackets. The final 6 is highlighted in red." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Continue inside the brackets and subtract.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010f_img.jpg" alt="A mathematical expression displaying the sum of three terms: the number 5, 2 raised to the power of 3 (2^3), and 3 multiplied by 0, enclosed in square brackets, 3[0]." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>The expression inside the brackets requires<br>no further simplification.</td><td></td></tr><tr><td>Are there any exponents? Yes. Simplify exponents.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010g_img.jpg" alt="A mathematical expression displaying '5 + 8 + 3[0]'. The numbers 5 and 8 are in black, and the plus signs are also black. The '3[0]' part of the expression is highlighted in red." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Is there any multiplication or division? Yes.</td><td></td></tr><tr><td>Multiply.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010h_img.jpg" alt="A simple arithmetic problem showing &amp;quot;5 + 8 + 0&amp;quot; on a white background. The number '5' is in a light reddish hue, while the plus sign and '8' are in a darker red. The second plus sign and '0' are in black." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Is there any addition of subtraction? Yes.</td><td></td></tr><tr><td>Add.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010i_img.jpg" alt="The image displays the mathematical expression &amp;quot;13 + 0&amp;quot; in a reddish-brown font against a plain white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Add.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_01_01_010j_img.jpg" alt="An image displaying the number 13 in a simple, clear font against a white background." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>\(3(1+9∙6)-{4}^{2}\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>\({2}^{3}-12÷(9-5)\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>\(33÷3+4(7-2)\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex4"><div class="n">P4</div><div class="body"><p>\(10+3[6-2(4-2)]-{2}^{4}\)</p>
+</div></div>
+<p>Evaluate the following expressions being sure to follow the order of operations:</p>
+<div class="exercise warmup" id="warmex5"><div class="n">P5</div><div class="body"><p>When \(x=3\) ,</p>
+<ul class="tight"><li>ⓐ \({x}^{5}\)</li><li>ⓑ \({5}^{x}\)</li><li>ⓒ \(3{x}^{2}-4x-8\)</li></ul>
+</div></div>
+<div class="exercise warmup" id="warmex6"><div class="n">P6</div><div class="body"><p>When \(x=3,y=-2\) <br> \(6{x}^{2}+3xy-9{y}^{2}\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex7"><div class="n">P7</div><div class="body"><p>When \(x=-8,y=3\) <br> \((x+y{)}^{2}\)</p>
+</div></div>
+<p>Simplify by combining like terms:</p>
+<div class="exercise warmup" id="warmex8"><div class="n">P8</div><div class="body"><p>\(10a+7+5a-2+7a-4\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex9"><div class="n">P9</div><div class="body"><p>\(5b+9b+10(2b+3b)+5\)</p>
+</div></div>
+<h3 id="objective-2-solve-linear-equations-using-a-general-strategy-ia-2-1-1">Objective 2: Solve linear equations using a general strategy (IA 2.1.1)</h3>
+<div class="card howto" id="fs-id1167846543196"><span class="chip">How To</span><ul class="tight"><li>Simplify each side of the equation as much as possible. Use the Distributive Property to remove any parentheses. Combine like terms.</li><li>Collect all the variable terms on one side of the equation. Use the Addition or Subtraction Property of Equality.</li><li>Collect all the constant terms on the other side of the equation. Use the Addition or Subtraction Property of Equality.</li><li>Make the coefficient of the variable term equal to 1. Use the Multiplication or Division Property of Equality. State the solution to the equation.</li><li>Check the solution. Substitute the solution into the original equation to make sure the result is a true statement.</li></ul>
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><p>Solve linear equations using a general strategy.</p>
+<div class="ex-body"><p>\(2(w+5)+1=10+4w+2\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Use distributive property to remove parentheses:</td><td>\(2w+10+1=10+4w+2\)</td></tr><tr><td>Combine like terms on each side:</td><td>\(2w+11=12+4w\)</td></tr><tr><td>Subtract \(2w\) from each side to bring variables to one side:</td><td>\(2w-2w+11=12+4w-2w\)</td></tr><tr><td>Combine like terms:</td><td>\(11=12+2w\)</td></tr><tr><td>Subtract 12 from each side to bring constants to one side:</td><td>\(11-12=12-12+2w\)</td></tr><tr><td>Combine like terms:</td><td>\(-1=2w\)</td></tr><tr><td>Divide each side by 2 to isolate the variable terms:</td><td>\(\frac{-1}{2}=\frac{2w}{2}\)</td></tr><tr><td>Simplify:</td><td>\(\frac{-1}{2}=w\) or \(w=-\frac{1}{2}\)</td></tr><tr><td>To check your solution, replace \(w\) with \(-\frac{1}{2}\) in the original equation and simplify:</td><td>\(2(w+5)+1=10+4w+2\)</td></tr><tr><td></td><td>\(2(-\frac{1}{2}+5)+1=10+4(-\frac{1}{2})+2\)</td></tr><tr><td></td><td>\(2(\frac{9}{2})+1=10+(-2)+2\) <br> \(9+1=8+2\)</td></tr><tr><td>The solution checks, we reached a true statement.</td><td>\(10=10\)</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<p>Solve each linear equation using the general strategy.</p>
+<div class="exercise warmup" id="warmex10"><div class="n">P10</div><div class="body"><p>\(15(y-9)=-60\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex11"><div class="n">P11</div><div class="body"><p>\(-2(11-7x)+54=4\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex12"><div class="n">P12</div><div class="body"><p>\(3(4n-1)-2=8n+3\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex13"><div class="n">P13</div><div class="body"><p>\(12+2(5-3y)=-9(y-1)-2\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex14"><div class="n">P14</div><div class="body"><p>\(\frac{1}{4}(20x+12)=x+7\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex15"><div class="n">P15</div><div class="body"><p>\(22(3m-4)=8(2m+9)\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex16"><div class="n">P16</div><div class="body"><p>\(\frac{3x+4}{2}+1=\frac{5x+10}{8}\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex17"><div class="n">P17</div><div class="body"><p>\(0.05n+0.10(n+8)=2.15\)</p>
+</div></div>
+</div></details>
+<p>Caroline is a full-time college student planning a spring break vacation. To earn enough money for the trip, she has taken a part-time job at the local bank that pays $15.00/hr, and she opened a savings account with an initial deposit of $400 on January 15. She arranged for direct deposit of her payroll checks. If spring break begins March 20 and the trip will cost approximately $2,500, how many hours will she have to work to earn enough to pay for her vacation? If she can only work 4 hours per day, how many days per week will she have to work? How many weeks will it take? In this section, we will investigate problems like this and others, which generate graphs like the line in <a href="#fig1">Figure 1</a>.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_001N.jpg" alt="Coordinate plane where the x-axis ranges from 0 to 200 in intervals of 20 and the y-axis ranges from 0 to 3,000 in intervals of 500.  The x-axis is labeled Hours Worked and the y-axis is labeled Savings Account Balance.  A linear function is plotted with a y-intercept of 400 with a slope of 15.  A dotted horizontal line extends from the point (0,2500)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<h2 id="solving-linear-equations-in-one-variable">Solving Linear Equations in One Variable</h2>
+<p>A <strong>linear equation</strong> is an equation of a straight line, written in one variable. The only power of the variable is 1. Linear equations in one variable may take the form \(ax+b=0\) and are solved using basic algebraic operations.</p>
+<p>We begin by classifying linear equations in one variable as one of three types: identity, conditional, or inconsistent. An <strong>identity equation</strong> is true for all values of the variable. Here is an example of an identity equation.</p>
+<p id="eq1">\[3x=2x+x\]</p>
+<p>The <strong>solution set</strong> consists of all values that make the equation true. For this equation, the solution set is all real numbers because any real number substituted for \(x\) will make the equation true.</p>
+<p>A <strong>conditional equation</strong> is true for only some values of the variable. For example, if we are to solve the equation \(5x+2=3x-6,\) we have the following:</p>
+<p id="eq2">\[\begin{array}{lll}5x+2 &amp; = &amp; 3x-6 \\ 2x &amp; = &amp; -8 \\ x &amp; = &amp; -4\end{array}\]</p>
+<p>The solution set consists of one number: \(\{-4\}.\) It is the only solution and, therefore, we have solved a conditional equation.</p>
+<p>An <strong>inconsistent equation</strong> results in a false statement. For example, if we are to solve \(5x-15=5(x-4),\) we have the following:</p>
+<p id="eq3">\[\begin{array}{llll}5x-15 &amp; = &amp; 5x-20 &amp; \\ 5x-15-5x &amp; = &amp; 5x-20-5x &amp; \,\text{Subtract }5x\,\text{from both sides}. \\ -15 &amp; \ne &amp; -20 &amp; \,\text{False statement}\end{array}\]</p>
+<p>Indeed, \(-15\ne \,-20.\) There is no solution because this is an inconsistent equation.</p>
+<p>Solving linear equations in one variable involves the fundamental properties of equality and basic algebraic operations. A brief review of those operations follows.</p>
+<div class="card definition" id="fs-id1549902"><span class="chip">Linear Equation in One Variable</span><p>A linear equation in one variable can be written in the form</p>
+<p id="eq4">\[ax+b=0\]</p>
+<p>where <strong>a</strong> and <strong>b</strong>are real numbers, \(a\ne 0.\)</p>
+</div>
+<div class="card howto" id="fs-id1592386"><span class="chip">How To</span><p><strong>Given a linear equation in one variable, use algebra to solve it.</strong></p>
+<p>The following steps are used to manipulate an equation and isolate the unknown variable, so that the last line reads \(x=\_\_\_\_\_\_\_\_\_,\) if <strong>x</strong>is the unknown. There is no set order, as the steps used depend on what is given:</p>
+<ul class="tight"><li>We may add, subtract, multiply, or divide an equation by a number or an expression as long as we do the same thing to both sides of the equal sign. Note that we cannot divide by zero.</li><li>Apply the distributive property as needed: \(a(b+c)=ab+ac.\)</li><li>Isolate the variable on one side of the equation.</li><li>When the variable is multiplied by a coefficient in the final stage, multiply both sides of the equation by the reciprocal of the coefficient.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Solve the following equation: \(2x+7=19.\)</p>
+<p class="sol-hint">Subtract 7 from both sides first to isolate the x-term.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This equation can be written in the form \(ax+b=0\) by subtracting \(19\) from both sides. However, we may proceed to solve the equation in its original form by performing algebraic operations.</p>
+<p id="eq5">\[\begin{array}{llll}2x+7 &amp; = &amp; 19 &amp; \\ 2x &amp; = &amp; 12 &amp; \,\text{Subtract 7 from both sides}\text{.} \\ x &amp; = &amp; 6 &amp; \,\text{Multiply both sides by }\frac{1}{2}\,\text{or divide by 2}\text{.}\end{array}\]</p>
+<p>The solution is 6.</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Solve the linear equation in one variable: \(2x+1=-9.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=-5\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Solve the following equation: \(4(x-3)+12=15-5(x+6).\)</p>
+<p class="sol-hint">Distribute on both sides first, then gather all the x-terms on one side.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Apply standard algebraic properties.</p>
+<p id="eq6">\[\begin{array}{llll}4(x-3)+12 &amp; = &amp; 15-5(x+6) &amp; \\ 4x-12+12 &amp; = &amp; 15-5x-30 &amp; \,\text{Apply the distributive property}\text{.} \\ 4x &amp; = &amp; -15-5x &amp; \,\text{Combine like terms}. \\ 9x &amp; = &amp; -15 &amp; \,\text{Place }x\text{-terms on one side and simplify}. \\ x &amp; = &amp; -\frac{15}{9} &amp; \,\text{Multiply both sides by }\frac{1}{9}\text{, the reciprocal of 9}. \\ x &amp; = &amp; -\frac{5}{3} &amp; \end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This problem requires the distributive property to be applied twice, and then the properties of algebra are used to reach the final line, \(x=-\frac{5}{3}.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Solve the equation in one variable: \(-2(3x-1)+x=14-x.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=-3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solving-a-rational-equation">Solving a Rational Equation</h2>
+<p>In this section, we look at rational equations that, after some manipulation, result in a linear equation. If an equation contains at least one rational expression, it is a considered a <strong>rational equation</strong>.</p>
+<p>Recall that a <strong>rational number</strong> is the ratio of two numbers, such as \(\frac{2}{3}\) or \(\frac{7}{2}.\) A <strong>rational expression</strong> is the ratio, or quotient, of two polynomials. Here are three examples.</p>
+<p id="eq7">\[\frac{x+1}{{x}^{2}-4},\,\frac{1}{x-3},\,\text{or}\,\frac{4}{{x}^{2}+x-2}\]</p>
+<p>Rational equations have a variable in the denominator in at least one of the terms. Our goal is to perform algebraic operations so that the variables appear in the numerator. In fact, we will eliminate all denominators by multiplying both sides of the equation by the <strong>least common denominator</strong> (LCD).</p>
+<p>Finding the LCD is identifying an expression that contains the highest power of all of the factors in all of the denominators. We do this because when the equation is multiplied by the LCD, the common factors in the LCD and in each denominator will equal one and will cancel out.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Solve the rational equation: \(\frac{7}{2x}-\frac{5}{3x}=\frac{22}{3}.\)</p>
+<p class="sol-hint">Find the LCD of all three denominators, then multiply both sides by it to clear every fraction at once.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have three denominators; \(2x,3x,\) and 3. The LCD must contain \(2x,3x,\) and 3. An LCD of \(6x\) contains all three denominators. In other words, each denominator can be divided evenly into the LCD. Next, multiply both sides of the equation by the LCD \(6x.\)</p>
+<p id="eq8">\[\begin{array}{llll}(6x)(\frac{7}{2x}-\frac{5}{3x}) &amp; = &amp; (\frac{22}{3})(6x) &amp; \\ (6x)(\frac{7}{2x})-(6x)(\frac{5}{3x}) &amp; = &amp; (\frac{22}{3})(6x) &amp; \,\text{Use the distributive property}. \\ (6x)(\frac{7}{2x})-(6x)(\frac{5}{3x}) &amp; = &amp; (\frac{22}{3})(6x) &amp; \,\text{Cancel out the common factors}. \\ 3(7)-2(5) &amp; = &amp; 22(2x) &amp; \,\text{Multiply remaining factors by each numerator}. \\ 21-10 &amp; = &amp; 44x &amp; \\ 11 &amp; = &amp; 44x &amp; \\ \frac{11}{44} &amp; = &amp; x &amp; \\ \frac{1}{4} &amp; = &amp; x &amp; \end{array}\]</p>
+</div></div></div>
+<p>A common mistake made when solving rational equations involves finding the LCD when one of the denominators is a binomial—two terms added or subtracted—such as \((x+1).\) Always consider a binomial as an individual factor—the terms cannot be separated. For example, suppose a problem has three terms and the denominators are \(x,\) \(x-1,\) and \(3x-3.\) First, factor all denominators. We then have \(x,\) \((x-1),\) and \(3(x-1)\) as the denominators. (Note the parentheses placed around the second denominator.) Only the last two denominators have a common factor of \((x-1).\) The \(x\) in the first denominator is separate from the \(x\) in the \((x-1)\) denominators. An effective way to remember this is to write factored and binomial denominators in parentheses, and consider each parentheses as a separate unit or a separate factor. The LCD in this instance is found by multiplying together the \(x,\) one factor of \((x-1),\) and the 3. Thus, the LCD is the following:</p>
+<p id="eq9">\[x(x-1)3=3x(x-1)\]</p>
+<p>So, both sides of the equation would be multiplied by \(3x(x-1).\) Leave the LCD in factored form, as this makes it easier to see how each denominator in the problem cancels out.</p>
+<p>Another example is a problem with two denominators, such as \(x\) and \({x}^{2}+2x.\) Once the second denominator is factored as \({x}^{2}+2x=x(x+2),\) there is a common factor of <strong>x</strong> in both denominators and the LCD is \(x(x+2).\)</p>
+<p>Sometimes we have a rational equation in the form of a proportion; that is, when one fraction equals another fraction and there are no other terms in the equation.</p>
+<p id="eq10">\[\frac{a}{b}=\frac{c}{d}\]</p>
+<p>We can use another method of solving the equation without finding the LCD: cross-multiplication. We multiply terms by crossing over the equal sign.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_009n.jpg" alt="This image demonstrates the cross-multiplication rule. If a/b equals c/d, then cross-multiplying the terms means that the product of 'a' and 'd' is equal to the product of 'b' and 'c' (ad = bc)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Multiply \(a(d)\) and \(b(c),\) which results in \(ad=bc.\)</p>
+<p>Any solution that makes a denominator in the original expression equal zero must be excluded from the possibilities.</p>
+<div class="card definition" id="fs-id1931811"><span class="chip">Rational Equations</span><p>A <strong>rational equation</strong> contains at least one rational expression where the variable appears in at least one of the denominators.</p>
+</div>
+<div class="card howto" id="fs-id1147894"><span class="chip">How To</span><p><strong>Given a rational equation, solve it.</strong></p>
+<ul class="tight"><li>Factor all denominators in the equation.</li><li>Find and exclude values that set each denominator equal to zero.</li><li>Find the LCD.</li><li>Multiply the whole equation by the LCD. If the LCD is correct, there will be no denominators left.</li><li>Solve the remaining equation.</li><li>Make sure to check solutions back in the original equations to avoid a solution producing zero in a denominator.</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Solve the following rational equation:</p>
+<p id="eq11">\[\frac{2}{x}-\frac{3}{2}=\frac{7}{2x}\]</p>
+<p class="sol-hint">Multiply every term by the LCD, \(2x\), to clear all the denominators at once.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have three denominators: \(x,\) \(2,\) and \(2x.\) No factoring is required. The product of the first two denominators is equal to the third denominator, so, the LCD is \(2x.\) Only one value is excluded from a solution set, 0. Next, multiply the whole equation (both sides of the equal sign) by \(2x.\)</p>
+<p id="eq12">\[\begin{array}{llll}2x(\frac{2}{x}-\frac{3}{2}) &amp; = &amp; (\frac{7}{2x})2x &amp; \\ 2x(\frac{2}{x})-2x(\frac{3}{2}) &amp; = &amp; (\frac{7}{2x})2x &amp; \,\text{Distribute }2x\text{.} \\ 2(2)-3x &amp; = &amp; 7 &amp; \,\text{Denominators cancel out}. \\ 4-3x &amp; = &amp; 7 &amp; \\ -3x &amp; = &amp; 3 &amp; \\ x &amp; = &amp; -1 &amp; \\ &amp; &amp; \text{or}\,\{-1\} &amp; \end{array}\]</p>
+<p>The proposed solution is −1, which is not an excluded value, so the solution set contains one number, \(\,-1,\,\) or \(\{-1\}\) written in set notation.</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Solve the rational equation: \(\frac{2}{3x}=\frac{1}{4}-\frac{1}{6x}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=\frac{10}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Solve the following rational equation: \(\frac{1}{x}=\frac{1}{10}-\frac{3}{4x}.\)</p>
+<p class="sol-hint">Factor each denominator first to spot the LCD, \(20x\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First find the common denominator. The three denominators in factored form are \(x,10=2\cdot 5,\) and \(4x=2\cdot 2\cdot x.\) The smallest expression that is divisible by each one of the denominators is \(20x.\) Only \(x=0\) is an excluded value. Multiply the whole equation by \(20x.\)</p>
+<p id="eq13">\[\begin{array}{lll}20x(\frac{1}{x}) &amp; = &amp; (\frac{1}{10}-\frac{3}{4x})20x \\ 20 &amp; = &amp; 2x-15 \\ 35 &amp; = &amp; 2x \\ \frac{35}{2} &amp; = &amp; x\end{array}\]</p>
+<p>The solution is \(\frac{35}{2}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Solve the rational equation: \(-\frac{5}{2x}+\frac{3}{4x}=-\frac{7}{4}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Solve the following rational equations and state the excluded values:</p>
+<ul class="tight"><li>ⓐ \(\frac{3}{x-6}=\frac{5}{x}\)</li><li>ⓑ \(\frac{x}{x-3}=\frac{5}{x-3}-\frac{1}{2}\)</li><li>ⓒ \(\frac{x}{x-2}=\frac{5}{x-2}-\frac{1}{2}\)</li></ul>
+<p class="sol-hint">Clear each equation's LCD (or cross-multiply where there's just one fraction on each side), and keep track of any x-value that would zero out a denominator.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐThe denominators \(x\) and \(x-6\) have nothing in common. Therefore, the LCD is the product \(x(x-6).\) However, for this problem, we can cross-multiply. The solution is 15. The excluded values are \(6\) and \(0.\)<p>The denominators \(x\) and \(x-6\) have nothing in common. Therefore, the LCD is the product \(x(x-6).\) However, for this problem, we can cross-multiply.</p>
+<p id="eq14">\[\begin{array}{llll}\frac{3}{x-6} &amp; = &amp; \frac{5}{x} &amp; \\ 3x &amp; = &amp; 5(x-6) &amp; \,\text{Distribute}\text{.} \\ 3x &amp; = &amp; 5x-30 &amp; \\ -2x &amp; = &amp; -30 &amp; \\ x &amp; = &amp; 15 &amp; \end{array}\]</p>
+<p>The solution is 15. The excluded values are \(6\) and \(0.\)</p>
+</li><li>ⓑ The LCD is \(2(x-3).\) Multiply both sides of the equation by \(2(x-3).\) The solution is \(\frac{13}{3}.\) The excluded value is \(3.\)<p>The LCD is \(2(x-3).\) Multiply both sides of the equation by \(2(x-3).\)</p>
+<p id="eq15">\[\begin{array}{lll}2(x-3)(\frac{x}{x-3}) &amp; = &amp; (\frac{5}{x-3}-\frac{1}{2})2(x-3) \\ \frac{2(x-3)x}{x-3} &amp; = &amp; \frac{2(x-3)5}{x-3}-\frac{2(x-3)}{2} \\ 2x &amp; = &amp; 10-(x-3) \\ 2x &amp; = &amp; 10-x+3 \\ 2x &amp; = &amp; 13-x \\ 3x &amp; = &amp; 13 \\ x &amp; = &amp; \frac{13}{3}\end{array}\]</p>
+<p>The solution is \(\frac{13}{3}.\) The excluded value is \(3.\)</p>
+</li><li>ⓒThe least common denominator is \(2(x-2).\) Multiply both sides of the equation by \(2(x-2).\) The solution is 4. The excluded value is \(2.\)<p>The least common denominator is \(2(x-2).\) Multiply both sides of the equation by \(2(x-2).\)</p>
+<p id="eq16">\[\begin{array}{lll}2(x-2)(\frac{x}{x-2}) &amp; = &amp; (\frac{5}{x-2}-\frac{1}{2})2(x-2) \\ 2x &amp; = &amp; 10-(x-2) \\ 2x &amp; = &amp; 12-x \\ 3x &amp; = &amp; 12 \\ x &amp; = &amp; 4\end{array}\]</p>
+<p>The solution is 4. The excluded value is \(2.\)</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Solve \(\frac{-3}{2x+1}=\frac{4}{3x+1}.\) State the excluded values.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=-\frac{7}{17}.\) Excluded values are \(x=-\frac{1}{2}\) and \(x=-\frac{1}{3}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Solve the rational equation after factoring the denominators: \(\frac{2}{x+1}-\frac{1}{x-1}=\frac{2x}{{x}^{2}-1}.\) State the excluded values.</p>
+<p class="sol-hint">Factor \({x}^{2}-1\) as \((x-1)(x+1)\) first — that product is your LCD.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We must factor the denominator \({x}^{2}-1.\) We recognize this as the difference of squares, and factor it as \((x-1)(x+1).\) Thus, the LCD that contains each denominator is \((x-1)(x+1).\) Multiply the whole equation by the LCD, cancel out the denominators, and solve the remaining equation.</p>
+<p id="eq17">\[\begin{array}{lll}(x-1)(x+1)(\frac{2}{x+1}-\frac{1}{x-1}) &amp; = &amp; (\frac{2x}{(x-1)(x+1)})(x-1)(x+1) \\ 2(x-1)-1(x+1) &amp; = &amp; 2x \\ 2x-2-x-1 &amp; = &amp; 2x\,\text{Distribute the negative sign}. \\ -3-x &amp; = &amp; 0 \\ -3 &amp; = &amp; x\end{array}\]</p>
+<p>The solution is \(-3.\) The excluded values are \(1\) and \(-1.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Solve the rational equation: \(\frac{2}{x-2}+\frac{1}{x+1}=\frac{1}{{x}^{2}-x-2}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=\frac{1}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-a-linear-equation">Finding a Linear Equation</h2>
+<p>Perhaps the most familiar form of a linear equation is the slope-intercept form, written as \(y=mx+b,\) where \(m=\text{slope}\) and \(b=y\text{-intercept}\text{.}\) Let us begin with the slope.</p>
+<h3 id="the-slope-of-a-line">The Slope of a Line</h3>
+<p>The <strong>slope</strong> of a line refers to the ratio of the vertical change in <strong>y</strong> over the horizontal change in <strong>x</strong> between any two points on a line. It indicates the direction in which a line slants as well as its steepness. Slope is sometimes described as rise over run.</p>
+<p id="eq18">\[m=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}\]</p>
+<p>If the slope is positive, the line slants upward to the right. If the slope is negative, the line slants downward to the right. As the absolute value of the slope increases, the line becomes steeper. Some examples are shown in <a href="#fig2">Figure 2</a>. The lines indicate the following slopes: \(m=-3,\) \(m=2,\) and \(m=\frac{1}{3}.\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_002.jpg" alt="Coordinate plane with the x and y axes ranging from negative 10 to 10.  Three linear functions are plotted: y = negative 3 times x minus 2; y = 2 times x plus 1; and y = x over 3 plus 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<div class="card definition" id="fs-id1467947"><span class="chip">The Slope of a Line</span><p>The slope of a line, <strong>m</strong>, represents the change in <strong>y</strong> over the change in <strong>x.</strong> Given two points, \(({x}_{1},{y}_{1})\) and \(({x}_{2},{y}_{2}),\) the following formula determines the slope of a line containing these points:</p>
+<p id="eq19">\[m=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}\]</p>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find the slope of a line that passes through the points \((2,-1)\) and \((-5,3).\)</p>
+<p class="sol-hint">Plug the two points straight into the slope formula \(m=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We substitute the <strong>y-</strong>values and the <strong>x-</strong>values into the formula.</p>
+<p id="eq20">\[\begin{array}{lll}m &amp; = &amp; \frac{3-(-1)}{-5-2} \\ &amp; = &amp; \frac{4}{-7} \\ &amp; = &amp; -\frac{4}{7}\end{array}\]</p>
+<p>The slope is \(-\frac{4}{7}.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>It does not matter which point is called \(({x}_{1},{y}_{1})\) or \(({x}_{2},{y}_{2}).\) As long as we are consistent with the order of the <strong>y</strong> terms and the order of the <strong>x</strong> terms in the numerator and denominator, the calculation will yield the same result.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Find the slope of the line that passes through the points \((-2,6)\) and \((1,4).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(m=-\frac{2}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Identify the slope and <strong>y-</strong>intercept, given the equation \(y=-\frac{3}{4}x-4.\)</p>
+<p class="sol-hint">The equation is already in \(y=mx+b\) form — just read off \(m\) and \(b\) directly.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As the line is in \(y=mx+b\) form, the given line has a slope of \(m=-\frac{3}{4}.\) The <strong>y-</strong>intercept is \(b=-4.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The <strong>y</strong>-intercept is the point at which the line crosses the <strong>y-</strong>axis. On the <strong>y-</strong>axis, \(x=0.\) We can always identify the <strong>y-</strong>intercept when the line is in slope-intercept form, as it will always equal <strong>b.</strong> Or, just substitute \(x=0\) and solve for <strong>y.</strong></p>
+</div></div></div></div>
+<h3 id="the-point-slope-formula">The Point-Slope Formula</h3>
+<p>Given the slope and one point on a line, we can find the equation of the line using the point-slope formula.</p>
+<p id="eq21">\[y-{y}_{1}=m(x-{x}_{1})\]</p>
+<p>This is an important formula, as it will be used in other areas of college algebra and often in calculus to find the equation of a tangent line. We need only one point and the slope of the line to use the formula. After substituting the slope and the coordinates of one point into the formula, we simplify it and write it in slope-intercept form.</p>
+<div class="card definition" id="fs-id1401850"><span class="chip">The Point-Slope Formula</span><p>Given one point and the slope, the point-slope formula will lead to the equation of a line:</p>
+<p id="eq22">\[y-{y}_{1}=m(x-{x}_{1})\]</p>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Write the equation of the line with slope \(m=-3\) and passing through the point \((4,8).\) Write the final equation in slope-intercept form.</p>
+<p class="sol-hint">Substitute the slope and point into the point-slope formula, then solve for y.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the point-slope formula, substitute \(-3\) for <strong>m</strong>and the point \((4,8)\) for \(({x}_{1},{y}_{1}).\)</p>
+<p id="eq23">\[\begin{array}{lll}y-{y}_{1} &amp; = &amp; m(x-{x}_{1}) \\ y-8 &amp; = &amp; -3(x-4) \\ y-8 &amp; = &amp; -3x+12 \\ y &amp; = &amp; -3x+20\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that any point on the line can be used to find the equation. If done correctly, the same final equation will be obtained.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Given \(m=4,\) find the equation of the line in slope-intercept form passing through the point \((2,5).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y=4x-3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Find the equation of the line passing through the points \((3,4)\) and \((0,-3).\) Write the final equation in slope-intercept form.</p>
+<p class="sol-hint">First find the slope from the two points, then use the point-slope formula with either one.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we calculate the slope using the slope formula and two points.</p>
+<p id="eq24">\[\begin{array}{lll}m &amp; = &amp; \frac{-3-4}{0-3} \\ &amp; = &amp; \frac{-7}{-3} \\ &amp; = &amp; \frac{7}{3}\end{array}\]</p>
+<p>Next, we use the point-slope formula with the slope of \(\frac{7}{3},\) and either point. Let’s pick the point \((3,4)\) for \(({x}_{1},{y}_{1}).\)</p>
+<p id="eq25">\[\begin{array}{lll}y-4 &amp; = &amp; \frac{7}{3}(x-3) \\ y-4 &amp; = &amp; \frac{7}{3}x-7\,\text{Distribute the }\frac{7}{3}. \\ y &amp; = &amp; \frac{7}{3}x-3\end{array}\]</p>
+<p>In slope-intercept form, the equation is written as \(y=\frac{7}{3}x-3.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>To prove that either point can be used, let us use the second point \((0,-3)\) and see if we get the same equation.</p>
+<p id="eq26">\[\begin{array}{lll}y-(-3) &amp; = &amp; \frac{7}{3}(x-0) \\ y+3 &amp; = &amp; \frac{7}{3}x \\ y &amp; = &amp; \frac{7}{3}x-3\end{array}\]</p>
+<p>We see that the same line will be obtained using either point. This makes sense because we used both points to calculate the slope.</p>
+</div></div></div></div>
+<h3 id="standard-form-of-a-line">Standard Form of a Line</h3>
+<p>Another way that we can represent the equation of a line is in <strong>standard form</strong>. Standard form is given as</p>
+<p id="eq27">\[Ax+By=C\]</p>
+<p>where \(A,\) \(B,\) and \(C\) are integers. The <strong>x-</strong>and <strong>y-</strong>terms are on one side of the equal sign and the constant term is on the other side.</p>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Find the equation of the line with \(m=-6\) and passing through the point \((\frac{1}{4},-2).\) Write the equation in standard form.</p>
+<p class="sol-hint">Use the point-slope formula first, then clear fractions and rearrange into \(Ax+By=C\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We begin using the point-slope formula.</p>
+<p id="eq28">\[\begin{array}{lll}y-(-2) &amp; = &amp; -6(x-\frac{1}{4}) \\ y+2 &amp; = &amp; -6x+\frac{3}{2}\end{array}\]</p>
+<p>From here, we multiply through by 2, as no fractions are permitted in standard form, and then move both variables to the left aside of the equal sign and move the constants to the right.</p>
+<p id="eq29">\[\begin{array}{lll}2(y+2) &amp; = &amp; (-6x+\frac{3}{2})2 \\ 2y+4 &amp; = &amp; -12x+3 \\ 12x+2y &amp; = &amp; -1\end{array}\]</p>
+<p>This equation is now written in standard form.</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Find the equation of the line in standard form with slope \(m=-\frac{1}{3}\) and passing through the point \((1,\frac{1}{3}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x+3y=2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="vertical-and-horizontal-lines">Vertical and Horizontal Lines</h3>
+<p>The equations of vertical and horizontal lines do not require any of the preceding formulas, although we can use the formulas to prove that the equations are correct. The equation of a <strong>vertical line</strong> is given as</p>
+<p id="eq30">\[x=c\]</p>
+<p>where <strong>c</strong>is a constant. The slope of a vertical line is undefined, and regardless of the <strong>y-</strong>value of any point on the line, the <strong>x-</strong>coordinate of the point will be <strong>c</strong>.</p>
+<p>Suppose that we want to find the equation of a line containing the following points: \((-3,-5),(-3,1),(-3,3),\) and \((-3,5).\) First, we will find the slope.</p>
+<p id="eq31">\[m=\frac{5-3}{-3-(-3)}=\frac{2}{0}\]</p>
+<p>Zero in the denominator means that the slope is undefined and, therefore, we cannot use the point-slope formula. However, we can plot the points. Notice that all of the <strong>x-</strong>coordinates are the same and we find a vertical line through \(x=-3.\) See <a href="#fig3">Figure 3</a><strong>.</strong></p>
+<p>The equation of a <strong>horizontal line</strong> is given as</p>
+<p id="eq32">\[y=c\]</p>
+<p>where <strong>c</strong>is a constant. The slope of a horizontal line is zero, and for any <strong>x-</strong>value of a point on the line, the <strong>y-</strong>coordinate will be <strong>c</strong>.</p>
+<p>Suppose we want to find the equation of a line that contains the following set of points: \((-2,-2),(0,-2),(3,-2),\) and \((5,-2).\) We can use the point-slope formula. First, we find the slope using any two points on the line.</p>
+<p id="eq33">\[\begin{array}{lll}m &amp; = &amp; \frac{-2-(-2)}{0-(-2)} \\ &amp; = &amp; \frac{0}{2} \\ &amp; = &amp; 0\end{array}\]</p>
+<p>Use any point for \(({x}_{1},{y}_{1})\) in the formula, or use the <strong>y</strong>-intercept.</p>
+<p id="eq34">\[\begin{array}{lll}y-(-2) &amp; = &amp; 0(x-3) \\ y+2 &amp; = &amp; 0 \\ y &amp; = &amp; -2\end{array}\]</p>
+<p>The graph is a horizontal line through \(y=-2.\) Notice that all of the <strong>y-</strong>coordinates are the same. See <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_003.jpg" alt="Coordinate plane with the x-axis ranging from negative 7 to 4 and the y-axis ranging from negative 4 to 4.  The function y = negative 2 and the line x = negative 3 are plotted." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The line <strong>x</strong> = −3 is a vertical line. The line <strong>y</strong> = −2 is a horizontal line.</figcaption></figure>
+<div class="card example" id="example13"><div class="ex-head"><span class="num">Example 13</span><span class="t"></span></div><div class="ex-body"><p>Find the equation of the line passing through the given points: \((1,-3)\) and \((1,4).\)</p>
+<p class="sol-hint">Notice both points share the same x-coordinate — that makes this a vertical line.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The <strong>x-</strong>coordinate of both points is 1. Therefore, we have a vertical line, \(x=1.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>Find the equation of the line passing through \((-5,2)\) and \((2,2).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Horizontal line: \(y=2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="determining-whether-graphs-of-lines-are-parallel-or-perpendicular">Determining Whether Graphs of Lines are Parallel or Perpendicular</h2>
+<p>Parallel lines have the same slope and different <strong>y-</strong>intercepts. Lines that are <strong>parallel</strong> to each other will never intersect. For example, <a href="#fig4">Figure 4</a> shows the graphs of various lines with the same slope, \(m=2.\)</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_004.jpg" alt="Coordinate plane with the x-axis ranging from negative 8 to 8 in intervals of 2 and the y-axis ranging from negative 7 to 7.  Three functions are graphed on the same plot: y = 2 times x minus 3; y = 2 times x plus 1 and y = 2 times x plus 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — Parallel lines</figcaption></figure>
+<p>All of the lines shown in the graph are parallel because they have the same slope and different <strong>y-</strong>intercepts.</p>
+<p>Lines that are <strong>perpendicular</strong> intersect to form a \(90°\) -angle. The slope of one line is the negative <strong>reciprocal</strong> of the other. We can show that two lines are perpendicular if the product of the two slopes is \(-1:{m}_{1}\cdot {m}_{2}=-1.\) For example, <a href="#fig5">Figure 5</a> shows the graph of two perpendicular lines. One line has a slope of 3; the other line has a slope of \(-\frac{1}{3}.\)</p>
+<p id="eq35">\[\begin{array}{lll}{m}_{1}\cdot {m}_{2} &amp; = &amp; -1 \\ 3\cdot (-\frac{1}{3}) &amp; = &amp; -1\end{array}\]</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_005.jpg" alt="Coordinate plane with the x-axis ranging from negative 3 to 6 and the y-axis ranging from negative 2 to 5.  Two functions are graphed on the same plot: y = 3 times x minus 1 and y = negative x/3 minus 2.  Their intersection is marked by a box to show that it is a right angle. " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — Perpendicular lines</figcaption></figure>
+<div class="card example" id="example14"><div class="ex-head"><span class="num">Example 14</span><span class="t"></span></div><div class="ex-body"><p>Graph the equations of the given lines, and state whether they are parallel, perpendicular, or neither: \(3y=-4x+3\) and \(3x-4y=8.\)</p>
+<p class="sol-hint">Rewrite both equations in slope-intercept form first so you can compare their slopes directly.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The first thing we want to do is rewrite the equations so that both equations are in slope-intercept form.</p>
+<p>First equation:</p>
+<p id="eq36">\[\begin{array}{lll}3y &amp; = &amp; -4x+3 \\ y &amp; = &amp; -\frac{4}{3}x+1\end{array}\]</p>
+<p>Second equation:</p>
+<p id="eq37">\[\begin{array}{lll}3x-4y &amp; = &amp; 8 \\ -4y &amp; = &amp; -3x+8 \\ y &amp; = &amp; \frac{3}{4}x-2\end{array}\]</p>
+<p>See the graph of both lines in <a href="#fig6">Figure 6</a></p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_006.jpg" alt="Coordinate plane with the x-axis ranging from negative 4 to 5 and the y-axis ranging from negative 4 to 4.  Two functions are graphed on the same plot: y = negative 4 times x/3 plus 1 and y = 3 times x/4 minus 2.  A box is placed at the intersection to note that it forms a right angle." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<p>From the graph, we can see that the lines appear perpendicular, but we must compare the slopes.</p>
+<p id="eq38">\[\begin{array}{lll}{m}_{1} &amp; = &amp; -\frac{4}{3} \\ {m}_{2} &amp; = &amp; \frac{3}{4} \\ {m}_{1}\cdot {m}_{2} &amp; = &amp; (-\frac{4}{3})(\frac{3}{4})=-1\end{array}\]</p>
+<p>The slopes are negative reciprocals of each other, confirming that the lines are perpendicular.</p>
+</div></div></div>
+<div class="tryit" id="tryit-11"><div class="ex-head"><span class="num">Try It #11</span></div><div class="ex-body"><p>Graph the two lines and determine whether they are parallel, perpendicular, or neither: \(2y-x=10\) and \(2y=x+4.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Parallel lines: equations are written in slope-intercept form.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_007.jpg" alt="Coordinate plane with the x-axis ranging from negative 5 to 5 and the y-axis ranging from negative 1 to 6.  Two functions are graphed on the same plot: y = x/2 plus 5 and y = x/2 plus 2.  The lines do not cross." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="writing-the-equations-of-lines-parallel-or-perpendicular-to-a-given-line">Writing the Equations of Lines Parallel or Perpendicular to a Given Line</h2>
+<p>As we have learned, determining whether two lines are parallel or perpendicular is a matter of finding the slopes. To write the equation of a line parallel or perpendicular to another line, we follow the same principles as we do for finding the equation of any line. After finding the slope, use the <strong>point-slope formula</strong> to write the equation of the new line.</p>
+<div class="card howto" id="fs-id2640149"><span class="chip">How To</span><p><strong>Given an equation for a line, write the equation of a line parallel or perpendicular to it.</strong></p>
+<ul class="tight"><li>Find the slope of the given line. The easiest way to do this is to write the equation in slope-intercept form.</li><li>Use the slope and the given point with the point-slope formula.</li><li>Simplify the line to slope-intercept form and compare the equation to the given line.</li></ul>
+</div>
+<div class="card example" id="example15"><div class="ex-head"><span class="num">Example 15</span><span class="t"></span></div><div class="ex-body"><p>Write the equation of line parallel to a \(5x+3y=1\) and passing through the point \((3,5).\)</p>
+<p class="sol-hint">Find the given line's slope first — a parallel line must share that exact slope.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we will write the equation in slope-intercept form to find the slope.</p>
+<p id="eq39">\[\begin{array}{lll}5x+3y &amp; = &amp; 1 \\ 3y &amp; = &amp; -5x+1 \\ y &amp; = &amp; -\frac{5}{3}x+\frac{1}{3}\end{array}\]</p>
+<p>The slope is \(m=-\frac{5}{3}.\) The <strong>y-</strong>intercept is \(\frac{1}{3},\) but that really does not enter into our problem, as the only thing we need for two lines to be parallel is the same slope. The one exception is that if the <strong>y-</strong>intercepts are the same, then the two lines are the same line. The next step is to use this slope and the given point with the point-slope formula.</p>
+<p id="eq40">\[\begin{array}{lll}y-5 &amp; = &amp; -\frac{5}{3}(x-3) \\ y-5 &amp; = &amp; -\frac{5}{3}x+5 \\ y &amp; = &amp; -\frac{5}{3}x+10\end{array}\]</p>
+<p>The equation of the line is \(y=-\frac{5}{3}x+10.\) See <a href="#fig7">Figure 7</a><strong>.</strong></p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_008.jpg" alt="Coordinate plane with the x-axis ranging from negative 8 to 8 in intervals of 2 and the y-axis ranging from negative 2 to 12 in intervals of 2.  Two functions are graphed on the same plot: y = negative 5 times x/3 plus 1/3 and y = negative 5 times x/3 plus 10.  The lines do not cross." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-12"><div class="ex-head"><span class="num">Try It #12</span></div><div class="ex-body"><p>Find the equation of the line parallel to \(5x=7+y\) and passing through the point \((-1,-2).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y=5x+3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example16"><div class="ex-head"><span class="num">Example 16</span><span class="t"></span></div><div class="ex-body"><p>Find the equation of the line perpendicular to \(5x-3y+4=0\) and passing through the point \((-4,1).\)</p>
+<p class="sol-hint">Find the given line's slope, then take its negative reciprocal for the perpendicular line.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The first step is to write the equation in slope-intercept form.</p>
+<p id="eq41">\[\begin{array}{lll}5x-3y+4 &amp; = &amp; 0 \\ -3y &amp; = &amp; -5x-4 \\ y &amp; = &amp; \frac{5}{3}x+\frac{4}{3}\end{array}\]</p>
+<p>We see that the slope is \(m=\frac{5}{3}.\) This means that the slope of the line perpendicular to the given line is the negative reciprocal, or \(-\frac{3}{5}.\) Next, we use the point-slope formula with this new slope and the given point.</p>
+<p id="eq42">\[\begin{array}{lll}y-1 &amp; = &amp; -\frac{3}{5}(x-(-4)) \\ y-1 &amp; = &amp; -\frac{3}{5}x-\frac{12}{5} \\ y &amp; = &amp; -\frac{3}{5}x-\frac{12}{5}+\frac{5}{5} \\ y &amp; = &amp; -\frac{3}{5}x-\frac{7}{5}\end{array}\]</p>
+</div></div></div>
+<div class="card callout" id="fs-id2308224"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with linear equations.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/rationaleqs" target="_blank" rel="noopener">Solving rational equations</a></li><li><a href="https://openstax.org/l/twopointsline" target="_blank" rel="noopener">Equation of a line given two points</a></li><li><a href="https://openstax.org/l/findperpline" target="_blank" rel="noopener">Finding the equation of a line perpendicular to another line through a given point</a></li><li><a href="https://openstax.org/l/findparaline" target="_blank" rel="noopener">Finding the equation of a line parallel to another line through a given point</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>We can solve linear equations in one variable in the form \(ax+b=0\) using standard algebraic properties. See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a><strong>.</strong></li><li>A rational expression is a quotient of two polynomials. We use the LCD to clear the fractions from an equation. See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a><strong>.</strong></li><li>All solutions to a rational equation should be verified within the original equation to avoid an undefined term, or zero in the denominator. See <a href="#example5">Example 5</a> and <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.</li><li>Given two points, we can find the slope of a line using the slope formula. See <a href="#example8">Example 8</a>.</li><li>We can identify the slope and <strong>y</strong>-intercept of an equation in slope-intercept form. See <a href="#example9">Example 9</a><strong>.</strong></li><li>We can find the equation of a line given the slope and a point. See <a href="#example10">Example 10</a><strong>.</strong></li><li>We can also find the equation of a line given two points. Find the slope and use the point-slope formula. See <a href="#example11">Example 11</a>.</li><li>The standard form of a line has no fractions. See <a href="#example12">Example 12</a>.</li><li>Horizontal lines have a slope of zero and are defined as \(y=c,\) where <strong>c</strong>is a constant.</li><li>Vertical lines have an undefined slope (zero in the denominator), and are defined as \(x=c,\) where <strong>c</strong>is a constant. See <a href="#example13">Example 13</a><strong>.</strong></li><li>Parallel lines have the same slope and different <strong>y-</strong>intercepts. See <a href="#example14">Example 14</a> and <a href="#example15">Example 15</a>.</li><li>Perpendicular lines have slopes that are negative reciprocals of each other unless one is horizontal and the other is vertical. See <a href="#example16">Example 16</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What does it mean when we say that two lines are parallel?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>It means they have the same slope.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>What is the relationship between the slopes of perpendicular lines (assuming neither is horizontal nor vertical)?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>How do we recognize when an equation, for example \(y=4x+3,\) will be a straight line (linear) when graphed?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The exponent of the \(x\) variable is 1. It is called a first-degree equation.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>What does it mean when we say that a linear equation is inconsistent?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>When solving the following equation:</p>
+<p>\(\frac{2}{x-5}=\frac{4}{x+1}\)</p>
+<p>explain why we must exclude \(x=5\) and \(x=-1\) as possible solutions from the solution set.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>If we insert either value into the equation, they make an expression in the equation undefined (zero in the denominator).</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, solve the equation for \(x.\)</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(7x+2=3x-9\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(4x-3=5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(3(x+2)-12=5(x+1)\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(12-5(x+3)=2x-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=\frac{2}{7}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\frac{1}{2}-\frac{1}{3}x=\frac{4}{3}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\frac{x}{3}-\frac{3}{4}=\frac{2x+3}{12}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\frac{2}{3}x+\frac{1}{2}=\frac{31}{6}\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(3(2x-1)+x=5x+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\frac{2x}{3}-\frac{3}{4}=\frac{x}{6}+\frac{21}{4}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\frac{x+2}{4}-\frac{x-1}{3}=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-14\)</p>
+</div></div></div></div>
+<p>For the following exercises, solve each rational equation for \(x.\) State all <strong>x</strong>-values that are excluded from the solution set.</p>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\frac{3}{x}-\frac{1}{3}=\frac{1}{6}\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(2-\frac{3}{x+4}=\frac{x+2}{x+4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\ne -4;\) \(x=-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\frac{3}{x-2}=\frac{1}{x-1}+\frac{7}{(x-1)(x-2)}\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\frac{3x}{x-1}+2=\frac{3}{x-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\ne 1;\) when we solve this we get \(x=1,\) which is excluded, therefore NO solution</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\frac{5}{x+1}+\frac{1}{x-3}=\frac{-6}{{x}^{2}-2x-3}\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\frac{1}{x}=\frac{1}{5}+\frac{3}{2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\ne 0;\) \(x=-\frac{5}{2}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the equation of the line using the point-slope formula. Write all the final equations using the slope-intercept form.</p>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\((0,3)\) with a slope of \(\frac{2}{3}\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\((1,2)\) with a slope of \(-\frac{4}{5}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{4}{5}x+\frac{14}{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p><strong>x</strong>-intercept is 1, and \((-2,6)\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p><strong>y</strong>-intercept is 2, and \((4,-1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{3}{4}x+2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\((-3,10)\) and \((5,-6)\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\((1,3)\,\text{ and }(5,5)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{1}{2}x+\frac{5}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>parallel to \(y=2x+5\) and passes through the point \((4,3)\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>perpendicular to \(\text{3}y=x-4\) and passes through the point \((-2,1)\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-3x-5\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the equation of the line using the given information.</p>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\((-2,0)\) and \((-2,5)\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\((1,7)\) and \((3,7)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=7\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>The slope is undefined and it passes through the point \((2,3).\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>The slope equals zero and it passes through the point \((1,-4).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>The slope is \(\frac{3}{4}\) and it passes through the point \((1,4)\) .</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\((-1,3)\) and \((4,-5)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(8x+5y=7\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, graph the pair of equations on the same axes, and state whether they are parallel, perpendicular, or neither.</p>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(\begin{array}{l}y=2x+7 \\ y=-\frac{1}{2}x-4\end{array}\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(\begin{array}{l}3x-2y=5 \\ 6y-9x=6\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_202.jpg" alt="Coordinate plane with the x and y axes ranging from negative 10 to 10.  The functions 3 times x minus 2 times y = 5 and 6 times y minus 9 times x = 6 are graphed on the same plot.  The lines do not cross." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Parallel</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(\begin{array}{l}y=\frac{3x+1}{4} \\ y=3x+2\end{array}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(\begin{array}{l}x=4 \\ y=-3\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_204.jpg" alt="Coordinate plane with the x and y axes ranging from negative 10 to 10.  The function y = negative 3 and the line x = 4 are graphed on the same plot.  These lines cross at a 90 degree angle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Perpendicular</p>
+</div></div></div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, find the slope of the line that passes through the given points.</p>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\((5,4)\) and \((7,9)\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\((-3,2)\) and \((4,-7)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(m=-\frac{9}{7}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\((-5,4)\) and \((2,4)\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\((-1,-2)\) and \((3,4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(m=\frac{3}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\((3,3)\) and \((3,-2)\)</p>
+</div></div>
+<p>For the following exercises, find the slope of the lines that pass through each pair of points and determine whether the lines are parallel or perpendicular.</p>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(\begin{array}{l}(-1,3)\,\text{ and }(5,1) \\ (-2,3)\,\text{ and }(0,9)\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({m}_{1}=-\frac{1}{3},\,{m}_{2}=3;\,\text{Perpendicular}\text{.}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(\begin{array}{l}(2,5)\,\text{ and }(5,9) \\ (-1,-1)\,\text{ and }(2,3)\end{array}\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, express the equations in slope intercept form (rounding each number to the thousandths place). Enter this into a graphing calculator as Y1, then adjust the ymin and ymax values for your window to include where the <strong>y</strong>-intercept occurs. State your ymin and ymax values.</p>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(0.537x-2.19y=100\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=0.245x-45.662.\) Answers may vary. \({y}_{\text{min}}=-50,\,\,{y}_{\text{max}}=-40\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(4,500x-200y=9,528\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(\frac{200-30y}{x}=70\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-2.333x+6.667.\) Answers may vary. \({y}_{min}=-10, {y}_{max}=10\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Starting with the point-slope formula \(y-{y}_{1}=m(x-{x}_{1}),\) solve this expression for \(x\) in terms of \({x}_{1},y,{y}_{1},\) and \(m\) .</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Starting with the standard form of an equation \(Ax+By=C\) solve this expression for \(y\) in terms of \(A,B,C\) and \(x\) . Then put the expression in slope-intercept form.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{A}{B}x+\frac{C}{B}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Use the above derived formula to put the following standard equation in slope intercept form: \(7x-5y=25.\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Given that the following coordinates are the vertices of a rectangle, prove that this truly is a rectangle by showing the slopes of the sides that meet are perpendicular.</p>
+<p>\((-1,1),(2,0),(3,3)\) and \((0,4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}\text{The slope for }(-1,1)\,\text{to }(0,4)\,\text{is }3. \\ \text{The slope for }(-1,1)\,\text{to }(2,0)\,\text{is }\frac{-1}{3}. \\ \text{The slope for }(2,0)\,\text{to }(3,3)\,\text{is }3. \\ \text{The slope for }(0,4)\,\text{to }(3,3)\,\text{is }\frac{-1}{3}.\end{array}\)</p>
+<p>Yes they are perpendicular.</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Find the slopes of the diagonals in the previous exercise. Are they perpendicular?</p>
+</div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>The slope for a wheelchair ramp for a home has to be \(\frac{1}{12}.\) If the vertical distance from the ground to the door bottom is 2.5 ft, find the distance the ramp has to extend from the home in order to comply with the needed slope.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_CAT_Figure_02_02_205.jpg" alt="A right-angled triangle is shown with its horizontal leg labeled as &amp;quot;x feet&amp;quot; and its vertical leg labeled as &amp;quot;2.5 feet&amp;quot;. The hypotenuse of the triangle is not labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>30 ft</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>If the profit equation for a small business selling \(x\) number of item one and \(y\) number of item two is \(p=3x+4y,\) find the \(y\) value when \(p=\text{\$}453\,\text{and }x=75.\)</p>
+</div></div>
+<p>For the following exercises, use this scenario: The cost of renting a car is $45/wk plus $0.25/mi traveled during that week. An equation to represent the cost would be \(y=45+.25x,\) where \(x\) is the number of miles traveled.</p>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>What is your cost if you travel 50 mi?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>$57.50</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>If your cost were \(\text{\$}63.75,\) how many miles were you charged for traveling?</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Suppose you have a maximum of $100 to spend for the car rental. What would be the maximum number of miles you could travel?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>220 mi</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>conditional equation</dt><dd>an equation that is true for some values of the variable</dd><dt>identity equation</dt><dd>an equation that is true for all values of the variable</dd><dt>inconsistent equation</dt><dd>an equation producing a false result</dd><dt>linear equation</dt><dd>an algebraic equation in which each term is either a constant or the product of a constant and the first power of a variable</dd><dt>solution set</dt><dd>the set of all solutions to an equation</dd><dt>slope</dt><dd>the change in <strong>y-</strong>values over the change in <strong>x-</strong>values</dd><dt>rational equation</dt><dd>an equation consisting of a fraction of polynomials</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/college-algebra-2e">OpenStax College Algebra 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

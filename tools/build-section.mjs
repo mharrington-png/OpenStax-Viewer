@@ -177,8 +177,12 @@ const OPS = { "−": "-", "–": "-", "—": "-", "×": "\\times ", "⋅": "\\cd
   // box unless mapped to \Delta. Zero-width space (U+200B) shows up as an empty
   // placeholder superscript in some OpenStax figure captions (e.g. the "∪" between
   // increasing/decreasing intervals) and has no KaTeX character metrics at all — strip
-  // it outright. Found building 3-3 (m51263).
-  "Δ": "\\Delta ", "​": "",
+  // it outright. Found building 3-3 (m51263). "∆" (U+2206, the dedicated INCREMENT
+  // symbol) is a visually-identical but distinct codepoint from the Greek capital
+  // delta (U+0394) — OpenStax's editor uses it interchangeably for the same rate-of-
+  // change notation (e.g. "Δy/Δx" in 4.1's slope formula). Same fix, different input
+  // character. Found building 4-1 (m51270).
+  "Δ": "\\Delta ", "∆": "\\Delta ", "​": "",
   // Curly quotes appear as literal characters inside <mo>/<mi> nodes when OpenStax's
   // editor stylistically quotes a symbol *inside* math mode itself (e.g. "read the
   // left side as “f composed with g at x,”" — the quote marks are literal MathML
@@ -315,8 +319,10 @@ function m2l(n) {
       // to a thin overline-ish "-" — not exact but doesn't crash) but a hard KaTeX parse
       // error ("Expected group after '^'") for "^", since ^ is the superscript operator in
       // math mode. Recognize the known accent glyphs and emit the correct KaTeX accent
-      // command instead of overset. Found building calculus-v3 1-2 (m53850).
-      const accentCmd = { "^": "hat", "˜": "tilde", "~": "tilde", "–": "bar", "—": "bar", "−": "bar", "‾": "bar" }[textOf(K[1]).trim()];
+      // command instead of overset. Found building calculus-v3 1-2 (m53850). "¯" (U+00AF,
+      // macron) is the same class of bug — College Algebra's line-segment notation
+      // (e.g. line segment AB) uses it as the bar glyph. Found building 2-1 (m51252).
+      const accentCmd = { "^": "hat", "˜": "tilde", "~": "tilde", "–": "bar", "—": "bar", "−": "bar", "‾": "bar", "¯": "bar" }[textOf(K[1]).trim()];
       return accentCmd ? `\\${accentCmd}{${g(0)}}` : `\\overset{${g(1)}}{${g(0)}}`;
     }
     case "mtable": {

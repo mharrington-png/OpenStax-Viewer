@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.1 Linear Functions · MX Algebra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=64dd35f0fdbe40c5bb00a4a5df4237b6"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="college-algebra-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/college-algebra-2e/index.html">MX <span>Algebra</span></a>
+  <span class="crumb">4.1 Linear Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 4.1</span>4.1 Linear Functions</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Find the slope of a line (IA 3.2.1)</li><li>Find an equation of the line given two points (IA 3.3.3)</li></ul>
+<h3 id="objective-1-find-the-slope-of-a-line-ia-3-2-1">Objective 1: Find the slope of a line. (IA 3.2.1)</h3>
+<p><strong>Linear functions</strong> are a specific type of <strong>function</strong> that can be used to model many real-world applications, such as the growth of a plant, earned salary, the distance a train travels over time, or the costs to start a new business. In this section, we will explore linear functions, their graphs, and how to find them using data points.</p>
+<h4 id="linear-function">Linear Function</h4>
+<p>A linear function is a function whose graph is a line. Linear functions can be written in the <strong>slope-intercept</strong> form of a line</p>
+<p>\(f(x)=mx+b\)</p>
+<p>where \(b\) is the initial or starting value of the function (when input, \(x=0\) ), and \(m\) is the constant rate of change, or slope of the function. The \(y\) -intercept is at ( \(0,b\) ).</p>
+<p>\(m=\text{slope}= \frac{\text{change in output}}{\text{change in input}}=\frac{\Delta y}{\Delta x}=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}=\frac{f({x}_{2})-f({x}_{1})}{{x}_{2}-{x}_{1}}=\frac{\text{rise}}{\text{run}}\)</p>
+<p>When interpreting slope, it will be important to consider the units of measurement. Make sure to always attach these units to both the numerator and denominator when they are provided to you.</p>
+<div class="card definition" id="eip-731"><span class="chip">Quick Guide to Slopes of Lines</span><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_03_02_006_img_new.jpg" alt="The image shows four arrows. The first arrow is slanted and pointing up and to the right and is labeled “positive”. The second arrow is slanted and pointing down and to the right and labeled “negative”. The third arrow is horizontal and labeled “zero”. The fourth arrow is vertical and labeled “undefined”." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find the slope of the line shown.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_03_02_302_img_new.jpg" alt="This figure shows the graph of a straight line on the x y-coordinate plane. The x-axis runs from negative 3 to 6. The y-axis runs from negative 3 to 2. The line goes through the points (0, 1) and (5, negative 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Locate two points on the graph whose coordinates are integers. Label the coordinates of these points.<br> \((0, 1) =({x}_{1},{y}_{1})\) <br> \((5, -2) =({x}_{2},{y}_{2})\,\) <br> It may help to visualize this change as \(m=\frac{rise}{run}\) Count the rise between the points. Since the line goes down, the slope is negative. Then count the run, or horizontal change. Using the slope formula: \(m=\frac{rise}{run}=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}=\frac{-2-1}{5-0}=\frac{-3}{5}\)</p>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Find the slope of the line.</p>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>Find the slope of the line below:</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_03_02_202_img_new.jpg" alt="This figure shows the graph of a straight line on the x y-coordinate plane. The x-axis runs from negative 8 to 8. The y-axis runs from negative 8 to 8. The line goes through the points (0, negative 5) and (2, negative 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>Find the slope of the following line: \(y=3\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>Find the slope of the following line: \(x=-2\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex4"><div class="n">P4</div><div class="body"><p>Find the slope of the following line: \(y=-5x-6\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex5"><div class="n">P5</div><div class="body"><p>Find the slope of the following line: \(2x-4y=5\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex6"><div class="n">P6</div><div class="body"><p>Use the slope formula to find the slope of the line between the following pair of points. \((-2,4),(3,-1)\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex7"><div class="n">P7</div><div class="body"><p>Use the slope formula to find the slope of the linear function satisfying the condition below. \(f(-2)=-1,f(6)=5\)</p>
+</div></div>
+<h3 id="objective-2-find-an-equation-of-the-line-given-two-points-ia-3-3-3">Objective 2: Find an equation of the line given two points. (IA 3.3.3)</h3>
+<h4 id="find-an-equation-of-the-line-given-two-points">Find an Equation of the Line Given Two Points</h4>
+<p>When data is collected, a linear model can be created from two data points. In the next example we’ll see how to find an equation of a line when two points are given by following the steps below.</p>
+<div class="card howto" id="eip-952"><span class="chip">How To</span><ul class="tight"><li>Find the slope using the given points.</li><li>Choose one point and label its coordinates \(({x}_{1},{y}_{1})\) .</li><li>Plug \(m, {x}_{1}\) and \({y}_{1}\) into point-slope form, \(y-{y}_{1}=m(x-{x}_{1})\) .</li><li>Write the equation in slope-intercept form, \(y=mx+b\) .</li></ul>
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><p>Find an equation of the line given two points.</p>
+<div class="ex-body"><p>Find the equation of a line containing the points (−4, −3) and (1, −5)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Find the slope of the line using the given points. <br> \(m=\frac{-5-(-3)}{1-(-4)}=\frac{-5+3}{1+4}=\frac{-2}{5}\)</li><li>Choose one point and label these coordinates \((-4,-3)= {x}_{1},{y}_{1}\)</li><li>Plug \(m,{x}_{2}\) and \({y}_{2}\) into point-slope for, \(y-{y}_{1}=m(x-{x}_{1})\) .<br> \(y-(-3)=\frac{-2}{5}(x-(-4))\) <br> \(y+3=\frac{-2}{5}(x+4)\)</li><li>Write the equation in slope-intercept form, \(y=mx+b\) .<br> \(y+3=\frac{-2}{5}x-\frac{8}{5}\) <br> \(y=\frac{-2}{5}x-\frac{8}{5}-3\) <br> \(y=\frac{-2}{5}x-\frac{8}{5}-\frac{15}{5}\) <br> \(y=\frac{-2}{5}x-\frac{23}{5}\)</li></ul>
+</div></div></div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<p>Find an equation of the line given two points.</p>
+<div class="exercise warmup" id="warmex8"><div class="n">P8</div><div class="body"><p>Find the equation of a line containing the given points. Write the equation in slope-intercept form. \((4,3)\) and \((8,1)\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex9"><div class="n">P9</div><div class="body"><p>Find the equation of a line containing the given points. Write the equation in slope-intercept form. \((-5,-3)\) and \((4,-6)\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex10"><div class="n">P10</div><div class="body"><p>Find the equation of a line containing the given points. Write the equation in slope-intercept form. \(f(-2)=8,f(4)=6\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex11"><div class="n">P11</div><div class="body"><p>Derek notices the amount he receives in tips each night is a linear function of the number of tables he waits on. On Friday evening he waits on 22 tables and receives $87 in tips, and on Tuesday evening he waits on 18 tables and receives $73 in tips.</p>
+<ul class="tight"><li>ⓐ Record the information given above as two data points.</li><li>ⓑ Find the slope of this linear function in terms of \(\frac{\$}{table}\) .</li><li>ⓒ Write a linear function S(t) that will let him estimate the amount in $ in tips he will receive as a function of tables, t, waited on.</li></ul>
+</div></div>
+<div class="exercise warmup" id="warmex12"><div class="n">P12</div><div class="body"><p>Complete the following:</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Verbal Description</strong></td><td><strong>Formula</strong></td></tr><tr><td>Slope between two points</td><td></td></tr><tr><td>Point-slope form of a line</td><td></td></tr><tr><td>Slope-intercept form of a line</td><td></td></tr></tbody></table></div>
+</div></div>
+</div></details>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_011_CAT.jpg" alt="Front view of a subway train, the maglev train." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Shanghai MagLev Train (credit: "kanegen"/Flickr)</figcaption></figure>
+<p>Just as with the growth of a bamboo plant, there are many situations that involve constant change over time. Consider, for example, the first commercial maglev train in the world, the Shanghai MagLev Train (<a href="#fig1">Figure 1</a>). It carries passengers comfortably for a 30-kilometer trip from the airport to the subway station in only eight minutes <span class="footnote">(http://www.chinahighlights.com/shanghai/transportation/maglev-train.htm)</span>.</p>
+<p>Suppose a maglev train travels a long distance, and maintains a constant speed of 83 meters per second for a period of time once it is 250 meters from the station. How can we analyze the train’s distance from the station as a function of time? In this section, we will investigate a kind of function that is useful for this purpose, and use it to investigate real-world situations such as the train’s distance from the station at a given point in time.</p>
+<h2 id="representing-linear-functions">Representing Linear Functions</h2>
+<p>The function describing the train’s motion is a <strong>linear function</strong>, which is defined as a function with a constant rate of change. This is a polynomial of degree 1. There are several ways to represent a linear function, including word form, function notation, tabular form, and graphical form. We will describe the train’s motion as a function using each method.</p>
+<h3 id="representing-a-linear-function-in-word-form">Representing a Linear Function in Word Form</h3>
+<p>Let’s begin by describing the linear function in words. For the train problem we just considered, the following word sentence may be used to describe the function relationship.</p>
+<ul class="tight"><li><strong>The train’s distance from the station is a function of the time during which the train moves at a constant speed plus its original distance from the station when it began moving at constant speed.</strong></li></ul>
+<p>The speed is the rate of change. Recall that a rate of change is a measure of how quickly the dependent variable changes with respect to the independent variable. The rate of change for this example is constant, which means that it is the same for each input value. As the time (input) increases by 1 second, the corresponding distance (output) increases by 83 meters. The train began moving at this constant speed at a distance of 250 meters from the station.</p>
+<h3 id="representing-a-linear-function-in-function-notation">Representing a Linear Function in Function Notation</h3>
+<p>Another approach to representing linear functions is by using function notation. One example of function notation is an equation written in the <strong>slope-intercept form</strong> of a line, where \(x\) is the input value, \(m\) is the rate of change, and \(b\) is the initial value of the dependent variable.</p>
+<p id="eq1">\[\begin{array}{ll}\text{Equation form}\, &amp; y=mx+b \\ \text{Function notation}\, &amp; f(x)=mx+b\end{array}\]</p>
+<p>In the example of the train, we might use the notation \(D(t)\) where the total distance \(D\) is a function of the time \(t.\) The rate, \(m,\) is 83 meters per second. The initial value of the dependent variable \(b\) is the original distance from the station, 250 meters. We can write a generalized equation to represent the motion of the train.</p>
+<p id="eq2">\[D(t)=83t+250\]</p>
+<h3 id="representing-a-linear-function-in-tabular-form">Representing a Linear Function in Tabular Form</h3>
+<p>A third method of representing a linear function is through the use of a table. The relationship between the distance from the station and the time is represented in <a href="#fig2">Figure 2</a>. From the table, we can see that the distance changes by 83 meters for every 1 second increase in time.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_015.jpg" alt="Table with the first row, labeled t, containing the seconds from 0, 1, 2, 3, and with the second row, labeled D (t), containing the meters 250, 333, 416, and 499. Each value in the first row increases by 1 second, and each value in the second row increases by 83 meters." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Tabular representation of the function \(D\) showing selected input and output values</figcaption></figure>
+<div class="card qa" id="fs-id1550000"><span class="chip">Q&amp;A</span><p><strong>Can the input in the previous example be any real number?</strong></p>
+<p><strong>No. The input represents time so while nonnegative rational and irrational numbers are possible, negative real numbers are not possible for this example. The input consists of non-negative real numbers.</strong></p>
+</div>
+<h3 id="representing-a-linear-function-in-graphical-form">Representing a Linear Function in Graphical Form</h3>
+<p>Another way to represent linear functions is visually, using a graph. We can use the function relationship from above, \(D(t)=83t+250,\) to draw a graph as represented in <a href="#fig3">Figure 3</a>. Notice the graph is a line<strong>.</strong> When we plot a linear function, the graph is always a line.</p>
+<p>The rate of change, which is constant, determines the slant, or <strong>slope</strong> of the line. The point at which the input value is zero is the vertical intercept, or <strong><strong>y</strong>-intercept</strong>, of the line. We can see from the graph that the <strong>y</strong>-intercept in the train example we just saw is \((0,250)\) and represents the distance of the train from the station when it began moving at a constant speed.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_012.jpg" alt="This is a graph with y-axis labeled “Distance (m)” and x-axis labeled “Time (s).” The x-axis spans from 0 to 5 and is marked in increments of one. The y-axis spans from 0 to 500 and is marked in increments of one hundred. The graph shows an increasing function. As time increases, distance also increases. The line is graphed along the points (0, 250) and (1, 333)" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The graph of \(D(t)=83t+250\) . Graphs of linear functions are lines because the rate of change is constant.</figcaption></figure>
+<p>Notice that the graph of the train example is restricted, but this is not always the case. Consider the graph of the line \(f(x)=2x+1.\) Ask yourself what numbers can be input to the function. In other words, what is the domain of the function? The domain is comprised of all real numbers because any number may be doubled, and then have one added to the product.</p>
+<div class="card definition" id="fs-id1499603"><span class="chip">Linear Function</span><p>A <strong>linear function</strong> is a function whose graph is a line. Linear functions can be written in the <strong>slope-intercept form</strong> of a line</p>
+<p id="eq3">\[f(x)=mx+b\]</p>
+<p>where \(b\) is the initial or starting value of the function (when input, \(x=0\) ), and \(m\) is the constant rate of change, or slope of the function. The <strong>y</strong>-intercept is at \((0,b).\)</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>The pressure, \(P,\) in pounds per square inch (PSI) on the diver in <a href="#fig4">Figure 4</a> depends upon her depth below the water surface, \(d,\) in feet. This relationship may be modeled by the equation, \(P(d)=0.434d+14.696.\) Restate this function in words.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_003.jpg" alt="This figure shows a scuba diver." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — (credit: Ilse Reijs and Jan-Noud Hutten)</figcaption></figure>
+<p class="sol-hint">Identify which number is the slope (rate per foot) and which is the starting value (intercept), then describe each in plain language.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To restate the function in words, we need to describe each part of the equation. The pressure as a function of depth equals four hundred thirty-four thousandths times depth plus fourteen and six hundred ninety-six thousandths.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The initial value, 14.696, is the pressure in PSI on the diver at a depth of 0 feet, which is the surface of the water. The rate of change, or slope, is 0.434 PSI per foot. This tells us that the pressure on the diver increases 0.434 PSI for each foot her depth increases.</p>
+</div></div></div></div>
+<h2 id="determining-whether-a-linear-function-is-increasing-decreasing-or-constant">Determining Whether a Linear Function Is Increasing, Decreasing, or Constant</h2>
+<p>The linear functions we used in the two previous examples increased over time, but not every linear function does. A linear function may be increasing, decreasing, or constant. For an <strong>increasing function</strong>, as with the train example, the output values increase as the input values increase. The graph of an increasing function has a positive slope. A line with a positive slope slants upward from left to right as in <a href="#fig5">Figure 5</a><strong>(a)</strong>. For a <strong>decreasing function</strong>, the slope is negative. The output values decrease as the input values increase. A line with a negative slope slants downward from left to right as in <a href="#fig5">Figure 5</a><strong>(b)</strong>. If the function is constant, the output values are the same for all input values so the slope is zero. A line with a slope of zero is horizontal as in <a href="#fig5">Figure 5</a><strong>(c)</strong>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_004abc.jpg" alt="This figure shows three graphs labeled a, b, and c. Graph a shows an increasing function (f) along the x-axis and the y-axis which is labeled f of x. Graph b shows a decreasing function (f) along the x-axis and y-axis which is labeled f of x. Graph c shows a constant function (f) along the x-axis and y-axis which is labeled f of x. The constant function is horizontal. None of the graphs have any increments labeled on the x- or y-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<div class="card definition" id="fs-id2166875"><span class="chip">Increasing and Decreasing Functions</span><p>The slope determines if the function is an <strong>increasing linear function</strong>, a <strong>decreasing linear function</strong>, or a constant function.</p>
+<ul class="tight"><li>\(f(x)=mx+b\) is an increasing function if \(m&gt;0.\)</li><li>\(f(x)=mx+b\) is a decreasing function if \(m&lt;0.\)</li><li>\(f(x)=mx+b\) is a constant function if \(m=0.\)</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Studies from the early 2010s indicated that teens sent about 60 texts a day, while more recent data indicates much higher messaging rates among all users, particularly considering the various apps with which people can communicate. <span class="footnote">(http://www.cbsnews.com/8301-501465_162-57400228-501465/teens-are-sending-60-texts-a-day-study-says/)</span>. For each of the following scenarios, find the linear function that describes the relationship between the input value and the output value. Then, determine whether the graph of the function is increasing, decreasing, or constant.</p>
+<ul class="tight"><li>ⓐThe total number of texts a teen sends is considered a function of time in days. The input is the number of days, and output is the total number of texts sent.</li><li>ⓑA person has a limit of 500 texts per month in their data plan. The input is the number of days, and output is the total number of texts remaining for the month.</li><li>ⓒA person has an unlimited number of texts in their data plan for a cost of $50 per month. The input is the number of days, and output is the total cost of texting each month.</li></ul>
+<p class="sol-hint">Write each scenario as \(f(x)=mx+b\) first, then check the sign of \(m\) to classify it.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Analyze each function.</p>
+<ul class="tight"><li>ⓐThe function can be represented as \(f(x)=60x\) where \(x\) is the number of days. The slope, 60, is positive so the function is increasing. This makes sense because the total number of texts increases with each day.</li><li>ⓑThe function can be represented as \(f(x)=500-60x\) where \(x\) is the number of days. In this case, the slope is negative so the function is decreasing. This makes sense because the number of texts remaining decreases each day and this function represents the number of texts remaining in the data plan after \(x\) days.</li><li>ⓒThe cost function can be represented as \(f(x)=50\) because the number of days does not affect the total cost. The slope is 0 so the function is constant.</li></ul>
+</div></div></div>
+<h2 id="interpreting-slope-as-a-rate-of-change">Interpreting Slope as a Rate of Change</h2>
+<p>In the examples we have seen so far, the slope was provided to us. However, we often need to calculate the slope given input and output values. Recall that given two values for the input, \({x}_{1}\) and \({x}_{2},\) and two corresponding values for the output, \({y}_{1}\) and \({y}_{2}\) —which can be represented by a set of points, \(({x}_{1}\text{, }{y}_{1})\) and \(({x}_{2}\text{, }{y}_{2})\) —we can calculate the slope \(m.\)</p>
+<p id="eq4">\[m=\frac{\text{change in output (rise)}}{\text{change in input (run)}}=\frac{\Delta y}{\Delta x}=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}\]</p>
+<p>Note that in function notation we can obtain two corresponding values for the output \({y}_{1}\) and \({y}_{2}\) for the function \(f,\) \({y}_{1}=f({x}_{1})\) and \({y}_{2}=f({x}_{2}),\) so we could equivalently write</p>
+<p id="eq5">\[m=\frac{f({x}_{2})-f({x}_{1})}{{x}_{2}-{x}_{1}}\]</p>
+<p><a href="#fig6">Figure 6</a> indicates how the slope of the line between the points, \(({x}_{1},{y}_{1})\) and \(({x}_{2},{y}_{2}),\) is calculated. Recall that the slope measures steepness, or slant. The greater the absolute value of the slope, the steeper the slant is.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_005.jpg" alt="This graph shows how to calculate the slope of a line. The line is graphed on an x y coordinate plane. The x-axis is labeled from negative 1 to 6. The y-axis is labeled from negative 1 to 10. The line passes through several points, but two are marked specifcally. The first is labeled (x subscript 1, y subscript 1). It is located at the point (1, 5). The second point is labeled (x subscript 2, y subscript 2). It is located at the point (2, 8). There is a small arrow that runs horizontally from point (2, 8) to point (1, 8). This arrow is labeled x subscript 2 minus x subscript 1. There is a blue arrow that runs vertically from point (1, 5) to point (1, 8) and is labeled y subscript 2 minus y subscript 1. Off to the side is the equation m equals delta y divided by delta x which equals y subscript 2 minus y subscript 1 divided by x subscript 2 minus x subscript 1. " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — The slope of a function is calculated by the change in \(y\) divided by the change in \(x.\) It does not matter which coordinate is used as the \(({x}_{2,}{y}_{2})\) and which is the \(({x}_{1},{y}_{1}),\) as long as each calculation is started with the elements from the same coordinate pair.</figcaption></figure>
+<div class="card qa" id="fs-id1535866"><span class="chip">Q&amp;A</span><p><strong>Are the units for slope always</strong> \(\frac{\text{units for the output}}{\text{units for the input}}\,\text{?}\)</p>
+<p><strong>Yes. Think of the units as the change of output value for each unit of change in input value. An example of slope could be miles per hour or dollars per day. Notice the units appear as a ratio of units for the output per units for the input.</strong></p>
+</div>
+<div class="card definition" id="fs-id1427746"><span class="chip">Calculate Slope</span><p>The slope, or rate of change, of a function \(m\) can be calculated according to the following:</p>
+<p id="eq6">\[m=\frac{\text{change in output (rise)}}{\text{change in input (run)}}=\frac{\Delta y}{\Delta x}=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}\]</p>
+<p>where \({x}_{1}\) and \({x}_{2}\) are input values, \({y}_{1}\) and \({y}_{2}\) are output values.</p>
+</div>
+<div class="card howto" id="fs-id1673258"><span class="chip">How To</span><p><strong>Given two points from a linear function, calculate and interpret the slope.</strong></p>
+<ul class="tight"><li>Determine the units for output and input values.</li><li>Calculate the change of output values and change of input values.</li><li>Interpret the slope as the change in output values per unit of the input value.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>If \(f(x)\) is a linear function, and \((3,-2)\) and \((8,1)\) are points on the line, find the slope. Is this function increasing or decreasing?</p>
+<p class="sol-hint">Plug the two points into the slope formula, then check the sign of the result.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The coordinate pairs are \((3,-2)\) and \((8,1).\) To find the rate of change, we divide the change in output by the change in input.</p>
+<p id="eq7">\[m=\frac{\text{change in output}}{\text{change in input}}=\frac{1-(-2)}{8-3}=\frac{3}{5}\]</p>
+<p>We could also write the slope as \(m=0.6.\) The function is increasing because \(m&gt;0.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>As noted earlier, the order in which we write the points does not matter when we compute the slope of the line as long as the first output value, or <strong>y</strong>-coordinate, used corresponds with the first input value, or <strong>x</strong>-coordinate, used. Note that if we had reversed them, we would have obtained the same slope.</p>
+<p id="eq8">\[m=\frac{(-2)-(1)}{3-8}=\frac{-3}{-5}=\frac{3}{5}\]</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>If \(f(x)\) is a linear function, and \((2,3)\) and \((0,4)\) are points on the line, find the slope. Is this function increasing or decreasing?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(m=\frac{4-3}{0-2}=\frac{1}{-2}=-\frac{1}{2};\) decreasing because \(m&lt;0.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>The population of a city increased from 23,400 to 27,800 between 2008 and 2012. Find the change of population per year if we assume the change was constant from 2008 to 2012.</p>
+<p class="sol-hint">Divide the total change in population by the number of years.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The rate of change relates the change in population to the change in time. The population increased by \(27,800-23,400=4400\) people over the four-year time interval. To find the rate of change, divide the change in the number of people by the number of years.</p>
+<p id="eq9">\[\frac{\text{4,400 people}}{\text{4 years}}=\text{1,100 }\frac{\text{people}}{\text{year}}\]</p>
+<p>So the population increased by 1,100 people per year.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Because we are told that the population increased, we would expect the slope to be positive. This positive slope we calculated is therefore reasonable.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>The population of a small town increased from 1,442 to 1,868 between 2009 and 2012. Find the change of population per year if we assume the change was constant from 2009 to 2012.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p id="eq10">\[m=\frac{1,868-1,442}{2,012-2,009}=\frac{426}{3}=\text{142 people per year}\]</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="writing-and-interpreting-an-equation-for-a-linear-function">Writing and Interpreting an Equation for a Linear Function</h2>
+<p>Recall from Equations and Inequalities that we wrote equations in both the <strong>slope-intercept form</strong> and the <strong>point-slope form</strong>. Now we can choose which method to use to write equations for linear functions based on the information we are given. That information may be provided in the form of a graph, a point and a slope, two points, and so on. Look at the graph of the function \(f\) in <a href="#fig7">Figure 7</a>.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_006.jpg" alt="This graph shows a linear function graphed on an x y coordinate plane. The x axis is labeled from negative 2 to 8 and the y axis is labeled from negative 1 to 8. The function f is graph along the points (0, 7) and (4, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+<p>We are not given the slope of the line, but we can choose any two points on the line to find the slope. Let’s choose \((0,7)\) and \((4,4).\)</p>
+<p id="eq11">\[\begin{array}{lll}m &amp; = &amp; \frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}} \\ &amp; = &amp; \frac{4-7}{4-0} \\ &amp; = &amp; -\frac{3}{4}\end{array}\]</p>
+<p>Now we can substitute the slope and the coordinates of one of the points into the point-slope form.</p>
+<p id="eq12">\[\begin{array}{lll}y-{y}_{1} &amp; = &amp; m(x-{x}_{1}) \\ \,\,y-4 &amp; = &amp; -\frac{3}{4}(x-4)\end{array}\]</p>
+<p>If we want to rewrite the equation in the slope-intercept form, we would find</p>
+<p id="eq13">\[\begin{array}{lll}y-4 &amp; = &amp; -\frac{3}{4}(x-4) \\ y-4 &amp; = &amp; -\frac{3}{4}x+3 \\ y &amp; = &amp; -\frac{3}{4}x+7\end{array}\]</p>
+<p>If we want to find the slope-intercept form without first writing the point-slope form, we could have recognized that the line crosses the <strong>y</strong>-axis when the output value is 7. Therefore, \(b=7.\) We now have the initial value \(b\) and the slope \(m\) so we can substitute \(m\) and \(b\) into the slope-intercept form of a line.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_007.jpg" alt="This image shows the equation f of x equals m times x plus b. It shows that m is the value negative three fourths and b is 7. It then shows the equation rewritten as f of x equals negative three fourths times x plus 7." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>So the function is \(f(x)=-\frac{3}{4}x+7,\) and the linear equation would be \(y=-\frac{3}{4}x+7.\)</p>
+<div class="card howto" id="fs-id1562836"><span class="chip">How To</span><p><strong>Given the graph of a linear function, write an equation to represent the function.</strong></p>
+<ul class="tight"><li>Identify two points on the line.</li><li>Use the two points to calculate the slope.</li><li>Determine where the line crosses the <strong>y</strong>-axis to identify the <strong>y</strong>-intercept by visual inspection.</li><li>Substitute the slope and <strong>y</strong>-intercept into the slope-intercept form of a line equation.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Write an equation for a linear function given a graph of \(f\) shown in <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_008a.jpg" alt="This figure shows an increasing function graphed on an x y coordinate plane. The x axis is labeled from negative 10 to 10. The y axis is labeled from negative 10 to 10. The function passes through the points (0, 2) and (-2, -4). These points are not labeled on this graph. " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+<p class="sol-hint">Read two points off the graph, compute the slope between them, then use one point to find the y-intercept.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Identify two points on the line, such as \((0,2)\) and \((-2,-4).\) Use the points to calculate the slope.</p>
+<p id="eq14">\[\begin{array}{lll}m &amp; = &amp; \frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}} \\ &amp; = &amp; \frac{-4-2}{-2-0} \\ &amp; = &amp; \frac{-6}{-2} \\ &amp; = &amp; 3\end{array}\]</p>
+<p>Substitute the slope and the coordinates of one of the points into the point-slope form.</p>
+<p id="eq15">\[\begin{array}{lll}y-{y}_{1} &amp; = &amp; m(x-{x}_{1}) \\ y-(-4) &amp; = &amp; 3(x-(-2)) \\ y+4 &amp; = &amp; 3(x+2)\end{array}\]</p>
+<p>We can use algebra to rewrite the equation in the slope-intercept form.</p>
+<p id="eq16">\[\begin{array}{lll}y+4 &amp; = &amp; 3(x+2) \\ y+4 &amp; = &amp; 3x+6 \\ y &amp; = &amp; 3x+2\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This makes sense because we can see from <a href="#fig9">Figure 9</a> that the line crosses the <strong>y</strong>-axis at the point \((0,\,\,2),\) which is the <strong>y</strong>-intercept, so \(b=2.\)</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_008b.jpg" alt="This figure shows an increasing function graphed on an x y coordinate plane. The x axis is labeled from negative 10 to 10. The y axis is labeled from negative 10 to 10. The function passes through the points (0, 2) and (-2, -4). These points are labeled on this graph." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div></div></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Suppose Ben starts a company in which he incurs a fixed cost of $1,250 per month for the overhead, which includes his office rent. His production costs are $37.50 per item. Write a linear function \(C\) where \(C(x)\) is the cost for \(x\) items produced in a given month.</p>
+<p class="sol-hint">The fixed cost is the intercept \(b\), and the per-item cost is the slope \(m\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The fixed cost is present every month, $1,250. The costs that can vary include the cost to produce each item, which is $37.50. The variable cost, called the marginal cost, is represented by \(37.5.\) The cost Ben incurs is the sum of these two costs, represented by \(C(x)=1250+37.5x.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>If Ben produces 100 items in a month, his monthly cost is found by substituting 100 for \(x.\)</p>
+<p id="eq17">\[\begin{array}{lll}C(100) &amp; = &amp; 1250+37.5(100) \\ &amp; = &amp; 5000\end{array}\]</p>
+<p>So his monthly cost would be $5,000.</p>
+</div></div></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>If \(f\) is a linear function, with \(f(3)=-2,\) and \(f(8)=1,\) find an equation for the function in slope-intercept form.</p>
+<p class="sol-hint">Turn the function values into two coordinate pairs, then find the slope and use point-slope form.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can write the given points using coordinates.</p>
+<p id="eq18">\[\begin{array}{lll}f(3) &amp; = &amp; -2\to (3,-2) \\ f(8) &amp; = &amp; 1\to (8,1)\end{array}\]</p>
+<p>We can then use the points to calculate the slope.</p>
+<p id="eq19">\[\begin{array}{lll}m &amp; = &amp; \frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}} \\ &amp; = &amp; \frac{1-(-2)}{8-3} \\ &amp; = &amp; \frac{3}{5}\end{array}\]</p>
+<p>Substitute the slope and the coordinates of one of the points into the point-slope form.</p>
+<p id="eq20">\[\begin{array}{lll}y-{y}_{1} &amp; = &amp; m(x-{x}_{1}) \\ y-(-2) &amp; = &amp; \frac{3}{5}(x-3)\end{array}\]</p>
+<p>We can use algebra to rewrite the equation in the slope-intercept form.</p>
+<p id="eq21">\[\begin{array}{lll}y+2 &amp; = &amp; \frac{3}{5}(x-3) \\ y+2 &amp; = &amp; \frac{3}{5}x-\frac{9}{5} \\ y &amp; = &amp; \frac{3}{5}x-\frac{19}{5}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>If \(f(x)\) is a linear function, with \(f(2)=-11,\) and \(f(4)=-25,\) write an equation for the function in slope-intercept form.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y=-7x+3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="modeling-real-world-problems-with-linear-functions">Modeling Real-World Problems with Linear Functions</h2>
+<p>In the real world, problems are not always explicitly stated in terms of a function or represented with a graph. Fortunately, we can analyze the problem by first representing it as a linear function and then interpreting the components of the function. As long as we know, or can figure out, the initial value and the rate of change of a linear function, we can solve many different kinds of real-world problems.</p>
+<div class="card howto" id="fs-id1715673"><span class="chip">How To</span><p><strong>Given a linear function \(f\) and the initial value and rate of change, evaluate \(f(c).\)</strong></p>
+<ul class="tight"><li>Determine the initial value and the rate of change (slope).</li><li>Substitute the values into \(f(x)=mx+b.\)</li><li>Evaluate the function at \(x=c.\)</li></ul>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Marcus currently has 200 songs in his music collection. Every month, he adds 15 new songs. Write a formula for the number of songs, \(N,\) in his collection as a function of time, \(t,\) the number of months. How many songs will he own at the end of one year?</p>
+<p class="sol-hint">Identify the starting amount as \(b\) and the monthly rate as \(m\), then plug \(t=12\) into the resulting formula.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The initial value for this function is 200 because he currently owns 200 songs, so \(N(0)=200,\) which means that \(b=200.\)</p>
+<p>The number of songs increases by 15 songs per month, so the rate of change is 15 songs per month. Therefore we know that \(m=15.\) We can substitute the initial value and the rate of change into the slope-intercept form of a line.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_010.jpg" alt="This image shows the equation f of x equals m times x plus b. It shows that m is the value 15 and b is 200. It then shows the equation rewritten as N of t equals 15 times t plus 200." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+<p>We can write the formula \(N(t)=15t+200.\)</p>
+<p>With this formula, we can then predict how many songs Marcus will have at the end of one year (12 months). In other words, we can evaluate the function at \(t=12.\)</p>
+<p id="eq22">\[\begin{array}{lll}N(12) &amp; = &amp; 15(12)+200 \\ &amp; = &amp; 180+200 \\ &amp; = &amp; 380\end{array}\]</p>
+<p>Marcus will have 380 songs in 12 months.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice that <strong>N</strong> is an increasing linear function. As the input (the number of months) increases, the output (number of songs) increases as well.</p>
+</div></div></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Working as an insurance salesperson, Ilya earns a base salary plus a commission on each new policy. Therefore, Ilya’s weekly income \(I,\) depends on the number of new policies, \(n,\) he sells during the week. Last week he sold 3 new policies, and earned $760 for the week. The week before, he sold 5 new policies and earned $920. Find an equation for \(I(n),\) and interpret the meaning of the components of the equation.</p>
+<p class="sol-hint">Use the two (policies, income) pairs to find the slope first, then solve for the base salary \(b\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The given information gives us two input-output pairs: \((3,760)\) and \((5,\text{92}0).\) We start by finding the rate of change.</p>
+<p id="eq23">\[\begin{array}{lll}m &amp; = &amp; \frac{920-760}{5-3} \\ &amp; = &amp; \frac{\$160}{2 \text{policies}} \\ &amp; = &amp; \text{\$}80\,\text{per}\,\text{policy}\end{array}\]</p>
+<p>Keeping track of units can help us interpret this quantity. Income increased by $160 when the number of policies increased by 2, so the rate of change is $80 per policy. Therefore, Ilya earns a commission of $80 for each policy sold during the week.</p>
+<p>We can then solve for the initial value.</p>
+<p id="eq24">\[\begin{array}{llll}I(n) &amp; = &amp; 80n+b &amp; \\ 760 &amp; = &amp; 80(3)+b &amp; \,\,\text{when}\,n=3,I(3)=760 \\ 760 &amp; - &amp; 80(3)=b &amp; \\ 520 &amp; = &amp; b &amp; \end{array}\]</p>
+<p>The value of \(b\) is the starting value for the function and represents Ilya’s income when \(n=0,\) or when no new policies are sold. We can interpret this as Ilya’s base salary for the week, which does not depend upon the number of policies sold.</p>
+<p>We can now write the final equation.</p>
+<p id="eq25">\[I(n)=80n+520\]</p>
+<p>Our final interpretation is that Ilya’s base salary is $520 per week and he earns an additional $80 commission for each policy sold.</p>
+</div></div></div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p><a href="#tab2">Table 2</a> relates the number of rats in a population to time, in weeks. Use the table to write a linear equation.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>number of weeks, <strong>w</strong></strong></td><td>0</td><td>2</td><td>4</td><td>6</td></tr><tr><td><strong>number of rats, <strong>P(w)</strong></strong></td><td>1000</td><td>1080</td><td>1160</td><td>1240</td></tr></tbody></table></div>
+<p class="sol-hint">Read the y-intercept directly from the table (the row where the input is 0), then find the slope between any two rows.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can see from the table that the initial value for the number of rats is 1000, so \(b=1000.\)</p>
+<p>Rather than solving for \(m,\) we can tell from looking at the table that the population increases by 80 for every 2 weeks that pass. This means that the rate of change is 80 rats per 2 weeks, which can be simplified to 40 rats per week.</p>
+<p id="eq26">\[P(w)=40w+1000\]</p>
+<p>If we did not notice the rate of change from the table we could still solve for the slope using any two points from the table. For example, using \((2,1080)\) and \((6,1240)\)</p>
+<p id="eq27">\[\begin{array}{lll}m &amp; = &amp; \frac{1240-1080}{6-2} \\ &amp; = &amp; \frac{160}{4} \\ &amp; = &amp; 40\end{array}\]</p>
+</div></div></div>
+<div class="card qa" id="fs-id1691538"><span class="chip">Q&amp;A</span><p><strong>Is the initial value always provided in a table of values like <a href="#tab2">Table 2</a>?</strong></p>
+<p><strong>No. Sometimes the initial value is provided in a table of values, but sometimes it is not. If you see an input of 0, then the initial value would be the corresponding output. If the initial value is not provided because there is no value of input on the table equal to 0, find the slope, substitute one coordinate pair and the slope into \(f(x)=mx+b,\) and solve for \(b.\)</strong></p>
+</div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>A new plant food was introduced to a young tree to test its effect on the height of the tree. <a href="#tab3">Table 3</a> shows the height of the tree, in feet, \(x\) months since the measurements began. Write a linear function, \(H(x),\) where \(x\) is the number of months since the start of the experiment.</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td><strong><strong>x</strong></strong></td><td>0</td><td>2</td><td>4</td><td>8</td><td>12</td></tr><tr><td><strong><strong>H</strong>(<strong>x</strong>)</strong></td><td>12.5</td><td>13.5</td><td>14.5</td><td>16.5</td><td>18.5</td></tr></tbody></table></div>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(H(x)=0.5x+12.5\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-linear-functions">Graphing Linear Functions</h2>
+<p>Now that we’ve seen and interpreted graphs of linear functions, let’s take a look at how to create the graphs. There are three basic methods of graphing linear functions. The first is by plotting points and then drawing a line through the points. The second is by using the <strong>y-</strong>intercept and slope. And the third method is by using transformations of the identity function \(f(x)=x.\)</p>
+<h3 id="graphing-a-function-by-plotting-points">Graphing a Function by Plotting Points</h3>
+<p>To find points of a function, we can choose input values, evaluate the function at these input values, and calculate output values. The input values and corresponding output values form coordinate pairs. We then plot the coordinate pairs on a grid. In general, we should evaluate the function at a minimum of two inputs in order to find at least two points on the graph. For example, given the function, \(f(x)=2x,\) we might use the input values 1 and 2. Evaluating the function for an input value of 1 yields an output value of 2, which is represented by the point \((1,2).\) Evaluating the function for an input value of 2 yields an output value of 4, which is represented by the point \((2,4).\) Choosing three points is often advisable because if all three points do not fall on the same line, we know we made an error.</p>
+<div class="card howto" id="fs-id2248016"><span class="chip">How To</span><p><strong>Given a linear function, graph by plotting points.</strong></p>
+<ul class="tight"><li>Choose a minimum of two input values.</li><li>Evaluate the function at each input value.</li><li>Use the resulting output values to identify coordinate pairs.</li><li>Plot the coordinate pairs on a grid.</li><li>Draw a line through the points.</li></ul>
+</div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Graph \(f(x)=-\frac{2}{3}x+5\) by plotting points.</p>
+<p class="sol-hint">Pick x-values that are multiples of 3 so the fraction works out to whole-number outputs.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Begin by choosing input values. This function includes a fraction with a denominator of 3, so let’s choose multiples of 3 as input values. We will choose 0, 3, and 6.</p>
+<p>Evaluate the function at each input value, and use the output value to identify coordinate pairs.</p>
+<p id="eq28">\[\begin{array}{ll}x=0 &amp; \,f(0)=-\frac{2}{3}(0)+5=5⇒(0,5) \\ x=3 &amp; \,f(3)=-\frac{2}{3}(3)+5=3⇒(3,3) \\ x=6 &amp; \,f(6)=-\frac{2}{3}(6)+5=1⇒(6,1)\end{array}\]</p>
+<p>Plot the coordinate pairs and draw a line through the points. <a href="#fig11">Figure 11</a> represents the graph of the function \(f(x)=-\frac{2}{3}x+5.\)</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_001.jpg" alt="This graph shows a decreasing function graphed on an x y coordinate plane. The x axis runs from negative 4 to 7 and the y axis runs from negative 2 to 7. The y axis is labeled f of x. The function passes through the points (0, 5), (3, 3) and (6, 1)" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — The graph of the linear function \(f(x)=-\frac{2}{3}x+5.\)</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The graph of the function is a line as expected for a linear function. In addition, the graph has a downward slant, which indicates a negative slope. This is also expected from the negative, constant rate of change in the equation for the function.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Graph \(f(x)=-\frac{3}{4}x+6\) by plotting points.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_002.jpg" alt="This graph shows a decreasing function graphed on an x y coordinate plane. The x-axis runs from negative 8 to 10 and the y-axis runs from negative 8 to 8. The function passes through the points (0,6), (4,3) and (8,0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="graphing-a-function-using-y-intercept-and-slope">Graphing a Function Using <strong>y-</strong>intercept and Slope</h3>
+<p>Another way to graph linear functions is by using specific characteristics of the function rather than plotting points. The first characteristic is its <strong>y-</strong>intercept, which is the point at which the input value is zero. To find the <strong>y-</strong>intercept, we can set \(x=0\) in the equation.</p>
+<p>The other characteristic of the linear function is its slope<strong>.</strong></p>
+<p>Let’s consider the following function.</p>
+<p id="eq29">\[f(x)=\frac{1}{2}x+1\]</p>
+<p>The slope is \(\frac{1}{2}.\) Because the slope is positive, we know the graph will slant upward from left to right. The <strong>y-</strong>intercept is the point on the graph when \(x=0.\) The graph crosses the <strong>y</strong>-axis at \((0,1).\) Now we know the slope and the <strong>y</strong>-intercept. We can begin graphing by plotting the point \((0,1).\) We know that the slope is the change in the <strong>y</strong>-coordinate over the change in the <strong>x</strong>-coordinate. This is commonly referred to as rise over run, \(m=\frac{\text{rise}}{\text{run}}.\) From our example, we have \(m=\frac{1}{2},\) which means that the rise is 1 and the run is 2. So starting from our <strong>y</strong>-intercept \((0,1),\) we can rise 1 and then run 2, or run 2 and then rise 1. We repeat until we have a few points, and then we draw a line through the points as shown in <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_003.jpg" alt="This graph shows how to calculate the rise over run for the slope on an x, y coordinate plane.  The x-axis runs from negative 2 to 7. The y-axis runs from negative 2 to 5. The line extends right and upward from point (0,1), which is the y-intercept.  A dotted line extends two units to the right from point (0, 1) and is labeled Run = 2.  The same dotted line extends upwards one unit and is labeled Rise =1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+<div class="card definition" id="fs-id2202042"><span class="chip">Graphical Interpretation of a Linear Function</span><p>In the equation \(f(x)=mx+b\)</p>
+<ul class="tight"><li>\(b\) is the <strong>y</strong>-intercept of the graph and indicates the point \((0,b)\) at which the graph crosses the <strong>y</strong>-axis.</li><li>\(m\) is the slope of the line and indicates the vertical displacement (rise) and horizontal displacement (run) between each successive pair of points. Recall the formula for the slope:</li></ul>
+<p id="eq30">\[m=\frac{\text{change in output (rise)}}{\text{change in input (run)}}=\frac{\Delta y}{\Delta x}=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}}\]</p>
+</div>
+<div class="card qa" id="fs-id2378432"><span class="chip">Q&amp;A</span><p><strong>Do all linear functions have <strong>y</strong>-intercepts?</strong></p>
+<p><strong>Yes. All linear functions cross the y-axis and therefore have y-intercepts.</strong>(Note: <strong>A vertical line is parallel to the y-axis does not have a y-intercept, but it is not a function</strong>.)</p>
+</div>
+<div class="card howto" id="fs-id2354603"><span class="chip">How To</span><p><strong>Given the equation for a linear function, graph the function using the <strong>y</strong>-intercept and slope.</strong></p>
+<ul class="tight"><li>Evaluate the function at an input value of zero to find the <strong>y-</strong>intercept.</li><li>Identify the slope as the rate of change of the input value.</li><li>Plot the point represented by the <strong>y-</strong>intercept.</li><li>Use \(\frac{\text{rise}}{\text{run}}\) to determine at least two more points on the line.</li><li>Sketch the line that passes through the points.</li></ul>
+</div>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Graph \(f(x)=-\frac{2}{3}x+5\) using the <strong>y-</strong>intercept and slope.</p>
+<p class="sol-hint">Plot the y-intercept first, then use rise over run from the slope to find the next point.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Evaluate the function at \(x=0\) to find the <strong>y-</strong>intercept. The output value when \(x=0\) is 5, so the graph will cross the <strong>y</strong>-axis at \((0,5).\)</p>
+<p>According to the equation for the function, the slope of the line is \(-\frac{2}{3}.\) This tells us that for each vertical decrease in the “rise” of \(-2\) units, the “run” increases by 3 units in the horizontal direction. We can now graph the function by first plotting the <strong>y</strong>-intercept on the graph in <a href="#fig13">Figure 13</a>. From the initial value \((0,5)\) we move down 2 units and to the right 3 units. We can extend the line to the left and right by repeating, and then drawing a line through the points.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_004.jpg" alt="This graph shows a decreasing function graphed on an x y coordinate plane. The x-axis runs from negative 3 to 7, and the y-axis runs from negative 1 to 7. The function passes through the points (0,5); (3,3); and (6,1).  Arrows extend downward two units and to the right three units from each point to the next point." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — Graph of \(f(x)=-2/3x+5\) and shows how to calculate the rise over run for the slope.</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The graph slants downward from left to right, which means it has a negative slope as expected.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Find a point on the graph we drew in <a href="#example12">Example 12</a> that has a negative <strong>x</strong>-value.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Possible answers include \((-3,7),\) \((-6,9),\) or \((-9,11).\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="graphing-a-function-using-transformations">Graphing a Function Using Transformations</h3>
+<p>Another option for graphing is to use a <strong>transformation</strong> of the identity function \(f(x)=x.\) A function may be transformed by a shift up, down, left, or right. A function may also be transformed using a reflection, stretch, or compression.</p>
+<h4 id="vertical-stretch-or-compression">Vertical Stretch or Compression</h4>
+<p>In the equation \(f(x)=mx,\) the \(m\) is acting as the <strong>vertical stretch</strong> or <strong>compression</strong> of the identity function. When \(m\) is negative, there is also a vertical reflection of the graph. Notice in <a href="#fig14">Figure 14</a> that multiplying the equation of \(f(x)=x\) by \(m\) stretches the graph of \(f\) by a factor of \(m\) units if \(m&gt;\text{1}\) and compresses the graph of \(f\) by a factor of \(m\) units if \(0&lt;m&lt;1.\) This means the larger the absolute value of \(m,\) the steeper the slope.</p>
+<figure class="plot" id="fig14" data-desmos data-spec='{"bounds":{"left":-8,"right":8,"bottom":-8,"top":8},"sliders":[{"var":"m","min":-3,"max":3,"step":0.1,"value":2,"color":"#cf003d"}],"curves":[{"latex":"y=x","color":"#5a5656"},{"latex":"y=m\\cdot x","color":"#cf003d"}],"alt":"Interactive graph of f(x)=mx — drag m to stretch, compress, or reflect the identity function"}'>
+  <figcaption>Figure 14 — Drag <em>m</em> to see vertical stretches, compressions, and reflections of \(f(x)=x.\)</figcaption>
+</figure>
+<h4 id="vertical-shift">Vertical Shift</h4>
+<p>In \(f(x)=mx+b,\) the \(b\) acts as the <strong>vertical shift</strong>, moving the graph up and down without affecting the slope of the line. Notice in <a href="#fig15">Figure 15</a> that adding a value of \(b\) to the equation of \(f(x)=x\) shifts the graph of \(f\) a total of \(b\) units up if \(b\) is positive and \(|b|\) units down if \(b\) is negative.</p>
+<figure class="plot" id="fig15" data-desmos data-spec='{"bounds":{"left":-8,"right":8,"bottom":-8,"top":8},"sliders":[{"var":"b","min":-5,"max":5,"step":0.5,"value":3,"color":"#cf003d"}],"curves":[{"latex":"y=x","color":"#5a5656"},{"latex":"y=x+b","color":"#cf003d"}],"alt":"Interactive graph of f(x)=x+b — drag b to shift the identity function vertically"}'>
+  <figcaption>Figure 15 — Drag <em>b</em> to see vertical shifts of \(f(x)=x.\)</figcaption>
+</figure>
+<p>Using vertical stretches or compressions along with vertical shifts is another way to look at identifying different types of linear functions. Although this may not be the easiest way to graph this type of function, it is still important to practice each method.</p>
+<div class="card howto" id="fs-id2169375"><span class="chip">How To</span><p><strong>Given the equation of a linear function, use transformations to graph the linear function in the form \(f(x)=mx+b.\)</strong></p>
+<ul class="tight"><li>Graph \(f(x)=x.\)</li><li>Vertically stretch or compress the graph by a factor \(m.\)</li><li>Shift the graph up or down \(b\) units.</li></ul>
+</div>
+<div class="card example" id="example13"><div class="ex-head"><span class="num">Example 13</span><span class="t"></span></div><div class="ex-body"><p>Graph \(f(x)=\frac{1}{2}x-3\) using transformations.</p>
+<p class="sol-hint">Start from the identity function \(y=x\), apply the vertical stretch or compression from \(m\), then shift by \(b\).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The equation for the function shows that \(m=\frac{1}{2}\) so the identity function is vertically compressed by \(\frac{1}{2}.\) The equation for the function also shows that \(b=-3\) so the identity function is vertically shifted down 3 units. First, graph the identity function, and show the vertical compression as in <a href="#fig16">Figure 16</a>.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_007.jpg" alt="This graph shows two functions on an x, y coordinate plane. One shows an increasing function of y = x divided by 2 that runs through the points (0, 0) and (2, 1). The second shows an increasing function of y = x and runs through the points (0, 0) and (1, 1))." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16 — The function, \(y=x,\) compressed by a factor of \(\frac{1}{2}\) .</figcaption></figure>
+<p>Then show the vertical shift as in <a href="#fig17">Figure 17</a>.</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_008.jpg" alt="This graph shows two functions on an x, y coordinate plane. The first is an increasing function of y = x divided by 2 and runs through the points (0, 0) and (2, 1).  The second shows an increasing function of y = x divided by 2 minus 3 and passes through the points (0, 3) and (2, -2).  An arrow pointing downward from the first function  to the second function reveals the vertical shift." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17 — The function \(y=\frac{1}{2}x,\) shifted down 3 units.</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Graph \(f(x)=4+2x\) using transformations.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_009.jpg" alt="This graph shows three functions on an x, y coordinate plane. One shows an increasing function y = x that passes through points (0, 0) and (2, 2).  A second shows an increasing function y = 2 times x that passes through the points (0, 0) and (2, 4).  The third is an increasing function y = 2 times x plus 4 and passes through the points (0, 4) and (2, 8)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card qa" id="fs-id2238435"><span class="chip">Q&amp;A</span><p><strong>In <a href="#example15">Example 15</a>, could we have sketched the graph by reversing the order of the transformations?</strong></p>
+<p><strong>No. The order of the transformations follows the order of operations. When the function is evaluated at a given input, the corresponding output is calculated by following the order of operations. This is why we performed the compression first. For example, following the order: Let the input be 2.</strong></p>
+<p id="eq31">\[\begin{array}{lll}f(2) &amp; = &amp; \frac{1}{2}(2)-3 \\ &amp; = &amp; 1-3 \\ &amp; = &amp; -2\end{array}\]</p>
+</div>
+<h2 id="writing-the-equation-for-a-function-from-the-graph-of-a-line">Writing the Equation for a Function from the Graph of a Line</h2>
+<p>Earlier, we wrote the equation for a linear function from a graph. Now we can extend what we know about graphing linear functions to analyze graphs a little more closely. Begin by taking a look at <a href="#fig18">Figure 18</a>. We can see right away that the graph crosses the <strong>y</strong>-axis at the point \((0,\text{4})\) so this is the <strong>y</strong>-intercept.</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_010.jpg" alt="This graph shows the function f of x = 2 times x plus 4 on an x, y coordinate plane. The x-axis runs from negative 10 to 10. The y-axis runs from negative 10 to 10. This function passes through the points (-2, 0) and (0, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+<p>Then we can calculate the slope by finding the rise and run. We can choose any two points, but let’s look at the point \((-2,0).\) To get from this point to the <strong>y-</strong>intercept, we must move up 4 units (rise) and to the right 2 units (run). So the slope must be</p>
+<p id="eq32">\[m=\frac{\text{rise}}{\text{run}}=\frac{4}{2}=2\]</p>
+<p>Substituting the slope and <strong>y-</strong>intercept into the slope-intercept form of a line gives</p>
+<p id="eq33">\[y=2x+4\]</p>
+<div class="card howto" id="fs-id2214619"><span class="chip">How To</span><p><strong>Given a graph of linear function, find the equation to describe the function.</strong></p>
+<ul class="tight"><li>Identify the <strong>y-</strong>intercept of an equation.</li><li>Choose two points to determine the slope.</li><li>Substitute the <strong>y-</strong>intercept and slope into the slope-intercept form of a line.</li></ul>
+</div>
+<div class="card example" id="example14"><div class="ex-head"><span class="num">Example 14</span><span class="t"></span></div><div class="ex-body"><p>Match each equation of the linear functions with one of the lines in <a href="#fig19">Figure 19</a>.</p>
+<ul class="tight"><li>ⓐ \(f(x)=2x+3\)</li><li>ⓑ \(g(x)=2x-3\)</li><li>ⓒ \(h(x)=-2x+3\)</li><li>ⓓ \(j(x)=\frac{1}{2}x+3\)</li></ul>
+<figure class="plot" id="fig19"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_011.jpg" alt="Graph of four functions where the orange line has a y-intercept at 3 and slope of 2, the baby blue line has a y-intercept at 3 and slope of 1/2, the blue line has a y-intercept at 3 and slope of -2, and the green line has a y-intercept at -3 and slope of 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 19</figcaption></figure>
+<p class="sol-hint">Compare slopes first to match steepness and direction, then compare y-intercepts to pick among lines that share a slope.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Analyze the information for each function.</p>
+<ul class="tight"><li>ⓐThis function has a slope of 2 and a <strong>y</strong>-intercept of 3. It must pass through the point (0, 3) and slant upward from left to right. We can use two points to find the slope, or we can compare it with the other functions listed. Function \(g\) has the same slope, but a different <strong>y-</strong>intercept. Lines I and III have the same slant because they have the same slope. Line III does not pass through \((0,\text{3})\) so \(f\) must be represented by line I.</li><li>ⓑThis function also has a slope of 2, but a <strong>y</strong>-intercept of \(-3.\) It must pass through the point \((0,-3)\) and slant upward from left to right. It must be represented by line III.</li><li>ⓒThis function has a slope of –2 and a <strong>y-</strong>intercept of 3. This is the only function listed with a negative slope, so it must be represented by line IV because it slants downward from left to right.</li><li>ⓓThis function has a slope of \(\frac{1}{2}\) and a <strong>y-</strong>intercept of 3. It must pass through the point (0, 3) and slant upward from left to right. Lines I and II pass through \((0,\text{3}),\) but the slope of \(j\) is less than the slope of \(f\) so the line for \(j\) must be flatter. This function is represented by Line II.</li></ul>
+<p>Now we can re-label the lines as in <a href="#fig20">Figure 20</a>.</p>
+<figure class="plot" id="fig20"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_012.jpg" alt="Graph of four functions where the blue line is h(x) = -2x + 3 which goes through the point (0,3), the baby blue line is j(x) = x/2 + 3 which goes through the point (0,3). The orange line is f(x) = 2x + 3 which goes through the point (0,3), and the red line is g(x) = 2x – 3 which goes through the point (0,-3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 20</figcaption></figure>
+</div></div></div>
+<h3 id="finding-the-x-intercept-of-a-line">Finding the <strong>x</strong>-intercept of a Line</h3>
+<p>So far we have been finding the <strong>y-</strong>intercepts of a function: the point at which the graph of the function crosses the <strong>y</strong>-axis. Recall that a function may also have an <strong><strong>x</strong>-intercept</strong>, which is the <strong>x</strong>-coordinate of the point where the graph of the function crosses the <strong>x</strong>-axis. In other words, it is the input value when the output value is zero.</p>
+<p>To find the <strong>x</strong>-intercept, set a function \(f(x)\) equal to zero and solve for the value of \(x.\) For example, consider the function shown.</p>
+<p id="eq34">\[f(x)=3x-6\]</p>
+<p>Set the function equal to 0 and solve for \(x.\)</p>
+<p id="eq35">\[\begin{array}{lll}0 &amp; = &amp; 3x-6 \\ 6 &amp; = &amp; 3x \\ 2 &amp; = &amp; x \\ x &amp; = &amp; 2\end{array}\]</p>
+<p>The graph of the function crosses the <strong>x</strong>-axis at the point \((2,\text{0}).\)</p>
+<div class="card qa" id="fs-id2395312"><span class="chip">Q&amp;A</span><p><strong>Do all linear functions have <strong>x</strong>-intercepts?</strong></p>
+<p><strong>No. However, linear functions of the form \(y=c,\) where \(c\) is a nonzero real number are the only examples of linear functions with no x-intercept. For example, \(y=5\) is a horizontal line 5 units above the x-axis. This function has no x-intercepts, as shown in <strong><a href="#fig21">Figure 21</a>.</strong></strong></p>
+<figure class="plot" id="fig21"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_026_CAT.jpg" alt="Graph of the function y = 5, a completely horizontal line that goes through the point (0,5).  Graphed on an xy-plane with the x-axis ranging from -3 to 3 and the y-plane ranging from -1 to 8.  " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 21</figcaption></figure>
+</div>
+<div class="card definition" id="fs-id1855647"><span class="chip"><strong>x</strong>-intercept</span><p>The <strong>x</strong>-intercept of the function is value of \(x\) when \(f(x)=0.\) It can be solved by the equation \(0=mx+b.\)</p>
+</div>
+<div class="card example" id="example15"><div class="ex-head"><span class="num">Example 15</span><span class="t"></span></div><div class="ex-body"><p>Find the <strong>x</strong>-intercept of \(f(x)=\frac{1}{2}x-3.\)</p>
+<p class="sol-hint">Set the function equal to zero and solve for x.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Set the function equal to zero to solve for \(x.\)</p>
+<p id="eq36">\[\begin{array}{lll}0 &amp; = &amp; \frac{1}{2}x-3 \\ 3 &amp; = &amp; \frac{1}{2}x \\ 6 &amp; = &amp; x \\ x &amp; = &amp; 6\end{array}\]</p>
+<p>The graph crosses the <strong>x</strong>-axis at the point \((6,\text{0}).\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>A graph of the function is shown in <a href="#fig22">Figure 22</a>. We can see that the <strong>x</strong>-intercept is \((6,\text{0})\) as we expected.</p>
+<figure class="plot" id="fig22"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_013.jpg" alt="Graph of the linear function with the points (6,0) and (0,-3) labeled with a slope of ½." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 22</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Find the <strong>x</strong>-intercept of \(f(x)=\frac{1}{4}x-4.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((16,\,\text{0})\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="describing-horizontal-and-vertical-lines">Describing Horizontal and Vertical Lines</h3>
+<p>There are two special cases of lines on a graph—horizontal and vertical lines. A <strong>horizontal line</strong> indicates a constant output, or <strong>y</strong>-value. In <a href="#fig23">Figure 23</a>, we see that the output has a value of 2 for every input value. The change in outputs between any two points, therefore, is 0. In the slope formula, the numerator is 0, so the slope is 0. If we use \(m=0\) in the equation \(f(x)=mx+b,\) the equation simplifies to \(f(x)=b.\) In other words, the value of the function is a constant. This graph represents the function \(f(x)=2.\)</p>
+<figure class="plot" id="fig23"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_014.jpg" alt="This graph shows the line y = 2 on an x.y coordinate plane.  The x-axis runs from negative 5 to 5 and the y-axis runs from – 5 to 5. A horizontal line crosses through the point (0, 2).  Underneath the graph is a table with two rows and six columns.  The top row is labeled: “x” and has the values negative 4, negative 2, 0, 2, and 4. The bottom row is labeled “y” and has the values 2, 2, 2, 2, and 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 23 — A horizontal line representing the function \(f(x)=2\)</figcaption></figure>
+<p>A <strong>vertical line</strong> indicates a constant input, or <strong>x</strong>-value. We can see that the input value for every point on the line is 2, but the output value varies. Because this input value is mapped to more than one output value, a vertical line does not represent a function. Notice that between any two points, the change in the input values is zero. In the slope formula, the denominator will be zero, so the slope of a vertical line is undefined.</p>
+<figure class="plot" id="fig24"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_015.jpg" alt="This is an image showing when a slope is undefined.  m = change of output divided by the change of input.  The change of output is labeled as: non-zero real number and the change of input is labeled 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 24 — Example of how a line has a vertical slope. 0 in the denominator of the slope.</figcaption></figure>
+<p>A vertical line, such as the one in <a href="#fig25">Figure 25</a><strong>,</strong> has an <strong>x</strong>-intercept, but no <strong>y-</strong>intercept unless it’s the line \(x=0.\) This graph represents the line \(x=2.\)</p>
+<figure class="plot" id="fig25"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_016.jpg" alt="This graph shows a vertical line passing through the point (2, 0) on an x, y coordinate plane. The x-axis runs from negative 5 to 5 and the y-axis runs from negative 5 to 5.  Underneath the graph is a table with two rows and six columns.  The top row is labeled: “x” and has the values 2, 2, 2, 2, and 2. The bottom row is labeled: “y” and has the values negative 4, negative 2, 0, 2, and 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 25 — The vertical line, \(x=2,\) which does not represent a function</figcaption></figure>
+<div class="card definition" id="fs-id2395146"><span class="chip">Horizontal and Vertical Lines</span><p>Lines can be horizontal or vertical.</p>
+<p>A <strong>horizontal line</strong> is a line defined by an equation in the form \(f(x)=b.\)</p>
+<p>A <strong>vertical line</strong> is a line defined by an equation in the form \(x=a.\)</p>
+</div>
+<div class="card example" id="example16"><div class="ex-head"><span class="num">Example 16</span><span class="t"></span></div><div class="ex-body"><p>Write the equation of the line graphed in <a href="#fig26">Figure 26</a>.</p>
+<figure class="plot" id="fig26"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_017.jpg" alt="This graph shows the function y = negative 4 on  an x, y coordinate plane.  The x-axis runs from negative 10 to 10. The y-axis runs from negative 10 to 10. The horizontal line passes through the point, (0, -4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 26</figcaption></figure>
+<p class="sol-hint">A horizontal line has the same y-value everywhere — read that constant value straight off the graph.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>For any <strong>x</strong>-value, the <strong>y</strong>-value is \(-4,\) so the equation is \(y=-4.\)</p>
+</div></div></div>
+<div class="card example" id="example17"><div class="ex-head"><span class="num">Example 17</span><span class="t"></span></div><div class="ex-body"><p>Write the equation of the line graphed in <a href="#fig27">Figure 27</a>.</p>
+<figure class="plot" id="fig27"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_018.jpg" alt="A Cartesian coordinate system shows a vertical line at x=7, extending from y=-9 to y=9. The x-axis ranges from -10 to 10, and the y-axis ranges from -10 to 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 27</figcaption></figure>
+<p class="sol-hint">A vertical line has the same x-value everywhere — read that constant value straight off the graph.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The constant <strong>x</strong>-value is \(7,\) so the equation is \(x=7.\)</p>
+</div></div></div>
+<h2 id="determining-whether-lines-are-parallel-or-perpendicular">Determining Whether Lines are Parallel or Perpendicular</h2>
+<p>The two lines in <a href="#fig28">Figure 28</a> are <strong>parallel lines</strong>: they will never intersect. They have exactly the same steepness, which means their slopes are identical. The only difference between the two lines is the <strong>y</strong>-intercept. If we shifted one line vertically toward the other, they would become coincident.</p>
+<figure class="plot" id="fig28"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_019.jpg" alt="This graph shows two lines on an x, y coordinate plane. The x-axis runs from negative 4 to 6. The y-axis runs from negative 3 to 8.  The first line has the equation y = -3 times x divided by 2 plus 1.  The second line has the equation y = -3 times x divided by 2 plus 7.  The lines do not cross." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 28 — Parallel lines</figcaption></figure>
+<p>We can determine from their equations whether two lines are parallel by comparing their slopes. If the slopes are the same and the <strong>y</strong>-intercepts are different, the lines are parallel. If the slopes are different, the lines are not parallel.</p>
+<p id="eq37">\[\begin{array}{ll}\begin{array}{l}f(x)=-2x+6 \\ f(x)=-2x-4\end{array}\}\,\text{parallel}\, &amp; \begin{array}{l}f(x)=3x+2 \\ f(x)=2x+2\end{array}\}\,\text{not parallel}\end{array}\]</p>
+<p>Unlike parallel lines, <strong>perpendicular lines</strong> do intersect. Their intersection forms a right, or 90-degree, angle. The two lines in <a href="#fig29">Figure 29</a> are perpendicular.</p>
+<figure class="plot" id="fig29"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_020.jpg" alt="This graph shows two functions perpendicular to each other on an x, y coordinate plane. The first function increases and passes through the points (1, 0) and (0, -5).  The second function decreases and passes through the points (1, 0) and (-4, 1).  The lines intersect to form a 90-degree right angle at the point (1, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 29 — Perpendicular lines</figcaption></figure>
+<p>Perpendicular lines do not have the same slope. The slopes of perpendicular lines are different from one another in a specific way. The slope of one line is the negative reciprocal of the slope of the other line. The product of a number and its reciprocal is \(1.\) So, if \({m}_{1}\,\text{and }{m}_{2}\) are negative reciprocals of one another, they can be multiplied together to yield \(-1.\)</p>
+<p id="eq38">\[{m}_{1}{m}_{2}=-1\]</p>
+<p>To find the reciprocal of a number, divide 1 by the number. So the reciprocal of 8 is \(\frac{1}{8},\) and the reciprocal of \(\frac{1}{8}\) is 8. To find the negative reciprocal, first find the reciprocal and then change the sign.</p>
+<p>As with parallel lines, we can determine whether two lines are perpendicular by comparing their slopes, assuming that the lines are neither horizontal nor vertical. The slope of each line below is the negative reciprocal of the other so the lines are perpendicular.</p>
+<p id="eq39">\[\begin{array}{llll}f(x) &amp; = &amp; \frac{1}{4}x+2 &amp; \,\text{negative reciprocal of}\,\frac{1}{4}\,\text{is }-4 \\ f(x) &amp; = &amp; -4x+3 &amp; \,\text{negative reciprocal of}\,-4\,\text{is }\frac{1}{4}\end{array}\]</p>
+<p>The product of the slopes is –1.</p>
+<p id="eq40">\[-4(\frac{1}{4})=-1\]</p>
+<div class="card definition" id="fs-id2241566"><span class="chip">Parallel and Perpendicular Lines</span><p>Two lines are <strong>parallel lines</strong> if they do not intersect. The slopes of the lines are the same.</p>
+<p id="eq41">\[f(x)={m}_{1}x+{b}_{1}\,\text{and}\,g(x)={m}_{2}x+{b}_{2}\,\text{are parallel if and only if }{m}_{1}={m}_{2}\]</p>
+<p>If and only if \({b}_{1}={b}_{2}\) and \({m}_{1}={m}_{2},\) we say the lines coincide. Coincident lines are the same line.</p>
+<p>Two lines are <strong>perpendicular lines</strong> if they intersect to form a right angle.</p>
+<p id="eq42">\[f(x)={m}_{1}x+{b}_{1}\,\text{and}\,g(x)={m}_{2}x+{b}_{2}\,\text{are perpendicular if and only if}\]</p>
+<p id="eq43">\[{m}_{1}{m}_{2}=-1,\text{so}\,{m}_{2}=-\frac{1}{{m}_{1}}\]</p>
+</div>
+<div class="card example" id="example18"><div class="ex-head"><span class="num">Example 18</span><span class="t"></span></div><div class="ex-body"><p>Given the functions below, identify the functions whose graphs are a pair of parallel lines and a pair of perpendicular lines.</p>
+<p id="eq44">\[\begin{array}{llllll}f(x) &amp; = &amp; 2x+3 &amp; \,h(x) &amp; = &amp; -2x+2 \\ g(x) &amp; = &amp; \frac{1}{2}x-4 &amp; \,j(x) &amp; = &amp; 2x-6\end{array}\]</p>
+<p class="sol-hint">Compare the slopes: matching slopes are parallel, negative-reciprocal slopes are perpendicular.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Parallel lines have the same slope. Because the functions \(f(x)=2x+3\) and \(j(x)=2x-6\) each have a slope of 2, they represent parallel lines. Perpendicular lines have negative reciprocal slopes. Because −2 and \(\frac{1}{2}\) are negative reciprocals, the functions \(g(x)=\frac{1}{2}x-4\) and \(h(x)=-2x+2\) represent perpendicular lines.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>A graph of the lines is shown in <a href="#fig30">Figure 30</a>.</p>
+<figure class="plot" id="fig30"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_021.jpg" alt="This graph shows four functions on an x, y coordinate plane. The x-axis runs from negative 8 to 9. The y-axis runs from negative 8 to 8.  The first shows the decreasing function h of x = negative 2 times x plus 2. It passes through the points (0, 2) and (1, 0). The second is an increasing function that shows f of x = 2 times x plus 3. It passes through the points (0, 3) and (-1.5, 0). The third is an increasing function that shows j of x = 2 times x minus 6 and passes through the points (0, -6) and (3, 0). The fourth line is an increasing function where g of x = x divided by 2 minus 4 and passes through the points (0, -4) and (2 ,0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 30</figcaption></figure>
+<p>The graph shows that the lines \(f(x)=2x+3\) and \(j(x)=2x-6\) are parallel, and the lines \(g(x)=\frac{1}{2}x-4\) and \(h(x)=-2x+2\) are perpendicular.</p>
+</div></div></div></div>
+<h2 id="writing-the-equation-of-a-line-parallel-or-perpendicular-to-a-given-line">Writing the Equation of a Line Parallel or Perpendicular to a Given Line</h2>
+<p>If we know the equation of a line, we can use what we know about slope to write the equation of a line that is either parallel or perpendicular to the given line.</p>
+<h3 id="writing-equations-of-parallel-lines">Writing Equations of Parallel Lines</h3>
+<p>Suppose for example, we are given the equation shown.</p>
+<p id="eq45">\[f(x)=3x+1\]</p>
+<p>We know that the slope of the line formed by the function is 3. We also know that the <strong>y-</strong>intercept is \((0,1).\) Any other line with a slope of 3 will be parallel to \(f(x).\) So the lines formed by all of the following functions will be parallel to \(f(x).\)</p>
+<p id="eq46">\[\begin{array}{lll}g(x) &amp; = &amp; 3x+6 \\ h(x) &amp; = &amp; 3x+1 \\ p(x) &amp; = &amp; 3x+\frac{2}{3}\end{array}\]</p>
+<p>Suppose then we want to write the equation of a line that is parallel to \(f\) and passes through the point \((1,\text{7}).\) This type of problem is often described as a point-slope problem because we have a point and a slope. In our example, we know that the slope is 3. We need to determine which value of \(b\) will give the correct line. We can begin with the point-slope form of an equation for a line, and then rewrite it in the slope-intercept form.</p>
+<p id="eq47">\[\begin{array}{lll}y-{y}_{1} &amp; = &amp; m(x-{x}_{1}) \\ y-7 &amp; = &amp; 3(x-1) \\ y-7 &amp; = &amp; 3x-3 \\ y &amp; = &amp; 3x+4\end{array}\]</p>
+<p>So \(g(x)=3x+4\) is parallel to \(f(x)=3x+1\) and passes through the point \((1,\text{7}).\)</p>
+<div class="card howto" id="fs-id1797404"><span class="chip">How To</span><p><strong>Given the equation of a function and a point through which its graph passes, write the equation of a line parallel to the given line that passes through the given point.</strong></p>
+<ul class="tight"><li>Find the slope of the function.</li><li>Substitute the given values into either the general point-slope equation or the slope-intercept equation for a line.</li><li>Simplify.</li></ul>
+</div>
+<div class="card example" id="example19"><div class="ex-head"><span class="num">Example 19</span><span class="t"></span></div><div class="ex-body"><p>Find a line parallel to the graph of \(f(x)=3x+6\) that passes through the point \((3,\text{0}).\)</p>
+<p class="sol-hint">Keep the same slope as the given line, then substitute the point to solve for the new y-intercept.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The slope of the given line is 3. If we choose the slope-intercept form, we can substitute \(m=3,x=3,\) and \(f(x)=0\) into the slope-intercept form to find the <strong>y-</strong>intercept.</p>
+<p id="eq48">\[\begin{array}{lll}g(x) &amp; = &amp; 3x+b \\ 0 &amp; = &amp; 3(3)+b \\ b &amp; = &amp; -9\end{array}\]</p>
+<p>The line parallel to \(f(x)\) that passes through \((3,\text{0})\) is \(g(x)=3x-9.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can confirm that the two lines are parallel by graphing them. <a href="#fig31">Figure 31</a> shows that the two lines will never intersect.</p>
+<figure class="plot" id="fig31"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_022.jpg" alt="This is a graph of two functions on an x, y coordinate plane. The x-axis runs from negative 6 to 6 and the y-axis runs from negative 2 to 10. The first function is y = 3 times x plus 6.  On this line is the point at (0, 6) with an arrow extending right one unit labeled: Right 1. From here, the arrow extends upward 3 units labeled: Up 3. The next function is y = 3 times x minus 9.  On this line is the point (3, 0) with an arrow extending right one unit labeled: Right 1. From here is an arrow extending upward 3 units labeled: Up 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 31</figcaption></figure>
+</div></div></div></div>
+<h3 id="writing-equations-of-perpendicular-lines">Writing Equations of Perpendicular Lines</h3>
+<p>We can use a very similar process to write the equation for a line perpendicular to a given line. Instead of using the same slope, however, we use the negative reciprocal of the given slope. Suppose we are given the function shown.</p>
+<p id="eq49">\[f(x)=2x+4\]</p>
+<p>The slope of the line is 2, and its negative reciprocal is \(-\frac{1}{2}.\) Any function with a slope of \(-\frac{1}{2}\) will be perpendicular to \(f(x).\) So the lines formed by all of the following functions will be perpendicular to \(f(x).\)</p>
+<p id="eq50">\[\begin{array}{lll}g(x) &amp; = &amp; -\frac{1}{2}x+4 \\ h(x) &amp; = &amp; -\frac{1}{2}x+2 \\ p(x) &amp; = &amp; -\frac{1}{2}x-\frac{1}{2}\end{array}\]</p>
+<p>As before, we can narrow down our choices for a particular perpendicular line if we know that it passes through a given point. Suppose then we want to write the equation of a line that is perpendicular to \(f(x)\) and passes through the point \((4,\text{0}).\) We already know that the slope is \(-\frac{1}{2}.\) Now we can use the point to find the <strong>y</strong>-intercept by substituting the given values into the slope-intercept form of a line and solving for \(b.\)</p>
+<p id="eq51">\[\begin{array}{lll}g(x) &amp; = &amp; mx+b \\ 0 &amp; = &amp; -\frac{1}{2}(4)+b \\ 0 &amp; = &amp; -2+b \\ 2 &amp; = &amp; b \\ b &amp; = &amp; 2\end{array}\]</p>
+<p>The equation for the function with a slope of \(-\frac{1}{2}\) and a <strong>y-</strong>intercept of 2 is</p>
+<p id="eq52">\[g(x)=-\frac{1}{2}x+2\]</p>
+<p>So \(g(x)=-\frac{1}{2}x+2\) is perpendicular to \(f(x)=2x+4\) and passes through the point \((4,\text{0}).\) Be aware that perpendicular lines may not look obviously perpendicular on a graphing calculator unless we use the square zoom feature.</p>
+<div class="card qa" id="fs-id2424376"><span class="chip">Q&amp;A</span><p><strong>A horizontal line has a slope of zero and a vertical line has an undefined slope. These two lines are perpendicular, but the product of their slopes is not –1. Doesn’t this fact contradict the definition of perpendicular lines?</strong></p>
+<p><strong>No. For two perpendicular linear functions, the product of their slopes is –1. However, a vertical line is not a function so the definition is not contradicted.</strong></p>
+</div>
+<div class="card howto" id="fs-id2424399"><span class="chip">How To</span><p><strong>Given the equation of a function and a point through which its graph passes, write the equation of a line perpendicular to the given line.</strong></p>
+<ul class="tight"><li>Find the slope of the function.</li><li>Determine the negative reciprocal of the slope.</li><li>Substitute the new slope and the values for \(x\) and \(y\) from the coordinate pair provided into \(g(x)=mx+b.\)</li><li>Solve for \(b.\)</li><li>Write the equation of the line.</li></ul>
+</div>
+<div class="card example" id="example20"><div class="ex-head"><span class="num">Example 20</span><span class="t"></span></div><div class="ex-body"><p>Find the equation of a line perpendicular to \(f(x)=3x+3\) that passes through the point \((3,\text{0}).\)</p>
+<p class="sol-hint">Take the negative reciprocal of the given slope, then substitute the point to solve for b.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The original line has slope \(m=3,\) so the slope of the perpendicular line will be its negative reciprocal, or \(-\frac{1}{3}.\) Using this slope and the given point, we can find the equation of the line.</p>
+<p id="eq53">\[\begin{array}{lll}g(x) &amp; = &amp; -\frac{1}{3}x+b \\ 0 &amp; = &amp; -\frac{1}{3}(3)+b \\ 1 &amp; = &amp; b \\ b &amp; = &amp; 1\end{array}\]</p>
+<p>The line perpendicular to \(f(x)\) that passes through \((3,\text{0})\) is \(g(x)=-\frac{1}{3}x+1.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>A graph of the two lines is shown in <a href="#fig32">Figure 32</a>.</p>
+<figure class="plot" id="fig32"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_023.jpg" alt="This is a graph of two functions on an x, y coordinate plane. The x-axis runs from negative 6 to 6. The y-axis runs from negative 4 to 10. The first function shows g of x = negative x divided by 3 plus 1. The second function shows f of x = 3 times x plus 6.  The lines intersect at the point (-1.5, 1.5) to form a 90-degree, right angle." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 32</figcaption></figure>
+<p>Note that that if we graph perpendicular lines on a graphing calculator using standard zoom, the lines may not appear to be perpendicular. Adjusting the window will make it possible to zoom in further to see the intersection more closely.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Given the function \(h(x)=2x-4,\) write an equation for the line passing through \((0,0)\) that is</p>
+<ul class="tight"><li>ⓐparallel to \(h(x)\)</li><li>ⓑperpendicular to \(h(x)\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ \(f(x)=2x;\)</li><li>ⓑ \(g(x)=-\frac{1}{2}x\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto" id="fs-id2363495"><span class="chip">How To</span><p><strong>Given two points on a line and a third point, write the equation of the perpendicular line that passes through the point.</strong></p>
+<ul class="tight"><li>Determine the slope of the line passing through the points.</li><li>Find the negative reciprocal of the slope.</li><li>Use the slope-intercept form or point-slope form to write the equation by substituting the known values.</li><li>Simplify.</li></ul>
+</div>
+<div class="card example" id="example21"><div class="ex-head"><span class="num">Example 21</span><span class="t"></span></div><div class="ex-body"><p>A line passes through the points \((-2,\text{6})\) and \((4,5).\) Find the equation of a perpendicular line that passes through the point \((4,5).\)</p>
+<p class="sol-hint">First find the slope between the two given points, then take its negative reciprocal for the perpendicular line.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>From the two points of the given line, we can calculate the slope of that line.</p>
+<p id="eq54">\[\begin{array}{lll}{m}_{1} &amp; = &amp; \frac{5-6}{4-(-2)} \\ &amp; = &amp; \frac{-1}{6} \\ &amp; = &amp; -\frac{1}{6}\end{array}\]</p>
+<p>Find the negative reciprocal of the slope.</p>
+<p id="eq55">\[\begin{array}{lll}{m}_{2} &amp; = &amp; \frac{-1}{-\frac{1}{6}} \\ &amp; = &amp; -1(-\frac{6}{1}) \\ &amp; = &amp; 6\end{array}\]</p>
+<p>We can then solve for the <strong>y-</strong>intercept of the line passing through the point \((4,5).\)</p>
+<p id="eq56">\[\begin{array}{lll}g(x) &amp; = &amp; 6x+b \\ 5 &amp; = &amp; 6(4)+b \\ 5 &amp; = &amp; 24+b \\ -19 &amp; = &amp; b \\ b &amp; = &amp; -19\end{array}\]</p>
+<p>The equation for the line that is perpendicular to the line passing through the two given points and also passes through point \((4,5)\) is</p>
+<p id="eq57">\[y=6x-19\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>A line passes through the points, \((-2,\text{-15})\) and \((2,-3).\) Find the equation of a perpendicular line that passes through the point, \((6,4).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y=-\frac{1}{3}x+6\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id2380779"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with linear functions.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/linearfunctions" target="_blank" rel="noopener">Linear Functions</a></li><li><a href="https://openstax.org/l/findinginput" target="_blank" rel="noopener">Finding Input of Function from the Output and Graph</a></li><li><a href="https://openstax.org/l/graphwithtable" target="_blank" rel="noopener">Graphing Functions using Tables</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Linear functions can be represented in words, function notation, tabular form, and graphical form. See <a href="#example1">Example 1</a>.</li><li>An increasing linear function results in a graph that slants upward from left to right and has a positive slope. A decreasing linear function results in a graph that slants downward from left to right and has a negative slope. A constant linear function results in a graph that is a horizontal line. See <a href="#example2">Example 2</a>.</li><li>Slope is a rate of change. The slope of a linear function can be calculated by dividing the difference between <strong>y</strong>-values by the difference in corresponding <strong>x</strong>-values of any two points on the line. See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a>.</li><li>An equation for a linear function can be written from a graph. See <a href="#example5">Example 5</a>.</li><li>The equation for a linear function can be written if the slope \(m\) and initial value \(b\) are known. See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.</li><li>A linear function can be used to solve real-world problems given information in different forms. See <a href="#example8">Example 8</a><strong>,</strong><a href="#example9">Example 9</a><strong>,</strong>and <a href="#example10">Example 10</a>.</li><li>Linear functions can be graphed by plotting points or by using the <strong>y</strong>-intercept and slope. See <a href="#example11">Example 11</a> and <a href="#example12">Example 12</a>.</li><li>Graphs of linear functions may be transformed by using shifts up, down, left, or right, as well as through stretches, compressions, and reflections. See <a href="#example13">Example 13</a>.</li><li>The equation for a linear function can be written by interpreting the graph. See <a href="#example14">Example 14</a>.</li><li>The <strong>x</strong>-intercept is the point at which the graph of a linear function crosses the <strong>x</strong>-axis. See <a href="#example15">Example 15</a>.</li><li>Horizontal lines are written in the form, \(f(x)=b.\) See <a href="#example16">Example 16</a>.</li><li>Vertical lines are written in the form, \(x=b.\) See <a href="#example17">Example 17</a>.</li><li>Parallel lines have the same slope. Perpendicular lines have negative reciprocal slopes, assuming neither is vertical. See <a href="#example18">Example 18</a>.</li><li>A line parallel to another line, passing through a given point, may be found by substituting the slope value of the line and the <strong>x</strong>- and <strong>y</strong>-values of the given point into the equation, \(f(x)=mx+b,\) and using the \(b\) that results. Similarly, the point-slope form of an equation can also be used. See <a href="#example19">Example 19</a><strong>.</strong></li><li>A line perpendicular to another line, passing through a given point, may be found in the same manner, with the exception of using the negative reciprocal slope. See <a href="#example20">Example 20</a> and <a href="#example21">Example 21</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Terry is skiing down a steep hill. Terry's elevation, \(E(t),\) in feet after \(t\) seconds is given by \(E(t)=3000-70t.\) Write a complete sentence describing Terry’s starting elevation and how it is changing over time.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Terry starts at an elevation of 3000 feet and descends 70 feet per second.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Jessica is walking home from a friend’s house. After 2 minutes she is 1.4 miles from home. Twelve minutes after leaving, she is 0.9 miles from home. What is her rate in miles per hour?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>A boat is 100 miles away from the marina, sailing directly toward it at 10 miles per hour. Write an equation for the distance of the boat from the marina after <strong>t</strong> hours.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(d(t)=100-10t\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>If the graphs of two linear functions are perpendicular, describe the relationship between the slopes and the <strong>y</strong>-intercepts.</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>If a horizontal line has the equation \(f(x)=a\) and a vertical line has the equation \(x=a,\) what is the point of intersection? Explain why what you found is the point of intersection.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The point of intersection is \((a,\,\,a).\) This is because for the horizontal line, all of the \(y\) coordinates are \(a\) and for the vertical line, all of the \(x\) coordinates are \(a.\) The point of intersection is on both lines and therefore will have these two characteristics.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, determine whether the equation of the curve can be written as a linear function.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(y=\frac{1}{4}x+6\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(y=3x-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(y=3{x}^{2}-2\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(3x+5y=15\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(3{x}^{2}+5y=15\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(3x+5{y}^{2}=15\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>No</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(-2{x}^{2}+3{y}^{2}=6\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(-\frac{x-3}{5}=2y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes</p>
+</div></div></div></div>
+<p>For the following exercises, determine whether each function is increasing or decreasing.</p>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(f(x)=4x+3\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(g(x)=5x+6\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Increasing</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(a(x)=5-2x\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(b(x)=8-3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Decreasing</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(h(x)=-2x+4\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(k(x)=-4x+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Decreasing</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(j(x)=\frac{1}{2}x-3\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(p(x)=\frac{1}{4}x-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Increasing</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(n(x)=-\frac{1}{3}x-2\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(m(x)=-\frac{3}{8}x+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Decreasing</p>
+</div></div></div></div>
+<p>For the following exercises, find the slope of the line that passes through the two given points.</p>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\((2,4)\) and \((4,\text{10})\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\((1,\text{5})\) and \((4,\text{11})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\((-1,\text{4})\) and \((5,\text{2})\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\((8,-2)\) and \((4,6)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>–2</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\((6,11)\) and \((-4,\text{3})\)</p>
+</div></div>
+<p>For the following exercises, given each set of information, find a linear equation satisfying the conditions, if possible.</p>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(f(-5)=-4,\) and \(f(5)=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{3}{5}x-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(f(-1)=4,\) and \(f(5)=1\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>Passes through \((2,4)\) and \((4,10)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=3x-2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Passes through \((1,5)\) and \((4,11)\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Passes through \((-1,\text{4})\) and \((5,2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{1}{3}x+\frac{11}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Passes through \((-2,\text{8})\) and \((4,\text{6})\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p><strong>x</strong> intercept at \((-2,0)\) and <strong>y</strong> intercept at \((0,-3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-1.5x-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p><strong>x</strong> intercept at \((-5,\text{0})\) and <strong>y</strong> intercept at \((0,4)\)</p>
+</div></div>
+<p>For the following exercises, determine whether the lines given by the equations below are parallel, perpendicular, or neither.</p>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(\begin{array}{l}4x-7y=10 \\ 7x+4y=1\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>perpendicular</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(\begin{array}{l}3y+x=12 \\ -y=8x+1\end{array}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(\begin{array}{l}3y+4x=12 \\ -6y=8x+1\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>parallel</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(\begin{array}{l}6x-9y=10 \\ 3x+2y=1\end{array}\)</p>
+</div></div>
+<p>For the following exercises, find the <strong>x</strong>- and <strong>y-</strong>intercepts of each equation.</p>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(f(x)=-x+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}f(0)=-(0)+2 \\ f(0)=2 \\ y-int:(0,2) \\ 0=-x+2 \\ x-int:(2,0)\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(g(x)=2x+4\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(h(x)=3x-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}h(0)=3(0)-5 \\ h(0)=-5 \\ y-int:(0,-5) \\ 0=3x-5 \\ x-int:(\frac{5}{3},0)\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(k(x)=-5x+1\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(-2x+5y=20\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}-2x+5y=20 \\ -2(0)+5y=20 \\ 5y=20 \\ y=4 \\ y-int:(0,4) \\ -2x+5(0)=20 \\ x=-10 \\ x-int:(-10,0)\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(7x+2y=56\)</p>
+</div></div>
+<p>For the following exercises, use the descriptions of each pair of lines given below to find the slopes of Line 1 and Line 2. Is each pair of lines parallel, perpendicular, or neither?</p>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Line 1: Passes through \((0,6)\) and \((3,-24)\)</p>
+<p>Line 2: Passes through \((-1,19)\) and \((8,-71)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Line 1: <strong>m</strong> = –10 Line 2: <strong>m</strong> = –10 Parallel</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Line 1: Passes through \((-8,-55)\) and \((10,89)\)</p>
+<p>Line 2: Passes through \((9,-44)\) and \((4,-14)\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Line 1: Passes through \((2,3)\) and \((4,-1)\)</p>
+<p>Line 2: Passes through \((6,3)\) and \((8,5)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Line 1: <strong>m</strong> = –2 Line 2: <strong>m</strong> = 1 Neither</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Line 1: Passes through \((1,7)\) and \((5,5)\)</p>
+<p>Line 2: Passes through \((-1,-3)\) and \((1,1)\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Line 1: Passes through \((2,5)\) and \((5,-1)\)</p>
+<p>Line 2: Passes through \((-3,7)\) and \((3,-5)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{Line 1}: m=-2 \text{Line 2}: m=-2 \text{Parallel}\)</p>
+</div></div></div></div>
+<p>For the following exercises, write an equation for the line described.</p>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Write an equation for a line parallel to \(f(x)=-5x-3\) and passing through the point \((2,\text{–}12).\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Write an equation for a line parallel to \(g(x)=3x-1\) and passing through the point \((4,9).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=3x-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Write an equation for a line perpendicular to \(h(t)=-2t+4\) and passing through the point \((-4,-1).\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>Write an equation for a line perpendicular to \(p(t)=3t+4\) and passing through the point \((3,1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{1}{3}t+2\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, find the slope of the line graphed.</p>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_202-2cc8.jpg" alt="This is a graph of a decreasing linear function on an x, y coordinate plane. The x-axis runs from negative 6 to 6. The y-axis runs from negative 6 to 6. The line passes through points (0, 5) and (4, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_203-9e0c.jpg" alt="This is a graph of a function on an x, y coordinate plane. The x-axis runs from negative 6 to 6. The y-axis runs from negative 6 to 6. The lines passes through points at (0, -2) and (2, -2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<p>For the following exercises, write an equation for the line graphed.</p>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_205-50b9.jpg" alt="Graph of an increasing linear function with points at (0,1) and (3,3)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_206-ae2b.jpg" alt="Graph of a decreasing linear function with points (0,5) and (4,0)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{5}{4}x+5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_207.jpg" alt="Graph of a decreasing linear function with points at (0,3) and (1.5,0)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_208-ed56.jpg" alt="Graph of an increasing linear function with points at (1,2) and (0,-2)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=3x-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_209-1a57.jpg" alt="Graph of a function with points at (0, 3) and (3, 3)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_210-23b3.jpg" alt="Graph of a function with points at (0,-2.5) and (-2.5,-2.5)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-2.5\)</p>
+</div></div></div></div>
+<p>For the following exercises, match the given linear equation with its graph in <a href="#fig33">Figure 33</a>.</p>
+<figure class="plot" id="fig33"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_201.jpg" alt="Graph of six functions where line A has a slope of 3 and y-intercept at 2, line B has a slope of 1 and y-intercept at 2, line C has a slope of 0 and y-intercept at 2, line D has a slope of -1/2 and y-intercept at -1, line E has a slope of -1 and y-intercept at -1, and line F has a slope of -2 and y-intercept at -1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 33</figcaption></figure>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>\(f(x)=-x-1\)</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>\(f(x)=-3x-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>F</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>\(f(x)=-\frac{1}{2}x-1\)</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>\(f(x)=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>C</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>\(f(x)=2+x\)</p>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>\(f(x)=3x+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A</p>
+</div></div></div></div>
+<p>For the following exercises, sketch a line with the given features.</p>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>An <strong>x</strong>-intercept of \((-4,\text{0})\) and <strong>y</strong>-intercept of \((0,\text{–2})\)</p>
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><p>An <strong>x</strong>-intercept \((-2,\text{0})\) and <strong>y</strong>-intercept of \((0,\text{4})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_203.jpg" alt="Graph of f with an x-intercept at -4 and y-intercept at -2 which gives us a slope of: 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex72"><div class="n">72</div><div class="body"><p>A <strong>y</strong>-intercept of \((0,\text{7})\) and slope \(-\frac{3}{2}\)</p>
+</div></div>
+<div class="exercise" id="ex73"><div class="n">73</div><div class="body"><p>A <strong>y</strong>-intercept of \((0,\text{3})\) and slope \(\frac{2}{5}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_205.jpg" alt="Graph of f with an y-intercept at 3 and a slope of 2/5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex74"><div class="n">74</div><div class="body"><p>Passing through the points \((-6,\text{–2})\) and \((6,\text{–6})\)</p>
+</div></div>
+<div class="exercise" id="ex75"><div class="n">75</div><div class="body"><p>Passing through the points \((-3,\text{–4})\) and \((3,\text{0})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_207.jpg" alt="Graph of a line that passes through the points (-3, -4) and (3, 0) which results in a slope of 2/3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, sketch the graph of each equation.</p>
+<div class="exercise" id="ex76"><div class="n">76</div><div class="body"><p>\(f(x)=-2x-1\)</p>
+</div></div>
+<div class="exercise" id="ex77"><div class="n">77</div><div class="body"><p>\(f(x)=-3x+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_209-60a6.jpg" alt="Graph of g(x) = -3x + 2 which goes through the points (0,2) and (1,-1) with a slope of -3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex78"><div class="n">78</div><div class="body"><p>\(f(x)=\frac{1}{3}x+2\)</p>
+</div></div>
+<div class="exercise" id="ex79"><div class="n">79</div><div class="body"><p>\(f(x)=\frac{2}{3}x-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_211.jpg" alt="Graph of k(x) =  .  This line goes through the points (0,-3) and (3,-1) and has a slope of 2/3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex80"><div class="n">80</div><div class="body"><p>\(f(t)=3+2t\)</p>
+</div></div>
+<div class="exercise" id="ex81"><div class="n">81</div><div class="body"><p>\(p(t)=-2+3t\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_226.jpg" alt="Graph of the line p(t) = 3t -2.  This line goes through the points (0,-2) and (1,1) which has a slope of 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex82"><div class="n">82</div><div class="body"><p>\(x=3\)</p>
+</div></div>
+<div class="exercise" id="ex83"><div class="n">83</div><div class="body"><p>\(x=-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_214.jpg" alt="Graph of x = -2 which is a line of undefined slope that goes through the point (-2,0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex84"><div class="n">84</div><div class="body"><p>\(r(x)=4\)</p>
+</div></div>
+<p>For the following exercises, write the equation of the line shown in the graph.</p>
+<div class="exercise" id="ex85"><div class="n">85</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_222-612a.jpg" alt="The graph of a line with a slope of 0 and y-intercept at 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\text{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex86"><div class="n">86</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_223-8721.jpg" alt="Graph of a line with a slope of 0 and y-intercept at -1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex87"><div class="n">87</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_224-571d.jpg" alt="Graph of a line with an undefined slope and x-intercept at -3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex88"><div class="n">88</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_02_225.jpg" alt="Graph of a line with an undefined slope and x-intercept at 2" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, which of the tables could represent a linear function? For each that could be linear, find a linear equation that models the data.</p>
+<div class="exercise" id="ex89"><div class="n">89</div><div class="body"><div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>\(x\)</td><td>0</td><td>5</td><td>10</td><td>15</td></tr><tr><td>\(g(x)\)</td><td>5</td><td>–10</td><td>–25</td><td>–40</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>Linear, \(g(x)=-3x+5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex90"><div class="n">90</div><div class="body"><div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>\(x\)</td><td>0</td><td>5</td><td>10</td><td>15</td></tr><tr><td>\(h(x)\)</td><td>5</td><td>30</td><td>105</td><td>230</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex91"><div class="n">91</div><div class="body"><div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>\(x\)</td><td>0</td><td>5</td><td>10</td><td>15</td></tr><tr><td>\(f(x)\)</td><td>–5</td><td>20</td><td>45</td><td>70</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>Linear, \(f(x)=5x-5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex92"><div class="n">92</div><div class="body"><div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>\(x\)</td><td>5</td><td>10</td><td>20</td><td>25</td></tr><tr><td>\(k(x)\)</td><td>13</td><td>28</td><td>58</td><td>73</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex93"><div class="n">93</div><div class="body"><div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td>\(x\)</td><td>0</td><td>2</td><td>4</td><td>6</td></tr><tr><td>\(g(x)\)</td><td>6</td><td>–19</td><td>–44</td><td>–69</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>Linear, \(g(x)=-\frac{25}{2}x+6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex94"><div class="n">94</div><div class="body"><div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td>\(x\)</td><td>2</td><td>4</td><td>8</td><td>10</td></tr><tr><td>\(h(x)\)</td><td>13</td><td>23</td><td>43</td><td>53</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex95"><div class="n">95</div><div class="body"><div class="tablewrap" id="tab10"><table class="data"><caption>Table 10</caption><tbody><tr><td>\(x\)</td><td>2</td><td>4</td><td>6</td><td>8</td></tr><tr><td>\(f(x)\)</td><td>–4</td><td>16</td><td>36</td><td>56</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>Linear, \(f(x)=10x-24\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex96"><div class="n">96</div><div class="body"><div class="tablewrap" id="tab11"><table class="data"><caption>Table 11</caption><tbody><tr><td>\(x\)</td><td>0</td><td>2</td><td>6</td><td>8</td></tr><tr><td>\(k(x)\)</td><td>6</td><td>31</td><td>106</td><td>231</td></tr></tbody></table></div>
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a calculator or graphing technology to complete the task.</p>
+<div class="exercise" id="ex97"><div class="n">97</div><div class="body"><p>If \(f\) is a linear function, \(f(0.1)=11.5\) , and \(f(0.4)=-5.9\) , find an equation for the function.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-58x+17.3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex98"><div class="n">98</div><div class="body"><p>Graph the function \(f\) on a domain of \([-10,10]:f(x)=0.02x-0.01.\) Enter the function in a graphing utility. For the viewing window, set the minimum value of \(x\) to be \(-10\) and the maximum value of \(x\) to be \(10\) .</p>
+</div></div>
+<div class="exercise" id="ex99"><div class="n">99</div><div class="body"><p>Graph the function \(f\) on a domain of \([-10,10]:fx)=2,500x+4,000\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_02_01_214.jpg" alt="Graph of f(x) = 2500x + 4000" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex100"><div class="n">100</div><div class="body"><p><a href="#tab12">Table 12</a> shows the input, \(w,\) and output, \(k,\) for a linear function \(k.\) \(k,\) round to 3 decimal places.</p>
+<ul class="tight"><li>ⓐFill in the missing values of the table.</li><li>ⓑWrite the linear function</li></ul>
+<div class="tablewrap" id="tab12"><table class="data"><caption>Table 12</caption><tbody><tr><td><strong><strong>w</strong></strong></td><td>–10</td><td>5.5</td><td>67.5</td><td><strong>b</strong></td></tr><tr><td><strong><strong>k</strong></strong></td><td>30</td><td>–26</td><td><strong>a</strong></td><td>–44</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex101"><div class="n">101</div><div class="body"><p><a href="#tab13">Table 13</a> shows the input, \(p,\) and output, \(q,\) for a linear function \(q.\) \(k.\)</p>
+<ul class="tight"><li>ⓐFill in the missing values of the table.</li><li>ⓑWrite the linear function</li></ul>
+<div class="tablewrap" id="tab13"><table class="data"><caption>Table 13</caption><tbody><tr><td><strong><strong>p</strong></strong></td><td>0.5</td><td>0.8</td><td>12</td><td><strong>b</strong></td></tr><tr><td><strong><strong>q</strong></strong></td><td>400</td><td>700</td><td><strong>a</strong></td><td>1,000,000</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(a=11,900\text{, }\,b=1000.1\)</li><li>ⓑ \(q(p)=1000p\,-100\)</li></ul>
+</div></div></div></div>
+<div class="exercise" id="ex102"><div class="n">102</div><div class="body"><p>Graph the linear function \(f\) on a domain of \([-10,10]\) for the function whose slope is \(\frac{1}{8}\) and <strong>y</strong>-intercept is \(\frac{31}{16}.\) Label the points for the input values of \(-10\) and \(10.\)</p>
+</div></div>
+<div class="exercise" id="ex103"><div class="n">103</div><div class="body"><p>Graph the linear function \(f\) on a domain of \([-0.1,0.1]\) for the function whose slope is 75 and <strong>y</strong>-intercept is \(-22.5.\) Label the points for the input values of \(-0.1\) and \(0.1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_01_201.jpg" alt="graph where the function's slope is 75 and y-intercept is –22.5" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex104"><div class="n">104</div><div class="body"><p>Graph the linear function \(f\) where \(f(x)=ax+b\) on the same set of axes on a domain of \([-4,4]\) for the following values of \(a\) and \(b.\)</p>
+<ul class="tight"><li>ⓐ \(a=2;b=3\)</li><li>ⓑ \(a=2;b=4\)</li><li>ⓒ \(a=2;b=-4\)</li><li>ⓓ \(a=2;b=-5\)</li></ul>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex105"><div class="n">105</div><div class="body"><p>Find the value of \(x\) if a linear function goes through the following points and has the following slope: \((x,2),(-4,6),\,m=3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-\frac{16}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex106"><div class="n">106</div><div class="body"><p>Find the value of<strong>y</strong>if a linear function goes through the following points and has the following slope: \((10,y),(25,100),\,m=-5\)</p>
+</div></div>
+<div class="exercise" id="ex107"><div class="n">107</div><div class="body"><p>Find the equation of the line that passes through the following points:</p>
+<p>\((a,\,\,b)\) and \((a,\,\,b+1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=a\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex108"><div class="n">108</div><div class="body"><p>Find the equation of the line that passes through the following points:</p>
+<p>\((2a,b)\) and \((a,b+1)\)</p>
+</div></div>
+<div class="exercise" id="ex109"><div class="n">109</div><div class="body"><p>Find the equation of the line that passes through the following points:</p>
+<p>\((a,0)\) and \((c,d)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{d}{c-a}x-\frac{ad}{c-a}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex110"><div class="n">110</div><div class="body"><p>Find the equation of the line parallel to the line \(g(x)=-0.\text{01}x\text{+2}\text{.01}\) through the point \((1,\text{2}).\)</p>
+</div></div>
+<div class="exercise" id="ex111"><div class="n">111</div><div class="body"><p>Find the equation of the line perpendicular to the line \(g(x)=-0.\text{01}x\text{+2}\text{.01}\) through the point \((1,\text{2}).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=100x-98\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the functions \(f(x)=-0.\text{1}x\text{+200 and }g(x)=20x+0.1.\)</p>
+<div class="exercise" id="ex112"><div class="n">112</div><div class="body"><p>Find the point of intersection of the lines \(f\) and \(g.\)</p>
+</div></div>
+<div class="exercise" id="ex113"><div class="n">113</div><div class="body"><p>Where is \(f(x)\) greater than \(g(x)?\) Where is \(g(x)\) greater than \(f(x)?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x&lt;\frac{1999}{201}\text{, }x&gt;\frac{1999}{201}\)</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex114"><div class="n">114</div><div class="body"><p>At noon, a barista notices that they have $20 in their tip jar. If the barista makes an average of $0.50 from each customer, how much will they have in the tip jar if they serve \(n\) more customers during the shift?</p>
+</div></div>
+<div class="exercise" id="ex115"><div class="n">115</div><div class="body"><p>A gym membership with two personal training sessions costs $125, while gym membership with five personal training sessions costs $260. What is cost per session?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>$45 per training session.</p>
+</div></div></div></div>
+<div class="exercise" id="ex116"><div class="n">116</div><div class="body"><p>A clothing business finds there is a linear relationship between the number of shirts, \(n,\) it can sell and the price, \(p,\) it can charge per shirt. In particular, historical data shows that 1,000 shirts can be sold at a price of \(\$30,\) while 3,000 shirts can be sold at a price of $22. Find a linear equation in the form \(p(n)=mn+b\) that gives the price \(p\) they can charge for \(n\) shirts.</p>
+</div></div>
+<div class="exercise" id="ex117"><div class="n">117</div><div class="body"><p>A phone company charges for service according to the formula: \(C(n)=24+0.1n,\) where \(n\) is the number of minutes talked, and \(C(n)\) is the monthly charge, in dollars. Find and interpret the rate of change and initial value.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The rate of change is 0.1. For every additional minute talked, the monthly charge increases by $0.1 or 10 cents. The initial value is 24. When there are no minutes talked, initially the charge is $24.</p>
+</div></div></div></div>
+<div class="exercise" id="ex118"><div class="n">118</div><div class="body"><p>A farmer finds there is a linear relationship between the number of bean stalks, \(n,\) she plants and the yield, \(y,\) each plant produces. When she plants 30 stalks, each plant yields 30 oz of beans. When she plants 34 stalks, each plant produces 28 oz of beans. Find a linear relationships in the form \(y=mn+b\) that gives the yield when \(n\) stalks are planted.</p>
+</div></div>
+<div class="exercise" id="ex119"><div class="n">119</div><div class="body"><p>A city’s population in the year 1960 was 287,500. In 1989 the population was 275,900. Compute the rate of growth of the population and make a statement about the population rate of change in people per year.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The slope is –400. this means for every year between 1960 and 1989, the population dropped by 400 per year in the city.</p>
+</div></div></div></div>
+<div class="exercise" id="ex120"><div class="n">120</div><div class="body"><p>A town’s population has been growing linearly. In 2003, the population was 45,000, and the population has been growing by 1,700 people each year. Write an equation, \(P(t),\) for the population \(t\) years after 2003.</p>
+</div></div>
+<div class="exercise" id="ex121"><div class="n">121</div><div class="body"><p>Suppose that average annual income (in dollars) for the years 1990 through 1999 is given by the linear function: \(I(x)=1054x+23,286\) , where \(x\) is the number of years after 1990. Which of the following interprets the slope in the context of the problem?</p>
+<ul class="tight"><li>ⓐAs of 1990, average annual income was $23,286.</li><li>ⓑIn the ten-year period from 1990–1999, average annual income increased by a total of $1,054.</li><li>ⓒEach year in the decade of the 1990s, average annual income increased by $1,054.</li><li>ⓓAverage annual income rose to a level of $23,286 by the end of 1999.</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>C</p>
+</div></div></div></div>
+<div class="exercise" id="ex122"><div class="n">122</div><div class="body"><p>When temperature is 0 degrees Celsius, the Fahrenheit temperature is 32. When the Celsius temperature is 100, the corresponding Fahrenheit temperature is 212. Express the Fahrenheit temperature as a linear function of \(C,\) the Celsius temperature, \(F(C).\)</p>
+<ul class="tight"><li>ⓐFind the rate of change of Fahrenheit temperature for each unit change temperature of Celsius.</li><li>ⓑFind and interpret \(F(28).\)</li><li>ⓒFind and interpret \(F(-40).\)</li></ul>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>decreasing linear function</dt><dd>a function with a negative slope: If \(f(x)=mx+b, \text{then} m&lt;0\)</dd><dt>horizontal line</dt><dd>a line defined by \(f(x)=b,\) where \(b\) is a real number. The slope of a horizontal line is 0.</dd><dt>increasing linear function</dt><dd>a function with a positive slope: If \(f(x)=mx+b, \text{then} m&gt;0.\)</dd><dt>linear function</dt><dd>a function with a constant rate of change that is a polynomial of degree 1, and whose graph is a straight line</dd><dt>parallel lines</dt><dd>two or more lines with the same slope</dd><dt>perpendicular lines</dt><dd>two lines that intersect at right angles and have slopes that are negative reciprocals of each other</dd><dt>point-slope form</dt><dd>the equation for a line that represents a linear function of the form \(y-{y}_{1}=m(x-{x}_{1})\)</dd><dt>slope</dt><dd>the ratio of the change in output values to the change in input values; a measure of the steepness of a line</dd><dt>slope-intercept form</dt><dd>the equation for a line that represents a linear function in the form \(f(x)=mx+b\)</dd><dt>vertical line</dt><dd>a line defined by \(x=a,\) where \(a\) is a real number. The slope of a vertical line is undefined.</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/college-algebra-2e">OpenStax College Algebra 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

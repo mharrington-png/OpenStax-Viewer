@@ -15,6 +15,17 @@ const BOOKS = {
     source: { name: "OpenStax College Algebra 2e", url: "https://openstax.org/books/college-algebra-2e", author: "Jay Abramson" },
     sectionsDir: "sections/college-algebra-2e",
     chapters: [
+      { n: 2, title: "Equations and Inequalities", sections: [
+        { id: "2-1", title: "2.1 The Rectangular Coordinate Systems and Graphs", file: "2-1.html", ready: true },
+        { id: "2-2", title: "2.2 Linear Equations in One Variable", file: "2-2.html", ready: true },
+        { id: "2-3", title: "2.3 Models and Applications", file: "2-3.html", ready: true },
+        { id: "2-4", title: "2.4 Complex Numbers", file: "2-4.html", ready: true },
+        { id: "2-5", title: "2.5 Quadratic Equations", file: "2-5.html", ready: true },
+        { id: "2-6", title: "2.6 Other Types of Equations", file: "2-6.html", ready: true },
+        { id: "2-7", title: "2.7 Linear Inequalities and Absolute Value Inequalities", file: "2-7.html", ready: true },
+        { id: "2-7-review", title: "Chapter Review Exercises", file: "2-7.html#chapter-review-exercises", ready: true },
+        { id: "2-7-practice", title: "Chapter Practice Test", file: "2-7.html#chapter-practice-test", ready: true },
+      ]},
       { n: 3, title: "Functions", sections: [
         { id: "3-1", title: "3.1 Functions and Function Notation", file: "3-1.html", ready: true },
         { id: "3-2", title: "3.2 Domain and Range", file: "3-2.html", ready: true },
@@ -25,6 +36,25 @@ const BOOKS = {
         { id: "3-7", title: "3.7 Inverse Functions", file: "3-7.html", ready: true },
         { id: "3-7-review", title: "Chapter Review Exercises", file: "3-7.html#chapter-review-exercises", ready: true },
         { id: "3-7-practice", title: "Practice Test", file: "3-7.html#practice-test", ready: true },
+      ]},
+      { n: 4, title: "Linear Functions", sections: [
+        { id: "4-1", title: "4.1 Linear Functions", file: "4-1.html", ready: true },
+        { id: "4-2", title: "4.2 Modeling with Linear Functions", file: "4-2.html", ready: true },
+        { id: "4-3", title: "4.3 Fitting Linear Models to Data", file: "4-3.html", ready: true },
+        { id: "4-3-review", title: "Chapter Review Exercises", file: "4-3.html#chapter-review-exercises", ready: true },
+        { id: "4-3-practice", title: "Chapter Practice Test", file: "4-3.html#chapter-practice-test", ready: true },
+      ]},
+      { n: 5, title: "Polynomial and Rational Functions", sections: [
+        { id: "5-1", title: "5.1 Quadratic Functions", file: "5-1.html", ready: true },
+        { id: "5-2", title: "5.2 Power Functions and Polynomial Functions", file: "5-2.html", ready: true },
+        { id: "5-3", title: "5.3 Graphs of Polynomial Functions", file: "5-3.html", ready: true },
+        { id: "5-4", title: "5.4 Dividing Polynomials", file: "5-4.html", ready: true },
+        { id: "5-5", title: "5.5 Zeros of Polynomial Functions", file: "5-5.html", ready: true },
+        { id: "5-6", title: "5.6 Rational Functions", file: "5-6.html", ready: true },
+        { id: "5-7", title: "5.7 Inverses and Radical Functions", file: "5-7.html", ready: false },
+        { id: "5-8", title: "5.8 Modeling Using Variation", file: "5-8.html", ready: false },
+        { id: "5-8-review", title: "Chapter Review Exercises", file: "5-8.html#chapter-review-exercises", ready: false },
+        { id: "5-8-practice", title: "Practice Test", file: "5-8.html#practice-test", ready: false },
       ]},
       { n: 6, title: "Exponential and Logarithmic Functions", sections: [
         { id: "6-1", title: "6.1 Exponential Functions", file: "6-1.html", ready: true },
