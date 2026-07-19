@@ -567,15 +567,28 @@ function buildOutline(container) {
   const main = document.querySelector("main");
   if (!main || !container) return;
   const nodes = main.querySelectorAll("h2[id], .example, .tryit, .card.qa, .card.howto");
+  const norm = s => (s || "").replace(/\s+/g, " ").trim();
   const short = (s, n = 36) => {
-    s = (s || "").replace(/\s+/g, " ").trim();
-    return s.length > n ? s.slice(0, n - 1) + "…" : s;
+    s = norm(s);
+    if (s.length <= n) return s;
+    let cut = s.slice(0, n - 1);
+    // Never cut inside a \(...\)/\[...\] math span -- KaTeX can't render a truncated
+    // expression and just dumps the raw source, so back the cut up to before the
+    // opening delimiter instead of leaving a dangling \( or \[.
+    const lastOpen = Math.max(cut.lastIndexOf("\\("), cut.lastIndexOf("\\["));
+    if (lastOpen !== -1) {
+      const close = cut[lastOpen + 1] === "(" ? "\\)" : "\\]";
+      if (s.indexOf(close, lastOpen) === -1 || s.indexOf(close, lastOpen) + 2 > n) {
+        cut = s.slice(0, lastOpen).trimEnd();
+      }
+    }
+    return cut + "…";
   };
   const groups = []; let cur = null;
   const counters = { ex: 0, qa: 0, how: 0 };
   nodes.forEach(el => {
     if (el.closest("details.bigfold")) return;           // skip optional warm-up content
-    if (el.tagName === "H2") { cur = { id: el.id, title: short(el.textContent, 42), items: [] }; groups.push(cur); return; }
+    if (el.tagName === "H2") { cur = { id: el.id, title: norm(el.textContent), items: [] }; groups.push(cur); return; }
     if (!cur) return;
     let id, badge, cls, label;
     if (el.classList.contains("example")) {
