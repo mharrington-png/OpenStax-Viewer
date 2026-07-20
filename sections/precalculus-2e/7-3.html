@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double-Angle, Half-Angle, and Reduction Formulas · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Double-Angle, Half-Angle, and Reduction Formulas</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 7.3</span>Double-Angle, Half-Angle, and Reduction Formulas</h1>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_07_03_001.jpg" alt="Picture of two bicycle ramps, one with a steep slope and one with a gentle slope." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Bicycle ramps for advanced riders have a steeper incline than those designed for novices.</figcaption></figure>
+<p>Bicycle ramps made for competition (see <a href="#fig1">Figure 1</a>) must vary in height depending on the skill level of the competitors. For advanced competitors, the angle formed by the ramp and the ground should be \(θ\) such that \(tan\,θ=\frac{5}{3}.\) The angle is divided in half for novices. What is the steepness of the ramp for novices? In this section, we will investigate three additional categories of identities that we can use to answer questions such as this one.</p>
+<h2 id="using-double-angle-formulas-to-find-exact-values">Using Double-Angle Formulas to Find Exact Values</h2>
+<p>In the previous section, we used addition and subtraction formulas for trigonometric functions. Now, we take another look at those same formulas. The <strong>double-angle formulas</strong> are a special case of the sum formulas, where \(α=β.\) Deriving the double-angle formula for sine begins with the sum formula,</p>
+<p id="eq1">\[sin(α+β)=sin\,α\,cos\,β+cos\,α\,sin\,β\]</p>
+<p>If we let \(α=β=θ,\) then we have</p>
+<p id="eq2">\[\begin{array}{l}sin(θ+θ)=sin\,θ\,cos\,θ+cos\,θ\,sin\,θ \\ \,sin(2θ)=2sin\,θ\,cos\,θ\end{array}\]</p>
+<p>Deriving the double-angle for cosine gives us three options. First, starting from the sum formula, \(cos(α+β)=cos\,α\,cos\,β-sin\,α\,sin\,β,\) and letting \(α=β=θ,\) we have</p>
+<p id="eq3">\[\begin{array}{l}cos(θ+θ)=cos\,θ\,cos\,θ-sin\,θsin\,θ \\ \,cos(2θ)={cos}^{2}θ-{sin}^{2}θ\end{array}\]</p>
+<p>Using the Pythagorean properties, we can expand this double-angle formula for cosine and get two more interpretations. The first one is:</p>
+<p id="eq4">\[\begin{array}{l}cos(2θ)={cos}^{2}θ-{sin}^{2}θ \\ \,=(1-{sin}^{2}θ)-{sin}^{2}θ \\ \,=1-2{sin}^{2}θ\end{array}\]</p>
+<p>The second interpretation is:</p>
+<p id="eq5">\[\begin{array}{l}cos(2θ)={cos}^{2}θ-{sin}^{2}θ \\ \,={cos}^{2}θ-(1-{cos}^{2}θ) \\ \,=2\,{cos}^{2}θ-1\end{array}\]</p>
+<p>Similarly, to derive the double-angle formula for tangent, replacing \(α=β=θ\) in the sum formula gives</p>
+<p id="eq6">\[\begin{array}{l}tan(α+β)=\frac{tan\,α+tan\,β}{1-tan\,α\,tan\,β} \\ tan(θ+θ)=\frac{tan\,θ+tan\,θ}{1-tan\,θ\,tan\,θ} \\ tan(2θ)=\frac{2tan\,θ}{1-{tan}^{2}θ}\end{array}\]</p>
+<div class="card definition" id="fs-id1992296"><span class="chip">Double-Angle Formulas</span><p>The <strong>double-angle formulas</strong> are summarized as follows:</p>
+<p id="eq7">\[sin(2θ)=2\,sin\,θ\,cos\,θ\]</p>
+<p id="eq8">\[\begin{array}{l}cos(2θ)={cos}^{2}θ-{sin}^{2}θ \\ \,=1-2\,{sin}^{2}θ \\ \,=2\,{cos}^{2}θ-1\end{array}\]</p>
+<p id="eq9">\[tan(2θ)=\frac{2\,tan\,θ}{1-{tan}^{2}θ}\]</p>
+</div>
+<div class="card howto" id="fs-id1578259"><span class="chip">How To</span><p><strong>Given the tangent of an angle and the quadrant in which it is located, use the double-angle formulas to find the exact value.</strong></p>
+<ul class="tight"><li>Draw a triangle to reflect the given information.</li><li>Determine the correct double-angle formula.</li><li>Substitute values into the formula based on the triangle.</li><li>Simplify.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Given that \(tan\,θ=-\frac{3}{4}\) and \(θ\) is in quadrant II, find the following:</p>
+<ul class="tight"><li>ⓐ \(sin(2θ)\)</li><li>ⓑ \(cos(2θ)\)</li><li>ⓒ \(tan(2θ)\)</li></ul>
+</div><p class="sol-hint">Draw a reference triangle in quadrant II for \(\tan\theta\), find \(\sin\theta\) and \(\cos\theta\), then plug into the double-angle formulas.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>If we draw a triangle to reflect the information given, we can find the values needed to solve the problems on the image. We are given \(tan\,θ=-\frac{3}{4},\) such that \(θ\) is in quadrant II. The tangent of an angle is equal to the opposite side over the adjacent side, and because \(θ\) is in the second quadrant, the adjacent side is on the <strong>x</strong>-axis and is negative. Use the <strong>Pythagorean Theorem</strong> to find the length of the hypotenuse:</p>
+<p id="eq10">\[\begin{array}{l}{(-4)}^{2}+{(3)}^{2}={c}^{2} \\ 16+9={c}^{2} \\ 25={c}^{2} \\ c=5\,\end{array}\]</p>
+<p>Now we can draw a triangle similar to the one shown in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_07_03_002.jpg" alt="Diagram of a triangle in the x,y-plane. The vertices are at the origin, (-4,0), and (-4,3). The angle at the origin is theta. The angle formed by the side (-4,3) to (-4,0) forms a right angle with the x axis. The hypotenuse across from the right angle is length 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<ul class="tight"><li>ⓐLet’s begin by writing the double-angle formula for sine. We see that we to need to find \(sin\,θ\) and \(cos\,θ.\) Based on <a href="#fig2">Figure 2</a>, we see that the hypotenuse equals 5, so \(sin\,θ=\frac{3}{5},\) and \(cos\,θ=-\frac{4}{5}.\) Substitute these values into the equation, and simplify.Thus,<p id="eq11">\[sin(2θ)=2\,sin\,θ\,cos\,θ\]</p>
+<p>We see that we to need to find \(sin\,θ\) and \(cos\,θ.\) Based on <a href="#fig2">Figure 2</a>, we see that the hypotenuse equals 5, so \(sin\,θ=\frac{3}{5},\) and \(cos\,θ=-\frac{4}{5}.\) Substitute these values into the equation, and simplify.</p>
+<p>Thus,</p>
+<p id="eq12">\[\begin{array}{l}sin(2θ)=2(\frac{3}{5})(-\frac{4}{5}) \\ \,=-\frac{24}{25}\end{array}\]</p>
+</li><li>ⓑ Write the double-angle formula for cosine. Again, substitute the values of the sine and cosine into the equation, and simplify.<p id="eq13">\[cos(2θ)={cos}^{2}θ-{sin}^{2}θ\]</p>
+<p>Again, substitute the values of the sine and cosine into the equation, and simplify.</p>
+<p id="eq14">\[\begin{array}{l}cos(2θ)={(-\frac{4}{5})}^{2}-{(\frac{3}{5})}^{2} \\ \,=\frac{16}{25}-\frac{9}{25} \\ \,=\frac{7}{25}\end{array}\]</p>
+</li><li>ⓒ Write the double-angle formula for tangent. In this formula, we need the tangent, which we were given as \(tan\,θ=-\frac{3}{4}.\) Substitute this value into the equation, and simplify.<p id="eq15">\[tan(2θ)=\frac{2\,tan\,θ}{1-{tan}^{2}θ}\]</p>
+<p>In this formula, we need the tangent, which we were given as \(tan\,θ=-\frac{3}{4}.\) Substitute this value into the equation, and simplify.</p>
+<p id="eq16">\[\begin{array}{l}tan(2θ)=\frac{2(-\frac{3}{4})}{1-{(-\frac{3}{4})}^{2}} \\ \,=\frac{-\frac{3}{2}}{1-\frac{9}{16}} \\ \,=-\frac{3}{2}(\frac{16}{7}) \\ \,=-\frac{24}{7}\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Given \(sin\,α=\frac{5}{8},\) with \(θ\) in quadrant I, find \(cos(2α).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(cos(2α)=\frac{7}{32}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Use the double-angle formula for cosine to write \(cos(6x)\) in terms of \(cos(3x).\)</p>
+</div><p class="sol-hint">Match \(6x=2(3x)\) to the double-angle form and substitute \(3x\) for the angle.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq17">\[\begin{array}{l}cos(6x)=cos(2(3x)) \\ \,={cos}^{2}(3x)-{\text{sin}}^{2}(3x) \\ \,=2{cos}^{2}(3x)-1\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This example illustrates that we can use the double-angle formula without having exact values. It emphasizes that the pattern is what we need to remember and that identities are true for all values in the domain of the trigonometric function.</p>
+</div></div></div></div>
+<h2 id="using-double-angle-formulas-to-verify-identities">Using Double-Angle Formulas to Verify Identities</h2>
+<p>Establishing identities using the double-angle formulas is performed using the same steps we used to derive the sum and difference formulas. Choose the more complicated side of the equation and rewrite it until it matches the other side.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Establish the following identity using double-angle formulas:</p>
+<p id="eq18">\[1+sin(2θ)={(sin\,θ+cos\,θ)}^{2}\]</p>
+</div><p class="sol-hint">Expand \(\sin(2\theta)\) and \(\cos(2\theta)\) with the double-angle formulas, then simplify one side to match the other.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will work on the right side of the equal sign and rewrite the expression until it matches the left side.</p>
+<p id="eq19">\[\begin{array}{l}{(sin\,θ+cos\,θ)}^{2}={sin}^{2}θ+2\,sin\,θ\,cos\,θ+{cos}^{2}θ \\ \,=({sin}^{2}θ+{cos}^{2}θ)+2\,sin\,θ\,cos\,θ \\ \,=1+2\,sin\,θ\,cos\,θ \\ \,=1+sin(2θ)\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This process is not complicated, as long as we recall the perfect square formula from algebra:</p>
+<p id="eq20">\[{(a\pm b)}^{2}={a}^{2}\pm 2ab+{b}^{2}\]</p>
+<p>where \(a=sin\,θ\) and \(b=cos\,θ.\) Part of being successful in mathematics is the ability to recognize patterns. While the terms or symbols may change, the algebra remains consistent.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Establish the identity: \({cos}^{4}θ-{sin}^{4}θ=cos(2θ).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({cos}^{4}θ-{sin}^{4}θ=({cos}^{2}θ+{sin}^{2}θ)({cos}^{2}θ-{sin}^{2}θ)=cos(2θ)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Verify the identity:</p>
+<p id="eq21">\[tan(2θ)=\frac{2}{cot\,θ-tan\,θ}\]</p>
+</div><p class="sol-hint">Rewrite each double-angle term with the double-angle formulas, then combine and simplify.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>In this case, we will work with the left side of the equation and simplify or rewrite until it equals the right side of the equation.</p>
+<p id="eq22">\[\begin{array}{ll}tan(2θ)=\frac{2\,tan\,θ}{1-{tan}^{2}θ} &amp; \text{Double-angle formula} \\ \,=\frac{2\,tan\,θ(\frac{1}{tan\,θ})}{(1-{tan}^{2}θ)(\frac{1}{tan\,θ})}\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{Multiply by a term that results in desired numerator}. \\ \,=\frac{2}{\frac{1}{tan\,θ}-\frac{{tan}^{2}θ}{tan\,θ}} &amp; \\ \,=\frac{2}{cot\,θ-tan\,θ} &amp; \text{Use reciprocal identity for }\frac{1}{tan\,θ}.\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Here is a case where the more complicated side of the initial equation appeared on the right, but we chose to work the left side. However, if we had chosen the left side to rewrite, we would have been working backwards to arrive at the equivalency. For example, suppose that we wanted to show</p>
+<p id="eq23">\[\frac{2tan\,θ}{1-{tan}^{2}θ}=\frac{2}{cot\,θ-tan\,θ}\]</p>
+<p>Let’s work on the right side.</p>
+<p id="eq24">\[\begin{array}{l}\frac{2}{cot\,θ-tan\,θ}=\frac{2}{\frac{1}{tan\,θ}-tan\,θ}(\frac{tan\,θ}{tan\,θ}) \\ \,=\frac{2\,tan\,θ}{\frac{1}{tan\,θ}(tan\,θ)-tan\,θ(tan\,θ)} \\ \,=\frac{2\,tan\,θ}{1-{tan}^{2}θ}\end{array}\]</p>
+<p>When using the identities to simplify a trigonometric expression or solve a trigonometric equation, there are usually several paths to a desired result. There is no set rule as to what side should be manipulated. However, we should begin with the guidelines set forth earlier.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Verify the identity: \(cos(2θ)cos\,θ={cos}^{3}θ-cos\,θ\,{sin}^{2}θ.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(cos(2θ)cos\,θ=({cos}^{2}θ-{sin}^{2}θ)cos\,θ={cos}^{3}θ-cos\,θ{sin}^{2}θ\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="use-reduction-formulas-to-simplify-an-expression">Use Reduction Formulas to Simplify an Expression</h2>
+<p>The double-angle formulas can be used to derive the <strong>reduction formulas</strong>, which are formulas we can use to reduce the power of a given expression involving even powers of sine or cosine. They allow us to rewrite the even powers of sine or cosine in terms of the first power of cosine. These formulas are especially important in higher-level math courses, calculus in particular. Also called the power-reducing formulas, three identities are included and are easily derived from the double-angle formulas.</p>
+<p>We can use two of the three double-angle formulas for cosine to derive the reduction formulas for sine and cosine. Let’s begin with \(cos(2θ)=1-2\,{sin}^{2}θ.\) Solve for \({sin}^{2}θ:\)</p>
+<p id="eq25">\[\begin{array}{l}cos(2θ)=1-2\,{sin}^{2}θ \\ 2\,{sin}^{2}θ=1-cos(2θ) \\ \,{sin}^{2}θ=\frac{1-cos(2θ)}{2}\end{array}\]</p>
+<p>Next, we use the formula \(cos(2θ)=2\,{cos}^{2}θ-1.\) Solve for \({cos}^{2}θ:\)</p>
+<p id="eq26">\[\begin{array}{l}\,cos(2θ)=2\,{cos}^{2}θ-1 \\ 1+cos(2θ)=2\,{cos}^{2}θ \\ \frac{1+cos(2θ)}{2}={cos}^{2}θ\end{array}\]</p>
+<p>The last reduction formula is derived by writing tangent in terms of sine and cosine:</p>
+<p id="eq27">\[\begin{array}{ll}{tan}^{2}θ=\frac{{sin}^{2}θ}{{cos}^{2}θ} &amp; \\ \,=\frac{\frac{1-cos(2θ)}{2}}{\frac{1+cos(2θ)}{2}} &amp; \text{Substitute the reduction formulas.} \\ \,=(\frac{1-cos(2θ)}{2})(\frac{2}{1+cos(2θ)})\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \\ \,=\frac{1-cos(2θ)}{1+cos(2θ)} &amp; \end{array}\]</p>
+<div class="card definition" id="fs-id2900248"><span class="chip">Reduction Formulas</span><p>The <strong>reduction formulas</strong> are summarized as follows:</p>
+<p id="eq28">\[{sin}^{2}θ=\frac{1-cos(2θ)}{2}\]</p>
+<p id="eq29">\[{cos}^{2}θ=\frac{1+cos(2θ)}{2}\]</p>
+<p id="eq30">\[{tan}^{2}θ=\frac{1-cos(2θ)}{1+cos(2θ)}\]</p>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Write an equivalent expression for \({cos}^{4}x\) that does not involve any powers of sine or cosine greater than 1.</p>
+</div><p class="sol-hint">Apply the power-reducing formula for \({\cos}^{2}x\) twice — once to get \({\cos}^{2}\) in terms of \(\cos(2x)\), then again to that result.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will apply the reduction formula for cosine twice.</p>
+<p id="eq31">\[\begin{array}{ll}{cos}^{4}x={({cos}^{2}x)}^{2} &amp; \\ \,={(\frac{1+cos(2x)}{2})}^{2} &amp; {\text{Substitute reduction formula for cos}}^{2}x. \\ \,=\frac{1}{4}(1+2cos(2x)+{cos}^{2}(2x)) &amp; \\ \,=\frac{1}{4}+\frac{1}{2}\,cos(2x)+\frac{1}{4}(\frac{1+cos2(2x)}{2})\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; {\text{ Substitute reduction formula for cos}}^{2}x. \\ \,=\frac{1}{4}+\frac{1}{2}\,cos(2x)+\frac{1}{8}+\frac{1}{8}\,cos(4x) &amp; \\ \,=\frac{3}{8}+\frac{1}{2}\,cos(2x)+\frac{1}{8}\,cos(4x) &amp; \end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The solution is found by using the reduction formula twice, as noted, and the perfect square formula from algebra.</p>
+</div></div></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Use the power-reducing formulas to prove</p>
+<p id="eq32">\[{sin}^{3}(2x)=[\frac{1}{2}\,sin(2x)]\,[1-cos(4x)]\]</p>
+</div><p class="sol-hint">Apply the power-reducing formulas for sine and cosine squared, then multiply and simplify.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will work on simplifying the left side of the equation:</p>
+<p id="eq33">\[\begin{array}{ll}{sin}^{3}(2x)=[sin(2x)][{sin}^{2}(2x)] &amp; \\ \,=sin(2x)[\frac{1-cos(4x)}{2}] &amp; \text{Substitute the power-reduction formula}. \\ \,=sin(2x)(\frac{1}{2})[1-cos(4x)] &amp; \\ \,=\frac{1}{2}[sin(2x)][1-cos(4x)] &amp; \end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that in this example, we substituted</p>
+<p id="eq34">\[\frac{1-cos(4x)}{2}\]</p>
+<p>for \({sin}^{2}(2x).\) The formula states</p>
+<p id="eq35">\[{sin}^{2}θ=\frac{1-cos(2θ)}{2}\]</p>
+<p>We let \(θ=2x,\) so \(2θ=4x.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Use the power-reducing formulas to prove that \(10\,{cos}^{4}x=\frac{15}{4}+5\,cos(2x)+\frac{5}{4}\,cos(4x).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{ll}10{cos}^{4}x=10{cos}^{4}x=10{({cos}^{2}x)}^{2} &amp; \\ \,=10{[\frac{1+cos(2x)}{2}]}^{2} &amp; {\text{Substitute reduction formula for cos}}^{2}x. \\ \,=\frac{10}{4}[1+2cos(2x)+{cos}^{2}(2x)] &amp; \\ \,=\frac{10}{4}+\frac{10}{2}cos(2x)+\frac{10}{4}(\frac{1+cos2(2x)}{2}) &amp; {\text{Substitute reduction formula for cos}}^{2}x. \\ \,=\frac{10}{4}+\frac{10}{2}cos(2x)+\frac{10}{8}+\frac{10}{8}cos(4x) &amp; \\ \,=\frac{30}{8}+5cos(2x)+\frac{10}{8}cos(4x) &amp; \\ \,=\frac{15}{4}+5cos(2x)+\frac{5}{4}cos(4x) &amp; \end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-half-angle-formulas-to-find-exact-values">Using Half-Angle Formulas to Find Exact Values</h2>
+<p>The next set of identities is the set of <strong>half-angle formulas</strong>, which can be derived from the reduction formulas and we can use when we have an angle that is half the size of a special angle. If we replace \(θ\) with \(\frac{α}{2},\) the half-angle formula for sine is found by simplifying the equation and solving for \(sin(\frac{α}{2}).\) Note that the half-angle formulas are preceded by a \(\pm\) sign. This does not mean that both the positive and negative expressions are valid. Rather, it depends on the quadrant in which \(\frac{α}{2}\) terminates.</p>
+<p>The half-angle formula for sine is derived as follows:</p>
+<p id="eq36">\[\begin{array}{l}\,{sin}^{2}θ=\frac{1-cos(2θ)}{2} \\ {sin}^{2}(\frac{α}{2})=\frac{1-cos(2\cdot \frac{α}{2})}{2} \\ =\frac{1-cos\,α}{2} \\ sin(\frac{α}{2})=\pm \sqrt{\frac{1-cos\,α}{2}}\end{array}\]</p>
+<p>To derive the half-angle formula for cosine, we have</p>
+<p id="eq37">\[\begin{array}{l}\,{cos}^{2}θ=\frac{1+cos(2θ)}{2} \\ {cos}^{2}(\frac{α}{2})=\frac{1+cos(2\cdot \frac{α}{2})}{2} \\ \,=\frac{1+cos\,α}{2} \\ \,cos(\frac{α}{2})=\pm \sqrt{\frac{1+cos\,α}{2}}\end{array}\]</p>
+<p>For the tangent identity, we have</p>
+<p id="eq38">\[\begin{array}{l}\,{tan}^{2}θ=\frac{1-cos(2θ)}{1+cos(2θ)} \\ {tan}^{2}(\frac{α}{2})=\frac{1-cos(2\cdot \frac{α}{2})}{1+cos(2\cdot \frac{α}{2})} \\ \,=\frac{1-cos\,α}{1+cos\,α} \\ \,tan(\frac{α}{2})=\pm \sqrt{\frac{1-cos\,α}{1+cos\,α}}\end{array}\]</p>
+<div class="card definition" id="fs-id2223366"><span class="chip">Half-Angle Formulas</span><p>The <strong>half-angle formulas</strong> are as follows:</p>
+<p id="eq39">\[sin(\frac{α}{2})=\pm \sqrt{\frac{1-cos\,α}{2}}\]</p>
+<p id="eq40">\[cos(\frac{α}{2})=\pm \sqrt{\frac{1+cos\,α}{2}}\]</p>
+<p id="eq41">\[\begin{array}{l}tan(\frac{α}{2})=\pm \sqrt{\frac{1-cos\,α}{1+cos\,α}} \\ =\frac{sin\,α}{1+cos\,α} \\ =\frac{1-cos\,α}{sin\,α}\end{array}\]</p>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find \(sin({15}^{∘})\) using a half-angle formula.</p>
+</div><p class="sol-hint">Write 15° as half of 30°, then apply the half-angle formula for sine.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since \({15}^{∘}=\frac{{30}^{∘}}{2},\) we use the half-angle formula for sine:</p>
+<p id="eq42">\[\begin{array}{l}\begin{array}{l} \\ sin\,\frac{{30}^{∘}}{2}=\sqrt{\frac{1-cos{30}^{∘}}{2}}\end{array} \\ \,=\sqrt{\frac{1-\frac{\sqrt{3}}{2}}{2}} \\ \,=\sqrt{\frac{\frac{2-\sqrt{3}}{2}}{2}} \\ \,=\sqrt{\frac{2-\sqrt{3}}{4}} \\ \,=\frac{\sqrt{2-\sqrt{3}}}{2}\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice that we used only the positive root because \(sin({15}^{\text{o}})\) is positive.</p>
+</div></div></div></div>
+<div class="card howto" id="fs-id2784673"><span class="chip">How To</span><p><strong>Given the tangent of an angle and the quadrant in which the angle lies, find the exact values of trigonometric functions of half of the angle.</strong></p>
+<ul class="tight"><li>Draw a triangle to represent the given information.</li><li>Determine the correct half-angle formula.</li><li>Substitute values into the formula based on the triangle.</li><li>Simplify.</li></ul>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Given that \(tan\,α=\frac{8}{15}\) and \(α\) lies in quadrant III, find the exact value of the following:</p>
+<ul class="tight"><li>ⓐ \(sin(\frac{α}{2})\)</li><li>ⓑ \(cos(\frac{α}{2})\)</li><li>ⓒ \(tan(\frac{α}{2})\)</li></ul>
+</div><p class="sol-hint">Draw a reference triangle in quadrant III for \(\tan\alpha\), find \(\cos\alpha\), then apply the half-angle formulas — watching the sign for the correct half-quadrant.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the given information, we can draw the triangle shown in <a href="#fig3">Figure 3</a>. Using the Pythagorean Theorem, we find the hypotenuse to be 17. Therefore, we can calculate \(sin\,α=-\frac{8}{17}\) and \(cos\,α=-\frac{15}{17}.\)</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_07_03_003.jpg" alt="Diagram of a triangle in the x,y-plane. The vertices are at the origin, (-15,0), and (-15,-8). The angle at the origin is alpha. The angle formed by the side (-15,-8) to (-15,0) forms a right angle with the x axis. The hypotenuse across from the right angle is length 17." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<ul class="tight"><li>ⓐBefore we start, we must remember that, if \(α\) is in quadrant III, then \(180°&lt;α&lt;270°,\) so \(\frac{180°}{2}&lt;\frac{α}{2}&lt;\frac{270°}{2}.\) This means that the terminal side of \(\frac{α}{2}\) is in quadrant II, since \(90°&lt;\frac{α}{2}&lt;135°.\) To find \(sin\,\frac{α}{2},\) we begin by writing the half-angle formula for sine. Then we substitute the value of the cosine we found from the triangle in <a href="#fig3">Figure 3</a> and simplify. We choose the positive value of \(sin\,\frac{α}{2}\) because the angle terminates in quadrant II and sine is positive in quadrant II.<p>To find \(sin\,\frac{α}{2},\) we begin by writing the half-angle formula for sine. Then we substitute the value of the cosine we found from the triangle in <a href="#fig3">Figure 3</a> and simplify.</p>
+<p id="eq43">\[\begin{array}{l}\begin{array}{l} \\ sin\,\frac{α}{2}=\pm \sqrt{\frac{1-cos\,α}{2}}\end{array} \\ \,=\pm \sqrt{\frac{1-(-\frac{15}{17})}{2}} \\ \,=\pm \sqrt{\frac{\frac{32}{17}}{2}} \\ \,=\pm \sqrt{\frac{32}{17}\cdot \frac{1}{2}} \\ \,=\pm \sqrt{\frac{16}{17}} \\ \,=\pm \frac{4}{\sqrt{17}} \\ \,=\frac{4\sqrt{17}}{17}\end{array}\]</p>
+<p>We choose the positive value of \(sin\,\frac{α}{2}\) because the angle terminates in quadrant II and sine is positive in quadrant II.</p>
+</li><li>ⓑ To find \(cos\,\frac{α}{2},\) we will write the half-angle formula for cosine, substitute the value of the cosine we found from the triangle in <a href="#fig3">Figure 3</a>, and simplify. We choose the negative value of \(cos\,\frac{α}{2}\) because the angle is in quadrant II because cosine is negative in quadrant II.<p id="eq44">\[\begin{array}{l}\begin{array}{l} \\ \\ cos\,\frac{α}{2}=\pm \sqrt{\frac{1+cos\,α}{2}}\end{array} \\ \,=\pm \sqrt{\frac{1+(-\frac{15}{17})}{2}} \\ \,=\pm \sqrt{\frac{\frac{2}{17}}{2}} \\ \,=\pm \sqrt{\frac{2}{17}\cdot \frac{1}{2}} \\ \,=\pm \sqrt{\frac{1}{17}} \\ \,=-\frac{\sqrt{17}}{17}\end{array}\]</p>
+<p>We choose the negative value of \(cos\,\frac{α}{2}\) because the angle is in quadrant II because cosine is negative in quadrant II.</p>
+</li><li>ⓒ To find \(tan\,\frac{α}{2},\) we write the half-angle formula for tangent. Again, we substitute the value of the cosine we found from the triangle in <a href="#fig3">Figure 3</a> and simplify. We choose the negative value of \(tan\,\frac{α}{2}\) because \(\frac{α}{2}\) lies in quadrant II, and tangent is negative in quadrant II.<p id="eq45">\[\begin{array}{l}\begin{array}{l} \\ tan\,\frac{α}{2}=\pm \sqrt{\frac{1-cos\,α}{1+cos\,α}}\end{array} \\ \,=\pm \sqrt{\frac{1-(-\frac{15}{17})}{1+(-\frac{15}{17})}} \\ \,=\pm \sqrt{\frac{\frac{32}{17}}{\frac{2}{17}}} \\ \,=\pm \sqrt{\frac{32}{2}} \\ \,=-\sqrt{16} \\ \,=-4\end{array}\]</p>
+<p>We choose the negative value of \(tan\,\frac{α}{2}\) because \(\frac{α}{2}\) lies in quadrant II, and tangent is negative in quadrant II.</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Given that \(sin\,α=-\frac{4}{5}\) and \(α\) lies in quadrant IV, find the exact value of \(cos\,(\frac{α}{2}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-\frac{2}{\sqrt{5}}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Now, we will return to the problem posed at the beginning of the section. A bicycle ramp is constructed for high-level competition with an angle of \(θ\) formed by the ramp and the ground. Another ramp is to be constructed half as steep for novice competition. If \(tan\,θ=\frac{5}{3}\) for higher-level competition, what is the measurement of the angle for novice competition?</p>
+</div><p class="sol-hint">Use the given information to set up a right triangle for \(\theta,\) then apply the appropriate half-angle or double-angle formula to answer the ramp question.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since the angle for novice competition measures half the steepness of the angle for the high-level competition, and \(tan\,θ=\frac{5}{3}\) for high-competition, we can find \(cos\,θ\) from the right triangle and the Pythagorean theorem so that we can use the half-angle identities. See <a href="#fig4">Figure 4</a>.</p>
+<p id="eq46">\[\begin{array}{l}{3}^{2}+{5}^{2}=34 \\ \,c=\sqrt{34}\end{array}\]</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_07_03_004.jpg" alt="Image of a right triangle with sides 3, 5, and rad34. Rad 34 is the hypotenuse, and 3 is the base. The angle formed by the hypotenuse and base is theta. The angle between the side of length 3 and side of length 5 is a right angle." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p>We see that \(cos\,θ=\frac{3}{\sqrt{34}}=\frac{3\sqrt{34}}{34}.\) We can use the half-angle formula for tangent: \(tan\,\frac{θ}{2}=\sqrt{\frac{1-cos\,θ}{1+cos\,θ}}.\) Since \(tan\,θ\) is in the first quadrant, so is \(tan\,\frac{θ}{2}.\) Thus,</p>
+<p id="eq47">\[\begin{array}{l}\begin{array}{l} \\ \\ tan\,\frac{θ}{2}=\sqrt{\frac{1-\frac{3\sqrt{34}}{34}}{1+\frac{3\sqrt{34}}{34}}}\end{array} \\ \,=\sqrt{\frac{\frac{34-3\sqrt{34}}{34}}{\frac{34+3\sqrt{34}}{34}}} \\ \,=\sqrt{\frac{34-3\sqrt{34}}{34+3\sqrt{34}}} \\ \,\approx 0.57\end{array}\]</p>
+<p>We can take the inverse tangent to find the angle: \({tan}^{-1}(0.57)\approx {29.7}^{∘}.\) So the angle of the ramp for novice competition is \(\approx {29.7}^{∘}.\)</p>
+</div></div></div>
+<div class="card callout" id="fs-id2454710"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with double-angle, half-angle, and reduction formulas.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/doubleangiden" target="_blank" rel="noopener">Double-Angle Identities</a></li><li><a href="https://openstax.org/l/halfangleident" target="_blank" rel="noopener">Half-Angle Identities</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Double-angle formulas</strong></td><td>\(\begin{array}{l}sin(2θ)=2sin\,θ\,cos\,θ \\ cos(2θ)={cos}^{2}θ-{sin}^{2}θ \\ \,=1-2{sin}^{2}θ \\ \,=2{cos}^{2}θ-1 \\ tan(2θ)=\frac{2tan\,θ}{1-{tan}^{2}θ}\end{array}\)</td></tr><tr><td><strong>Reduction formulas</strong></td><td>\(\begin{array}{l}{sin}^{2}θ=\frac{1-cos(2θ)}{2} \\ {cos}^{2}θ=\frac{1+cos(2θ)}{2} \\ {tan}^{2}θ=\frac{1-cos(2θ)}{1+cos(2θ)}\end{array}\)</td></tr><tr><td><strong>Half-angle formulas</strong></td><td>\(\begin{array}{l}sin\,\frac{α}{2}=\pm \sqrt{\frac{1-cos\,α}{2}} \\ cos\,\frac{α}{2}=\pm \sqrt{\frac{1+cos\,α}{2}} \\ tan\,\frac{α}{2}=\pm \sqrt{\frac{1-cos\,α}{1+cos\,α}} \\ \,=\frac{sin\,α}{1+cos\,α} \\ \,=\frac{1-cos\,α}{sin\,α}\end{array}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Double-angle identities are derived from the sum formulas of the fundamental trigonometric functions: sine, cosine, and tangent. See <a href="#example1">Example 1</a>, <a href="#example2">Example 2</a>, <a href="#example3">Example 3</a>, and <a href="#example4">Example 4</a>.</li><li>Reduction formulas are especially useful in calculus, as they allow us to reduce the power of the trigonometric term. See <a href="#example5">Example 5</a> and <a href="#example6">Example 6</a>.</li><li>Half-angle formulas allow us to find the value of trigonometric functions involving half-angles, whether the original angle is known or not. See <a href="#example7">Example 7</a>, <a href="#example8">Example 8</a>, and <a href="#example9">Example 9</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Explain how to determine the reduction identities from the double-angle identity \(cos(2x)={cos}^{2}x-{sin}^{2}x.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Use the Pythagorean identities and isolate the squared term.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Explain how to determine the double-angle formula for \(tan(2x)\) using the double-angle formulas for \(cos(2x)\) and \(sin(2x).\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>We can determine the half-angle formula for \(tan(\frac{x}{2})=\frac{\sqrt{1-cos\,x}}{\sqrt{1+cos\,x}}\) by dividing the formula for \(sin(\frac{x}{2})\) by \(cos(\frac{x}{2}).\) Explain how to determine two formulas for \(tan(\frac{x}{2})\) that do not involve any square roots.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1-cos\,x}{sin\,x},\frac{sin\,x}{1+cos\,x},\) multiplying the top and bottom by \(\sqrt{1-cos\,x}\) and \(\sqrt{1+cos\,x},\) respectively.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>For the half-angle formula given in the previous exercise for \(tan(\frac{x}{2}),\) explain why dividing by 0 is not a concern. (Hint: examine the values of \(cos\,x\) necessary for the denominator to be 0.)</p>
+</div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, find the exact values of a) \(sin(2x),\) b) \(cos(2x),\) and c) \(tan(2x)\) without solving for \(x.\)</p>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>If \(sin\,x=\frac{1}{8},\) and \(x\) is in quadrant I.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a) \(\frac{3\sqrt{7}}{32}\) b) \(\frac{31}{32}\) c) \(\frac{3\sqrt{7}}{31}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>If \(cos\,x=\frac{2}{3},\) and \(x\) is in quadrant I.</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>If \(cos\,x=-\frac{1}{2},\) and \(x\) is in quadrant III.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a) \(\frac{\sqrt{3}}{2}\) b) \(-\frac{1}{2}\) c) \(-\sqrt{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>If \(tan\,x=-8,\) and \(x\) is in quadrant IV.</p>
+</div></div>
+<p>For the following exercises, find the values of the six trigonometric functions if the conditions provided hold.</p>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(cos(2θ)=\frac{3}{5}\) and \({90}^{∘}\le θ\le {180}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(cos\,θ=-\frac{2\sqrt{5}}{5},sin\,θ=\frac{\sqrt{5}}{5},tan\,θ=-\frac{1}{2},csc\,θ=\sqrt{5},sec\,θ=-\frac{\sqrt{5}}{2},cot\,θ=-2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(cos(2θ)=\frac{1}{\sqrt{2}}\) and \({180}^{∘}\le θ\le {270}^{∘}\)</p>
+</div></div>
+<p>For the following exercises, simplify to one trigonometric expression.</p>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(2sin(\frac{\pi }{4})cos(\frac{\pi }{4})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\,sin(\frac{\pi }{2})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(4\,sin(\frac{\pi }{8})\,cos(\frac{\pi }{8})\)</p>
+</div></div>
+<p>For the following exercises, find the exact value using half-angle formulas.</p>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(sin(\frac{\pi }{8})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2-\sqrt{2}}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(cos(-\frac{11\pi }{12})\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(sin(\frac{11\pi }{12})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2-\sqrt{3}}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(cos(\frac{7\pi }{8})\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(tan(\frac{5\pi }{12})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2+\sqrt{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(tan(-\frac{3\pi }{12})\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(tan(-\frac{3\pi }{8})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-1-\sqrt{2}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the exact values of a) \(sin(\frac{x}{2}),\) b) \(cos(\frac{x}{2}),\) and c) \(tan(\frac{x}{2})\) without solving for \(x,\) when \(0\le x&lt;2\pi\)</p>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>If \(tan\,x=-\frac{4}{3},\) and \(x\) is in quadrant IV.</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>If \(sin\,x=-\frac{12}{13},\) and \(x\) is in quadrant III.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a) \(\frac{3\sqrt{13}}{13}\) b) \(-\frac{2\sqrt{13}}{13}\) c) \(-\frac{3}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>If \(csc\,x=7,\) and \(x\) is in quadrant II.</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>If \(sec\,x=-4,\) and \(x\) is in quadrant II.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a) \(\frac{\sqrt{10}}{4}\) b) \(\frac{\sqrt{6}}{4}\) c) \(\frac{\sqrt{15}}{3}\)</p>
+</div></div></div></div>
+<p>For the following exercises, use <a href="#fig5">Figure 5</a> to find the requested half and double angles.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_07_03_201-50f9.jpg" alt="Image of a right triangle. The base is length 12, and the height is length 5. The angle between the base and the height is 90 degrees, the angle between the base and the hypotenuse is theta, and the angle between the height and the hypotenuse is alpha degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>Find \(sin(2θ),cos(2θ),\) and \(tan(2θ).\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>Find \(sin(2α),cos(2α),\) and \(tan(2α).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{120}{169},-\frac{119}{169},-\frac{120}{119}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>Find \(sin(\frac{θ}{2}),cos(\frac{θ}{2}),\) and \(tan(\frac{θ}{2}).\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Find \(sin(\frac{α}{2}),cos(\frac{α}{2}),\) and \(tan(\frac{α}{2}).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2\sqrt{13}}{13},\frac{3\sqrt{13}}{13},\frac{2}{3}\)</p>
+</div></div></div></div>
+<p>For the following exercises, simplify each expression. Do not evaluate.</p>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({cos}^{2}({28}^{∘})-{sin}^{2}({28}^{∘})\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(2{cos}^{2}({37}^{∘})-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(cos({74}^{∘})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(1-2{\,sin}^{2}({17}^{∘})\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\({cos}^{2}(9x)-{sin}^{2}(9x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(cos(18x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(4\,sin(8x)\,cos(8x)\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(6\,sin(5x)\,cos(5x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3sin(10x)\)</p>
+</div></div></div></div>
+<p>For the following exercises, prove the identity given.</p>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\({(sin\,t-cos\,t)}^{2}=1-sin(2t)\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(sin(2x)=-2\,sin(-x)\,cos(-x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-2\,sin(-x)cos(-x)=-2(-sin(x)cos(x))=sin(2x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(cot\,x-tan\,x=2\,cot(2x)\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(\frac{1+cos(2θ)}{sin(2θ)}{tan}^{2}θ=tan\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}\frac{sin(2θ)}{1+cos(2θ)}{tan}^{2}θ=\frac{2sin(θ)cos(θ)}{1+{cos}^{2}θ-{sin}^{2}θ}{tan}^{2}θ= \\ \frac{2sin(θ)cos(θ)}{2{cos}^{2}θ}{tan}^{2}θ=\frac{sin(θ)}{cos\,θ}{tan}^{2}θ= \\ tanθ{tan}^{2}θ={tan}^{3}\,θ\end{array}\)</p>
+</div></div></div></div>
+<p>For the following exercises, rewrite the expression with an exponent no higher than 1.</p>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\({cos}^{2}(5x)\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\({cos}^{2}(6x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1+cos(12x)}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\({sin}^{4}(8x)\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\({sin}^{4}(3x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3+cos(12x)-4cos(6x)}{8}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\({cos}^{2}x{\,sin}^{4}x\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\({cos}^{4}x{\,sin}^{2}x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2+cos(2x)-2cos(4x)-cos(6x)}{32}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\({tan}^{2}x{\,sin}^{2}x\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, reduce the equations to powers of one, and then check the answer graphically.</p>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\({tan}^{4}x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3+cos(4x)-4cos(2x)}{3+cos(4x)+4cos(2x)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\({sin}^{2}(2x)\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\({sin}^{2}x{\,cos}^{2}x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1-cos(4x)}{8}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\({tan}^{2}x\,sin\,x\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\({tan}^{4}x{\,cos}^{2}x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3+cos(4x)-4cos(2x)}{4(cos(2x)+1)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\({cos}^{2}x\,sin(2x)\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\({cos}^{2}(2x)sin\,x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{(1+cos(4x))sin\,x}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\({tan}^{2}(\frac{x}{2})\,sin\,x\)</p>
+</div></div>
+<p>For the following exercises, algebraically find an equivalent function, only in terms of \(sin\,x\) and/or \(cos\,x,\) and then check the answer by graphing both equations.</p>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(sin(4x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4sin\,xcos\,x({cos}^{2}x-{sin}^{2}x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(cos(4x)\)</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, prove the identities.</p>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(sin(2x)=\frac{2\,tan\,x}{1+{tan}^{2}x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2tan\,x}{1+{tan}^{2}x}=\frac{\frac{2sin\,x}{cos\,x}}{1+\frac{{sin}^{2}x}{{cos}^{2}x}}=\frac{\frac{2sin\,x}{cos\,x}}{\frac{{cos}^{2}x+{sin}^{2}x}{{cos}^{2}x}}=\) <br> \(\frac{2sin\,x}{cos\,x}.\frac{{cos}^{2}x}{1}=2sinxcos\,x=sin(2x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\(cos(2α)=\frac{1-{tan}^{2}α}{1+{tan}^{2}α}\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\(tan(2x)=\frac{2\,sin\,xcos\,x}{2{cos}^{2}x-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2sin\,xcos\,x}{2{cos}^{2}x-1}=\frac{sin(2x)}{cos(2x)}=tan(2x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\({({sin}^{2}x-1)}^{2}=cos(2x)+{sin}^{4}x\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>\(sin(3x)=3\,sin\,x\,{cos}^{2}x-{sin}^{3}x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}sin(x+2x)=sin\,xcos(2x)+sin(2x)cos\,x \\ =sin\,x({cos}^{2}x-{sin}^{2}x)+2sin\,xcos\,xcos\,x \\ =sin\,x{cos}^{2}x-{sin}^{3}x+2sin\,x{cos}^{2}x \\ =3sin\,x{cos}^{2}x-{sin}^{3}x\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\(cos(3x)={cos}^{3}x-3{sin}^{2}xcos\,x\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>\(\frac{1+cos(2t)}{sin(2t)-cos\,t}=\frac{2\,cos\,t}{2\,sin\,t-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}\frac{1+cos(2t)}{sin(2t)-cost}=\frac{1+2{cos}^{2}t-1}{2sintcost-cost} \\ =\frac{2{cos}^{2}t}{cost(2sint-1)} \\ =\frac{2cost}{2sint-1}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>\(sin(16x)=16\,sin\,x\,cos\,x\,cos(2x)cos(4x)cos(8x)\)</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>\(cos(16x)=({cos}^{2}(4x)-{sin}^{2}(4x)-sin(8x))({cos}^{2}(4x)-{sin}^{2}(4x)+sin(8x))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}({cos}^{2}(4x)-{sin}^{2}(4x)-sin(8x))({cos}^{2}(4x)-{sin}^{2}(4x)+sin(8x))= \\ =(cos(8x)-sin(8x))(cos(8x)+sin(8x)) \\ ={cos}^{2}(8x)-{sin}^{2}(8x) \\ =cos(16x)\end{array}\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>double-angle formulas</dt><dd>identities derived from the sum formulas for sine, cosine, and tangent in which the angles are equal</dd><dt>half-angle formulas</dt><dd>identities derived from the reduction formulas and used to determine half-angle values of trigonometric functions</dd><dt>reduction formulas</dt><dd>identities derived from the double-angle formulas and used to reduce the power of a trigonometric function</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

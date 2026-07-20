@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polar Coordinates: Graphs · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Polar Coordinates: Graphs</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 8.4</span>Polar Coordinates: Graphs</h1>
+<p>The planets move through space in elliptical, periodic orbits about the sun, as shown in <a href="#fig1">Figure 1</a>. They are in constant motion, so fixing an exact position of any planet is valid only for a moment. In other words, we can fix only a planet’s <strong>instantaneous</strong>position. This is one application of <strong>polar coordinates</strong>, represented as \((r,θ).\) We interpret \(r\) as the distance from the center of the sun and \(θ\) as the planet’s angular bearing, or its direction from the center of the sun. In this section, we will focus on the polar system and the graphs that are generated directly from polar coordinates.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_001.jpg" alt="Illustration of the solar system with the sun at the center and orbits of the planets Mercury, Venus, Earth, and Mars shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Planets follow elliptical paths as they orbit around the Sun. (credit: modification of work by NASA/JPL-Caltech)</figcaption></figure>
+<h2 id="testing-polar-equations-for-symmetry">Testing Polar Equations for Symmetry</h2>
+<p>Just as a rectangular equation such as \(y={x}^{2}\) describes the relationship between \(x\) and \(y\) on a Cartesian grid, a <strong>polar equation</strong>describes a relationship between \(r\) and \(θ\) on a polar grid. Recall that the coordinate pair \((r,θ)\) indicates that we move counterclockwise from the polar axis (positive <strong>x</strong>-axis) by an angle of \(θ,\) and extend a ray from the pole (origin) \(r\) units in the direction of \(θ.\) All points that satisfy the polar equation are on the graph.</p>
+<p>Symmetry is a property that helps us recognize and plot the graph of any equation. If an equation has a graph that is symmetric with respect to an axis, it means that if we folded the graph in half over that axis, the portion of the graph on one side would coincide with the portion on the other side. By performing three tests, we will see how to apply the properties of symmetry to polar equations. Further, we will use symmetry (in addition to plotting key points, zeros, and maximums of \(r)\) to determine the graph of a polar equation.</p>
+<p>In the first test, we consider symmetry with respect to the line \(θ=\frac{\pi }{2}\) (<strong>y</strong>-axis). We replace \((r,θ)\) with \((-r,-θ)\) to determine if the new equation is equivalent to the original equation. For example, suppose we are given the equation \(r=2sin\,θ;\)</p>
+<p id="eq1">\[\begin{array}{ll}r=2sin\,θ &amp; \\ -r=2sin(-θ)\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{Replace}\,(r,θ)\,\text{with }(-r,-θ). \\ -r=-2sin\,θ &amp; \text{Identity: }sin(-θ)=-sin\,θ. \\ r=2sin\,θ &amp; \text{Multiply both sides by}-1.\end{array}\]</p>
+<p>This equation exhibits symmetry with respect to the line \(θ=\frac{\pi }{2}.\)</p>
+<p>In the second test, we consider symmetry with respect to the polar axis ( \(x\) -axis). We replace \((r,θ)\) with \((r,-θ)\) or \((-r,\pi -θ)\) to determine equivalency between the tested equation and the original. For example, suppose we are given the equation \(r=1-2cos\,θ.\)</p>
+<p id="eq2">\[\begin{array}{ll}r=1-2cos\,θ &amp; \\ r=1-2cos(-θ)\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{Replace }(r,θ)\,\text{with}\,(r,-θ). \\ r=1-2cos\,θ &amp; \text{Even/Odd identity}\end{array}\]</p>
+<p>The graph of this equation exhibits symmetry with respect to the polar axis.</p>
+<p>In the third test, we consider symmetry with respect to the pole (origin). We replace \((r,θ)\) with \((-r,θ)\) to determine if the tested equation is equivalent to the original equation. For example, suppose we are given the equation \(r=2sin(3θ).\)</p>
+<p id="eq3">\[\begin{array}{l}r=2sin(3θ) \\ -r=2sin(3θ)\end{array}\]</p>
+<p>The equation has failed the <strong>symmetry test</strong>, but that does not mean that it is not symmetric with respect to the pole. Passing one or more of the symmetry tests verifies that symmetry will be exhibited in a graph. However, failing the symmetry tests does not necessarily indicate that a graph will not be symmetric about the line \(θ=\frac{\pi }{2},\) the polar axis, or the pole. In these instances, we can confirm that symmetry exists by plotting reflecting points across the apparent axis of symmetry or the pole. Testing for symmetry is a technique that simplifies the graphing of polar equations, but its application is not perfect.</p>
+<div class="card definition" id="fs-id1165137410284"><span class="chip">Symmetry Tests</span><p>A <strong>polar equation</strong> describes a curve on the polar grid. The graph of a polar equation can be evaluated for three types of symmetry, as shown in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_002new.jpg" alt="3 graphs side by side. (A) shows a ray extending into Q 1 and its symmetric version in Q 2. (B) shows a ray extending into Q 1 and its symmetric version in Q 4. (C) shows a ray extending into Q 1 and its symmetric version in Q 3. See caption for more information." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — (a) A graph is symmetric with respect to the line \(θ=\frac{\pi }{2}\) (<strong>y</strong>-axis) if replacing \((r,θ)\) with \((-r,-θ)\) yields an equivalent equation. (b) A graph is symmetric with respect to the polar axis (<strong>x</strong>-axis) if replacing \((r,θ)\) with \((r,-θ)\) or \((-r,\pi -θ)\) yields an equivalent equation. (c) A graph is symmetric with respect to the pole (origin) if replacing \((r,θ)\) with \((-r,θ)\) yields an equivalent equation.</figcaption></figure>
+</div>
+<div class="card howto" id="fs-id1165137410344"><span class="chip">How To</span><p><strong>Given a polar equation, test for symmetry.</strong></p>
+<ul class="tight"><li>Substitute the appropriate combination of components for \((r,θ):\) \((-r,-θ)\) for \(θ=\frac{\pi }{2}\) symmetry; \((r,-θ)\) for polar axis symmetry; and \((-r,θ)\) for symmetry with respect to the pole.</li><li>If the resulting equations are equivalent in one or more of the tests, the graph produces the expected symmetry.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Test the equation \(r=2sin\,θ\) for symmetry.</p>
+</div><p class="sol-hint">Replace \(\theta\) with \(-\theta\), \(\pi-\theta,\) and \(-\theta\) (for the pole test) one at a time to check each symmetry.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Test for each of the three types of symmetry.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>1) Replacing \((r,θ)\) with \((-r,-θ)\) yields the same result. Thus, the graph is symmetric with respect to the line \(θ=\frac{\pi }{2}.\)</td><td>\(\begin{array}{ll}-r=2sin(-θ) &amp; \\ -r=-2sin\,θ &amp; \text{Even-odd identity} \\ r=2sin\,θ &amp; \text{Multiply}\,\text{by}\,-1 \\ \text{Passed} &amp; \end{array}\)</td></tr><tr><td>2) Replacing \(θ\) with \(-θ\) does not yield the same equation. Therefore, the graph fails the test and may or may not be symmetric with respect to the polar axis.</td><td>\(\begin{array}{ll}r=2sin(-θ) &amp; \\ r=-2sin\,θ &amp; \text{Even-odd identity} \\ r=-2sin\,θ\ne 2sin\,θ &amp; \\ \text{Failed} &amp; \end{array}\)</td></tr><tr><td>3) Replacing \(r\) with \(-r\) changes the equation and fails the test. The graph may or may not be symmetric with respect to the pole.</td><td>\(\begin{array}{l}-r=2sin\,θ \\ \,r=-2sin\,θ\ne 2sin\,θ \\ \text{Failed}\end{array}\)</td></tr></tbody></table></div>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Using a graphing calculator, we can see that the equation \(r=2sin\,θ\) is a circle centered at \((0,1)\) with radius \(r=1\) and is indeed symmetric to the line \(θ=\frac{\pi }{2}.\) We can also see that the graph is not symmetric with the polar axis or the pole. See <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_003.jpg" alt="Graph of the given circle on the polar coordinate grid. Center is at (0,1), and it has radius 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Test the equation for symmetry: \(r=-2cos\,θ.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The equation fails the symmetry test with respect to the line \(θ=\frac{\pi }{2}\) and with respect to the pole. It passes the polar axis symmetry test.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-polar-equations-by-plotting-points">Graphing Polar Equations by Plotting Points</h2>
+<p>To graph in the rectangular coordinate system we construct a table of \(x\) and \(y\) values. To graph in the polar coordinate system we construct a table of \(θ\) and \(r\) values. We enter values of \(θ\) into a <strong>polar equation</strong> and calculate \(r.\) However, using the properties of symmetry and finding key values of \(θ\) and \(r\) means fewer calculations will be needed.</p>
+<h3 id="finding-zeros-and-maxima">Finding Zeros and Maxima</h3>
+<p>To find the zeros of a polar equation, we solve for the values of \(θ\) that result in \(r=0.\) Recall that, to find the zeros of polynomial functions, we set the equation equal to zero and then solve for \(x.\) We use the same process for polar equations. Set \(r=0,\) and solve for \(θ.\)</p>
+<p>For many of the forms we will encounter, the maximum value of a polar equation is found by substituting those values of \(θ\) into the equation that result in the maximum value of the trigonometric functions. Consider \(r=5cos\,θ;\) the maximum distance between the curve and the pole is 5 units. The maximum value of the cosine function is 1 when \(θ=0,\) so our polar equation is \(5cos\,θ,\) and the value \(θ=0\) will yield the maximum \(|r|.\)</p>
+<p>Similarly, the maximum value of the sine function is 1 when \(θ=\frac{\pi }{2},\) and if our polar equation is \(r=5sin\,θ,\) the value \(θ=\frac{\pi }{2}\) will yield the maximum \(|r|.\) We may find additional information by calculating values of \(r\) when \(θ=0.\) These points would be polar axis intercepts, which may be helpful in drawing the graph and identifying the curve of a polar equation.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Using the equation in <a href="#example1">Example 1</a>, find the zeros and maximum \(|r|\) and, if necessary, the polar axis intercepts of \(r=2sin\,θ.\)</p>
+</div><p class="sol-hint">Set r equal to zero to find the zeros, and check where \(\sin\theta\) reaches its extreme values for the maximum \(|r|.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To find the zeros, set \(r\) equal to zero and solve for \(θ.\)</p>
+<p id="eq4">\[\begin{array}{ll}2sin\,θ=0 &amp; \\ sin\,θ=0 &amp; \\ θ={sin}^{-1}0 &amp; \\ θ=n\pi &amp; \text{where }n\text{ is an integer}\end{array}\]</p>
+<p>Substitute any one of the \(θ\) values into the equation. We will use \(0.\)</p>
+<p id="eq5">\[\begin{array}{l}\begin{array}{l} \\ r=2sin(0)\end{array} \\ r=0\end{array}\]</p>
+<p>The points \((0,0)\) and \((0,\pm n\pi )\) are the zeros of the equation. They all coincide, so only one point is visible on the graph. This point is also the only polar axis intercept.</p>
+<p>To find the maximum value of the equation, look at the maximum value of the trigonometric function \(sin\,θ,\) which occurs when \(θ=\frac{\pi }{2}\pm 2k\pi\) resulting in \(sin(\frac{\pi }{2})=1.\) Substitute \(\frac{\pi }{2}\) for \(θ.\)</p>
+<p id="eq6">\[\begin{array}{l}r=2sin(\frac{\pi }{2}) \\ r=2(1) \\ r=2\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The point \((2,\frac{\pi }{2})\) will be the maximum value on the graph. Let’s plot a few more points to verify the graph of a circle. See <a href="#tab2">Table 2</a> and <a href="#fig4">Figure 4</a>.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(θ\)</td><td>\(r=2sin\,θ\)</td><td>\(r\)</td></tr><tr><td>0</td><td>\(r=2sin(0)=0\)</td><td>\(0\)</td></tr><tr><td>\(\frac{\pi }{6}\)</td><td>\(r=2sin(\frac{\pi }{6})=1\)</td><td>\(1\)</td></tr><tr><td>\(\frac{\pi }{3}\)</td><td>\(r=2sin(\frac{\pi }{3})\approx 1.73\)</td><td>\(1.73\)</td></tr><tr><td>\(\frac{\pi }{2}\)</td><td>\(r=2sin(\frac{\pi }{2})=2\)</td><td>\(2\)</td></tr><tr><td>\(\frac{2\pi }{3}\)</td><td>\(r=2sin(\frac{2\pi }{3})\approx 1.73\)</td><td>\(1.73\)</td></tr><tr><td>\(\frac{5\pi }{6}\)</td><td>\(r=2sin(\frac{5\pi }{6})=1\)</td><td>\(1\)</td></tr><tr><td>\(\pi\)</td><td>\(r=2sin(\pi )=0\)</td><td>\(0\)</td></tr></tbody></table></div>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_004.jpg" alt="Graph of circle on the polar coordinate grid. The center is at (0,1), and it has radius 1. Six points along the circumference are marked: (0,0), (1, pi/6), (1.3, pi/3), (2, pi/2), (1.73, 2pi/3), and (1, 5pi/6)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Without converting to Cartesian coordinates, test the given equation for symmetry and find the zeros and maximum values of \(|r|:\) \(r=3cos\,θ.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Tests will reveal symmetry about the polar axis. The zero is \((0,\frac{\pi }{2}),\) and the maximum value is \((3,0).\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="investigating-circles">Investigating Circles</h3>
+<p>Now we have seen the equation of a circle in the polar coordinate system. In the last two examples, the same equation was used to illustrate the properties of symmetry and demonstrate how to find the zeros, maximum values, and plotted points that produced the graphs. However, the circle is only one of many shapes in the set of polar curves.</p>
+<p>There are five classic polar curves<strong>: cardioids</strong>, <strong>limaҫons, lemniscates, rose curves</strong>, and <strong>Archimedes’ spirals</strong>. We will briefly touch on the polar formulas for the circle before moving on to the classic curves and their variations.</p>
+<div class="card definition" id="fs-id1165137939908"><span class="chip">Formulas for the Equation of a Circle</span><p>Some of the formulas that produce the graph of a circle in polar coordinates are given by \(r=acos\,θ\) and \(r=asin\,θ,\) where \(a\) is the diameter of the circle or the distance from the pole to the farthest point on the circumference. The radius is \(\frac{|a|}{2},\) or one-half the diameter. For \(r=acos\,θ,\) the center is \((\frac{a}{2},0).\) For \(r=asin\,θ,\) the center is \((\frac{a}{2},\frac{\pi }{2}).\) <a href="#fig5">Figure 5</a> shows the graphs of these four circles.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_005new.png" alt="Four graphs side by side. All have radius absolute value of a / 2. First is r=acos(theta), a&amp;gt;0. The center is at (a/2,0). Second is r=acos(theta), a&amp;lt;0. The center is at (a/2,0).  Third is r=asin(theta), a&amp;gt;0. The center is at (a/2, pi). Fourth is r=asin(theta), a&amp;lt;0. The center is at (a/2, pi)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Sketch the graph of \(r=4cos\,θ.\)</p>
+</div><p class="sol-hint">Make a table of \(\theta\) and r values at key angles (0, \(\frac{\pi}{2},\pi,\frac{3\pi}{2}\)) first, then plot and connect them.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, testing the equation for symmetry, we find that the graph is symmetric about the polar axis. Next, we find the <strong>zeros</strong> and maximum \(|r|\) for \(r=4cos\,θ.\) First, set \(r=0,\) and solve for \(θ\) . Thus, a zero occurs at \(θ=\frac{\pi }{2}\pm k\pi .\) A key point to plot is \((0,\,\,\frac{\pi }{2})\,.\)</p>
+<p>To find the maximum value of \(r,\) note that the maximum value of the cosine function is 1 when \(θ=0\pm 2k\pi .\) Substitute \(θ=0\) into the equation:</p>
+<p id="eq7">\[\begin{array}{l}r=4cos\,θ \\ r=4cos(0) \\ r=4(1)=4\end{array}\]</p>
+<p>The maximum value of the equation is 4. A key point to plot is \((4,\,0).\)</p>
+<p>As \(r=4cos\,θ\) is symmetric with respect to the polar axis, we only need to calculate <strong>r</strong>-values for \(θ\) over the interval \([0,\) \(\pi ].\) Points in the upper quadrant can then be reflected to the lower quadrant. Make a table of values similar to <a href="#tab3">Table 3</a>. The graph is shown in <a href="#fig6">Figure 6</a><strong>.</strong></p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td><strong>\(θ\)</strong></td><td>0</td><td>\(\frac{\pi }{6}\)</td><td>\(\frac{\pi }{4}\)</td><td>\(\frac{\pi }{3}\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\frac{2\pi }{3}\)</td><td>\(\frac{3\pi }{4}\)</td><td>\(\frac{5\pi }{6}\)</td><td>\(\pi\)</td></tr><tr><td><strong>\(r\)</strong></td><td>4</td><td>3.46</td><td>2.83</td><td>2</td><td>0</td><td>−2</td><td>−2.83</td><td>−3.46</td><td>−4</td></tr></tbody></table></div>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_006.jpg" alt="Graph of 4=4cos(theta) in polar coordinates. Points (0, pi/2), (-2, 2pi/3), (4,0), and (2, pi/3) are marked on the circumference." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div>
+<h3 id="investigating-cardioids">Investigating Cardioids</h3>
+<p>While translating from polar coordinates to Cartesian coordinates may seem simpler in some instances, graphing the classic curves is actually less complicated in the polar system. The next curve is called a cardioid, as it resembles a heart. This shape is often included with the family of curves called limaçons, but here we will discuss the cardioid on its own.</p>
+<div class="card definition" id="fs-id1165134389046"><span class="chip">Formulas for a Cardioid</span><p>The formulas that produce the graphs of a <strong>cardioid</strong> are given by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ\) where \(a&gt;0,\) \(b&gt;0,\) and \(\frac{a}{b}=1.\) The cardioid graph passes through the pole, as we can see in <a href="#fig7">Figure 7</a>.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_007new.png" alt="Graph of four cardioids. (A) is r = a + bcos(theta). Cardioid extending to the right. (B) is r=a-bcos(theta). Cardioid extending to the left. (C) is r=a+bsin(theta). Cardioid extending up. (D) is r=a-bsin(theta). Cardioid extending down." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div>
+<div class="card howto" id="fs-id1165135259648"><span class="chip">How To</span><p><strong>Given the polar equation of a cardioid, sketch its graph.</strong></p>
+<ul class="tight"><li>Check equation for the three types of symmetry.</li><li>Find the zeros. Set \(r=0.\)</li><li>Find the maximum value of the equation according to the maximum value of the trigonometric expression.</li><li>Make a table of values for \(r\) and \(θ.\)</li><li>Plot the points and sketch the graph.</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Sketch the graph of \(r=2+2cos\,θ.\)</p>
+</div><p class="sol-hint">Recognize the \(2+2\cos\theta\) form as a cardioid, then plot key points to trace its shape.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, testing the equation for symmetry, we find that the graph of this equation will be symmetric about the polar axis. Next, we find the zeros and maximums. Setting \(r=0,\) we have \(θ=\pi +2k\pi .\) The zero of the equation is located at \((0,\pi ).\) The graph passes through this point.</p>
+<p>The maximum value of \(r=2+2cos\,θ\) occurs when \(cos\,θ\) is a maximum, which is when \(cos\,θ=1\) or when \(θ=0.\) Substitute \(θ=0\) into the equation, and solve for \(r.\)</p>
+<p id="eq8">\[\begin{array}{l}\begin{array}{l} \\ r=2+2cos(0)\end{array} \\ r=2+2(1)=4\end{array}\]</p>
+<p>The point \((4,0)\) is the maximum value on the graph.</p>
+<p>We found that the polar equation is symmetric with respect to the polar axis, but as it extends to all four quadrants, we need to plot values over the interval \([0,\,\pi ].\) The upper portion of the graph is then reflected over the polar axis. Next, we make a table of values, as in <a href="#tab4">Table 4</a>, and then we plot the points and draw the graph. See <a href="#fig8">Figure 8</a>.</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td><strong>\(θ\)</strong></td><td>\(0\)</td><td>\(\frac{\pi }{4}\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\frac{2\pi }{3}\)</td><td>\(\pi\)</td></tr><tr><td><strong>\(r\)</strong></td><td>4</td><td>3.41</td><td>2</td><td>1</td><td>0</td></tr></tbody></table></div>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_008.jpg" alt="Graph of r=2+2cos(theta). Cardioid extending to the right. Points on the edge (0,pi), (4,0),(3.4, pi/4), (2,pi/2), and (1, 2pi/3) are shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div></div></div>
+<h3 id="investigating-lima-ons">Investigating Limaçons</h3>
+<p>The word <strong>limaçon</strong> is Old French for “snail,” a name that describes the shape of the graph. As mentioned earlier, the cardioid is a member of the limaçon family, and we can see the similarities in the graphs. The other images in this category include the one-loop limaçon and the two-loop (or inner-loop) limaçon. <strong>One-loop limaçons</strong> are sometimes referred to as <strong>dimpled limaçons</strong> when \(1&lt;\frac{a}{b}&lt;2\) and <strong>convex limaçons</strong> when \(\frac{a}{b}\ge 2.\)</p>
+<div class="card definition" id="fs-id1165137451882"><span class="chip">Formulas for One-Loop Limaçons</span><p>The formulas that produce the graph of a dimpled <strong>one-loop limaçon</strong> are given by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ\) where \(a&gt;0,\,b&gt;0,\) \(\text{and 1&lt;}\frac{a}{b}&lt;2.\) All four graphs are shown in <a href="#fig9">Figure 9</a>.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_009new.png" alt="Four dimpled limaçons side by side. (A) is r=a+bcos(theta). Extending to the right. (B) is r=a-bcos(theta). Extending to the left. (C) is r=a+bsin(theta). Extending up. (D) is r=a-bsin(theta). Extending down. " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Dimpled limaçons</figcaption></figure>
+</div>
+<div class="card howto" id="fs-id1165132935120"><span class="chip">How To</span><p><strong>Given a polar equation for a one-loop limaçon, sketch the graph.</strong></p>
+<ul class="tight"><li>Test the equation for symmetry. Remember that failing a symmetry test does not mean that the shape will not exhibit symmetry. Often the symmetry may reveal itself when the points are plotted.</li><li>Find the zeros.</li><li>Find the maximum values according to the trigonometric expression.</li><li>Make a table.</li><li>Plot the points and sketch the graph.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Graph the equation \(r=4-3sin\,θ.\)</p>
+</div><p class="sol-hint">Compare the constant and coefficient to decide whether this is a limaçon with an inner loop, dimpled, or convex, then plot key points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, testing the equation for symmetry, we find that it fails all three symmetry tests, meaning that the graph may or may not exhibit symmetry, so we cannot use the symmetry to help us graph it. However, this equation has a graph that clearly displays symmetry with respect to the line \(θ=\frac{\pi }{2},\) yet it fails all the three symmetry tests. A graphing calculator will immediately illustrate the graph’s reflective quality.</p>
+<p>Next, we find the zeros and maximum, and plot the reflecting points to verify any symmetry. Setting \(r=0\) results in \(θ\) being undefined. What does this mean? How could \(θ\) be undefined? The angle \(θ\) is undefined for any value of \(sin\,θ&gt;1.\) Therefore, \(θ\) is undefined because there is no value of \(θ\) for which \(sin\,θ&gt;1.\) Consequently, the graph does not pass through the pole. Perhaps the graph does cross the polar axis, but not at the pole. We can investigate other intercepts by calculating \(r\) when \(θ=0.\)</p>
+<p id="eq9">\[\begin{array}{l}r(0)=4-3sin(0) \\ r=4-3\cdot 0=4\end{array}\]</p>
+<p>So, there is at least one polar axis intercept at \((4,0).\)</p>
+<p>Next, as the maximum value of the sine function is 1 when \(θ=\frac{\pi }{2},\) we will substitute \(θ=\frac{\pi }{2}\) into the equation and solve for \(r.\) Thus, \(r=1.\)</p>
+<p>Make a table of the coordinates similar to <a href="#tab5">Table 5</a>.</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>\(θ\)</strong></td><td>\(0\)</td><td>\(\frac{\pi }{6}\)</td><td>\(\frac{\pi }{3}\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\frac{2\pi }{3}\)</td><td>\(\frac{5\pi }{6}\)</td><td>\(\pi\)</td><td>\(\frac{7\pi }{6}\)</td><td>\(\frac{4\pi }{3}\)</td><td>\(\frac{3\pi }{2}\)</td><td>\(\frac{5\pi }{3}\)</td><td>\(\frac{11\pi }{6}\)</td><td>\(2\pi\)</td></tr><tr><td><strong>\(r\)</strong></td><td>4</td><td>2.5</td><td>1.4</td><td>1</td><td>1.4</td><td>2.5</td><td>4</td><td>5.5</td><td>6.6</td><td>7</td><td>6.6</td><td>5.5</td><td>4</td></tr></tbody></table></div>
+<p>The graph is shown in <a href="#fig10">Figure 10</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_010.jpg" alt="Graph of the limaçon r=4-3sin(theta). Extending down. Points on the edge are shown: (1,pi/2), (4,0), (4,pi), and (7, 3pi/2). " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — One-loop limaçon</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This is an example of a curve for which making a table of values is critical to producing an accurate graph. The symmetry tests fail; the zero is undefined. While it may be apparent that an equation involving \(sin\,θ\) is likely symmetric with respect to the line \(θ=\frac{\pi }{2},\) evaluating more points helps to verify that the graph is correct.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Sketch the graph of \(r=3-2cos\,θ.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_011.jpg" alt="Graph of the limaçon r=3-2cos(theta). Extending to the left." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Another type of limaçon, the <strong>inner-loop limaçon</strong>, is named for the loop formed inside the general limaçon shape. It was discovered by the German artist Albrecht <strong>Dürer</strong>(1471-1528), who revealed a method for drawing the inner-loop limaçon in his 1525 book <strong>Underweysung der Messing</strong>. A century later, the father of mathematician Blaise <strong>Pascal</strong>, Étienne Pascal(1588-1651), rediscovered it.</p>
+<div class="card definition" id="fs-id1165137482991"><span class="chip">Formulas for Inner-Loop Limaçons</span><p>The formulas that generate the <strong>inner-loop limaçons</strong> are given by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ\) where \(a&gt;0,\) \(b&gt;0,\) and \(a&lt;b.\) The graph of the inner-loop limaçon passes through the pole twice: once for the outer loop, and once for the inner loop. See <a href="#fig11">Figure 11</a> for the graphs.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_012new.png" alt="Graph of four inner loop limaçons side by side. (A) is r=a+bcos(theta),a&amp;lt;b. Extended to the right. (B) is a-bcos(theta), a&amp;lt;b. Extends to the left. (C) is r=a+bsin(theta), a&amp;lt;b. Extends up. (D) is r=a-bsin(theta), a&amp;lt;b. Extends down." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Sketch the graph of \(r=2+5\text{cos}\,θ.\)</p>
+</div><p class="sol-hint">Compare the constant and coefficient to classify the limaçon type, then plot key points to sketch it.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Testing for symmetry, we find that the graph of the equation is symmetric about the polar axis. Next, finding the zeros reveals that when \(r=0,\) \(θ=1.98.\) The maximum \(|r|\) is found when \(cos\,θ=1\) or when \(θ=0.\) Thus, the maximum is found at the point (7, 0).</p>
+<p>Even though we have found symmetry, the zero, and the maximum, plotting more points will help to define the shape, and then a pattern will emerge.</p>
+<p>See <a href="#tab6">Table 6</a>.</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td><strong>\(θ\)</strong></td><td>\(0\)</td><td>\(\frac{\pi }{6}\)</td><td>\(\frac{\pi }{3}\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\frac{2\pi }{3}\)</td><td>\(\frac{5\pi }{6}\)</td><td>\(\pi\)</td><td>\(\frac{7\pi }{6}\)</td><td>\(\frac{4\pi }{3}\)</td><td>\(\frac{3\pi }{2}\)</td><td>\(\frac{5\pi }{3}\)</td><td>\(\frac{11\pi }{6}\)</td><td>\(2\pi\)</td></tr><tr><td><strong>\(r\)</strong></td><td>7</td><td>6.3</td><td>4.5</td><td>2</td><td>−0.5</td><td>−2.3</td><td>−3</td><td>−2.3</td><td>−0.5</td><td>2</td><td>4.5</td><td>6.3</td><td>7</td></tr></tbody></table></div>
+<p>As expected, the values begin to repeat after \(θ=\pi .\) The graph is shown in <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_013.jpg" alt="Graph of inner loop limaçon r=2+5cos(theta). Extends to the right. Points on edge plotted are (7,0), (4.5, pi/3), (2, pi/2), and (-3, pi)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — Inner-loop limaçon</figcaption></figure>
+</div></div></div>
+<h3 id="investigating-lemniscates">Investigating Lemniscates</h3>
+<p>The lemniscate is a polar curve resembling the infinity symbol \(\infty\) or a figure 8. Centered at the pole, a lemniscate is symmetrical by definition.</p>
+<div class="card definition" id="fs-id1165137639236"><span class="chip">Formulas for Lemniscates</span><p>The formulas that generate the graph of a <strong>lemniscate</strong> are given by \({r}^{2}={a}^{2}cos\,2θ\) and \({r}^{2}={a}^{2}sin\,2θ\) where \(a\ne 0.\) The formula \({r}^{2}={a}^{2}sin\,2θ\) is symmetric with respect to the pole. The formula \({r}^{2}={a}^{2}cos\,2θ\) is symmetric with respect to the pole, the line \(θ=\frac{\pi }{2},\) and the polar axis. See <a href="#fig13">Figure 13</a> for the graphs.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_014new.png" alt="Four graphs of lemniscates side by side. (A) is r^2 = a^2 * cos(2theta). Horizonatal figure eight, on x-axis. (B) is r^2 = - a^2 * cos(2theta). Vertical figure eight, on y axis. (C) is r^2 = a^2 * sin(2theta). Diagonal figure eight on line y=x. (D) is r^2 = -a^2 *sin(2theta). Diagonal figure eight on line y=-x." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Sketch the graph of \({r}^{2}=4cos\,2θ.\)</p>
+</div><p class="sol-hint">Solve for r at each key angle, remembering \({r}^{2}\) means r could be positive or negative — this traces a lemniscate.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The equation exhibits symmetry with respect to the line \(θ=\frac{\pi }{2},\) the polar axis, and the pole.</p>
+<p>Let’s find the zeros. It should be routine by now, but we will approach this equation a little differently by making the substitution \(u=2θ.\)</p>
+<p id="eq10">\[\begin{array}{ll}0=4cos\,2θ &amp; \\ 0=4cos\,u &amp; \\ 0=cos\,u &amp; \\ {cos}^{-1}0=\frac{\pi }{2} &amp; \\ u=\frac{\pi }{2} &amp; \text{Substitute }2θ\text{ back in for }u. \\ 2θ=\frac{\pi }{2} &amp; \\ θ=\frac{\pi }{4} &amp; \end{array}\]</p>
+<p>So, the point \((0,\frac{\pi }{4})\) is a zero of the equation.</p>
+<p>Now let’s find the maximum value. Since the maximum of \(cos\,u=1\) when \(u=0,\) the maximum \(cos\,2θ=1\) when \(2θ=0.\) Thus,</p>
+<p id="eq11">\[\begin{array}{l}{r}^{2}=4cos(0) \\ {r}^{2}=4(1)=4 \\ r=\pm \sqrt{4}\,\pm 2\end{array}\]</p>
+<p>We have a maximum at (2, 0). Since this graph is symmetric with respect to the pole, the line \(θ=\frac{\pi }{2},\) and the polar axis, we only need to plot points in the first quadrant.</p>
+<p>Make a table similar to <a href="#tab7">Table 7</a>.</p>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td><strong>\(θ\)</strong></td><td>0</td><td>\(\frac{\pi }{6}\)</td><td>\(\frac{\pi }{4}\)</td></tr><tr><td><strong>\(r\)</strong></td><td>\(\pm 2\)</td><td>\(\pm \sqrt{2}\)</td><td>0</td></tr></tbody></table></div>
+<p>Plot the points on the graph, such as the one shown in <a href="#fig14">Figure 14</a>.</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_015.jpg" alt="Graph of r^2 = 4cos(2theta). Horizontal lemniscate, along x-axis. Points on edge plotted are (2,0), (rad2, pi/6), (rad2 7pi/6)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14 — Lemniscate</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Making a substitution such as \(u=2θ\) is a common practice in mathematics because it can make calculations simpler. However, we must not forget to replace the substitution term with the original term at the end, and then solve for the unknown.</p>
+<p>Some of the points on this graph may not show up using the Trace function on the TI-84 graphing calculator, and the calculator table may show an error for these same points of \(r.\) This is because there are no real square roots for these values of \(θ.\) In other words, the corresponding <strong>r</strong>-values of \(\sqrt{4cos(2θ)}\) are complex numbers because there is a negative number under the radical.</p>
+</div></div></div></div>
+<h3 id="investigating-rose-curves">Investigating Rose Curves</h3>
+<p>The next type of polar equation produces a petal-like shape called a rose curve. Although the graphs look complex, a simple polar equation generates the pattern.</p>
+<div class="card definition" id="fs-id1165137824732"><span class="chip">Rose Curves</span><p>The formulas that generate the graph of a <strong>rose curve</strong> are given by \(r=acos\,nθ\) and \(r=asin\,nθ\) where \(a\ne 0.\) If \(n\) is even, the curve has \(2n\) petals. If \(n\) is odd, the curve has \(n\) petals. See <a href="#fig15">Figure 15</a>.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_016new.png" alt="Graph of two rose curves side by side. (A) is r=acos(ntheta), where n is even. Eight petals extending from origin, equally spaced. (B) is r=asin(ntheta) where n is odd. Three petals extending from the origin, equally spaced." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Sketch the graph of \(r=2cos\,4θ.\)</p>
+</div><p class="sol-hint">Count how many petals to expect from the coefficient of \(\theta\) (double it since it's cosine with an even multiplier), then plot key points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Testing for symmetry, we find again that the symmetry tests do not tell the whole story. The graph is not only symmetric with respect to the polar axis, but also with respect to the line \(θ=\frac{\pi }{2}\) and the pole.</p>
+<p>Now we will find the zeros. First make the substitution \(u=4θ.\)</p>
+<p id="eq12">\[\begin{array}{l}0=2cos\,4θ \\ 0=cos\,4θ \\ 0=cos\,u \\ {cos}^{-1}0=u \\ u=\frac{\pi }{2} \\ 4θ=\frac{\pi }{2} \\ θ=\frac{\pi }{8}\end{array}\]</p>
+<p>The zero is \(θ=\frac{\pi }{8}.\) The point \((0,\frac{\pi }{8})\) is on the curve.</p>
+<p>Next, we find the maximum \(|r|.\) We know that the maximum value of \(cos\,u=1\) when \(θ=0.\) Thus,</p>
+<p id="eq13">\[\begin{array}{l}r=2cos(4\cdot 0) \\ r=2cos(0) \\ r=2(1)=2\end{array}\]</p>
+<p>The point \((2,0)\) is on the curve.</p>
+<p>The graph of the rose curve has unique properties, which are revealed in <a href="#tab8">Table 8</a>.</p>
+<div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td><strong>\(θ\)</strong></td><td>0</td><td>\(\frac{\pi }{8}\)</td><td>\(\frac{\pi }{4}\)</td><td>\(\frac{3\pi }{8}\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\frac{5\pi }{8}\)</td><td>\(\frac{3\pi }{4}\)</td></tr><tr><td><strong>\(r\)</strong></td><td>2</td><td>0</td><td>−2</td><td>0</td><td>2</td><td>0</td><td>−2</td></tr></tbody></table></div>
+<p>As \(r=0\) when \(θ=\frac{\pi }{8},\) it makes sense to divide values in the table by \(\frac{\pi }{8}\) units. A definite pattern emerges. Look at the range of <strong>r</strong>-values: 2, 0, −2, 0, 2, 0, −2, and so on. This represents the development of the curve one petal at a time. Starting at \(r=0,\) each petal extends out a distance of \(r=2,\) and then turns back to zero \(2n\) times for a total of eight petals. See the graph in <a href="#fig16">Figure 16</a>.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_017.jpg" alt="Sketch of rose curve r=2*cos(4 theta). Goes out distance of 2 for each petal 2n times (here 2*4=8 times)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16 — Rose curve, \(n\) even</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>When these curves are drawn, it is best to plot the points in order, as in the <a href="#tab8">Table 8</a>. This allows us to see how the graph hits a maximum (the tip of a petal), loops back crossing the pole, hits the opposite maximum, and loops back to the pole. The action is continuous until all the petals are drawn.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Sketch the graph of \(r=4sin(2θ).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The graph is a rose curve, \(n\) even <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_025.jpg" alt="Graph of rose curve r=4 sin(2 theta). Even - four petals equally spaced, each of length 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Sketch the graph of \(r=2sin(5θ).\)</p>
+</div><p class="sol-hint">Count how many petals to expect from the coefficient of \(\theta\) (it stays odd for sine with an odd multiplier), then plot key points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The graph of the equation shows symmetry with respect to the line \(θ=\frac{\pi }{2}.\) Next, find the zeros and maximum. We will want to make the substitution \(u=5θ.\)</p>
+<p id="eq14">\[\begin{array}{l}0=2sin(5θ) \\ 0=sin\,u \\ {sin}^{-1}0=0 \\ u=0 \\ 5θ=0 \\ θ=0\end{array}\]</p>
+<p>The maximum value is calculated at the angle where \(sin\,θ\) is a maximum. Therefore,</p>
+<p id="eq15">\[\begin{array}{l}\begin{array}{l} \\ r=2sin(5\cdot \frac{\pi }{2})\end{array} \\ r=2(1)=2\end{array}\]</p>
+<p>Thus, the maximum value of the polar equation is 2. This is the length of each petal. As the curve for \(n\) odd yields the same number of petals as \(n,\) there will be five petals on the graph. See <a href="#fig17">Figure 17</a>.</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_019.jpg" alt="Graph of rose curve r=2sin(5theta). Five petals equally spaced around origin. Point (2, pi/2) on edge is marked." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17 — Rose curve, \(n\) odd</figcaption></figure>
+<p>Create a table of values similar to <a href="#tab9">Table 9</a>.</p>
+<div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td><strong>\(θ\)</strong></td><td>0</td><td>\(\frac{\pi }{6}\)</td><td>\(\frac{\pi }{3}\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\frac{2\pi }{3}\)</td><td>\(\frac{5\pi }{6}\)</td><td>\(\pi\)</td></tr><tr><td><strong>\(r\)</strong></td><td>0</td><td>1</td><td>−1.73</td><td>2</td><td>−1.73</td><td>1</td><td>0</td></tr></tbody></table></div>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Sketch the graph of \(r=3cos(3θ).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_018.jpg" alt="Graph of rose curve r=3cos(3theta). Three petals equally spaced from origin. " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Rose curve, \(n\) odd</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="investigating-the-archimedes-spiral">Investigating the Archimedes’ Spiral</h3>
+<p>The final polar equation we will discuss is the Archimedes’ spiral, named for its discoverer, the Greek mathematician Archimedes (c. 287 BCE-c. 212 BCE), who is credited with numerous discoveries in the fields of geometry and mechanics.</p>
+<div class="card definition" id="fs-id1165133097210"><span class="chip">Archimedes’ Spiral</span><p>The formula that generates the graph of the <strong>Archimedes’ spiral</strong> is given by \(r=θ\) for \(θ\ge 0.\) As \(θ\) increases, \(r\) increases at a constant rate in an ever-widening, never-ending, spiraling path. See <a href="#fig18">Figure 18</a>.</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_020new.png" alt="Two graphs side by side of Archimedes' spiral. (A) is r= theta, [0, 2pi]. (B) is r=theta, [0, 4pi]. Both start at origin and spiral out counterclockwise. The second has two spirals out while the first has one." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+</div>
+<div class="card howto" id="fs-id1165137582354"><span class="chip">How To</span><p><strong>Given an Archimedes’ spiral over \([0,2\pi ],\) sketch the graph.</strong></p>
+<ul class="tight"><li>Make a table of values for \(r\) and \(θ\) over the given domain.</li><li>Plot the points and sketch the graph.</li></ul>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Sketch the graph of \(r=θ\) over \([0,2\pi ].\)</p>
+</div><p class="sol-hint">Make a table where r just equals the angle itself in radians, and notice how the spiral grows as \(\theta\) increases.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As \(r\) is equal to \(θ,\) the plot of the Archimedes’ spiral begins at the pole at the point (0, 0). While the graph hints of symmetry, there is no formal symmetry with regard to passing the symmetry tests. Further, there is no maximum value, unless the domain is restricted.</p>
+<p>Create a table such as <a href="#tab10">Table 10</a>.</p>
+<div class="tablewrap" id="tab10"><table class="data"><caption>Table 10</caption><tbody><tr><td><strong>\(θ\)</strong></td><td>\(\frac{\pi }{4}\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\pi\)</td><td>\(\frac{3\pi }{2}\)</td><td>\(\frac{7\pi }{4}\)</td><td>\(2\pi\)</td></tr><tr><td><strong>\(r\)</strong></td><td>0.785</td><td>1.57</td><td>3.14</td><td>4.71</td><td>5.50</td><td>6.28</td></tr></tbody></table></div>
+<p>Notice that the <strong>r</strong>-values are just the decimal form of the angle measured in radians. We can see them on a graph in <a href="#fig19">Figure 19</a>.</p>
+<figure class="plot" id="fig19"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_021F.jpg" alt="Graph of Archimedes' spiral r=theta over [0,2pi]. Starts at origin and spirals out in one loop counterclockwise. Points (pi/4, pi/4), (pi/2,pi/2), (pi,pi), (5pi/4, 5pi/4), (7pi/4, pi/4), and (2pi, 2pi) are marked." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 19 — Archimedes’ spiral</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The domain of this polar curve is \([0,2\pi ].\) In general, however, the domain of this function is \((-\infty ,\infty ).\) Graphing the equation of the Archimedes’ spiral is rather simple, although the image makes it seem like it would be complex.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Sketch the graph of \(r=-θ\) over the interval \([0,4\pi ].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_022.jpg" alt="A dark blue spiral curve is plotted on a polar coordinate grid with concentric circles and radial lines. The curve starts near the origin and expands outwards, resembling an Archimedean spiral. The grid includes labeled axes from -15 to 15, with concentric circles indicating radii at intervals of 5, up to a maximum radius of 15." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="summary-of-curves">Summary of Curves</h2>
+<p>We have explored a number of seemingly complex polar curves in this section. <a href="#fig20">Figure 20</a> and <a href="#fig21">Figure 21</a> summarize the graphs and equations for each of these curves.</p>
+<figure class="plot" id="fig20"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_023n.jpg" alt="Four graphs side by side - a summary. (A) is a circle: r=asin(theta) or r=acos(theta). (B) is a cardioid: r= a + or - bcos(theta), or r = a + or - b sin(theta). a&amp;gt;0, b&amp;gt;0, a/b=1. (C) is one-loop limaçons. r= a + or - bcos(theta), or r= a + or - bsin(theta). a&amp;gt;0, b&amp;gt;0, 1&amp;lt;a/b&amp;lt;2. (D) is inner-loop limaçons. R = a + or - bcos(theta), or r = a + or - bsin(theta). A&amp;gt;0, b&amp;gt;0, a&amp;lt;b." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 20</figcaption></figure>
+<figure class="plot" id="fig21"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_024n.jpg" alt="Four graphs side by side - a summary. (A) is lemniscates. R^2 = a^2cos(2theta), or r^2=a^2sin(2theta). a is not equal to 0. (B) is a rsose curve (n even). R = acos(ntheta), or r=asin(ntheta). N is even, and there are 2n petals. (C) is a rose curve (n odd). R = acos(ntheta), or r=asin(theta). N is odd, and there are n petals. (D) is an Archimedes's spiral. R=theta, and theta &amp;gt;=0." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 21</figcaption></figure>
+<div class="card callout" id="fs-id1165135193264"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with graphs of polar coordinates.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/polargraph1" target="_blank" rel="noopener">Graphing Polar Equations Part 1</a></li><li><a href="https://openstax.org/l/polargraph2" target="_blank" rel="noopener">Graphing Polar Equations Part 2</a></li><li><a href="https://openstax.org/l/polaranim" target="_blank" rel="noopener">Animation: The Graphs of Polar Equations</a></li><li><a href="https://openstax.org/l/polarTI84" target="_blank" rel="noopener">Graphing Polar Equations on the TI-84</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>It is easier to graph polar equations if we can test the equations for symmetry with respect to the line \(θ=\frac{\pi }{2},\) the polar axis, or the pole.</li><li>There are three symmetry tests that indicate whether the graph of a polar equation will exhibit symmetry. If an equation fails a symmetry test, the graph may or may not exhibit symmetry. See <a href="#example1">Example 1</a>.</li><li>Polar equations may be graphed by making a table of values for \(θ\) and \(r.\)</li><li>The maximum value of a polar equation is found by substituting the value \(θ\) that leads to the maximum value of the trigonometric expression.</li><li>The zeros of a polar equation are found by setting \(r=0\) and solving for \(θ.\) See <a href="#example2">Example 2</a>.</li><li>Some formulas that produce the graph of a circle in polar coordinates are given by \(r=acos\,θ\) and \(r=asin\,θ.\) See <a href="#example3">Example 3</a>.</li><li>The formulas that produce the graphs of a cardioid are given by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ,\) for \(a&gt;0,\) \(b&gt;0,\) and \(\frac{a}{b}=1.\) See <a href="#example4">Example 4</a>.</li><li>The formulas that produce the graphs of a one-loop limaçon are given by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ\) for \(1&lt;\frac{a}{b}&lt;2.\) See <a href="#example5">Example 5</a>.</li><li>The formulas that produce the graphs of an inner-loop limaçon are given by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ\) for \(a&gt;0,\) \(b&gt;0,\) and \(a&lt;b.\) See <a href="#example6">Example 6</a>.</li><li>The formulas that produce the graphs of a lemniscates are given by \({r}^{2}={a}^{2}cos\,2θ\) and \({r}^{2}={a}^{2}sin\,2θ,\) where \(a\ne 0.\) See <a href="#example7">Example 7</a>.</li><li>The formulas that produce the graphs of rose curves are given by \(r=acos\,nθ\) and \(r=asin\,nθ,\) where \(a\ne 0;\) if \(n\) is even, there are \(2n\) petals, and if \(n\) is odd, there are \(n\) petals. See <a href="#example8">Example 8</a> and <a href="#example9">Example 9</a>.</li><li>The formula that produces the graph of an Archimedes’ spiral is given by \(r=θ,\) \(θ\ge 0.\) See <a href="#example10">Example 10</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Describe the three types of symmetry in polar graphs, and compare them to the symmetry of the Cartesian plane.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Symmetry with respect to the polar axis is similar to symmetry about the \(x\) -axis, symmetry with respect to the pole is similar to symmetry about the origin, and symmetric with respect to the line \(θ=\frac{\pi }{2}\) is similar to symmetry about the \(y\) -axis.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Which of the three types of symmetries for polar graphs correspond to the symmetries with respect to the <strong>x</strong>-axis, <strong>y</strong>-axis, and origin?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>What are the steps to follow when graphing polar equations?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Test for symmetry; find zeros, intercepts, and maxima; make a table of values. Decide the general type of graph, cardioid, limaçon, lemniscate, etc., then plot points at \(θ=0,\,\frac{\pi }{2},\) \(\pi\) and \(\frac{3\pi }{2},\) and sketch the graph.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Describe the shapes of the graphs of cardioids, limaçons, and lemniscates.</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>What part of the equation determines the shape of the graph of a polar equation?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The shape of the polar graph is determined by whether or not it includes a sine, a cosine, and constants in the equation.</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, test the equation for symmetry.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(r=5cos\,3θ\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(r=3-3cos\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>symmetric with respect to the polar axis</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(r=3+2sin\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(r=3sin\,2θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>symmetric with respect to the polar axis, symmetric with respect to the line \(θ=\frac{\pi }{2},\) symmetric with respect to the pole</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(r=4\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(r=2θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>symmetric with respect to the line \(θ=\frac{\pi }{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(r=4cos\,\frac{θ}{2}\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(r=\frac{2}{θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Symmetric with respect to line \(θ=\frac{\pi }{2}\) (y-axis)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(r=3\sqrt{1-{cos}^{2}θ}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(r=\sqrt{5sin\,2θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>symmetric with respect to the pole</p>
+</div></div></div></div>
+<p>For the following exercises, graph the polar equation. Identify the name of the shape.</p>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(r=3cos\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(r=4sin\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>circle <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_202.jpg" alt="Graph of given circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(r=2+2cos\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(r=2-2cos\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>cardioid <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_204.jpg" alt="Graph of given cardioid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(r=5-5sin\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(r=3+3sin\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>cardioid <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_206.jpg" alt="Graph of given cardioid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(r=3+2sin\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(r=7+4sin\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>one-loop/dimpled limaçon</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_208.jpg" alt="Graph of given one-loop/dimpled limaçon " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(r=4+3cos\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(r=5+4cos\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>one-loop/dimpled limaçon <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_210.jpg" alt="Graph of given one-loop/dimpled limaçon " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(r=10+9cos\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(r=1+3sin\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>inner loop/two-loop limaçon</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_212.jpg" alt="Graph of given inner loop/two-loop limaçon " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(r=2+5sin\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(r=5+7sin\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>inner loop/two-loop limaçon</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_214.jpg" alt="Graph of given inner loop/two-loop limaçon " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(r=2+4cos\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(r=5+6cos\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>inner loop/two-loop limaçon <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_216.jpg" alt="Graph of given inner loop/two-loop limaçon " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\({r}^{2}=36cos(2θ)\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\({r}^{2}=10cos(2θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>lemniscate</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_218.jpg" alt="Graph of given lemniscate (along horizontal axis)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\({r}^{2}=4sin(2θ)\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\({r}^{2}=10sin(2θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>lemniscate</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_220.jpg" alt="Graph of given lemniscate (along y=x)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(r=3\text{sin}(2θ)\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(r=3\text{cos}(2θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>rose curve</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_222.jpg" alt="Graph of given rose curve - four petals." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(r=5\text{sin}(3θ)\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(r=4\text{sin}(4θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>rose curve</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_224.jpg" alt="Graph of given rose curve - eight petals." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(r=4\text{sin}(5θ)\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(r=-θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Archimedes’ spiral</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_226.jpg" alt="Graph of given Archimedes' spiral" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(r=2θ\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(r=-3θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Archimedes’ spiral</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_228.jpg" alt="Graph of given Archimedes' spiral" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a graphing calculator to sketch the graph of the polar equation.</p>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(r=\frac{1}{θ}\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(r=\frac{1}{\sqrt{θ}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_231.jpg" alt="Graph of given equation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(r=2sin\,θtan\,θ,\) a cissoid</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(r=2\sqrt{1-{sin}^{2}θ}\) , a hippopede</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_233.jpg" alt="Graph of given hippopede (two circles that are centered along the x-axis and meet at the origin)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(r=5+cos(4θ)\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(r=2-sin(2θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_235.jpg" alt="Graph of given equation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(r={θ}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(r=θ+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_237.jpg" alt="Graph of given equation. Similar to original Archimedes' spiral." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\(r=θsin\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(r=θcos\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_04_239.jpg" alt="Graph of given equation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, use a graphing utility to graph each pair of polar equations on a domain of \([0,4\pi ]\) and then explain the differences shown in the graphs.</p>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(r=θ,r=-θ\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(r=θ,r=θ+sin\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>They are both spirals, but not quite the same.</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\(r=sin\,θ+θ,r=sin\,θ-θ\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\(r=2sin(\frac{θ}{2}),r=θsin(\frac{θ}{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Both graphs are curves with 2 loops. The equation with a coefficient of \(θ\) has two loops on the left, the equation with a coefficient of 2 has two loops side by side. Graph these from 0 to \(4\pi\) to get a better picture.</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\(r=sin(cos(3θ))\,r=sin(3θ)\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>On a graphing utility, graph \(r=sin(\frac{16}{5}θ)\) on \([0\) , \(4\pi ]\) , \([0\) , \(8\pi ]\) , \([0\) , \(12\pi ]\) , and \([0\) , \(16\pi ].\) Describe the effect of increasing the width of the domain.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>When the width of the domain is increased, more petals of the flower are visible.</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>On a graphing utility, graph and sketch \(r=sin\,θ+{(sin(\frac{5}{2}θ))}^{3}\) on \([0,4\pi ].\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>On a graphing utility, graph each polar equation. Explain the similarities and differences you observe in the graphs.</p>
+<p id="eq16">\[\begin{array}{l}{r}_{1}=3sin(3θ) \\ {r}_{2}=2sin(3θ) \\ {r}_{3}=sin(3θ)\end{array}\]</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graphs are three-petal, rose curves. The larger the coefficient, the greater the curve’s distance from the pole.</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>On a graphing utility, graph each polar equation. Explain the similarities and differences you observe in the graphs.</p>
+<p id="eq17">\[\begin{array}{l}{r}_{1}=3+3cos\,θ \\ {r}_{2}=2+2cos\,θ \\ {r}_{3}=1+cos\,θ\end{array}\]</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>On a graphing utility, graph each polar equation. Explain the similarities and differences you observe in the graphs.</p>
+<p id="eq18">\[\begin{array}{l}{r}_{1}=3θ \\ {r}_{2}=2θ \\ {r}_{3}=θ\end{array}\]</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graphs are spirals. The smaller the coefficient, the tighter the spiral.</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, draw each polar equation on the same set of polar axes, and find the points of intersection.</p>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>\({r}_{1}=3+2sin\,θ,\,{r}_{2}=2\)</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>\({r}_{1}=6-4cos\,θ,\,{r}_{2}=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((4,\frac{\pi }{3}),(4,\frac{5\pi }{3})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>\({r}_{1}=1+sin\,θ,\,{r}_{2}=3sin\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>\({r}_{1}=1+cos\,θ,\,{r}_{2}=3cos\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\frac{3}{2},\frac{\pi }{3}),(\frac{3}{2},\frac{5\pi }{3})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>\({r}_{1}=cos(2θ),\,{r}_{2}=sin(2θ)\)</p>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>\({r}_{1}={sin}^{2}(2θ)\) , \({r}_{2}=1-cos(4θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,\frac{\pi }{2}),\,(0,\pi ),\,(0,\frac{3\pi }{2}),\,(0,2\pi )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>\({r}_{1}=\sqrt{3},\,{r}_{2}=2sin(θ)\)</p>
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><p>\({r}_{1}{}^{2}=sin\,θ,{r}_{2}{}^{2}=cos\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(=\frac{\pi }{4}\) and \(\sqrt{\text{sin}\frac{\pi }{4}}=\sqrt{\frac{\sqrt{2}}{2}}=\frac{\sqrt[4]{8}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex72"><div class="n">72</div><div class="body"><p>\({r}_{1}=1+cos\,θ\) , \({r}_{2}=1-sin\,θ\)</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>Archimedes’ spiral</dt><dd>a polar curve given by \(r=θ.\) When multiplied by a constant, the equation appears as \(r=aθ.\) As \(r=θ,\) the curve continues to widen in a spiral path over the domain.</dd><dt>cardioid</dt><dd>a member of the limaçon family of curves, named for its resemblance to a heart; its equation is given as \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ,\) where \(\frac{a}{b}=1\)</dd><dt>convex limaҫon</dt><dd>a type of one-loop limaçon represented by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ\) such that \(\frac{a}{b}\ge 2\)</dd><dt>dimpled limaҫon</dt><dd>a type of one-loop limaçon represented by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ\) such that \(1&lt;\frac{a}{b}&lt;2\)</dd><dt>inner-loop limaçon</dt><dd>a polar curve similar to the cardioid, but with an inner loop; passes through the pole twice; represented by \(r=a\pm bcos\,θ\) and \(r=a\pm b\,sin\,θ\) where \(a&lt;b\)</dd><dt>lemniscate</dt><dd>a polar curve resembling a figure 8 and given by the equation \({r}^{2}={a}^{2}cos\,2θ\) and \({r}^{2}={a}^{2}sin\,2θ,\) \(a\ne 0\)</dd><dt>one-loop limaҫon</dt><dd>a polar curve represented by \(r=a\pm bcos\,θ\) and \(r=a\pm bsin\,θ\) such that \(a&gt;0,b&gt;0,\) and \(\frac{a}{b}&gt;1;\) may be dimpled or convex; does not pass through the pole</dd><dt>polar equation</dt><dd>an equation describing a curve on the polar grid.</dd><dt>rose curve</dt><dd>a polar equation resembling a flower, given by the equations \(r=acos\,nθ\) and \(r=asin\,nθ;\) when \(n\) is even there are \(2n\) petals, and the curve is highly symmetrical; when \(n\) is odd there are \(n\) petals.</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

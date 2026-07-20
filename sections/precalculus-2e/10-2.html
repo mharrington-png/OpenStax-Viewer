@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hyperbola · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">The Hyperbola</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 10.2</span>The Hyperbola</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Use the Distance Formula. (IA 11.1.1)</li><li>Graph a hyperbola with center at (0,0). (IA 11.4.1)</li></ul>
+<h3 id="objective-1-use-the-distance-formula-ia-11-1-1">Objective 1: Use the Distance Formula. (IA 11.1.1)</h3>
+<div class="card definition" id="eip-idm473145248"><span class="chip">Distance Formula</span><p><strong>Distance Formula</strong>: The distance <strong>d</strong> between two points \(\left({x}_{1}, {y}_{1}\right)\) and \(\left({x}_{2}, {y}_{2}\right)\) is \(d=\sqrt{{\left({x}_{2}-{x}_{1}\right)}^{2}+{\left({y}_{2}-{y}_{1}\right)}^{2}}\) .</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_08_02_001.jpg" alt="distance formula graph" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Use the distance formula to find the distance between the points (−5, −3) and (7,2).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Write the Distance Formula.</td><td>\(d=\sqrt{{\left({x}_{2}-{x}_{1}\right)}^{2}+{\left({y}_{2}-{y}_{1}\right)}^{2}}\)</td></tr><tr><td>Label the points (–5, –3) as (<strong>x</strong><sub>1</sub>, <strong>y</strong><sub>1</sub>) and point (7, 2) as (<strong>x</strong><sub>2</sub>, <strong>y</strong><sub>2</sub>) and substitute.</td><td>\(d=\sqrt{{\left(72-(-5)\right)}^{2}+{\left(2-(-3)\right)}^{2}}\)</td></tr><tr><td>Simplify.</td><td>\(d=\sqrt{{12}^{2}+{5}^{2}}=\sqrt{144+55}=\sqrt{169}\)</td></tr><tr><td></td><td>\(d=13\)</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Use the Distance Formula.</p>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>Use the Distance Formula to find the distance between the points (−2,−5) and (−14,−10).</p>
+</div></div>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>Use the Distance Formula to find the distance between the points (10, −4) and (−1,5). Write the answer in exact form and then find the decimal approximation, rounded to the nearest tenth if needed.</p>
+</div></div>
+<h3 id="objective-2-graph-a-hyperbola-with-center-at-0-0-ia-11-4-1">Objective 2: Graph a hyperbola with center at (0,0). (IA 11.4.1)</h3>
+<p>A <strong>hyperbola</strong> is all points in a plane where the difference of their distances from two fixed points is constant. Each of the fixed points is called a <strong>focus</strong> of the hyperbola.</p>
+<p>The line through the foci is called the <strong>transverse axis</strong>. The two points where the transverse axis intersects the hyperbola are each a <strong>vertex</strong> of the hyperbola. The midpoint of the segment joining the foci is called the <strong>center</strong> of the hyperbola. The line perpendicular to the transverse axis that passes through the center is called the <strong>conjugate axis</strong>. Each piece of the graph is called a <strong>branch</strong> of the hyperbola.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/hyperboladefgraph.png" alt="hyperbola definitional label graph" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>Equation</strong></td><td>\(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1\)</td><td>\(\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1\)</td></tr><tr><td><strong>Orientation</strong></td><td>Transverse axis is horizontal.<br> Opens right and left.</td><td>Transverse axis is vertical.<br> Opens up and down.</td></tr><tr><td><strong>Vertices</strong></td><td>(-a, 0), (a, 0)</td><td>(0, -a), (0, a)</td></tr><tr><td><strong>x-intercepts</strong></td><td>(-a, 0), (a, 0)</td><td>none)</td></tr><tr><td><strong>y-intercepts</strong></td><td>none</td><td>(0, -a), (0, a)</td></tr><tr><td><strong>Rectangle</strong></td><td>Use (±a,0), (0,±b)</td><td>Use (0,±a), (±b,0)</td></tr><tr><td><strong>Asymptotes</strong></td><td>( \(y=\pm \frac{b}{a}x\)</td><td>\(y=\pm \frac{a}{b}x\)</td></tr></tbody></table></div>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/hyperbolagraph.png" alt="hyperbola graph" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p><strong>Notice</strong> that, unlike the equation of an ellipse, the denominator of \({x}^{2}\) is not always \({a}^{2}\) and the denominator of \({y}^{2}\) is not always \({b}^{2}\) .</p>
+<p><strong>Notice</strong> that when the \({x}^{2}\) term is positive, the transverse axis is on the x-axis. When the \({y}^{2}\) term is positive, the transverse axis is on the y-axis.</p>
+<div class="card howto" id="eip-684"><span class="chip">How To</span><ul class="tight"><li>Write the equation in standard form.</li><li>Determine if the transverse axis is horizontal or vertical.</li><li>Find the vertices.</li><li>Sketch the rectangle, entered at the origin, intersecting one axis at ±<strong>a</strong> and the other at ±<strong>b</strong>.</li><li>Sketch the asymptotes – the lines through the diagonals of the rectangle.</li><li>Draw the two branches of the hyperbola. Start at the vertex and use the asymptotes as a guide.</li></ul>
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><div class="ex-body"><p>Graph \(\frac{{x}^{2}}{25}-\frac{{y}^{2}}{4}=1.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_04_006a_img.jpg" alt="Step 1 is to write the equation in standard form. The the quantity x squared divided by 25 end quantity minus the quantity y squared divided by 4 end quantity is equal to 1 is already in standard form." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_04_006b_img.jpg" alt="Step 2 is to determine whether the transverse axis is horizontal or vertical. Since the x squared term is positive, the transverse axis is horizontal." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_04_006c_img.jpg" alt="Step 3 is to find the vertices. Since a squared is equal to 25, then a is equal to plus or minus 5. The vertices lie on the x-axis and are (negative 5, 0) and (5, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_04_006d_img.jpg" alt="Step 4 is to sketch the rectangle centered at the origin, intersecting one axis at plus or minus a and the other at plus or minus b. Since a is equal to plus or minus 5, the rectangle will intersect the x-axis at the vertices. Since b is equal to plus or minus 2, the rectangle will intersect the y-axis at (0, negative 2) and (0, 2). The rectangle is shown on a coordinate plane with the points (0, 2), (0, negative 2), (negative 5, 0), and (5, 0) labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_04_006e_img.jpg" alt="Step 5 is to sketch the asymptotes, the lines through the diagonals of the rectangle. The asymptotes have the equations y is equal to five-halves times x and y is equal to negative five-halves x. The coordinate plane shows the rectangle with the points (0, 2), (0, negative 2), (negative 5, 0), and (5, 0) labeled and the lines that represent the asymptotes." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_04_006f_img.jpg" alt="Step 6 is to draw the two branches of the hyperbola. Start at each vertex and use the asymptotes as a guide. The coordinate plane shows the rectangle with the points (0, 2), (0, negative 2), (negative 5, 0), and (5, 0) labeled, the lines that represent the asymptotes, y is equal to plus or minus five-halves times x, and the branches that pass through (plus or minus 5, 0) and open left and right." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 3</span><span class="t"></span></div><div class="ex-body"><p>Graph \(4{y}^{2}-16{x}^{2}=64.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td></td><td>\(4{y}^{2}-16{x}^{2}=64\)</td></tr><tr><td>To write the equation in standard form, divide <br> each term by 64 to make the equation equal to 1.</td><td>\(\frac{4{y}^{2}}{64}-\frac{16{x}^{2}}{64}=\frac{64}{64}\)</td></tr><tr><td>Simplify.</td><td>\(\,\frac{{y}^{2}}{16}-\frac{{x}^{2}}{4}=1\)</td></tr><tr><td>Since the <strong>y</strong> <sup>2</sup> -term is positive, the transverse axis is vertical. <br> Since \({a}^{2}=16\) then \(a=\pm 4.\)</td><td></td></tr><tr><td>The vertices are on the <strong>y</strong> -axis, \((0,\text{-}a),\) \((0,a).\) <br> Since \({b}^{2}=4\) then \(b=\pm 2.\)</td><td>\((0,-4),\) \((0,4)\)</td></tr><tr><td>Sketch the rectangle intersecting the <strong>x</strong> -axis at \((-2,0),\) \((2,0)\) and the <strong>y</strong> -axis at the vertices. <br> Sketch the asymptotes through the diagonals of the rectangle. <br> Draw the two branches of the hyperbola.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_04_007a_img.jpg" alt="A graph on a coordinate plane shows a hyperbola centered at the origin and opening vertically. The vertices are at (0, 4) and (0, -4). The graph also displays a dashed red rectangle from x = -2 to x = 2 and y = -4 to y = 4, which helps define the asymptotes. The asymptotes, represented by dashed light blue lines, pass through the corners of this rectangle and intersect at the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<p>Graph a hyperbola with center at (0,0).</p>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>Graph \(\frac{{x}^{2}}{9}-\frac{{y}^{2}}{16}=1\) .</p>
+</div></div>
+<div class="exercise warmup" id="warmex4"><div class="n">P4</div><div class="body"><p>Graph \(25{y}^{2}-9{x}^{2}=225\) .</p>
+</div></div>
+</div></details>
+<p>What do paths of comets, supersonic booms, ancient Grecian pillars, and natural draft cooling towers have in common? They can all be modeled by the same type of <strong>conic</strong>. For instance, when something moves faster than the speed of sound, a shock wave in the form of a cone is created. A portion of a conic is formed when the wave intersects the ground, resulting in a sonic boom. See <a href="#fig1">Figure 1</a>.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_001.jpg" alt="A jet plane flying at supersonic speed generates a conical shock wave. The intersection of this wake with the ground creates a hyperbolic pattern, depicting a sonic boom." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — A shock wave intersecting the ground forms a portion of a conic and results in a sonic boom.</figcaption></figure>
+<p>Most people are familiar with the sonic boom created by supersonic aircraft, but humans were breaking the sound barrier long before the first supersonic flight. The crack of a whip occurs because the tip is exceeding the speed of sound. The bullets shot from many firearms also break the sound barrier, although the bang of the gun usually supersedes the sound of the sonic boom.</p>
+<h2 id="locating-the-vertices-and-foci-of-a-hyperbola">Locating the Vertices and Foci of a Hyperbola</h2>
+<p>In analytic geometry, a <strong>hyperbola</strong> is a conic section formed by intersecting a right circular cone with a plane at an angle such that both halves of the cone are intersected. This intersection produces two separate unbounded curves that are mirror images of each other. See <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_002.jpg" alt="An illustration showing a double cone (two cones joined at their vertices) being intersected by a vertical plane. The plane cuts through both parts of the double cone, creating two distinct, open curves (highlighted in orange) that together form a hyperbola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — A hyperbola</figcaption></figure>
+<p>Like the ellipse, the hyperbola can also be defined as a set of points in the coordinate plane. A hyperbola is the set of all points \((x,y)\) in a plane such that the difference of the distances between \((x,y)\) and the foci is a positive constant.</p>
+<p>Notice that the definition of a hyperbola is very similar to that of an ellipse. The distinction is that the hyperbola is defined in terms of the <strong>difference</strong> of two distances, whereas the ellipse is defined in terms of the <strong>sum</strong> of two distances.</p>
+<p>As with the ellipse, every hyperbola has two <strong>axes of symmetry</strong>. The <strong>transverse axis</strong> is a line segment that passes through the center of the hyperbola and has vertices as its endpoints. The foci lie on the line that contains the transverse axis. The <strong>conjugate axis</strong> is perpendicular to the transverse axis and has the co-vertices as its endpoints. The <strong>center of a hyperbola</strong> is the midpoint of both the transverse and conjugate axes, where they intersect. Every hyperbola also has two <strong>asymptotes</strong> that pass through its center. As a hyperbola recedes from the center, its branches approach these asymptotes. The <strong>central rectangle</strong> of the hyperbola is centered at the origin with sides that pass through each vertex and co-vertex; it is a useful tool for graphing the hyperbola and its asymptotes. To sketch the asymptotes of the hyperbola, simply sketch and extend the diagonals of the central rectangle. See <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_003.jpg" alt="This diagram illustrates the various components of a hyperbola centered at the origin, including the vertices, co-vertices, foci, transverse axis, conjugate axis, asymptotes, and the rectangular box used to construct the asymptotes." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Key features of the hyperbola</figcaption></figure>
+<p>In this section, we will limit our discussion to hyperbolas that are positioned vertically or horizontally in the coordinate plane; the axes will either lie on or be parallel to the <strong>x</strong>- and <strong>y</strong>-axes. We will consider two cases: those that are centered at the origin, and those that are centered at a point other than the origin.</p>
+<h3 id="deriving-the-equation-of-a-hyperbola-centered-at-the-origin">Deriving the Equation of a Hyperbola Centered at the Origin</h3>
+<p>Let \((-c,0)\) and \((c,0)\) be the <strong>foci</strong> of a hyperbola centered at the origin. The hyperbola is the set of all points \((x,y)\) such that the difference of the distances from \((x,y)\) to the foci is constant. See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_013.jpg" alt="A horizontal hyperbola in the x y coordinate system centered at (0, 0) with Vertices at (negative a, 0) and (a, 0) and Foci at (negative c, 0) and (c, 0), with lines of length d1 and d2 connecting a point on the right branch of the hyperbola to the foci." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p>If \((a,0)\) is a vertex of the hyperbola, the distance from \((-c,0)\) to \((a,0)\) is \(a-(-c)=a+c.\) The distance from \((c,0)\) to \((a,0)\) is \(c-a.\) The difference of the distances from the foci to the vertex is</p>
+<p id="eq1">\[(a+c)-(c-a)=2a\]</p>
+<p>If \((x,y)\) is a point on the hyperbola, we can define the following variables:</p>
+<p id="eq2">\[\begin{array}{l}{d}_{2}=\text{the distance from }(-c,0)\,\text{to }(x,y) \\ {d}_{1}=\text{the distance from }(c,0)\,\text{to }(x,y)\end{array}\]</p>
+<p>By definition of a hyperbola, \({d}_{2}-{d}_{1}\) is constant for any point \((x,y)\) on the hyperbola. We know that the difference of these distances is \(2a\) for the vertex \((a,0).\) It follows that \({d}_{2}-{d}_{1}=2a\) for any point on the hyperbola. As with the derivation of the equation of an ellipse, we will begin by applying the <strong>distance formula</strong>. The rest of the derivation is algebraic. Compare this derivation with the one from the previous section for ellipses.</p>
+<p id="eq3">\[\begin{array}{ll}\,\,{d}_{2}-{d}_{1}=\sqrt{{(x-(-c))}^{2}+{(y-0)}^{2}}-\sqrt{{(x-c)}^{2}+{(y-0)}^{2}}=2a &amp; \text{Distance Formula} \\ \sqrt{{(x+c)}^{2}+{y}^{2}}-\sqrt{{(x-c)}^{2}+{y}^{2}}=2a &amp; \text{Simplify expressions}\text{.} \\ \,\,\sqrt{{(x+c)}^{2}+{y}^{2}}=2a+\sqrt{{(x-c)}^{2}+{y}^{2}} &amp; \text{Move radical to opposite side}\text{.} \\ \,\,{(x+c)}^{2}+{y}^{2}={(2a+\sqrt{{(x-c)}^{2}+{y}^{2}})}^{2} &amp; \text{Square both sides}\text{.} \\ \,\,{x}^{2}+2cx+{c}^{2}+{y}^{2}=4{a}^{2}+4a\sqrt{{(x-c)}^{2}+{y}^{2}}+{(x-c)}^{2}+{y}^{2} &amp; \text{Expand the squares}\text{.} \\ \,\,{x}^{2}+2cx+{c}^{2}+{y}^{2}=4{a}^{2}+4a\sqrt{{(x-c)}^{2}+{y}^{2}}+{x}^{2}-2cx+{c}^{2}+{y}^{2} &amp; \text{Expand remaining square}\text{.} \\ \,\,2cx=4{a}^{2}+4a\sqrt{{(x-c)}^{2}+{y}^{2}}-2cx &amp; \text{Combine like terms}\text{.} \\ \,\,4cx-4{a}^{2}=4a\sqrt{{(x-c)}^{2}+{y}^{2}} &amp; \text{Isolate the radical}\text{.} \\ \,\,cx-{a}^{2}=a\sqrt{{(x-c)}^{2}+{y}^{2}} &amp; \text{Divide by 4}\text{.} \\ \,\,{(cx-{a}^{2})}^{2}={a}^{2}{(\sqrt{{(x-c)}^{2}+{y}^{2}})}^{2} &amp; \text{Square both sides}\text{.} \\ \,\,{c}^{2}{x}^{2}-2{a}^{2}cx+{a}^{4}={a}^{2}({x}^{2}-2cx+{c}^{2}+{y}^{2}) &amp; \text{Expand the squares}\text{.} \\ \,\,{c}^{2}{x}^{2}-2{a}^{2}cx+{a}^{4}={a}^{2}{x}^{2}-2{a}^{2}cx+{a}^{2}{c}^{2}+{a}^{2}{y}^{2} &amp; \text{Distribute }{a}^{2}\text{.} \\ \,\,{a}^{4}+{c}^{2}{x}^{2}={a}^{2}{x}^{2}+{a}^{2}{c}^{2}+{a}^{2}{y}^{2} &amp; \text{Combine like terms}\text{.} \\ \,\,{c}^{2}{x}^{2}-{a}^{2}{x}^{2}-{a}^{2}{y}^{2}={a}^{2}{c}^{2}-{a}^{4} &amp; \text{Rearrange terms}\text{.} \\ \,\,{x}^{2}({c}^{2}-{a}^{2})-{a}^{2}{y}^{2}={a}^{2}({c}^{2}-{a}^{2}) &amp; \text{Factor common terms}\text{.} \\ \,\,{x}^{2}{b}^{2}-{a}^{2}{y}^{2}={a}^{2}{b}^{2} &amp; \text{Set }{b}^{2}={c}^{2}-{a}^{2}. \\ \,\,\frac{{x}^{2}{b}^{2}}{{a}^{2}{b}^{2}}-\frac{{a}^{2}{y}^{2}}{{a}^{2}{b}^{2}}=\frac{{a}^{2}{b}^{2}}{{a}^{2}{b}^{2}} &amp; \text{Divide both sides by }{a}^{2}{b}^{2} \\ \,\,\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1 &amp; \end{array}\]</p>
+<p>This equation defines a hyperbola centered at the origin with vertices \((\pm a,0)\) and co-vertices \((0\pm b).\)</p>
+<div class="card definition" id="fs-id1616384"><span class="chip">Standard Forms of the Equation of a Hyperbola with Center (0,0)</span><p>The standard form of the equation of a hyperbola with center \((0,0)\) and transverse axis on the <strong>x</strong>-axis is</p>
+<p id="eq4">\[\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1\]</p>
+<p>where</p>
+<ul class="tight"><li>the length of the transverse axis is \(2a\)</li><li>the coordinates of the vertices are \((\pm a,0)\)</li><li>the length of the conjugate axis is \(2b\)</li><li>the coordinates of the co-vertices are \((0,\pm b)\)</li><li>the distance between the foci is \(2c,\) where \({c}^{2}={a}^{2}+{b}^{2}\)</li><li>the coordinates of the foci are \((\pm c,0)\)</li><li>the equations of the asymptotes are \(y=\pm \frac{b}{a}x\)</li></ul>
+<p>See <a href="#fig5">Figure 5</a><strong>a</strong>.</p>
+<p>The standard form of the equation of a hyperbola with center \((0,0)\) and transverse axis on the <strong>y</strong>-axis is</p>
+<p id="eq5">\[\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1\]</p>
+<p>where</p>
+<ul class="tight"><li>the length of the transverse axis is \(2a\)</li><li>the coordinates of the vertices are \((0,\pm a)\)</li><li>the length of the conjugate axis is \(2b\)</li><li>the coordinates of the co-vertices are \((\pm b,0)\)</li><li>the distance between the foci is \(2c,\) where \({c}^{2}={a}^{2}+{b}^{2}\)</li><li>the coordinates of the foci are \((0,\pm c)\)</li><li>the equations of the asymptotes are \(y=\pm \frac{a}{b}x\)</li></ul>
+<p>See <a href="#fig5">Figure 5</a><strong>b</strong>.</p>
+<p>Note that the vertices, co-vertices, and foci are related by the equation \({c}^{2}={a}^{2}+{b}^{2}.\) When we are given the equation of a hyperbola, we can use this relationship to identify its vertices and foci.</p>
+</div>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_004.jpg" alt="The left graph displays a hyperbola centered at the origin with a horizontal transverse axis. Its vertices are at (±a, 0), foci at (±c, 0), and its asymptotes are given by the equations y = ±(b/a)x. An auxiliary dashed rectangle, defined by x = ±a and y = ±b, is shown, with the asymptotes passing through its corners. The right graph illustrates a hyperbola centered at the origin with a vertical transverse axis. Its vertices are at (0, ±a), foci at (0, ±c), and its asymptotes are given by the equations y = ±(a/b)x. An auxiliary dashed rectangle, defined by x = ±b and y = ±a, is also shown, with the asymptotes passing through its corners." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — (a) Horizontal hyperbola with center \((0,0)\) (b) Vertical hyperbola with center \((0,0)\)</figcaption></figure>
+<div class="card howto" id="fs-id2168213"><span class="chip">How To</span><p><strong>Given the equation of a hyperbola in standard form, locate its vertices and foci.</strong></p>
+<ul class="tight"><li>Determine whether the transverse axis lies on the <strong>x</strong>- or <strong>y</strong>-axis. Notice that \({a}^{2}\) is always under the variable with the positive coefficient. So, if you set the other variable equal to zero, you can easily find the intercepts. In the case where the hyperbola is centered at the origin, the intercepts coincide with the vertices.<ul class="tight"><li>If the equation has the form \(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1,\) then the transverse axis lies on the <strong>x</strong>-axis. The vertices are located at \((\pm a,0),\) and the foci are located at \((\pm c,0).\)</li><li>If the equation has the form \(\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1,\) then the transverse axis lies on the <strong>y</strong>-axis. The vertices are located at \((0,\pm a),\) and the foci are located at \((0,\pm c).\)</li></ul>
+</li><li>Solve for \(a\) using the equation \(a=\sqrt{{a}^{2}}.\)</li><li>Solve for \(c\) using the equation \(c=\sqrt{{a}^{2}+{b}^{2}}.\)</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Identify the vertices and foci of the <strong>hyperbola</strong> with equation \(\frac{{y}^{2}}{49}-\frac{{x}^{2}}{32}=1.\)</p>
+</div><p class="sol-hint">Since \({y}^{2}\) comes first, the transverse axis is vertical — read a and b from the denominators, then use \({c}^{2}={a}^{2}+{b}^{2}\) for the foci.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The equation has the form \(\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1,\) so the transverse axis lies on the <strong>y</strong>-axis. The hyperbola is centered at the origin, so the vertices serve as the <strong>y</strong>-intercepts of the graph. To find the vertices, set \(x=0,\) and solve for \(y.\)</p>
+<p id="eq6">\[\begin{array}{l}1=\frac{{y}^{2}}{49}-\frac{{x}^{2}}{32} \\ 1=\frac{{y}^{2}}{49}-\frac{{0}^{2}}{32} \\ 1=\frac{{y}^{2}}{49} \\ {y}^{2}=49 \\ y=\pm \sqrt{49}=\pm 7\end{array}\]</p>
+<p>The foci are located at \((0,\pm c).\) Solving for \(c,\)</p>
+<p id="eq7">\[c=\sqrt{{a}^{2}+{b}^{2}}=\sqrt{49+32}=\sqrt{81}=9\]</p>
+<p>Therefore, the vertices are located at \((0,\pm 7),\) and the foci are located at \((0,\pm 9).\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Identify the vertices and foci of the hyperbola with equation \(\frac{{x}^{2}}{9}-\frac{{y}^{2}}{25}=1.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Vertices: \((\pm 3,0);\) Foci: \((\pm \sqrt{34},0)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="writing-equations-of-hyperbolas-in-standard-form">Writing Equations of Hyperbolas in Standard Form</h2>
+<p>Just as with ellipses, writing the equation for a hyperbola in standard form allows us to calculate the key features: its center, vertices, co-vertices, foci, asymptotes, and the lengths and positions of the transverse and conjugate axes. Conversely, an equation for a hyperbola can be found given its key features. We begin by finding standard equations for hyperbolas centered at the origin. Then we will turn our attention to finding standard equations for hyperbolas centered at some point other than the origin.</p>
+<h3 id="hyperbolas-centered-at-the-origin">Hyperbolas Centered at the Origin</h3>
+<p>Reviewing the standard forms given for hyperbolas centered at \((0,0),\) we see that the vertices, co-vertices, and foci are related by the equation \({c}^{2}={a}^{2}+{b}^{2}.\) Note that this equation can also be rewritten as \({b}^{2}={c}^{2}-{a}^{2}.\) This relationship is used to write the equation for a hyperbola when given the coordinates of its foci and vertices.</p>
+<div class="card howto" id="fs-id1129556"><span class="chip">How To</span><p><strong>Given the vertices and foci of a hyperbola centered at \((0,\,\text{0}),\) write its equation in standard form.</strong></p>
+<ul class="tight"><li>Determine whether the transverse axis lies on the <strong>x</strong>- or <strong>y</strong>-axis.<ul class="tight"><li>If the given coordinates of the vertices and foci have the form \((\pm a,0)\) and \((\pm c,0),\) respectively, then the transverse axis is the <strong>x</strong>-axis. Use the standard form \(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1.\)</li><li>If the given coordinates of the vertices and foci have the form \((0,\pm a)\) and \((0,\pm c),\) respectively, then the transverse axis is the <strong>y</strong>-axis. Use the standard form \(\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1.\)</li></ul>
+</li><li>Find \({b}^{2}\) using the equation \({b}^{2}={c}^{2}-{a}^{2}.\)</li><li>Substitute the values for \({a}^{2}\) and \({b}^{2}\) into the standard form of the equation determined in Step 1.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>What is the standard form equation of the <strong>hyperbola</strong> that has vertices \((\pm 6,0)\) and foci \((\pm 2\sqrt{10},0)?\)</p>
+</div><p class="sol-hint">Find a from the vertices and c from the foci, then use \({b}^{2}={c}^{2}-{a}^{2}\) to complete the equation.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The vertices and foci are on the <strong>x</strong>-axis. Thus, the equation for the hyperbola will have the form \(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1.\)</p>
+<p>The vertices are \((\pm 6,0),\) so \(a=6\) and \({a}^{2}=36.\)</p>
+<p>The foci are \((\pm 2\sqrt{10},0),\) so \(c=2\sqrt{10}\) and \({c}^{2}=40.\)</p>
+<p>Solving for \({b}^{2},\) we have</p>
+<p id="eq8">\[\begin{array}{ll}{b}^{2}={c}^{2}-{a}^{2} &amp; \\ {b}^{2}=40-36 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Substitute for }{c}^{2}\,\text{and }{a}^{2}. \\ {b}^{2}=4 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Subtract}.\end{array}\]</p>
+<p>Finally, we substitute \({a}^{2}=36\) and \({b}^{2}=4\) into the standard form of the equation, \(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1.\) The equation of the hyperbola is \(\frac{{x}^{2}}{36}-\frac{{y}^{2}}{4}=1,\) as shown in <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_014.jpg" alt="A horizontal hyperbola centered at (0, 0) in the x y coordinate system with Vertices at (negative 6, 0) and (6, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>What is the standard form equation of the hyperbola that has vertices \((0,\pm 2)\) and foci \((0,\pm 2\sqrt{5})?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{{y}^{2}}{4}-\frac{{x}^{2}}{16}=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="hyperbolas-not-centered-at-the-origin">Hyperbolas Not Centered at the Origin</h3>
+<p>Like the graphs for other equations, the graph of a hyperbola can be translated. If a hyperbola is translated \(h\) units horizontally and \(k\) units vertically, the center of the <strong>hyperbola</strong> will be \((h,k).\) This translation results in the standard form of the equation we saw previously, with \(x\) replaced by \((x-h)\) and \(y\) replaced by \((y-k).\)</p>
+<div class="card definition" id="fs-id1674009"><span class="chip">Standard Forms of the Equation of a Hyperbola with Center (<strong>h</strong>, <strong>k</strong>)</span><p>The standard form of the equation of a hyperbola with center \((h,k)\) and transverse axis parallel to the <strong>x</strong>-axis is</p>
+<p id="eq9">\[\frac{{(x-h)}^{2}}{{a}^{2}}-\frac{{(y-k)}^{2}}{{b}^{2}}=1\]</p>
+<p>where</p>
+<ul class="tight"><li>the length of the transverse axis is \(2a\)</li><li>the coordinates of the vertices are \((h\pm a,k)\)</li><li>the length of the conjugate axis is \(2b\)</li><li>the coordinates of the co-vertices are \((h,k\pm b)\)</li><li>the distance between the foci is \(2c,\) where \({c}^{2}={a}^{2}+{b}^{2}\)</li><li>the coordinates of the foci are \((h\pm c,k)\)</li></ul>
+<p>The asymptotes of the hyperbola coincide with the diagonals of the central rectangle. The length of the rectangle is \(2a\) and its width is \(2b.\) The slopes of the diagonals are \(\pm \frac{b}{a},\) and each diagonal passes through the center \((h,k).\) Using the <strong>point-slope formula</strong>, it is simple to show that the equations of the asymptotes are \(y=\pm \frac{b}{a}(x-h)+k.\) See <a href="#fig7">Figure 7</a><strong>a</strong></p>
+<p>The standard form of the equation of a hyperbola with center \((h,k)\) and transverse axis parallel to the <strong>y</strong>-axis is</p>
+<p id="eq10">\[\frac{{(y-k)}^{2}}{{a}^{2}}-\frac{{(x-h)}^{2}}{{b}^{2}}=1\]</p>
+<p>where</p>
+<ul class="tight"><li>the length of the transverse axis is \(2a\)</li><li>the coordinates of the vertices are \((h,k\pm a)\)</li><li>the length of the conjugate axis is \(2b\)</li><li>the coordinates of the co-vertices are \((h\pm b,k)\)</li><li>the distance between the foci is \(2c,\) where \({c}^{2}={a}^{2}+{b}^{2}\)</li><li>the coordinates of the foci are \((h,k\pm c)\)</li></ul>
+<p>Using the reasoning above, the equations of the asymptotes are \(y=\pm \frac{a}{b}(x-h)+k.\) See <a href="#fig7">Figure 7</a><strong>b</strong>.</p>
+</div>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_005n.jpg" alt="This is a horizontal parabola opening to the right with Vertex (0, 0), Focus (6, 0), and Directrix x = negative 6. The Latus Rectum is shown, a vertical line passing through the Focus and terminating on the parabola at (6, 12) and (6, negative 12)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — (a) Horizontal hyperbola with center \((h,k)\) (b) Vertical hyperbola with center \((h,k)\)</figcaption></figure>
+<p>Like hyperbolas centered at the origin, hyperbolas centered at a point \((h,k)\) have vertices, co-vertices, and foci that are related by the equation \({c}^{2}={a}^{2}+{b}^{2}.\) We can use this relationship along with the midpoint and distance formulas to find the standard equation of a hyperbola when the vertices and foci are given.</p>
+<div class="card howto" id="fs-id1672636"><span class="chip">How To</span><p><strong>Given the vertices and foci of a hyperbola centered at \((h,k),\) write its equation in standard form.</strong></p>
+<ul class="tight"><li>Determine whether the transverse axis is parallel to the <strong>x</strong>- or <strong>y</strong>-axis.<ul class="tight"><li>If the <strong>y</strong>-coordinates of the given vertices and foci are the same, then the transverse axis is parallel to the <strong>x</strong>-axis. Use the standard form \(\frac{{(x-h)}^{2}}{{a}^{2}}-\frac{{(y-k)}^{2}}{{b}^{2}}=1.\)</li><li>If the <strong>x</strong>-coordinates of the given vertices and foci are the same, then the transverse axis is parallel to the <strong>y</strong>-axis. Use the standard form \(\frac{{(y-k)}^{2}}{{a}^{2}}-\frac{{(x-h)}^{2}}{{b}^{2}}=1.\)</li></ul>
+</li><li>Identify the center of the hyperbola, \((h,k),\) using the midpoint formula and the given coordinates for the vertices.</li><li>Find \({a}^{2}\) by solving for the length of the transverse axis, \(2a\) , which is the distance between the given vertices.</li><li>Find \({c}^{2}\) using \(h\) and \(k\) found in Step 2 along with the given coordinates for the foci.</li><li>Solve for \({b}^{2}\) using the equation \({b}^{2}={c}^{2}-{a}^{2}.\)</li><li>Substitute the values for \(h,\,k,\,{a}^{2},\) and \({b}^{2}\) into the standard form of the equation determined in Step 1.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>What is the standard form equation of the <strong>hyperbola</strong> that has vertices at \((0,-2)\) and \((6,-2)\) and foci at \((-2,-2)\) and \((8,-2)?\)</p>
+</div><p class="sol-hint">Find the center as the midpoint of the vertices, then use the distances to the vertices and foci for a and c.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The <strong>y</strong>-coordinates of the vertices and foci are the same, so the transverse axis is parallel to the <strong>x</strong>-axis. Thus, the equation of the hyperbola will have the form</p>
+<p id="eq11">\[\frac{{(x-h)}^{2}}{{a}^{2}}-\frac{{(y-k)}^{2}}{{b}^{2}}=1\]</p>
+<p>First, we identify the center, \((h,k).\) The center is halfway between the vertices \((0,-2)\) and \((6,-2).\) Applying the midpoint formula, we have</p>
+<p id="eq12">\[(h,k)=(\frac{0+6}{2},\frac{-2+(-2)}{2})=(3,-2)\]</p>
+<p>Next, we find \({a}^{2}.\) The length of the transverse axis, \(2a,\) is bounded by the vertices. So, we can find \({a}^{2}\) by finding the distance between the <strong>x</strong>-coordinates of the vertices.</p>
+<p id="eq13">\[\begin{array}{l}2a=|0-6| \\ 2a=6 \\ \,\,a=3 \\ {a}^{2}=9\end{array}\]</p>
+<p>Now we need to find \({c}^{2}.\) The coordinates of the foci are \((h\pm c,k).\) So \((h-c,k)=(-2,-2)\) and \((h+c,k)=(8,-2).\) We can use the <strong>x</strong>-coordinate from either of these points to solve for \(c.\) Using the point \((8,-2),\) and substituting \(h=3,\)</p>
+<p id="eq14">\[\begin{array}{l}h+c=8 \\ 3+c=8 \\ \,\,c=5 \\ \,\,{c}^{2}=25\end{array}\]</p>
+<p>Next, solve for \({b}^{2}\) using the equation \({b}^{2}={c}^{2}-{a}^{2}:\)</p>
+<p id="eq15">\[\begin{array}{l}{b}^{2}={c}^{2}-{a}^{2} \\ \,\,=25-9 \\ \,\,=16\end{array}\]</p>
+<p>Finally, substitute the values found for \(h,k,{a}^{2},\) and \({b}^{2}\) into the standard form of the equation.</p>
+<p id="eq16">\[\frac{{(x-3)}^{2}}{9}-\frac{{(y+2)}^{2}}{16}=1\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>What is the standard form equation of the hyperbola that has vertices \((1,-2)\) and \((1,\text{8})\) and foci \((1,-10)\) and \((1,16)?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{{(y-3)}^{2}}{25}-\frac{{(x-1)}^{2}}{144}=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-hyperbolas-centered-at-the-origin">Graphing Hyperbolas Centered at the Origin</h2>
+<p>When we have an equation in standard form for a hyperbola centered at the origin, we can interpret its parts to identify the key features of its graph: the center, vertices, co-vertices, asymptotes, foci, and lengths and positions of the transverse and conjugate axes. To graph hyperbolas centered at the origin, we use the standard form \(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1\) for horizontal hyperbolas and the standard form \(\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1\) for vertical hyperbolas.</p>
+<div class="card howto" id="fs-id1405838"><span class="chip">How To</span><p><strong>Given a standard form equation for a hyperbola centered at \((0,0),\) sketch the graph.</strong></p>
+<ul class="tight"><li>Determine which of the standard forms applies to the given equation.</li><li>Use the standard form identified in Step 1 to determine the position of the transverse axis; coordinates for the vertices, co-vertices, and foci; and the equations for the asymptotes.<ul class="tight"><li>If the equation is in the form \(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1,\) then<ul class="tight"><li>the transverse axis is on the <strong>x</strong>-axis</li><li>the coordinates of the vertices are \((\pm a,0)\)</li><li>the coordinates of the co-vertices are \((0,\pm b)\)</li><li>the coordinates of the foci are \((\pm c,0)\)</li><li>the equations of the asymptotes are \(y=\pm \frac{b}{a}x\)</li></ul>
+</li><li>If the equation is in the form \(\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1,\) then<ul class="tight"><li>the transverse axis is on the <strong>y</strong>-axis</li><li>the coordinates of the vertices are \((0,\pm a)\)</li><li>the coordinates of the co-vertices are \((\pm b,0)\)</li><li>the coordinates of the foci are \((0,\pm c)\)</li><li>the equations of the asymptotes are \(y=\pm \frac{a}{b}x\)</li></ul>
+</li></ul>
+</li><li>Solve for the coordinates of the foci using the equation \(c=\pm \sqrt{{a}^{2}+{b}^{2}}.\)</li><li>Plot the vertices, co-vertices, foci, and asymptotes in the coordinate plane, and draw a smooth curve to form the hyperbola.</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Graph the <strong>hyperbola</strong> given by the equation \(\frac{{y}^{2}}{64}-\frac{{x}^{2}}{36}=1.\) Identify and label the vertices, co-vertices, foci, and asymptotes.</p>
+</div><p class="sol-hint">Read a and b from the denominators, then use the vertical-transverse-axis asymptote formula \(y=\pm\frac{a}{b}x\) shifted to the center.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The standard form that applies to the given equation is \(\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1.\) Thus, the transverse axis is on the <strong>y</strong>-axis</p>
+<p>The coordinates of the vertices are \((0,\pm a)=(0,\pm \sqrt{64})=(0,\pm 8)\)</p>
+<p>The coordinates of the co-vertices are \((\pm b,0)=(\pm \sqrt{36},\,\,0)=(\pm 6,0)\)</p>
+<p>The coordinates of the foci are \((0,\pm c),\) where \(c=\pm \sqrt{{a}^{2}+{b}^{2}}.\) Solving for \(c,\) we have</p>
+<p id="eq17">\[c=\pm \sqrt{{a}^{2}+{b}^{2}}=\pm \sqrt{64+36}=\pm \sqrt{100}=\pm 10\]</p>
+<p>Therefore, the coordinates of the foci are \((0,\pm 10)\)</p>
+<p>The equations of the asymptotes are \(y=\pm \frac{a}{b}x=\pm \frac{8}{6}x=\pm \frac{4}{3}x\)</p>
+<p>Plot and label the vertices and co-vertices, and then sketch the central rectangle. Sides of the rectangle are parallel to the axes and pass through the vertices and co-vertices. Sketch and extend the diagonals of the central rectangle to show the asymptotes. The central rectangle and asymptotes provide the framework needed to sketch an accurate graph of the hyperbola. Label the foci and asymptotes, and draw a smooth curve to form the hyperbola, as shown in <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_006.jpg" alt="A vertical hyperbola centered at (0, 0) in the x y coordinate system with Vertices at (0, 8) and (0, negative 8) and Foci at (0, negative 10) and (0, 10). Also shown are the slant asymptotes, y = (4/3)x and y = (negative 4/3)x. The points (negative 6, 0) (6, 0) and (0, 0) are labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Graph the hyperbola given by the equation \(\frac{{x}^{2}}{144}-\frac{{y}^{2}}{81}=1.\) Identify and label the vertices, co-vertices, foci, and asymptotes.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>vertices: \((\pm 12,0);\) co-vertices: \((0,\pm 9);\) foci: \((\pm 15,0);\) asymptotes: \(y=\pm \frac{3}{4}x;\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_007.jpg" alt="A hyperbola centered at the origin with vertices (±12, 0), foci (±15, 0), and asymptotes y = ±(3/4)x. Points (0, ±9) are on the conjugate axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-hyperbolas-not-centered-at-the-origin">Graphing Hyperbolas Not Centered at the Origin</h2>
+<p>Graphing hyperbolas centered at a point \((h,k)\) other than the origin is similar to graphing ellipses centered at a point other than the origin. We use the standard forms \(\frac{{(x-h)}^{2}}{{a}^{2}}-\frac{{(y-k)}^{2}}{{b}^{2}}=1\) for horizontal hyperbolas, and \(\frac{{(y-k)}^{2}}{{a}^{2}}-\frac{{(x-h)}^{2}}{{b}^{2}}=1\) for vertical hyperbolas. From these standard form equations we can easily calculate and plot key features of the graph: the coordinates of its center, vertices, co-vertices, and foci; the equations of its asymptotes; and the positions of the transverse and conjugate axes.</p>
+<div class="card howto" id="fs-id2135270"><span class="chip">How To</span><p><strong>Given a general form for a hyperbola centered at \((h,\,k),\) sketch the graph.</strong></p>
+<ul class="tight"><li>Convert the general form to that standard form. Determine which of the standard forms applies to the given equation.</li><li>Use the standard form identified in Step 1 to determine the position of the transverse axis; coordinates for the center, vertices, co-vertices, foci; and equations for the asymptotes.<ul class="tight"><li>If the equation is in the form \(\frac{{(x-h)}^{2}}{{a}^{2}}-\frac{{(y-k)}^{2}}{{b}^{2}}=1,\) then<ul class="tight"><li>the transverse axis is parallel to the <strong>x</strong>-axis</li><li>the center is \((h,k)\)</li><li>the coordinates of the vertices are \((h\pm a,k)\)</li><li>the coordinates of the co-vertices are \((h,k\pm b)\)</li><li>the coordinates of the foci are \((h\pm c,k)\)</li><li>the equations of the asymptotes are \(y=\pm \frac{b}{a}(x-h)+k\)</li></ul>
+</li><li>If the equation is in the form \(\frac{{(y-k)}^{2}}{{a}^{2}}-\frac{{(x-h)}^{2}}{{b}^{2}}=1,\) then<ul class="tight"><li>the transverse axis is parallel to the <strong>y</strong>-axis</li><li>the center is \((h,k)\)</li><li>the coordinates of the vertices are \((h,k\pm a)\)</li><li>the coordinates of the co-vertices are \((h\pm b,k)\)</li><li>the coordinates of the foci are \((h,k\pm c)\)</li><li>the equations of the asymptotes are \(y=\pm \frac{a}{b}(x-h)+k\)</li></ul>
+</li></ul>
+</li><li>Solve for the coordinates of the foci using the equation \(c=\pm \sqrt{{a}^{2}+{b}^{2}}.\)</li><li>Plot the center, vertices, co-vertices, foci, and asymptotes in the coordinate plane and draw a smooth curve to form the hyperbola.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Graph the <strong>hyperbola</strong> given by the equation \(9{x}^{2}-4{y}^{2}-36x-40y-388=0.\) Identify and label the center, vertices, co-vertices, foci, and asymptotes.</p>
+</div><p class="sol-hint">Complete the square in both x and y to rewrite in standard form, then identify the center, a, and b.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Start by expressing the equation in standard form. Group terms that contain the same variable, and move the constant to the opposite side of the equation.</p>
+<p id="eq18">\[(9{x}^{2}-36x)-(4{y}^{2}+40y)=388\]</p>
+<p>Factor the leading coefficient of each expression.</p>
+<p id="eq19">\[9({x}^{2}-4x)-4({y}^{2}+10y)=388\]</p>
+<p>Complete the square twice. Remember to balance the equation by adding the same constants to each side.</p>
+<p id="eq20">\[9({x}^{2}-4x+4)-4({y}^{2}+10y+25)=388+36-100\]</p>
+<p>Rewrite as perfect squares.</p>
+<p id="eq21">\[9{(x-2)}^{2}-4{(y+5)}^{2}=324\]</p>
+<p>Divide both sides by the constant term to place the equation in standard form.</p>
+<p id="eq22">\[\frac{{(x-2)}^{2}}{36}-\frac{{(y+5)}^{2}}{81}=1\]</p>
+<p>The standard form that applies to the given equation is \(\frac{{(x-h)}^{2}}{{a}^{2}}-\frac{{(y-k)}^{2}}{{b}^{2}}=1,\) where \({a}^{2}=36\) and \({b}^{2}=81,\) or \(a=6\) and \(b=9.\) Thus, the transverse axis is parallel to the <strong>x</strong>-axis. It follows that:</p>
+<ul class="tight"><li>the center of the ellipse is \((h,k)=(2,-5)\)</li><li>the coordinates of the vertices are \((h\pm a,k)=(2\pm 6,-5),\) or \((-4,-5)\) and \((8,-5)\)</li><li>the coordinates of the co-vertices are \((h,k\pm b)=(2,-5\pm 9),\) or \((2,-14)\) and \((2,4)\)</li><li>the coordinates of the foci are \((h\pm c,k),\) where \(c=\pm \sqrt{{a}^{2}+{b}^{2}}.\) Solving for \(c,\) we have</li></ul>
+<p id="eq23">\[c=\pm \sqrt{36+81}=\pm \sqrt{117}=\pm 3\sqrt{13}\]</p>
+<p>Therefore, the coordinates of the foci are \((2-3\sqrt{13},-5)\) and \((2+3\sqrt{13},-5).\)</p>
+<p>The equations of the asymptotes are \(y=\pm \frac{b}{a}(x-h)+k=\pm \frac{3}{2}(x-2)-5.\)</p>
+<p>Next, we plot and label the center, vertices, co-vertices, foci, and asymptotes and draw smooth curves to form the hyperbola, as shown in <a href="#fig9">Figure 9</a>.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_008.jpg" alt="A horizontal hyperbola centered at (2, negative 5) with Vertices at (negative 4, negative 5) and (8, 5) and Foci at (2 minus 3 square root of 13, negative 5) and (2 + 3 square root of 13, negative 5). Also shown are the slant asymptotes, y = (3/2) times (x minus 2) minus 5 and y = (negative 3/2)times (x minus 2) minus 5. The points (2, negative 14), (2, 4) and (0, 0) are labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Graph the hyperbola given by the standard form of an equation \(\frac{{(y+4)}^{2}}{100}-\frac{{(x-3)}^{2}}{64}=1.\) Identify and label the center, vertices, co-vertices, foci, and asymptotes.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>center: \((3,-4);\) vertices: \((3,-14)\) and \((3,6);\) co-vertices: \((-5,-4);\) and \((11,-4);\) foci: \((3,-4-2\sqrt{41})\) and \((3,-4+2\sqrt{41});\) asymptotes: \(y=\pm \frac{5}{4}(x-3)-4\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_009.jpg" alt="A graph depicts a hyperbola opening along the y-axis, centered at the point (3, -4). The upper branch has a vertex at (3, 6) and a focus at (3, -4 + 2 sqrt(41)). The lower branch has a vertex at (3, -14) and a focus at (3, -4 - 2 sqrt(41)). The asymptotes are represented by dashed orange lines with equations y = (5/4)(x-3)-4 and y = -(5/4)(x-3)-4. A horizontal dashed blue line passes through the center at y = -4, with points (-5, -4) and (11, -4) marked on it. A vertical dashed red line passes through the center at x = 3, intersecting the vertices and foci." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solving-applied-problems-involving-hyperbolas">Solving Applied Problems Involving Hyperbolas</h2>
+<p>As we discussed at the beginning of this section, hyperbolas have real-world applications in many fields, such as astronomy, physics, engineering, and architecture. The design efficiency of hyperbolic cooling towers is particularly interesting. Cooling towers are used to transfer waste heat to the atmosphere and are often touted for their ability to generate power efficiently. Because of their hyperbolic form, these structures are able to withstand extreme winds while requiring less material than any other forms of their size and strength. See <a href="#fig10">Figure 10</a>. For example, a 500-foot tower can be made of a reinforced concrete shell only 6 or 8 inches wide!</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_010.jpg" alt="A low-angle shot captures several large, reddish-brown industrial cooling towers, with visible steam emanating from some of them and a tall, slender smokestack in the background, all set against a cloudy, light grey sky." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Cooling towers at the Drax power station in North Yorkshire, United Kingdom (credit: Les Haines, Flickr)</figcaption></figure>
+<p>The first hyperbolic towers were designed in 1914 and were 35 meters high. Today, the tallest cooling towers are in France, standing a remarkable 170 meters tall. In <a href="#example6">Example 6</a> we will use the design layout of a cooling tower to find a hyperbolic equation that models its sides.</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>The design layout of a cooling tower is shown in <a href="#fig11">Figure 11</a>. The tower stands 179.6 meters tall. The diameter of the top is 72 meters. At their closest, the sides of the tower are 60 meters apart.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_011n.jpg" alt="A diagram illustrating the dimensions of a hyperbolic cooling tower, showing a total height of 179.6 m, an upper section height of 79.6 m, an upper diameter of 72 m, and a narrower waist diameter of 60 m." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — Project design for a natural draft cooling tower</figcaption></figure>
+<p>Find the equation of the hyperbola that models the sides of the cooling tower. Assume that the center of the <strong>hyperbola</strong>—indicated by the intersection of dashed perpendicular lines in the figure—is the origin of the coordinate plane. Round final values to four decimal places.</p>
+</div><p class="sol-hint">Model the tower's cross-section as a hyperbola centered at its narrowest point, then use the given widths at two heights to solve for a and b.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We are assuming the center of the tower is at the origin, so we can use the standard form of a horizontal hyperbola centered at the origin: \(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1,\) where the branches of the hyperbola form the sides of the cooling tower. We must find the values of \({a}^{2}\) and \({b}^{2}\) to complete the model.</p>
+<p>First, we find \({a}^{2}.\) Recall that the length of the transverse axis of a hyperbola is \(2a.\) This length is represented by the distance where the sides are closest, which is given as \(\,60\) meters. So, \(2a=60.\) Therefore, \(a=30\) and \({a}^{2}=900.\)</p>
+<p>To solve for \({b}^{2},\) we need to substitute for \(x\) and \(y\) in our equation using a known point. To do this, we can use the dimensions of the tower to find some point \((x,y)\) that lies on the hyperbola. We will use the top right corner of the tower to represent that point. Since the <strong>y</strong>-axis bisects the tower, our <strong>x</strong>-value can be represented by the radius of the top, or 36 meters. The <strong>y</strong>-value is represented by the distance from the origin to the top, which is given as 79.6 meters. Therefore,</p>
+<p id="eq24">\[\begin{array}{ll}\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Standard form of horizontal hyperbola}. \\ \,\,{b}^{2}=\frac{{y}^{2}}{\frac{{x}^{2}}{{a}^{2}}-1} &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Isolate }{b}^{2} \\ \,\,=\frac{{(79.6)}^{2}}{\frac{{(36)}^{2}}{900}-1} &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Substitute for }{a}^{2},x,\,\text{and }y \\ \,\,\approx 14400.3636 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Round to four decimal places}\end{array}\]</p>
+<p>The sides of the tower can be modeled by the hyperbolic equation</p>
+<p id="eq25">\[\frac{{x}^{2}}{900}-\frac{{y}^{2}}{14400.3636 }=1,\text{or}\,\,\frac{{x}^{2}}{{30}^{2}}-\frac{{y}^{2}}{{120.0015}^{2} }=1\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>A design for a cooling tower project is shown in <a href="#fig12">Figure 12</a>. Find the equation of the hyperbola that models the sides of the cooling tower. Assume that the center of the hyperbola—indicated by the intersection of dashed perpendicular lines in the figure—is the origin of the coordinate plane. Round final values to four decimal places.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_012n.jpg" alt="Project design for a natural draft cooling tower. The overall height is 167.082 meters. The diameter at the top is 60 meters, and at their closest, 79.6 meters from the top, the sides are 60 meters apart." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The sides of the tower can be modeled by the hyperbolic equation. \(\frac{{x}^{2}}{400}-\frac{{y}^{2}}{3600}=1\text{or }\frac{{x}^{2}}{{20}^{2}}-\frac{{y}^{2}}{{60}^{2}}=1.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id2238408"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with hyperbolas.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/hyperbola1" target="_blank" rel="noopener">Conic Sections: The Hyperbola Part 1 of 2</a></li><li><a href="https://openstax.org/l/hyperbola2" target="_blank" rel="noopener">Conic Sections: The Hyperbola Part 2 of 2</a></li><li><a href="https://openstax.org/l/hyperbolaorigin" target="_blank" rel="noopener">Graph a Hyperbola with Center at Origin</a></li><li><a href="https://openstax.org/l/hbnotorigin" target="_blank" rel="noopener">Graph a Hyperbola with Center not at Origin</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>Hyperbola, center at origin, transverse axis on <strong>x</strong>-axis</td><td>\(\frac{{x}^{2}}{{a}^{2}}-\frac{{y}^{2}}{{b}^{2}}=1\)</td></tr><tr><td>Hyperbola, center at origin, transverse axis on <strong>y</strong>-axis</td><td>\(\frac{{y}^{2}}{{a}^{2}}-\frac{{x}^{2}}{{b}^{2}}=1\)</td></tr><tr><td>Hyperbola, center at \((h,k),\) transverse axis parallel to <strong>x</strong>-axis</td><td>\(\frac{{(x-h)}^{2}}{{a}^{2}}-\frac{{(y-k)}^{2}}{{b}^{2}}=1\)</td></tr><tr><td>Hyperbola, center at \((h,k),\) transverse axis parallel to <strong>y</strong>-axis</td><td>\(\frac{{(y-k)}^{2}}{{a}^{2}}-\frac{{(x-h)}^{2}}{{b}^{2}}=1\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A hyperbola is the set of all points \((x,y)\) in a plane such that the difference of the distances between \((x,y)\) and the foci is a positive constant.</li><li>The standard form of a hyperbola can be used to locate its vertices and foci. See <a href="#example1">Example 1</a>.</li><li>When given the coordinates of the foci and vertices of a hyperbola, we can write the equation of the hyperbola in standard form. See <a href="#example2">Example 2</a> and <a href="#example3">Example 3</a>.</li><li>When given an equation for a hyperbola, we can identify its vertices, co-vertices, foci, asymptotes, and lengths and positions of the transverse and conjugate axes in order to graph the hyperbola. See <a href="#example4">Example 4</a> and <a href="#example5">Example 5</a>.</li><li>Real-world situations can be modeled using the standard equations of hyperbolas. For instance, given the dimensions of a natural draft cooling tower, we can find a hyperbolic equation that models its sides. See <a href="#example6">Example 6</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Define a hyperbola in terms of its foci.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A hyperbola is the set of points in a plane the difference of whose distances from two fixed points (foci) is a positive constant.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>What can we conclude about a hyperbola if its asymptotes intersect at the origin?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>What must be true of the foci of a hyperbola?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The foci must lie on the transverse axis and be in the interior of the hyperbola.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>If the transverse axis of a hyperbola is vertical, what do we know about the graph?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Where must the center of hyperbola be relative to its foci?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The center must be the midpoint of the line segment joining the foci.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, determine whether the following equations represent hyperbolas. If so, write in standard form.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(3{y}^{2}+2x=6\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\frac{{x}^{2}}{36}-\frac{{y}^{2}}{9}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>yes \(\frac{{x}^{2}}{{6}^{2}}-\frac{{y}^{2}}{{3}^{2}}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(5{y}^{2}+4{x}^{2}=6x\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(25{x}^{2}-16{y}^{2}=400\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>yes \(\frac{{x}^{2}}{{4}^{2}}-\frac{{y}^{2}}{{5}^{2}}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(-9{x}^{2}+18x+{y}^{2}+4y-14=0\)</p>
+</div></div>
+<p>For the following exercises, write the equation for the hyperbola in standard form if it is not already, and identify the vertices and foci, and write equations of asymptotes.</p>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\frac{{x}^{2}}{25}-\frac{{y}^{2}}{36}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{{5}^{2}}-\frac{{y}^{2}}{{6}^{2}}=1;\) vertices: \((5,0),(-5,0);\) foci: \((\sqrt{61},0),(-\sqrt{61},0);\) asymptotes: \(y=\frac{6}{5}x,y=-\frac{6}{5}x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\frac{{x}^{2}}{100}-\frac{{y}^{2}}{9}=1\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\frac{{y}^{2}}{4}-\frac{{x}^{2}}{81}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{y}^{2}}{{2}^{2}}-\frac{{x}^{2}}{{9}^{2}}=1;\) vertices: \((0,2),(0,-2);\) foci: \((0,\sqrt{85}),(0,-\sqrt{85});\) asymptotes: \(y=\frac{2}{9}x,y=-\frac{2}{9}x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(9{y}^{2}-4{x}^{2}=1\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\frac{{(x-1)}^{2}}{9}-\frac{{(y-2)}^{2}}{16}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-1)}^{2}}{{3}^{2}}-\frac{{(y-2)}^{2}}{{4}^{2}}=1;\) vertices: \((4,2),(-2,2);\) foci: \((6,2),(-4,2);\) asymptotes: \(y=\frac{4}{3}(x-1)+2,y=-\frac{4}{3}(x-1)+2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\frac{{(y-6)}^{2}}{36}-\frac{{(x+1)}^{2}}{16}=1\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\frac{{(x-2)}^{2}}{49}-\frac{{(y+7)}^{2}}{49}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-2)}^{2}}{{7}^{2}}-\frac{{(y+7)}^{2}}{{7}^{2}}=1;\) vertices: \((9,-7),(-5,-7);\) foci: \((2+7\sqrt{2},-7),(2-7\sqrt{2},-7);\) asymptotes: \(y=x-9,y=-x-5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(4{x}^{2}-8x-9{y}^{2}-72y+112=0\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(-9{x}^{2}-54x+9{y}^{2}-54y+81=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+3)}^{2}}{{3}^{2}}-\frac{{(y-3)}^{2}}{{3}^{2}}=1;\) vertices: \((0,3),(-6,3);\) foci: \((-3+3\sqrt{2},1),(-3-3\sqrt{2},1);\) asymptotes: \(y=x+6,y=-x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(4{x}^{2}-24x-36{y}^{2}-360y+864=0\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(-4{x}^{2}+24x+16{y}^{2}-128y+156=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(y-4)}^{2}}{{2}^{2}}-\frac{{(x-3)}^{2}}{{4}^{2}}=1;\) vertices: \((3,6),(3,2);\) foci: \((3,4+2\sqrt{5}),(3,4-2\sqrt{5});\) asymptotes: \(y=\frac{1}{2}(x-3)+4,y=-\frac{1}{2}(x-3)+4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(-4{x}^{2}+40x+25{y}^{2}-100y+100=0\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\({x}^{2}+2x-100{y}^{2}-1000y+2401=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(y+5)}^{2}}{{7}^{2}}-\frac{{(x+1)}^{2}}{{70}^{2}}=1;\) vertices: \((-1,2),(-1,-12);\) foci: \((-1,-5+7\sqrt{101}),(-1,-5-7\sqrt{101});\) asymptotes: \(y=\frac{1}{10}(x+1)-5,y=-\frac{1}{10}(x+1)-5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(-9{x}^{2}+72x+16{y}^{2}+16y+4=0\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(4{x}^{2}+24x-25{y}^{2}+200y-464=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+3)}^{2}}{{5}^{2}}-\frac{{(y-4)}^{2}}{{2}^{2}}=1;\) vertices: \((2,4),(-8,4);\) foci: \((-3+\sqrt{29},4),(-3-\sqrt{29},4);\) asymptotes: \(y=\frac{2}{5}(x+3)+4,y=-\frac{2}{5}(x+3)+4\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the equations of the asymptotes for each hyperbola.</p>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\frac{{y}^{2}}{{3}^{2}}-\frac{{x}^{2}}{{3}^{2}}=1\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\frac{{(x-3)}^{2}}{{5}^{2}}-\frac{{(y+4)}^{2}}{{2}^{2}}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{2}{5}(x-3)-4,y=-\frac{2}{5}(x-3)-4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(\frac{{(y-3)}^{2}}{{3}^{2}}-\frac{{(x+5)}^{2}}{{6}^{2}}=1\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(9{x}^{2}-18x-16{y}^{2}+32y-151=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{3}{4}(x-1)+1,y=-\frac{3}{4}(x-1)+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(16{y}^{2}+96y-4{x}^{2}+16x+112=0\)</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, sketch a graph of the hyperbola, labeling vertices and foci.</p>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(\frac{{x}^{2}}{49}-\frac{{y}^{2}}{16}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_201.jpg" alt="The image shows a hyperbola centered at the origin, opening to the left and right. Its vertices are labeled at (-7,0) and (7,0), while its foci are labeled at approximately (-8.06,0) and (8.06,0). The graph is set against a grid with x-axis values ranging from -20 to 20 and y-axis values from -10 to 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(\frac{{x}^{2}}{64}-\frac{{y}^{2}}{4}=1\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(\frac{{y}^{2}}{9}-\frac{{x}^{2}}{25}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_203.jpg" alt="A graph shows a hyperbola centered at the origin. The transverse axis is along the y-axis. The vertices are labeled at (0, 3) and (0, -3). The foci are labeled at (0, 5.83) and (0, -5.83)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(81{x}^{2}-9{y}^{2}=1\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(\frac{{(y+5)}^{2}}{9}-\frac{{(x-4)}^{2}}{25}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_205.jpg" alt="A graph of a vertically oriented hyperbola. Vertices are (4, -2) and (4, -8). Foci are (4, 0.83) and (4, -10.83)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(\frac{{(x-2)}^{2}}{8}-\frac{{(y+3)}^{2}}{27}=1\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(\frac{{(y-3)}^{2}}{9}-\frac{{(x-3)}^{2}}{9}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_207.jpg" alt="A hyperbola graph with vertices labeled at (3, 0) and (3, 6), and foci at (3, -1.24) and (3, 7.24). The branches open upwards and downwards along the y-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(-4{x}^{2}-8x+16{y}^{2}-32y-52=0\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\({x}^{2}-8x-25{y}^{2}-100y-109=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_209.jpg" alt="A graph on a coordinate plane shows a hyperbola with its center at (4, -2). The two vertices are labeled at (-1, -2) and (9, -2). The two foci are labeled at approximately (-1.1, -2) and (9.1, -2). The hyperbola opens horizontally, with its branches extending to the left from the vertex at (-1, -2) and to the right from the vertex at (9, -2). The x-axis ranges from -20 to 20, and the y-axis ranges from -10 to 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(-{x}^{2}+8x+4{y}^{2}-40y+88=0\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(64{x}^{2}+128x-9{y}^{2}-72y-656=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_211.jpg" alt="A graph shows a hyperbola on a coordinate plane. The x-axis ranges from -20 to 20 and the y-axis ranges from -10 to 10. The hyperbola has two branches opening horizontally, one to the left and one to the right. The left vertex is labeled as (-4, -4) and the right vertex is labeled as (2, -4). The left focus is labeled as (-9.54, -4) and the right focus is labeled as (7.54, -4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(16{x}^{2}+64x-4{y}^{2}-8y-4=0\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(-100{x}^{2}+1000x+{y}^{2}-10y-2575=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_213.jpg" alt="A Cartesian coordinate system displays two parabolas. The top parabola opens upwards, with its vertex marked at (5, 15) and its focus marked at (5, 15.05). The bottom parabola opens downwards, with its vertex marked at (5, -5) and its focus marked at (5, -5.05). Both parabolas share the vertical line x=5 as their axis of symmetry. The x-axis spans from -16 to 16, and the y-axis spans from -24 to 24." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(4{x}^{2}+16x-4{y}^{2}+16y+16=0\)</p>
+</div></div>
+<p>For the following exercises, given information about the graph of the hyperbola, find its equation.</p>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Vertices at \((3,0)\) and \((-3,0)\) and one focus at \((5,0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{9}-\frac{{y}^{2}}{16}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Vertices at \((0,6)\) and \((0,-6)\) and one focus at \((0,-8).\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Vertices at \((1,1)\) and \((11,1)\) and one focus at \((12,1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-6)}^{2}}{25}-\frac{{(y-1)}^{2}}{11}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Center: \((0,0);\) vertex: \((0,-13);\) one focus: \((0,\sqrt{313}).\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Center: \((4,2);\) vertex: \((9,2);\) one focus: \((4+\sqrt{26},2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-4)}^{2}}{25}-\frac{{(y-2)}^{2}}{1}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Center: \((3,5);\) vertex: \((3,11);\) one focus: \((3,5+2\sqrt{10}).\)</p>
+</div></div>
+<p>For the following exercises, given the graph of the hyperbola, find its equation.</p>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_215n.jpg" alt="A vertical hyperbola centered at (0, 0) with vertices at (0, negative 4) and (0, 4). The slant asymptotes are shown but not labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{y}^{2}}{16}-\frac{{x}^{2}}{25}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_216n.jpg" alt="A horizontal hyperbola centered at (1, 1) with  vertices at (1 minus square root of 2, 1) and (1 + square root of 2, 1) and foci at (1 minus square root of 5, 1) and (1 + square root of 5, 1)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_217n.jpg" alt="A vertical hyperbola centered at (negative 1, 0) with vertices at (negative 1, negative 3) and (negative 1, 3) and foci at (negative 1, negative 3 square root of 2) and (negative 1, 3 square root of 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{y}^{2}}{9}-\frac{{(x+1)}^{2}}{9}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_218n.jpg" alt="A vertical hyperbola centered at (3, 1) with vertices at (3, 1 minus square root of 2) and (3, 1 + square root of 2) and foci at (3, 1 minus square root of 7) and (3, 1 + square root of 7)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_219.jpg" alt="A horizontal hyperbola centered at (negative 3, negative 3) with vertices at (negative 8, negative 3) and (2, negative 3) and foci at (negative 3 minus 5 square root of 2, negative 3) and (negative 3 + 5 square root of 2, negative 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+3)}^{2}}{25}-\frac{{(y+3)}^{2}}{25}=1\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, express the equation for the hyperbola as two functions, with \(y\) as a function of \(x.\) Express as simply as possible. Use a graphing calculator to sketch the graph of the two functions on the same axes.</p>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\(\frac{{x}^{2}}{4}-\frac{{y}^{2}}{9}=1\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\(\frac{{y}^{2}}{9}-\frac{{x}^{2}}{1}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y(x)=3\sqrt{{x}^{2}+1},y(x)=-3\sqrt{{x}^{2}+1}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_226.jpg" alt="A graph showing two parabolas. The upper parabola opens upwards with its vertex at (0, 3), and the lower parabola opens downwards with its vertex at (0, -3). Both are symmetric about the y-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\(\frac{{(x-2)}^{2}}{16}-\frac{{(y+3)}^{2}}{25}=1\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>\(-4{x}^{2}-16x+{y}^{2}-2y-19=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y(x)=1+2\sqrt{{x}^{2}+4x+5},y(x)=1-2\sqrt{{x}^{2}+4x+5}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_228.jpg" alt="A graph on a Cartesian coordinate system with x- and y-axes ranging from -10 to 10. The graph displays two curves. The upper curve opens upwards, with its vertex at approximately (-2, 3), and extends to the upper left and upper right. The lower curve opens downwards, with its vertex at approximately (-2, -1), and extends to the lower left and lower right. Both curves appear to be parabolas, suggesting a conic section or a pair of quadratic functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\(4{x}^{2}-24x-{y}^{2}-4y+16=0\)</p>
+</div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<p>For the following exercises, a hedge is to be constructed in the shape of a hyperbola near a fountain at the center of the yard. Find the equation of the hyperbola and sketch the graph.</p>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>The hedge will follow the asymptotes \(y=x\,\text{and }y=-x,\) and its closest distance to the center fountain is 5 yards.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{25}-\frac{{y}^{2}}{25}=1\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_220.jpg" alt="A Cartesian coordinate system with x and y axes ranging from -15 to 15. A hyperbola with horizontal branches is plotted, with its vertices at approximately x = -4 and x = 4. The origin (0,0) is marked with an open circle and labeled &amp;quot;Fountain&amp;quot; with an arrow pointing to it." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>The hedge will follow the asymptotes \(y=2x\,\text{and }y=-2x,\) and its closest distance to the center fountain is 6 yards.</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>The hedge will follow the asymptotes \(y=\frac{1}{2}x\) and \(y=-\frac{1}{2}x,\) and its closest distance to the center fountain is 10 yards.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{100}-\frac{{y}^{2}}{25}=1\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_222.jpg" alt="A graph displays a hyperbola centered at the origin, labeled &amp;quot;Fountain&amp;quot;. The hyperbola opens horizontally, symmetric about the x-axis, with its vertices on the x-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>The hedge will follow the asymptotes \(y=\frac{2}{3}x\) and \(y=-\frac{2}{3}x,\) and its closest distance to the center fountain is 12 yards.</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>The hedge will follow the asymptotes \(\,y=\frac{3}{4}x\) and \(y=-\frac{3}{4}x,\) and its closest distance to the center fountain is 20 yards.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{400}-\frac{{y}^{2}}{225}=1\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_02_224.jpg" alt="A graph displays a hyperbola centered at the origin (0,0), labeled &amp;quot;Fountain&amp;quot;. The hyperbola opens horizontally, with its two branches extending outwards from approximate x-intercepts at (-20,0) and (20,0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, assume an object enters our solar system and we want to graph its path on a coordinate system with the sun at the origin and the x-axis as the axis of symmetry for the object's path. Give the equation of the flight path of each object using the given information.</p>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>The object enters along a path approximated by the line \(y=x-2\) and passes within 1 au (astronomical unit) of the sun at its closest approach, so that the sun is one focus of the hyperbola. It then departs the solar system along a path approximated by the line \(y=-x+2.\)</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>The object enters along a path approximated by the line \(y=2x-2\) and passes within 0.5 au of the sun at its closest approach, so the sun is one focus of the hyperbola. It then departs the solar system along a path approximated by the line \(y=-2x+2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4(x-1{)}^{2}-y{2}^{2}=16\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>The object enters along a path approximated by the line \(y=0.5x+2\) and passes within 1 au of the sun at its closest approach, so the sun is one focus of the hyperbola. It then departs the solar system along a path approximated by the line \(y=-0.5x-2.\)</p>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>The object enters along a path approximated by the line \(y=\frac{1}{3}x-1\) and passes within 1 au of the sun at its closest approach, so the sun is one focus of the hyperbola. It then departs the solar system along a path approximated by the line \(\,y=-\frac{1}{3}x+1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-h)}^{2}}{{a}^{2}}-\frac{(y-k{)}^{2}}{{b}^{2}}=(x-3{)}^{2}-9{y}^{2}=4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>The object enters along a path approximated by the line \(y=3x-9\) and passes within 1 au of the sun at its closest approach, so the sun is one focus of the hyperbola. It then departs the solar system along a path approximated by the line \(y=-3x+9.\)</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>center of a hyperbola</dt><dd>the midpoint of both the transverse and conjugate axes of a hyperbola</dd><dt>conjugate axis</dt><dd>the axis of a hyperbola that is perpendicular to the transverse axis and has the co-vertices as its endpoints</dd><dt>hyperbola</dt><dd>the set of all points \((x,y)\) in a plane such that the difference of the distances between \((x,y)\) and the foci is a positive constant</dd><dt>transverse axis</dt><dd>the axis of a hyperbola that includes the foci and has the vertices as its endpoints</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

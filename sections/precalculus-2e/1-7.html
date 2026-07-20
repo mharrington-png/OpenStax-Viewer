@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inverse Functions · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Inverse Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 1.7</span>Inverse Functions</h1>
+<p>A reversible heat pump is a climate-control system that is an air conditioner and a heater in a single device. Operated in one direction, it pumps heat out of a house to provide cooling. Operating in reverse, it pumps heat into the building from the outside, even in cool weather, to provide heating. As a heater, a heat pump is several times more efficient than conventional electrical resistance heating.</p>
+<p>If some physical machines can run in two directions, we might ask whether some of the function “machines” we have been studying can also run backwards. <a href="#fig1">Figure 1</a> provides a visual representation of this question. In this section, we will consider the reverse nature of functions.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_001.jpg" alt="Diagram of a function and would be its inverse." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Can a function “machine” operate in reverse?</figcaption></figure>
+<h2 id="verifying-that-two-functions-are-inverse-functions">Verifying That Two Functions Are Inverse Functions</h2>
+<p>Betty is traveling to Milan for a fashion show and wants to know what the temperature will be. She is not familiar with the <strong>Celsius</strong> scale. To get an idea of how temperature measurements are related, Betty wants to convert 75 degrees <strong>Fahrenheit</strong> to degrees Celsius, using the formula</p>
+<p id="eq1">\[C=\frac{5}{9}(F-32)\]</p>
+<p>and substitutes 75 for \(F\) to calculate</p>
+<p id="eq2">\[\frac{5}{9}(75-32)\approx 24\text{°C}.\]</p>
+<p>Knowing that a comfortable 75 degrees Fahrenheit is about 24 degrees Celsius, Betty gets the week’s weather forecast from <a href="#fig2">Figure 2</a> for Milan, and wants to convert all of the temperatures to degrees Fahrenheit.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_002.jpg" alt="A forecast of Monday’s through Thursday’s weather." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>At first, Betty considers using the formula she has already found to complete the conversions. After all, she knows her algebra, and can easily solve the equation for \(F\) after substituting a value for \(C.\) For example, to convert 26 degrees Celsius, she could write</p>
+<p id="eq3">\[\begin{array}{l} \\ \begin{array}{l}26=\frac{5}{9}(F-32) \\ 26\cdot \frac{9}{5}=F-32 \\ F=26\cdot \frac{9}{5}+32\approx 79\end{array}\end{array}\]</p>
+<p>After considering this option for a moment, however, she realizes that solving the equation for each of the temperatures will be awfully tedious. She realizes that since evaluation is easier than solving, it would be much more convenient to have a different formula, one that takes the Celsius temperature and outputs the Fahrenheit temperature.</p>
+<p>The formula for which Betty is searching corresponds to the idea of an <strong>inverse function</strong>, which is a function for which the input of the original function becomes the output of the inverse function and the output of the original function becomes the input of the inverse function.</p>
+<p>Given a function \(f(x),\) we represent its inverse as \({f}^{-1}(x),\) read as \(\text{“}f\) inverse of \(x.\text{”}\) The raised \(-1\) is part of the notation. It is not an exponent; it does not imply a power of \(-1\) . In other words, \({f}^{-1}(x)\) does <strong>not</strong> mean \(\frac{1}{f(x)}\) because \(\frac{1}{f(x)}\) is the reciprocal of \(f\) and not the inverse.</p>
+<p>The “exponent-like” notation comes from an analogy between function composition and multiplication: just as \({a}^{-1}a=1\) (1 is the identity element for multiplication) for any nonzero number \(a,\) so \({f}^{-1}∘f\) equals the identity function, that is,</p>
+<p id="eq4">\[({f}^{-1}∘f)(x)={f}^{-1}(f(x))={f}^{-1}(y)=x\]</p>
+<p>This holds for all \(x\) in the domain of \(f.\) Informally, this means that inverse functions “undo” each other. However, just as zero does not have a <strong>reciprocal</strong>, some functions do not have inverses.</p>
+<p>Given a function \(f(x),\) we can verify whether some other function \(g(x)\) is the inverse of \(f(x)\) by checking if both \(g(f(x))=x\) and \(f(g(x))=x\) are true.</p>
+<p>For example, \(y=4x\) and \(y=\frac{1}{4}x\) are inverse functions.</p>
+<p id="eq5">\[({f}^{-1}∘f)(x)={f}^{-1}(4x)=\frac{1}{4}(4x)=x\]</p>
+<p>and</p>
+<p id="eq6">\[(f∘{f}^{-1})(x)=f(\frac{1}{4}x)=4(\frac{1}{4}x)=x\]</p>
+<p>A few coordinate pairs from the graph of the function \(y=4x\) are (−2, −8), (0, 0), and (2, 8). A few coordinate pairs from the graph of the function \(y=\frac{1}{4}x\) are (−8, −2), (0, 0), and (8, 2). If we interchange the input and output of each coordinate pair of a function, the interchanged coordinate pairs would appear on the graph of the inverse function.</p>
+<div class="card definition" id="fs-id1165137933105"><span class="chip">Inverse Function</span><p>For any <strong>one-to-one function</strong> \(f(x)=y,\) a function \({f}^{-1}(x)\) is an <strong>inverse function</strong> of \(f\) if \({f}^{-1}(y)=x.\) This can also be written as \({f}^{-1}(f(x))=x\) for all \(x\) in the domain of \(f.\) It also follows that \(f({f}^{-1}(x))=x\) for all \(x\) in the domain of \({f}^{-1}\) if \({f}^{-1}\) is the inverse of \(f.\)</p>
+<p>The notation \({f}^{-1}\) is read \(\text{“}f\) inverse.” Like any other function, we can use any variable name as the input for \({f}^{-1},\) so we will often write \({f}^{-1}(x),\) which we read as \(\text{“}f\) inverse of \(x.\text{”}\) Keep in mind that</p>
+<p id="eq7">\[{f}^{-1}(x)\ne \frac{1}{f(x)}\]</p>
+<p>and not all functions have inverses.</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>If for a particular one-to-one function \(f(2)=4\) and \(f(5)=12,\) what are the corresponding input and output values for the inverse function?</p>
+</div><p class="sol-hint">Swap the input/output roles: if f(2)=4, what must be true about the inverse at 4?</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The inverse function reverses the input and output quantities, so if</p>
+<p id="eq8">\[\begin{array}{l}f(2)=4,\text{ then }{f}^{-1}(4)=2; \\ \,f(5)=12,{\text{ then f}}^{-1}(12)=5.\end{array}\]</p>
+<p>Alternatively, if we want to name the inverse function \(g,\) then \(g(4)=2\) and \(g(12)=5.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice that if we show the coordinate pairs in a table form, the input and output are clearly reversed. See <a href="#tab1">Table 1</a>.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\((x,f(x))\)</td><td>\((x,g(x))\)</td></tr><tr><td>\((2,4)\)</td><td>\((4,2)\)</td></tr><tr><td>\((5,12)\)</td><td>\((12,5)\)</td></tr></tbody></table></div>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Given that \({h}^{-1}(6)=2,\) what are the corresponding input and output values of the original function \(h?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(h(2)=6\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto" id="fs-id1165134357354"><span class="chip">How To</span><p><strong>Given two functions \(f(x)\) and \(g(x),\) test whether the functions are inverses of each other.</strong></p>
+<ul class="tight"><li>Determine whether \(f(g(x))=x\) or \(g(f(x))=x.\)</li><li>If both statements are true, then \(g={f}^{-1}\) and \(f={g}^{-1}.\) If either statement is false, then both are false, and \(g\ne {f}^{-1}\) and \(f\ne {g}^{-1}.\)</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>If \(f(x)=\frac{1}{x+2}\) and \(g(x)=\frac{1}{x}-2,\) is \(g={f}^{-1}?\)</p>
+</div><p class="sol-hint">Compose g(f(x)) and simplify — does it collapse to just x?</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq9">\[\begin{array}{l}\begin{array}{l} \\ g(f(x))=\frac{1}{(\frac{1}{x+2})}-2\end{array} \\ \,=x+2-2 \\ \,=x\end{array}\]</p>
+<p>We must also verify the other formula.</p>
+<p id="eq10">\[\begin{array}{l}\begin{array}{l} \\ f(g(x))=\frac{1}{\frac{1}{x}-2+2}\end{array} \\ \,=\frac{1}{\frac{1}{x}} \\ \,=x\end{array}\]</p>
+<p>so</p>
+<p id="eq11">\[g={f}^{-1}\text{ and }f={g}^{-1}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice the inverse operations are in reverse order of the operations from the original function.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>If \(f(x)={x}^{3}-4\) and \(g(x)=\sqrt[\,3]{x+4},\) is \(g={f}^{-1}?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Yes</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>If \(f(x)={x}^{3}\) (the cube function) and \(g(x)=\frac{1}{3}x,\) is \(g={f}^{-1}?\)</p>
+</div><p class="sol-hint">Try composing f(g(x)) first; if it doesn't simplify to x, you already have your answer.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq12">\[f(g(x))=\frac{{x}^{3}}{27}\ne x\]</p>
+<p>No, the functions are not inverses.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The correct inverse to the cube is, of course, the cube root \(\sqrt[3]{x}={x}^{\frac{1}{3}},\) that is, the one-third is an exponent, not a multiplier.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>If \(f(x)={(x-1)}^{3}\,\text{and}\,g(x)=\sqrt[3]{x}+1,\) is \(g={f}^{-1}?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Yes</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-domain-and-range-of-inverse-functions">Finding Domain and Range of Inverse Functions</h2>
+<p>The outputs of the function \(f\) are the inputs to \({f}^{-1},\) so the range of \(f\) is also the domain of \({f}^{-1}.\) Likewise, because the inputs to \(f\) are the outputs of \({f}^{-1},\) the domain of \(f\) is the range of \({f}^{-1}.\) We can visualize the situation as in <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_003.jpg" alt="Domain and range of a function and its inverse." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Domain and range of a function and its inverse</figcaption></figure>
+<p>When a function has no inverse function, it is possible to create a new function where that new function on a limited domain does have an inverse function. For example, the inverse of \(f(x)=\sqrt{x}\) is \({f}^{-1}(x)={x}^{2},\) because a square “undoes” a square root; but the square is only the inverse of the square root on the domain \([0,\infty ),\) since that is the range of \(f(x)=\sqrt{x}.\)</p>
+<p>We can look at this problem from the other side, starting with the square (toolkit quadratic) function \(f(x)={x}^{2}.\) If we want to construct an inverse to this function, we run into a problem, because for every given output of the quadratic function, there are two corresponding inputs (except when the input is 0). For example, the output 9 from the quadratic function corresponds to the inputs 3 and –3. But an output from a function is an input to its inverse; if this inverse input corresponds to more than one inverse output (input of the original function), then the “inverse” is not a function at all! To put it differently, the quadratic function is not a one-to-one function; it fails the horizontal line test, so it does not have an inverse function. In order for a function to have an inverse, it must be a one-to-one function.</p>
+<p>In many cases, if a function is not one-to-one, we can still restrict the function to a part of its domain on which it is one-to-one. For example, we can make a restricted version of the square function \(f(x)={x}^{2}\) with its domain limited to \([0,\infty ),\) which is a one-to-one function (it passes the horizontal line test) and which has an inverse (the square-root function).</p>
+<p>If \(f(x)={(x-1)}^{2}\) on \([1,\infty ),\) then the inverse function is \({f}^{-1}(x)=\sqrt{x}+1.\)</p>
+<ul class="tight"><li>The domain of \(f\) = range of \({f}^{-1}\) = \([1,\infty ).\)</li><li>The domain of \({f}^{-1}\) = range of \(f\) = \([0,\infty ).\)</li></ul>
+<div class="card qa" id="fs-id1165137733804"><span class="chip">Q&amp;A</span><p><strong>Is it possible for a function to have more than one inverse?</strong></p>
+<p><strong>No. If two supposedly different functions, say, \(g\) and \(h,\) both meet the definition of being inverses of another function \(f,\) then you can prove that \(g=h.\) We have just seen that some functions only have inverses if we restrict the domain of the original function. In these cases, there may be more than one way to restrict the domain, leading to different inverses. However, on any one domain, the original function still has only one unique inverse.</strong></p>
+</div>
+<div class="card definition" id="fs-id1165137704938"><span class="chip">Domain and Range of Inverse Functions</span><p>The range of a function \(f(x)\) is the domain of the inverse function \({f}^{-1}(x).\)</p>
+<p>The domain of \(f(x)\) is the range of \({f}^{-1}(x).\)</p>
+</div>
+<div class="card howto" id="fs-id1165135308785"><span class="chip">How To</span><p><strong>Given a function, find the domain and range of its inverse.</strong></p>
+<ul class="tight"><li>If the function is one-to-one, write the range of the original function as the domain of the inverse, and write the domain of the original function as the range of the inverse.</li><li>If the domain of the original function needs to be restricted to make it one-to-one, then this restricted domain becomes the range of the inverse function.</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Identify which of the toolkit functions besides the quadratic function are not one-to-one, and find a restricted domain on which each function is one-to-one, if any. The toolkit functions are reviewed in <a href="#tab2">Table 2</a>. We restrict the domain in such a fashion that the function assumes all <strong>y</strong>-values exactly once.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Constant</td><td>Identity</td><td>Quadratic</td><td>Cubic</td><td>Reciprocal</td></tr><tr><td>\(f(x)=c\)</td><td>\(f(x)=x\)</td><td>\(f(x)={x}^{2}\)</td><td>\(f(x)={x}^{3}\)</td><td>\(f(x)=\frac{1}{x}\)</td></tr><tr><td>Reciprocal squared</td><td>Cube root</td><td>Square root</td><td>Absolute value</td><td></td></tr><tr><td>\(f(x)=\frac{1}{{x}^{2}}\)</td><td>\(f(x)=\sqrt[3]{x}\)</td><td>\(f(x)=\sqrt{x}\)</td><td>\(f(x)=|x|\)</td><td></td></tr></tbody></table></div>
+</div><p class="sol-hint">Check each toolkit function against the horizontal line test before restricting its domain.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The constant function is not one-to-one, and there is no domain (except a single point) on which it could be one-to-one, so the constant function has no meaningful inverse.</p>
+<p>The absolute value function can be restricted to the domain \([0,\infty ),\) where it is equal to the identity function.</p>
+<p>The reciprocal-squared function can be restricted to the domain \((0,\infty ).\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can see that these functions (if unrestricted) are not one-to-one by looking at their graphs, shown in <a href="#fig4">Figure 4</a>. They both would fail the horizontal line test. However, if a function is restricted to a certain domain so that it passes the horizontal line test, then in that restricted domain, it can have an inverse.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_004ab-eb4b.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — (a) Absolute value (b) Reciprocal squared</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>The domain of function \(f\) is \((1,\infty )\) and the range of function \(f\) is \((-\infty ,-2).\) Find the domain and range of the inverse function.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The domain of function \({f}^{-1}\) is \((-\infty \text{,}-2)\) and the range of function \({f}^{-1}\) is \((1,\infty ).\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-and-evaluating-inverse-functions">Finding and Evaluating Inverse Functions</h2>
+<p>Once we have a one-to-one function, we can evaluate its inverse at specific inverse function inputs or construct a complete representation of the inverse function in many cases.</p>
+<h3 id="inverting-tabular-functions">Inverting Tabular Functions</h3>
+<p>Suppose we want to find the inverse of a function represented in table form. Remember that the domain of a function is the range of the inverse and the range of the function is the domain of the inverse. So we need to interchange the domain and range.</p>
+<p>Each row (or column) of inputs becomes the row (or column) of outputs for the inverse function. Similarly, each row (or column) of outputs becomes the row (or column) of inputs for the inverse function.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>A function \(f(t)\) is given in <a href="#tab3">Table 3</a>, showing distance in miles that a car has traveled in \(t\) minutes. Find and interpret \({f}^{-1}(70).\)</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td><strong>\(t\text{ (minutes)}\)</strong></td><td>30</td><td>50</td><td>70</td><td>90</td></tr><tr><td><strong>\(f(t)\text{ (miles)}\)</strong></td><td>20</td><td>40</td><td>60</td><td>70</td></tr></tbody></table></div>
+</div><p class="sol-hint">Scan the table for the row where the output is 70 — its input is f⁻¹(70).</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The inverse function takes an output of \(f\) and returns an input for \(f.\) So in the expression \({f}^{-1}(70),\) 70 is an output value of the original function, representing 70 miles. The inverse will return the corresponding input of the original function \(f,\) 90 minutes, so \({f}^{-1}(70)=90.\) The interpretation of this is that, to drive 70 miles, it took 90 minutes.</p>
+<p>Alternatively, recall that the definition of the inverse was that if \(f(a)=b,\) then \({f}^{-1}(b)=a.\) By this definition, if we are given \({f}^{-1}(70)=a,\) then we are looking for a value \(a\) so that \(f(a)=70.\) In this case, we are looking for a \(t\) so that \(f(t)=70,\) which is when \(t=90.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Using <a href="#tab4">Table 4</a>, find and interpret (a) \(f(60),\) and (b) \({f}^{-1}(60).\)</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>\(t\text{ (minutes)}\)</td><td>30</td><td>50</td><td>60</td><td>70</td><td>90</td></tr><tr><td>\(f(t)\text{ (miles)}\)</td><td>20</td><td>40</td><td>50</td><td>60</td><td>70</td></tr></tbody></table></div>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>\(f(60)=50.\) In 60 minutes, 50 miles are traveled.</li><li>\({f}^{-1}(60)=70.\) To travel 60 miles, it will take 70 minutes.</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="evaluating-the-inverse-of-a-function-given-a-graph-of-the-original-function">Evaluating the Inverse of a Function, Given a Graph of the Original Function</h3>
+<p>We saw in Functions and Function Notation that the domain of a function can be read by observing the horizontal extent of its graph. We find the domain of the inverse function by observing the <strong>vertical</strong> extent of the graph of the original function, because this corresponds to the horizontal extent of the inverse function. Similarly, we find the range of the inverse function by observing the <strong>horizontal</strong> extent of the graph of the original function, as this is the vertical extent of the inverse function. If we want to evaluate an inverse function, we find its input within its domain, which is all or part of the vertical axis of the original function’s graph.</p>
+<div class="card howto" id="fs-id1165133045388"><span class="chip">How To</span><p><strong>Given the graph of a function, evaluate its inverse at specific points.</strong></p>
+<ul class="tight"><li>Find the desired input on the <strong>y</strong>-axis of the given graph.</li><li>Read the inverse function’s output from the <strong>x</strong>-axis of the given graph.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>A function \(g(x)\) is given in <a href="#fig5">Figure 5</a>. Find \(g(3)\) and \({g}^{-1}(3).\)</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_006.jpg" alt="A graph displays an exponential growth function g(x) on a coordinate plane. The blue curve rises continuously, starting near the x-axis for negative x values and increasing sharply for positive x values." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+</div><p class="sol-hint">Read straight up from x=3 for g(3), then read straight across from y=3 for g⁻¹(3).</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To evaluate \(g(3),\) we find 3 on the <strong>x</strong>-axis and find the corresponding output value on the <strong>y</strong>-axis. The point \((3,1)\) tells us that \(g(3)=1.\)</p>
+<p>To evaluate \({g}^{-1}(3),\) recall that by definition \({g}^{-1}(3)\) means the value of <strong>x</strong> for which \(g(x)=3.\) By looking for the output value 3 on the vertical axis, we find the point \((5,3)\) on the graph, which means \(g(5)=3,\) so by definition, \({g}^{-1}(3)=5.\) See <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_007.jpg" alt="Graph of g(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Using the graph in <a href="#fig5">Figure 5</a>, (a) find \({g}^{-1}(1),\) and (b) estimate \({g}^{-1}(4).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>a. 3; b. 5.6</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-inverses-of-functions-represented-by-formulas">Finding Inverses of Functions Represented by Formulas</h3>
+<p>Sometimes we will need to know an inverse function for all elements of its domain, not just a few. If the original function is given as a formula— for example, \(y\) as a function of \(x\text{— }\) we can often find the inverse function by solving to obtain \(x\) as a function of \(y.\)</p>
+<div class="card howto" id="fs-id1165137652548"><span class="chip">How To</span><p><strong>Given a function represented by a formula, find the inverse.</strong></p>
+<ul class="tight"><li>Make sure \(f\) is a one-to-one function.</li><li>Solve for \(x.\)</li><li>Interchange \(x\) and \(y.\)</li><li>Replace \(y\) with \({f}^{-1}(x)\) . (Variables may be different in different cases, but the principle is the same.)</li></ul>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find a formula for the inverse function that gives Fahrenheit temperature as a function of Celsius temperature.</p>
+<p id="eq13">\[C=\frac{5}{9}(F-32)\]</p>
+</div><p class="sol-hint">Start from the given equation relating C and F, then solve algebraically for F.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq14">\[\begin{array}{l} \\ \begin{array}{l}C=\frac{5}{9}(F-32) \\ C\cdot \frac{9}{5}=F-32 \\ F=\frac{9}{5}C+32\end{array}\end{array}\]</p>
+<p>By solving in general, we have uncovered the inverse function. If</p>
+<p id="eq15">\[C=h(F)=\frac{5}{9}(F-32),\]</p>
+<p>then</p>
+<p id="eq16">\[F={h}^{-1}(C)=\frac{9}{5}C+32.\]</p>
+<p>In this case, we introduced a function \(h\) to represent the conversion because the input and output variables are descriptive, and writing \({C}^{-1}\) could get confusing.</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Solve for \(x\) in terms of \(y\) given \(y=\frac{1}{3}(x-5)\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=3y+5\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find the inverse of the function \(f(x)=\frac{2}{x-3}+4.\)</p>
+</div><p class="sol-hint">Undo the operations in reverse order — subtract, then take the reciprocal, then add.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq17">\[\begin{array}{ll}\,y=\frac{2}{x-3}+4\begin{array}{llll}\begin{array}{ll} &amp; \end{array} &amp; &amp; &amp; \end{array} &amp; \text{Set up an equation}. \\ \,y-4=\frac{2}{x-3} &amp; \text{Subtract 4 from both sides}. \\ \,x-3=\frac{2}{y-4} &amp; \text{Multiply both sides by }x-3\text{ and divide by }y-4. \\ \,x=\frac{2}{y-4}+3 &amp; \text{Add 3 to both sides}.\end{array}\]</p>
+<p>So \({f}^{-1}(y)=\frac{2}{y-4}+3\) or \({f}^{-1}(x)=\frac{2}{x-4}+3.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The domain and range of \(f\) exclude the values 3 and 4, respectively. \(f\) and \({f}^{-1}\) are equal at two points but are not the same function, as we can see by creating <a href="#tab5">Table 5</a>.</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>\(x\)</strong></td><td>1</td><td>2</td><td>5</td><td>\({f}^{-1}(y)\)</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>3</td><td>2</td><td>5</td><td>\(y\)</td></tr></tbody></table></div>
+</div></div></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Find the inverse of the function \(f(x)=2+\sqrt{x-4}.\)</p>
+</div><p class="sol-hint">Isolate the square root term before squaring both sides.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq18">\[\begin{array}{l}\,y=2+\sqrt{x-4} \\ {(y-2)}^{2}=x-4 \\ \,x={(y-2)}^{2}+4\end{array}\]</p>
+<p>So \({f}^{-1}(x)={(x-2)}^{2}+4.\)</p>
+<p>The domain of \(f\) is \([4,\infty ).\) Notice that the range of \(f\) is \([2,\infty ),\) so this means that the domain of the inverse function \({f}^{-1}\) is also \([2,\infty ).\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The formula we found for \({f}^{-1}(x)\) looks like it would be valid for all real \(x.\) However, \({f}^{-1}\) itself must have an inverse (namely, \(f\) ) so we have to restrict the domain of \({f}^{-1}\) to \([2,\infty )\) in order to make \({f}^{-1}\) a one-to-one function. This domain of \({f}^{-1}\) is exactly the range of \(f.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>What is the inverse of the function \(f(x)=2-\sqrt{x}?\) State the domains of both the function and the inverse function.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({f}^{-1}(x)={(2-x)}^{2};\) \(\text{domain}\,\text{of}\,f:\,[0,\infty );\) \(\text{domain}\,\text{of}\,{f}^{-1}:\,(-\infty ,2]\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-inverse-functions-and-their-graphs">Finding Inverse Functions and Their Graphs</h2>
+<p>Now that we can find the inverse of a function, we will explore the graphs of functions and their inverses. Let us return to the quadratic function \(f(x)={x}^{2}\) restricted to the domain \([0,\infty )\text{,}\) on which this function is one-to-one, and graph it as in <a href="#fig7">Figure 7</a>.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_008.jpg" alt="Graph of f(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — Quadratic function with domain restricted to [0, ∞).</figcaption></figure>
+<p><strong>Restricting the domain</strong> to \([0,\infty )\) makes the function one-to-one (it will obviously pass the horizontal line test), so it has an inverse on this restricted domain.</p>
+<p>We already know that the inverse of the toolkit quadratic function is the square root function, that is, \({f}^{-1}(x)=\sqrt{x}.\) What happens if we graph both \(f\) and \({f}^{-1}\) on the same set of axes, using the \(x\text{-}\) axis for the input to both \(f\text{ and }{f}^{-1}?\)</p>
+<p>We notice a distinct relationship: The graph of \({f}^{-1}(x)\) is the graph of \(f(x)\) reflected about the diagonal line \(y=x,\) which we will call the identity line, shown in <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_009.jpg" alt="Graph of f(x) and f^(-1)(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — Square and square-root functions on the non-negative domain</figcaption></figure>
+<p>This relationship will be observed for all one-to-one functions, because it is a result of the function and its inverse swapping inputs and outputs. This is equivalent to interchanging the roles of the vertical and horizontal axes.</p>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Given the graph of \(f(x)\) in <a href="#fig9">Figure 9</a>, sketch a graph of \({f}^{-1}(x).\)</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_010-7d5a.jpg" alt="A graph showing a logarithmic function. The curve starts near the bottom of the y-axis (as x approaches 0 from the right), passes through (1,0), and curves upwards to the right." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</div><p class="sol-hint">Reflect a few labeled points on the graph across the line y=x, then connect them.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This is a one-to-one function, so we will be able to sketch an inverse. Note that the graph shown has an apparent domain of \((0,\infty )\) and range of \((-\infty ,\infty ),\) so the inverse will have a domain of \((-\infty ,\infty )\) and range of \((0,\infty ).\)</p>
+<p>If we reflect this graph over the line \(y=x,\) the point \((1,0)\) reflects to \((0,1)\) and the point \((4,2)\) reflects to \((2,4).\) Sketching the inverse on the same axes as the original graph gives <a href="#fig10">Figure 10</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_011-26f4.jpg" alt="Graph of f(x) and f^(-1)(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — The function and its inverse, showing reflection about the identity line</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Draw graphs of the functions \(f\) and \({f}^{-1}\) from <a href="#example8">Example 8</a>.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_012.jpg" alt="Graph of f(x) and f^(-1)(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card qa" id="fs-id1165137627081"><span class="chip">Q&amp;A</span><p><strong>Is there any function that is equal to its own inverse?</strong></p>
+<p><strong>Yes. If \(f={f}^{-1},\) then \(f(f(x))=x,\) and we can think of several functions that have this property. The identity function does, and so does the reciprocal function, because</strong></p>
+<p id="eq19">\[\frac{1}{\frac{1}{x}}=x\]</p>
+<p><strong>Any function \(f(x)=c-x,\) where \(c\) is a constant, is also equal to its own inverse.</strong></p>
+</div>
+<div class="card callout" id="fs-id1165137410410"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with inverse functions.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/inversefunction" target="_blank" rel="noopener">Inverse Functions</a></li><li><a href="https://openstax.org/l/inversfuncgraph" target="_blank" rel="noopener">Inverse Function Values Using Graph</a></li><li><a href="https://openstax.org/l/restrictdomain" target="_blank" rel="noopener">Restricting the Domain and Finding the Inverse</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>If \(g(x)\) is the inverse of \(f(x),\) then \(g(f(x))=f(g(x))=x.\) See <a href="#example1">Example 1</a>, <a href="#example2">Example 2</a>, and <a href="#example3">Example 3</a>.</li><li>Each of the toolkit functions has an inverse. See <a href="#example4">Example 4</a>.</li><li>For a function to have an inverse, it must be one-to-one (pass the horizontal line test).</li><li>A function that is not one-to-one over its entire domain may be one-to-one on part of its domain.</li><li>For a tabular function, exchange the input and output rows to obtain the inverse. See <a href="#example5">Example 5</a>.</li><li>The inverse of a function can be determined at specific points on its graph. See <a href="#example6">Example 6</a>.</li><li>To find the inverse of a formula, solve the equation \(y=f(x)\) for \(x\) as a function of \(y.\) Then exchange the labels \(x\) and \(y.\) See <a href="#example7">Example 7</a>, <a href="#example8">Example 8</a>, and <a href="#example9">Example 9</a>.</li><li>The graph of an inverse function is the reflection of the graph of the original function across the line \(y=x.\) See <a href="#example10">Example 10</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Describe why the horizontal line test is an effective way to determine whether a function is one-to-one?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Each output of a function must have exactly one output for the function to be one-to-one. If any horizontal line crosses the graph of a function more than once, that means that \(y\) -values repeat and the function is not one-to-one. If no horizontal line crosses the graph of the function more than once, then no \(y\) -values repeat and the function is one-to-one.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Why do we restrict the domain of the function \(f(x)={x}^{2}\) to find the function’s inverse?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Can a function be its own inverse? Explain.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes. For example, \(f(x)=\frac{1}{x}\) is its own inverse.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Are one-to-one functions either always increasing or always decreasing? Why or why not?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>How do you find the inverse of a function algebraically?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Given a function \(y=f(x),\) solve for \(x\) in terms of \(y.\) Interchange the \(x\) and \(y.\) Solve the new equation for \(y.\) The expression for \(y\) is the inverse, \(y={f}^{-1}(x).\)</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>Show that the function \(f(x)=a-x\) is its own inverse for all real numbers \(a.\)</p>
+</div></div>
+<p>For the following exercises, find \({f}^{-1}(x)\) for each function.</p>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(f(x)=x+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=x-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(f(x)=x+5\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(f(x)=2-x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=2-x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(f(x)=3-x\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(f(x)=\frac{x}{x+2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=\frac{-2x}{x-1}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(f(x)=\frac{2x+3}{5x+4}\)</p>
+</div></div>
+<p>For the following exercises, find a domain on which each function \(f\) is one-to-one and non-decreasing. Write the domain in interval notation. Then find the inverse of \(f\) restricted to that domain.</p>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(f(x)={(x+7)}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>domain of \(f(x):\,[-7,\infty );\,{f}^{-1}(x)=\sqrt{x}-7\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(f(x)={(x-6)}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(f(x)={x}^{2}-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>domain of \(f(x):\,[0,\infty );\,{f}^{-1}(x)=\sqrt{x+5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>Given \(f(x)=\frac{x}{2+x}\) and \(g(x)=\frac{2x}{1-x}:\)</p>
+<ul class="tight"><li>ⓐ Find \(f(g(x))\) and \(g(f(x)).\)</li><li>ⓑ What does the answer tell us about the relationship between \(f(x)\) and \(g(x)?\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(f(g(x))=x\) and \(g(f(x))=x.\)</li><li>ⓑ This tells us that \(f\) and \(g\) are inverse functions</li></ul>
+</div></div></div></div>
+<p>For the following exercises, use function composition to verify that \(f(x)\) and \(g(x)\) are inverse functions.</p>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x)=\sqrt[3]{x-1}\) and \(g(x)={x}^{3}+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(g(x))=x,\,g(f(x))=x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(f(x)=-3x+5\) and \(g(x)=\frac{x-5}{-3}\)</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, use a graphing utility to determine whether each function is one-to-one.</p>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(f(x)=\sqrt{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>one-to-one</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(f(x)=\sqrt[3]{3x+1}\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(f(x)=-5x+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>one-to-one</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(f(x)={x}^{3}-27\)</p>
+</div></div>
+<p>For the following exercises, determine whether the graph represents a one-to-one function.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_201.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>not one-to-one</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_202.jpg" alt="Graph of a step-function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, use the graph of \(f\) shown in <a href="#fig11">Figure 11</a>.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_203-26f2.jpg" alt="A graph displays a downward-sloping line 'f' on a Cartesian coordinate system. The line intersects the y-axis at (0, 3) and the x-axis at (2, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>Find \(f(0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>Solve \(f(x)=0.\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Find \({f}^{-1}(0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>Solve \({f}^{-1}(x)=0.\)</p>
+</div></div>
+<p>For the following exercises, use the graph of the one-to-one function shown in <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_204.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>Sketch the graph of \({f}^{-1}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_205.jpg" alt="Graph of a square root function and its inverse." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>Find \(f(6)\text{ and }{f}^{-1}(2).\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>If the complete graph of \(f\) is shown, find the domain of \(f.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([2,10]\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>If the complete graph of \(f\) is shown, find the range of \(f.\)</p>
+</div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, evaluate or solve, assuming that the function \(f\) is one-to-one.</p>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>If \(f(6)=7,\) find \({f}^{-1}(7).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>If \(f(3)=2,\) find \({f}^{-1}(2).\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>If \({f}^{-1}(-4)=-8,\) find \(f(-8).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>If \({f}^{-1}(-2)=-1,\) find \(f(-1).\)</p>
+</div></div>
+<p>For the following exercises, use the values listed in <a href="#tab6">Table 6</a> to evaluate or solve.</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>\(x\)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr><tr><td>\(f(x)\)</td><td>8</td><td>0</td><td>7</td><td>4</td><td>2</td><td>6</td><td>5</td><td>3</td><td>9</td><td>1</td></tr></tbody></table></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Find \(f(1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Solve \(f(x)=3.\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Find \({f}^{-1}(0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Solve \({f}^{-1}(x)=7.\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Use the tabular representation of \(f\) in <a href="#tab7">Table 7</a> to create a table for \({f}^{-1}(x).\)</p>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td><strong>\(x\)</strong></td><td>3</td><td>6</td><td>9</td><td>13</td><td>14</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>1</td><td>4</td><td>7</td><td>12</td><td>16</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td>\(x\)</td><td>1</td><td>4</td><td>7</td><td>12</td><td>16</td></tr><tr><td>\({f}^{-1}(x)\)</td><td>3</td><td>6</td><td>9</td><td>13</td><td>14</td></tr></tbody></table></div>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, find the inverse function. Then, graph the function and its inverse.</p>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(f(x)=\frac{3}{x-2}\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(f(x)={x}^{3}-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)={(1+x)}^{1/3}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_207.jpg" alt="Graph of a cubic function and its inverse." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find the inverse function of \(f(x)=\frac{1}{x-1}.\) Use a graphing utility to find its domain and range. Write the domain and range in interval notation.</p>
+</div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>To convert from \(x\) degrees Celsius to \(y\) degrees Fahrenheit, we use the formula \(f(x)=\frac{9}{5}x+32.\) Find the inverse function, if it exists, and explain its meaning.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=\frac{5}{9}(x-32).\) Given the Fahrenheit temperature, \(x,\) this formula allows you to calculate the Celsius temperature.</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>The circumference \(C\) of a circle is a function of its radius given by \(C(r)=2\pi r.\) Express the radius of a circle as a function of its circumference. Call this function \(r(C).\) Find \(r(36\pi )\) and interpret its meaning.</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>A car travels at a constant speed of 50 miles per hour. The distance the car travels in miles is a function of time, \(t,\) in hours given by \(d(t)=50t.\) Find the inverse function by expressing the time of travel in terms of the distance traveled. Call this function \(t(d).\) Find \(t(180)\) and interpret its meaning.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(t(d)=\frac{d}{50},\) \(t(180)=\frac{180}{50}.\) The time for the car to travel 180 miles is 3.6 hours.</p>
+</div></div></div></div>
+</div>
+<h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
+<h3 id="functions-and-function-notation">Functions and Function Notation</h3>
+<p>For the following exercises, determine whether the relation is a function.</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\(\{(a,b),(c,d),(e,d)\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>\(\{(5,2),(6,1),(6,2),(4,8)\}\)</p>
+</div></div>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>\({y}^{2}+4=x,\) for \(x\) the independent variable and \(y\) the dependent variable</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>not a function</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>Is the graph in <a href="#fig13">Figure 13</a> a function?</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_208.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+</div></div>
+<p>For the following exercises, evaluate the function at the indicated values: \(\,f(-3);\,f(2);\,f(-a);\,-f(a);\,f(a+h).\)</p>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>\(f(x)=-2{x}^{2}+3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(-3)=-27;\) \(f(2)=-2;\) \(f(-a)=-2{a}^{2}-3a;\) <br> \(-f(a)=2{a}^{2}-3a;\) \(f(a+h)=-2{a}^{2}+3a-4ah+3h-2{h}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>\(f(x)=2|3x-1|\)</p>
+</div></div>
+<p>For the following exercises, determine whether the functions are one-to-one.</p>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(f(x)=-3x+5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>one-to-one</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(f(x)=|x-3|\)</p>
+</div></div>
+<p>For the following exercises, use the vertical line test to determine if the relation whose graph is provided is a function.</p>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_209.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_210.jpg" alt="Graph of a relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_211.jpg" alt="Graph of a relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<p>For the following exercises, graph the functions.</p>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(f(x)=|x+1|\)</p>
+</div></div>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(f(x)={x}^{2}-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_213.jpg" alt="A graph of an upward-opening parabola with its vertex at (0, -2) and passing through approximately (-1.4, 0) and (1.4, 0). The curve extends upwards on both sides." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, use <a href="#fig14">Figure 14</a> to approximate the values.</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_215.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>\(f(2)\)</p>
+</div></div>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>\(f(-2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>If \(f(x)=-2,\) then solve for \(x.\)</p>
+</div></div>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>If \(f(x)=1,\) then solve for \(x.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-1.8\) or \(\text{ or }x=1.8\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the function \(h(t)=-16{t}^{2}+80t\) to find the values.</p>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>\(\frac{h(2)-h(1)}{2-1}\)</p>
+</div></div>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>\(\frac{h(a)-h(1)}{a-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-64+80a-16{a}^{2}}{-1+a}=-16a+64\)</p>
+</div></div></div></div>
+<h3 id="domain-and-range">Domain and Range</h3>
+<p>For the following exercises, find the domain of each function, expressing answers using interval notation.</p>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>\(f(x)=\frac{2}{3x+2}\)</p>
+</div></div>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>\(f(x)=\frac{x-3}{{x}^{2}-4x-12}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-\infty ,-2)∪(-2,6)∪(6,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><p>\(f(x)=\frac{\sqrt{x-6}}{\sqrt{x-4}}\)</p>
+</div></div>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><p>Graph this piecewise function: \(f(x)=\left\{\begin{array}{l}x+1\,x&lt;-2 \\ -2x-3\,x\ge -2\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_214.jpg" alt="A piecewise linear graph featuring a jump discontinuity at x = -2. The function approaches -1 from the left with an open circle, and has a value of 1 from the right, continuing downwards." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<h3 id="rates-of-change-and-behavior-of-graphs">Rates of Change and Behavior of Graphs</h3>
+<p>For the following exercises, find the average rate of change of the functions from \(x=1\text{ to }x=2.\)</p>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p>\(f(x)=4x-3\)</p>
+</div></div>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p>\(f(x)=10{x}^{2}+x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(31\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>\(f(x)=-\frac{2}{{x}^{2}}\)</p>
+</div></div>
+<p>For the following exercises, use the graphs to determine the intervals on which the functions are increasing, decreasing, or constant.</p>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_216.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>increasing \((2,\infty );\) decreasing \((-\infty ,2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex28"><div class="n">28</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_217.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="reviewex29"><div class="n">29</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_218.jpg" alt="Graph of a function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>increasing \((-3,1);\) constant \((-\infty ,-3)∪(1,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex30"><div class="n">30</div><div class="body"><p>Find the local minimum of the function graphed in <a href="#reviewex27">Exercise 27</a>.</p>
+</div></div>
+<div class="exercise" id="reviewex31"><div class="n">31</div><div class="body"><p>Find the local extrema for the function graphed in <a href="#reviewex28">Exercise 28</a>.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>local minimum \((-2,-3);\) local maximum \((1,3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex32"><div class="n">32</div><div class="body"><p>For the graph in <a href="#fig15">Figure 15</a>, the domain of the function is \([-3,3].\) The range is \([-10,10].\) Find the absolute minimum of the function on this interval.</p>
+</div></div>
+<div class="exercise" id="reviewex33"><div class="n">33</div><div class="body"><p>Find the absolute maximum of the function graphed in <a href="#fig15">Figure 15</a>.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_219-f973.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+<div class="answer"><button>Show answer</button><div class="a"><p>Absolute Maximum: 10</p>
+</div></div></div></div>
+<h3 id="composition-of-functions">Composition of Functions</h3>
+<p>For the following exercises, find \((f∘g)(x)\) and \((g∘f)(x)\) for each pair of functions.</p>
+<div class="exercise" id="reviewex34"><div class="n">34</div><div class="body"><p>\(f(x)=4-x,\,g(x)=-4x\)</p>
+</div></div>
+<div class="exercise" id="reviewex35"><div class="n">35</div><div class="body"><p>\(f(x)=3x+2,\,g(x)=5-6x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f∘g)(x)=17-18x;\,(g∘f)(x)=-7-18x\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex36"><div class="n">36</div><div class="body"><p>\(f(x)={x}^{2}+2x,\,g(x)=5x+1\)</p>
+</div></div>
+<div class="exercise" id="reviewex37"><div class="n">37</div><div class="body"><p>\(f(x)=\sqrt{x+2},\,g(x)=\frac{1}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f∘g)(x)=\sqrt{\frac{1}{x}+2};\) \((g∘f)(x)=\frac{1}{\sqrt{x+2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex38"><div class="n">38</div><div class="body"><p>\(f(x)=\frac{x+3}{2},\,g(x)=\sqrt{1-x}\)</p>
+</div></div>
+<p>For the following exercises, find \((f∘g)\) and the domain for \((f∘g)(x)\) for each pair of functions.</p>
+<div class="exercise" id="reviewex39"><div class="n">39</div><div class="body"><p>\(f(x)=\frac{x+1}{x+4},\,g(x)=\frac{1}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f∘g)(x)=\frac{1+x}{1+4x},\,x\ne 0,\,x\ne -\frac{1}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex40"><div class="n">40</div><div class="body"><p>\(f(x)=\frac{1}{x+3},\,g(x)=\frac{1}{x-9}\)</p>
+</div></div>
+<div class="exercise" id="reviewex41"><div class="n">41</div><div class="body"><p>\(f(x)=\frac{1}{x},\,g(x)=\sqrt{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((f∘g)(x)=\frac{1}{\sqrt{x}},\,x&gt;0\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex42"><div class="n">42</div><div class="body"><p>\(f(x)=\frac{1}{{x}^{2}-1},\,g(x)=\sqrt{x+1}\)</p>
+</div></div>
+<p>For the following exercises, express each function \(H\) as a composition of two functions \(f\) and \(g\) where \(H(x)=(f∘g)(x).\)</p>
+<div class="exercise" id="reviewex43"><div class="n">43</div><div class="body"><p>\(H(x)=\sqrt{\frac{2x-1}{3x+4}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sample: \(g(x)=\frac{2x-1}{3x+4};\,f(x)=\sqrt{x}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex44"><div class="n">44</div><div class="body"><p>\(H(x)=\frac{1}{{(3{x}^{2}-4)}^{-3}}\)</p>
+</div></div>
+<h3 id="transformation-of-functions">Transformation of Functions</h3>
+<p>For the following exercises, sketch a graph of the given function.</p>
+<div class="exercise" id="reviewex45"><div class="n">45</div><div class="body"><p>\(f(x)={(x-3)}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_220.jpg" alt="Graph of f(x)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex46"><div class="n">46</div><div class="body"><p>\(f(x)={(x+4)}^{3}\)</p>
+</div></div>
+<div class="exercise" id="reviewex47"><div class="n">47</div><div class="body"><p>\(f(x)=\sqrt{x}+5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_222.jpg" alt="Graph of f(x)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex48"><div class="n">48</div><div class="body"><p>\(f(x)=-{x}^{3}\)</p>
+</div></div>
+<div class="exercise" id="reviewex49"><div class="n">49</div><div class="body"><p>\(f(x)=\sqrt[3]{-x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_224.jpg" alt="Graph of f(x)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex50"><div class="n">50</div><div class="body"><p>\(f(x)=5\sqrt{-x}-4\)</p>
+</div></div>
+<div class="exercise" id="reviewex51"><div class="n">51</div><div class="body"><p>\(f(x)=4[|x-2|-6]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_226.jpg" alt="A V-shaped graph resembling an absolute value function is shown on a Cartesian plane. Its vertex is at (2, -24), and it crosses the x-axis at (-4, 0) and (8, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex52"><div class="n">52</div><div class="body"><p>\(f(x)=-{(x+2)}^{2}-1\)</p>
+</div></div>
+<p>For the following exercises, sketch the graph of the function \(g\) if the graph of the function \(f\) is shown in <a href="#fig16">Figure 16</a>.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_247.jpg" alt="This graph shows a semi-circle centered at the origin with a radius of 2. The curve originates at (-2, 0), reaches its apex at (0, 2), and terminates at (2, 0) on the Cartesian plane." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16</figcaption></figure>
+<div class="exercise" id="reviewex53"><div class="n">53</div><div class="body"><p>\(g(x)=f(x-1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_228.jpg" alt="Graph of a half circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex54"><div class="n">54</div><div class="body"><p>\(g(x)=3f(x)\)</p>
+</div></div>
+<p>For the following exercises, write the equation for the standard function represented by each of the graphs below.</p>
+<div class="exercise" id="reviewex55"><div class="n">55</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_230-99ac.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=|x-3|\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex56"><div class="n">56</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_231.jpg" alt="Graph of a half circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, determine whether each function below is even, odd, or neither.</p>
+<div class="exercise" id="reviewex57"><div class="n">57</div><div class="body"><p>\(f(x)=3{x}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>even</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex58"><div class="n">58</div><div class="body"><p>\(g(x)=\sqrt{x}\)</p>
+</div></div>
+<div class="exercise" id="reviewex59"><div class="n">59</div><div class="body"><p>\(h(x)=\frac{1}{x}+3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>odd</p>
+</div></div></div></div>
+<p>For the following exercises, analyze the graph and determine whether the graphed function is even, odd, or neither.</p>
+<div class="exercise" id="reviewex60"><div class="n">60</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_232-f303.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="reviewex61"><div class="n">61</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_233.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>even</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex62"><div class="n">62</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_234.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<h3 id="absolute-value-functions">Absolute Value Functions</h3>
+<p>For the following exercises, write an equation for the transformation of \(f(x)=|x|.\)</p>
+<div class="exercise" id="reviewex63"><div class="n">63</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_235.jpg" alt="Graph of f(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\frac{1}{2}|x+2|+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex64"><div class="n">64</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_236.jpg" alt="A blue V-shaped graph on a Cartesian coordinate plane, representing an absolute value function. The graph opens upwards, with its vertex located at the point (1.5, -3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="reviewex65"><div class="n">65</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_237.jpg" alt="Graph of f(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-3|x-3|+3\)</p>
+</div></div></div></div>
+<p>For the following exercises, graph the absolute value function.</p>
+<div class="exercise" id="reviewex66"><div class="n">66</div><div class="body"><p>\(f(x)=|x-5|\)</p>
+</div></div>
+<div class="exercise" id="reviewex67"><div class="n">67</div><div class="body"><p>\(f(x)=-|x-3|\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_239.jpg" alt="A graph displays a blue V-shaped function, symmetrical around x=3, with its vertex at (3, 0). The two linear segments extend downwards, passing through points (0, -3) and (6, -3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex68"><div class="n">68</div><div class="body"><p>\(f(x)=|2x-4|\)</p>
+</div></div>
+<p>For the following exercises, solve the absolute value equation.</p>
+<div class="exercise" id="reviewex69"><div class="n">69</div><div class="body"><p>\(|x+4|=18\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-22,\,x=14\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex70"><div class="n">70</div><div class="body"><p>\(|\frac{1}{3}x+5|=|\frac{3}{4}x-2|\)</p>
+</div></div>
+<p>For the following exercises, solve the inequality and express the solution using interval notation.</p>
+<div class="exercise" id="reviewex71"><div class="n">71</div><div class="body"><p>\(|3x-2|&lt;7\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-\frac{5}{3},3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex72"><div class="n">72</div><div class="body"><p>\(|\frac{1}{3}x-2|\le 7\)</p>
+</div></div>
+<h3 id="inverse-functions">Inverse Functions</h3>
+<p>For the following exercises, find \({f}^{-1}(x)\) for each function.</p>
+<div class="exercise" id="reviewex73"><div class="n">73</div><div class="body"><p>\(f(x)=9+10x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)\,=\frac{x-9}{10}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex74"><div class="n">74</div><div class="body"><p>\(f(x)=\frac{x}{x+2}\)</p>
+</div></div>
+<p>For the following exercise, find a domain on which the function \(f\) is one-to-one and non-decreasing. Write the domain in interval notation. Then find the inverse of \(f\) restricted to that domain.</p>
+<div class="exercise" id="reviewex75"><div class="n">75</div><div class="body"><p>\(f(x)={x}^{2}+1\)</p>
+</div></div>
+<div class="exercise" id="reviewex76"><div class="n">76</div><div class="body"><p>Given \(f(x)={x}^{3}-5\) and \(g(x)=\sqrt[3]{x+5}:\)</p>
+<ul class="tight"><li>Find \(f(g(x))\) and \(g(f(x)).\)</li><li>What does the answer tell us about the relationship between \(f(x)\) and \(g(x)?\)</li></ul>
+</div></div>
+<p>For the following exercises, use a graphing utility to determine whether each function is one-to-one.</p>
+<div class="exercise" id="reviewex77"><div class="n">77</div><div class="body"><p>\(f(x)=\frac{1}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function is one-to-one.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_248.jpg" alt="A graph of the reciprocal function y = 1/x, showing a curve in the first and third quadrants of the Cartesian coordinate system. The x-axis and y-axis are labeled with tick marks from -4 to 4. The curve has a vertical asymptote at x=0 (the y-axis) and a horizontal asymptote at y=0 (the x-axis). In the first quadrant, the curve starts high near the positive y-axis, passes through (1,1) and extends towards the positive x-axis. In the third quadrant, the curve starts low near the negative y-axis, passes through (-1,-1) and extends towards the negative x-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex78"><div class="n">78</div><div class="body"><p>\(f(x)=-3{x}^{2}+x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function is not one-to-one.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_249.jpg" alt="A graph shows a parabola opening downwards, with its vertex at the origin (0,0). The curve passes through points such as (-1, -1) and (1, -1), and extends downwards as x moves away from 0. The x-axis is labeled from -4 to 4, and the y-axis is labeled from -4 to 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex79"><div class="n">79</div><div class="body"><p>If \(f(5)=2,\) find \({f}^{-1}(2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(5\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex80"><div class="n">80</div><div class="body"><p>If \(f(1)=4,\) find \({f}^{-1}(4).\)</p>
+</div></div>
+<h2 id="practice-test">Practice Test</h2>
+<p>For the following exercises, determine whether each of the following relations is a function.</p>
+<div class="exercise" id="practiceex1"><div class="n">1</div><div class="body"><p>\(y=2x+8\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The relation is a function.</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex2"><div class="n">2</div><div class="body"><p>\(\{(2,1),(3,2),(-1,1),(0,-2)\}\)</p>
+</div></div>
+<p>For the following exercises, evaluate the function \(f(x)=-3{x}^{2}+2x\) at the given input.</p>
+<div class="exercise" id="practiceex3"><div class="n">3</div><div class="body"><p>\(f(-2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>−16</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex4"><div class="n">4</div><div class="body"><p>\(f(a)\)</p>
+</div></div>
+<div class="exercise" id="practiceex5"><div class="n">5</div><div class="body"><p>Show that the function \(f(x)=-2{(x-1)}^{2}+3\) is not one-to-one.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph is a parabola and the graph fails the horizontal line test.</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex6"><div class="n">6</div><div class="body"><p>Write the domain of the function \(f(x)=\sqrt{3-x}\) in interval notation.</p>
+</div></div>
+<div class="exercise" id="practiceex7"><div class="n">7</div><div class="body"><p>Given \(f(x)=2{x}^{2}-5x,\) find \(f(a+1)-f(1).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2{a}^{2}-a\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex8"><div class="n">8</div><div class="body"><p>Graph the function \(f(x)=\left\{\begin{array}{ll}x+1\text{ if} &amp; -2&lt;x&lt;3 \\ \,-x\text{ if } &amp; x\ge 3\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="practiceex9"><div class="n">9</div><div class="body"><p>Find the average rate of change of the function \(f(x)=3-2{x}^{2}+x\) by finding \(\frac{f(b)-f(a)}{b-a}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-2(a+b)+1\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the functions \(f(x)=3-2{x}^{2}+x\text{ and }g(x)=\sqrt{x}\) to find the composite functions.</p>
+<div class="exercise" id="practiceex10"><div class="n">10</div><div class="body"><p>\((g∘f)(x)\)</p>
+</div></div>
+<div class="exercise" id="practiceex11"><div class="n">11</div><div class="body"><p>\((g∘f)(1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex12"><div class="n">12</div><div class="body"><p>Express \(H(x)=\sqrt[3]{5{x}^{2}-3x}\) as a composition of two functions, \(f\) and \(g,\) where \((f∘g)(x)=H(x).\)</p>
+</div></div>
+<p>For the following exercises, graph the functions by translating, stretching, and/or compressing a toolkit function.</p>
+<div class="exercise" id="practiceex13"><div class="n">13</div><div class="body"><p>\(f(x)=\sqrt{x+6}-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_242.jpg" alt="A graph displays a curve resembling a square root function, starting at approximately (-6, -1) and extending upward and to the right, passing through (-5, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex14"><div class="n">14</div><div class="body"><p>\(f(x)=\frac{1}{x+2}-1\)</p>
+</div></div>
+<p>For the following exercises, determine whether the functions are even, odd, or neither.</p>
+<div class="exercise" id="practiceex15"><div class="n">15</div><div class="body"><p>\(f(x)=-\frac{5}{{x}^{2}}+9{x}^{6}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{even}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex16"><div class="n">16</div><div class="body"><p>\(f(x)=-\frac{5}{{x}^{3}}+9{x}^{5}\)</p>
+</div></div>
+<div class="exercise" id="practiceex17"><div class="n">17</div><div class="body"><p>\(f(x)=\frac{1}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{odd}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex18"><div class="n">18</div><div class="body"><p>Graph the absolute value function \(f(x)=-2|x-1|+3.\)</p>
+</div></div>
+<div class="exercise" id="practiceex19"><div class="n">19</div><div class="body"><p>Solve \(|2x-3|=17.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=-7\) and \(x=10\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex20"><div class="n">20</div><div class="body"><p>Solve \(-|\frac{1}{3}x-3|\ge 17.\) Express the solution in interval notation.</p>
+</div></div>
+<p>For the following exercises, find the inverse of the function.</p>
+<div class="exercise" id="practiceex21"><div class="n">21</div><div class="body"><p>\(f(x)=3x-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=\frac{x+5}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex22"><div class="n">22</div><div class="body"><p>\(f(x)=\frac{4}{x+7}\)</p>
+</div></div>
+<p>For the following exercises, use the graph of \(g\) shown in <a href="#fig17">Figure 17</a>.</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_245-5b4d.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17</figcaption></figure>
+<div class="exercise" id="practiceex23"><div class="n">23</div><div class="body"><p>On what intervals is the function increasing?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-\infty ,-1.1)\text{ and }(1.1,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex24"><div class="n">24</div><div class="body"><p>On what intervals is the function decreasing?</p>
+</div></div>
+<div class="exercise" id="practiceex25"><div class="n">25</div><div class="body"><p>Approximate the local minimum of the function. Express the answer as an ordered pair. The ordered pair should include both the \(x\) value as well as the \(g(x)\) value.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((1.1,-0.9)\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex26"><div class="n">26</div><div class="body"><p>Approximate the local maximum of the function. Express the answer as an ordered pair. The ordered pair should include both the \(x\) value as well as the \(g(x)\) value.</p>
+</div></div>
+<p>For the following exercises, use the graph of the piecewise function shown in <a href="#fig18">Figure 18</a>.</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_07_246-ed11.jpg" alt="Graph of absolute function and step function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+<div class="exercise" id="practiceex27"><div class="n">27</div><div class="body"><p>Find \(f(2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(2)=2\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex28"><div class="n">28</div><div class="body"><p>Find \(f(-2).\)</p>
+</div></div>
+<div class="exercise" id="practiceex29"><div class="n">29</div><div class="body"><p>Write an equation for the piecewise function.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\left\{\begin{array}{l}|x|\,\text{if}\,x\le 2 \\ 3\,\text{if}\,x&gt;2\end{array}\right.\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the values listed in <a href="#tab9">Table 9</a>.</p>
+<div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td>\(x\)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr><tr><td>\(f(x)\)</td><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td><td>11</td><td>13</td><td>15</td><td>17</td></tr></tbody></table></div>
+<div class="exercise" id="practiceex30"><div class="n">30</div><div class="body"><p>Find \(f(6).\)</p>
+</div></div>
+<div class="exercise" id="practiceex31"><div class="n">31</div><div class="body"><p>Solve the equation \(f(x)=5.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=2\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex32"><div class="n">32</div><div class="body"><p>Is the graph increasing or decreasing on its domain?</p>
+</div></div>
+<div class="exercise" id="practiceex33"><div class="n">33</div><div class="body"><p>Is the function represented by the graph one-to-one?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>yes</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex34"><div class="n">34</div><div class="body"><p>Find \({f}^{-1}(15).\)</p>
+</div></div>
+<div class="exercise" id="practiceex35"><div class="n">35</div><div class="body"><p>Given \(f(x)=-2x+11,\) find \({f}^{-1}(x).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=-\frac{x-11}{2}\)</p>
+</div></div></div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>inverse function</dt><dd>for any one-to-one function \(f(x),\) the inverse is a function \({f}^{-1}(x)\) such that \({f}^{-1}(f(x))=x\) for all \(x\) in the domain of \(f;\) this also implies that \(f({f}^{-1}(x))=x\) for all \(x\) in the domain of \({f}^{-1}\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

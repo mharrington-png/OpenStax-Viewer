@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rates of Change and Behavior of Graphs · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Rates of Change and Behavior of Graphs</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 1.3</span>Rates of Change and Behavior of Graphs</h1>
+<p>Gasoline costs have experienced some wild fluctuations over the last several decades. <a href="#tab1">Table 1</a> <span class="footnote">(http://www.eia.gov/totalenergy/data/annual/showtext.cfm?t=ptb0524. Accessed 3/5/2014.)</span> lists the average cost, in dollars, of a gallon of gasoline for the years 2005–2012. The cost of gasoline can be considered as a function of year.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>\(y\)</strong></td><td>2005</td><td>2006</td><td>2007</td><td>2008</td><td>2009</td><td>2010</td><td>2011</td><td>2012</td></tr><tr><td><strong>\(C(y)\)</strong></td><td>2.31</td><td>2.62</td><td>2.84</td><td>3.30</td><td>2.41</td><td>2.84</td><td>3.58</td><td>3.68</td></tr></tbody></table></div>
+<p>If we were interested only in how the gasoline prices changed between 2005 and 2012, we could compute that the cost per gallon had increased from $2.31 to $3.68, an increase of $1.37. While this is interesting, it might be more useful to look at how much the price changed <strong>per year</strong>. In this section, we will investigate changes such as these.</p>
+<h2 id="finding-the-average-rate-of-change-of-a-function">Finding the Average Rate of Change of a Function</h2>
+<p>The price change per year is a <strong>rate of change</strong> because it describes how an output quantity changes relative to the change in the input quantity. We can see that the price of gasoline in <a href="#tab1">Table 1</a> did not change by the same amount each year, so the rate of change was not constant. If we use only the beginning and ending data, we would be finding the <strong>average rate of change</strong> over the specified period of time. To find the average rate of change, we divide the change in the output value by the change in the input value.</p>
+<p id="eq1">\[\begin{array}{l}\begin{array}{l} \\ \text{Average rate of change}=\frac{\text{Change in output}}{\text{Change in input}}\end{array} \\ \,=\frac{\Delta y}{\Delta x} \\ \,=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}} \\ \,=\frac{f({x}_{2})-f({x}_{1})}{{x}_{2}-{x}_{1}}\end{array}\]</p>
+<p>The Greek letter \(\Delta\) (delta) signifies the change in a quantity; we read the ratio as “delta-<strong>y</strong> over delta-<strong>x</strong>” or “the change in \(y\) divided by the change in \(x.\) ” Occasionally we write \(\Delta f\) instead of \(\Delta y,\) which still represents the change in the function’s output value resulting from a change to its input value. It does not mean we are changing the function into some other function.</p>
+<p>In our example, the gasoline price increased by $1.37 from 2005 to 2012. Over 7 years, the average rate of change was</p>
+<p id="eq2">\[\frac{\Delta y}{\Delta x}=\frac{\text{\$}1.37}{\text{7 years}}\approx 0.196\text{ dollars per year}\]</p>
+<p>On average, the price of gas increased by about 19.6¢ each year.</p>
+<p>Other examples of rates of change include:</p>
+<ul class="tight"><li>A population of rats increasing by 40 rats per week</li><li>A car traveling 68 miles per hour (distance traveled changes by 68 miles each hour as time passes)</li><li>A car driving 27 miles per gallon (distance traveled changes by 27 miles for each gallon)</li><li>The current through an electrical circuit increasing by 0.125 amperes for every volt of increased voltage</li><li>The amount of money in a college account decreasing by $4,000 per quarter</li></ul>
+<div class="card definition" id="fs-id1165137642836"><span class="chip">Rate of Change</span><p>A rate of change describes how an output quantity changes relative to the change in the input quantity. The units on a rate of change are “output units per input units.”</p>
+<p>The average rate of change between two input values is the total change of the function values (output values) divided by the change in the input values.</p>
+<p id="eq3">\[\frac{\Delta y}{\Delta x}=\frac{f({x}_{2})-f({x}_{1})}{{x}_{2}-{x}_{1}}\]</p>
+</div>
+<div class="card howto" id="fs-id1165135530407"><span class="chip">How To</span><p><strong>Given the value of a function at different points, calculate the average rate of change of a function for the interval between two values \({x}_{1}\) and \({x}_{2}.\)</strong></p>
+<ul class="tight"><li>Calculate the difference \({y}_{2}-{y}_{1}=\Delta y.\)</li><li>Calculate the difference \({x}_{2}-{x}_{1}=\Delta x.\)</li><li>Find the ratio \(\frac{\Delta y}{\Delta x}.\)</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Using the data in <a href="#tab1">Table 1</a>, find the average rate of change of the price of gasoline between 2007 and 2009.</p>
+</div><p class="sol-hint">Plug the two years into the change-in-price over change-in-time formula, keeping the sign of each difference consistent.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>In 2007, the price of gasoline was $2.84. In 2009, the cost was $2.41. The average rate of change is</p>
+<p id="eq4">\[\begin{array}{l}\frac{\Delta y}{\Delta x}=\frac{{y}_{2}-{y}_{1}}{{x}_{2}-{x}_{1}} \\ =\frac{\text{\$}2.41-\text{\$}2.84}{2009-2007} \\ =\frac{-\text{\$}0.43}{2\text{ years}} \\ =-\text{\$}0.22\text{ per year}\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that a decrease is expressed by a negative change or “negative increase.” A rate of change is negative when the output decreases as the input increases or when the output increases as the input decreases.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Using the data in <a href="#tab1">Table 1</a>, find the average rate of change between 2005 and 2010.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{\$2.84-\$2.31}{5\text{ years}}=\frac{\$0.53}{5\text{ years}}=\$0.106\) per year.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Given the function \(g(t)\) shown in <a href="#fig1">Figure 1</a>, find the average rate of change on the interval \([-1,2].\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_001.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+</div><p class="sol-hint">Read g(-1) and g(2) off the graph, then use those two output values as your rise and the input change as your run.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>At \(t=-1,\) <a href="#fig2">Figure 2</a> shows \(g(-1)=4.\) At \(t=2,\) the graph shows \(g(2)=1.\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_002.jpg" alt="Graph of a parabola with a line from points (-1, 4) and (2, 1) to show the changes for g(t) and t." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>The horizontal change \(\Delta t=3\) is shown by the red arrow, and the vertical change \(\Delta g(t)=-3\) is shown by the turquoise arrow. The output changes by –3 while the input changes by 3, giving an average rate of change of</p>
+<p id="eq5">\[\frac{1-4}{2-(-1)}=\frac{-3}{3}=-1\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that the order we choose is very important. If, for example, we use \(\frac{{y}_{2}-{y}_{1}}{{x}_{1}-{x}_{2}},\) we will not get the correct answer. Decide which point will be 1 and which point will be 2, and keep the coordinates fixed as \(({x}_{1},{y}_{1})\) and \(({x}_{2},{y}_{2}).\)</p>
+</div></div></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>After picking up a friend who lives 10 miles away, Anna records her distance from home over time. The values are shown in <a href="#tab2">Table 2</a>. Find her average speed over the first 6 hours.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong><strong>t</strong> (hours)</strong></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr><tr><td><strong><strong>D</strong>(<strong>t</strong>) (miles)</strong></td><td>10</td><td>55</td><td>90</td><td>153</td><td>214</td><td>240</td><td>292</td><td>300</td></tr></tbody></table></div>
+</div><p class="sol-hint">Subtract consecutive distance values from the table and divide by the number of hours between them.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Here, the average speed is the average rate of change. She traveled 282 miles in 6 hours, for an average speed of</p>
+<p id="eq6">\[\begin{array}{l}\begin{array}{l} \\ \frac{292-10}{6-0}=\frac{282}{6}\end{array} \\ =47\end{array}\]</p>
+<p>The average speed is 47 miles per hour.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Because the speed is not constant, the average speed depends on the interval chosen. For the interval [2,3], the average speed is 63 miles per hour.</p>
+</div></div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Compute the average rate of change of \(f(x)={x}^{2}-\frac{1}{x}\) on the interval \(\text{[2,}\,\text{4].}\)</p>
+</div><p class="sol-hint">Write out f(4) and f(2) using the given formula, then simplify the difference quotient before plugging in numbers.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can start by computing the function values at each <strong>endpoint</strong> of the interval.</p>
+<p id="eq7">\[\begin{array}{llllll}f(2) &amp; = &amp; {2}^{2}-\frac{1}{2} &amp; \,f(4) &amp; = &amp; {4}^{2}-\frac{1}{4} \\ &amp; = &amp; 4-\frac{1}{2} &amp; &amp; = &amp; 16-\frac{1}{4} \\ &amp; = &amp; \frac{7}{2} &amp; &amp; = &amp; \frac{63}{4}\end{array}\]</p>
+<p>Now we compute the average rate of change.</p>
+<p id="eq8">\[\begin{array}{lll}\text{Average rate of change} &amp; = &amp; \frac{f(4)-f(2)}{4-2} \\ &amp; = &amp; \frac{\frac{63}{4}-\frac{7}{2}}{4-2} \\ &amp; = &amp; \frac{\frac{49}{4}}{2} \\ &amp; = &amp; \frac{49}{8}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find the average rate of change of \(f(x)=x-2\sqrt{x}\) on the interval \([1,\,9].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{1}{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>The <strong>electrostatic force</strong> \(F,\) measured in newtons, between two charged particles can be related to the distance between the particles \(d,\) in centimeters, by the formula \(F(d)=\frac{2}{{d}^{2}}.\) Find the average rate of change of force if the distance between the particles is increased from 2 cm to 6 cm.</p>
+</div><p class="sol-hint">Evaluate F at the two given distances first, then form the change-in-F over change-in-d ratio.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We are computing the average rate of change of \(F(d)=\frac{2}{{d}^{2}}\) on the interval \([2,6].\)</p>
+<p id="eq9">\[\begin{array}{llll}\text{Average rate of change} &amp; = &amp; \,\,\frac{F(6)-F(2)}{6-2} &amp; \\ &amp; = &amp; \frac{\frac{2}{{6}^{2}}-\frac{2}{{2}^{2}}}{6-2} &amp; \text{Simplify}. \\ &amp; = &amp; \frac{\frac{2}{36}-\frac{2}{4}}{4} &amp; \\ &amp; = &amp; \frac{-\frac{16}{36}}{4} &amp; \text{Combine numerator terms}. \\ &amp; = &amp; -\frac{1}{9} &amp; \text{Simplify}\end{array}\]</p>
+<p>The average rate of change is \(-\frac{1}{9}\) newton per centimeter.</p>
+</div></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find the average rate of change of \(g(t)={t}^{2}+3t+1\) on the interval \([0,\,a].\) The answer will be an expression involving \(a.\)</p>
+</div><p class="sol-hint">Expand g(a) using the formula, subtract g(0), then divide the whole thing by a and simplify.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We use the average rate of change formula.<br></p>
+<p id="eq10">\[\begin{array}{l}\begin{array}{ll}\text{Average rate of change}=\frac{g(a)-g(0)}{a-0} &amp; \text{Evaluate}. \\ \,=\frac{({a}^{2}+3a+1)-({0}^{2}+3(0)+1)}{a-0} &amp; \text{Simplify}. \\ \,=\frac{{a}^{2}+3a+1-1}{a} &amp; \text{Simplify and factor}. \\ \,=\frac{a(a+3)}{a} &amp; \begin{array}{l}\text{Divide by the common factor }a. \\ \end{array}\end{array} \\ \,=a+3\end{array}\]</p>
+<p>This result tells us the average rate of change in terms of \(a\) between \(t=0\) and any other point \(t=a.\) For example, on the interval \([0,5],\) the average rate of change would be \(5+3=8.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the average rate of change of \(f(x)={x}^{2}+2x-8\) on the interval \([5,\,a].\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(a+7\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-a-graph-to-determine-where-a-function-is-increasing-decreasing-or-constant">Using a Graph to Determine Where a Function is Increasing, Decreasing, or Constant</h2>
+<p>As part of exploring how functions change, we can identify intervals over which the function is changing in specific ways. We say that a function is increasing on an interval if the function values increase as the input values increase within that interval. Similarly, a function is decreasing on an interval if the function values decrease as the input values increase over that interval. The average rate of change of an increasing function is positive, and the average rate of change of a decreasing function is negative. <a href="#fig3">Figure 3</a> shows examples of increasing and decreasing intervals on a function.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_004-56ee.jpg" alt="Graph of a polynomial that shows the increasing and decreasing intervals and local maximum and minimum." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The function \(f(x)={x}^{3}-12x\) is increasing on \((-\infty \text{,}\,-\text{2})∪(2,\,\infty )\) and is decreasing on \((-2\text{,}\,2).\)</figcaption></figure>
+<p>While some functions are increasing (or decreasing) over their entire domain, many others are not. A value of the input where a function changes from increasing to decreasing (as we go from left to right, that is, as the input variable increases) is the location of a <strong>local maximum</strong>. The function value at that point is the local maximum. If a function has more than one, we say it has local maxima. Similarly, a value of the input where a function changes from decreasing to increasing as the input variable increases is the location of a <strong>local minimum</strong>. The function value at that point is the local minimum. The plural form is “local minima.” Together, local maxima and minima are called <strong>local extrema</strong>, or local extreme values, of the function. (The singular form is “extremum.”) Often, the term <strong>local</strong> is replaced by the term <strong>relative</strong>. In this text, we will use the term <strong>local</strong>.</p>
+<p>Clearly, a function is neither increasing nor decreasing on an interval where it is constant. A function is also neither increasing nor decreasing at extrema. Note that we have to speak of <strong>local</strong> extrema, because any given local extremum as defined here is not necessarily the highest maximum or lowest minimum in the function’s entire domain.</p>
+<p>For the function whose graph is shown in <a href="#fig4">Figure 4</a>, the local maximum is 16, and it occurs at \(x=-2.\) The local minimum is \(-16\) and it occurs at \(x=2.\)</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_014-7451.jpg" alt="A graph of a function f(x) is displayed on a coordinate plane with the x-axis ranging from -5 to 5 and the f(x)-axis ranging from -20 to 20. The curve shows that the function is increasing from the left until it reaches a local maximum at the point (-2, 16), where it is noted that the local maximum is 16 and occurs at x = -2. Following this, the function decreases, passing through the origin, until it reaches a local minimum at the point (2, -16), with the caption indicating a local minimum of -16 occurring at x = 2. After this point, the function begins to increase again towards the right." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p>To locate the local maxima and minima from a graph, we need to observe the graph to determine where the graph attains its highest and lowest points, respectively, within an open interval. Like the summit of a roller coaster, the graph of a function is higher at a local maximum than at nearby points on both sides. The graph will also be lower at a local minimum than at neighboring points. <a href="#fig5">Figure 5</a> illustrates these ideas for a local maximum.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_005.jpg" alt="Graph of a polynomial that shows the increasing and decreasing intervals and local maximum." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — Definition of a local maximum</figcaption></figure>
+<p>These observations lead us to a formal definition of local extrema.</p>
+<div class="card definition" id="fs-id1165134169419"><span class="chip">Local Minima and Local Maxima</span><p>A function \(f\) is an <strong>increasing function</strong> on an open interval if \(f(b)&gt;f(a)\) for every two input values \(a\) and \(b\) in the interval where \(b&gt;a.\)</p>
+<p>A function \(f\) is a <strong>decreasing function</strong> on an open interval if \(f(b)&lt;f(a)\) for every two input values \(a\) and \(b\) in the interval where \(b&gt;a.\)</p>
+<p>A function \(f\) has a local maximum at a point \(b\) in an open interval \((a,c)\) if \(f(b)\ge f(x)\) for every point \(x\) ( \(x\) does not equal \(b\) ) in the interval. \(f\) has a local minimum at a point \(b\) in \((a,c)\) if \(f(b)\le f(x)\) for every point \(x\) ( \(x\) does not equal \(b\) ) in the interval.</p>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Given the function \(p(t)\) in <a href="#fig6">Figure 6</a>, identify the intervals on which the function appears to be increasing.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_006.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div><p class="sol-hint">Trace the graph left to right and mark where it's climbing versus where it's falling.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We see that the function is not constant on any interval. The function is increasing where it slants upward as we move to the right and decreasing where it slants downward as we move to the right. The function appears to be increasing from \(t=1\) to \(t=3\) and from \(t=4\) on.</p>
+<p>In <strong>interval notation</strong>, we would say the function appears to be increasing on the interval (1,3) and the interval \((4,\infty ).\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice in this example that we used open intervals (intervals that do not include the endpoints), because the function is neither increasing nor decreasing at \(t=1\) , \(t=3\) , and \(t=4\) . These points are the local extrema (two minima and a maximum).</p>
+</div></div></div></div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Graph the function \(f(x)=\frac{2}{x}+\frac{x}{3}.\) Then use the graph to estimate the local extrema of the function and to determine the intervals on which the function is increasing.</p>
+</div><p class="sol-hint">Graph the function with technology first, then look for where the curve turns from falling to rising (or vice versa).</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using technology, we find that the graph of the function looks like that in <a href="#fig7">Figure 7</a>. It appears there is a low point, or local minimum, between \(x=2\) and \(x=3,\) and a mirror-image high point, or local maximum, somewhere between \(x=-3\) and \(x=-2.\)</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_007.jpg" alt="Graph of a reciprocal function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Most graphing calculators and graphing utilities can estimate the location of maxima and minima. <a href="#fig8">Figure 8</a> provides screen images from two different technologies, showing the estimate for the local maximum and minimum.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_008ab.jpg" alt="Graph of the reciprocal function on a graphing calculator." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+<p>Based on these estimates, the function is increasing on the interval \((-\infty \text{,}-\text{2}\text{.449)}\) and \((2.449\text{,}\infty ).\) Notice that, while we expect the extrema to be symmetric, the two different technologies agree only up to four decimals due to the differing approximation algorithms used by each. (The exact location of the extrema is at \(\pm \sqrt{6},\) but determining this requires calculus.)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Graph the function \(f(x)={x}^{3}-6{x}^{2}-15x+20\) to estimate the local extrema of the function. Use these to determine the intervals on which the function is increasing and decreasing.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The local maximum appears to occur at \((-1,28),\) and the local minimum occurs at \((5,-80).\) The function is increasing on \((-\infty ,-1)∪(5,\infty )\) and decreasing on \((-1,5).\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_010.jpg" alt="Graph of a polynomial with a local maximum at (-1, 28) and local minimum at (5, -80)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>For the function \(f\) whose graph is shown in <a href="#fig9">Figure 9</a>, find all local maxima and minima.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_011.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</div><p class="sol-hint">Look for the highest point in a small window around each turning point on the graph.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Observe the graph of \(f.\) The graph attains a local maximum at \(x=1\) because it is the highest point in an open interval around \(x=1.\) The local maximum is the \(y\) -coordinate at \(x=1,\) which is \(2.\)</p>
+<p>The graph attains a local minimum at \(x=-1\) because it is the lowest point in an open interval around \(x=-1.\) The local minimum is the <strong>y</strong>-coordinate at \(x=-1,\) which is \(-2.\)</p>
+</div></div></div>
+<h2 id="analyzing-the-toolkit-functions-for-increasing-or-decreasing-intervals">Analyzing the Toolkit Functions for Increasing or Decreasing Intervals</h2>
+<p>We will now return to our toolkit functions and discuss their graphical behavior in <a href="#fig10">Figure 10</a>, <a href="#fig11">Figure 11</a>, and <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_012a.jpg" alt="Table showing the increasing and decreasing intervals of the toolkit functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_012b.jpg" alt="Table showing the increasing and decreasing intervals of the toolkit functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_012c.jpg" alt="Table showing the increasing and decreasing intervals of the toolkit functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+<h2 id="use-a-graph-to-locate-the-absolute-maximum-and-absolute-minimum">Use A Graph to Locate the Absolute Maximum and Absolute Minimum</h2>
+<p>There is a difference between locating the highest and lowest points on a graph in a region around an open interval (locally) and locating the highest and lowest points on the graph for the entire domain. The \(y\text{-}\) coordinates (output) at the highest and lowest points are called the <strong>absolute maximum</strong>and<strong>absolute minimum</strong>, respectively.</p>
+<p>To locate absolute maxima and minima from a graph, we need to observe the graph to determine where the graph attains it highest and lowest points on the domain of the function. See <a href="#fig13">Figure 13</a>.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_015.jpg" alt="Graph of a segment of a parabola with an absolute minimum at (0, -2) and absolute maximum at (2, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+<p>Not every function has an absolute maximum or minimum value. The toolkit function \(f(x)={x}^{3}\) is one such function.</p>
+<div class="card definition" id="fs-id1165135251290"><span class="chip">Absolute Maxima and Minima</span><p>The <strong>absolute maximum</strong> of \(f\) at \(x=c\) is \(f(c)\) where \(f(c)\ge f(x)\) for all \(x\) in the domain of \(f.\)</p>
+<p>The <strong>absolute minimum</strong> of \(f\) at \(x=d\) is \(f(d)\) where \(f(d)\le f(x)\) for all \(x\) in the domain of \(f.\)</p>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>For the function \(f\) shown in <a href="#fig14">Figure 14</a>, find all absolute maxima and minima.</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_013.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+</div><p class="sol-hint">Scan the whole graph (not just nearby points) for its single highest and lowest y-values.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Observe the graph of \(f.\) The graph attains an absolute maximum in two locations, \(x=-2\) and \(x=2,\) because at these locations, the graph attains its highest point on the domain of the function. The absolute maximum is the <strong>y</strong>-coordinate at \(x=-2\) and \(x=2,\) which is \(16.\)</p>
+<p>The graph attains an absolute minimum at \(x=3,\) because it is the lowest point on the domain of the function’s graph. The absolute minimum is the <strong>y</strong>-coordinate at \(x=3,\) which is \(-10.\)</p>
+</div></div></div>
+<div class="card callout" id="fs-id1165135708033"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with rates of change.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/aroc" target="_blank" rel="noopener">Average Rate of Change</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>Average rate of change</td><td>\(\frac{\Delta y}{\Delta x}=\frac{f({x}_{2})-f({x}_{1})}{{x}_{2}-{x}_{1}}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A rate of change relates a change in an output quantity to a change in an input quantity. The average rate of change is determined using only the beginning and ending data. See <a href="#example1">Example 1</a>.</li><li>Identifying points that mark the interval on a graph can be used to find the average rate of change. See <a href="#example2">Example 2</a>.</li><li>Comparing pairs of input and output values in a table can also be used to find the average rate of change. See <a href="#example3">Example 3</a>.</li><li>An average rate of change can also be computed by determining the function values at the endpoints of an interval described by a formula. See <a href="#example4">Example 4</a> and <a href="#example5">Example 5</a>.</li><li>The average rate of change can sometimes be determined as an expression. See <a href="#example6">Example 6</a>.</li><li>A function is increasing where its rate of change is positive and decreasing where its rate of change is negative. See <a href="#example7">Example 7</a>.</li><li>A local maximum is where a function changes from increasing to decreasing and has an output value larger (more positive or less negative) than output values at neighboring input values.</li><li>A local minimum is where the function changes from decreasing to increasing (as the input increases) and has an output value smaller (more negative or less positive) than output values at neighboring input values.</li><li>Minima and maxima are also called extrema.</li><li>We can find local extrema from a graph. See <a href="#example8">Example 8</a> and <a href="#example9">Example 9</a>.</li><li>The highest and lowest points on a graph indicate the maxima and minima. See <a href="#example10">Example 10</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Can the average rate of change of a function be constant?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes, the average rate of change of all linear functions is constant.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>If a function \(f\) is increasing on \((a,b)\) and decreasing on \((b,c),\) then what can be said about the local extremum of \(f\) on \((a,c)?\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>How are the absolute maximum and minimum similar to and different from the local extrema?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The absolute maximum and minimum relate to the entire graph, whereas the local extrema relate only to a specific region around an open interval.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>How does the graph of the absolute value function compare to the graph of the quadratic function, \(y={x}^{2},\) in terms of increasing and decreasing intervals?</p>
+</div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, find the average rate of change of each function on the interval specified for real numbers \(b\) or \(h.\)</p>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(f(x)=4{x}^{2}-7\) on \([1,\,b]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4(b+1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(g(x)=2{x}^{2}-9\) on \([4,\,b]\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(p(x)=3x+4\) on \([2,\,2+h]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>3</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(k(x)=4x-2\) on \([3,\,3+h]\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(f(x)=2{x}^{2}+1\) on \([x,x+h]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4x+2h\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(g(x)=3{x}^{2}-2\) on \([x,x+h]\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(a(t)=\frac{1}{t+4}\) on \([9,9+h]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-1}{13(13+h)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(b(x)=\frac{1}{x+3}\) on \([1,1+h]\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(j(x)=3{x}^{3}\) on \([1,1+h]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3{h}^{2}+9h+9\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(r(t)=4{t}^{3}\) on \([2,2+h]\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>Find \(\frac{f(x+h)-f(x)}{h}\) given \(f(x)=2{x}^{2}-3x\) on \([x,x+h]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4x+2h-3\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, consider the graph of \(f\) shown in <a href="#fig15">Figure 15</a>.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_201.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>Estimate the average rate of change from \(x=1\) to \(x=4.\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>Estimate the average rate of change from \(x=2\) to \(x=5.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{4}{3}\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the graph of each function to estimate the intervals on which the function is increasing or decreasing.</p>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_202.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_203.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>increasing on \((-\infty ,-2.5)∪(1,\infty ),\) decreasing on \((-2.5,\,1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_204.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_205.jpg" alt="Graph of a reciprocal function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>increasing on \((-\infty ,1)∪(3,4),\) decreasing on \((1,3)∪(4,\infty )\)</p>
+</div></div></div></div>
+<p>For the following exercises, consider the graph shown in <a href="#fig16">Figure 16</a>.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_206.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16</figcaption></figure>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>Estimate the intervals where the function is increasing or decreasing.</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>Estimate the point(s) at which the graph of \(f\) has a local maximum or a local minimum.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>local maximum: \((-3,\,50),\) local minimum: \((3,\,-50)\)</p>
+</div></div></div></div>
+<p>For the following exercises, consider the graph in <a href="#fig17">Figure 17</a>.</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_207.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17</figcaption></figure>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>If the complete graph of the function is shown, estimate the intervals where the function is increasing or decreasing.</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>If the complete graph of the function is shown, estimate the absolute maximum and absolute minimum.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>absolute maximum at approximately \((7,\,150),\) absolute minimum at approximately \((-7.5,\,-220)\)</p>
+</div></div></div></div>
+<h3 id="numeric">Numeric</h3>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p><a href="#tab4">Table 4</a> gives the annual sales (in millions of dollars) of a product from 1998 to 2006. What was the average rate of change of annual sales (a) between 2001 and 2002, and (b) between 2001 and 2004?</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td><strong>Year</strong></td><td><strong>Sales (millions of dollars)</strong></td></tr><tr><td>1998</td><td>201</td></tr><tr><td>1999</td><td>219</td></tr><tr><td>2000</td><td>233</td></tr><tr><td>2001</td><td>243</td></tr><tr><td>2002</td><td>249</td></tr><tr><td>2003</td><td>251</td></tr><tr><td>2004</td><td>249</td></tr><tr><td>2005</td><td>243</td></tr><tr><td>2006</td><td>233</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p><a href="#tab5">Table 5</a> gives the population of a town (in thousands) from 2000 to 2008. What was the average rate of change of population (a) between 2002 and 2004, and (b) between 2002 and 2006?</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>Year</strong></td><td><strong>Population (thousands)</strong></td></tr><tr><td>2000</td><td>87</td></tr><tr><td>2001</td><td>84</td></tr><tr><td>2002</td><td>83</td></tr><tr><td>2003</td><td>80</td></tr><tr><td>2004</td><td>77</td></tr><tr><td>2005</td><td>76</td></tr><tr><td>2006</td><td>78</td></tr><tr><td>2007</td><td>81</td></tr><tr><td>2008</td><td>85</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. –3000; b. –1250</p>
+</div></div></div></div>
+<p>For the following exercises, find the average rate of change of each function on the interval specified.</p>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(f(x)={x}^{2}\) on \([1,\,5]\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(h(x)=5-2{x}^{2}\) on \([-2,\text{4}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>-4</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(q(x)={x}^{3}\) on \([-4,\text{2}]\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(g(x)=3{x}^{3}-1\) on \([-3,\text{3}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>27</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(y=\frac{1}{x}\) on \([1,\text{ 3}]\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(p(t)=\frac{({t}^{2}-4)(t+1)}{{t}^{2}+3}\) on \([-3,\text{1}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>–0.167</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(k(t)=6{t}^{2}+\frac{4}{{t}^{3}}\) on \([-1,3]\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a graphing utility to estimate the local extrema of each function and to estimate the intervals on which the function is increasing and decreasing.</p>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(f(x)={x}^{4}-4{x}^{3}+5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Local minimum at \((3,-22),\) decreasing on \((-\infty ,\,3),\) increasing on \((3,\,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(h(x)={x}^{5}+5{x}^{4}+10{x}^{3}+10{x}^{2}-1\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(g(t)=t\sqrt{t+3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Local minimum at \((-2,-2),\) decreasing on \((-3,-2),\) increasing on \((-2,\,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(k(t)=3{t}^{\frac{2}{3}}-t\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(m(x)={x}^{4}+2{x}^{3}-12{x}^{2}-10x+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Local maximum at \((-0.39,\,5.98),\) local minima at \((-3.15,-47.62)\) and \((2.04,-32.04),\) decreasing on \((-\infty ,-3.15)∪(-0.39,\,2.04),\) increasing on \((-3.15,\,-0.39)∪(2.04,\,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(n(x)={x}^{4}-8{x}^{3}+18{x}^{2}-6x+2\)</p>
+</div></div>
+<h3 id="extension">Extension</h3>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>The graph of the function \(f\) is shown in <a href="#fig18">Figure 18</a>.</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_213n.jpg" alt="Graph of f(x) on a graphing calculator." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+<p>Based on the calculator screen shot, the point \((1.333,\,5.185)\) is which of the following?</p>
+<ul class="tight"><li>ⓐ a relative (local) maximum of the function</li><li>ⓑ the vertex of the function</li><li>ⓒ the absolute maximum of the function</li><li>ⓓ a zero of the function</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>A</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Let \(f(x)=\frac{1}{x}.\) Find a number \(c\) such that the average rate of change of the function \(f\) on the interval \((1,c)\) is \(-\frac{1}{4}.\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Let \(f(x)=\frac{1}{x}\) . Find the number \(b\) such that the average rate of change of \(f\) on the interval \((2,b)\) is \(-\frac{1}{10}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(b=5\)</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>At the start of a trip, the odometer on a car read 21,395. At the end of the trip, 13.5 hours later, the odometer read 22,125. Assume the scale on the odometer is in miles. What is the average speed the car traveled during this trip?</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>A driver of a car stopped at a gas station to fill up their gas tank. They looked at their watch, and the time read exactly 3:40 p.m. At this time, they started pumping gas into the tank. At exactly 3:44, the tank was full and they noticed that they had pumped 10.7 gallons. What is the average rate of flow of the gasoline into the gas tank?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2.7 gallons per minute</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Near the surface of the moon, the distance that an object falls is a function of time. It is given by \(d(t)=2.6667{t}^{2},\) where \(t\) is in seconds and \(d(t)\) is in feet. If an object is dropped from a certain height, find the average velocity of the object from \(t=1\) to \(t=2.\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>The graph in <a href="#fig19">Figure 19</a> illustrates the decay of a radioactive substance over \(t\) days.</p>
+<figure class="plot" id="fig19"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_03_214n.jpg" alt="Graph of an exponential function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 19</figcaption></figure>
+<p>Use the graph to estimate the average decay rate from \(t=5\) to \(t=15.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>approximately –0.6 milligrams per day</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>absolute maximum</dt><dd>the greatest value of a function over an interval</dd><dt>absolute minimum</dt><dd>the lowest value of a function over an interval</dd><dt>average rate of change</dt><dd>the difference in the output values of a function found for two values of the input divided by the difference between the inputs</dd><dt>decreasing function</dt><dd>a function is decreasing in some open interval if \(f(b)&lt;f(a)\) for any two input values \(a\) and \(b\) in the given interval where \(b&gt;a\)</dd><dt>increasing function</dt><dd>a function is increasing in some open interval if \(f(b)&gt;f(a)\) for any two input values \(a\) and \(b\) in the given interval where \(b&gt;a\)</dd><dt>local extrema</dt><dd>collectively, all of a function's local maxima and minima</dd><dt>local maximum</dt><dd>a value of the input where a function changes from increasing to decreasing as the input value increases.</dd><dt>local minimum</dt><dd>a value of the input where a function changes from decreasing to increasing as the input value increases.</dd><dt>rate of change</dt><dd>the change of an output quantity relative to the change of the input quantity</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

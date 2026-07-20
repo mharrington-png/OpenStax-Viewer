@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Right Triangle Trigonometry · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Right Triangle Trigonometry</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 5.4</span>Right Triangle Trigonometry</h1>
+<p>We have previously defined the sine and cosine of an angle in terms of the coordinates of a point on the unit circle intersected by the terminal side of the angle:</p>
+<p id="eq1">\[\begin{array}{l}cos\,t=x \\ sin\,t=y\end{array}\]</p>
+<p>In this section, we will see another way to define trigonometric functions using properties of <strong>right triangles</strong>.</p>
+<h2 id="using-right-triangles-to-evaluate-trigonometric-functions">Using Right Triangles to Evaluate Trigonometric Functions</h2>
+<p>In earlier sections, we used a unit circle to define the <strong>trigonometric functions</strong>. In this section, we will extend those definitions so that we can apply them to right triangles. The value of the sine or cosine function of \(t\) is its value at \(t\) radians. First, we need to create our right triangle. <a href="#fig1">Figure 1</a> shows a point on a <strong>unit circle</strong> of radius 1. If we drop a vertical line segment from the point \((x,y)\) to the <strong>x</strong>-axis, we have a right triangle whose vertical side has length \(y\) and whose horizontal side has length \(x.\) We can use this right triangle to redefine sine, cosine, and the other trigonometric functions as ratios of the sides of a right triangle.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_001.jpg" alt="Graph of quarter circle with radius of 1 and angle of t. Point of (x,y) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<p>We know</p>
+<p id="eq2">\[cos\,t=\frac{x}{1}=x\]</p>
+<p>Likewise, we know</p>
+<p id="eq3">\[sin\,t=\frac{y}{1}=y\]</p>
+<p>These ratios still apply to the sides of a right triangle when no unit circle is involved and when the triangle is not in standard position and is not being graphed using \((x,y)\) coordinates. To be able to use these ratios freely, we will give the sides more general names: Instead of \(x,\) we will call the side between the given angle and the right angle the <strong>adjacent side</strong> to angle \(t.\) (Adjacent means “next to.”) Instead of \(y,\) we will call the side most distant from the given angle the <strong>opposite side</strong> from angle \(t.\) And instead of \(1,\) we will call the side of a right triangle opposite the right angle the <strong>hypotenuse</strong>. These sides are labeled in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_002.jpg" alt="A right triangle with hypotenuse, opposite, and adjacent sides labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The sides of a right triangle in relation to angle \(t.\)</figcaption></figure>
+<h3 id="understanding-right-triangle-relationships">Understanding Right Triangle Relationships</h3>
+<p>Given a right triangle with an acute angle of \(t,\)</p>
+<p id="eq4">\[\begin{array}{l}sin(t)=\frac{\text{opposite}}{\text{hypotenuse}} \\ cos(t)=\frac{\text{adjacent}}{\text{hypotenuse}} \\ tan(t)=\frac{\text{opposite}}{\text{adjacent}}\end{array}\]</p>
+<p>A common mnemonic for remembering these relationships is SohCahToa, formed from the first letters of “<strong>S</strong>ine is <strong>o</strong>pposite over <strong>h</strong>ypotenuse, <strong>C</strong>osine is <strong>a</strong>djacent over <strong>h</strong>ypotenuse, <strong>T</strong>angent is <strong>o</strong>pposite over <strong>a</strong>djacent.”</p>
+<div class="card howto" id="fs-id1165135448331"><span class="chip">How To</span><p><strong>Given the side lengths of a right triangle and one of the acute angles, find the sine, cosine, and tangent of that angle.</strong></p>
+<ul class="tight"><li>Find the sine as the ratio of the opposite side to the hypotenuse.</li><li>Find the cosine as the ratio of the adjacent side to the hypotenuse.</li><li>Find the tangent as the ratio of the opposite side to the adjacent side.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Given the triangle shown in <a href="#fig3">Figure 3</a>, find the value of \(cos\,α.\)</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_003.jpg" alt="A right triangle with sid lengths of 8, 15, and 17. Angle alpha also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div><p class="sol-hint">Identify which sides are adjacent to and the hypotenuse of angle \(\alpha\), then form the cosine ratio.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The side adjacent to the angle is 15, and the hypotenuse of the triangle is 17, so:</p>
+<p id="eq5">\[\begin{array}{l}cos(α)=\frac{\text{adjacent}}{\text{hypotenuse}} \\ \,=\frac{15}{17}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Given the triangle shown in <a href="#fig4">Figure 4</a>, find the value of \(\text{sin}\,t.\)</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_004.jpg" alt="A right triangle with sides of 7, 24, and 25. Also labeled is angle t." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{7}{25}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="relating-angles-and-their-functions">Relating Angles and Their Functions</h3>
+<p>When working with right triangles, the same rules apply regardless of the orientation of the triangle. In fact, we can evaluate the six trigonometric functions of either of the two acute angles in the triangle in <a href="#fig5">Figure 5</a>. The side opposite one acute angle is the side adjacent to the other acute angle, and vice versa.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_005.jpg" alt="Right triangle with angles alpha and beta. Sides are labeled hypotenuse, adjacent to alpha/opposite to beta, and adjacent to beta/opposite alpha." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The side adjacent to one angle is opposite the other.</figcaption></figure>
+<p>We will be asked to find all six trigonometric functions for a given angle in a triangle. Our strategy is to find the sine, cosine, and tangent of the angles first. Then, we can find the other trigonometric functions easily because we know that the reciprocal of sine is cosecant, the reciprocal of cosine is secant, and the reciprocal of tangent is cotangent.</p>
+<div class="card howto" id="fs-id1165137806953"><span class="chip">How To</span><p><strong>Given the side lengths of a right triangle, evaluate the six trigonometric functions of one of the acute angles.</strong></p>
+<ul class="tight"><li>If needed, draw the right triangle and label the angle provided.</li><li>Identify the angle, the adjacent side, the side opposite the angle, and the hypotenuse of the right triangle.</li><li>Find the required function:<ul class="tight"><li>sine as the ratio of the opposite side to the hypotenuse</li><li>cosine as the ratio of the adjacent side to the hypotenuse</li><li>tangent as the ratio of the opposite side to the adjacent side</li><li>secant as the ratio of the hypotenuse to the adjacent side</li><li>cosecant as the ratio of the hypotenuse to the opposite side</li><li>cotangent as the ratio of the adjacent side to the opposite side</li></ul>
+</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Using the triangle shown in <a href="#fig6">Figure 6</a>, evaluate \(sin\,α,\) \(cos\,α,\) \(tan\,α,\) \(sec\,α,\) \(csc\,α,\) and \(cot\,α.\)</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_006.jpg" alt="Right triangle with sides of 3, 4, and 5. Angle alpha is also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div><p class="sol-hint">Identify the adjacent, opposite, and hypotenuse sides relative to \(\alpha\), then build all six ratios from those three lengths.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq6">\[\begin{array}{l}sin\,α=\frac{\text{opposite }α}{\text{hypotenuse}}=\frac{4}{5} \\ cos\,α=\frac{\text{adjacent to }α}{\text{hypotenuse}}=\frac{3}{5} \\ tan\,α=\frac{\text{opposite }α}{\text{adjacent to }α}=\frac{4}{3} \\ sec\,α=\frac{\text{hypotenuse}}{\text{adjacent to }α}=\frac{5}{3} \\ csc\,α=\frac{\text{hypotenuse}}{\text{opposite }α}=\frac{5}{4} \\ cot\,α=\frac{\text{adjacent to }α}{\text{opposite }α}=\frac{3}{4}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Using the triangle shown in <a href="#fig7">Figure 7</a>, evaluate \(sin\,t,\) \(cos\,t,\) \(tan\,t,\) \(sec\,t,\) \(csc\,t,\) and \(cot\,t.\)</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_007.jpg" alt="Right triangle with sides 33, 56, and 65. Angle t is also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}sin\,t=\frac{33}{65},cos\,t=\frac{56}{65},tan\,t=\frac{33}{56}, \\ \,sec\,t=\frac{65}{56},csc\,t=\frac{65}{33},cot\,t=\frac{56}{33}\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-trigonometric-functions-of-special-angles-using-side-lengths">Finding Trigonometric Functions of Special Angles Using Side Lengths</h3>
+<p>We have already discussed the trigonometric functions as they relate to the <strong>special angles</strong> on the unit circle. Now, we can use those relationships to evaluate triangles that contain those special angles. We do this because when we evaluate the special angles in trigonometric functions, they have relatively friendly values, values that contain either no or just one square root in the ratio. Therefore, these are the angles often used in math and science problems. We will use multiples of \(30°,\) \(60°,\) and \(45°,\) however, remember that when dealing with right triangles, we are limited to angles between \(0°\text{ and 90°}\text{.}\)</p>
+<p>Suppose we have a \(30°,60°,90°\) triangle, which can also be described as a \(\frac{\pi }{6},\,\frac{\pi }{3},\frac{\pi }{2}\) triangle. The sides have lengths in the relation \(s,\sqrt{3}s,2s.\) The sides of a \(45°,45°,90°\) triangle, which can also be described as a \(\frac{\pi }{4},\frac{\pi }{4},\frac{\pi }{2}\) triangle, have lengths in the relation \(s,s,\sqrt{2}s.\) These relations are shown in <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_008.jpg" alt="Two side by side graphs of circles with inscribed angles. First circle has angle of pi/3 inscribed. Second circle has angle of pi/4 inscribed." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — Side lengths of special triangles</figcaption></figure>
+<p>We can then use the ratios of the side lengths to evaluate trigonometric functions of special angles.</p>
+<div class="card howto" id="fs-id1165137592822"><span class="chip">How To</span><p><strong>Given trigonometric functions of a special angle, evaluate using side lengths.</strong></p>
+<ul class="tight"><li>Use the side lengths shown in <a href="#fig8">Figure 8</a> for the special angle you wish to evaluate.</li><li>Use the ratio of side lengths appropriate to the function you wish to evaluate.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the exact value of the trigonometric functions of \(\frac{\pi }{3},\) using side lengths.</p>
+</div><p class="sol-hint">Draw a 30-60-90 triangle with the given angle, label its side lengths, then read the ratios straight from the sides.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq7">\[\begin{array}{l}sin(\frac{\pi }{3})=\frac{\text{opp}}{\text{hyp}}=\frac{\sqrt{3}s}{2s}=\frac{\sqrt{3}}{2} \\ cos(\frac{\pi }{3})=\frac{\text{adj}}{\text{hyp}}=\frac{s}{2s}=\frac{1}{2} \\ tan(\frac{\pi }{3})=\frac{\text{opp}}{\text{adj}}=\frac{\sqrt{3}s}{s}=\sqrt{3} \\ sec(\frac{\pi }{3})=\frac{\text{hyp}}{\text{adj}}=\frac{2s}{s}=2 \\ csc(\frac{\pi }{3})=\frac{\text{hyp}}{\text{opp}}=\frac{2s}{\sqrt{3}s}=\frac{2}{\sqrt{3}}=\frac{2\sqrt{3}}{3} \\ cot(\frac{\pi }{3})=\frac{\text{adj}}{\text{opp}}=\frac{s}{\sqrt{3}s}=\frac{1}{\sqrt{3}}=\frac{\sqrt{3}}{3}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the exact value of the trigonometric functions of \(\frac{\pi }{4},\) using side lengths.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(sin(\frac{\pi }{4})=\frac{1}{\sqrt{2}},cos(\frac{\pi }{4})=\frac{1}{\sqrt{2}},tan(\frac{\pi }{4})=1,\) <br> \(sec(\frac{\pi }{4})=\sqrt{2},csc(\frac{\pi }{4})=\sqrt{2},cot(\frac{\pi }{4})=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="using-equal-cofunction-of-complements">Using Equal Cofunction of Complements</h3>
+<p>If we look more closely at the relationship between the sine and cosine of the special angles relative to the unit circle, we will notice a pattern. In a right triangle with angles of \(\frac{\pi }{6}\) and \(\frac{\pi }{3},\) we see that the sine of \(\frac{\pi }{3},\) namely \(\frac{\sqrt{3}}{2},\) is also the cosine of \(\frac{\pi }{6},\) while the sine of \(\frac{\pi }{6},\) namely \(\frac{1}{2},\) is also the cosine of \(\frac{\pi }{3}.\)</p>
+<p id="eq8">\[\begin{array}{l}\begin{array}{l} \\ sin\,\frac{\pi }{3}=cos\,\frac{\pi }{6}=\frac{\sqrt{3}s}{2s}=\frac{\sqrt{3}}{2}\end{array} \\ sin\,\frac{\pi }{6}=cos\,\frac{\pi }{3}=\frac{s}{2s}=\frac{1}{2}\end{array}\]</p>
+<p>See <a href="#fig9">Figure 9</a></p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_009.jpg" alt="A graph of circle with angle pi/3 inscribed." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — The sine of \(\frac{\pi }{3}\) equals the cosine of \(\frac{\pi }{6}\) and vice versa.</figcaption></figure>
+<p>This result should not be surprising because, as we see from <a href="#fig9">Figure 9</a>, the side opposite the angle of \(\frac{\pi }{3}\) is also the side adjacent to \(\frac{\pi }{6},\) so \(sin(\frac{\pi }{3})\) and \(cos(\frac{\pi }{6})\) are exactly the same ratio of the same two sides, \(\sqrt{3}s\) and \(2s.\) Similarly, \(cos(\frac{\pi }{3})\) and \(sin(\frac{\pi }{6})\) are also the same ratio using the same two sides, \(s\) and \(2s.\)</p>
+<p>The interrelationship between the sines and cosines of \(\frac{\pi }{6}\) and \(\frac{\pi }{3}\) also holds for the two acute angles in any right triangle, since in every case, the ratio of the same two sides would constitute the sine of one angle and the cosine of the other. Since the three angles of a triangle add to \(\pi ,\) and the right angle is \(\frac{\pi }{2},\) the remaining two angles must also add up to \(\frac{\pi }{2}.\) That means that a right triangle can be formed with any two angles that add to \(\frac{\pi }{2}\) —in other words, any two complementary angles. So we may state a <strong>cofunction identity</strong>: If any two angles are complementary, the sine of one is the cosine of the other, and vice versa. This identity is illustrated in <a href="#fig10">Figure 10</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_010.jpg" alt="Right triangle with angles alpha and beta. Equivalence between sin alpha and cos beta. Equivalence between sin beta and cos alpha." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Cofunction identity of sine and cosine of complementary angles</figcaption></figure>
+<p>Using this identity, we can state without calculating, for instance, that the sine of \(\frac{\pi }{12}\) equals the cosine of \(\frac{5\pi }{12},\) and that the sine of \(\frac{5\pi }{12}\) equals the cosine of \(\frac{\pi }{12}.\) We can also state that if, for a certain angle \(t,\) \(cos\,t=\frac{5}{13},\) then \(sin(\frac{\pi }{2}-t)=\frac{5}{13}\) as well.</p>
+<div class="card definition" id="fs-id1165137738292"><span class="chip">Cofunction Identities</span><p>The <strong>cofunction identities</strong> in radians are listed in <a href="#tab1">Table 1</a>.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\(cos\,t=sin(\frac{\pi }{2}-t)\)</td><td>\(sin\,t=cos(\frac{\pi }{2}-t)\)</td></tr><tr><td>\(tan\,t=cot(\frac{\pi }{2}-t)\)</td><td>\(cot\,t=tan(\frac{\pi }{2}-t)\)</td></tr><tr><td>\(sec\,t=csc(\frac{\pi }{2}-t)\)</td><td>\(csc\,t=sec(\frac{\pi }{2}-t)\)</td></tr></tbody></table></div>
+</div>
+<div class="card howto" id="fs-id1165137735167"><span class="chip">How To</span><p><strong>Given the sine and cosine of an angle, find the sine or cosine of its complement.</strong></p>
+<ul class="tight"><li>To find the sine of the complementary angle, find the cosine of the original angle.</li><li>To find the cosine of the complementary angle, find the sine of the original angle.</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>If \(sin\,t=\frac{5}{12},\) find \(cos(\frac{\pi }{2}-t).\)</p>
+</div><p class="sol-hint">Use the cofunction identity relating sine and cosine of complementary angles.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>According to the cofunction identities for sine and cosine,</p>
+<p id="eq9">\[sin\,t=cos(\frac{\pi }{2}-t).\]</p>
+<p>So</p>
+<p id="eq10">\[cos(\frac{\pi }{2}-t)=\frac{5}{12}.\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>If \(csc(\frac{\pi }{6})=2,\) find \(sec(\frac{\pi }{3}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>2</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="using-trigonometric-functions">Using Trigonometric Functions</h3>
+<p>In previous examples, we evaluated the sine and cosine in triangles where we knew all three sides. But the real power of right-triangle trigonometry emerges when we look at triangles in which we know an angle but do not know all the sides.</p>
+<div class="card howto" id="fs-id1165137456630"><span class="chip">How To</span><p><strong>Given a right triangle, the length of one side, and the measure of one acute angle, find the remaining sides.</strong></p>
+<ul class="tight"><li>For each side, select the trigonometric function that has the unknown side as either the numerator or the denominator. The known side will in turn be the denominator or the numerator.</li><li>Write an equation setting the function value of the known angle equal to the ratio of the corresponding sides.</li><li>Using the value of the trigonometric function and the known side length, solve for the missing side length.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find the unknown sides of the triangle in <a href="#fig11">Figure 11</a>.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_011.jpg" alt="A right triangle with sides a, c, and 7. Angle of 30 degrees is also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+</div><p class="sol-hint">Set up sine or cosine ratios using the given angle and known side, then solve for each unknown side.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We know the angle and the opposite side, so we can use the tangent to find the adjacent side.</p>
+<p id="eq11">\[tan(30°)=\frac{7}{a}\]</p>
+<p>We rearrange to solve for \(a.\)</p>
+<p id="eq12">\[\begin{array}{l}a=\frac{7}{tan(30°)} \\ \,\approx 12.1\end{array}\]</p>
+<p>We can use the sine to find the hypotenuse.</p>
+<p id="eq13">\[sin(30°)=\frac{7}{c}\]</p>
+<p>Again, we rearrange to solve for \(c.\)</p>
+<p id="eq14">\[\begin{array}{l}c=\frac{7}{sin(30°)} \\ \,\approx 14\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>A right triangle has one angle of \(\frac{\pi }{3}\) and a hypotenuse of 20. Find the unknown sides and angle of the triangle.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\text{adjacent}=10;\) \(\text{opposite}=10\sqrt{3}\) ; missing angle is \(\frac{\pi }{6}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="using-right-triangle-trigonometry-to-solve-applied-problems">Using Right Triangle Trigonometry to Solve Applied Problems</h3>
+<p>Right-triangle trigonometry has many practical applications. For example, the ability to compute the lengths of sides of a triangle makes it possible to find the height of a tall object without climbing to the top or having to extend a tape measure along its height. We do so by measuring a distance from the base of the object to a point on the ground some distance away, where we can look up to the top of the tall object at an angle. The <strong>angle of elevation</strong> of an object above an observer relative to the observer is the angle between the horizontal and the line from the object to the observer's eye. The right triangle this position creates has sides that represent the unknown height, the measured distance from the base, and the angled line of sight from the ground to the top of the object. Knowing the measured distance to the base of the object and the angle of the line of sight, we can use trigonometric functions to calculate the unknown height. Similarly, we can form a triangle from the top of a tall object by looking downward. The <strong>angle of depression</strong> of an object below an observer relative to the observer is the angle between the horizontal and the line from the object to the observer's eye. See <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_013.jpg" alt="Diagram of a radio tower with line segments extending from the top and base of the tower to a point on the ground some distance away. The two lines and the tower form a right triangle. The angle near the top of the tower is the angle of depression. The angle on the ground at a distance from the tower is the angle of elevation." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+<div class="card howto" id="fs-id1165137473849"><span class="chip">How To</span><p><strong>Given a tall object, measure its height indirectly.</strong></p>
+<ul class="tight"><li>Make a sketch of the problem situation to keep track of known and unknown information.</li><li>Lay out a measured distance from the base of the object to a point where the top of the object is clearly visible.</li><li>At the other end of the measured distance, look up to the top of the object. Measure the angle the line of sight makes with the horizontal.</li><li>Write an equation relating the unknown height, the measured distance, and the tangent of the angle of the line of sight.</li><li>Solve the equation for the unknown height.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>To find the height of a tree, a person walks to a point 30 feet from the base of the tree. She measures an angle of \(57°\) between a line of sight to the top of the tree and the ground, as shown in <a href="#fig13">Figure 13</a>. Find the height of the tree.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_012.jpg" alt="A tree with angle of 57 degrees from vantage point. Vantage point is 30 feet from tree." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+</div><p class="sol-hint">Set up a tangent ratio using the angle of elevation and the known horizontal distance, then solve for the height.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We know that the angle of elevation is \(57°\) and the adjacent side is 30 ft long. The opposite side is the unknown height.</p>
+<p>The trigonometric function relating the side opposite to an angle and the side adjacent to the angle is the tangent. So we will state our information in terms of the tangent of \(57°,\) letting \(h\) be the unknown height.</p>
+<p id="eq15">\[\begin{array}{ll}\,tan\,θ=\frac{\text{opposite}}{\text{adjacent}} &amp; \\ \text{tan}(57°)=\frac{h}{30} &amp; \text{Solve for }h. \\ \,h=30tan(57°) &amp; \text{Multiply}. \\ \,h\approx 46.2 &amp; \text{Use a calculator}.\end{array}\]</p>
+<p>The tree is approximately 46 feet tall.</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>How long a ladder is needed to reach a windowsill 50 feet above the ground if the ladder rests against the building making an angle of \(\frac{5\pi }{12}\) with the ground? Round to the nearest foot.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>About 52 ft</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165137762260"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with right triangle trigonometry.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/findtrigcal" target="_blank" rel="noopener">Finding Trig Functions on Calculator</a></li><li><a href="https://openstax.org/l/trigrttri" target="_blank" rel="noopener">Finding Trig Functions Using a Right Triangle</a></li><li><a href="https://openstax.org/l/reltrigtri" target="_blank" rel="noopener">Relate Trig Functions to Sides of a Right Triangle</a></li><li><a href="https://openstax.org/l/sixtrigfunc" target="_blank" rel="noopener">Determine Six Trig Functions from a Triangle</a></li><li><a href="https://openstax.org/l/rttriside" target="_blank" rel="noopener">Determine Length of Right Triangle Side</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Cofunction Identities</td><td>\(\begin{array}{l}\begin{array}{l} \\ cos\,t=sin(\frac{\pi }{2}-t)\end{array} \\ sin\,t=cos(\frac{\pi }{2}-t) \\ tan\,t=cot(\frac{\pi }{2}-t) \\ cot\,t=tan(\frac{\pi }{2}-t) \\ sec\,t=csc(\frac{\pi }{2}-t) \\ csc\,t=sec(\frac{\pi }{2}-t)\end{array}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>We can define trigonometric functions as ratios of the side lengths of a right triangle. See <a href="#example1">Example 1</a>.</li><li>The same side lengths can be used to evaluate the trigonometric functions of either acute angle in a right triangle. See <a href="#example2">Example 2</a>.</li><li>We can evaluate the trigonometric functions of special angles, knowing the side lengths of the triangles in which they occur. See <a href="#example3">Example 3</a>.</li><li>Any two complementary angles could be the two acute angles of a right triangle.</li><li>If two angles are complementary, the cofunction identities state that the sine of one equals the cosine of the other and vice versa. See <a href="#example4">Example 4</a>.</li><li>We can use trigonometric functions of an angle to find unknown side lengths.</li><li>Select the trigonometric function representing the ratio of the unknown side to the known side. See <a href="#example5">Example 5</a>.</li><li>Right-triangle trigonometry permits the measurement of inaccessible heights and distances.</li><li>The unknown height or distance can be found by creating a right triangle in which the unknown height or distance is one of the sides, and another side and angle are known. See <a href="#example6">Example 6</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>For the given right triangle, label the adjacent side, opposite side, and hypotenuse for the indicated angle.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_201.jpg" alt="A right triangle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_202-3328.jpg" alt="A right triangle with side opposite, adjacent, and hypotenuse labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>When a right triangle with a hypotenuse of 1 is placed in the unit circle, which sides of the triangle correspond to the <strong>x</strong>- and <strong>y</strong>-coordinates?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>The tangent of an angle compares which sides of the right triangle?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The tangent of an angle is the ratio of the opposite side to the adjacent side.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>What is the relationship between the two acute angles in a right triangle?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Explain the cofunction identity.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>For example, the sine of an angle is equal to the cosine of its complement; the cosine of an angle is equal to the sine of its complement.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, use cofunctions of complementary angles.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(cos(\text{34°})=sin(\text{\_\_°})\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(cos(\frac{\pi }{3})=sin\text{(\_\_\_)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{6}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(csc(\text{21°})=sec(\text{\_\_\_°})\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(tan(\frac{\pi }{4})=cot(\text{\_\_})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{4}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the lengths of the missing sides if side \(a\) is opposite angle \(A,\) side \(b\) is opposite angle \(B,\) and side \(c\) is the hypotenuse.</p>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(cos\,B=\frac{4}{5},a=10\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(sin\,B=\frac{1}{2},\,a=20\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(b=\frac{20\sqrt{3}}{3},c=\frac{40\sqrt{3}}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(tan\,A=\frac{5}{12},b=6\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(tan\,A=100,b=100\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=10,000,c=10,000.5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(sin\,B=\frac{1}{\sqrt{3}},\,a=2\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(a=5,\,∡\,A={60}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(b=\frac{5\sqrt{3}}{3},c=\frac{10\sqrt{3}}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(c=12,\,∡\,A={45}^{∘}\)</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, use <a href="#fig14">Figure 14</a> to evaluate each trigonometric function of angle \(A.\)</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_203-424c.jpg" alt="A right triangle with sides 4 and 10 and angle of A labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(sin\,A\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{5\sqrt{29}}{29}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(cos\,A\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(tan\,A\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{5}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(csc\,A\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(sec\,A\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{29}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(cot\,A\)</p>
+</div></div>
+<p>For the following exercises, use <a href="#fig15">Figure 15</a> to evaluate each trigonometric function of angle \(A.\)</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_204-2f93.jpg" alt="A right triangle with sides of 10 and 8 and angle of A labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(sin\,A\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{5\sqrt{41}}{41}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(cos\,A\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(tan\,A\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{5}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(csc\,A\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(sec\,A\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{41}}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(cot\,A\)</p>
+</div></div>
+<p>For the following exercises, solve for the unknown sides of the given triangle.</p>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_205-a663.jpg" alt="A right triangle with sides of 7, b, and c labeled. Angles of B and 30 degrees also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(c=14,\,b=7\sqrt{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_206-0398.jpg" alt="A right triangle with sides of 10, a, and c. Angles of 60 degrees and A also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_207-5cc8.jpg" alt="A right triangle with corners labeled A, B, and C. Hypotenuse has length of 15 times square root of 2. Angle B is 45 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=15,\,b=15\)</p>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a calculator to find the length of each side to four decimal places.</p>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_208-41d6.jpg" alt="A right triangle with sides of 10, a, and c. Angles of A and 62 degrees are also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_209-be02.jpg" alt="A right triangle with sides of 7, b, and c. Angles of 35 degrees and B are also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(b=9.9970,\,c=12.2041\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_210-9e8b.jpg" alt="A right triangle with sides of a, b, and 10 labeled. Angles of 65 degrees and B are also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_211-8db7.jpg" alt="A right triangle with sides a, b, and 12. Angles of 10 degrees and B are also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=2.0838,\,b=11.8177\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_212-488c.jpg" alt="A right triangle with corners labeled A, B, and C. Sides labeled b, c, and 16.5. Angle of 81 degrees also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(b=15,\,∡B={15}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=55.9808,c=57.9555\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(c=200,\,∡B={5}^{∘}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(c=50,\,∡B={21}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=46.6790,b=17.9184\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(a=30,\,∡A={27}^{∘}\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(b=3.5,\,∡A={78}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=16.4662,c=16.8341\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Find \(x.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_213-ca30.jpg" alt="A triangle with angles of 63 degrees and 39 degrees and side x. Bisector in triangle with length of 82." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Find \(x.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_214-e6c2.jpg" alt="A triangle with angles of 36 degrees and 50 degrees and side x. Bisector in triangle with length of 85." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>188.3159</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find \(x.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_215-e0b7.jpg" alt="A right triangle with side of 115 and angle of 35 degrees. Within right triangle there is another right triangle with angle of 56 degrees. Side length difference between two triangles is x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Find \(x.\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_216-cdd9.jpg" alt="A right triangle with side of 119 and angle of 26 degrees. Within right triangle there is another right triangle with angle of 70 degrees instead of 26 degrees. Difference in side length between two triangles is x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>200.6737</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>A radio tower is located 400 feet from a building. From a window in the building, a person determines that the angle of elevation to the top of the tower is \(36°,\) and that the angle of depression to the bottom of the tower is \(23°.\) How tall is the tower?</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>A radio tower is located 325 feet from a building. From a window in the building, a person determines that the angle of elevation to the top of the tower is \(43°,\) and that the angle of depression to the bottom of the tower is \(31°.\) How tall is the tower?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>498.3471 ft</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>A 200-foot tall monument is located in the distance. From a window in a building, a person determines that the angle of elevation to the top of the monument is \(15°,\) and that the angle of depression to the bottom of the tower is \(2°.\) How far is the person from the monument?</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>A 400-foot tall monument is located in the distance. From a window in a building, a person determines that the angle of elevation to the top of the monument is \(18°,\) and that the angle of depression to the bottom of the monument is \(3°.\) How far is the person from the monument?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1060.09 ft</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>There is an antenna on the top of a building. From a location 300 feet from the base of the building, the angle of elevation to the top of the building is measured to be \(40°.\) From the same location, the angle of elevation to the top of the antenna is measured to be \(43°.\) Find the height of the antenna.</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>There is lightning rod on the top of a building. From a location 500 feet from the base of the building, the angle of elevation to the top of the building is measured to be \(36°.\) From the same location, the angle of elevation to the top of the lightning rod is measured to be \(38°.\) Find the height of the lightning rod.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>27.372 ft</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>A 33-ft ladder leans against a building so that the angle between the ground and the ladder is \(80°.\) How high does the ladder reach up the side of the building?</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>A 23-ft ladder leans against a building so that the angle between the ground and the ladder is \(80°.\) How high does the ladder reach up the side of the building?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>22.6506 ft</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>The angle of elevation to the top of a building in New York is found to be 9 degrees from the ground at a distance of 1 mile from the base of the building. Using this information, find the height of the building.</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>The angle of elevation to the top of a building in Seattle is found to be 2 degrees from the ground at a distance of 2 miles from the base of the building. Using this information, find the height of the building.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>368.7633 ft</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Assuming that a 370-foot tall giant redwood grows vertically, if I walk a certain distance from the tree and measure the angle of elevation to the top of the tree to be \(60°,\) how far from the base of the tree am I?</p>
+</div></div>
+</div>
+<h2 id="review-exercises">Review Exercises</h2>
+<h3 id="angles">Angles</h3>
+<p>For the following exercises, convert the angle measures to degrees.</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\(\frac{\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(45°\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>\(-\frac{5\pi }{3}\)</p>
+</div></div>
+<p>For the following exercises, convert the angle measures to radians.</p>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>-210°</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{7\pi }{6}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>180°</p>
+</div></div>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>Find the length of an arc in a circle of radius 7 meters subtended by the central angle of 85°.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>10.385 meters</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>Find the area of the sector of a circle with diameter 32 feet and an angle of \(\frac{3\pi }{5}\) radians.</p>
+</div></div>
+<p>For the following exercises, find the angle between 0° and 360° that is coterminal with the given angle.</p>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(420°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(60°\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(-80°\)</p>
+</div></div>
+<p>For the following exercises, find the angle between 0 and \(2\pi\) in radians that is coterminal with the given angle.</p>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>\(-\,\frac{20\pi }{11}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{2\pi }{11}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>\(\frac{14\pi }{5}\)</p>
+</div></div>
+<p>For the following exercises, draw the angle provided in standard position on the Cartesian plane.</p>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>-210°</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_217-fed6.jpg" alt="A graph of a circle with a negative angle inscribed." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>75°</p>
+</div></div>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(\frac{5\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_219-0fa3.jpg" alt="A graph of a circle with an angle inscribed." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>\(-\frac{\pi }{3}\)</p>
+</div></div>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>Find the linear speed of a point on the equator of the earth if the earth has a radius of 3,960 miles and the earth rotates on its axis every 24 hours. Express answer in miles per hour.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1036.73 miles per hour</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>A car wheel with a diameter of 18 inches spins at the rate of 10 revolutions per second. What is the car's speed in miles per hour?</p>
+</div></div>
+<h3 id="unit-circle-sine-and-cosine-functions">Unit Circle: Sine and Cosine Functions</h3>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>Find the exact value of \(sin\,\frac{\pi }{3}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>Find the exact value of \(cos\,\frac{\pi }{4}.\)</p>
+</div></div>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>Find the exact value of \(cos\,\pi .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>–1</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>State the reference angle for \(300°.\)</p>
+</div></div>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>State the reference angle for \(\frac{3\pi }{4}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><p>Compute cosine of \(330°.\)</p>
+</div></div>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><p>Compute sine of \(\frac{5\pi }{4}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\sqrt{2}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p>State the domain of the sine and cosine functions.</p>
+</div></div>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p>State the range of the sine and cosine functions.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([-1,1]\)</p>
+</div></div></div></div>
+<h3 id="the-other-trigonometric-functions">The Other Trigonometric Functions</h3>
+<p>For the following exercises, find the exact value of the given expression.</p>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>\(cos\,\frac{\pi }{6}\)</p>
+</div></div>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><p>\(tan\,\frac{\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex28"><div class="n">28</div><div class="body"><p>\(csc\,\frac{\pi }{3}\)</p>
+</div></div>
+<div class="exercise" id="reviewex29"><div class="n">29</div><div class="body"><p>\(sec\,\frac{\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{2}\)</p>
+</div></div></div></div>
+<p>For the following exercises, use reference angles to evaluate the given expression.</p>
+<div class="exercise" id="reviewex30"><div class="n">30</div><div class="body"><p>\(sec\,\frac{11\pi }{3}\)</p>
+</div></div>
+<div class="exercise" id="reviewex31"><div class="n">31</div><div class="body"><p>\(sec\,315°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex32"><div class="n">32</div><div class="body"><p>If \(sec(t)=-2.5\) , what is the \(\text{sec}(-t)?\)</p>
+</div></div>
+<div class="exercise" id="reviewex33"><div class="n">33</div><div class="body"><p>If \(\text{tan}(t)=-0.6,\) what is the \(\text{tan}(-t)?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.6</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex34"><div class="n">34</div><div class="body"><p>If \(\text{tan}(t)=\frac{1}{3},\) find \(\text{tan}(t-\pi ).\)</p>
+</div></div>
+<div class="exercise" id="reviewex35"><div class="n">35</div><div class="body"><p>If \(\text{cos}(t)=\frac{\sqrt{2}}{2},\) find \(\text{sin}(t+2\pi ).\) There are two possible solutions.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2}}{2}\) or \(-\frac{\sqrt{2}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex36"><div class="n">36</div><div class="body"><p>Which trigonometric functions are even?</p>
+</div></div>
+<div class="exercise" id="reviewex37"><div class="n">37</div><div class="body"><p>Which trigonometric functions are odd?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>sine, cosecant, tangent, cotangent</p>
+</div></div></div></div>
+<h3 id="right-triangle-trigonometry">Right Triangle Trigonometry</h3>
+<p>For the following exercises, use side lengths to evaluate.</p>
+<div class="exercise" id="reviewex38"><div class="n">38</div><div class="body"><p>\(cos\,\frac{\pi }{4}\)</p>
+</div></div>
+<div class="exercise" id="reviewex39"><div class="n">39</div><div class="body"><p>\(cot\,\frac{\pi }{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{3}}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex40"><div class="n">40</div><div class="body"><p>\(tan\,\frac{\pi }{6}\)</p>
+</div></div>
+<div class="exercise" id="reviewex41"><div class="n">41</div><div class="body"><p>\(cos(\frac{\pi }{2})=sin(\text{\_\_°})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex42"><div class="n">42</div><div class="body"><p>\(csc(18\text{°})=sec(\text{\_\_°})\)</p>
+</div></div>
+<p>For the following exercises, use the given information to find the lengths of the other two sides of the right triangle.</p>
+<div class="exercise" id="reviewex43"><div class="n">43</div><div class="body"><p>\(cos\,B=\frac{3}{5},a=6\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(b=8,c=10\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex44"><div class="n">44</div><div class="body"><p>\(tan\,A=\frac{5}{9},b=6\)</p>
+</div></div>
+<p>For the following exercises, use <a href="#fig16">Figure 16</a> to evaluate each trigonometric function.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_221.jpg" alt="A right triangle with side lengths of 11 and 6. Corners A and B are also labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16</figcaption></figure>
+<div class="exercise" id="reviewex45"><div class="n">45</div><div class="body"><p>\(sin\,A\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{11\sqrt{157}}{157}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex46"><div class="n">46</div><div class="body"><p>\(tan\,B\)</p>
+</div></div>
+<p>For the following exercises, solve for the unknown sides of the given triangle.</p>
+<div class="exercise" id="reviewex47"><div class="n">47</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_222n.jpg" alt="A right triangle with corners labeled A, B, and C. Hyptenuse has length of 4 times square root of 2. Other angles measure 45 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=4,\,b=4\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex48"><div class="n">48</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_223n.jpg" alt="A right triangle with hypotenuse with length 5, and an angle of 30 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="reviewex49"><div class="n">49</div><div class="body"><p>A 15-ft ladder leans against a building so that the angle between the ground and the ladder is \(70°.\) How high does the ladder reach up the side of the building?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>14.0954 ft</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex50"><div class="n">50</div><div class="body"><p>The angle of elevation to the top of a building in Baltimore is found to be 4 degrees from the ground at a distance of 1 mile from the base of the building. Using this information, find the height of the building.</p>
+</div></div>
+<h2 id="practice-test">Practice Test</h2>
+<div class="exercise" id="practiceex1"><div class="n">1</div><div class="body"><p>Convert \(\frac{5\pi }{6}\) radians to degrees.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(150°\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex2"><div class="n">2</div><div class="body"><p>Convert \(-620°\) to radians.</p>
+</div></div>
+<div class="exercise" id="practiceex3"><div class="n">3</div><div class="body"><p>Find the length of a circular arc with a radius 12 centimeters subtended by the central angle of \(30°.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>6.283 centimeters</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex4"><div class="n">4</div><div class="body"><p>Find the area of the sector with radius of 8 feet and an angle of \(\frac{5\pi }{4}\) radians.</p>
+</div></div>
+<div class="exercise" id="practiceex5"><div class="n">5</div><div class="body"><p>Find the angle between \(0°\) and \(\text{360°}\) that is coterminal with \(375°.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(15°\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex6"><div class="n">6</div><div class="body"><p>Find the angle between 0 and \(2\pi\) in radians that is coterminal with \(-\frac{4\pi }{7}.\)</p>
+</div></div>
+<div class="exercise" id="practiceex7"><div class="n">7</div><div class="body"><p>Draw the angle \(315°\) in standard position on the Cartesian plane.</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_224-1445.jpg" alt="A graph of a circle with an angle inscribed." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex8"><div class="n">8</div><div class="body"><p>Draw the angle \(-\frac{\pi }{6}\) in standard position on the Cartesian plane.</p>
+</div></div>
+<div class="exercise" id="practiceex9"><div class="n">9</div><div class="body"><p>A carnival has a Ferris wheel with a diameter of 80 feet. The time for the Ferris wheel to make one revolution is 75 seconds. What is the linear speed in feet per second of a point on the Ferris wheel? What is the angular speed in radians per second?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>3.351 feet per second, \(\frac{2\pi }{75}\) radians per second</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex10"><div class="n">10</div><div class="body"><p>Find the exact value of \(sin\,\frac{\pi }{6}.\)</p>
+</div></div>
+<div class="exercise" id="practiceex11"><div class="n">11</div><div class="body"><p>Compute sine of \(240°.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex12"><div class="n">12</div><div class="body"><p>State the domain of the sine and cosine functions.</p>
+</div></div>
+<div class="exercise" id="practiceex13"><div class="n">13</div><div class="body"><p>State the range of the sine and cosine functions.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([-1,1]\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex14"><div class="n">14</div><div class="body"><p>Find the exact value of \(cot\,\frac{\pi }{4}.\)</p>
+</div></div>
+<div class="exercise" id="practiceex15"><div class="n">15</div><div class="body"><p>Find the exact value of \(tan\,\frac{\pi }{3}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex16"><div class="n">16</div><div class="body"><p>Use reference angles to evaluate \(csc\,\frac{7\pi }{4}.\)</p>
+</div></div>
+<div class="exercise" id="practiceex17"><div class="n">17</div><div class="body"><p>Use reference angles to evaluate \(tan\,210°.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{3}}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex18"><div class="n">18</div><div class="body"><p>If \(\text{csc}\,t=1.68,\) what is the \(\text{csc}(-t)?\)</p>
+</div></div>
+<div class="exercise" id="practiceex19"><div class="n">19</div><div class="body"><p>If \(\text{cos}\,t=\frac{\sqrt{3}}{2},\) find \(\text{cos}(t-2\pi ).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex20"><div class="n">20</div><div class="body"><p>Which trigonometric functions are even?</p>
+</div></div>
+<div class="exercise" id="practiceex21"><div class="n">21</div><div class="body"><p>Find the missing angle: \(cos(\frac{\pi }{6})=sin(\_\_\_)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex22"><div class="n">22</div><div class="body"><p>Find the missing sides of the triangle \(ABC:sin\,B=\frac{3}{4},c=12\)</p>
+</div></div>
+<div class="exercise" id="practiceex23"><div class="n">23</div><div class="body"><p>Find the missing sides of the triangle.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_04_226.jpg" alt="A right triangle with hyptenuse length of 9 and angle measure of 60 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=\frac{9}{2},b=\frac{9\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex24"><div class="n">24</div><div class="body"><p>The angle of elevation to the top of a building in Chicago is found to be 9 degrees from the ground at a distance of 2000 feet from the base of the building. Using this information, find the height of the building.</p>
+</div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>adjacent side</dt><dd>in a right triangle, the side between a given angle and the right angle</dd><dt>angle of depression</dt><dd>the angle between the horizontal and the line from the object to the observer’s eye, assuming the object is positioned lower than the observer</dd><dt>angle of elevation</dt><dd>the angle between the horizontal and the line from the object to the observer’s eye, assuming the object is positioned higher than the observer</dd><dt>opposite side</dt><dd>in a right triangle, the side most distant from a given angle</dd><dt>hypotenuse</dt><dd>the side of a right triangle opposite the right angle</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

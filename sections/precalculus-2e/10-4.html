@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotation of Axes · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Rotation of Axes</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 10.4</span>Rotation of Axes</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Using rotation of axes formulas.</li><li>Identify conic sections by their equations. (IA 11.4.3)</li></ul>
+<h3 id="objective-1-using-rotation-of-axes-formulas">Objective 1: Using rotation of axes formulas.</h3>
+<p>If a point \((x,y)\) on the Cartesian plane is represented on a new coordinate plane where the axes of rotation are formed by rotating an angle \(θ\) from the positive <strong>x</strong> -axis, then the coordinates of the point with respect to the new axes are \(({x}^{\prime },{y}^{\prime }).\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_08_04_001.jpg" alt="rotation of axes definitional graph" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The following rotations of axes formulas define the relationship between (<strong>x</strong>,<strong>y</strong>) and (<strong>x</strong>’,<strong>y</strong>’):</p>
+<p id="eq1">\[\left(\begin{array}{l}x=x'\text{cos}θ-y'\text{sin}θ \\ y=x'\text{sin}θ+y'\text{cos}θ\end{array}\right)\]</p>
+<div class="card howto" id="fs-howto1"><span class="chip">How To</span><p><strong>Given the equation of a conic, find a new representation after rotating through an angle.</strong></p>
+<ul class="tight"><li>Find \(x\) and \(y\) where <br> \(\left(\begin{array}{l}x=x'\text{cos}θ-y'\text{sin}θ \\ y=x'\text{sin}θ+y'\text{cos}θ\end{array}\right)\)</li><li>Substitute the expression for \(x\) and \(y\) into in the given equation, then simplify.</li><li>Write the equations with \({x}^{\prime }\) and \({y}^{\prime }\) in standard form.</li></ul>
+</div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find a new representation of the given equation after rotating through the given angle.</p>
+<p>\(3{x}^{2}+xy+3{y}^{2}-5=0, θ=45^{\circ}\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Find x and y using the rotation of axes formulas, substitute <strong>θ</strong>=45º.</td><td>\(\left(\begin{array}{l}x=x'\text{cos}θ-y'\text{sin}θ \\ y=x'\text{sin}θ+y'\text{cos}θ\end{array}\right)\)</td></tr><tr><td></td><td><div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(x=x'\left(\frac{1}{\sqrt{2}}\right)-y'\left(\frac{1}{\sqrt{2}}\right)\) <br> \(x=\frac{x'-y'}{\sqrt{2}}\)</td><td>\(y=x'\left(\frac{1}{\sqrt{2}}\right)-y'\left(\frac{1}{\sqrt{2}}\right)\) <br> \(y=\frac{x'-y'}{\sqrt{2}}\)</td></tr></tbody></table></div>
+</td></tr><tr><td>Substitute the expressions for x and y into the given equation and simplify.</td><td>\(3{x}^{2}+xy+3{y}^{2}-5=0\)</td></tr><tr><td></td><td>\(3{\left(\frac{x'-y'}{\sqrt{2}}\right)}^{2}+\left(\frac{x'-y'}{\sqrt{2}}\right)\left(\frac{x'-y'}{\sqrt{2}}\right)+3{\left(\frac{x'-y'}{\sqrt{2}}\right)}^{2}-5=0\)</td></tr><tr><td>Foil each term.</td><td>\(3(\frac{{x'}^{2}-2x'y'+{y'}^{2}}{2})2+\frac{{x'}^{2}-{y'}^{2}}{2}+3(\frac{{x'}^{2}-2x'y'+{y'}^{2}}{2})-5=0\)</td></tr><tr><td>Multiply by 2 to get rid of the fraction.</td><td>\(3({x'}^{2}-2x'y'+{y'}^{2})2+{x'}^{2}-{y'}^{2}+3({x'}^{2}-2x'y'+{y'}^{2})-10=0\)</td></tr><tr><td>Combine like terms.</td><td>\(3{x'}^{2}-6x'y'+3{y'}^{2}+{x'}^{2}-{y'}^{2}+3{x'}^{2}+6x'y'+3{y'}^{2}-10=0\,7{x'}^{2}+{5y'}^{2}-10=0\,7{x'}^{2}+{5y'}^{2}=10\)</td></tr><tr><td>Write the equations with x′ and y′ in standard form.</td><td>Set equal to 1.<br> \(\frac{7{x'}^{2}}{10}+\frac{{5y'}^{2}}{10}=1\,\frac{{x'}^{2}}{\frac{10}{7}}+\frac{{y'}^{2}}{2}=1\,\)</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Using rotation of axes formulas:</p>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>Find a new representation of the given equation after rotating through the given angle. Use the steps outlined to assist you in your work.</p>
+<p>\(4{x}^{2}-xy+4{y}^{2}-2=0,\,θ=45^{\circ}\)</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>Find x and y using the rotation of axes formulas, substitute <strong>θ</strong>=45º.</td></tr><tr><td>Substitute the expressions for x and y into the given equation and simplify.</td></tr><tr><td>Write the equations with x′ and y′ in standard form.</td></tr></tbody></table></div>
+</div></div>
+<h3 id="objective-2-identify-conic-sections-by-their-equations-ia-11-4-3">Objective 2: Identify conic sections by their equations. (IA 11.4.3)</h3>
+<p>We can identify a conic from its equations by looking at the signs and coefficients of the variables that are squared.</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>Conic</td><td>Characteristics of \({x}^{2}\text{-}\) and \({y}^{2}\text{-}\) terms</td><td>Example</td></tr><tr><td><strong>Parabola</strong></td><td>Either \({x}^{2}\) OR \({y}^{2}.\) Only one variable is squared.</td><td>\(x=3{y}^{2}-2y+1\)</td></tr><tr><td><strong>Circle</strong></td><td>\({x}^{2}\text{-}\) and \({y}^{2}\text{-}\) terms have the same coefficients</td><td>\({x}^{2}+{y}^{2}=49\)</td></tr><tr><td><strong>Ellipse</strong></td><td>\({x}^{2}\text{-}\) and \({y}^{2}\text{-}\) terms have the <strong>same</strong> sign, different coefficients</td><td>\(4{x}^{2}+25{y}^{2}=100\)</td></tr><tr><td><strong>Hyperbola</strong></td><td>\({x}^{2}\text{-}\) and \({y}^{2}\text{-}\) terms have <strong>different</strong> signs, different coefficients</td><td>\(25{y}^{2}-4{x}^{2}=100\)</td></tr></tbody></table></div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><div class="ex-body"><ul class="tight"><li>ⓐ \(x=-{y}^{2}-2y+3\)</li><li>ⓑ \(9{y}^{2}-{x}^{2}+18y-4x-4=0\)</li><li>ⓒ \(9{x}^{2}+25{y}^{2}=225\)</li><li>ⓓ \({x}^{2}+{y}^{2}-4x+10y-7=0\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ \(x=-{y}^{2}-2y+3\) <br> <strong>Parabola</strong>: only one variable is squared.</li><li>ⓑ \(9{y}^{2}-{x}^{2}+18y-4x-4=0\) <br> <strong>Hyperbola</strong>: \({x}^{2}\) and \({y}^{2}\) have <strong>different</strong> signs and different coefficients.</li><li>ⓒ \(9{x}^{2}+25{y}^{2}=225\) <br> <strong>Ellipse</strong>: \({x}^{2}\) and \({y}^{2}\) have the <strong>same</strong> signs and different coefficients.</li><li>ⓓ \({x}^{2}+{y}^{2}-4x+10y-7=0\) <br> <strong>Circle</strong>: \({x}^{2}\) and \({y}^{2}\) have the <strong>same</strong> signs and the <strong>same</strong> signs coefficients.</li></ul>
+</div></div></div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<p>Identify conic sections by their equations.</p>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>\(x=-2{y}^{2}-12y-16\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>\({x}^{2}+{y}^{2}=9\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex4"><div class="n">P4</div><div class="body"><p>\(16{x}^{2}-4{y}^{2}+64x-24y-36=0\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex5"><div class="n">P5</div><div class="body"><p>\(16{x}^{2}+36{y}^{2}=576\)</p>
+</div></div>
+</div></details>
+<p>As we have seen, conic sections are formed when a plane intersects two right circular cones aligned tip to tip and extending infinitely far in opposite directions, which we also call a <strong>cone</strong>. The way in which we slice the cone will determine the type of conic section formed at the intersection. A circle is formed by slicing a cone with a plane perpendicular to the axis of symmetry of the cone. An ellipse is formed by slicing a single cone with a slanted plane not perpendicular to the axis of symmetry. A parabola is formed by slicing the plane through the top or bottom of the double-cone, whereas a hyperbola is formed when the plane slices both the top and bottom of the cone. See <a href="#fig1">Figure 1</a>.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_001.jpg" alt="Different conic sections (ellipse, circle, hyperbola, parabola) formed by intersecting a double cone with a plane at various angles." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The nondegenerate conic sections</figcaption></figure>
+<p>Ellipses, circles, hyperbolas, and parabolas are sometimes called the <strong>nondegenerate conic sections</strong>, in contrast to the <strong>degenerate conic sections</strong>, which are shown in <a href="#fig2">Figure 2</a>. A degenerate conic results when a plane intersects the double cone and passes through the apex. Depending on the angle of the plane, three types of degenerate conic sections are possible: a point, a line, or two intersecting lines.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_002n.jpg" alt="This diagram illustrates the three degenerate conic sections formed by the intersection of a plane with a double cone. The first example on the left shows a plane intersecting the double cone through its apex at an angle such that it forms two intersecting lines. The middle example depicts a plane tangent to the double cone along one of its generatrices, resulting in a single line. The rightmost example shows a plane intersecting the double cone only at its apex, producing a single point." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Degenerate conic sections</figcaption></figure>
+<h2 id="identifying-nondegenerate-conics-in-general-form">Identifying Nondegenerate Conics in General Form</h2>
+<p>In previous sections of this chapter, we have focused on the standard form equations for nondegenerate conic sections. In this section, we will shift our focus to the general form equation, which can be used for any conic. The general form is set equal to zero, and the terms and coefficients are given in a particular order, as shown below.</p>
+<p id="eq2">\[A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\]</p>
+<p>where \(A,B,\) and \(C\) are not all zero. We can use the values of the coefficients to identify which type conic is represented by a given equation.</p>
+<p>You may notice that the general form equation has an \(xy\) term that we have not seen in any of the standard form equations. As we will discuss later, the \(xy\) term rotates the conic whenever \(B\) is not equal to zero.</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>Conic Sections</strong></td><td><strong>Example</strong></td></tr><tr><td>ellipse</td><td>\(4{x}^{2}+9{y}^{2}=1\)</td></tr><tr><td>circle</td><td>\(4{x}^{2}+4{y}^{2}=1\)</td></tr><tr><td>hyperbola</td><td>\(4{x}^{2}-9{y}^{2}=1\)</td></tr><tr><td>parabola</td><td>\(4{x}^{2}=9y\,\text{or }4{y}^{2}=9x\)</td></tr><tr><td>one line</td><td>\(4x+9y=1\)</td></tr><tr><td>intersecting lines</td><td>\((x-4)(y+4)=0\)</td></tr><tr><td>parallel lines</td><td>\((x-4)(x-9)=0\)</td></tr><tr><td>a point</td><td>\(4{x}^{2}+4{y}^{2}=0\)</td></tr><tr><td>no graph</td><td>\(4{x}^{2}+4{y}^{2}=\,-\,1\)</td></tr></tbody></table></div>
+<div class="card definition" id="fs-id1532180"><span class="chip">General Form of Conic Sections</span><p>A <strong>conic section</strong> has the general form</p>
+<p id="eq3">\[A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\]</p>
+<p>where \(A,B,\) and \(C\) are not all zero.</p>
+<p><a href="#tab6">Table 6</a> summarizes the different conic sections where \(B=0,\) and \(A\) and \(C\) are nonzero real numbers. This indicates that the conic has not been rotated.</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td><strong>ellipse</strong></td><td>\(A{x}^{2}+C{y}^{2}+Dx+Ey+F=0,\,\,A\ne C\,\text{and }AC&gt;0\)</td></tr><tr><td><strong>circle</strong></td><td>\(A{x}^{2}+C{y}^{2}+Dx+Ey+F=0,\,\,A=C\)</td></tr><tr><td><strong>hyperbola</strong></td><td>\(A{x}^{2}-C{y}^{2}+Dx+Ey+F=0\,\text{or }-A{x}^{2}+C{y}^{2}+Dx+Ey+F=0,\) where \(A\) and \(C\) are positive</td></tr><tr><td><strong>parabola</strong></td><td>\(A{x}^{2}+Dx+Ey+F=0\,\text{or }C{y}^{2}+Dx+Ey+F=0\)</td></tr></tbody></table></div>
+</div>
+<div class="card howto" id="fs-id1200060"><span class="chip">How To</span><p><strong>Given the equation of a conic, identify the type of conic.</strong></p>
+<ul class="tight"><li>Rewrite the equation in the general form, \(A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0.\)</li><li>Identify the values of \(A\) and \(C\) from the general form. If <strong>B</strong> = 0, the conic section will have a vertical and/or horizontal axes. If <strong>B</strong> does not equal 0, as shown below, the conic section is rotated. Notice the phrase “may be” in the definitions. That is because the equation may not represent a conic section at all, depending on the values of <strong>A</strong>, <strong>B</strong>, <strong>C</strong>, <strong>D</strong>, <strong>E</strong>, and <strong>F</strong>. For example, the degenerate case of a circle or an ellipse is a point: <br> \(A{x}^{2}+B{y}^{2}=0\text{, }\) when <strong>A</strong> and <strong>B</strong> have the same sign. <br> The degenerate case of a hyperbola is two intersecting straight lines: \(A{x}^{2}+B{y}^{2}=0\text{, }\) when A and B have opposite signs. <br> On the other hand, the equation, \(A{x}^{2}+B{y}^{2}+1=0\text{, }\) when A and B are positive does not represent a graph at all, since there are no real ordered pairs which satisfy it.<ul class="tight"><li>If \(A\) and \(C\) are nonzero, have the same sign, and are not equal to each other, then the graph may be an ellipse.</li><li>If \(A\) and \(C\) are equal and nonzero and have the same sign, then the graph may be a circle.</li><li>If \(A\) and \(C\) are nonzero and have opposite signs, then the graph may be a hyperbola.</li><li>If either \(A\) or \(C\) is zero, then the graph may be a parabola.</li></ul>
+<p>If <strong>B</strong> = 0, the conic section will have a vertical and/or horizontal axes. If <strong>B</strong> does not equal 0, as shown below, the conic section is rotated. Notice the phrase “may be” in the definitions. That is because the equation may not represent a conic section at all, depending on the values of <strong>A</strong>, <strong>B</strong>, <strong>C</strong>, <strong>D</strong>, <strong>E</strong>, and <strong>F</strong>. For example, the degenerate case of a circle or an ellipse is a point: <br> \(A{x}^{2}+B{y}^{2}=0\text{, }\) when <strong>A</strong> and <strong>B</strong> have the same sign. <br> The degenerate case of a hyperbola is two intersecting straight lines: \(A{x}^{2}+B{y}^{2}=0\text{, }\) when A and B have opposite signs. <br> On the other hand, the equation, \(A{x}^{2}+B{y}^{2}+1=0\text{, }\) when A and B are positive does not represent a graph at all, since there are no real ordered pairs which satisfy it.</p>
+</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Identify the graph of each of the following nondegenerate conic sections.</p>
+<ul class="tight"><li>ⓐ \(4{x}^{2}-9{y}^{2}+36x+36y-125=0\)</li><li>ⓑ \(9{y}^{2}+16x+36y-10=0\)</li><li>ⓒ \(3{x}^{2}+3{y}^{2}-2x-6y-4=0\)</li><li>ⓓ \(-25{x}^{2}-4{y}^{2}+100x+16y+20=0\)</li></ul>
+</div><p class="sol-hint">Identify A, B, and C from each equation, then compute the discriminant \({B}^{2}-4AC\) to classify the conic.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ Rewriting the general form, we have \(A=4\) and \(C=-9,\) so we observe that \(A\) and \(C\) have opposite signs. The graph of this equation is a hyperbola.<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_08_04_002-01.png" alt="A general conic section equation, Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0, with a specific example below it: 4x^2 + 0xy + (-9)y^2 + 36x + 36y + (-125) = 0. Coefficients are color-coded." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>\(A=4\) and \(C=-9,\) so we observe that \(A\) and \(C\) have opposite signs. The graph of this equation is a hyperbola.</p>
+</li><li>ⓑ Rewriting the general form, we have \(A=0\) and \(C=9.\) We can determine that the equation is a parabola, since \(A\) is zero.<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_08_04_002-02.png" alt="A general form of a conic section equation Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 and a specific example showing the substitution of coefficients: 0x^2 + 0xy + 9y^2 + 16x + 36y + (-10) = 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>\(A=0\) and \(C=9.\) We can determine that the equation is a parabola, since \(A\) is zero.</p>
+</li><li>ⓒ Rewriting the general form, we have \(A=3\) and \(C=3.\) Because \(A=C,\) the graph of this equation is a circle.<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_08_04_002-03.png" alt="A general form of a quadratic equation (Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0) followed by a specific example with numerical coefficients." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>\(A=3\) and \(C=3.\) Because \(A=C,\) the graph of this equation is a circle.</p>
+</li><li>ⓓ Rewriting the general form, we have \(A=-25\) and \(C=-4.\) Because \(AC&gt;0\) and \(A\ne C,\) the graph of this equation is an ellipse.<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_08_04_002-04.png" alt="Two equations are shown. The top equation is the general form of a conic section: Ax^2+Bxy+Cy^2+Dx+Ey+F=0. The bottom equation is a specific instance: (-25)x^2+0xy+(-4)y^2+100x+16y+20=0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>\(A=-25\) and \(C=-4.\) Because \(AC&gt;0\) and \(A\ne C,\) the graph of this equation is an ellipse.</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Identify the graph of each of the following nondegenerate conic sections.</p>
+<ul class="tight"><li>ⓐ \(16{y}^{2}-{x}^{2}+x-4y-9=0\)</li><li>ⓑ \(16{x}^{2}+4{y}^{2}+16x+49y-81=0\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ hyperbola</li><li>ⓑ ellipse</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-a-new-representation-of-the-given-equation-after-rotating-through-a-given-angle">Finding a New Representation of the Given Equation after Rotating through a Given Angle</h3>
+<p>Until now, we have looked at equations of conic sections without an \(xy\) term, which aligns the graphs with the <strong>x</strong>- and <strong>y</strong>-axes. When we add an \(xy\) term, we are rotating the conic about the origin. If the <strong>x</strong>- and <strong>y</strong>-axes are rotated through an angle, say \(θ,\) then every point on the plane may be thought of as having two representations: \((x,y)\) on the Cartesian plane with the original <strong>x</strong>-axis and <strong>y</strong>-axis, and \(({x}^{\prime },{y}^{\prime })\) on the new plane defined by the new, rotated axes, called the <strong>x'</strong>-axis and <strong>y'</strong>-axis. See <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_003.jpg" alt="An ellipse centered at the origin, aligned with a rotated coordinate system (x', y') that is at an angle θ with respect to the standard (x, y) coordinate system." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The graph of the rotated ellipse \({x}^{2}+{y}^{2}-xy-15=0\)</figcaption></figure>
+<p>We will find the relationships between \(x\) and \(y\) on the Cartesian plane with \({x}^{\prime }\) and \({y}^{\prime }\) on the new rotated plane. See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_004.jpg" alt="A Cartesian coordinate system (x, y) with a rotated coordinate system (x', y'). The angle of rotation is θ, and the coordinates are labeled with sin θ, cos θ, and -sin θ, demonstrating the transformation between the two systems." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The Cartesian plane with <strong>x</strong>- and <strong>y</strong>-axes and the resulting <strong>x</strong>′− and <strong>y</strong>′−axes formed by a rotation by an angle \(θ.\)</figcaption></figure>
+<p>The original coordinate <strong>x</strong>- and <strong>y</strong>-axes have unit vectors \(i\) and \(j.\) The rotated coordinate axes have unit vectors \({i}^{\prime }\) and \({j}^{\prime }.\) The angle \(θ\) is known as the <strong>angle of rotation</strong>. See <a href="#fig5">Figure 5</a>. We may write the new unit vectors in terms of the original ones.</p>
+<p id="eq4">\[\begin{array}{l}{i}^{\prime }=cos\,\,θi+sin\,\,θj \\ {j}^{\prime }=-sin\,\,θi+cos\,\,θj\end{array}\]</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_005.jpg" alt="A 2D coordinate system rotated by an angle θ. The unit vectors i' and j' are shown with their components (cos θ, sin θ, -sin θ, cos θ) relative to the original x and y axes, illustrating the rotation matrix." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — Relationship between the old and new coordinate planes.</figcaption></figure>
+<p>Consider a vector<strong>\(u\)</strong>in the new coordinate plane. It may be represented in terms of its coordinate axes.</p>
+<p id="eq5">\[\begin{array}{ll}u={x}^{\prime }{i}^{\prime }+{y}^{\prime }{j}^{\prime } &amp; \\ u={x}^{\prime }(i\,\,cos\,\,θ+j\,\,sin\,\,θ)+{y}^{\prime }(-i\,\,sin\,\,θ+j\,\,cos\,\,θ) &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Substitute}. \\ u=ix'\,\,cos\,\,θ+jx'\,\,sin\,\,θ-iy'\,\,sin\,\,θ+jy'\,\,cos\,\,θ &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Distribute}. \\ u=ix'\,\,cos\,\,θ-iy'\,\,sin\,\,θ+jx'\,\,sin\,\,θ+jy'\,\,cos\,\,θ &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Apply commutative property}. \\ u=(x'\,\,cos\,\,θ-y'\,\,sin\,\,θ)i+(x'\,\,sin\,\,θ+y'\,\,cos\,\,θ)j &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Factor by grouping}.\end{array}\]</p>
+<p>Because \(u={x}^{\prime }{i}^{\prime }+{y}^{\prime }{j}^{\prime },\) we have representations of \(x\) and \(y\) in terms of the new coordinate system.</p>
+<p id="eq6">\[\begin{array}{l}x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ \\ \text{and} \\ y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ\end{array}\]</p>
+<div class="card definition" id="fs-id1741266"><span class="chip">Equations of Rotation</span><p>If a point \((x,y)\) on the Cartesian plane is represented on a new coordinate plane where the axes of rotation are formed by rotating an angle \(θ\) from the positive <strong>x</strong>-axis, then the coordinates of the point with respect to the new axes are \(({x}^{\prime },{y}^{\prime }).\) We can use the following equations of rotation to define the relationship between \((x,y)\) and \(({x}^{\prime },{y}^{\prime }):\)</p>
+<p id="eq7">\[x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ\]</p>
+<p>and</p>
+<p id="eq8">\[y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ\]</p>
+</div>
+<div class="card howto" id="fs-id1355297"><span class="chip">How To</span><p><strong>Given the equation of a conic, find a new representation after rotating through an angle.</strong></p>
+<ul class="tight"><li>Find \(x\) and \(y\) where \(x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ\) and \(y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ.\)</li><li>Substitute the expression for \(x\) and \(y\) into in the given equation, then simplify.</li><li>Write the equations with \({x}^{\prime }\) and \({y}^{\prime }\) in standard form.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find a new representation of the equation \(2{x}^{2}-xy+2{y}^{2}-30=0\) after rotating through an angle of \(θ=45°.\)</p>
+</div><p class="sol-hint">Since \(A=C,\) use \(\cot(2\theta)=\frac{A-C}{B}\) to confirm \(\theta=45°,\) then substitute the rotation formulas for x and y.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Find \(x\) and \(y,\) where \(x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ\) and \(y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ.\)</p>
+<p>Because \(θ=45°,\)</p>
+<p id="eq9">\[\begin{array}{l} \\ x={x}^{\prime }cos(45°)-{y}^{\prime }sin(45°) \\ x={x}^{\prime }(\frac{1}{\sqrt{2}})-{y}^{\prime }(\frac{1}{\sqrt{2}}) \\ x=\frac{{x}^{\prime }-{y}^{\prime }}{\sqrt{2}}\end{array}\]</p>
+<p>and</p>
+<p id="eq10">\[\begin{array}{l} \\ \begin{array}{l}y={x}^{\prime }sin(45°)+{y}^{\prime }cos(45°) \\ y={x}^{\prime }(\frac{1}{\sqrt{2}})+{y}^{\prime }(\frac{1}{\sqrt{2}}) \\ y=\frac{{x}^{\prime }+{y}^{\prime }}{\sqrt{2}}\end{array}\end{array}\]</p>
+<p>Substitute \(x={x}^{\prime }cosθ-{y}^{\prime }sinθ\) and \(y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ\) into \(2{x}^{2}-xy+2{y}^{2}-30=0.\)</p>
+<p id="eq11">\[2{(\frac{{x}^{\prime }-{y}^{\prime }}{\sqrt{2}})}^{2}-(\frac{{x}^{\prime }-{y}^{\prime }}{\sqrt{2}})(\frac{{x}^{\prime }+{y}^{\prime }}{\sqrt{2}})+2{(\frac{{x}^{\prime }+{y}^{\prime }}{\sqrt{2}})}^{2}-30=0\]</p>
+<p>Simplify.</p>
+<p id="eq12">\[\begin{array}{ll}2\frac{({x}^{\prime }-{y}^{\prime })({x}^{\prime }-{y}^{\prime })}{2}-\frac{({x}^{\prime }-{y}^{\prime })({x}^{\prime }+{y}^{\prime })}{2}+2\frac{({x}^{\prime }+{y}^{\prime })({x}^{\prime }+{y}^{\prime })}{2}-30=0 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{FOIL method} \\ \,\,{x}^{\prime }{}^{2}{-2{x}^{\prime }y}^{\prime }+{y}^{\prime }{}^{2}-\frac{({x}^{\prime }{}^{2}-{y}^{\prime }{}^{2})}{2}+{x}^{\prime }{}^{2}+2{x}^{\prime }{y}^{\prime }+{y}^{\prime }{}^{2}-30=0 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Combine like terms}. \\ \,\,2{x}^{\prime }{}^{2}+2{y}^{\prime }{}^{2}-\frac{({x}^{\prime }{}^{2}-{y}^{\prime }{}^{2})}{2}=30 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Combine like terms}. \\ \,\,2(2{x}^{\prime }{}^{2}+2{y}^{\prime }{}^{2}-\frac{({x}^{\prime }{}^{2}-{y}^{\prime }{}^{2})}{2})=2(30) &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Multiply both sides by 2}. \\ \,\,4{x}^{\prime }{}^{2}+4{y}^{\prime }{}^{2}-({x}^{\prime }{}^{2}-{y}^{\prime }{}^{2})=60 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Simplify}. \\ \,\,4{x}^{\prime }{}^{2}+4{y}^{\prime }{}^{2}-{x}^{\prime }{}^{2}+{y}^{\prime }{}^{2}=60 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Distribute}. \\ \,\,\frac{3{x}^{\prime }{}^{2}}{60}+\frac{5{y}^{\prime }{}^{2}}{60}=\frac{60}{60} &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Set equal to 1}.\end{array}\]</p>
+<p>Write the equations with \({x}^{\prime }\) and \({y}^{\prime }\) in the standard form.</p>
+<p id="eq13">\[\frac{{{x}^{\prime }}^{2}}{20}+\frac{{{y}^{\prime }}^{2}}{12}=1\]</p>
+<p>This equation is an ellipse. <a href="#fig6">Figure 6</a> shows the graph.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_006.jpg" alt="An ellipse centered at the origin, with its major and minor axes aligned with the rotated x' and y' axes. The x' axis is rotated 45 degrees counterclockwise from the x-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div>
+<h2 id="writing-equations-of-rotated-conics-in-standard-form">Writing Equations of Rotated Conics in Standard Form</h2>
+<p>Now that we can find the standard form of a conic when we are given an angle of rotation, we will learn how to transform the equation of a conic given in the form \(A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\) into standard form by rotating the axes. To do so, we will rewrite the general form as an equation in the \({x}^{\prime }\) and \({y}^{\prime }\) coordinate system without the \({x}^{\prime }{y}^{\prime }\) term, by rotating the axes by a measure of \(θ\) that satisfies</p>
+<p id="eq14">\[cot(2θ)=\frac{A-C}{B}\]</p>
+<p>We have learned already that any conic may be represented by the second degree equation</p>
+<p id="eq15">\[A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\]</p>
+<p>where \(A,B,\) and \(C\) are not all zero. However, if \(B\ne 0,\) then we have an \(xy\) term that prevents us from rewriting the equation in standard form. To eliminate it, we can rotate the axes by an acute angle \(θ\) where \(cot(2θ)=\frac{A-C}{B}.\)</p>
+<ul class="tight"><li>If \(cot(2θ)&gt;0,\) then \(2θ\) is in the first quadrant, and \(θ\) is between \((0°,45°).\)</li><li>If \(cot(2θ)&lt;0,\) then \(2θ\) is in the second quadrant, and \(θ\) is between \((45°,90°).\)</li><li>If \(A=C,\) then \(θ=45°.\)</li></ul>
+<div class="card howto" id="fs-id1503870"><span class="chip">How To</span><p><strong>Given an equation for a conic in the \({x}^{\prime }{y}^{\prime }\) system, rewrite the equation without the \({x}^{\prime }{y}^{\prime }\) term in terms of \({x}^{\prime }\) and \({y}^{\prime },\) where the \({x}^{\prime }\) and \({y}^{\prime }\) axes are rotations of the standard axes by \(θ\) degrees.</strong></p>
+<ul class="tight"><li>Find \(cot(2θ).\)</li><li>Find \(sin\,\,θ\) and \(cos\,\,θ.\)</li><li>Substitute \(sin\,\,θ\) and \(cos\,\,θ\) into \(x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ\) and \(y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ.\)</li><li>Substitute the expression for \(x\) and \(y\) into in the given equation, and then simplify.</li><li>Write the equations with \({x}^{\prime }\) and \({y}^{\prime }\) in the standard form with respect to the rotated axes.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Rewrite the equation \(8{x}^{2}-12xy+17{y}^{2}=20\) in the \({x}^{\prime }{y}^{\prime }\) system without an \({x}^{\prime }{y}^{\prime }\) term.</p>
+</div><p class="sol-hint">Use \(\cot(2\theta)=\frac{A-C}{B}\) to find the rotation angle, then substitute the rotation formulas for x and y to eliminate the xy-term.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we find \(cot(2θ).\) See <a href="#fig7">Figure 7</a>.</p>
+<p id="eq16">\[\begin{array}{l}8{x}^{2}-12xy+17{y}^{2}=20⇒A=8,\,B=-12\,\text{and}\,C=17 \\ \,\,\,\,\,cot(2θ)=\frac{A-C}{B}=\frac{8-17}{-12} \\ \,\,\,\,\,cot(2θ)=\frac{-9}{-12}=\frac{3}{4}\end{array}\]</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_007.jpg" alt="A right triangle in the first quadrant of the x y plane. The horizontal side is length 3 and is on the x-axis. The vertical side is length 4. The hypotenuse is length h and originates at the Origin. The acute angle at the origin is 2 theta." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+<p id="eq17">\[cot(2θ)=\frac{3}{4}=\frac{\text{adjacent}}{\text{opposite}}\]</p>
+<p>So the hypotenuse is</p>
+<p id="eq18">\[\begin{array}{l}{3}^{2}+{4}^{2}={h}^{2} \\ 9+16={h}^{2} \\ 25={h}^{2} \\ h=5\,\,\,\end{array}\]</p>
+<p>Next, we find \(sin\,\,θ\) and \(cos\,\,θ.\)</p>
+<p id="eq19">\[\begin{array}{l}\begin{array}{l} \\ \\ sin\,\,θ=\sqrt{\frac{1-cos(2θ)}{2}}=\sqrt{\frac{1-\frac{3}{5}}{2}}=\sqrt{\frac{\frac{5}{5}-\frac{3}{5}}{2}}=\sqrt{\frac{5-3}{5}\cdot \frac{1}{2}}=\sqrt{\frac{2}{10}}=\sqrt{\frac{1}{5}}\end{array} \\ sin\,\,θ=\frac{1}{\sqrt{5}} \\ cos\,\,θ=\sqrt{\frac{1+cos(2θ)}{2}}=\sqrt{\frac{1+\frac{3}{5}}{2}}=\sqrt{\frac{\frac{5}{5}+\frac{3}{5}}{2}}=\sqrt{\frac{5+3}{5}\cdot \frac{1}{2}}=\sqrt{\frac{8}{10}}=\sqrt{\frac{4}{5}} \\ cos\,\,θ=\frac{2}{\sqrt{5}}\end{array}\]</p>
+<p>Substitute the values of \(sin\,\,θ\) and \(cos\,\,θ\) into \(x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ\) and \(y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ.\)</p>
+<p id="eq20">\[\begin{array}{l} \\ \begin{array}{l}x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ \\ x={x}^{\prime }(\frac{2}{\sqrt{5}})-{y}^{\prime }(\frac{1}{\sqrt{5}}) \\ x=\frac{2{x}^{\prime }-{y}^{\prime }}{\sqrt{5}}\end{array}\end{array}\]</p>
+<p>and</p>
+<p id="eq21">\[\begin{array}{l}\begin{array}{l} \\ y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ\end{array} \\ y={x}^{\prime }(\frac{1}{\sqrt{5}})+{y}^{\prime }(\frac{2}{\sqrt{5}}) \\ y=\frac{{x}^{\prime }+2{y}^{\prime }}{\sqrt{5}}\end{array}\]</p>
+<p>Substitute the expressions for \(x\) and \(y\) into in the given equation, and then simplify.</p>
+<p id="eq22">\[\begin{array}{l}\,\,8{(\frac{2{x}^{\prime }-{y}^{\prime }}{\sqrt{5}})}^{2}-12(\frac{2{x}^{\prime }-{y}^{\prime }}{\sqrt{5}})(\frac{{x}^{\prime }+2{y}^{\prime }}{\sqrt{5}})+17{(\frac{{x}^{\prime }+2{y}^{\prime }}{\sqrt{5}})}^{2}=20\,\, \\ \,\,8(\frac{(2{x}^{\prime }-{y}^{\prime })(2{x}^{\prime }-{y}^{\prime })}{5})-12(\frac{(2{x}^{\prime }-{y}^{\prime })({x}^{\prime }+2{y}^{\prime })}{5})+17(\frac{({x}^{\prime }+2{y}^{\prime })({x}^{\prime }+2{y}^{\prime })}{5})=20\,\, \\ \,\,8(4{x}^{\prime }{}^{2}-4{x}^{\prime }{y}^{\prime }+{y}^{\prime }{}^{2})-12(2{x}^{\prime }{}^{2}+3{x}^{\prime }{y}^{\prime }-2{y}^{\prime }{}^{2})+17({x}^{\prime }{}^{2}+4{x}^{\prime }{y}^{\prime }+4{y}^{\prime }{}^{2})=100 \\ 32{x}^{\prime }{}^{2}-32{x}^{\prime }{y}^{\prime }+8{y}^{\prime }{}^{2}-24{x}^{\prime }{}^{2}-36{x}^{\prime }{y}^{\prime }+24{y}^{\prime }{}^{2}+17{x}^{\prime }{}^{2}+68{x}^{\prime }{y}^{\prime }+68{y}^{\prime }{}^{2}=100 \\ \,\,25{x}^{\prime }{}^{2}+100{y}^{\prime }{}^{2}=100\,\, \\ \,\,\frac{25}{100}{x}^{\prime }{}^{2}+\frac{100}{100}{y}^{\prime }{}^{2}=\frac{100}{100} \end{array}\]</p>
+<p>Write the equations with \({x}^{\prime }\) and \({y}^{\prime }\) in the standard form with respect to the new coordinate system.</p>
+<p id="eq23">\[\frac{{{x}^{\prime }}^{2}}{4}+\frac{{{y}^{\prime }}^{2}}{1}=1\]</p>
+<p><a href="#fig8">Figure 8</a> shows the graph of the ellipse.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_008.jpg" alt="A graph of an ellipse centered at the origin (0,0) in a Cartesian coordinate system. The x-axis ranges from -3 to 3, and the y-axis ranges from -2 to 2. Two orange lines, appearing to be the major and minor axes, pass through the origin and intersect the blue ellipse. The lines are perpendicular." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Rewrite the \(13{x}^{2}-6\sqrt{3}xy+7{y}^{2}=16\) in the \({x}^{\prime }{y}^{\prime }\) system without the \({x}^{\prime }{y}^{\prime }\) term.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{{{x}^{\prime }}^{2}}{4}+\frac{{{y}^{\prime }}^{2}}{1}=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Graph the following equation relative to the \({x}^{\prime }{y}^{\prime }\) system:</p>
+<p id="eq24">\[{x}^{2}+12xy-4{y}^{2}=30\]</p>
+</div><p class="sol-hint">Find the rotation angle from \(\cot(2\theta)=\frac{A-C}{B},\) rewrite the equation in the rotated system, then graph it there.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we find \(cot(2θ).\)</p>
+<p id="eq25">\[{x}^{2}+12xy-4{y}^{2}=20⇒A=1,\,\,B=12,\text{and }C=-4\]</p>
+<p id="eq26">\[\begin{array}{l}cot(2θ)=\frac{A-C}{B} \\ cot(2θ)=\frac{1-(-4)}{12} \\ cot(2θ)=\frac{5}{12}\end{array}\]</p>
+<p>Because \(cot(2θ)=\frac{5}{12},\) we can draw a reference triangle as in <a href="#fig9">Figure 9</a>.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_009.jpg" alt="A line with positive slope passing through the origin of the x y pane is shown. The x value of 5 is shown on the x-axis. The y value of 12 is shown on the y-axis. The angle the line makes with the x-axis is 2theta. The line is labeled cotangent (2 theta) = 5/12." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+<p id="eq27">\[cot(2θ)=\frac{5}{12}=\frac{\text{adjacent}}{\text{opposite}}\]</p>
+<p>Thus, the hypotenuse is</p>
+<p id="eq28">\[\begin{array}{l}{5}^{2}+{12}^{2}={h}^{2} \\ 25+144={h}^{2} \\ 169={h}^{2} \\ h=13\end{array}\]</p>
+<p>Next, we find \(sin\,\,θ\) and \(cos\,\,θ.\) We will use half-angle identities.</p>
+<p id="eq29">\[\begin{array}{l}\begin{array}{l} \\ \\ sin\,\,θ=\sqrt{\frac{1-cos(2θ)}{2}}=\sqrt{\frac{1-\frac{5}{13}}{2}}=\sqrt{\frac{\frac{13}{13}-\frac{5}{13}}{2}}=\sqrt{\frac{8}{13}\cdot \frac{1}{2}}=\frac{2}{\sqrt{13}}\end{array} \\ cos\,\,θ=\sqrt{\frac{1+cos(2θ)}{2}}=\sqrt{\frac{1+\frac{5}{13}}{2}}=\sqrt{\frac{\frac{13}{13}+\frac{5}{13}}{2}}=\sqrt{\frac{18}{13}\cdot \frac{1}{2}}=\frac{3}{\sqrt{13}}\end{array}\]</p>
+<p>Now we find \(x\) and \(y\text{. }\)</p>
+<p id="eq30">\[\begin{array}{l} \\ x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ \\ x={x}^{\prime }(\frac{3}{\sqrt{13}})-{y}^{\prime }(\frac{2}{\sqrt{13}}) \\ x=\frac{3{x}^{\prime }-2{y}^{\prime }}{\sqrt{13}}\end{array}\]</p>
+<p>and</p>
+<p id="eq31">\[\begin{array}{l} \\ y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ \\ y={x}^{\prime }(\frac{2}{\sqrt{13}})+{y}^{\prime }(\frac{3}{\sqrt{13}}) \\ y=\frac{2{x}^{\prime }+3{y}^{\prime }}{\sqrt{13}}\end{array}\]</p>
+<p>Now we substitute \(x=\frac{3{x}^{\prime }-2{y}^{\prime }}{\sqrt{13}}\) and \(y=\frac{2{x}^{\prime }+3{y}^{\prime }}{\sqrt{13}}\) into \({x}^{2}+12xy-4{y}^{2}=30.\)</p>
+<p id="eq32">\[\begin{array}{llll}\,\,{(\frac{3{x}^{\prime }-2{y}^{\prime }}{\sqrt{13}})}^{2}+12(\frac{3{x}^{\prime }-2{y}^{\prime }}{\sqrt{13}})(\frac{2{x}^{\prime }+3{y}^{\prime }}{\sqrt{13}})-4{(\frac{2{x}^{\prime }+3{y}^{\prime }}{\sqrt{13}})}^{2}=30 &amp; &amp; &amp; \\ \,\,\,\,(\frac{1}{13})[{(3{x}^{\prime }-2{y}^{\prime })}^{2}+12(3{x}^{\prime }-2{y}^{\prime })(2{x}^{\prime }+3{y}^{\prime })-4{(2{x}^{\prime }+3{y}^{\prime })}^{2}]=30 &amp; &amp; &amp; \text{Factor}. \\ (\frac{1}{13})[9{x}^{\prime }{}^{2}-12{x}^{\prime }{y}^{\prime }+4{y}^{\prime }{}^{2}+12(6{x}^{\prime }{}^{2}+5{x}^{\prime }{y}^{\prime }-6{y}^{\prime }{}^{2})-4(4{x}^{\prime }{}^{2}+12{x}^{\prime }{y}^{\prime }+9{y}^{\prime }{}^{2})]=30 &amp; &amp; &amp; \text{Multiply}. \\ \,\,(\frac{1}{13})[9{x}^{\prime }{}^{2}-12{x}^{\prime }{y}^{\prime }+4{y}^{\prime }{}^{2}+72{x}^{\prime }{}^{2}+60{x}^{\prime }{y}^{\prime }-72{y}^{\prime }{}^{2}-16{x}^{\prime }{}^{2}-48{x}^{\prime }{y}^{\prime }-36{y}^{\prime }{}^{2}]=30 &amp; &amp; &amp; \text{Distribute}. \\ \,\,\,\,\,(\frac{1}{13})[65{x}^{\prime }{}^{2}-104{y}^{\prime }{}^{2}]=30 &amp; &amp; &amp; \text{Combine like terms}. \\ \,\,65{x}^{\prime }{}^{2}-104{y}^{\prime }{}^{2}=390 &amp; &amp; &amp; \text{Multiply}.\,\, \\ \,\,\frac{{x}^{\prime }{}^{2}}{6}-\frac{4{y}^{\prime }{}^{2}}{15}=1 &amp; &amp; &amp; \text{Divide by 390}.\end{array}\]</p>
+<p><a href="#fig10">Figure 10</a> shows the graph of the hyperbola \(\frac{{{x}^{\prime }}^{2}}{6}-\frac{4{{y}^{\prime }}^{2}}{15}=1.\,\,\)</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_010.jpg" alt="A graph shows a hyperbola in a standard Cartesian x-y coordinate system. Two orange lines represent a rotated x'-y' coordinate system. The hyperbola's branches are aligned with the x' and -x' axes." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+</div></div></div>
+<h2 id="identifying-conics-without-rotating-axes">Identifying Conics without Rotating Axes</h2>
+<p>Now we have come full circle. How do we identify the type of conic described by an equation? What happens when the axes are rotated? Recall, the general form of a conic is</p>
+<p id="eq33">\[A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\]</p>
+<p>If we apply the rotation formulas to this equation we get the form</p>
+<p id="eq34">\[{A}^{\prime }{{x}^{\prime }}^{2}+{B}^{\prime }{x}^{\prime }{y}^{\prime }+{C}^{\prime }{{y}^{\prime }}^{2}+{D}^{\prime }{x}^{\prime }+{E}^{\prime }{y}^{\prime }+{F}^{\prime }=0\]</p>
+<p>It may be shown that \({B}^{2}-4AC={{B}^{\prime }}^{2}-4{A}^{\prime }{C}^{\prime }.\) The expression does not vary after rotation, so we call the expression invariant<strong>.</strong> The discriminant, \({B}^{2}-4AC,\) is invariant and remains unchanged after rotation. Because the discriminant remains unchanged, observing the discriminant enables us to identify the conic section.</p>
+<div class="card definition" id="fs-id1971164"><span class="chip">Using the Discriminant to Identify a Conic</span><p>If the equation \(A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\) is transformed by rotating axes into the equation \({A}^{\prime }{{x}^{\prime }}^{2}+{B}^{\prime }{x}^{\prime }{y}^{\prime }+{C}^{\prime }{{y}^{\prime }}^{2}+{D}^{\prime }{x}^{\prime }+{E}^{\prime }{y}^{\prime }+{F}^{\prime }=0,\) then \({B}^{2}-4AC={{B}^{\prime }}^{2}-4{A}^{\prime }{C}^{\prime }.\)</p>
+<p>The equation \(A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\) is an ellipse, a parabola, or a hyperbola, or a degenerate case of one of these.</p>
+<p>If the discriminant, \({B}^{2}-4AC,\) is</p>
+<ul class="tight"><li>\(&lt;0,\) the conic section is an ellipse</li><li>\(=0,\) the conic section is a parabola</li><li>\(&gt;0,\) the conic section is a hyperbola</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Identify the conic for each of the following without rotating axes.</p>
+<ul class="tight"><li>ⓐ \(5{x}^{2}+2\sqrt{3}xy+2{y}^{2}-5=0\)</li><li>ⓑ \(5{x}^{2}+2\sqrt{3}xy+12{y}^{2}-5=0\)</li></ul>
+</div><p class="sol-hint">Compute the discriminant \({B}^{2}-4AC\) for each equation to classify the conic without rotating.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ Let’s begin by determining \(A,B,\) and \(C.\) Now, we find the discriminant. Therefore, \(5{x}^{2}+2\sqrt{3}xy+2{y}^{2}-5=0\) represents an ellipse.<p id="eq35">\[\underbrace{5}_{A}{x}^{2}+\underbrace{2\sqrt{3}}_{B}xy+\underbrace{2}_{C}{y}^{2}-5=0\]</p>
+<p>Now, we find the discriminant.</p>
+<p id="eq36">\[\begin{array}{l}{B}^{2}-4AC={(2\sqrt{3})}^{2}-4(5)(2) \\ \,\,=4(3)-40 \\ \,\,=12-40 \\ \,\,=-28&lt;0\end{array}\]</p>
+<p>Therefore, \(5{x}^{2}+2\sqrt{3}xy+2{y}^{2}-5=0\) represents an ellipse.</p>
+</li><li>ⓑ Again, let’s begin by determining \(A,B,\) and \(C.\) Now, we find the discriminant. Therefore, \(5{x}^{2}+2\sqrt{3}xy+12{y}^{2}-5=0\) represents an ellipse.<p id="eq37">\[\underbrace{5}_{A}{x}^{2}+\underbrace{2\sqrt{3}}_{B}xy+\underbrace{12}_{C}{y}^{2}-5=0\]</p>
+<p>Now, we find the discriminant.</p>
+<p id="eq38">\[\begin{array}{l}{B}^{2}-4AC={(2\sqrt{3})}^{2}-4(5)(12) \\ \,\,=4(3)-240 \\ \,\,=12-240 \\ \,\,=-228&lt;0\end{array}\]</p>
+<p>Therefore, \(5{x}^{2}+2\sqrt{3}xy+12{y}^{2}-5=0\) represents an ellipse.</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Identify the conic for each of the following without rotating axes.</p>
+<ul class="tight"><li>ⓐ \({x}^{2}-9xy+3{y}^{2}-12=0\)</li><li>ⓑ \(10{x}^{2}-9xy+4{y}^{2}-4=0\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ hyperbola</li><li>ⓑ ellipse</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1951748"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with conic sections and rotation of axes.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/introconic" target="_blank" rel="noopener">Introduction to Conic Sections</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>General Form equation of a conic section</td><td>\(A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\)</td></tr><tr><td>Rotation of a conic section</td><td>\(\begin{array}{l}x={x}^{\prime }cos\,\,θ-{y}^{\prime }sin\,\,θ \\ y={x}^{\prime }sin\,\,θ+{y}^{\prime }cos\,\,θ\end{array}\)</td></tr><tr><td>Angle of rotation</td><td>\(θ,\text{where }cot(2θ)=\frac{A-C}{B}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Four basic shapes can result from the intersection of a plane with a pair of right circular cones connected tail to tail. They include an ellipse, a circle, a hyperbola, and a parabola.</li><li>A nondegenerate conic section has the general form \(A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0\) where \(A,B\) and \(C\) are not all zero. The values of \(A,B,\) and \(C\) determine the type of conic. See <a href="#example1">Example 1</a>.</li><li>Equations of conic sections with an \(xy\) term have been rotated about the origin. See <a href="#example2">Example 2</a>.</li><li>The general form can be transformed into an equation in the \({x}^{\prime }\) and \({y}^{\prime }\) coordinate system without the \({x}^{\prime }{y}^{\prime }\) term. See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a>.</li><li>An expression is described as invariant if it remains unchanged after rotating. Because the discriminant is invariant, observing it enables us to identify the conic section. See <a href="#example5">Example 5</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What effect does the \(xy\) term have on the graph of a conic section?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The \(xy\) term causes a rotation of the graph to occur.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>If the equation of a conic section is written in the form \(A{x}^{2}+B{y}^{2}+Cx+Dy+E=0\) and \(AB=0,\) what can we conclude?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>If the equation of a conic section is written in the form \(A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0,\) and \({B}^{2}-4AC&gt;0,\) what can we conclude?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The conic section is a hyperbola.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Given the equation \(a{x}^{2}+4x+3{y}^{2}-12=0,\) what can we conclude if \(a&gt;0?\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>For the equation \(A{x}^{2}+Bxy+C{y}^{2}+Dx+Ey+F=0,\) the value of \(θ\) that satisfies \(cot(2θ)=\frac{A-C}{B}\) gives us what information?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>It gives the angle of rotation of the axes in order to eliminate the \(xy\) term.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, determine which conic section is represented based on the given equation.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(9{x}^{2}+4{y}^{2}+72x+36y-500=0\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\({x}^{2}-10x+4y-10=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(AB=0,\) parabola</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(2{x}^{2}-2{y}^{2}+4x-6y-2=0\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(4{x}^{2}-{y}^{2}+8x-1=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(AB=-4&lt;0,\) hyperbola</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(4{y}^{2}-5x+9y+1=0\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(2{x}^{2}+3{y}^{2}-8x-12y+2=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(AB=6&gt;0,\) ellipse</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(4{x}^{2}+9xy+4{y}^{2}-36y-125=0\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(3{x}^{2}+6xy+3{y}^{2}-36y-125=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({B}^{2}-4AC=0,\) parabola</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(-3{x}^{2}+3\sqrt{3}xy-4{y}^{2}+9=0\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(2{x}^{2}+4\sqrt{3}xy+6{y}^{2}-6x-3=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({B}^{2}-4AC=0,\) parabola</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(-{x}^{2}+4\sqrt{2}xy+2{y}^{2}-2y+1=0\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(8{x}^{2}+4\sqrt{2}xy+4{y}^{2}-10x+1=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({B}^{2}-4AC=-96&lt;0,\) ellipse</p>
+</div></div></div></div>
+<p>For the following exercises, find a new representation of the given equation after rotating through the given angle.</p>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(3{x}^{2}+xy+3{y}^{2}-5=0,θ=45°\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(4{x}^{2}-xy+4{y}^{2}-2=0,θ=45°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(7{{x}^{\prime }}^{2}+9{{y}^{\prime }}^{2}-4=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(2{x}^{2}+8xy-1=0,θ=30°\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(-2{x}^{2}+8xy+1=0,θ=45°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3{{x}^{\prime }}^{2}+2{x}^{\prime }{y}^{\prime }-5{{y}^{\prime }}^{2}+1=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(4{x}^{2}+\sqrt{2}xy+4{y}^{2}+y+2=0,θ=45°\)</p>
+</div></div>
+<p>For the following exercises, determine the angle \(θ\) that will eliminate the \(xy\) term and write the corresponding equation without the \(xy\) term.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\({x}^{2}+3\sqrt{3}xy+4{y}^{2}+y-2=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ={60}^{∘},11{{x}^{\prime }}^{2}-{{y}^{\prime }}^{2}+\sqrt{3}{x}^{\prime }+{y}^{\prime }-4=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(4{x}^{2}+2\sqrt{3}xy+6{y}^{2}+y-2=0\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(9{x}^{2}-3\sqrt{3}xy+6{y}^{2}+4y-3=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ={-30}^{∘},21{{x}^{\prime }}^{2}+9{{y}^{\prime }}^{2}+4{x}^{\prime }-4\sqrt{3}{y}^{\prime }-6=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(-3{x}^{2}-\sqrt{3}xy-2{y}^{2}-x=0\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(16{x}^{2}+24xy+9{y}^{2}+6x-6y+2=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ\approx {36.9}^{∘},125{{x}^{\prime }}^{2}+6{x}^{\prime }-42{y}^{\prime }+10=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({x}^{2}+4xy+4{y}^{2}+3x-2=0\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({x}^{2}+4xy+{y}^{2}-2x+1=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ={45}^{∘},3{{x}^{\prime }}^{2}-{{y}^{\prime }}^{2}-\sqrt{2}{x}^{\prime }+\sqrt{2}{y}^{\prime }+1=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(4{x}^{2}-2\sqrt{3}xy+6{y}^{2}-1=0\)</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, rotate through the given angle based on the given equation. Give the new equation and graph the original and rotated equation.</p>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(y=-{x}^{2},θ=-{45}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2}}{2}({x}^{\prime }+{y}^{\prime })=\frac{1}{2}{({x}^{\prime }-{y}^{\prime })}^{2}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_201.jpg" alt="A coordinate plane displays two parabolas with their vertices at the origin. A blue parabola opens downwards, and an orange parabola opens to the left." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(x={y}^{2},θ={45}^{∘}\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(\frac{{x}^{2}}{4}+\frac{{y}^{2}}{1}=1,θ={45}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{({x}^{\prime }-{y}^{\prime })}^{2}}{8}+\frac{{({x}^{\prime }+{y}^{\prime })}^{2}}{2}=1\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_203.jpg" alt="A coordinate plane shows two intersecting ellipses. One is blue and appears more horizontally oriented, while the other is orange and appears more vertically oriented. Both are centered near the origin." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(\frac{{y}^{2}}{16}+\frac{{x}^{2}}{9}=1,θ={45}^{∘}\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\({y}^{2}-{x}^{2}=1,θ={45}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{({x}^{\prime }+{y}^{\prime })}^{2}}{2}-\frac{{({x}^{\prime }-{y}^{\prime })}^{2}}{2}=1\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_205.jpg" alt="A graph displays two hyperbolas centered at the origin on a Cartesian coordinate plane. One hyperbola, shown in orange, opens horizontally, while the other, in blue, opens vertically." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(y=\frac{{x}^{2}}{2},θ={30}^{∘}\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(x={(y-1)}^{2},θ={30}^{∘}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{3}}{2}{x}^{\prime }-\frac{1}{2}{y}^{\prime }={(\frac{1}{2}{x}^{\prime }+\frac{\sqrt{3}}{2}{y}^{\prime }-1)}^{2}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_207.jpg" alt="A graph displays two parabolas. The blue parabola opens to the right with its vertex at the origin (0,0). The orange parabola opens downwards with its vertex at (2,1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(\frac{{x}^{2}}{9}+\frac{{y}^{2}}{4}=1,θ={30}^{∘}\)</p>
+</div></div>
+<p>For the following exercises, graph the equation relative to the \({x}^{\prime }{y}^{\prime }\) system in which the equation has no \({x}^{\prime }{y}^{\prime }\) term.</p>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(xy=9\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_209.jpg" alt="This graph illustrates two hyperbolas rotated by 45 degrees. The blue hyperbola opens left and right, with vertices at ( 3 2 , 0) and (- 3 2 , 0). The orange hyperbola opens up and down, passing through (3, 3) and (-3, -3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\({x}^{2}+10xy+{y}^{2}-6=0\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\({x}^{2}-10xy+{y}^{2}-24=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_211.jpg" alt="A graph of a hyperbola rotated by 45 degrees. The x-axis and y-axis both range from -10 to 10. The vertices of the hyperbola are at (-2, 0) and (2, 0). The foci are indicated at (negative square root of 2 over 2, square root of 2 over 2) and (square root of 2 over 2, negative square root of 2 over 2). The rotation angle is labeled as theta = 45 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(4{x}^{2}-3\sqrt{3}xy+{y}^{2}-22=0\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(6{x}^{2}+2\sqrt{3}xy+4{y}^{2}-21=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_213.jpg" alt="Two ellipses are shown on a coordinate plane. The blue ellipse is centered at the origin, and the orange ellipse is rotated by 30 degrees. Their intersection points are labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(11{x}^{2}+10\sqrt{3}xy+{y}^{2}-64=0\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(21{x}^{2}+2\sqrt{3}xy+19{y}^{2}-18=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_215.jpg" alt="Two ellipses on a coordinate plane. Blue ellipse is axis-aligned with x-intercepts (+/- sqrt(9/16), 0). Orange ellipse is rotated 30 degrees, with points (-1/2, sqrt(3)/2) and (1/2, -sqrt(3)/2) labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(16{x}^{2}+24xy+9{y}^{2}-130x+90y=0\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(16{x}^{2}+24xy+9{y}^{2}-60x+80y=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_217.jpg" alt="Two parabolic paths, starting at (0,0), are plotted on an x-y plane. The blue path goes downwards, and the orange path moves right and down. An angle of 37° is indicated." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(13{x}^{2}-6\sqrt{3}xy+7{y}^{2}-16=0\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(4{x}^{2}-4xy+{y}^{2}-8\sqrt{5}x-16\sqrt{5}y=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_219.jpg" alt="A coordinate plane displays two parabolas starting at (0,0). The blue parabola opens along the positive x-axis. The orange parabola is rotated by an angle &amp;quot;theta&amp;quot; = 63 degrees." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, determine the angle of rotation in order to eliminate the \(xy\) term. Then graph the new set of axes.</p>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(6{x}^{2}-5\sqrt{3}xy+{y}^{2}+10x-12y=0\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(6{x}^{2}-5xy+6{y}^{2}+20x-y=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ={45}^{∘}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_221.jpg" alt="A graph on a Cartesian coordinate system shows the x-axis and y-axis, each ranging from -5 to 5. Two dashed lines are drawn, both passing through the origin. One dashed line is labeled y' and goes from top-left to bottom-right, representing the equation y = -x. The other dashed line is labeled x' and goes from bottom-left to top-right, representing the equation y = x. These dashed lines illustrate a rotation of the coordinate axes." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\(6{x}^{2}-8\sqrt{3}xy+14{y}^{2}+10x-3y=0\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(4{x}^{2}+6\sqrt{3}xy+10{y}^{2}+20x-40y=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ={60}^{∘}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_223.jpg" alt="A Cartesian coordinate system with original x and y axes and two dashed lines, x' and y', both passing through the origin. x' has a positive slope, and y' has a negative slope." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(8{x}^{2}+3xy+4{y}^{2}+2x-4=0\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(16{x}^{2}+24xy+9{y}^{2}+20x-44y=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ\approx {36.9}^{∘}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_04_225.jpg" alt="A graph illustrating two sets of coordinate axes, (x, y) and a rotated set (x', y'), both intersecting at the origin. The x' and y' axes are shown as dashed orange lines." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, determine the value of \(k\) based on the given equation.</p>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Given \(4{x}^{2}+kxy+16{y}^{2}+8x+24y-48=0,\) find \(k\) for the graph to be a parabola.</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Given \(2{x}^{2}+kxy+12{y}^{2}+10x-16y+28=0,\) find \(k\) for the graph to be an ellipse.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-4\sqrt{6}&lt;k&lt;4\sqrt{6}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Given \(3{x}^{2}+kxy+4{y}^{2}-6x+20y+128=0,\) find \(k\) for the graph to be a hyperbola.</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Given \(k{x}^{2}+8xy+8{y}^{2}-12x+16y+18=0,\) find \(k\) for the graph to be a parabola.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(k=2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>Given \(6{x}^{2}+12xy+k{y}^{2}+16x+10y+4=0,\) find \(k\) for the graph to be an ellipse.</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>angle of rotation</dt><dd>an acute angle formed by a set of axes rotated from the Cartesian plane where, if \(cot(2θ)&gt;0,\) then \(θ\) is between \((0°,45°);\) if \(cot(2θ)&lt;0,\) then \(θ\) is between \((45°,90°);\) and if \(cot(2θ)=0,\) then \(θ=45°\)</dd><dt>degenerate conic sections</dt><dd>any of the possible shapes formed when a plane intersects a double cone through the apex. Types of degenerate conic sections include a point, a line, and intersecting lines.</dd><dt>nondegenerate conic section</dt><dd>a shape formed by the intersection of a plane with a double right cone such that the plane does not pass through the apex; nondegenerate conics include circles, ellipses, hyperbolas, and parabolas</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

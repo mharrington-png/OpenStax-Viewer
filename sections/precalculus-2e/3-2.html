@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quadratic Functions · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Quadratic Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.2</span>Quadratic Functions</h1>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_001.jpg" alt="Satellite dishes." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — An array of satellite dishes. (credit: Matthew Colvin de Valle, Flickr)</figcaption></figure>
+<p>Curved antennas, such as the ones shown in <a href="#fig1">Figure 1</a>, are commonly used to focus microwaves and radio waves to transmit television and telephone signals, as well as satellite and spacecraft communication. The cross-section of the antenna is in the shape of a parabola, which can be described by a quadratic function.</p>
+<p>In this section, we will investigate quadratic functions, which frequently model problems involving area and projectile motion. Working with quadratic functions can be less complex than working with higher degree functions, so they provide a good opportunity for a detailed study of function behavior.</p>
+<h2 id="recognizing-characteristics-of-parabolas">Recognizing Characteristics of Parabolas</h2>
+<p>The graph of a quadratic function is a U-shaped curve called a <strong>parabola</strong>. One important feature of the graph is that it has an extreme point, called the <strong>vertex</strong>. If the parabola opens up, the vertex represents the lowest point on the graph, or the <strong>minimum value</strong> of the quadratic function. If the parabola opens down, the vertex represents the highest point on the graph, or the <strong>maximum value</strong>. In either case, the vertex is a turning point on the graph. The graph is also symmetric with a vertical line drawn through the vertex, called the <strong>axis of symmetry</strong>. These features are illustrated in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_002.jpg" alt="Graph of a parabola showing where the x and y intercepts, vertex, and axis of symmetry are." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>The <strong>y</strong>-intercept is the point at which the parabola crosses the <strong>y</strong>-axis. The <strong>x</strong>-intercepts are the points at which the parabola crosses the <strong>x</strong>-axis. If they exist, the <strong>x</strong>-intercepts represent the <strong>zeros</strong><strong>,</strong>or <strong>roots</strong>, of the quadratic function, the values of \(x\) at which \(y=0.\)</p>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Determine the vertex, axis of symmetry, zeros, and \(y\text{-}\) intercept of the parabola shown in <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_003.jpg" alt="Graph of a parabola with a vertex at (3, 1) and a y-intercept at (0, 7)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div><p class="sol-hint">Read the turning point off the graph for the vertex, then note where the curve crosses each axis.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The vertex is the turning point of the graph. We can see that the vertex is at \((3,1).\) Because this parabola opens upward, the axis of symmetry is the vertical line that intersects the parabola at the vertex. So the axis of symmetry is \(x=3.\) This parabola does not cross the \(x\text{-}\) axis, so it has no zeros. It crosses the \(y\text{-}\) axis at \((0,7)\) so this is the <strong>y</strong>-intercept.</p>
+</div></div></div>
+<h2 id="understanding-how-the-graphs-of-parabolas-are-related-to-their-quadratic-functions">Understanding How the Graphs of Parabolas are Related to Their Quadratic Functions</h2>
+<p>The <strong>general form</strong> <strong>of a quadratic function</strong>presents the function in the form</p>
+<p id="eq1">\[f(x)=a{x}^{2}+bx+c\]</p>
+<p>where \(a,b,\) and \(c\) are real numbers and \(a\ne 0.\) If \(a&gt;0,\) the parabola opens upward. If \(a&lt;0,\) the parabola opens downward. We can use the general form of a parabola to find the equation for the axis of symmetry.</p>
+<p>The axis of symmetry is defined by \(x=-\frac{b}{2a}.\) If we use the quadratic formula, \(x=\frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a},\) to solve \(a{x}^{2}+bx+c=0\) for the \(x\text{-}\) intercepts, or zeros, we find the value of \(x\) halfway between them is always \(x=-\frac{b}{2a},\) the equation for the axis of symmetry.</p>
+<p><a href="#fig4">Figure 4</a> represents the graph of the quadratic function written in general form as \(y={x}^{2}+4x+3.\) In this form, \(a=1,b=4,\) and \(c=3.\) Because \(a&gt;0,\) the parabola opens upward. The axis of symmetry is \(x=-\frac{4}{2(1)}=-2.\) This also makes sense because we can see from the graph that the vertical line \(x=-2\) divides the graph in half. The vertex always occurs along the axis of symmetry. For a parabola that opens upward, the vertex occurs at the lowest point on the graph, in this instance, \((-2,-1).\) The \(x\text{-}\) intercepts, those points where the parabola crosses the \(x\text{-}\) axis, occur at \((-3,0)\) and \((-1,0).\)</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_004.jpg" alt="Graph of a parabola showing where the x and y intercepts, vertex, and axis of symmetry are for the function y=x^2+4x+3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p>The <strong>standard form of a quadratic function</strong> presents the function in the form</p>
+<p id="eq2">\[f(x)=a{(x-h)}^{2}+k\]</p>
+<p>where \((h,\,k)\) is the vertex. Because the vertex appears in the standard form of the quadratic function, this form is also known as the <strong>vertex form of a quadratic function</strong>.</p>
+<p>As with the general form, if \(a&gt;0,\) the parabola opens upward and the vertex is a minimum. If \(a&lt;0,\) the parabola opens downward, and the vertex is a maximum. <a href="#fig5">Figure 5</a> represents the graph of the quadratic function written in standard form as \(y=-3{(x+2)}^{2}+4.\) Since \(x-h=x+2\) in this example, \(h=-2.\) In this form, \(a=-3,h=-2,\) and \(k=4.\) Because \(a&lt;0,\) the parabola opens downward. The vertex is at \((-2,\text{ 4}).\)</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_005.jpg" alt="Graph of a parabola showing where the x and y intercepts, vertex, and axis of symmetry are for the function y=-3(x+2)^2+4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<p>The standard form is useful for determining how the graph is transformed from the graph of \(y={x}^{2}.\) <a href="#fig6">Figure 6</a> is the graph of this basic function.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_006-13c7.jpg" alt="A graph of the equation y = x^2, showing a parabola opening upwards with its vertex at the origin (0,0). The x-axis spans from -4 to 4, and the y-axis from -1 to 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<p>If \(k&gt;0,\) the graph shifts upward, whereas if \(k&lt;0,\) the graph shifts downward. In <a href="#fig5">Figure 5</a>, \(k&gt;0,\) so the graph is shifted 4 units upward. If \(h&gt;0,\) the graph shifts toward the right and if \(h&lt;0,\) the graph shifts to the left. In <a href="#fig5">Figure 5</a>, \(h&lt;0,\) so the graph is shifted 2 units to the left. The magnitude of \(a\) indicates the stretch of the graph. If \(|a|&gt;1,\) the point associated with a particular \(x\text{-}\) value shifts farther from the <strong>x-</strong>axis, so the graph appears to become narrower, and there is a vertical stretch. But if \(|a|&lt;1,\) the point associated with a particular \(x\text{-}\) value shifts closer to the <strong>x-</strong>axis, so the graph appears to become wider, but in fact there is a vertical compression. In <a href="#fig5">Figure 5</a>, \(|a|&gt;1,\) so the graph becomes narrower.</p>
+<p>The standard form and the general form are equivalent methods of describing the same function. We can see this by expanding out the general form and setting it equal to the standard form.</p>
+<p id="eq3">\[\begin{array}{l}\,a{(x-h)}^{2}+k=a{x}^{2}+bx+c \\ a{x}^{2}-2ahx+(a{h}^{2}+k)=a{x}^{2}+bx+c\end{array}\]</p>
+<p>For the linear terms to be equal, the coefficients must be equal.</p>
+<p id="eq4">\[-2ah=b,\text{ so }h=-\frac{b}{2a}.\]</p>
+<p>This is the <strong>axis of symmetry</strong> we defined earlier. Setting the constant terms equal:</p>
+<p id="eq5">\[\begin{array}{l}a{h}^{2}+k=c \\ \,k=c-a{h}^{2} \\ \,=c-a(-\frac{b}{2a}{)}^{2} \\ \,=c-\frac{{b}^{2}}{4a}\end{array}\]</p>
+<p>In practice, though, it is usually easier to remember that <strong>k</strong> is the output value of the function when the input is \(h,\) so \(f(h)=k.\)</p>
+<div class="card definition" id="fs-id1165137749882"><span class="chip">Forms of Quadratic Functions</span><p>A quadratic function is a function of degree two. The graph of a <strong>quadratic function</strong> is a parabola. The <strong>general form of a quadratic function</strong> is \(f(x)=a{x}^{2}+bx+c\) where \(a,b,\) and \(c\) are real numbers and \(a\ne 0.\)</p>
+<p>The <strong>standard form of a quadratic function</strong> is \(f(x)=a{(x-h)}^{2}+k.\)</p>
+<p>The vertex \((h,k)\) is located at</p>
+<p id="eq6">\[h=-\frac{b}{2a},\,k=f(h)=f(\frac{-b}{2a}).\]</p>
+</div>
+<div class="card howto" id="fs-id1165131886746"><span class="chip">How To</span><p><strong>Given a graph of a quadratic function, write the equation of the function in general form.</strong></p>
+<ul class="tight"><li>Identify the horizontal shift of the parabola; this value is \(h.\) Identify the vertical shift of the parabola; this value is \(k.\)</li><li>Substitute the values of the horizontal and vertical shift for \(h\) and \(k.\) in the function \(f(x)=a{(x-h)}^{2}+k.\)</li><li>Substitute the values of any point, other than the vertex, on the graph of the parabola for \(x\) and \(f(x).\)</li><li>Solve for the stretch factor, \(|a|.\)</li><li>If the parabola opens up, \(a&gt;0.\) If the parabola opens down, \(a&lt;0\) since this means the graph was reflected about the \(x\text{-}\) axis.</li><li>Expand and simplify to write in general form.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Write an equation for the quadratic function \(g\) in <a href="#fig7">Figure 7</a> as a transformation of \(f(x)={x}^{2},\) and then expand the formula, and simplify terms to write the equation in general form.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_007.jpg" alt="Graph of a parabola with its vertex at (-2, -3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div><p class="sol-hint">Identify the horizontal and vertical shift from the vertex, then substitute another point on the graph to solve for the stretch factor \(a\).</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can see the graph of <strong>g</strong>is the graph of \(f(x)={x}^{2}\) shifted to the left 2 and down 3, giving a formula in the form \(g(x)=a{(x+2)}^{2}-3.\)</p>
+<p>Substituting the coordinates of a point on the curve, such as \((0,-1),\) we can solve for the stretch factor.</p>
+<p id="eq7">\[\begin{array}{l}-1=a{(0+2)}^{2}-3 \\ \,2=4a \\ \,a=\frac{1}{2}\end{array}\]</p>
+<p>In standard form, the algebraic model for this graph is \(g(x)=\frac{1}{2}{(x+2)}^{2}-3.\)</p>
+<p>To write this in general polynomial form, we can expand the formula and simplify terms.</p>
+<p id="eq8">\[\begin{array}{l}g(x)=\frac{1}{2}{(x+2)}^{2}-3 \\ \,=\frac{1}{2}(x+2)(x+2)-3 \\ \,=\frac{1}{2}({x}^{2}+4x+4)-3 \\ \,=\frac{1}{2}{x}^{2}+2x+2-3 \\ \,=\frac{1}{2}{x}^{2}+2x-1\end{array}\]</p>
+<p>Notice that the horizontal and vertical shifts of the basic graph of the quadratic function determine the location of the vertex of the parabola; the vertex is unaffected by stretches and compressions.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can check our work using the table feature on a graphing utility. First enter \(\text{Y1}=\frac{1}{2}{(x+2)}^{2}-3.\) Next, select \(\text{TBLSET,}\) then use \(\text{TblStart}=-6\) and \(\Delta \text{Tbl = 2,}\) and select \(\text{TABLE}\text{.}\) See <a href="#tab1">Table 1</a>.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>\(x\)</strong></td><td>–6</td><td>–4</td><td>–2</td><td>0</td><td>2</td></tr><tr><td><strong>\(y\)</strong></td><td>5</td><td>–1</td><td>–3</td><td>–1</td><td>5</td></tr></tbody></table></div>
+<p>The ordered pairs in the table correspond to points on the graph.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>A coordinate grid has been superimposed over the quadratic path of a basketball in <a href="#fig8">Figure 8</a>. Assume that the point (–4, 7) is the highest point of the basketball’s trajectory. Find an equation for the path of the ball. Does the shooter make the basket?</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_008-4690.jpg" alt="Stop motioned picture of a boy throwing a basketball into a hoop to show the parabolic curve it makes." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — (credit: modification of work by Dan Meyer)</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The path passes through the origin and has vertex at \((-4,\,7),\) so \((h)x=-\frac{7}{16}{(x+4)}^{2}+7.\) To make the shot, \(h(-7.5)\) would need to be about 4 but \(h(-7.5)\approx 1.64;\) he doesn’t make it.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto" id="fs-id1165135168275"><span class="chip">How To</span><p><strong>Given a quadratic function in general form, find the vertex of the parabola.</strong></p>
+<ul class="tight"><li>Identify \(a,\,b,\,\text{and}\,c.\)</li><li>Find \(h,\) the <strong>x</strong>-coordinate of the vertex, by substituting \(a\) and \(b\) into \(h=-\frac{b}{2a}.\)</li><li>Find \(k,\) the <strong>y</strong>-coordinate of the vertex, by evaluating \(k=f(h)=f(-\frac{b}{2a}).\)</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the vertex of the quadratic function \(f(x)=2{x}^{2}-6x+7.\) Rewrite the quadratic in standard form (vertex form).</p>
+</div><p class="sol-hint">Use \(h=-\frac{b}{2a}\) for the x-coordinate of the vertex, then evaluate \(f(h)\) for the y-coordinate.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The horizontal coordinate of the vertex will be at</p>
+<p id="eq9">\[\begin{array}{l}h=-\frac{b}{2a} \\ \,=-\frac{-6}{2(2)} \\ \,=\frac{6}{4} \\ \,=\frac{3}{2}\end{array}\]</p>
+<p>The vertical coordinate of the vertex will be at</p>
+<p id="eq10">\[\begin{array}{l}k=f(h) \\ \,=f(\frac{3}{2}) \\ \,=2{(\frac{3}{2})}^{2}-6(\frac{3}{2})+7 \\ \,=\frac{5}{2}\end{array}\]</p>
+<p>Rewriting into standard form, the stretch factor will be the same as the \(a\) in the original quadratic.</p>
+<p id="eq11">\[\begin{array}{l}f(x)=a{x}^{2}+bx+c \\ f(x)=2{x}^{2}-6x+7\end{array}\]</p>
+<p>Using the vertex to determine the shifts,</p>
+<p id="eq12">\[f(x)=2{(x-\frac{3}{2})}^{2}+\frac{5}{2}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>One reason we may want to identify the vertex of the parabola is that this point will inform us where the maximum or minimum value of the output occurs, \((k),\) and where it occurs, \((x).\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Given the equation \(g(x)=13+{x}^{2}-6x,\) write the equation in general form and then in standard form.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(g(x)={x}^{2}-6x+13\) in general form; \(g(x)={(x-3)}^{2}+4\) in standard form</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-the-domain-and-range-of-a-quadratic-function">Finding the Domain and Range of a Quadratic Function</h2>
+<p>Any number can be the input value of a quadratic function. Therefore, the domain of any quadratic function is all real numbers. Because parabolas have a maximum or a minimum point, the range is restricted. Since the vertex of a parabola will be either a maximum or a minimum, the range will consist of all <strong>y</strong>-values greater than or equal to the <strong>y</strong>-coordinate at the turning point or less than or equal to the <strong>y</strong>-coordinate at the turning point, depending on whether the parabola opens up or down.</p>
+<div class="card definition" id="fs-id1165135161405"><span class="chip">Domain and Range of a Quadratic Function</span><p>The domain of any <strong>quadratic function</strong> is all real numbers.</p>
+<p>The range of a quadratic function written in general form \(f(x)=a{x}^{2}+bx+c\) with a positive \(a\) value is \(f(x)\ge f(-\frac{b}{2a}),\) or \([f(-\frac{b}{2a}),\infty )\text{.}\)</p>
+<p>The range of a quadratic function written in general form with a negative \(a\) value is \(f(x)\le f(-\frac{b}{2a}),\) or \((-\infty ,f(-\frac{b}{2a})].\)</p>
+<p>The range of a quadratic function written in standard form \(f(x)=a{(x-h)}^{2}+k\) with a positive \(a\) value is \(f(x)\ge k;\) the range of a quadratic function written in standard form with a negative \(a\) value is \(f(x)\le k.\)</p>
+</div>
+<div class="card howto" id="fs-id1165135205144"><span class="chip">How To</span><p><strong>Given a quadratic function, find the domain and range.</strong></p>
+<ul class="tight"><li>Identify the domain of any quadratic function as all real numbers.</li><li>Determine whether \(a\) is positive or negative. If \(a\) is positive, the parabola has a minimum. If \(a\) is negative, the parabola has a maximum.</li><li>Determine the maximum or minimum value of the parabola, \(k.\)</li><li>If the parabola has a minimum, the range is given by \(f(x)\ge k,\) or \([k,\infty ).\) If the parabola has a maximum, the range is given by \(f(x)\le k,\) or \((-\infty ,k].\)</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the domain and range of \(f(x)=-5{x}^{2}+9x-1.\)</p>
+</div><p class="sol-hint">Find the vertex first — its y-coordinate is the maximum or minimum that bounds the range.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As with any quadratic function, the domain is all real numbers.</p>
+<p>Because \(a\) is negative, the parabola opens downward and has a maximum value. We need to determine the maximum value. We can begin by finding the \(x\text{-}\) value of the vertex.</p>
+<p id="eq13">\[\begin{array}{l}h=-\frac{b}{2a} \\ \,=-\frac{9}{2(-5)} \\ \,=\frac{9}{10}\end{array}\]</p>
+<p>The maximum value is given by \(f(h).\)</p>
+<p id="eq14">\[\begin{array}{l}f(\frac{9}{10})=-5{(\frac{9}{10})}^{2}+9(\frac{9}{10})-1 \\ \,=\frac{61}{20}\end{array}\]</p>
+<p>The range is \(f(x)\le \frac{61}{20},\) or \((-\infty ,\frac{61}{20}].\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the domain and range of \(f(x)=2{(x-\frac{4}{7})}^{2}+\frac{8}{11}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The domain is all real numbers. The range is \(f(x)\ge \frac{8}{11},\) or \([\frac{8}{11},\infty ).\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="determining-the-maximum-and-minimum-values-of-quadratic-functions">Determining the Maximum and Minimum Values of Quadratic Functions</h2>
+<p>The output of the quadratic function at the vertex is the maximum or minimum value of the function, depending on the orientation of the <strong>parabola</strong>. We can see the maximum and minimum values in <a href="#fig9">Figure 9</a>.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_009.jpg" alt="Two graphs where the first graph shows the maximum value for f(x)=(x-2)^2+1 which occurs at (2, 1) and the second graph shows the minimum value for g(x)=-(x+3)^2+4 which occurs at (-3, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+<p>There are many real-world scenarios that involve finding the maximum or minimum value of a quadratic function, such as applications involving area and revenue.</p>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>A backyard farmer wants to enclose a rectangular space for a new garden within her fenced backyard. She has purchased 80 feet of wire fencing to enclose three sides, and she will use a section of the backyard fence as the fourth side.</p>
+<ul class="tight"><li>ⓐ Find a formula for the area enclosed by the fence if the sides of fencing perpendicular to the existing fence have length \(L.\)</li><li>ⓑ What dimensions should she make her garden to maximize the enclosed area?</li></ul>
+</div><p class="sol-hint">Write the width in terms of the length using the fencing constraint, substitute into the area formula, then find the vertex of the resulting quadratic.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let’s use a diagram such as <a href="#fig10">Figure 10</a> to record the given information. It is also helpful to introduce a temporary variable, \(W,\) to represent the width of the garden and the length of the fence section parallel to the backyard fence.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_010.jpg" alt="Diagram of the garden and the backyard." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+<ul class="tight"><li>ⓐ We know we have only 80 feet of fence available, and \(L+W+L=80,\) or more simply, \(2L+W=80.\) This allows us to represent the width, \(W,\) in terms of \(L.\) Now we are ready to write an equation for the area the fence encloses. We know the area of a rectangle is length multiplied by width, so This formula represents the area of the fence in terms of the variable length \(L.\) The function, written in general form, is<p id="eq15">\[W=80-2L\]</p>
+<p>Now we are ready to write an equation for the area the fence encloses. We know the area of a rectangle is length multiplied by width, so</p>
+<p id="eq16">\[\begin{array}{l}\,A=LW=L(80-2L) \\ A(L)=80L-2{L}^{2}\end{array}\]</p>
+<p>This formula represents the area of the fence in terms of the variable length \(L.\) The function, written in general form, is</p>
+<p id="eq17">\[A(L)=-2{L}^{2}+80L.\]</p>
+</li><li>The quadratic has a negative leading coefficient, so the graph will open downward, and the vertex will be the maximum value for the area. In finding the vertex, we must be careful because the equation is not written in standard polynomial form with decreasing powers. This is why we rewrote the function in general form above. Since \(a\) is the coefficient of the squared term, \(a=-2,b=80,\) and \(c=0.\)</li></ul>
+<p>To find the vertex:</p>
+<p id="eq18">\[\begin{array}{lllll}h=-\frac{80}{2(-2)} &amp; &amp; &amp; &amp; k=A(20) \\ \,=20 &amp; &amp; \text{and} &amp; &amp; \,=80(20)-2{(20)}^{2} \\ &amp; &amp; &amp; &amp; \,=800\end{array}\]</p>
+<p>The maximum value of the function is an area of 800 square feet, which occurs when \(L=20\) feet. When the shorter sides are 20 feet, there is 40 feet of fencing left for the longer side. To maximize the area, she should enclose the garden so the two shorter sides have length 20 feet and the longer side parallel to the existing fence has length 40 feet.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This problem also could be solved by graphing the quadratic function. We can see where the maximum area occurs on a graph of the quadratic function in <a href="#fig11">Figure 11</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_011.jpg" alt="Graph of the parabolic function A(L)=-2L^2+80L, which the x-axis is labeled Length (L) and the y-axis is labeled Area (A). The vertex is at (20, 800)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+</div></div></div></div>
+<div class="card howto" id="fs-id1165133340409"><span class="chip">How To</span><p><strong>Given an application involving revenue, use a quadratic equation to find the maximum.</strong></p>
+<ul class="tight"><li>Write a quadratic equation for revenue.</li><li>Find the vertex of the quadratic equation.</li><li>Determine the <strong>y</strong>-value of the vertex.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>The unit price of an item affects its supply and demand. That is, if the unit price goes up, the demand for the item will usually decrease. For example, a local newspaper currently has 84,000 subscribers at a quarterly charge of $30. Market research has suggested that if the owners raise the price to $32, they would lose 5,000 subscribers. Assuming that subscriptions are linearly related to the price, what price should the newspaper charge for a quarterly subscription to maximize their revenue?</p>
+</div><p class="sol-hint">Find a linear relationship between price and subscribers first, then multiply by price to get a quadratic revenue function and find its vertex.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Revenue is the amount of money a company brings in. In this case, the revenue can be found by multiplying the price per subscription times the number of subscribers, or quantity. We can introduce variables, \(p\) for price per subscription and \(Q\) for quantity, giving us the equation \(\text{Revenue}=pQ.\)</p>
+<p>Because the number of subscribers changes with the price, we need to find a relationship between the variables. We know that currently \(p=30\) and \(Q=84,000.\) We also know that if the price rises to $32, the newspaper would lose 5,000 subscribers, giving a second pair of values, \(p=32\) and \(Q=79,000.\) From this we can find a linear equation relating the two quantities. The slope will be</p>
+<p id="eq19">\[\begin{array}{l}m=\frac{79,000-84,000}{32-30} \\ \,=\frac{-5,000}{2} \\ \,=-2,500\end{array}\]</p>
+<p>This tells us the paper will lose 2,500 subscribers for each dollar they raise the price. We can then solve for the <strong>y</strong>-intercept.</p>
+<p id="eq20">\[\begin{array}{ll}\,Q=-2500p+b &amp; \text{Substitute in the point }Q=84,000\text{ and }p=30 \\ 84,000=-2500(30)+b &amp; \text{Solve for }b \\ \,b=159,000 &amp; \end{array}\]</p>
+<p>This gives us the linear equation \(Q=-2,500p+159,000\) relating cost and subscribers. We now return to our revenue equation.</p>
+<p id="eq21">\[\begin{array}{l}\text{Revenue}=pQ \\ \text{Revenue}=p(-2,500p+159,000) \\ \text{Revenue}=-2,500{p}^{2}+159,000p\end{array}\]</p>
+<p>We now have a quadratic function for revenue as a function of the subscription charge. To find the price that will maximize revenue for the newspaper, we can find the vertex.</p>
+<p id="eq22">\[\begin{array}{l}h=-\frac{159,000}{2(-2,500)} \\ \,=31.8\end{array}\]</p>
+<p>The model tells us that the maximum revenue will occur if the newspaper charges $31.80 for a subscription. To find what the maximum revenue is, we evaluate the revenue function.</p>
+<p id="eq23">\[\begin{array}{l}\text{maximum revenue}=-2,500{(31.8)}^{2}+159,000(31.8) \\ \,=2,528,100\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This could also be solved by graphing the quadratic as in <a href="#fig12">Figure 12</a>. We can see the maximum revenue on a graph of the quadratic function.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_012.jpg" alt="Graph of the parabolic function which the x-axis is labeled Price (p) and the y-axis is labeled Revenue ($). The vertex is at (31.80, 258100)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+</div></div></div></div>
+<h3 id="finding-the-x-and-y-intercepts-of-a-quadratic-function">Finding the <strong>x</strong>- and <strong>y</strong>-Intercepts of a Quadratic Function</h3>
+<p>Much as we did in the application problems above, we also need to find intercepts of quadratic equations for graphing parabolas. Recall that we find the \(y\text{-}\) intercept of a quadratic by evaluating the function at an input of zero, and we find the \(x\text{-}\) intercepts at locations where the output is zero. Notice in <a href="#fig13">Figure 13</a> that the number of \(x\text{-}\) intercepts can vary depending upon the location of the graph.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_013.jpg" alt="Three graphs where the first graph shows a parabola with no x-intercept, the second is a parabola with one –intercept, and the third parabola is of two x-intercepts." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — Number of <strong>x</strong>-intercepts of a parabola</figcaption></figure>
+<div class="card howto" id="fs-id1165137464602"><span class="chip">How To</span><p><strong>Given a quadratic function \(f(x),\) find the \(y\text{-}\) and <strong>x</strong>-intercepts.</strong></p>
+<ul class="tight"><li>Evaluate \(f(0)\) to find the \(y\text{-}\) intercept.</li><li>Solve the quadratic equation \(f(x)=0\) to find the <strong>x</strong>-intercepts.</li></ul>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find the <strong>y</strong>- and <strong>x</strong>-intercepts of the quadratic \(f(x)=3{x}^{2}+5x-2.\)</p>
+</div><p class="sol-hint">Evaluate \(f(0)\) for the y-intercept, then factor (or use the quadratic formula) to solve \(f(x)=0\) for the x-intercepts.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We find the <strong>y</strong>-intercept by evaluating \(f(0).\)</p>
+<p id="eq24">\[\begin{array}{l}f(0)=3{(0)}^{2}+5(0)-2 \\ \,=-2\end{array}\]</p>
+<p>So the <strong>y</strong>-intercept is at \((0,-2).\)</p>
+<p>For the <strong>x</strong>-intercepts, we find all solutions of \(f(x)=0.\)</p>
+<p id="eq25">\[0=3{x}^{2}+5x-2\]</p>
+<p>In this case, the quadratic can be factored easily, providing the simplest method for solution.</p>
+<p id="eq26">\[0=(3x-1)(x+2)\]</p>
+<p id="eq27">\[\begin{array}{lllll}0=3x-1 &amp; &amp; &amp; &amp; 0=x+2 \\ x=\frac{1}{3} &amp; &amp; \text{or} &amp; &amp; x=-2\end{array}\]</p>
+<p>So the <strong>x</strong>-intercepts are at \((\frac{1}{3},0)\) and \((-2,0).\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>By graphing the function, we can confirm that the graph crosses the <strong>y</strong>-axis at \((0,-2).\) We can also confirm that the graph crosses the <strong>x</strong>-axis at \((\frac{1}{3},0)\) and \((-2,0).\) See <a href="#fig14">Figure 14</a></p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_014.jpg" alt="Graph of a parabola which has the following intercepts (-2, 0), (1/3, 0), and (0, -2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+</div></div></div></div>
+<h3 id="rewriting-quadratics-in-standard-form">Rewriting Quadratics in Standard Form</h3>
+<p>In <a href="#example7">Example 7</a>, the quadratic was easily solved by factoring. However, there are many quadratics that cannot be factored. We can solve these quadratics by first rewriting them in standard form.</p>
+<div class="card howto" id="fs-id1165133085664"><span class="chip">How To</span><p><strong>Given a quadratic function, find the \(x\text{-}\) intercepts by rewriting in standard form</strong>.</p>
+<ul class="tight"><li>Substitute \(a\) and \(b\) into \(h=-\frac{b}{2a}.\)</li><li>Substitute \(x=h\) into the general form of the quadratic function to find \(k.\)</li><li>Rewrite the quadratic in standard form using \(h\) and \(k.\)</li><li>Solve for when the output of the function will be zero to find the \(x\text{-}\) intercepts.</li></ul>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find the \(x\text{-}\) intercepts of the quadratic function \(f(x)=2{x}^{2}+4x-4.\)</p>
+</div><p class="sol-hint">Rewrite the function in standard (vertex) form first, then use the square root property to solve for the x-intercepts.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We begin by solving for when the output will be zero.</p>
+<p id="eq28">\[0=2{x}^{2}+4x-4\]</p>
+<p>Because the quadratic is not easily factorable in this case, we solve for the intercepts by first rewriting the quadratic in standard form.</p>
+<p id="eq29">\[f(x)=a{(x-h)}^{2}+k\]</p>
+<p>We know that \(a=2.\) Then we solve for \(h\) and \(k.\)</p>
+<p id="eq30">\[\begin{array}{llll}h=-\frac{b}{2a} &amp; &amp; &amp; k=f(-1) \\ \,=-\frac{4}{2(2)} &amp; &amp; &amp; \,=2{(-1)}^{2}+4(-1)-4 \\ \,=-1 &amp; &amp; &amp; \,=-6\end{array}\]</p>
+<p>So now we can rewrite in standard form.</p>
+<p id="eq31">\[f(x)=2{(x+1)}^{2}-6\]</p>
+<p>We can now solve for when the output will be zero.</p>
+<p id="eq32">\[\begin{array}{l}0=2{(x+1)}^{2}-6 \\ 6=2{(x+1)}^{2} \\ 3={(x+1)}^{2} \\ x+1=\pm \sqrt{3} \\ x=-1\pm \sqrt{3}\end{array}\]</p>
+<p>The graph has \(x\text{-}\) intercepts at \((-1-\sqrt{3},0)\) and \((-1+\sqrt{3},0).\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can check our work by graphing the given function on a graphing utility and observing the \(x\text{-}\) intercepts. See <a href="#fig15">Figure 15</a>.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_015.jpg" alt="Graph of a parabola which has the following x-intercepts (-2.732, 0) and (0.732, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>In a separate Try It, we found the standard and general form for the function \(g(x)=13+{x}^{2}-6x.\) Now find the <strong>y</strong>- and \(x\text{-}\) intercepts (if any).</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p><strong>y</strong>-intercept at (0, 13), No \(x\text{-}\) intercepts</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Solve \({x}^{2}+x+2=0.\)</p>
+</div><p class="sol-hint">Try the quadratic formula directly and check what happens under the square root.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Let’s begin by writing the quadratic formula: \(x=\frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a}.\)</p>
+<p>When applying the <strong>quadratic formula</strong>, we identify the coefficients \(a,\,b\text{ and }c.\) For the equation \({x}^{2}+x+2=0,\) we have \(a=1,\,b=1,\,\text{and}\,c=2.\) Substituting these values into the formula we have: <br></p>
+<p id="eq33">\[\begin{array}{l} \\ x=\frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a} \\ \,=\frac{-1\pm \sqrt{{1}^{2}-4\cdot 1\cdot (2)}}{2\cdot 1} \\ \,=\frac{-1\pm \sqrt{1-8}}{2} \\ \,=\frac{-1\pm \sqrt{-7}}{2} \\ \,=\frac{-1\pm i\sqrt{7}}{2}\end{array}\]</p>
+<p>The solutions to the equation are \(\frac{-1+i\sqrt{7}}{2}\) and \(\frac{-1-i\sqrt{7}}{2}\) or \(\frac{-1}{2}+\frac{i\sqrt{7}}{2}\) and \(\frac{-1}{2}-\frac{i\sqrt{7}}{2}.\)</p>
+</div></div></div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>A ball is thrown upward from the top of a 40 foot high building at a speed of 80 feet per second. The ball’s height above ground can be modeled by the equation \(H(t)=-16{t}^{2}+80t+40.\)</p>
+<ul class="tight"><li>ⓐ When does the ball reach the maximum height?</li><li>ⓑ What is the maximum height of the ball?</li><li>ⓒ When does the ball hit the ground?</li></ul>
+</div><p class="sol-hint">Find the vertex for the max-height parts, then use the quadratic formula (discarding the negative root) to find when the height is zero.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ The ball reaches the maximum height at the vertex of the parabola. The ball reaches a maximum height after 2.5 seconds.<p id="eq34">\[\begin{array}{l}\begin{array}{l} \\ h=-\frac{80}{2(-16)}\end{array} \\ \,=\frac{80}{32} \\ \,=\frac{5}{2} \\ \,=2.5\end{array}\]</p>
+<p>The ball reaches a maximum height after 2.5 seconds.</p>
+</li><li>ⓑ To find the maximum height, find the \(y\text{-}\) coordinate of the vertex of the parabola. The ball reaches a maximum height of 140 feet.<p id="eq35">\[\begin{array}{l}k=H(-\frac{b}{2a}) \\ \,=H(2.5) \\ \,=-16{(2.5)}^{2}+80(2.5)+40 \\ \,=140\end{array}\]</p>
+<p>The ball reaches a maximum height of 140 feet.</p>
+</li><li>ⓒ To find when the ball hits the ground, we need to determine when the height is zero, \(H(t)=0.\) We use the quadratic formula. Because the square root does not simplify nicely, we can use a calculator to approximate the values of the solutions. The second answer is outside the reasonable domain of our model, so we conclude the ball will hit the ground after about 5.458 seconds. See <a href="#fig16">Figure 16</a><p>We use the quadratic formula.</p>
+<p id="eq36">\[\begin{array}{l} \\ t=\frac{-80\pm \sqrt{{80}^{2}-4(-16)(40)}}{2(-16)} \\ \,=\frac{-80\pm \sqrt{8960}}{-32}\end{array}\]</p>
+<p>Because the square root does not simplify nicely, we can use a calculator to approximate the values of the solutions.</p>
+<p id="eq37">\[\begin{array}{l} \\ \\ \begin{array}{lll}t=\frac{-80-\sqrt{8960}}{-32}\approx 5.458 &amp; \text{or} &amp; t=\frac{-80+\sqrt{8960}}{-32}\approx -0.458\end{array}\end{array}\]</p>
+<p>The second answer is outside the reasonable domain of our model, so we conclude the ball will hit the ground after about 5.458 seconds. See <a href="#fig16">Figure 16</a></p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_016-e0fe.jpg" alt="Graph of a negative parabola where x goes from -1 to 6." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16</figcaption></figure>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>A rock is thrown upward from the top of a 112-foot high cliff overlooking the ocean at a speed of 96 feet per second. The rock’s height above ocean can be modeled by the equation \(H(t)=-16{t}^{2}+96t+112.\)</p>
+<ul class="tight"><li>ⓐ When does the rock reach the maximum height?</li><li>ⓑ What is the maximum height of the rock?</li><li>ⓒWhen does the rock hit the ocean?</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ 3 seconds</li><li>ⓑ 256 feet</li><li>ⓒ 7 seconds</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165137475325"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with quadratic equations.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/graphquadgen" target="_blank" rel="noopener">Graphing Quadratic Functions in General Form</a></li><li><a href="https://openstax.org/l/graphquadstan" target="_blank" rel="noopener">Graphing Quadratic Functions in Standard Form</a></li><li><a href="https://openstax.org/l/quadfuncrev" target="_blank" rel="noopener">Quadratic Function Review</a></li><li><a href="https://openstax.org/l/characterquad" target="_blank" rel="noopener">Characteristics of a Quadratic Function</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>general form of a quadratic function</td><td>\(f(x)=a{x}^{2}+bx+c\)</td></tr><tr><td>the quadratic formula</td><td>\(x=\frac{-b\pm \sqrt{{b}^{2}-4ac}}{2a}\)</td></tr><tr><td>standard form of a quadratic function</td><td>\(f(x)=a{(x-h)}^{2}+k\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A polynomial function of degree two is called a quadratic function.</li><li>The graph of a quadratic function is a parabola. A parabola is a U-shaped curve that can open either up or down.</li><li>The axis of symmetry is the vertical line passing through the vertex. The zeros, or \(x\text{-}\) intercepts, are the points at which the parabola crosses the \(x\text{-}\) axis. The \(y\text{-}\) intercept is the point at which the parabola crosses the \(y\text{-}\) axis. See <a href="#example1">Example 1</a>, <a href="#example7">Example 7</a>, and <a href="#example8">Example 8</a>.</li><li>Quadratic functions are often written in general form. Standard or vertex form is useful to easily identify the vertex of a parabola. Either form can be written from a graph. See <a href="#example2">Example 2</a>.</li><li>The vertex can be found from an equation representing a quadratic function. See <a href="#example3">Example 3</a><strong>.</strong></li><li>The domain of a quadratic function is all real numbers. The range varies with the function. See <a href="#example4">Example 4</a>.</li><li>A quadratic function’s minimum or maximum value is given by the \(y\text{-}\) value of the vertex.</li><li>The minimum or maximum value of a quadratic function can be used to determine the range of the function and to solve many kinds of real-world problems, including problems involving area and revenue. See <a href="#example5">Example 5</a> and <a href="#example6">Example 6</a>.</li><li>Some quadratic equations must be solved by using the quadratic formula. See <a href="#example9">Example 9</a>.</li><li>The vertex and the intercepts can be identified and interpreted to solve real-world problems. See <a href="#example10">Example 10</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Explain the advantage of writing a quadratic function in standard form.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>When written in that form, the vertex can be easily identified.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>How can the vertex of a parabola be used in solving real world problems?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Explain why the condition of \(a\ne 0\) is imposed in the definition of the quadratic function.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>If \(a=0\) then the function becomes a linear function.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>What is another name for the standard form of a quadratic function?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>What two algebraic methods can be used to find the horizontal intercepts of a quadratic function?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>If possible, we can use factoring. Otherwise, we can use the quadratic formula.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, rewrite the quadratic functions in vertex form and give the vertex.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(f(x)={x}^{2}-12x+32\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(g(x)={x}^{2}+2x-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(g(x)={(x+1)}^{2}-4,\) Vertex \((-1,-4)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(f(x)={x}^{2}-x\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(f(x)={x}^{2}+5x-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={(x+\frac{5}{2})}^{2}-\frac{33}{4},\) Vertex \((-\frac{5}{2},-\frac{33}{4})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(h(x)=2{x}^{2}+8x-10\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(k(x)=3{x}^{2}-6x-9\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=3{(x-1)}^{2}-12,\) Vertex \((1,-12)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(f(x)=2{x}^{2}-6x\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(f(x)=3{x}^{2}-5x-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=3{(x-\frac{5}{6})}^{2}-\frac{37}{12},\) Vertex \((\frac{5}{6},-\frac{37}{12})\)</p>
+</div></div></div></div>
+<p>For the following exercises, determine whether there is a minimum or maximum value to each quadratic function. Find the value and the axis of symmetry.</p>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(y(x)=2{x}^{2}+10x+12\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(f(x)=2{x}^{2}-10x+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Minimum is \(-\frac{17}{2}\) and occurs at \(\frac{5}{2}.\) Axis of symmetry is \(x=\frac{5}{2}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(f(x)=-{x}^{2}+4x+3\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x)=4{x}^{2}+x-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Minimum is \(-\frac{17}{16}\) and occurs at \(-\frac{1}{8}.\) Axis of symmetry is \(x=-\frac{1}{8}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(h(t)=-4{t}^{2}+6t-1\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(f(x)=\frac{1}{2}{x}^{2}+3x+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Minimum is \(-\frac{7}{2}\) and occurs at \(-3.\) Axis of symmetry is \(x=-3.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(f(x)=-\frac{1}{3}{x}^{2}-2x+3\)</p>
+</div></div>
+<p>For the following exercises, determine the domain and range of the quadratic function.</p>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(f(x)={(x-3)}^{2}+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain is \((-\infty ,\infty ).\) Range is \([2,\infty ).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(f(x)=-2{(x+3)}^{2}-6\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(f(x)={x}^{2}+6x+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain is \((-\infty ,\infty ).\) Range is \([-5,\infty ).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(f(x)=2{x}^{2}-4x+2\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(k(x)=3{x}^{2}-6x-9\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain is \((-\infty ,\infty ).\) Range is \([-12,\infty ).\)</p>
+</div></div></div></div>
+<p>For the following exercises, solve the equations over the complex numbers.</p>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({x}^{2}=-25\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\({x}^{2}=-8\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{2i\sqrt{2},-2i\sqrt{2}\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({x}^{2}+36=0\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({x}^{2}+27=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{3i\sqrt{3},-3i\sqrt{3}\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\({x}^{2}+2x+5=0\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\({x}^{2}-4x+5=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{2+i,2-i\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\({x}^{2}+8x+25=0\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\({x}^{2}-4x+13=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{2+3i,2-3i\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\({x}^{2}+6x+25=0\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\({x}^{2}-10x+26=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{5+i,5-i\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\({x}^{2}-6x+10=0\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(x(x-4)=20\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{2+2\sqrt{6},\,2-2\sqrt{6}\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(x(x-2)=10\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(2{x}^{2}+2x+5=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{-\frac{1}{2}+\frac{3}{2}i,\,-\frac{1}{2}-\frac{3}{2}i\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(5{x}^{2}-8x+5=0\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(5{x}^{2}+6x+2=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{-\frac{3}{5}+\frac{1}{5}i,\,-\frac{3}{5}-\frac{1}{5}i\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(2{x}^{2}-6x+5=0\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\({x}^{2}+x+2=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{-\frac{1}{2}+\frac{1}{2}i\sqrt{7},\,-\frac{1}{2}-\frac{1}{2}i\sqrt{7}\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\({x}^{2}-2x+4=0\)</p>
+</div></div>
+<p>For the following exercises, use the vertex \((h,k)\) and a point on the graph \((x,y)\) to find the general form of the equation of the quadratic function.</p>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\((h,k)=(2,0),(x,y)=(4,4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={x}^{2}-4x+4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\((h,k)=(-2,-1),(x,y)=(-4,3)\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\((h,k)=(0,1),(x,y)=(2,5)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={x}^{2}+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\((h,k)=(2,3),(x,y)=(5,12)\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\((h,k)=(-5,3),(x,y)=(2,9)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\frac{6}{49}{x}^{2}+\frac{60}{49}x+\frac{297}{49}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\((h,k)=(3,2),(x,y)=(10,1)\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\((h,k)=(0,1),(x,y)=(1,0)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-{x}^{2}+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\((h,k)=(1,0),(x,y)=(0,1)\)</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, sketch a graph of the quadratic function and give the vertex, axis of symmetry, and intercepts.</p>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(f(x)={x}^{2}-2x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_201.jpg" alt="Graph of f(x) = x^2-2x" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Vertex \((1,\,-1),\) Axis of symmetry is \(x=1.\) Intercepts are \((0,0),\,(2,0).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(f(x)={x}^{2}-6x-1\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(f(x)={x}^{2}-5x-6\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_203.jpg" alt="Graph of f(x)x^2-5x-6" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Vertex \((\frac{5}{2},\frac{-49}{4}),\) Axis of symmetry is \(x=\frac{5}{2},\) intercepts: \((6,0),(-1,0).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\(f(x)={x}^{2}-7x+3\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\(f(x)=-2{x}^{2}+5x-8\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_205.jpg" alt="Graph of f(x)=-2x^2+5x-8" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Vertex \((\frac{5}{4},\,-\frac{39}{8}),\) Axis of symmetry is \(x=\frac{5}{4}.\) Intercepts are \((0,\,-8).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\(f(x)=4{x}^{2}-12x-3\)</p>
+</div></div>
+<p>For the following exercises, write the equation for the graphed function.</p>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_207.jpg" alt="Graph of a positive parabola with a vertex at (2, -3) and y-intercept at (0, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={x}^{2}-4x+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_208.jpg" alt="Graph of a positive parabola with a vertex at (-1, 2) and y-intercept at (0, 3)" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_209.jpg" alt="Graph of a negative parabola with a vertex at (2, 7)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-2{x}^{2}+8x-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_210.jpg" alt="Graph of a negative parabola with a vertex at (-1, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_211n-2896.jpg" alt="Graph of a positive parabola with a vertex at (3, -1) and y-intercept at (0, 3.5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\frac{1}{2}{x}^{2}-3x+\frac{7}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_02_212.jpg" alt="Graph of a negative parabola with a vertex at (-2, 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, use the table of values that represent points on the graph of a quadratic function. By determining the vertex and axis of symmetry, find the general form of the equation of the quadratic function.</p>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td><strong>\(x\)</strong></td><td>–2</td><td>–1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(y\)</strong></td><td>5</td><td>2</td><td>1</td><td>2</td><td>5</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={x}^{2}+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td><strong>\(x\)</strong></td><td>–2</td><td>–1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(y\)</strong></td><td>1</td><td>0</td><td>1</td><td>4</td><td>9</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>\(x\)</strong></td><td>–2</td><td>–1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(y\)</strong></td><td>–2</td><td>1</td><td>2</td><td>1</td><td>–2</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=2-{x}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td><strong>\(x\)</strong></td><td>–2</td><td>–1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(y\)</strong></td><td>–8</td><td>–3</td><td>0</td><td>1</td><td>0</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td><strong>\(x\)</strong></td><td>–2</td><td>–1</td><td>0</td><td>1</td><td>2</td></tr><tr><td><strong>\(y\)</strong></td><td>8</td><td>2</td><td>0</td><td>2</td><td>8</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=2{x}^{2}\)</p>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a calculator to find the answer.</p>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>Graph on the same set of axes the functions \(f(x)={x}^{2},f(x)=2{x}^{2},\text{ and }f(x)=\frac{1}{3}{x}^{2}.\)</p>
+<p>What appears to be the effect of changing the coefficient?</p>
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><p>Graph on the same set of axes \(f(x)={x}^{2},f(x)={x}^{2}+2\) and \(f(x)={x}^{2},f(x)={x}^{2}+5\) and \(f(x)={x}^{2}-3.\) What appears to be the effect of adding a constant?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph is shifted up or down (a vertical shift).</p>
+</div></div></div></div>
+<div class="exercise" id="ex72"><div class="n">72</div><div class="body"><p>Graph on the same set of axes \(f(x)={x}^{2}\) , \(f(x)={(x-2)}^{2}\) , \(f{(x-3)}^{2}\) , \(\text{ and }f(x)={(x+4)}^{2}.\)</p>
+<p>What appears to be the effect of adding or subtracting those numbers?</p>
+</div></div>
+<div class="exercise" id="ex73"><div class="n">73</div><div class="body"><p>The path of an object projected at a 45 degree angle with initial velocity of 80 feet per second is given by the function \(h(x)=\frac{-32}{{(80)}^{2}}{x}^{2}+x\) where \(x\) is the horizontal distance traveled and \(h(x)\) is the height in feet. Use the <strong>TRACE</strong> feature of your calculator to determine the height of the object when it has traveled 100 feet away horizontally.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>50 feet</p>
+</div></div></div></div>
+<div class="exercise" id="ex74"><div class="n">74</div><div class="body"><p>A suspension bridge can be modeled by the quadratic function \(h(x)=.0001{x}^{2}\) with \(-2000\le x\le 2000\) where \(|x|\) is the number of feet from the center and \(h(x)\) is height in feet. Use the TRACE feature of your calculator to estimate how far from the center does the bridge have a height of 100 feet.</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, use the vertex of the graph of the quadratic function and the direction the graph opens to find the domain and range of the function.</p>
+<div class="exercise" id="ex75"><div class="n">75</div><div class="body"><p>Vertex \((1,-2),\) opens up.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain is \((-\infty ,\infty ).\) Range is \([-2,\infty ).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex76"><div class="n">76</div><div class="body"><p>Vertex \((-1,2)\) opens down.</p>
+</div></div>
+<div class="exercise" id="ex77"><div class="n">77</div><div class="body"><p>Vertex \((-5,11),\) opens down.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain is \((-\infty ,\infty )\) Range is \((-\infty ,11].\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex78"><div class="n">78</div><div class="body"><p>Vertex \((-100,100),\) opens up.</p>
+</div></div>
+<p>For the following exercises, write the equation of the quadratic function that contains the given point and has the same shape as the given function.</p>
+<div class="exercise" id="ex79"><div class="n">79</div><div class="body"><p>Contains \((1,1)\) and has shape of \(f(x)=2{x}^{2}.\) Vertex is on the \(y\text{-}\) axis.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=2{x}^{2}-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex80"><div class="n">80</div><div class="body"><p>Contains \((-1,4)\) and has the shape of \(f(x)=2{x}^{2}.\) Vertex is on the \(y\text{-}\) axis.</p>
+</div></div>
+<div class="exercise" id="ex81"><div class="n">81</div><div class="body"><p>Contains \((2,3)\) and has the shape of \(f(x)=3{x}^{2}.\) Vertex is on the \(y\text{-}\) axis.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=3{x}^{2}-9\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex82"><div class="n">82</div><div class="body"><p>Contains \((1,-3)\) and has the shape of \(f(x)=-{x}^{2}.\) Vertex is on the \(y\text{-}\) axis.</p>
+</div></div>
+<div class="exercise" id="ex83"><div class="n">83</div><div class="body"><p>Contains \((4,3)\) and has the shape of \(f(x)=5{x}^{2}.\) Vertex is on the \(y\text{-}\) axis.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=5{x}^{2}-77\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex84"><div class="n">84</div><div class="body"><p>Contains \((1,-6)\) has the shape of \(f(x)=3{x}^{2}.\) Vertex has x-coordinate of \(-1.\)</p>
+</div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex85"><div class="n">85</div><div class="body"><p>Find the dimensions of the rectangular corral producing the greatest enclosed area given 200 feet of fencing.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>50 feet by 50 feet. Maximize \(f(x)=-{x}^{2}+100x.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex86"><div class="n">86</div><div class="body"><p>Find the dimensions of the rectangular corral split into 2 pens of the same size producing the greatest possible enclosed area given 300 feet of fencing.</p>
+</div></div>
+<div class="exercise" id="ex87"><div class="n">87</div><div class="body"><p>Find the dimensions of the rectangular corral producing the greatest enclosed area split into 3 pens of the same size given 500 feet of fencing.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>125 feet by 62.5 feet. Maximize \(f(x)=-2{x}^{2}+250x.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex88"><div class="n">88</div><div class="body"><p>Among all of the pairs of numbers whose sum is 6, find the pair with the largest product. What is the product?</p>
+</div></div>
+<div class="exercise" id="ex89"><div class="n">89</div><div class="body"><p>Among all of the pairs of numbers whose difference is 12, find the pair with the smallest product. What is the product?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(6\) and \(-6;\) product is –36; maximize \(f(x)={x}^{2}+12x.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex90"><div class="n">90</div><div class="body"><p>Suppose that the price per unit in dollars of a cell phone production is modeled by \(p=\$45-0.0125x,\) where \(x\) is in thousands of phones produced, and the revenue represented by thousands of dollars is \(R=x\cdot p.\) Find the production level that will maximize revenue.</p>
+</div></div>
+<div class="exercise" id="ex91"><div class="n">91</div><div class="body"><p>A rocket is launched in the air. Its height, in meters above sea level, as a function of time, in seconds, is given by \(h(t)=-4.9{t}^{2}+229t+234.\) Find the maximum height the rocket attains.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2909.56 meters</p>
+</div></div></div></div>
+<div class="exercise" id="ex92"><div class="n">92</div><div class="body"><p>A ball is thrown in the air from the top of a building. Its height, in meters above ground, as a function of time, in seconds, is given by \(h(t)=-4.9{t}^{2}+24t+8.\) How long does it take to reach maximum height?</p>
+</div></div>
+<div class="exercise" id="ex93"><div class="n">93</div><div class="body"><p>A soccer stadium holds 62,000 spectators. With a ticket price of $11, the average attendance has been 26,000. When the price dropped to $9, the average attendance rose to 31,000. Assuming that attendance is linearly related to ticket price, what ticket price would maximize revenue?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>$10.70</p>
+</div></div></div></div>
+<div class="exercise" id="ex94"><div class="n">94</div><div class="body"><p>A farmer finds that if she plants 75 trees per acre, each tree will yield 20 bushels of fruit. She estimates that for each additional tree planted per acre, the yield of each tree will decrease by 3 bushels. How many trees should she plant per acre to maximize her harvest?</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>axis of symmetry</dt><dd>a vertical line drawn through the vertex of a parabola around which the parabola is symmetric; it is defined by \(x=-\frac{b}{2a}.\)</dd><dt>general form of a quadratic function</dt><dd>the function that describes a parabola, written in the form \(f(x)=a{x}^{2}+bx+c,\) where \(a,b,\) and \(c\) are real numbers and \(a\ne 0.\)</dd><dt>standard form of a quadratic function</dt><dd>the function that describes a parabola, written in the form \(f(x)=a{(x-h)}^{2}+k,\) where \((h,\,k)\) is the vertex.</dd><dt>vertex</dt><dd>the point at which a parabola changes direction, corresponding to the minimum or maximum value of the quadratic function</dd><dt>vertex form of a quadratic function</dt><dd>another name for the standard form of a quadratic function</dd><dt>zeros</dt><dd>in a given function, the values of \(x\) at which \(y=0,\) also called roots</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

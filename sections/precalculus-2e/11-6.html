@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Binomial Theorem · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Binomial Theorem</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 11.6</span>Binomial Theorem</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Use Pascal’s Triangle to expand a binomial. (IA 12.4.1)</li></ul>
+<h3 id="objective-1-use-pascal-s-triangle-to-expand-a-binomial-ia-12-4-1">Objective 1: Use Pascal’s Triangle to expand a binomial. (IA 12.4.1)</h3>
+<p>Pascal’s triangle helps us find the coefficients of the terms in the expansion of a binomial.</p>
+<p>To find the coefficients of the terms, we write our expansion again focusing on the coefficients. We rewrite the coefficients to the right forming an array of coefficients. The array to the right is called <strong>Pascal’s Triangle</strong>.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/9_6_1.jpg" alt="A plus b to the power of 0 equals 1. The top level of Pascal’s Triangle is 1. A plus b to the power of 1 equals 1 a plus 1 b. The second level of Pascal’s Triangle is 1, 1. A plus b to the power of 2 equals 1 a to the power of 2 plus 2 a b plus 1 b to the power of 2. The third level of Pascal’s Triangle is 1, 2, 1. A plus b to the power of 3 equals 1 a to the power of 3 plus 3 a to the power of 2 b plus 3 a b to the power of 2 plus 1 b to the power of 3. The fourth level of Pascal’s Triangle is 1,3,3,1. A plus b to the power of 4 equals 1 a to the power of 4 plus 4 a to the power of 3 b plus 6 a to the power of 2 b to the power of 2 plus 4 a b to the power of 3 plus 1 b to the power of 4. The fifth level of Pascal’s Triangle is 1, 4, 6, 4, 1. A plus b to the power of 5 equals 1 a to the power of 5 plus 5 a to the power of 4 b plus 10 a to the power of 3 b to the power of 2 plus 10 a to the power of 2 b to the power of 3. The sixth row of the Pascal’s Triangle is 1, 5, 10, 10, 5, 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Notice that in each expansion the powers of <strong>a</strong> in each term decrease from <strong>n</strong> to 0, and the powers of <strong>b</strong> increase from 0 to <strong>n</strong>.</p>
+<p>Notice each number in the array is the sum of the two closest numbers in the row above. We can find the next row by starting and ending with one and then adding two adjacent numbers.</p>
+<p>To find the coefficients of the expansion of the binomial \({(a+b)}^{n}\) , go to the row that has the value n as a second entry.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/9_6_2.jpg" alt="This figure shows Pascal’s Triangle. The first level is 1. The second level is 1, 1. The third level is 1, 2, 1. The fourth level is 1, 3, 3, 1. The fifth level is 1, 4, 6, 4, 1. The sixth level is 1, 5, 10, 10, 5, 1. The seventh level is 1, 6, 15, 20, 15, 6, 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Use Pascal’s Triangle to expand \({(x+y)}^{6}\) .</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Go to Pascal’s Triangle and read off the coefficients from the row whose second entry is 6.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_001-01.jpg" alt="The image displays Pascal's Triangle, a triangular array of binomial coefficients. The first seven rows are shown, with the numbers in the last row (1, 6, 15, 20, 15, 6, 1) highlighted in red. Each number in the triangle is the sum of the two numbers directly above it, and the rows represent the coefficients of binomial expansions." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the expansion with the coefficients.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_001-02.jpg" alt="The image displays the binomial expansion of (x+y)^6, with the numerical coefficients (1, 6, 15, 20, 15, 6, 1) filled in from Pascal's triangle. Underscores indicate the missing variable terms for each part of the expansion. The full expansion should be x^6 + 6x^5y + 15x^4y^2 + 20x^3y^3 + 15x^2y^4 + 6xy^5 + y^6." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Fill in the variable with the power of x decreasing from 6 to 0, and the power of y increasing from 0 to 6.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_001-03.jpg" alt="The image displays the binomial expansion of (x+y)^6, which equals 1x^6 + 6x^5y^1 + 15x^4y^2 + 20x^3y^3 + 15x^2y^4 + 6x^1y^5 + 1y^6. The coefficients of the expansion are highlighted in red and underlined." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Binomial expansion of \({(x+y)}^{6}\) .</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_001-04.jpg" alt="The image shows the binomial expansion of (x+y) raised to the power of 6, which equals x^6 + 6x^5y^1 + 15x^4y^2 + 20x^3y^3 + 15x^2y^4 + 6x^1y^5 + y^6." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><div class="ex-body"><p>Use Pascal’s Triangle to expand \({(x+3)}^{5}\) .</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><br>Go to Pascal’s Triangle and read off the coefficients from the row whose second entry is 5.<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_002-06.jpg" alt="Two binomial expressions: the general form (a+b)^n in red, and a specific application (x+3)^5 in black, demonstrating the binomial expansion concept." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_002-01.jpg" alt="An illustration of Pascal's Triangle, a triangular array of binomial coefficients, with the fifth row (1 5 10 10 5 1) highlighted in red. Each number is the sum of the two directly above it." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the expansion with the coefficients.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_002-05.jpg" alt="A mathematical expression displays the binomial expansion of (x+3) to the power of 5, showing the coefficients 1, 5, 10, 10, 5, and 1, with blank spaces for the variable terms." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Fill in the variable with the power of x decreasing from 5 to 0, and the power of 3 increasing from 0 to 5.</td><td><br><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_002-02.jpg" alt="The binomial expansion of (x+3)⁵, showing the sum of terms where each term consists of a binomial coefficient (highlighted in red), a decreasing power of x, and an increasing power of 3. The coefficients are 1, 5, 10, 10, 5, 1, corresponding to Pascal's triangle for n=5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_002-03.jpg" alt="A mathematical equation illustrating the binomial expansion of (x + 3)^5. The expansion shows coefficients (1, 5, 10, 10, 5, 1) in red, multiplied by decreasing powers of 'x' and increasing powers of '3'." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Binomial expansion of \({(x+3)}^{5}\) .</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_002-04.jpg" alt="The image shows the mathematical equation representing the binomial expansion of (x+3) to the power of 5, which is equal to x^5 + 15x^4 + 90x^3 + 270x^2 + 405x^1 + 243." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 3</span><span class="t"></span></div><div class="ex-body"><p>Use Pascal’s Triangle to expand \({(3x-2)}^{4}\) .</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td><br>Go to Pascal’s Triangle and read off the coefficients from the row whose second entry is 4.<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_003-02.jpg" alt="The image displays two mathematical expressions: the general form of a binomial expansion, (a + b)^n, and a specific example, (3x - 2)^4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_003-01.jpg" alt="Pascal's triangle displaying binomial coefficients, where each number is the sum of the two directly above it. The fifth row (1, 4, 6, 4, 1) is highlighted." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Write the expansion with the coefficients.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_003-03.jpg" alt="An algebraic expression showing the partial binomial expansion of (3x - 2)^4, with the coefficients 1, 4, 6, 4, 1 from Pascal's triangle highlighted in red." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Fill in the variable with the power of (3x) decreasing from 4 to 0, and the power of (-2) increasing from 0 to 4.</td><td><br><br><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_003-04.jpg" alt="The image shows the mathematical identity (3x - 2) raised to the power of 4, which is expressed as being equal to the sum of (3x) and (-2), all raised to the power of 4. This demonstrates rewriting a subtraction within parentheses as an addition of a negative number." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_003-05.jpg" alt="The image shows the binomial expansion of the expression (3x - 2)^4. It illustrates the application of the binomial theorem using the coefficients from Pascal's triangle (1, 4, 6, 4, 1) and demonstrating the decreasing powers of (3x) and increasing powers of (-2) for each term." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_003-06.jpg" alt="The image displays the binomial expansion of (3x - 2)^4. It shows the application of the binomial theorem with coefficients 1, 4, 6, 4, 1 (in red) multiplied by the corresponding terms." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Binomial expansion of \({(3x-2)}^{4}\) .</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_06_003-07.jpg" alt="The image displays the binomial expansion of (3x - 2) raised to the power of 4, showing it equals 81x^4 - 216x^3 + 216x^2 - 96x + 16." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Use Pascal’s Triangle to expand a binomial.</p>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>Use Pascal’s Triangle to expand \({(a+b)}^{4}\) .</p>
+</div></div>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>Use Pascal’s Triangle to expand \({(y+3)}^{5}\) .</p>
+</div></div>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>Use Pascal’s Triangle to expand \({(2x-5)}^{3}\) .</p>
+</div></div>
+</div></details>
+<p>A polynomial with two terms is called a binomial. We have already learned to multiply binomials and to raise binomials to powers, but raising a binomial to a high power can be tedious and time-consuming. In this section, we will discuss a shortcut that will allow us to find \({(x+y)}^{n}\) without multiplying the binomial by itself \(n\) times.</p>
+<h2 id="identifying-binomial-coefficients">Identifying Binomial Coefficients</h2>
+<p>In Counting Principles, we studied <strong>combinations</strong>. In the shortcut to finding \({(x+y)}^{n},\) we will need to use combinations to find the coefficients that will appear in the expansion of the binomial. In this case, we use the notation \((\begin{array}{l}n \\ r\end{array})\) instead of \(C(n,r),\) but it can be calculated in the same way. So</p>
+<p id="eq1">\[(\begin{array}{l}n \\ r\end{array})=C(n,r)=\frac{n!}{r!(n-r)!}\]</p>
+<p>The combination \((\begin{array}{l}n \\ r\end{array})\) is called a <strong>binomial coefficient</strong>. An example of a binomial coefficient is \((\begin{array}{l}5 \\ 2\end{array})=C(5,2)=10.\)</p>
+<div class="card definition" id="fs-id1165137482950"><span class="chip">Binomial Coefficients</span><p>If \(n\) and \(r\) are integers greater than or equal to 0 with \(n\ge r,\) then the <strong>binomial coefficient</strong> is</p>
+<p id="eq2">\[(\begin{array}{l}n \\ r\end{array})=C(n,r)=\frac{n!}{r!(n-r)!}\]</p>
+</div>
+<div class="card qa" id="fs-id1165135174912"><span class="chip">Q&amp;A</span><p><strong>Is a binomial coefficient always a whole number?</strong></p>
+<p><strong>Yes. Just as the number of combinations must always be a whole number, a binomial coefficient will always be a whole number.</strong></p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find each binomial coefficient.</p>
+<ul class="tight"><li>ⓐ \((\begin{array}{l}5 \\ 3\end{array})\)</li><li>ⓑ \((\begin{array}{l}9 \\ 2\end{array})\)</li><li>ⓒ \((\begin{array}{l}9 \\ 7\end{array})\)</li></ul>
+</div><p class="sol-hint">Use the formula \(\binom{n}{r}=\frac{n!}{r!(n-r)!}\) for each pair of values.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Use the formula to calculate each binomial coefficient. You can also use the \(n{C}_{r}\) function on your calculator.</p>
+<p id="eq3">\[(\begin{array}{l}n \\ r\end{array})=C(n,r)=\frac{n!}{r!(n-r)!}\]</p>
+<ul class="tight"><li>ⓐ \((\begin{array}{l}5 \\ 3\end{array})=\frac{5!}{3!(5-3)!}=\frac{5\cdot 4\cdot 3!}{3!2!}=10\)</li><li>ⓑ \((\begin{array}{l}9 \\ 2\end{array})=\frac{9!}{2!(9-2)!}=\frac{9\cdot 8\cdot 7!}{2!7!}=36\)</li><li>ⓒ \((\begin{array}{l}9 \\ 7\end{array})=\frac{9!}{7!(9-7)!}=\frac{9\cdot 8\cdot 7!}{7!2!}=36\)</li></ul>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice that we obtained the same result for parts (b) and (c). If you look closely at the solution for these two parts, you will see that you end up with the same two factorials in the denominator, but the order is reversed, just as with combinations.</p>
+<p id="eq4">\[(\begin{array}{l}n \\ r\end{array})=(\begin{array}{l}n \\ n-r\end{array})\]</p>
+</div></div></div></div>
+<p>Find each binomial coefficient.</p>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><ul class="tight"><li>ⓐ \((\begin{array}{l}7 \\ 3\end{array})\)</li><li>ⓑ \((\begin{array}{l}11 \\ 4\end{array})\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ35</li><li>ⓑ330</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-the-binomial-theorem">Using the Binomial Theorem</h2>
+<p>When we expand \({(x+y)}^{n}\) by multiplying, the result is called a <strong>binomial expansion</strong>, and it includes binomial coefficients. If we wanted to expand \({(x+y)}^{52},\) we might multiply \((x+y)\) by itself fifty-two times. This could take hours! If we examine some simple binomial expansions, we can find patterns that will lead us to a shortcut for finding more complicated binomial expansions.</p>
+<p id="eq5">\[\begin{array}{l}{(x+y)}^{2}={x}^{2}+2xy+{y}^{2} \\ {(x+y)}^{3}={x}^{3}+3{x}^{2}y+3x{y}^{2}+{y}^{3} \\ {(x+y)}^{4}={x}^{4}+4{x}^{3}y+6{x}^{2}{y}^{2}+4x{y}^{3}+{y}^{4}\end{array}\]</p>
+<p>First, let’s examine the exponents. With each successive term, the exponent for \(x\) decreases and the exponent for \(y\) increases. The sum of the two exponents is \(n\) for each term.</p>
+<p>Next, let’s examine the coefficients. Notice that the coefficients increase and then decrease in a symmetrical pattern. The coefficients follow a pattern:</p>
+<p id="eq6">\[(\begin{array}{l}n \\ 0\end{array}),(\begin{array}{l}n \\ 1\end{array}),(\begin{array}{l}n \\ 2\end{array}),...,(\begin{array}{l}n \\ n\end{array}).\]</p>
+<p>These patterns lead us to the <strong>Binomial Theorem</strong>, which can be used to expand any binomial.</p>
+<p id="eq7">\[\begin{array}{ll}{(x+y)}^{n} &amp; =∑k=0n(\begin{array}{l}n \\ k\end{array}){x}^{n-k}{y}^{k} \\ &amp; ={x}^{n}+(\begin{array}{l}n \\ 1\end{array}){x}^{n-1}y+(\begin{array}{l}n \\ 2\end{array}){x}^{n-2}{y}^{2}+...+(\begin{array}{l}n \\ n-1\end{array})x{y}^{n-1}+{y}^{n}\end{array}\]</p>
+<p>Another way to see the coefficients is to examine the expansion of a binomial in general form, \(x+y,\) to successive powers 1, 2, 3, and 4.</p>
+<p id="eq8">\[\begin{array}{l}{(x+y)}^{1}=x+y \\ {(x+y)}^{2}={x}^{2}+2xy+{y}^{2} \\ {(x+y)}^{3}={x}^{3}+3{x}^{2}y+3x{y}^{2}+{y}^{3} \\ {(x+y)}^{4}={x}^{4}+4{x}^{3}y+6{x}^{2}{y}^{2}+4x{y}^{3}+{y}^{4}\end{array}\]</p>
+<p>Can you guess the next expansion for the binomial \({(x+y)}^{5}?\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_06_002.jpg" alt="Graph of the function f_2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<p>See <a href="#fig1">Figure 1</a>, which illustrates the following:</p>
+<ul class="tight"><li>There are \(n+1\) terms in the expansion of \({(x+y)}^{n}.\)</li><li>The degree (or sum of the exponents) for each term is \(n.\)</li><li>The powers on \(x\) begin with \(n\) and decrease to 0.</li><li>The powers on \(y\) begin with 0 and increase to \(n.\)</li><li>The coefficients are symmetric.</li></ul>
+<p>To determine the expansion on \({(x+y)}^{5},\) we see \(n=5,\) thus, there will be 5+1 = 6 terms. Each term has a combined degree of 5. In descending order for powers of \(x,\) the pattern is as follows:</p>
+<ul class="tight"><li>Introduce \({x}^{5},\) and then for each successive term reduce the exponent on \(x\) by 1 until \({x}^{0}=1\) is reached.</li><li>Introduce \({y}^{0}=1,\) and then increase the exponent on \(y\) by 1 until \({y}^{5}\) is reached.<p id="eq9">\[{x}^{5},\,\,{x}^{4}y,\,\,{x}^{3}{y}^{2},\,\,{x}^{2}{y}^{3},\,\,x{y}^{4},\,\,{y}^{5}\]</p>
+</li></ul>
+<p>The next expansion would be</p>
+<p id="eq10">\[{(x+y)}^{5}={x}^{5}+5{x}^{4}y+10{x}^{3}{y}^{2}+10{x}^{2}{y}^{3}+5x{y}^{4}+{y}^{5}.\]</p>
+<p>But where do those coefficients come from? The binomial coefficients are symmetric. We can see these coefficients in an array known as <strong>Pascal's Triangle</strong>, shown in <a href="#fig2">Figure 2</a>. Pascal didn't invent the triangle. The underlying principles had been developed and written about for over 1500 years, first by the Indian mathematician (and poet) Pingala in the second century BCE. Others throughout Asia and Europe worked with the concepts throughout, and the triangle was first published in its graphical form by Omar Khayyam, an Iranian mathematician and astronomer, for whom the triangle is named in Iran. French mathematician Blaise Pascal repopularized it when he republished it and used it to solve a number of probability problems.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_06_001.jpg" alt="Pascal's Triangle" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>To generate Pascal’s Triangle, we start by writing a 1. In the row below, row 2, we write two 1’s. In the 3<sup>rd</sup> row, flank the ends of the rows with 1’s, and add \(1+1\) to find the middle number, 2. In the \(n\text{th}\) row, flank the ends of the row with 1’s. Each element in the triangle is the sum of the two elements immediately above it.</p>
+<p>To see the connection between Pascal’s Triangle and binomial coefficients, let us revisit the expansion of the binomials in general form.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_06_003.jpg" alt="Pascal's Triangle expanded to show the values of the triangle as x and y terms with exponents" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card definition" id="fs-id1165135187302"><span class="chip">The Binomial Theorem</span><p>The <strong>Binomial Theorem</strong> is a formula that can be used to expand any binomial.</p>
+<p id="eq11">\[\begin{array}{ll}{(x+y)}^{n} &amp; =∑k=0n(\begin{array}{l}n \\ k\end{array}){x}^{n-k}{y}^{k} \\ &amp; ={x}^{n}+(\begin{array}{l}n \\ 1\end{array}){x}^{n-1}y+(\begin{array}{l}n \\ 2\end{array}){x}^{n-2}{y}^{2}+...+(\begin{array}{l}n \\ n-1\end{array})x{y}^{n-1}+{y}^{n}\end{array}\]</p>
+</div>
+<div class="card howto" id="fs-id1165135646154"><span class="chip">How To</span><p><strong>Given a binomial, write it in expanded form.</strong></p>
+<ul class="tight"><li>Determine the value of \(n\) according to the exponent.</li><li>Evaluate the \(k=0\) through \(k=n\) using the Binomial Theorem formula.</li><li>Simplify.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Write in expanded form.</p>
+<ul class="tight"><li>ⓐ \({(x+y)}^{5}\)</li><li>ⓑ \({(3x-y)}^{4}\)</li></ul>
+</div><p class="sol-hint">Use the Binomial Theorem to write out each term with its binomial coefficient, decreasing powers of the first term and increasing powers of the second.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐSubstitute \(n=5\) into the formula. Evaluate the \(k=0\) through \(k=5\) terms. Simplify.<p id="eq12">\[\begin{array}{ll}{(x+y)}^{5} &amp; =(\begin{array}{l}5 \\ 0\end{array}){x}^{5}{y}^{0}+(\begin{array}{l}5 \\ 1\end{array}){x}^{4}{y}^{1}+(\begin{array}{l}5 \\ 2\end{array}){x}^{3}{y}^{2}+(\begin{array}{l}5 \\ 3\end{array}){x}^{2}{y}^{3}+(\begin{array}{l}5 \\ 4\end{array}){x}^{1}{y}^{4}+(\begin{array}{l}5 \\ 5\end{array}){x}^{0}{y}^{5} \\ {(x+y)}^{5} &amp; ={x}^{5}+5{x}^{4}y+10{x}^{3}{y}^{2}+10{x}^{2}{y}^{3}+5x{y}^{4}+{y}^{5}\end{array}\]</p>
+</li><li>ⓑSubstitute \(n=4\) into the formula. Evaluate the \(k=0\) through \(k=4\) terms. Notice that \(3x\) is in the place that was occupied by \(x\) and that \(-y\) is in the place that was occupied by \(y.\) So we substitute them. Simplify.<p id="eq13">\[\begin{array}{ll}{(3x-y)}^{4} &amp; =(\begin{array}{l}4 \\ 0\end{array}){(3x)}^{4}{(-y)}^{0}+(\begin{array}{l}4 \\ 1\end{array}){(3x)}^{3}{(-y)}^{1}+(\begin{array}{l}4 \\ 2\end{array}){(3x)}^{2}{(-y)}^{2}+(\begin{array}{l}4 \\ 3\end{array}){(3x)}^{1}{(-y)}^{3}+(\begin{array}{l}4 \\ 4\end{array}){(3x)}^{0}{(-y)}^{4} \\ {(3x-y)}^{4} &amp; =81{x}^{4}-108{x}^{3}y+54{x}^{2}{y}^{2}-12x{y}^{3}+{y}^{4}\end{array}\]</p>
+</li></ul>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Notice the alternating signs in part b. This happens because \((-y)\) raised to odd powers is negative, but \((-y)\) raised to even powers is positive. This will occur whenever the binomial contains a subtraction sign.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Write in expanded form.</p>
+<ul class="tight"><li>ⓐ \({(x-y)}^{5}\)</li><li>ⓑ \({(2x+5y)}^{3}\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ \({x}^{5}-5{x}^{4}y+10{x}^{3}{y}^{2}-10{x}^{2}{y}^{3}+5x{y}^{4}-{y}^{5}\)</li><li>ⓑ \(8{x}^{3}+60{x}^{2}y+150x{y}^{2}+125{y}^{3}\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-the-binomial-theorem-to-find-a-single-term">Using the Binomial Theorem to Find a Single Term</h2>
+<p>Expanding a binomial with a high exponent such as \({(x+2y)}^{16}\) can be a lengthy process.</p>
+<p>Sometimes we are interested only in a certain term of a binomial expansion. We do not need to fully expand a binomial to find a single specific term.</p>
+<p>Note the pattern of coefficients in the expansion of \({(x+y)}^{5}.\)</p>
+<p id="eq14">\[{(x+y)}^{5}={x}^{5}+(\begin{array}{l}5 \\ 1\end{array}){x}^{4}y+(\begin{array}{l}5 \\ 2\end{array}){x}^{3}{y}^{2}+(\begin{array}{l}5 \\ 3\end{array}){x}^{2}{y}^{3}+(\begin{array}{l}5 \\ 4\end{array})x{y}^{4}+{y}^{5}\]</p>
+<p>The second term is \((\begin{array}{l}5 \\ 1\end{array}){x}^{4}y.\) The third term is \((\begin{array}{l}5 \\ 2\end{array}){x}^{3}{y}^{2}.\) We can generalize this result.</p>
+<p id="eq15">\[(\begin{array}{l}n \\ r\end{array}){x}^{n-r}{y}^{r}\]</p>
+<div class="card definition" id="fs-id1165137466315"><span class="chip">The (r+1)th Term of a Binomial Expansion</span><p>The \((r+1)\text{th}\) term of the <strong>binomial expansion</strong> of \({(x+y)}^{n}\) is:</p>
+<p id="eq16">\[(\begin{array}{l}n \\ r\end{array}){x}^{n-r}{y}^{r}\]</p>
+</div>
+<div class="card howto" id="fs-id1165137400324"><span class="chip">How To</span><p><strong>Given a binomial, write a specific term without fully expanding.</strong></p>
+<ul class="tight"><li>Determine the value of \(n\) according to the exponent.</li><li>Determine \((r+1).\)</li><li>Determine \(r.\)</li><li>Replace \(r\) in the formula for the \((r+1)\text{th}\) term of the binomial expansion.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the tenth term of \({(x+2y)}^{16}\) without fully expanding the binomial.</p>
+</div><p class="sol-hint">Use the general term formula \(\binom{n}{r}{x}^{n-r}{y}^{r}\), matching r+1 to the term number you need.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because we are looking for the tenth term, \(r+1=10,\) we will use \(r=9\) in our calculations.</p>
+<p id="eq17">\[(\begin{array}{l}n \\ r\end{array}){x}^{n-r}{y}^{r}\]</p>
+<p id="eq18">\[(\begin{array}{l}16 \\ 9\end{array}){x}^{16-9}{(2y)}^{9}=5\text{,}857\text{,}280{x}^{7}{y}^{9}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the sixth term of \({(3x-y)}^{9}\) without fully expanding the binomial.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-10,206{x}^{4}{y}^{5}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165137862398"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with binomial expansion.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/binomialtheorem" target="_blank" rel="noopener">The Binomial Theorem</a></li><li><a href="https://openstax.org/l/btexample" target="_blank" rel="noopener">Binomial Theorem Example</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>Binomial Theorem</td><td>\({(x+y)}^{n}=∑k-0n(\begin{array}{l}n \\ k\end{array}){x}^{n-k}{y}^{k}\)</td></tr><tr><td>\((r+1)th\) term of a binomial expansion</td><td>\((\begin{array}{l}n \\ r\end{array}){x}^{n-r}{y}^{r}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>\((\begin{array}{l}n \\ r\end{array})\) is called a binomial coefficient and is equal to \(C(n,r).\) See <a href="#example1">Example 1</a>.</li><li>The Binomial Theorem allows us to expand binomials without multiplying. See <a href="#example2">Example 2</a>.</li><li>We can find a given term of a binomial expansion without fully expanding the binomial. See <a href="#example3">Example 3</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What is a binomial coefficient, and how it is calculated?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A binomial coefficient is an alternative way of denoting the combination \(C(n,r).\) It is defined as \((\begin{array}{l}n \\ r\end{array})=\,C(n,r)\,=\frac{n!}{r!(n-r)!}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>What role do binomial coefficients play in a binomial expansion? Are they restricted to any type of number?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>What is the Binomial Theorem and what is its use?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The Binomial Theorem is defined as \({(x+y)}^{n}=∑k=0n(\begin{array}{l}n \\ k\end{array}){x}^{n-k}{y}^{k}\) and can be used to expand any binomial.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>When is it an advantage to use the Binomial Theorem? Explain.</p>
+</div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, evaluate the binomial coefficient.</p>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\((\begin{array}{l}6 \\ 2\end{array})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>15</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\((\begin{array}{l}5 \\ 3\end{array})\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\((\begin{array}{l}7 \\ 4\end{array})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>35</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\((\begin{array}{l}9 \\ 7\end{array})\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\((\begin{array}{l}10 \\ 9\end{array})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>10</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\((\begin{array}{l}25 \\ 11\end{array})\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\((\begin{array}{l}17 \\ 6\end{array})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>12,376</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\((\begin{array}{l}200 \\ 199\end{array})\)</p>
+</div></div>
+<p>For the following exercises, use the Binomial Theorem to expand each binomial.</p>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\({(4a-b)}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(64{a}^{3}-48{a}^{2}b+12a{b}^{2}-{b}^{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\({(5a+2)}^{3}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\({(3a+2b)}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(27{a}^{3}+54{a}^{2}b+36a{b}^{2}+8{b}^{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\({(2x+3y)}^{4}\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\({(4x+2y)}^{5}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1024{x}^{5}+2560{x}^{4}y+2560{x}^{3}{y}^{2}+1280{x}^{2}{y}^{3}+320x{y}^{4}+32{y}^{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\({(3x-2y)}^{4}\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\({(4x-3y)}^{5}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1024{x}^{5}-3840{x}^{4}y+5760{x}^{3}{y}^{2}-4320{x}^{2}{y}^{3}+1620x{y}^{4}-243{y}^{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\({(\frac{1}{x}+3y)}^{5}\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\({({x}^{-1}+2{y}^{-1})}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{{x}^{4}}+\frac{8}{{x}^{3}y}+\frac{24}{{x}^{2}{y}^{2}}+\frac{32}{x{y}^{3}}+\frac{16}{{y}^{4}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\({(\sqrt{x}-\sqrt{y})}^{5}\)</p>
+</div></div>
+<p>For the following exercises, use the Binomial Theorem to write the first three terms of each binomial.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\({(a+b)}^{17}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}^{17}+17{a}^{16}b+136{a}^{15}{b}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({(x-1)}^{18}\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({(a-2b)}^{15}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}^{15}-30{a}^{14}b+420{a}^{13}{b}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({(x-2y)}^{8}\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\({(3a+b)}^{20}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3,486,784,401{a}^{20}+23,245,229,340{a}^{19}b+73,609,892,910{a}^{18}{b}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({(2a+4b)}^{7}\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({({x}^{3}-\sqrt{y})}^{8}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{24}-8{x}^{21}\sqrt{y}+28{x}^{18}y\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the indicated term of each binomial without fully expanding the binomial.</p>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>The fourth term of \({(2x-3y)}^{4}\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>The fourth term of \({(3x-2y)}^{5}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-720{x}^{2}{y}^{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>The third term of \({(6x-3y)}^{7}\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>The eighth term of \({(7+5y)}^{14}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(220,812,466,875,000{y}^{7}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>The seventh term of \({(a+b)}^{11}\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>The fifth term of \({(x-y)}^{7}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(35{x}^{3}{y}^{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>The tenth term of \({(x-1)}^{12}\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>The ninth term of \({(a-3{b}^{2})}^{11}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1,082,565{a}^{3}{b}^{16}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>The fourth term of \(\,{({x}^{3}-\frac{1}{2})}^{10}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>The eighth term of \(\,{(\frac{y}{2}+\frac{2}{x})}^{9}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1152{y}^{2}}{{x}^{7}}\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, use the Binomial Theorem to expand the binomial \(f(x)={(x+3)}^{4}.\) Then find and graph each indicated sum on one set of axes.</p>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Find and graph \({f}_{1}(x),\) such that \({f}_{1}(x)\) is the first term of the expansion.</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Find and graph \({f}_{2}(x),\) such that \({f}_{2}(x)\) is the sum of the first two terms of the expansion.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}_{2}(x)={x}^{4}+12{x}^{3}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_06_202.jpg" alt="Graph of the function f_2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Find and graph \({f}_{3}(x),\) such that \({f}_{3}(x)\) is the sum of the first three terms of the expansion.</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Find and graph \({f}_{4}(x),\) such that \({f}_{4}(x)\) is the sum of the first four terms of the expansion.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}_{4}(x)={x}^{4}+12{x}^{3}+54{x}^{2}+108x\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_06_204.jpg" alt="Graph of the function f_4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Find and graph \({f}_{5}(x),\) such that \({f}_{5}(x)\) is the sum of the first five terms of the expansion.</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>In the expansion of \({(5x+3y)}^{n},\) each term has the form \((\begin{array}{l}n \\ k\end{array}){a}^{n-k}{b}^{k}\) , where \(k\) successively takes on the value \(0,1,2,\,...,\,n.\) If \((\begin{array}{l}n \\ k\end{array})=(\begin{array}{l}7 \\ 2\end{array}),\) what is the corresponding term?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(590,625{x}^{5}{y}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>In the expansion of \({(a+b)}^{n},\) the coefficient of \({a}^{n-k}{b}^{k}\) is the same as the coefficient of which other term?</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Consider the expansion of \(\,{(x+b)}^{40}.\) What is the exponent of \(b\) in the \(k\text{th}\) term?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(k-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Find \(\,(\begin{array}{l}n \\ k-1\end{array})+(\begin{array}{l}n \\ k\end{array})\) and write the answer as a binomial coefficient in the form \(\,(\begin{array}{l}n \\ k\end{array}).\) Prove it. <strong>Hint:</strong> Use the fact that, for any integer \(p,\) such that \(p\ge 1,\,p!=p(p-1)!\text{.}\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Which expression cannot be expanded using the Binomial Theorem? Explain.</p>
+<ul class="tight"><li>\(({x}^{2}-2x+1)\)</li><li>\({(\sqrt{a}+4\sqrt{a}-5)}^{8}\)</li><li>\({({x}^{3}+2{y}^{2}-z)}^{5}\)</li><li>\({(3{x}^{2}-\sqrt{2{y}^{3}})}^{12}\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><p>The expression \({({x}^{3}+2{y}^{2}-z)}^{5}\) cannot be expanded using the Binomial Theorem because it cannot be rewritten as a binomial.</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>binomial coefficient</dt><dd>the number of ways to choose<strong>r</strong> objects from <strong>n</strong> objects where order does not matter; equivalent to \(C(n,r),\) denoted \((\begin{array}{l}n \\ r\end{array})\)</dd><dt>binomial expansion</dt><dd>the result of expanding \({(x+y)}^{n}\) by multiplying</dd><dt>Binomial Theorem</dt><dd>a formula that can be used to expand any binomial</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

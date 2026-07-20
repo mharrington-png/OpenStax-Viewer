@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphs of Logarithmic Functions · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=64dd35f0fdbe40c5bb00a4a5df4237b6"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Graphs of Logarithmic Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 4.4</span>Graphs of Logarithmic Functions</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Find the domain and range of a relation and a function. (IA 3.5.1)</li><li>Graph Logarithmic functions. (IA 10.3.3)</li></ul>
+<h3 id="objective-1-find-the-domain-and-range-of-a-relation-and-a-function-ia-3-5-1">Objective 1: Find the domain and range of a relation and a function. (IA 3.5.1)</h3>
+<div class="card definition"><span class="chip">Vocabulary</span></div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><p>Find the domain and range of a relation and a function.</p>
+<div class="ex-body"><ul class="tight"><li>ⓐ<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_06_04_001.jpg" alt="A scatter plot displays five points on a Cartesian coordinate system. The points are: (-4, -2), (-2, -1), (-1, 1), (1, 2). The x-axis ranges from -5 to 5, and the y-axis ranges from -5 to 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>ⓑ<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_06_04_002.jpg" alt="A blue parabola is graphed on a coordinate plane, opening upwards with its vertex at approximately (3, -2). It passes through the x-axis at approximately (1.5, 0) and (4.5, 0), and the y-axis at approximately (0, 6)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</li><li>ⓒ Find the domain of the function \(f(x)=\frac{5}{x-2}\)<p>Find the domain of the function \(f(x)=\frac{5}{x-2}\)</p>
+</li><li>ⓓ Find the domain of the function \(f(x)={log}_{2}(x-5)\) .<p>Find the domain of the function \(f(x)={log}_{2}(x-5)\) .</p>
+</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ The set of points on the graph is \({(-4,-2),(-2,-1),(-1,1),(1,2)}\) <br> The Domain is the set of all x-coordinates: \({-4,-2,-1,1}\) <br> The Range is the set of all y-coordinates: \({-2,-1,1}\) <br> <strong>Notice</strong> that even though y-coodinate of 1 appears twice, we only list it once.<p>The set of points on the graph is \({(-4,-2),(-2,-1),(-1,1),(1,2)}\) <br> The Domain is the set of all x-coordinates: \({-4,-2,-1,1}\) <br> The Range is the set of all y-coordinates: \({-2,-1,1}\) <br> <strong>Notice</strong> that even though y-coodinate of 1 appears twice, we only list it once.</p>
+</li><li>ⓑ Domain: \((-\infty,\infty)\) <br> Range: \([-2,\infty)\) <br> <strong>Notice</strong> that \(-2\) is included because the point \((3,-2)\) is on the graph of a function.<p>Domain: \((-\infty,\infty)\) <br> Range: \([-2,\infty)\) <br> <strong>Notice</strong> that \(-2\) is included because the point \((3,-2)\) is on the graph of a function.</p>
+</li><li>ⓒ A function is not defined when the denominator is zero. We need to set the denominator equal zero and exclude this value(s) from the domain. <br> \(x-2=0,x=2,\) Domain \((-\infty,2)∪(2,\infty)\) <br> <strong>Notice</strong> that 2 is excluded from the domain because the function is not defined at \(x=2\)<p>A function is not defined when the denominator is zero. We need to set the denominator equal zero and exclude this value(s) from the domain. <br> \(x-2=0,x=2,\) Domain \((-\infty,2)∪(2,\infty)\) <br> <strong>Notice</strong> that 2 is excluded from the domain because the function is not defined at \(x=2\)</p>
+</li><li>ⓓ From the definition of the logarithmic function \(f(x)={log}_{a}x\,\) we know that \(x>0\) <br> To find domain of \(f(x)={log}_{2}(x-5\) , we need to set up and solve inequality.<br> \(x-5>0\) ,<br> \(x>5)\) Domain: \((5,\infty)\)<p>From the definition of the logarithmic function \(f(x)={log}_{a}x\,\) we know that \(x>0\) <br> To find domain of \(f(x)={log}_{2}(x-5\) , we need to set up and solve inequality.<br> \(x-5>0\) ,<br> \(x>5)\) Domain: \((5,\infty)\)</p>
+</li></ul>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Find the domain and range of a relation and a function.</p>
+<div class="exercise warmup"><div class="n">P1</div><div class="body"><p>Find the domain and range of a relation.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_06_04_003.jpg" alt="A scatter plot displaying four blue points on a Cartesian coordinate plane. The points are located at (-3, 1), (-1, -2), (2, 2), and (2, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise warmup"><div class="n">P2</div><div class="body"><p>Find the domain and the range of the function graphed. Use interval notation.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_06_04_004.jpg" alt="A graph illustrates an increasing logarithmic function on a Cartesian plane, spanning x-values from -5 to 9 and y-values from -6 to 6. The curve passes through points like (-3, 0), (-2, 1), (0, 2), and (4, 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise warmup"><div class="n">P3</div><div class="body"><p>Find the domain of the function \(f(x)={log}_{2}(x+4)\) . Notice: this is the same function that was graphed in question 2.</p>
+</div></div>
+<h3 id="objective-2-graph-logarithmic-functions-ia-10-3-3">Objective 2: Graph Logarithmic functions. (IA 10.3.3)</h3>
+<p>To graph a logarithmic function \(y={log}_{a}x\) , it is easiest to convert the equation to its exponential form, \(x={a}^{y}\) . Generally, when we look for ordered pairs for the graph of a function, we usually choose an x-value and then determine its corresponding y-value. In this case you may find it easier to choose y-values and then determine its corresponding x-value.</p>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><p>Graph Logarithmic functions.</p>
+<div class="ex-body"><p>Graph \(y={\text{log}}_{2}x.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To graph the function, we will first rewrite the logarithmic equation, \(y={\text{log}}_{2}x,\) in exponential form, \({2}^{y}=x.\)</p>
+<p>We will use point plotting to graph the function. It will be easier to start with values of <strong>y</strong> and then get <strong>x</strong>.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\(y\)</td><td>\({2}^{y}=x\)</td><td>\((x,y)\)</td></tr><tr><td>\(-2\)</td><td>\({2}^{-2}=\frac{1}{{2}^{2}}=\frac{1}{4}\)</td><td>\((\frac{1}{4},2)\)</td></tr><tr><td>\(-1\)</td><td>\({2}^{-1}=\frac{1}{{2}^{1}}=\frac{1}{2}\)</td><td>\((\frac{1}{2},-1)\)</td></tr><tr><td>0</td><td>\({2}^{0}=1\)</td><td>\((1,0)\)</td></tr><tr><td>1</td><td>\({2}^{1}=2\)</td><td>\((2,1)\)</td></tr><tr><td>2</td><td>\({2}^{2}=4\)</td><td>\((4,2)\)</td></tr><tr><td>3</td><td>\({2}^{3}=8\)</td><td>\((8,3)\)</td></tr></tbody></table></div>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_10_03_004_img.jpg" alt="This figure shows the logarithmic curve going through the points (1 over 2, negative 1), (1, 0), and (2, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<p>Graph Logarithmic functions</p>
+<div class="exercise warmup"><div class="n">P4</div><div class="body"><p>Graph \(y={\text{log}}_{3}x\) and \(y={\text{log}}_{5}x\) in the same coordinate system. <br></p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(y\)</td><td>\({3}^{y}=x\)</td><td>\((x,y)\)</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>\(y\)</td><td>\({5}^{y}=x\)</td><td>\((x,y)\)</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table></div>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankplot5.5.png" alt="A blank Cartesian coordinate system with labeled x and y axes ranging from -10 to 10, complete with grid lines." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise warmup"><div class="n">P5</div><div class="body"><p>Graph \(y={log}_{1/3}x\)</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>\(y\)</td><td>\({(\frac{1}{3})}^{y}=x\)</td><td>\((x,y)\)</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table></div>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/blankplot5.5.png" alt="A blank Cartesian coordinate system with labeled x and y axes ranging from -10 to 10, complete with grid lines." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise warmup"><div class="n">P6</div><div class="body"><p><br> Do the graphs of \(y={log}_{2}x\) , \(y={log}_{3}x\) , and \(y={log}_{5}x\) have the shape we expect from a logarithmic function where \(a>0\) ? (Remember a is the base of the log function)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_10_03_005_img.jpg" alt="This figure shows the logarithmic curve going through the points (1 over a, negative 1), (1, 0), and (a, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise warmup"><div class="n">P7</div><div class="body"><p>Is there a point they all share? Why does this make sense?</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P8</div><div class="body"><p>Do they all have a point \((a,1)\) ? Why does this make sense?</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P9</div><div class="body"><p>Do they all have a point \((\frac{1}{a},-1)\) ? Why does this make sense?</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P10</div><div class="body"><p>Do they all have the same vertical asymptote? What is the equation of the vertical asymptote?</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P11</div><div class="body"><p>Do they all have the same domain? Write the domain in the interval notation.</p>
+</div></div>
+<div class="exercise warmup"><div class="n">P12</div><div class="body"><p>Do they all have the same range? Write the range in the interval notation.</p>
+</div></div>
+</div></details>
+<p>In Graphs of Exponential Functions, we saw how creating a graphical representation of an exponential model gives us another layer of insight for predicting future events. How do logarithmic graphs give us insight into situations? Because every logarithmic function is the inverse function of an exponential function, we can think of every output on a logarithmic graph as the input for the corresponding inverse exponential equation. In other words, logarithms give the <strong>cause</strong> for an <strong>effect</strong>.</p>
+<p>To illustrate, suppose we invest \(\text{\$}2500\) in an account that offers an annual interest rate of \(5\%,\) compounded continuously. We already know that the balance in our account for any year \(t\) can be found with the equation \(A=2500{e}^{0.05t}.\)</p>
+<p>But what if we wanted to know the year for any balance? We would need to create a corresponding new function by interchanging the input and the output; thus we would need to create a logarithmic model for this situation. By graphing the model, we can see the output (year) for any input (account balance). For instance, what if we wanted to know how many years it would take for our initial investment to double? <a href="#fig1">Figure 1</a> shows this point on the logarithmic graph.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_001.jpg" alt="A graph titled, “Logarithmic Model Showing Years as a Function of the Balance in the Account”. The x-axis is labeled, “Account Balance”, and the y-axis is labeled, “Years”. The line starts at $25,000 on the first year. The graph also notes that the balance reaches $5,000 near year 14." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<p>In this section we will discuss the values for which a logarithmic function is defined, and then turn our attention to graphing the family of logarithmic functions.</p>
+<h2 id="finding-the-domain-of-a-logarithmic-function">Finding the Domain of a Logarithmic Function</h2>
+<p>Before working with graphs, we will take a look at the domain (the set of input values) for which the logarithmic function is defined.</p>
+<p>Recall that the exponential function is defined as \(y={b}^{x}\) for any real number \(x\) and constant \(b>0,\) \(b\ne1,\) where</p>
+<ul class="tight"><li>The domain of \(y\) is \((-\infty,\infty).\)</li><li>The range of \(y\) is \((0,\infty).\)</li></ul>
+<p>In the last section we learned that the logarithmic function \(y={log}_{b}(x)\) is the inverse of the exponential function \(y={b}^{x}.\) So, as inverse functions:</p>
+<ul class="tight"><li>The domain of \(y={log}_{b}(x)\) is the range of \(y={b}^{x}:\) \((0,\infty).\)</li><li>The range of \(y={log}_{b}(x)\) is the domain of \(y={b}^{x}:\) \((-\infty,\infty).\)</li></ul>
+<p>Transformations of the parent function \(y={log}_{b}(x)\) behave similarly to those of other functions. Just as with other parent functions, we can apply the four types of transformations—shifts, stretches, compressions, and reflections.</p>
+<p>In Graphs of Exponential Functions we saw that certain transformations can change the <strong>range</strong> of \(y={b}^{x}.\) Similarly, applying transformations to the parent function \(y={log}_{b}(x)\) can change the <strong>domain</strong>. When finding the domain of a logarithmic function, therefore, it is important to remember that the domain consists <strong>only of positive real numbers</strong>. That is, the argument of the logarithmic function must be greater than zero.</p>
+<p>For example, consider \(f(x)={log}_{4}(2x-3).\) This function is defined for any values of \(x\) such that the argument, in this case \(2x-3,\) is greater than zero. To find the domain, we set up an inequality and solve for \(x:\)</p>
+<p>\[\begin{array}{ll}2x-3>0 & \text{Show the argument greater than zero}. \\ \ \ \ \ \ \ \ \ \ \ 2x>3 & \text{Add 3}. \\ \ \ \ \ \ \ \ \ \ \ \ \ \ x>1.5\begin{array}{llll} & & & \end{array} & \text{Divide by 2}.\end{array}\]</p>
+<p>In interval notation, the domain of \(f(x)={log}_{4}(2x-3)\) is \((1.5,\infty).\)</p>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a logarithmic function, identify the domain.</strong></p>
+<ul class="tight"><li>Set up an inequality showing the argument greater than zero.</li><li>Solve for \(x.\)</li><li>Write the domain in interval notation.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>What is the domain of \(f(x)={log}_{2}(x+3)?\)</p>
+</div><p class="sol-hint">Set the argument of the log greater than zero and solve for x.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The logarithmic function is defined only when the input is positive, so this function is defined when \(x+3>0.\) Solving this inequality,</p>
+<p>\[\begin{array}{ll}x+3>0 & \text{The input must be positive}. \\ x>-3\begin{array}{llll} & & & \end{array} & \text{Subtract 3}.\end{array}\]</p>
+<p>The domain of \(f(x)={log}_{2}(x+3)\) is \((-3,\infty).\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>What is the domain of \(f(x)={log}_{5}(x-2)+1?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((2,\infty)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>What is the domain of \(f(x)=log(5-2x)?\)</p>
+</div><p class="sol-hint">Set 5 &minus; 2x &gt; 0 and solve &mdash; watch the inequality flip when you divide by a negative.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The logarithmic function is defined only when the input is positive, so this function is defined when \(5-2x>0.\) Solving this inequality,</p>
+<p>\[\begin{array}{ll}5-2x>0 & \text{The input must be positive}. \\ -2x>-5 & \text{Subtract }5. \\ x<\frac{5}{2}\begin{array}{llll} & & & \end{array} & \text{Divide by }-2\ \text{and switch the inequality}.\end{array}\]</p>
+<p>The domain of \(f(x)=log(5-2x)\) is \((-\infty,\frac{5}{2}).\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>What is the domain of \(f(x)=log(x-5)+2?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((5,\infty)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-logarithmic-functions">Graphing Logarithmic Functions</h2>
+<p>Now that we have a feel for the set of values for which a logarithmic function is defined, we move on to graphing logarithmic functions. The family of logarithmic functions includes the parent function \(y={log}_{b}(x)\) along with all its transformations: shifts, stretches, compressions, and reflections.</p>
+<p>We begin with the parent function \(y={log}_{b}(x).\) Because every logarithmic function of this form is the inverse of an exponential function with the form \(y={b}^{x},\) their graphs will be reflections of each other across the line \(y=x.\) To illustrate this, we can observe the relationship between the input and output values of \(y={2}^{x}\) and its equivalent \(x={log}_{2}(y)\) in <a href="#tab4">Table 4</a><strong>.</strong></p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td><strong>\(x\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td><strong>\({2}^{x}=y\)</strong></td><td>\(\frac{1}{8}\)</td><td>\(\frac{1}{4}\)</td><td>\(\frac{1}{2}\)</td><td>\(1\)</td><td>\(2\)</td><td>\(4\)</td><td>\(8\)</td></tr><tr><td><strong>\({log}_{2}(y)=x\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr></tbody></table></div>
+<p>Using the inputs and outputs from <a href="#tab4">Table 4</a>, we can build another table to observe the relationship between points on the graphs of the inverse functions \(f(x)={2}^{x}\) and \(g(x)={log}_{2}(x).\) See <a href="#tab5">Table 5</a><strong>.</strong></p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>\(f(x)={2}^{x}\)</strong></td><td>\((-3,\frac{1}{8})\)</td><td>\((-2,\frac{1}{4})\)</td><td>\((-1,\frac{1}{2})\)</td><td>\((0,1)\)</td><td>\((1,2)\)</td><td>\((2,4)\)</td><td>\((3,8)\)</td></tr><tr><td><strong>\(g(x)={log}_{2}(x)\)</strong></td><td>\((\frac{1}{8},-3)\)</td><td>\((\frac{1}{4},-2)\)</td><td>\((\frac{1}{2},-1)\)</td><td>\((1,0)\)</td><td>\((2,1)\)</td><td>\((4,2)\)</td><td>\((8,3)\)</td></tr></tbody></table></div>
+<p>As we’d expect, the <strong>x</strong>- and <strong>y</strong>-coordinates are reversed for the inverse functions. <a href="#fig2">Figure 2</a> shows the graph of \(f\) and \(g.\)</p>
+<figure class="plot" id="fig2" data-plot data-spec='{"xmin":-4,"xmax":8,"ymin":-4,"ymax":8,"xstep":2,"ystep":2,"alt":"Graph of f(x)=2^x and its inverse g(x)=log2(x), reflected about the line y=x","curves":[{"fn":"Math.pow(2,x)","label":"f(x)=2^x","labelAt":[1.6,5.5]},{"fn":"Math.log(x)/Math.log(2)","cls":"alt","label":"g(x)=log₂(x)","labelAt":[5.5,1.6]},{"fn":"x","cls":"alt2","label":"y=x","labelAt":[6,7]}],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 2 — Notice that the graphs of f(x)=2^x and g(x)=log₂(x) are reflections about the line y=x.</figcaption></figure>
+<p>Observe the following from the graph:</p>
+<ul class="tight"><li>\(f(x)={2}^{x}\) has a <strong>y</strong>-intercept at \((0,1)\) and \(g(x)={log}_{2}(x)\) has an <strong>x</strong>- intercept at \((1,0).\)</li><li>The domain of \(f(x)={2}^{x},\) \((-\infty,\infty),\) is the same as the range of \(g(x)={log}_{2}(x).\)</li><li>The range of \(f(x)={2}^{x},\) \((0,\infty),\) is the same as the domain of \(g(x)={log}_{2}(x).\)</li></ul>
+<div class="card definition"><span class="chip">Characteristics of the Graph of the Parent Function, \(f(x)={log}_{b}(x):\)</span><p>For any real number \(x\) and constant \(b>0,\) \(b\ne1,\) we can see the following characteristics in the graph of \(f(x)={log}_{b}(x):\)</p>
+<ul class="tight"><li>one-to-one function</li><li>vertical asymptote: \(x=0\)</li><li>domain: \((0,\infty)\)</li><li>range: \((-\infty,\infty)\)</li><li><strong>x-</strong>intercept: \((1,0)\) and key point \((b,1)\)</li><li><strong>y</strong>-intercept: none</li><li>increasing if \(b>1\)</li><li>decreasing if \(0 &lt; b &lt; 1\)</li></ul>
+<p>See <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3" data-desmos data-spec='{"bounds":{"left":-2,"right":8,"bottom":-3,"top":3},"sliders":[{"var":"b","min":0.2,"max":5,"step":0.1,"value":2,"color":"#cf003d"}],"curves":[{"latex":"y=\\log_{b}\\left(x\\right)","color":"#cf003d"}],"alt":"Interactive graph of f(x)=log_b(x) — drag b to compare increasing (b>1) and decreasing (0<b<1) logarithmic curves"}'><figcaption>Figure 3</figcaption></figure>
+<p><a href="#fig4">Figure 4</a> shows how changing the base \(b\) in \(f(x)={log}_{b}(x)\) can affect the graphs. Observe that the graphs compress vertically as the value of the base increases. (<strong>Note:</strong> recall that the function \(ln(x)\) has base \(e\approx\text{2}.\text{718.)}\)</p>
+<figure class="plot" id="fig4" data-plot data-spec='{"xmin":0.1,"xmax":8,"ymin":-3,"ymax":3,"xstep":1,"ystep":1,"alt":"Graph of three logarithmic functions with different bases: y=log2(x), y=ln(x), and y=log(x), all increasing and sharing the vertical asymptote x=0","curves":[{"fn":"Math.log(x)/Math.log(2)","label":"y=log₂(x)","labelAt":[2,2.1]},{"fn":"Math.log(x)","cls":"alt","label":"y=ln(x)","labelAt":[4,1.6]},{"fn":"Math.log10(x)","cls":"alt2","label":"y=log(x)","labelAt":[6,0.9]}],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 4 — The graphs of three logarithmic functions with different bases, all greater than 1.</figcaption></figure>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a logarithmic function with the form \(f(x)={log}_{b}(x),\) graph the function.</strong></p>
+<ul class="tight"><li>Draw and label the vertical asymptote, \(x=0.\)</li><li>Plot the <strong>x-</strong>intercept, \((1,0).\)</li><li>Plot the key point \((b,1).\)</li><li>Draw a smooth curve through the points.</li><li>State the domain, \((0,\infty),\) the range, \((-\infty,\infty),\) and the vertical asymptote, \(x=0.\)</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Graph \(f(x)={log}_{5}(x).\) State the domain, range, and asymptote.</p>
+</div><p class="sol-hint">Start from the x-intercept (1, 0) and the key point (b, 1).</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Before graphing, identify the behavior and key points for the graph.</p>
+<ul class="tight"><li>Since \(b=5\) is greater than one, we know the function is increasing. The left tail of the graph will approach the vertical asymptote \(x=0,\) and the right tail will increase slowly without bound.</li><li>The <strong>x</strong>-intercept is \((1,0).\)</li><li>The key point \((5,1)\) is on the graph.</li><li>We draw and label the asymptote, plot and label the points, and draw a smooth curve through the points (see <a href="#fig5">Figure 5</a>).</li></ul>
+<figure class="plot" id="fig5" data-plot data-spec='{"xmin":0.1,"xmax":8,"ymin":-2,"ymax":2,"xstep":1,"ystep":1,"alt":"Graph of f(x)=log5(x) with labeled points (1,0) and (5,1), vertical asymptote x=0","curves":[{"fn":"Math.log(x)/Math.log(5)","label":"f(x)=log₅(x)","labelAt":[6,1.3]}],"points":[[1,0,"(1, 0)"],[5,1,"(5, 1)"]],"xlabel":"x","ylabel":"f(x)"}'><figcaption>Figure 5</figcaption></figure>
+<p>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Graph \(f(x)={log}_{\frac{1}{5}}(x).\) State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_006.jpg" alt="Graph of f(x)=log_(1/5)(x) with labeled points at (1/5, 1) and (1, 0). The y-axis is the asymptote." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-transformations-of-logarithmic-functions">Graphing Transformations of Logarithmic Functions</h2>
+<p>As we mentioned in the beginning of the section, transformations of logarithmic graphs behave similarly to those of other parent functions. We can shift, stretch, compress, and reflect the <strong>parent function</strong> \(y={log}_{b}(x)\) without loss of shape.</p>
+<h3 id="graphing-a-horizontal-shift-of-f-x-logb-x">Graphing a Horizontal Shift of <strong>f</strong>(<strong>x</strong>) = log<sub><strong>b</strong></sub>(<strong>x</strong>)</h3>
+<p>When a constant \(c\) is added to the input of the parent function \(f(x)=lo{g}_{b}(x),\) the result is a <strong>horizontal shift</strong> \(c\) units in the <strong>opposite</strong> direction of the sign on \(c.\) To visualize horizontal shifts, we can observe the general graph of the parent function \(f(x)={log}_{b}(x)\) and for \(c>0\) alongside the shift left, \(g(x)={log}_{b}(x+c),\) and the shift right, \(h(x)={log}_{b}(x-c).\) See <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6" data-desmos data-spec='{"bounds":{"left":-8,"right":8,"bottom":-4,"top":4},"sliders":[{"var":"c","min":-5,"max":5,"step":0.5,"value":3,"color":"#cf003d"}],"curves":[{"latex":"y=\\log_{2}\\left(x\\right)","color":"#5a5656"},{"latex":"y=\\log_{2}\\left(x+c\\right)","color":"#cf003d"}],"alt":"Interactive graph of g(x)=log2(x+c) — drag c to shift the parent function horizontally"}'><figcaption>Figure 6</figcaption></figure>
+<div class="card definition"><span class="chip">Horizontal Shifts of the Parent Function \(f(x)={log}_{b}(x)\)</span><p>For any constant \(c,\) the function \(f(x)={log}_{b}(x+c)\)</p>
+<ul class="tight"><li>shifts the parent function \(y={log}_{b}(x)\) left \(c\) units if \(c>0.\)</li><li>shifts the parent function \(y={log}_{b}(x)\) right \(c\) units if \(c<0.\)</li><li>has the vertical asymptote \(x=-c.\)</li><li>has domain \((-c,\infty).\)</li><li>has range \((-\infty,\infty).\)</li></ul>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a logarithmic function with the form \(f(x)={log}_{b}(x+c),\) graph the translation.</strong></p>
+<ul class="tight"><li>Identify the horizontal shift:<ul class="tight"><li>If \(c>0,\) shift the graph of \(f(x)={log}_{b}(x)\) left \(c\) units.</li><li>If \(c<0,\) shift the graph of \(f(x)={log}_{b}(x)\) right \(c\) units.</li></ul>
+</li><li>Draw the vertical asymptote \(x=-c.\)</li><li>Identify three key points from the parent function. Find new coordinates for the shifted functions by subtracting \(c\) from the \(x\) coordinate.</li><li>Label the three points.</li><li>The Domain is \((-c,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=-c.\)</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Sketch the horizontal shift \(f(x)={log}_{3}(x-2)\) alongside its parent function. Include the key points and asymptotes on the graph. State the domain, range, and asymptote.</p>
+</div><p class="sol-hint">Compare x &minus; 2 to x + c to find c, then shift the asymptote and key points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since the function is \(f(x)={log}_{3}(x-2),\) we notice \(x+(-2)=x-2.\)</p>
+<p>Thus \(c=-2,\) so \(c<0.\) This means we will shift the function \(f(x)={log}_{3}(x)\) right 2 units.</p>
+<p>The vertical asymptote is \(x=-(-2)\) or \(x=2.\)</p>
+<p>Consider the three key points from the parent function, \((\frac{1}{3},-1),\) \((1,0),\) and \((3,1).\)</p>
+<p>The new coordinates are found by adding 2 to the \(x\) coordinates.</p>
+<p>Label the points \((\frac{7}{3},-1),\) \((3,0),\) and \((5,1).\)</p>
+<p>The domain is \((2,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=2.\)</p>
+<figure class="plot" id="fig7" data-plot data-spec='{"xmin":-1,"xmax":7,"ymin":-3,"ymax":3,"xstep":1,"ystep":1,"alt":"Graph of f(x)=log3(x-2) shifted right 2 units from its parent function y=log3(x)","curves":[{"fn":"Math.log(x)/Math.log(3)","cls":"alt","label":"y=log₃(x)","labelAt":[4.5,1.6]},{"fn":"Math.log(x-2)/Math.log(3)","label":"f(x)=log₃(x-2)","labelAt":[6,0.9]}],"points":[[1,0],[3,1],[3,0],[5,1]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 7</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Sketch a graph of \(f(x)={log}_{3}(x+4)\) alongside its parent function. Include the key points and asymptotes on the graph. State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_009.jpg" alt="Graph of two functions. The parent function is y=log_3(x), with an asymptote at x=0 and labeled points at (1, 0), and (3, 1).The translation function f(x)=log_3(x+4) has an asymptote at x=-4 and labeled points at (-3, 0) and (-1, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The domain is \((-4,\infty),\) the range \((-\infty,\infty),\) and the asymptote \(x=-4.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="graphing-a-vertical-shift-of-f-x-logb-x">Graphing a Vertical Shift of <strong>f</strong>(<strong>x</strong>) = log<sub><strong>b</strong></sub>(<strong>x</strong>)</h3>
+<p>When a constant \(d\) is added to the parent function \(f(x)={log}_{b}(x),\) the result is a <strong>vertical shift</strong> \(d\) units in the direction of the sign on \(d.\) To visualize vertical shifts, we can observe the general graph of the parent function \(f(x)={log}_{b}(x)\) alongside the shift up, \(g(x)={log}_{b}(x)+d\) and the shift down, \(h(x)={log}_{b}(x)-d.\) See <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig8" data-desmos data-spec='{"bounds":{"left":-2,"right":8,"bottom":-6,"top":6},"sliders":[{"var":"d","min":-5,"max":5,"step":0.5,"value":3,"color":"#cf003d"}],"curves":[{"latex":"y=\\log_{2}\\left(x\\right)","color":"#5a5656"},{"latex":"y=\\log_{2}\\left(x\\right)+d","color":"#cf003d"}],"alt":"Interactive graph of g(x)=log2(x)+d — drag d to shift the parent function vertically"}'><figcaption>Figure 8</figcaption></figure>
+<div class="card definition"><span class="chip">Vertical Shifts of the Parent Function \(y={log}_{b}(x)\)</span><p>For any constant \(d,\) the function \(f(x)={log}_{b}(x)+d\)</p>
+<ul class="tight"><li>shifts the parent function \(y={log}_{b}(x)\) up \(d\) units if \(d>0.\)</li><li>shifts the parent function \(y={log}_{b}(x)\) down \(d\) units if \(d<0.\)</li><li>has the vertical asymptote \(x=0.\)</li><li>has domain \((0,\infty).\)</li><li>has range \((-\infty,\infty).\)</li></ul>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a logarithmic function with the form \(f(x)={log}_{b}(x)+d,\) graph the translation.</strong></p>
+<ul class="tight"><li>Identify the vertical shift:<ul class="tight"><li>If \(d>0,\) shift the graph of \(f(x)={log}_{b}(x)\) up \(d\) units.</li><li>If \(d<0,\) shift the graph of \(f(x)={log}_{b}(x)\) down \(d\) units.</li></ul>
+</li><li>Draw the vertical asymptote \(x=0.\)</li><li>Identify three key points from the parent function. Find new coordinates for the shifted functions by adding \(d\) to the \(y\) coordinate.</li><li>Label the three points.</li><li>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Sketch a graph of \(f(x)={log}_{3}(x)-2\) alongside its parent function. Include the key points and asymptote on the graph. State the domain, range, and asymptote.</p>
+</div><p class="sol-hint">This is a vertical shift &mdash; the asymptote stays put, but every y-value moves.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since the function is \(f(x)={log}_{3}(x)-2,\) we will notice \(d=-2.\) Thus \(d<0.\)</p>
+<p>This means we will shift the function \(f(x)={log}_{3}(x)\) down 2 units.</p>
+<p>The vertical asymptote is \(x=0.\)</p>
+<p>Consider the three key points from the parent function, \((\frac{1}{3},-1),\) \((1,0),\) and \((3,1).\)</p>
+<p>The new coordinates are found by subtracting 2 from the <strong>y</strong>coordinates.</p>
+<p>Label the points \((\frac{1}{3},-3),\) \((1,-2),\) and \((3,-1).\)</p>
+<p>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+<figure class="plot" id="fig9" data-plot data-spec='{"xmin":-1,"xmax":7,"ymin":-4,"ymax":2,"xstep":1,"ystep":1,"alt":"Graph of f(x)=log3(x)-2 shifted down 2 units from its parent function y=log3(x)","curves":[{"fn":"Math.log(x)/Math.log(3)","cls":"alt","label":"y=log₃(x)","labelAt":[4.5,1.3]},{"fn":"Math.log(x)/Math.log(3)-2","label":"f(x)=log₃(x)-2","labelAt":[5,-0.7]}],"points":[[1,0],[3,1],[1,-2],[3,-1]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 9</figcaption></figure>
+<p>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Sketch a graph of \(f(x)={log}_{2}(x)+2\) alongside its parent function. Include the key points and asymptote on the graph. State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_012.jpg" alt="Graph of two functions. The parent function is y=log_2(x), with an asymptote at x=0 and labeled points at (1, 0), and (2, 1).The translation function f(x)=log_2(x)+2 has an asymptote at x=0 and labeled points at (0.25, 0) and (0.5, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="graphing-stretches-and-compressions-of-f-x-logb-x">Graphing Stretches and Compressions of <strong>f</strong>(<strong>x</strong>) = log<sub><strong>b</strong></sub>(<strong>x</strong>)</h3>
+<p>When the parent function \(f(x)={log}_{b}(x)\) is multiplied by a constant \(a>0,\) the result is a <strong>vertical stretch</strong> or <strong>compression</strong> of the original graph. To visualize stretches and compressions, we set \(a>1\) and observe the general graph of the parent function \(f(x)={log}_{b}(x)\) alongside the vertical stretch, \(g(x)=a{log}_{b}(x)\) and the vertical compression, \(h(x)=\frac{1}{a}{log}_{b}(x).\) See <a href="#fig10">Figure 10</a>.</p>
+<figure class="plot" id="fig10" data-desmos data-spec='{"bounds":{"left":-1,"right":8,"bottom":-4,"top":4},"sliders":[{"var":"a","min":0.1,"max":5,"step":0.1,"value":3,"color":"#cf003d"}],"curves":[{"latex":"y=\\log_{2}\\left(x\\right)","color":"#5a5656"},{"latex":"y=a\\log_{2}\\left(x\\right)","color":"#cf003d"}],"alt":"Interactive graph of f(x)=a*log2(x) — drag a to stretch or compress the parent function vertically"}'><figcaption>Figure 10</figcaption></figure>
+<div class="card definition"><span class="chip">Vertical Stretches and Compressions of the Parent Function \(y={log}_{b}(x)\)</span><p>For any constant \(a>1,\) the function \(f(x)=a{log}_{b}(x)\)</p>
+<ul class="tight"><li>stretches the parent function \(y={log}_{b}(x)\) vertically by a factor of \(a\) if \(a>1.\)</li><li>compresses the parent function \(y={log}_{b}(x)\) vertically by a factor of \(a\) if \(0 &lt; a &lt; 1.\)</li><li>has the vertical asymptote \(x=0.\)</li><li>has the <strong>x</strong>-intercept \((1,0).\)</li><li>has domain \((0,\infty).\)</li><li>has range \((-\infty,\infty).\)</li></ul>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a logarithmic function with the form \(f(x)=a{log}_{b}(x),\) \(a>0,\) graph the translation.</strong></p>
+<ul class="tight"><li>Identify the vertical stretch or compressions:<ul class="tight"><li>If \(|a|>1,\) the graph of \(f(x)={log}_{b}(x)\) is stretched by a factor of \(a\) units.</li><li>If \(|a|<1,\) the graph of \(f(x)={log}_{b}(x)\) is compressed by a factor of \(a\) units.</li></ul>
+</li><li>Draw the vertical asymptote \(x=0.\)</li><li>Identify three key points from the parent function. Find new coordinates for the shifted functions by multiplying the \(y\) coordinates by \(a.\)</li><li>Label the three points.</li><li>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Sketch a graph of \(f(x)=2{log}_{4}(x)\) alongside its parent function. Include the key points and asymptote on the graph. State the domain, range, and asymptote.</p>
+</div><p class="sol-hint">A vertical stretch keeps the x-intercept at (1, 0) but scales the other key point.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since the function is \(f(x)=2{log}_{4}(x),\) we will notice \(a=2.\)</p>
+<p>This means we will stretch the function \(f(x)={log}_{4}(x)\) by a factor of 2.</p>
+<p>The vertical asymptote is \(x=0.\)</p>
+<p>Consider the three key points from the parent function, \((\frac{1}{4},-1),\) \((1,0),\) and \((4,1).\)</p>
+<p>The new coordinates are found by multiplying the \(y\) coordinates by 2.</p>
+<p>Label the points \((\frac{1}{4},-2),\) \((1,0)\ ,\) and \((4,\text{2}).\)</p>
+<p>The domain is \((0,\ \infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\) See <a href="#fig11">Figure 11</a><strong>.</strong></p>
+<figure class="plot" id="fig11" data-plot data-spec='{"xmin":-1,"xmax":7,"ymin":-2,"ymax":3,"xstep":1,"ystep":1,"alt":"Graph of f(x)=2log4(x), a vertical stretch by factor 2 of its parent function y=log4(x)","curves":[{"fn":"Math.log(x)/Math.log(4)","cls":"alt","label":"y=log₄(x)","labelAt":[5,1]},{"fn":"2*Math.log(x)/Math.log(4)","label":"f(x)=2log₄(x)","labelAt":[4.3,2.3]}],"points":[[1,0],[4,1],[4,2]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 11</figcaption></figure>
+<p>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Sketch a graph of \(f(x)=\frac{1}{2}\ {log}_{4}(x)\) alongside its parent function. Include the key points and asymptote on the graph. State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_015.jpg" alt="Graph of two functions. The parent function is y=log_4(x), with an asymptote at x=0 and labeled points at (1, 0), and (4, 1).The translation function f(x)=(1/2)log_4(x) has an asymptote at x=0 and labeled points at (1, 0) and (16, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The domain is \((0,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Sketch a graph of \(f(x)=5log(x+2).\) State the domain, range, and asymptote.</p>
+</div><p class="sol-hint">Do the horizontal shift first, then the vertical stretch &mdash; order matters.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Remember: what happens inside parentheses happens first. First, we move the graph left 2 units, then stretch the function vertically by a factor of 5, as in <a href="#fig12">Figure 12</a>. The vertical asymptote will be shifted to \(x=-2.\) The <strong>x</strong>-intercept will be \((-1,0).\) The domain will be \((-2,\infty).\) Two points will help give the shape of the graph: \((-1,0)\) and \((8,5).\) We chose \(x=8\) as the <strong>x</strong>-coordinate of one point to graph because when \(x=8,\) \(x+2=10,\) the base of the common logarithm.</p>
+<figure class="plot" id="fig12" data-plot data-spec='{"xmin":-2,"xmax":10,"ymin":-3,"ymax":6,"xstep":2,"ystep":1,"alt":"Graph of y=log(x), y=log(x+2) shifted left 2 units, and y=5log(x+2) stretched vertically by 5","curves":[{"fn":"Math.log10(x)","cls":"alt","label":"y=log(x)","labelAt":[6,0.9]},{"fn":"Math.log10(x+2)","cls":"alt2","label":"y=log(x+2)","labelAt":[6,1.1]},{"fn":"5*Math.log10(x+2)","label":"f(x)=5log(x+2)","labelAt":[3,4.5]}],"points":[[-1,0],[8,5]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 12</figcaption></figure>
+<p>The domain is \((-2,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=-2.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Sketch a graph of the function \(f(x)=3log(x-2)+1.\) State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_017.jpg" alt="Graph of f(x)=3log(x-2)+1 with an asymptote at x=2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The domain is \((2,\infty),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=2.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="graphing-reflections-of-f-x-logb-x">Graphing Reflections of <strong>f</strong>(<strong>x</strong>) = log<sub><strong>b</strong></sub>(<strong>x</strong>)</h3>
+<p>When the parent function \(f(x)={log}_{b}(x)\) is multiplied by \(-1,\) the result is a <strong>reflection</strong> about the <strong>x</strong>-axis. When the <strong>input</strong> is multiplied by \(-1,\) the result is a reflection about the <strong>y</strong>-axis. To visualize reflections, we restrict \(b>1,\) and observe the general graph of the parent function \(f(x)={log}_{b}(x)\) alongside the reflection about the <strong>x</strong>-axis, \(g(x)={-log}_{b}(x)\) and the reflection about the <strong>y</strong>-axis, \(h(x)={log}_{b}(-x).\)</p>
+<figure class="plot" id="fig13" data-desmos data-spec='{"bounds":{"left":-2,"right":8,"bottom":-4,"top":4},"sliders":[{"var":"s","min":-1,"max":1,"step":2,"value":-1,"color":"#cf003d"}],"curves":[{"latex":"y=\\log_{2}\\left(x\\right)","color":"#5a5656"},{"latex":"y=s\\cdot \\log_{2}\\left(x\\right)","color":"#cf003d"}],"alt":"Interactive graph of g(x)=s*log2(x) — set s=-1 to reflect the parent function about the x-axis"}'><figcaption>Figure 13</figcaption></figure>
+<div class="card definition"><span class="chip">Reflections of the Parent Function \(y={log}_{b}(x)\)</span><p>The function \(f(x)={-log}_{b}(x)\)</p>
+<ul class="tight"><li>reflects the parent function \(y={log}_{b}(x)\) about the <strong>x</strong>-axis.</li><li>has domain, \((0,\infty),\) range, \((-\infty,\infty),\) and vertical asymptote, \(x=0,\) which are unchanged from the parent function.</li></ul>
+<p><br>The function \(f(x)={log}_{b}(-x)\)</p>
+<ul class="tight"><li>reflects the parent function \(y={log}_{b}(x)\) about the <strong>y</strong>-axis.</li><li>has domain \((-\infty,0).\)</li><li>has range, \((-\infty,\infty),\) and vertical asymptote, \(x=0,\) which are unchanged from the parent function.</li></ul>
+</div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a logarithmic function with the parent function \(f(x)={log}_{b}(x),\) graph a translation.</strong></p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>\(\text{If }f(x)=-{log}_{b}(x)\)</td><td>\(\text{If }f(x)={log}_{b}(-x)\)</td></tr><tr><td>1. Draw the vertical asymptote, \(x=0.\)</td><td>1. Draw the vertical asymptote, \(x=0.\)</td></tr><tr><td>2. Plot the <strong>x-</strong>intercept, \((1,0).\)</td><td>2. Plot the <strong>x-</strong>intercept, \((1,0).\)</td></tr><tr><td>3. Reflect the graph of the parent function \(f(x)={log}_{b}(x)\) about the <strong>x</strong>-axis.</td><td>3. Reflect the graph of the parent function \(f(x)={log}_{b}(x)\) about the <strong>y</strong>-axis.</td></tr><tr><td>4. Draw a smooth curve through the points.</td><td>4. Draw a smooth curve through the points.</td></tr><tr><td>5. State the domain, (0, ∞), the range, (−∞, ∞), and the vertical asymptote \(x=0\) .</td><td>5. State the domain, (−∞, 0) the range, (−∞, ∞) and the vertical asymptote \(x=0.\)</td></tr></tbody></table></div>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Sketch a graph of \(f(x)=log(-x)\) alongside its parent function. Include the key points and asymptote on the graph. State the domain, range, and asymptote.</p>
+</div><p class="sol-hint">Negating the input reflects the graph &mdash; think about which axis.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Before graphing \(f(x)=log(-x),\) identify the behavior and key points for the graph.</p>
+<ul class="tight"><li>Since \(b=10\) is greater than one, we know that the parent function is increasing. Since the <strong>input</strong> value is multiplied by \(-1,\) \(f\) is a reflection of the parent graph about the <strong>y-</strong>axis. Thus, \(f(x)=log(-x)\) will be decreasing as \(x\) moves from negative infinity to zero, and the right tail of the graph will approach the vertical asymptote \(x=0.\)</li><li>The <strong>x</strong>-intercept is \((-1,0).\)</li><li>We draw and label the asymptote, plot and label the points, and draw a smooth curve through the points.</li></ul>
+<figure class="plot" id="fig14" data-plot data-spec='{"xmin":-12,"xmax":12,"ymin":-2,"ymax":2,"xstep":2,"ystep":1,"alt":"Graph of y=log(x) and its reflection about the y-axis, f(x)=log(-x)","curves":[{"fn":"Math.log10(x)","cls":"alt","label":"y=log(x)","labelAt":[7,1.1]},{"fn":"Math.log10(-x)","label":"f(x)=log(-x)","labelAt":[-9,1.1]}],"points":[[1,0],[10,1],[-1,0],[-10,1]],"xlabel":"x","ylabel":"y"}'><figcaption>Figure 14</figcaption></figure>
+<p>The domain is \((-\infty,0),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Graph \(f(x)=-log(-x).\) State the domain, range, and asymptote.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_020.jpg" alt="Graph of f(x)=-log(-x) with an asymptote at x=0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The domain is \((-\infty,0),\) the range is \((-\infty,\infty),\) and the vertical asymptote is \(x=0.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto"><span class="chip">How To</span><p><strong>Given a logarithmic equation, use a graphing calculator to approximate solutions.</strong></p>
+<ul class="tight"><li>Press <strong>[Y=]</strong>. Enter the given logarithm equation or equations as <strong>Y<sub>1</sub>=</strong> and, if needed, <strong>Y<sub>2</sub>=</strong>.</li><li>Press <strong>[GRAPH]</strong> to observe the graphs of the curves and use <strong>[WINDOW]</strong> to find an appropriate view of the graphs, including their point(s) of intersection.</li><li>To find the value of \(x,\) we compute the point of intersection. Press <strong>[2ND]</strong>then <strong>[CALC]</strong>. Select “intersect” and press <strong>[ENTER]</strong> three times. The point of intersection gives the value of \(x,\) for the point(s) of intersection.</li></ul>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Solve \(4ln(x)+1=-2ln(x-1)\) graphically. Round to the nearest thousandth.</p>
+</div><p class="sol-hint">Graph both sides as separate functions and find where they intersect.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Press <strong>[Y=]</strong> and enter \(4ln(x)+1\) next to <strong>Y<sub>1</sub></strong>=. Then enter \(-2ln(x-1)\) next to <strong>Y<sub>2</sub>=</strong>. For a window, use the values 0 to 5 for \(x\) and –10 to 10 for \(y.\) Press <strong>[GRAPH]</strong>. The graphs should intersect somewhere a little to right of \(x=1.\)</p>
+<p>For a better approximation, press <strong>[2ND]</strong>then <strong>[CALC]</strong>. Select <strong>[5: intersect]</strong> and press <strong>[ENTER]</strong> three times. The <strong>x</strong>-coordinate of the point of intersection is displayed as 1.3385297. (Your answer may be different if you use a different window or use a different value for <strong>Guess?</strong>) So, to the nearest thousandth, \(x\approx1.339.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Solve \(5log(x+2)=4-log(x)\) graphically. Round to the nearest thousandth.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x\approx3.049\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="summarizing-translations-of-the-logarithmic-function">Summarizing Translations of the Logarithmic Function</h3>
+<p>Now that we have worked with each type of translation for the logarithmic function, we can summarize each in <a href="#tab7">Table 7</a> to arrive at the general equation for translating exponential functions.</p>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>Transformations of the Parent Function \(y={log}_{b}(x)\)</td></tr><tr><td>Transformation</td><td>Form</td></tr><tr><td>Shift<ul class="tight"><li>Horizontally \(c\) units to the left</li><li>Vertically \(d\) units up</li></ul>
+</td><td>\(y={log}_{b}(x+c)+d\)</td></tr><tr><td>Stretch and Compress<ul class="tight"><li>Stretch if \(|a|>1\)</li><li>Compression if \(|a|<1\)</li></ul>
+</td><td>\(y=a{log}_{b}(x)\)</td></tr><tr><td>Reflect about the <strong>x</strong>-axis</td><td>\(y=-{log}_{b}(x)\)</td></tr><tr><td>Reflect about the <strong>y</strong>-axis</td><td>\(y={log}_{b}(-x)\)</td></tr><tr><td>General equation for all translations</td><td>\(y=a{log}_{b}(x+c)+d\)</td></tr></tbody></table></div>
+<div class="card definition"><span class="chip">Transformations of Logarithmic Functions</span><p>All transformations of the parent logarithmic function, \(y={log}_{b}(x),\) have the form</p>
+<p>\[f(x)=a{log}_{b}(x+c)+d\]</p>
+<p>where the parent function, \(y={log}_{b}(x),b>1,\) is</p>
+<ul class="tight"><li>shifted vertically up \(d\) units.</li><li>shifted horizontally to the left \(c\) units.</li><li>stretched vertically by a factor of \(|a|\) if \(|a|>0.\)</li><li>compressed vertically by a factor of \(|a|\) if \(0<|a|<1.\)</li><li>reflected about the <strong>x-</strong>axis when \(a<0.\)</li></ul>
+<p>For \(f(x)=log(-x),\) the graph of the parent function is reflected about the <strong>y</strong>-axis.</p>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>What is the vertical asymptote of \(f(x)=-2{log}_{3}(x+4)+5?\)</p>
+</div><p class="sol-hint">The asymptote only depends on what's added inside the log's argument.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The vertical asymptote is at \(x=-4.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The coefficient, the base, and the upward translation do not affect the asymptote. The shift of the curve 4 units to the left shifts the vertical asymptote to \(x=-4.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>What is the vertical asymptote of \(f(x)=3+ln(x-1)?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Find a possible equation for the common logarithmic function graphed in <a href="#fig15">Figure 15</a>.</p>
+<figure class="plot" id="fig15" data-plot data-spec='{"xmin":-3,"xmax":6,"ymin":-4,"ymax":4,"xstep":1,"ystep":1,"alt":"Graph of a reflected, vertically stretched common logarithm with vertical asymptote x=-2, passing through (-1,1) and (2,-1)","curves":[{"fn":"-(2/Math.log10(4))*Math.log10(x+2)+1","label":"f(x)=−a·log(x+2)+k"}],"points":[[-1,1,"(-1, 1)"],[2,-1,"(2, -1)"]],"xlabel":"x","ylabel":"f(x)"}'><figcaption>Figure 15</figcaption></figure>
+</div><p class="sol-hint">Start from the general form &minus;a&middot;log(x + c) + k, then use the asymptote and two points to solve for the constants.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This graph has a vertical asymptote at \(x=-2\) and has been vertically reflected. We do not know yet the vertical shift or the vertical stretch. We know so far that the equation will have form:</p>
+<p>\[f(x)=-alog(x+2)+k\]</p>
+<p>It appears the graph passes through the points \((-1,1)\) and \((2,-1).\) Substituting \((-1,1),\)</p>
+<p>\[\begin{array}{ll}1=-alog(-1+2)+k\ \ \ \ \ \ \ \ \ \ \ \ & \text{Substitute }(-1,1). \\ 1=-alog(1)+k & \text{Arithmetic}. \\ 1=k & \text{log(1)}=0.\end{array}\]</p>
+<p>Next, substituting in \((2,-1)\) ,</p>
+<p>\[\begin{array}{lll}-1=-alog(2+2)+1 & & \text{Plug in }(2,-1). \\ -2=-alog(4) & & \text{Arithmetic}. \\ \ \ a=\frac{2}{log(4)} & & \text{Solve for }a.\end{array}\]</p>
+<p>This gives us the equation \(f(x)=-\frac{2}{log(4)}log(x+2)+1.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can verify this answer by comparing the function values in <a href="#tab8">Table 8</a> with the points on the graph in <a href="#fig15">Figure 15</a>.</p>
+<div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td><strong>\(x\)</strong></td><td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>1</td><td>0</td><td>−0.58496</td><td>−1</td><td>−1.3219</td></tr><tr><td><strong>\(x\)</strong></td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>−1.5850</td><td>−1.8074</td><td>−2</td><td>−2.1699</td><td>−2.3219</td></tr></tbody></table></div>
+</div></div></div></div>
+<div class="tryit" id="tryit-11"><div class="ex-head"><span class="num">Try It #11</span></div><div class="ex-body"><p>Give the equation of the natural logarithm graphed in <a href="#fig16">Figure 16</a>.</p>
+<figure class="plot" id="fig16" data-plot data-spec='{"xmin":-4,"xmax":6,"ymin":-4,"ymax":4,"xstep":1,"ystep":1,"alt":"Graph of f(x)=2ln(x+3)-1 with vertical asymptote x=-3","curves":[{"fn":"2*Math.log(x+3)-1","label":"f(x)=2ln(x+3)−1"}],"xlabel":"x","ylabel":"f(x)"}'><figcaption>Figure 16</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(x)=2ln(x+3)-1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card qa"><span class="chip">Q&amp;A</span><p><strong>Is it possible to tell the domain and range and describe the end behavior of a function just by looking at the graph?</strong></p>
+<p><strong>Yes, if we know the function is a general logarithmic function. For example, look at the graph in <a href="#fig16">Figure 16</a>. The graph approaches \(x=-3\) (or thereabouts) more and more closely, so \(x=-3\) is, or is very close to, the vertical asymptote. It approaches from the right, so the domain is all points to the right, \({x\ |\ x>-3}.\) The range, as with all general logarithmic functions, is all real numbers. And we can see the end behavior because the graph goes down as it goes left and up as it goes right. The end behavior is that as \(x\to-{3}^{+},f(x)\to-\infty\) and as \(x\to\infty,f(x)\to\infty.\)</strong></p>
+</div>
+<div class="card callout"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with graphing logarithms.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/graphexplog" target="_blank" rel="noopener">Graph an Exponential Function and Logarithmic Function</a></li><li><a href="https://openstax.org/l/matchexplog" target="_blank" rel="noopener">Match Graphs with Exponential and Logarithmic Functions</a></li><li><a href="https://openstax.org/l/domainlog" target="_blank" rel="noopener">Find the Domain of Logarithmic Functions</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td>General Form for the Translation of the Parent Logarithmic Function \(\ f(x)={log}_{b}(x)\)</td><td>\(f(x)=a{log}_{b}(x+c)+d\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>To find the domain of a logarithmic function, set up an inequality showing the argument greater than zero, and solve for \(x.\) See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.</li><li>The graph of the parent function \(f(x)={log}_{b}(x)\) has an <strong>x-</strong>intercept at \((1,0),\) domain \((0,\infty),\) range \((-\infty,\infty),\) vertical asymptote \(x=0.\)<ul class="tight"><li>if \(b>1,\) the function is increasing.</li><li>if \(0 &lt; b &lt; 1,\) the function is decreasing.</li></ul>
+</li><li>The equation \(f(x)={log}_{b}(x+c)\) shifts the parent function \(y={log}_{b}(x)\) horizontally. See <a href="#example4">Example 4</a>.<ul class="tight"><li>left \(c\) units if \(c>0.\)</li><li>right \(c\) units if \(c<0.\)</li></ul>
+</li><li>The equation \(f(x)={log}_{b}(x)+d\) shifts the parent function \(y={log}_{b}(x)\) vertically. See <a href="#example5">Example 5</a>.<ul class="tight"><li>up \(d\) units if \(d>0.\)</li><li>down \(d\) units if \(d<0.\)</li></ul>
+</li><li>For any constant \(a>0,\) the equation \(f(x)=a{log}_{b}(x)\) See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.<ul class="tight"><li>stretches the parent function \(y={log}_{b}(x)\) vertically by a factor of \(a\) if \(|a|>1.\)</li><li>compresses the parent function \(y={log}_{b}(x)\) vertically by a factor of \(a\) if \(|a|<1.\)</li></ul>
+</li><li>When the parent function \(y={log}_{b}(x)\) is multiplied by \(-1,\) the result is a reflection about the <strong>x</strong>-axis. When the input is multiplied by \(-1,\) the result is a reflection about the <strong>y</strong>-axis. See <a href="#example8">Example 8</a>.<ul class="tight"><li>The equation \(f(x)=-{log}_{b}(x)\) represents a reflection of the parent function about the <strong>x-</strong>axis.</li><li>The equation \(f(x)={log}_{b}(-x)\) represents a reflection of the parent function about the <strong>y-</strong>axis.</li></ul>
+<ul class="tight"><li>A graphing calculator may be used to approximate solutions to some logarithmic equations. See <a href="#example9">Example 9</a>.</li></ul>
+</li><li>All translations of the logarithmic function can be summarized by the general equation \(f(x)=a{log}_{b}(x+c)+d.\)</li><li>Given an equation with the general form \(f(x)=a{log}_{b}(x+c)+d,\) we can identify the vertical asymptote \(x=-c\) for the transformation. See <a href="#example10">Example 10</a>.</li><li>Using the general equation \(f(x)=a{log}_{b}(x+c)+d,\) we can write the equation of a logarithmic function given its graph. See <a href="#example11">Example 11</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise"><div class="n">1</div><div class="body"><p>The inverse of every logarithmic function is an exponential function and vice-versa. What does this tell us about the relationship between the coordinates of the points on the graphs of each?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Since the functions are inverses, their graphs are mirror images about the line \(y=x.\) So for every point \((a,b)\) on the graph of a logarithmic function, there is a corresponding point \((b,a)\) on the graph of its inverse exponential function.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">2</div><div class="body"><p>What type(s) of translation(s), if any, affect the range of a logarithmic function?</p>
+</div></div>
+<div class="exercise"><div class="n">3</div><div class="body"><p>What type(s) of translation(s), if any, affect the domain of a logarithmic function?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Shifting the function right or left and reflecting the function about the y-axis will affect its domain.</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">4</div><div class="body"><p>Consider the general logarithmic function \(f(x)={log}_{b}(x).\) Why can’t \(x\) be zero?</p>
+</div></div>
+<div class="exercise"><div class="n">5</div><div class="body"><p>Does the graph of a general logarithmic function have a horizontal asymptote? Explain.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>No. A horizontal asymptote would suggest a limit on the range, and the range of any logarithmic function in general form is all real numbers.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, state the domain and range of the function.</p>
+<div class="exercise"><div class="n">6</div><div class="body"><p>\(f(x)={log}_{3}(x+4)\)</p>
+</div></div>
+<div class="exercise"><div class="n">7</div><div class="body"><p>\(h(x)=ln(\frac{1}{2}-x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((-\infty,\frac{1}{2});\) Range: \((-\infty,\infty)\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">8</div><div class="body"><p>\(g(x)={log}_{5}(2x+9)-2\)</p>
+</div></div>
+<div class="exercise"><div class="n">9</div><div class="body"><p>\(h(x)=ln(4x+17)-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((-\frac{17}{4},\infty);\) Range: \((-\infty,\infty)\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">10</div><div class="body"><p>\(f(x)={log}_{2}(12-3x)-3\)</p>
+</div></div>
+<p>For the following exercises, state the domain and the vertical asymptote of the function.</p>
+<div class="exercise"><div class="n">11</div><div class="body"><p>\(f(x)={log}_{b}(x-5)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((5,\infty);\) Vertical asymptote: \(x=5\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">12</div><div class="body"><p>\(g(x)=ln(3-x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">13</div><div class="body"><p>\(f(x)=log(3x+1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((-\frac{1}{3},\infty);\) Vertical asymptote: \(x=-\frac{1}{3}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">14</div><div class="body"><p>\(f(x)=3log(-x)+2\)</p>
+</div></div>
+<div class="exercise"><div class="n">15</div><div class="body"><p>\(g(x)=-ln(3x+9)-7\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((-3,\infty);\) Vertical asymptote: \(x=-3\)</p>
+</div></div></div></div>
+<p>For the following exercises, state the domain, vertical asymptote, and end behavior of the function.</p>
+<div class="exercise"><div class="n">16</div><div class="body"><p>\(f(x)=ln(2-x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">17</div><div class="body"><p>\(f(x)=log(x-\frac{3}{7})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((\frac{3}{7},\infty)\) ; <br>Vertical asymptote: \(x=\frac{3}{7}\) ; End behavior: as \(x\to{(\frac{3}{7})}^{+},f(x)\to-\infty\) and as \(x\to\infty,f(x)\to\infty\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">18</div><div class="body"><p>\(h(x)=-log(3x-4)+3\)</p>
+</div></div>
+<div class="exercise"><div class="n">19</div><div class="body"><p>\(g(x)=ln(2x+6)-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((-3,\infty)\) ; Vertical asymptote: \(x=-3\) ; <br>End behavior: as \(x\to-{3}^{+}\) , \(f(x)\to-\infty\) and as \(x\to\infty\) , \(f(x)\to\infty\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">20</div><div class="body"><p>\(f(x)={log}_{3}(15-5x)+6\)</p>
+</div></div>
+<p>For the following exercises, state the domain, range, and <strong>x</strong>- and <strong>y</strong>-intercepts, if they exist. If they do not exist, write DNE.</p>
+<div class="exercise"><div class="n">21</div><div class="body"><p>\(h(x)={log}_{4}(x-1)+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((1,\infty);\) Range: \((-\infty,\infty);\) Vertical asymptote: \(x=1;\) <strong>x</strong>-intercept: \((\frac{5}{4},0);\) <strong>y</strong>-intercept: DNE</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">22</div><div class="body"><p>\(f(x)=log(5x+10)+3\)</p>
+</div></div>
+<div class="exercise"><div class="n">23</div><div class="body"><p>\(g(x)=ln(-x)-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((-\infty,0);\) Range: \((-\infty,\infty);\) Vertical asymptote: \(x=0;\) <strong>x</strong>-intercept: \((-{e}^{2},0);\) <strong>y</strong>-intercept: DNE</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">24</div><div class="body"><p>\(f(x)={log}_{2}(x+2)-5\)</p>
+</div></div>
+<div class="exercise"><div class="n">25</div><div class="body"><p>\(h(x)=3ln(x)-9\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Domain: \((0,\infty);\) Range: \((-\infty,\infty);\) Vertical asymptote: \(x=0;\) <strong>x</strong>-intercept: \(({e}^{3},0);\) <strong>y</strong>-intercept: DNE</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, match each function in <a href="#fig17">Figure 17</a> with the letter corresponding to its graph.</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_201.jpg" alt="Graph of five logarithmic functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17</figcaption></figure>
+<div class="exercise"><div class="n">26</div><div class="body"><p>\(d(x)=log(x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">27</div><div class="body"><p>\(f(x)=ln(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>B</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">28</div><div class="body"><p>\(g(x)={log}_{2}(x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">29</div><div class="body"><p>\(h(x)={log}_{5}(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>C</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">30</div><div class="body"><p>\(j(x)={log}_{25}(x)\)</p>
+</div></div>
+<p>For the following exercises, match each function in <a href="#fig18">Figure 18</a> with the letter corresponding to its graph.</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_202.jpg" alt="Graph of three logarithmic functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+<div class="exercise"><div class="n">31</div><div class="body"><p>\(f(x)={log}_{\frac{1}{3}}(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>B</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">32</div><div class="body"><p>\(g(x)={log}_{2}(x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">33</div><div class="body"><p>\(h(x)={log}_{\frac{3}{4}}(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>C</p>
+</div></div></div></div>
+<p>For the following exercises, sketch the graphs of each pair of functions on the same axis.</p>
+<div class="exercise"><div class="n">34</div><div class="body"><p>\(f(x)=log(x)\) and \(g(x)={10}^{x}\)</p>
+</div></div>
+<div class="exercise"><div class="n">35</div><div class="body"><p>\(f(x)=log(x)\) and \(g(x)={log}_{\frac{1}{2}}(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_204.jpg" alt="Graph of two functions, g(x) = log_(1/2)(x) in orange and f(x)=log(x) in blue." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">36</div><div class="body"><p>\(f(x)={log}_{4}(x)\) and \(g(x)=ln(x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">37</div><div class="body"><p>\(f(x)={e}^{x}\) and \(g(x)=ln(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_206.jpg" alt="Graph of two functions, g(x) = ln(1/2)(x) in orange and f(x)=e^(x) in blue." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, match each function in <a href="#fig19">Figure 19</a> with the letter corresponding to its graph.</p>
+<figure class="plot" id="fig19"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_207.jpg" alt="Graph of three logarithmic functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 19</figcaption></figure>
+<div class="exercise"><div class="n">38</div><div class="body"><p>\(f(x)={log}_{4}(-x+2)\)</p>
+</div></div>
+<div class="exercise"><div class="n">39</div><div class="body"><p>\(g(x)=-{log}_{4}(x+2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>C</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">40</div><div class="body"><p>\(h(x)={log}_{4}(x+2)\)</p>
+</div></div>
+<p>For the following exercises, sketch the graph of the indicated function.</p>
+<div class="exercise"><div class="n">41</div><div class="body"><p>\(f(x)={log}_{2}(x+2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_208.jpg" alt="Graph of f(x)=log_2(x+2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">42</div><div class="body"><p>\(f(x)=2log(x)\)</p>
+</div></div>
+<div class="exercise"><div class="n">43</div><div class="body"><p>\(f(x)=ln(-x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_210.jpg" alt="Graph of f(x)=ln(-x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">44</div><div class="body"><p>\(g(x)=log(4x+16)+4\)</p>
+</div></div>
+<div class="exercise"><div class="n">45</div><div class="body"><p>\(g(x)=log(6-3x)+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_212.jpg" alt="Graph of g(x)=log(6-3x)+1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">46</div><div class="body"><p>\(h(x)=-\frac{1}{2}ln(x+1)-3\)</p>
+</div></div>
+<p>For the following exercises, write a logarithmic equation corresponding to the graph shown.</p>
+<div class="exercise"><div class="n">47</div><div class="body"><p>Use \(y={log}_{2}(x)\) as the parent function.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_214.jpg" alt="The graph y=log_2(x) has been reflected over the y-axis and shifted to the right by 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={log}_{2}(-(x-1))\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">48</div><div class="body"><p>Use \(f(x)={log}_{3}(x)\) as the parent function.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_215.jpg" alt="The graph y=log_3(x) has been reflected over the x-axis, vertically stretched by 3, and shifted to the left by 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise"><div class="n">49</div><div class="body"><p>Use \(f(x)={log}_{4}(x)\) as the parent function.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_216.jpg" alt="The graph y=log_4(x) has been vertically stretched by 3, and shifted to the left by 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=3{log}_{4}(x+2)\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">50</div><div class="body"><p>Use \(f(x)={log}_{5}(x)\) as the parent function.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_04_04_217.jpg" alt="The graph y=log_3(x) has been reflected over the x-axis and y-axis, vertically stretched by 2, and shifted to the right by 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a graphing calculator to find approximate solutions to each equation.</p>
+<div class="exercise"><div class="n">51</div><div class="body"><p>\(log(x-1)+2=ln(x-1)+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=2\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">52</div><div class="body"><p>\(log(2x-3)+2=-log(2x-3)+5\)</p>
+</div></div>
+<div class="exercise"><div class="n">53</div><div class="body"><p>\(ln(x-2)=-ln(x+1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\approx\text{2}\text{.303}\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">54</div><div class="body"><p>\(2ln(5x+1)=\frac{1}{2}ln(-5x)+1\)</p>
+</div></div>
+<div class="exercise"><div class="n">55</div><div class="body"><p>\(\frac{1}{3}log(1-x)=log(x+1)+\frac{1}{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x\approx-0.472\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise"><div class="n">56</div><div class="body"><p>Let \(b\) be any positive real number such that \(b\ne1.\) What must \({log}_{b}1\) be equal to? Verify the result.</p>
+</div></div>
+<div class="exercise"><div class="n">57</div><div class="body"><p>Explore and discuss the graphs of \(f(x)={log}_{\frac{1}{2}}(x)\) and \(g(x)=-{log}_{2}(x).\) Make a conjecture based on the result.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graphs of \(f(x)={log}_{\frac{1}{2}}(x)\) and \(g(x)=-{log}_{2}(x)\) appear to be the same; Conjecture: for any positive base \(b\ne1,\) \({log}_{b}(x)=-{log}_{\frac{1}{b}}(x).\)</p>
+</div></div></div></div>
+<div class="exercise"><div class="n">58</div><div class="body"><p>Prove the conjecture made in the previous exercise.</p>
+</div></div>
+<div class="exercise"><div class="n">59</div><div class="body"><p>What is the domain of the function \(f(x)=ln(\frac{x+2}{x-4})?\) Discuss the result.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Recall that the argument of a logarithmic function must be positive, so we determine where \(\frac{x+2}{x-4}>0\) . From the graph of the function \(f(x)=\frac{x+2}{x-4},\) note that the graph lies above the <strong>x</strong>-axis on the interval \((-\infty,-2)\) and again to the right of the vertical asymptote, that is \((4,\infty).\) Therefore, the domain is \((-\infty,-2)∪(4,\infty).\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_04_04_219.jpg" alt="A graph of a rational function is shown on an xy-coordinate plane. The x-axis ranges from -10 to 10, and the y-axis ranges from -10 to 10. A vertical dashed orange line, labeled &amp;quot;x = 4&amp;quot;, represents a vertical asymptote. The graph consists of two smooth blue curves. The left curve extends from negative infinity in the second quadrant, passes through the x-intercept at (-2, 0) (marked with a blue dot), and decreases towards negative infinity as it approaches the vertical asymptote x=4 from the left. The right curve begins at positive infinity as it approaches the vertical asymptote x=4 from the right, then decreases and approaches the x-axis from above as x tends towards positive infinity in the first quadrant." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise"><div class="n">60</div><div class="body"><p>Use properties of exponents to find the <strong>x</strong>-intercepts of the function \(f(x)=log({x}^{2}+4x+4)\) algebraically. Show the steps for solving, and then verify the result by graphing the function.</p>
+</div></div>
+</div>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

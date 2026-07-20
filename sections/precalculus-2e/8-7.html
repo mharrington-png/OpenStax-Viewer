@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parametric Equations: Graphs · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Parametric Equations: Graphs</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 8.7</span>Parametric Equations: Graphs</h1>
+<p>While not every fan (or team manager) appreciates it, baseball and many other sports have become dependent on analytics, which involve complex data recording and quantitative evaluation used to understand and predict behavior. The earliest influence of analytics was mostly statistical; more recently, physics and other sciences have come into play. Foremost among these is the focus on launch angle and exit velocity, which when at certain values can almost guarantee a home run. On the other hand, emphasis on launch angle and focusing on home runs rather than overall hitting results in far more outs. Consider the following situation: it is the bottom of the ninth inning, with two outs and two players on base. The home team is losing by two runs. The batter swings and hits the baseball at 140 feet per second and at an angle of approximately \(45°\) to the horizontal. How far will the ball travel? Will it clear the fence for a game-winning home run? The outcome may depend partly on other factors (for example, the wind), but mathematicians can model the path of a projectile and predict approximately how far it will travel using <strong>parametric equations</strong>. In this section, we’ll discuss parametric equations and some common applications, such as projectile motion problems.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_001.jpg" alt="Photo of a baseball batter swinging." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Parametric equations can model the path of a projectile. (credit: Paul Kreher, Flickr)</figcaption></figure>
+<h2 id="graphing-parametric-equations-by-plotting-points">Graphing Parametric Equations by Plotting Points</h2>
+<p>In lieu of a graphing calculator or a computer graphing program, plotting points to represent the graph of an equation is the standard method. As long as we are careful in calculating the values, point-plotting is highly dependable.</p>
+<div class="card howto" id="fs-id1165135361790"><span class="chip">How To</span><p><strong>Given a pair of parametric equations, sketch a graph by plotting points.</strong></p>
+<ul class="tight"><li>Construct a table with three columns: \(t,x(t),\text{and}\,y(t).\)</li><li>Evaluate \(x\) and \(y\) for values of \(t\) over the interval for which the functions are defined.</li><li>Plot the resulting pairs \((x,y).\)</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Sketch the graph of the <strong>parametric equations</strong> \(x(t)={t}^{2}+1,\) \(y(t)=2+t.\)</p>
+</div><p class="sol-hint">Build a table of t-values, computing x(t) and y(t) for each, then plot the (x,y) pairs in order.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Construct a table of values for \(t,x(t),\) and \(y(t),\) as in <a href="#tab1">Table 1</a>, and plot the points in a plane.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\(t\)</td><td>\(x(t)={t}^{2}+1\)</td><td>\(y(t)=2+t\)</td></tr><tr><td>\(-5\)</td><td>\(26\)</td><td>\(-3\)</td></tr><tr><td>\(-4\)</td><td>\(17\)</td><td>\(-2\)</td></tr><tr><td>\(-3\)</td><td>\(10\)</td><td>\(-1\)</td></tr><tr><td>\(-2\)</td><td>\(5\)</td><td>\(0\)</td></tr><tr><td>\(-1\)</td><td>\(2\)</td><td>\(1\)</td></tr><tr><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td></tr><tr><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td>\(2\)</td><td>\(5\)</td><td>\(4\)</td></tr><tr><td>\(3\)</td><td>\(10\)</td><td>\(5\)</td></tr><tr><td>\(4\)</td><td>\(17\)</td><td>\(6\)</td></tr><tr><td>\(5\)</td><td>\(26\)</td><td>\(7\)</td></tr></tbody></table></div>
+<p>The graph is a <strong>parabola</strong> with vertex at the point \((1,2),\) opening to the right. See <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_002.jpg" alt="Graph of the given parabola opening to the right." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>As values for \(t\) progress in a positive direction from 0 to 5, the plotted points trace out the top half of the parabola. As values of \(t\) become negative, they trace out the lower half of the parabola. There are no restrictions on the domain. The arrows indicate direction according to increasing values of \(t.\) The graph does not represent a function, as it will fail the vertical line test. The graph is drawn in two parts: the positive values for \(t,\) and the negative values for \(t.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Sketch the graph of the parametric equations \(x=\sqrt{t},\) \(y=2t+3,\) \(0\le t\le 3.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_003.jpg" alt="Graph of the given parametric equations with the restricted domain - it looks like the right half of an upward opening parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Construct a table of values for the given parametric equations and sketch the graph:</p>
+<p id="eq1">\[\begin{array}{l}x=2cos\,t \\ y=4sin\,t\end{array}\]</p>
+</div><p class="sol-hint">Pick several t-values, compute x and y for each from the formulas, then plot the points in order of increasing t.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Construct a table like that in <a href="#tab2">Table 2</a> using angle measure in radians as inputs for \(t,\) and evaluating \(x\) and \(y.\) Using angles with known sine and cosine values for \(t\) makes calculations easier.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(t\)</td><td>\(x=2cos\,t\)</td><td>\(y=4sin\,t\)</td></tr><tr><td>0</td><td>\(x=2cos(0)=2\)</td><td>\(y=4sin(0)=0\)</td></tr><tr><td>\(\frac{\pi }{6}\)</td><td>\(x=2cos(\frac{\pi }{6})=\sqrt{3}\)</td><td>\(y=4sin(\frac{\pi }{6})=2\)</td></tr><tr><td>\(\frac{\pi }{3}\)</td><td>\(x=2cos(\frac{\pi }{3})=1\)</td><td>\(y=4sin(\frac{\pi }{3})=2\sqrt{3}\)</td></tr><tr><td>\(\frac{\pi }{2}\)</td><td>\(x=2cos(\frac{\pi }{2})=0\)</td><td>\(y=4sin(\frac{\pi }{2})=4\)</td></tr><tr><td>\(\frac{2\pi }{3}\)</td><td>\(x=2cos(\frac{2\pi }{3})=-1\)</td><td>\(y=4sin(\frac{2\pi }{3})=2\sqrt{3}\)</td></tr><tr><td>\(\frac{5\pi }{6}\)</td><td>\(x=2cos(\frac{5\pi }{6})=-\sqrt{3}\)</td><td>\(y=4sin(\frac{5\pi }{6})=2\)</td></tr><tr><td>\(\pi\)</td><td>\(x=2cos(\pi )=-2\)</td><td>\(y=4sin(\pi )=0\)</td></tr><tr><td>\(\frac{7\pi }{6}\)</td><td>\(x=2cos(\frac{7\pi }{6})=-\sqrt{3}\)</td><td>\(y=4sin(\frac{7\pi }{6})=-2\)</td></tr><tr><td>\(\frac{4\pi }{3}\)</td><td>\(x=2cos(\frac{4\pi }{3})=-1\)</td><td>\(y=4sin(\frac{4\pi }{3})=-2\sqrt{3}\)</td></tr><tr><td>\(\frac{3\pi }{2}\)</td><td>\(x=2cos(\frac{3\pi }{2})=0\)</td><td>\(y=4sin(\frac{3\pi }{2})=-4\)</td></tr><tr><td>\(\frac{5\pi }{3}\)</td><td>\(x=2cos(\frac{5\pi }{3})=1\)</td><td>\(y=4sin(\frac{5\pi }{3})=-2\sqrt{3}\)</td></tr><tr><td>\(\frac{11\pi }{6}\)</td><td>\(x=2cos(\frac{11\pi }{6})=\sqrt{3}\)</td><td>\(y=4sin(\frac{11\pi }{6})=-2\)</td></tr><tr><td>\(2\pi\)</td><td>\(x=2cos(2\pi )=2\)</td><td>\(y=4sin(2\pi )=0\)</td></tr></tbody></table></div>
+<p><a href="#fig3">Figure 3</a> shows the graph.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_004.jpg" alt="Graph of the given equations - a vertical ellipse." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<p>By the symmetry shown in the values of \(x\) and \(y,\) we see that the parametric equations represent an <strong>ellipse</strong>. The <strong>ellipse</strong> is mapped in a counterclockwise direction as shown by the arrows indicating increasing \(t\) values.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We have seen that parametric equations can be graphed by plotting points. However, a graphing calculator will save some time and reveal nuances in a graph that may be too tedious to discover using only hand calculations.</p>
+<p>Make sure to change the mode on the calculator to parametric (PAR). To confirm, the \(Y=\) window should show</p>
+<p id="eq2">\[\begin{array}{l}{X}_{1T}= \\ {Y}_{1T}=\end{array}\]</p>
+<p>instead of \({Y}_{1}=.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Graph the parametric equations: \(x=5cos\,t,\) \(y=3sin\,t.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_005.jpg" alt="Graph of the given equations - a horizontal ellipse." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Graph the parametric equations \(x=5cos\,t\) and \(y=2sin\,t.\) First, construct the graph using data points generated from the <strong>parametric form</strong>. Then graph the <strong>rectangular form</strong> of the equation. Compare the two graphs.</p>
+</div><p class="sol-hint">Build a table of t-values and compute both x and y, then separately eliminate t algebraically to get the Cartesian form for comparison.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Construct a table of values like that in <a href="#tab3">Table 3</a>.</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>\(t\)</td><td>\(x=5cos\,t\)</td><td>\(y=2sin\,t\)</td></tr><tr><td>\(\text{0}\)</td><td>\(x=5cos(0)=5\)</td><td>\(y=2sin(0)=0\)</td></tr><tr><td>\(\text{1}\)</td><td>\(x=5cos(1)\approx 2.7\)</td><td>\(y=2sin(1)\approx 1.7\)</td></tr><tr><td>\(\text{2}\)</td><td>\(x=5cos(2)\approx -2.1\)</td><td>\(y=2sin(2)\approx 1.8\)</td></tr><tr><td>\(\text{3}\)</td><td>\(x=5cos(3)\approx -4.95\)</td><td>\(y=2sin(3)\approx 0.28\)</td></tr><tr><td>\(\text{4}\)</td><td>\(x=5cos(4)\approx -3.3\)</td><td>\(y=2sin(4)\approx -1.5\)</td></tr><tr><td>\(\text{5}\)</td><td>\(x=5cos(5)\approx 1.4\)</td><td>\(y=2sin(5)\approx -1.9\)</td></tr><tr><td>\(-1\)</td><td>\(x=5cos(-1)\approx 2.7\)</td><td>\(y=2sin(-1)\approx -1.7\)</td></tr><tr><td>\(-2\)</td><td>\(x=5cos(-2)\approx -2.1\)</td><td>\(y=2sin(-2)\approx -1.8\)</td></tr><tr><td>\(-3\)</td><td>\(x=5cos(-3)\approx -4.95\)</td><td>\(y=2sin(-3)\approx -0.28\)</td></tr><tr><td>\(-4\)</td><td>\(x=5cos(-4)\approx -3.3\)</td><td>\(y=2sin(-4)\approx 1.5\)</td></tr><tr><td>\(-5\)</td><td>\(x=5cos(-5)\approx 1.4\)</td><td>\(y=2sin(-5)\approx 1.9\)</td></tr></tbody></table></div>
+<p>Plot the \((x,y)\) values from the table. See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_006.jpg" alt="Graph of the given ellipse in parametric and rectangular coordinates - it is the same thing in both images." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<p>Next, translate the parametric equations to rectangular form. To do this, we solve for \(t\) in either \(x(t)\) or \(y(t),\) and then substitute the expression for \(t\) in the other equation. The result will be a function \(y(x)\) if solving for \(t\) as a function of \(x,\) or \(x(y)\) if solving for \(t\) as a function of \(y.\)</p>
+<p id="eq3">\[\begin{array}{ll}x=5cos\,t &amp; \\ \frac{x}{5}=cos\,t &amp; \text{Solve for }cos\,t. \\ y=2sin\,t\begin{array}{llll} &amp; &amp; &amp; \end{array}\, &amp; \text{Solve for }sin\,t. \\ \frac{y}{2}=sin\,t &amp; \end{array}\]</p>
+<p>Then, use the <strong>Pythagorean Theorem</strong>.</p>
+<p id="eq4">\[\begin{array}{l}{cos}^{2}t+{sin}^{2}t=1 \\ {(\frac{x}{5})}^{2}+{(\frac{y}{2})}^{2}=1 \\ \frac{{x}^{2}}{25}+\frac{{y}^{2}}{4}=1\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>In <a href="#fig5">Figure 5</a>, the data from the parametric equations and the rectangular equation are plotted together. The parametric equations are plotted in blue; the graph for the rectangular equation is drawn on top of the parametric in a dashed style colored red. Clearly, both forms produce the same graph.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_007.jpg" alt="Overlayed graph of the two versions of the ellipse, showing that they are the same whether they are given in parametric or rectangular coordinates." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Graph the parametric equations \(x=t+1\) and \(y=\sqrt{t},\) \(t\ge 0,\) and the rectangular equivalent \(y=\sqrt{x-1}\) on the same coordinate system.</p>
+</div><p class="sol-hint">Build a table of t-values (starting at 0) for the parametric form, then graph the rectangular equation over the matching domain to compare.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Construct a table of values for the parametric equations, as we did in the previous example, and graph \(y=\sqrt{t},\) \(t\ge 0\) on the same grid, as in <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_008.jpg" alt="Overlayed graph of the two versions of the given function, showing that they are the same whether they are given in parametric or rectangular coordinates." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>With the domain on \(t\) restricted, we only plot positive values of \(t.\) The parametric data is graphed in blue and the graph of the rectangular equation is dashed in red. Once again, we see that the two forms overlap.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Sketch the graph of the parametric equations \(x=2cos\,θ\,\text{and}\,y=4sin\,θ,\) along with the rectangular equation on the same grid.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The graph of the parametric equations is in red and the graph of the rectangular equation is drawn in blue dots on top of the parametric equations.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_009.jpg" alt="Overlayed graph of the two versions of the ellipse, showing that they are the same whether they are given in parametric or rectangular coordinates." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="applications-of-parametric-equations">Applications of Parametric Equations</h2>
+<p>Many of the advantages of parametric equations become obvious when applied to solving real-world problems. Although rectangular equations in <strong>x</strong> and <strong>y</strong> give an overall picture of an object's path, they do not reveal the position of an object at a specific time. Parametric equations, however, illustrate how the values of <strong>x</strong> and <strong>y</strong> change depending on <strong>t</strong>, as the location of a moving object at a particular time.</p>
+<p>A common application of parametric equations is solving problems involving projectile motion. In this type of motion, an object is propelled forward in an upward direction forming an angle of \(θ\) to the horizontal, with an initial speed of \({v}_{0},\) and at a height \(h\) above the horizontal.</p>
+<p>The path of an object propelled at an inclination of \(θ\) to the horizontal, with initial speed \({v}_{0},\) and at a height \(h\) above the horizontal, is given by</p>
+<p id="eq5">\[\begin{array}{l}x=({v}_{0}cosθ)t\, \\ y=-\frac{1}{2}g{t}^{2}+({v}_{0}sinθ)t+h\end{array}\]</p>
+<p>where \(g\) accounts for the effects of <strong>gravity</strong> and \(h\) is the initial height of the object. Depending on the units involved in the problem, use \(g=32\,\text{ft}\text{/}{\text{s}}^{2}\) or \(g=9.8\,\text{m}\text{/}{\text{s}}^{2}.\) The equation for \(x\) gives horizontal distance, and the equation for \(y\) gives the vertical distance.</p>
+<div class="card howto" id="fs-id1165135469031"><span class="chip">How To</span><p><strong>Given a projectile motion problem, use parametric equations to solve.</strong></p>
+<ul class="tight"><li>The horizontal distance is given by \(x=({v}_{0}cos\,θ)t.\) Substitute the initial speed of the object for \({v}_{0}.\)</li><li>The expression \(cos\,θ\) indicates the angle at which the object is propelled. Substitute that angle in degrees for \(cos\,θ.\)</li><li>The vertical distance is given by the formula \(y=-\frac{1}{2}g{t}^{2}+({v}_{0}sin\,θ)t+h.\) The term \(-\frac{1}{2}g{t}^{2}\) represents the effect of gravity. Depending on units involved, use \(g=32\,{\text{ft/s}}^{2}\) or \(g=9.8\,{\text{m/s}}^{2}.\) Again, substitute the initial speed for \({v}_{0},\) and the height at which the object was propelled for \(h.\)</li><li>Proceed by calculating each term to solve for \(t.\)</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Solve the problem presented at the beginning of this section. Does the batter hit the game-winning home run? Assume that the ball is hit with an initial velocity of 140 feet per second at an angle of \(45°\) to the horizontal, making contact 3 feet above the ground.</p>
+<ul class="tight"><li>ⓐ Find the parametric equations to model the path of the baseball.</li><li>ⓑ Where is the ball after 2 seconds?</li><li>ⓒ How long is the ball in the air?</li><li>ⓓ Is it a home run?</li></ul>
+</div><p class="sol-hint">Set up parametric equations for horizontal and vertical position using the initial speed, angle, and starting height, then find when the height returns to the fence's height.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐUse the formulas to set up the equations. The horizontal position is found using the parametric equation for \(\,x.\) Thus, The vertical position is found using the parametric equation for \(y.\) Thus,<p>Use the formulas to set up the equations. The horizontal position is found using the parametric equation for \(\,x.\) Thus,</p>
+<p id="eq6">\[\begin{array}{l}x=({v}_{0}cos\,θ)t \\ x=(140cos(45°))t\end{array}\]</p>
+<p>The vertical position is found using the parametric equation for \(y.\) Thus,</p>
+<p id="eq7">\[\begin{array}{l}y=-16{t}^{2}+({v}_{0}sin\,θ)t+h \\ y=-16{t}^{2}+(140sin(45°))t+3\end{array}\]</p>
+</li><li>ⓑ Substitute 2 into the equations to find the horizontal and vertical positions of the ball.After 2 seconds, the ball is 198 feet away from the batter’s box and 137 feet above the ground.<p>Substitute 2 into the equations to find the horizontal and vertical positions of the ball.</p>
+<p id="eq8">\[\begin{array}{l}x=(140cos(45°))(2) \\ x=198\text{ feet} \\ \\ y=-16{(2)}^{2}+(140sin(45°))(2)+3 \\ y=137\text{ feet}\end{array}\]</p>
+<p>After 2 seconds, the ball is 198 feet away from the batter’s box and 137 feet above the ground.</p>
+</li><li>ⓒTo calculate how long the ball is in the air, we have to find out when it will hit ground, or when \(y=0.\) Thus, When \(t=6.2173\) seconds, the ball has hit the ground. (The quadratic equation can be solved in various ways, but this problem was solved using a computer math program.)<p>To calculate how long the ball is in the air, we have to find out when it will hit ground, or when \(y=0.\) Thus,</p>
+<p id="eq9">\[\begin{array}{ll}y=-16{t}^{2}+(140sin({45}^{∘}))t+3 &amp; \\ y=0 &amp; \text{Set }y(t)=0\text{ and solve the quadratic}. \\ t=6.2173 &amp; \end{array}\]</p>
+<p>When \(t=6.2173\) seconds, the ball has hit the ground. (The quadratic equation can be solved in various ways, but this problem was solved using a computer math program.)</p>
+</li><li>ⓓWe cannot confirm that the hit was a home run without considering the size of the outfield, which varies from field to field. However, for simplicity’s sake, let’s assume that the outfield wall is 400 feet from home plate in the deepest part of the park. Let’s also assume that the wall is 10 feet high. In order to determine whether the ball clears the wall, we need to calculate how high the ball is when <strong>x</strong> = 400 feet. So we will set <strong>x</strong> = 400, solve for \(t,\) and input \(t\) into \(y.\)The ball is 141.8 feet in the air when it soars out of the ballpark. It was indeed a home run. See <a href="#fig7">Figure 7</a>.<p>We cannot confirm that the hit was a home run without considering the size of the outfield, which varies from field to field. However, for simplicity’s sake, let’s assume that the outfield wall is 400 feet from home plate in the deepest part of the park. Let’s also assume that the wall is 10 feet high. In order to determine whether the ball clears the wall, we need to calculate how high the ball is when <strong>x</strong> = 400 feet. So we will set <strong>x</strong> = 400, solve for \(t,\) and input \(t\) into \(y.\)</p>
+<p id="eq10">\[\begin{array}{l}\begin{array}{l}x=(140cos(45°))t \\ 400=(140cos(45°))t \\ t=4.04\end{array} \\ \\ \begin{array}{l}y=-16{(4.04)}^{2}+(140sin(45°))(4.04)+3 \\ y=141.8\end{array}\end{array}\]</p>
+<p>The ball is 141.8 feet in the air when it soars out of the ballpark. It was indeed a home run. See <a href="#fig7">Figure 7</a>.</p>
+</li></ul>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_010n.jpg" alt="Plotted trajectory of a hit ball, showing the position of the batter at the origin, the ball's path in the shape of a wide downward facing parabola, and the outfield wall as a vertical line segment rising to 10 ft under the ball's path." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div></div></div>
+<div class="card callout" id="fs-id1165137842378"><span class="chip">Media</span><p>Access the following online resource for additional instruction and practice with graphs of parametric equations.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/graphpara84" target="_blank" rel="noopener">Graphing Parametric Equations on the TI-84</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>When there is a third variable, a third parameter on which \(x\) and \(y\) depend, parametric equations can be used.</li><li>To graph parametric equations by plotting points, make a table with three columns labeled \(t,x(t),\) and \(y(t).\) Choose values for \(t\) in increasing order. Plot the last two columns for \(x\) and \(y.\) See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.</li><li>When graphing a parametric curve by plotting points, note the associated <strong>t</strong>-values and show arrows on the graph indicating the orientation of the curve. See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a>.</li><li>Parametric equations allow the direction or the orientation of the curve to be shown on the graph. Equations that are not functions can be graphed and used in many applications involving motion. See <a href="#example5">Example 5</a>.</li><li>Projectile motion depends on two parametric equations: \(x=({v}_{0}cos\,θ)t\) and \(y=-16{t}^{2}+({v}_{0}sin\,θ)t+h.\) Initial velocity is symbolized as \({v}_{0}.\,θ\) represents the initial angle of the object when thrown, and \(h\) represents the height at which the object is propelled.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What are two methods used to graph parametric equations?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>plotting points with the orientation arrow and a graphing calculator</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>What is one difference in point-plotting parametric equations compared to Cartesian equations?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Why are some graphs drawn with arrows?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The arrows show the orientation, the direction of motion according to increasing values of \(t.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Name a few common types of graphs of parametric equations.</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Why are parametric graphs important in understanding projectile motion?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The parametric equations show the different vertical and horizontal motions over time.</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, graph each set of parametric equations by making a table of values. Include the orientation on the graph.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=t \\ y(t)={t}^{2}-1\end{array}\right.\)</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td><strong>\(t\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td><strong>\(x\)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>\(y\)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=t-1 \\ y(t)={t}^{2}\end{array}\right.\)</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>\(t\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td></tr><tr><td><strong>\(x\)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>\(y\)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_202.jpg" alt="Graph of the given equations - looks like an upward opening parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2+t \\ y(t)=3-2t\end{array}\right.\)</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td><strong>\(t\)</strong></td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td></tr><tr><td><strong>\(x\)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>\(y\)</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=-2-2t \\ y(t)=3+t\end{array}\right.\)</p>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td><strong>\(t\)</strong></td><td>\(-3\)</td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td></tr><tr><td><strong>\(x\)</strong></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>\(y\)</strong></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_204.jpg" alt="Graph of the given equations - a line, negative slope." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)={t}^{3} \\ y(t)=t+2\end{array}\right.\)</p>
+<div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td><strong>\(t\)</strong></td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td></tr><tr><td><strong>\(x\)</strong></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>\(y\)</strong></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)={t}^{2} \\ y(t)=t+3\end{array}\right.\)</p>
+<div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td><strong>\(t\)</strong></td><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(1\)</td><td>\(2\)</td></tr><tr><td><strong>\(x\)</strong></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>\(y\)</strong></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_206.jpg" alt="Graph of the given equations - looks like a sideways parabola, opening to the right." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, sketch the curve and include the orientation.</p>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=t \\ y(t)=\sqrt{t}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=-\,\sqrt{t} \\ y(t)=t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_208.jpg" alt="Graph of the given equations - looks like the left half of an upward opening parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=5-|t| \\ y(t)=t+2\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=-t+2 \\ y(t)=5-|t|\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_210.jpg" alt="Graph of the given equations - looks like a downward opening absolute value function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=4\text{sin}\,t \\ y(t)=2cos\,t\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2\text{sin}\,t \\ y(t)=4\text{cos}\,t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_212.jpg" alt="Graph of the given equations - a vertical ellipse." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=3{cos}^{2}t \\ y(t)=-3sin\,t\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=3{cos}^{2}t \\ y(t)=-3{sin}^{2}t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_214.jpg" alt="Graph of the given equations- line from (0, -3) to (3,0). It is traversed in both directions, positive and negative slope." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=sec\,t \\ y(t)=tan\,t\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=sec\,t \\ y(t)={tan}^{2}t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_216.jpg" alt="Graph of the given equations- looks like an upward opening parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=\frac{1}{{e}^{2t}} \\ y(t)={e}^{-\,t}\end{array}\right.\)</p>
+</div></div>
+<p>For the following exercises, graph the equation and include the orientation. Then, write the Cartesian equation.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=t-1 \\ y(t)=-{t}^{2}\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_218.jpg" alt="Graph of the given equations- looks like a downward opening parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)={t}^{3} \\ y(t)=t+3\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2cos\,t \\ y(t)=-sin\,t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_220.jpg" alt="Graph of the given equations- horizontal ellipse." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=7cos\,t \\ y(t)=7sin\,t\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)={e}^{2t} \\ y(t)=-{e}^{\,t}\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_222.jpg" alt="Graph of the given equations- looks like the lower half of a sideways parabola opening to the right" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, graph the equation and include the orientation.</p>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(x={t}^{2},\,y\,=\,3t,\,0\le t\le 5\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(x=2t,\,y=\,{t}^{2},\,-5\le t\le 5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_224.jpg" alt="Graph of the given equations- looks like an upwards opening parabola" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(x=t,\) \(y=\sqrt{25-{t}^{2}},\) \(0&lt;t\le 5\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(x(t)=-t,y(t)=\sqrt{t},\) \(t\ge 0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_226.jpg" alt="Graph of the given equations- looks like the upper half of a sideways parabola opening to the left" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(x=-2cos\,t,\) \(y=6\,sin\,t,\) \(0\le t\le \pi\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(x=-sec\,t,\) \(y=tan\,t,\) \(-\frac{\pi }{2}&lt;t&lt;\frac{\pi }{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_228.jpg" alt="Graph of the given equations- the left half of a hyperbola with diagonal asymptotes" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, use the parametric equations for integers <strong>a</strong>and <strong>b</strong>:</p>
+<p id="eq11">\[\begin{array}{l}x(t)=acos((a+b)t) \\ y(t)=acos((a-b)t)\end{array}\]</p>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Graph on the domain \([-\pi ,0],\) where \(a=2\) and \(b=1,\) and include the orientation.</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Graph on the domain \([-\pi ,0],\) where \(a=3\) and \(b=2\) , and include the orientation.</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_230.jpg" alt="Graph of the given equations - vertical periodic trajectory" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Graph on the domain \([-\pi ,0],\) where \(a=4\) and \(b=3\) , and include the orientation.</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Graph on the domain \([-\pi ,0],\) where \(a=5\) and \(b=4\) , and include the orientation.</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_232.jpg" alt="Graph of the given equations - vertical periodic trajectory" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>If \(a\) is 1 more than \(b,\) describe the effect the values of \(a\) and \(b\) have on the graph of the parametric equations.</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Describe the graph if \(a=100\) and \(b=99.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>There will be 100 back-and-forth motions.</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>What happens if \(b\) is 1 more than \(a?\) Describe the graph.</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>If the parametric equations \(x(t)={t}^{2}\) and \(y(t)=6-3t\) have the graph of a horizontal parabola opening to the right, what would change the direction of the curve?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Take the opposite of the \(x(t)\) equation.</p>
+</div></div></div></div>
+<p>For the following exercises, describe the graph of the set of parametric equations.</p>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(x(t)=-{t}^{2}\) and \(y(t)\) is linear</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(y(t)={t}^{2}\) and \(x(t)\) is linear</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The parabola opens up.</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(y(t)=-{t}^{2}\) and \(x(t)\) is linear</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Write the parametric equations of a circle with center \((0,0),\) radius 5, and a counterclockwise orientation.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\left\{\begin{array}{l}x(t)=5cost \\ y(t)=5sint\end{array}\right.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Write the parametric equations of an ellipse with center \((0,0),\) major axis of length 10, minor axis of length 6, and a counterclockwise orientation.</p>
+</div></div>
+<p>For the following exercises, use a graphing utility to graph on the window \([-3,3]\) by \([-3,3]\) on the domain \([0,2\pi )\) for the following values of \(a\) and \(b\) , and include the orientation.</p>
+<p id="eq12">\[\left\{\begin{array}{l}x(t)=sin(at) \\ y(t)=sin(bt)\end{array}\right.\]</p>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(a=1,b=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_233.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(a=2,b=1\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(a=3,b=3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_235.jpg" alt="Graph of the given equations - lines extending into Q1 and Q3 (in both directions) from the origin to 1 unit." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(a=5,b=5\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(a=2,b=5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_237.jpg" alt="Graph of the given equations - lines extending into Q1 and Q3 (in both directions) from the origin to 3 units." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\(a=5,b=2\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, look at the graphs that were created by parametric equations of the form \(\left\{\begin{array}{l}x(t)=a\text{cos}(bt) \\ y(t)=c\text{sin}(dt)\end{array}.\right.\) Use the parametric mode on the graphing calculator to find the values of \(a,b,c,\) and \(d\) to achieve each graph.</p>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_239.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=4,\) \(b=3,\) \(c=6,\) \(d=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_240.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_241.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(a=4,\) \(b=2,\) \(c=3,\) \(d=3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_242.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, use a graphing utility to graph the given parametric equations.</p>
+<ul class="tight"><li>\(\left\{\begin{array}{l}x(t)=cost-1 \\ y(t)=sint+t\end{array}\right.\)</li><li>\(\left\{\begin{array}{l}x(t)=cost+t \\ y(t)=sint-1\end{array}\right.\)</li><li>\(\left\{\begin{array}{l}x(t)=t-sint \\ y(t)=cost-1\end{array}\right.\)</li></ul>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Graph all three sets of parametric equations on the domain \([0,\) \(2\pi ].\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_243.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_244.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_245.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Graph all three sets of parametric equations on the domain \([0,4\pi ].\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Graph all three sets of parametric equations on the domain \([-4\pi ,6\pi ].\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_249.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_250.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_251.jpg" alt="Graph of the given equations " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>The graph of each set of parametric equations appears to “creep” along one of the axes. What controls which axis the graph creeps along?</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>Explain the effect on the graph of the parametric equation when we switched \(sin\,t\) and \(cos\,t\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The \(y\) -intercept changes.</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>Explain the effect on the graph of the parametric equation when we changed the domain.</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>An object is thrown in the air with vertical velocity of 20 ft/s and horizontal velocity of 15 ft/s. The object’s height can be described by the equation \(y(t)=-16{t}^{2}+20t\) , while the object moves horizontally with constant velocity 15 ft/s. Write parametric equations for the object’s position, and then eliminate time to write height as a function of horizontal position.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y(x)=-16{(\frac{x}{15})}^{2}+20(\frac{x}{15})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>A skateboarder riding on a level surface at a constant speed of 9 ft/s throws a ball in the air, the height of which can be described by the equation \(y(t)=-16{t}^{2}+10t+5.\) Write parametric equations for the ball’s position, and then eliminate time to write height as a function of horizontal position.</p>
+</div></div>
+<p>For the following exercises, use this scenario: A dart is thrown upward with an initial velocity of 64 ft/s at an angle of elevation of 52°. Consider the position of the dart at any time \(t.\) Neglect air resistance.</p>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>Find parametric equations that model the problem situation.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\left\{\begin{array}{l}x(t)=64tcos(52°) \\ y(t)=-16{t}^{2}+64tsin(52°)\end{array}\right.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>Find all possible values of \(x\) that represent the situation.</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>When will the dart hit the ground?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>approximately 3.2 seconds</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>Find the maximum height of the dart.</p>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>At what time will the dart reach maximum height?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1.6 seconds</p>
+</div></div></div></div>
+<p>For the following exercises, look at the graphs of each of the four parametric equations. Although they look unusual and beautiful, they are so common that they have names, as indicated in each exercise. Use a graphing utility to graph each on the indicated domain.</p>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>An epicycloid: \(\left\{\begin{array}{l}x(t)=14cos\,t-cos(14t) \\ y(t)=14sin\,t+sin(14t)\end{array}\right.\) on the domain \([0,2\pi ]\) .</p>
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><p>A hypocycloid: \(\left\{\begin{array}{l}x(t)=6sin\,t+2sin(6t) \\ y(t)=6cos\,t-2cos(6t)\end{array}\right.\) on the domain \([0,2\pi ]\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_253.jpg" alt="Graph of the given equations - a hypocycloid" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex72"><div class="n">72</div><div class="body"><p>A hypotrochoid: \(\left\{\begin{array}{l}x(t)=2sin\,t+5cos(6t) \\ y(t)=5cos\,t-2sin(6t)\end{array}\right.\) on the domain \([0,2\pi ]\) .</p>
+</div></div>
+<div class="exercise" id="ex73"><div class="n">73</div><div class="body"><p>A rose: \(\left\{\begin{array}{l}x(t)=5sin(2t)sint \\ y(t)=5sin(2t)cost\end{array}\right.\) on the domain \([0,2\pi ]\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_07_255.jpg" alt="Graph of the given equations - a four petal rose" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+</div>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

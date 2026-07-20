@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit Circle: Sine and Cosine Functions · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Unit Circle: Sine and Cosine Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 5.2</span>Unit Circle: Sine and Cosine Functions</h1>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_001.jpg" alt="Photo of a ferris wheel." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The Singapore Flyer was the world’s tallest Ferris wheel, until being overtaken by the High Roller in Las Vegas and the Ain Dubai in Dubai. (credit: “Vibin JK”/Flickr)</figcaption></figure>
+<p>Looking for a thrill? Then consider a ride on the Ain Dubai, the world's tallest Ferris wheel. Located in Dubai, the most populous city and the financial and tourism hub of the United Arab Emirates, the wheel soars to 820 feet, about 1.5 tenths of a mile. Described as an observation wheel, riders enjoy spectacular views of the Burj Khalifa (the world's tallest building) and the Palm Jumeirah (a human-made archipelago home to over 10,000 people and 20 resorts) as they travel from the ground to the peak and down again in a repeating pattern. In this section, we will examine this type of revolving motion around a circle. To do so, we need to define the type of circle first, and then place that circle on a coordinate system. Then we can discuss circular motion in terms of the coordinate pairs.</p>
+<h2 id="finding-function-values-for-the-sine-and-cosine">Finding Function Values for the Sine and Cosine</h2>
+<p>To define our trigonometric functions, we begin by drawing a unit circle, a circle centered at the origin with radius 1, as shown in <a href="#fig2">Figure 2</a>. The angle (in radians) that \(t\) intercepts forms an arc of length \(s.\) Using the formula \(s=rt,\) and knowing that \(r=1,\) we see that for a <strong>unit circle</strong>, \(s=t.\)</p>
+<p>Recall that the <strong>x-</strong>and <strong>y-</strong>axes divide the coordinate plane into four quarters called quadrants. We label these quadrants to mimic the direction a positive angle would sweep. The four quadrants are labeled I, II, III, and IV.</p>
+<p>For any angle \(t,\) we can label the intersection of the terminal side and the unit circle as by its coordinates, \((x,y).\) The coordinates \(\,x\,\) and \(\,y\,\) will be the outputs of the trigonometric functions \(f(t)=cos\,t\) and \(f(t)=sin\,t,\) respectively. This means \(x=cos\,t\) and \(y=sin\,t.\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_002.jpg" alt="Graph of a circle with angle t, radius of 1, and an arc created by the angle with length s. The terminal side of the angle intersects the circle at the point (x,y)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Unit circle where the central angle is \(t\) radians</figcaption></figure>
+<div class="card definition" id="fs-id1165137638636"><span class="chip">Unit Circle</span><p>A <strong>unit circle</strong> has a center at \((0,0)\) and radius \(1\) . In a unit circle, the length of the intercepted arc is equal to the radian measure of the central angle \(t\text{.}\)</p>
+<p>Let \((x,y)\) be the endpoint on the unit circle of an arc of arc length \(s.\) The \((x,y)\) coordinates of this point can be described as functions of the angle.</p>
+</div>
+<h3 id="defining-sine-and-cosine-functions">Defining Sine and Cosine Functions</h3>
+<p>Now that we have our unit circle labeled, we can learn how the \((x,y)\) coordinates relate to the <strong>arc length</strong>and <strong>angle</strong>. The <strong>sine function</strong>relates a real number \(t\) to the <strong>y</strong>-coordinate of the point where the corresponding angle intercepts the unit circle. More precisely, the sine of an angle \(t\) equals the <strong>y</strong>-value of the endpoint on the unit circle of an arc of length \(t.\) In <a href="#fig2">Figure 2</a>, the sine is equal to \(y.\) Like all functions, the sine function has an input and an output. Its input is the measure of the angle; its output is the <strong>y</strong>-coordinate of the corresponding point on the unit circle.</p>
+<p>The <strong>cosine function</strong> of an angle \(t\) equals the <strong>x</strong>-value of the endpoint on the unit circle of an arc of length \(t.\) In <a href="#fig3">Figure 3</a>, the cosine is equal to \(x.\)</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_003.jpg" alt="Illustration of an angle t, with terminal side length equal to 1, and an arc created by angle with length t. The terminal side of the angle intersects the circle at the point (x,y), which is equivalent to (cos t, sin t)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<p>Because it is understood that sine and cosine are functions, we do not always need to write them with parentheses: \(sin\,t\) is the same as \(sin(t)\) and \(cos\,t\) is the same as \(cos(t).\) Likewise, \({cos}^{2}t\) is a commonly used shorthand notation for \({(cos(t))}^{2}.\) Be aware that many calculators and computers do not recognize the shorthand notation. When in doubt, use the extra parentheses when entering calculations into a calculator or computer.</p>
+<div class="card definition" id="fs-id1165137635223"><span class="chip">Sine and Cosine Functions</span><p>If \(\,t\,\) is a real number and a point \((x,y)\) on the unit circle corresponds to an angle of \(t,\) then</p>
+<p id="eq1">\[cos\,t=x\]</p>
+<p id="eq2">\[sin\,t=y\]</p>
+</div>
+<div class="card howto" id="fs-id1165135251444"><span class="chip">How To</span><p><strong>Given a point <strong>P</strong> \((x,y)\) on the unit circle corresponding to an angle of \(\,t,\) find the sine and cosine.</strong></p>
+<ul class="tight"><li>The sine of \(t\) is equal to the <strong>y</strong>-coordinate of point \(P:sin\,t=y.\)</li><li>The cosine of \(t\) is equal to the <strong>x</strong>-coordinate of point \(P:\,\text{cos}\,t=x.\)</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Point \(\,P\,\) is a point on the unit circle corresponding to an angle of \(\,t,\) as shown in <a href="#fig4">Figure 4</a>. Find \(\,cos(t)\) and \(\text{sin}(t).\)</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_004.jpg" alt="Graph of a circle with angle t, radius of 1, and a terminal side that intersects the circle at the point (1/2, square root of 3 over 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div><p class="sol-hint">On the unit circle, the point's coordinates are exactly \((\cos t,\sin t)\) — just read them off the figure.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We know that \(cos\,t\) is the <strong>x</strong>-coordinate of the corresponding point on the unit circle and \(sin\,t\) is the <strong>y</strong>-coordinate of the corresponding point on the unit circle. So:</p>
+<p id="eq3">\[\begin{array}{l}\begin{array}{l} \\ x=cos\,t=\frac{1}{2}\end{array} \\ y=sin\,t=\frac{\sqrt{3}}{2}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>A certain angle \(t\) corresponds to a point on the unit circle at \((-\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})\) as shown in <a href="#fig5">Figure 5</a>. Find \(cos\,t\) and \(sin\,t.\)</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_005.jpg" alt="Graph of a circle with angle t, radius of 1, and a terminal side that intersects the circle at the point (negative square root of 2 over 2, square root of 2 over 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(cos(t)=-\frac{\sqrt{2}}{2},sin(t)=\frac{\sqrt{2}}{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-sines-and-cosines-of-angles-on-an-axis">Finding Sines and Cosines of Angles on an Axis</h3>
+<p>For quadrantral angles, the corresponding point on the unit circle falls on the <strong>x-</strong>or <strong>y</strong>-axis. In that case, we can easily calculate cosine and sine from the values of \(x\) and \(y.\)</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find \(cos(90°)\) and \(\text{sin}(90°).\)</p>
+</div><p class="sol-hint">Locate 90° on the unit circle and read its coordinates directly.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Moving \(90°\) counterclockwise around the unit circle from the positive <strong>x</strong>-axis brings us to the top of the circle, where the \((x,y)\) coordinates are (0, 1), as shown in <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_006.jpg" alt="Graph of a circle with angle t, radius of 1, and a terminal side that intersects the circle at the point (0,1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<p>Using our definitions of cosine and sine,</p>
+<p id="eq4">\[\begin{array}{l}x=cos\,t=cos(90°)=0 \\ y=sin\,t=sin(90°)=1\end{array}\]</p>
+<p>The cosine of 90° is 0; the sine of 90° is 1.</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find cosine and sine of the angle \(\pi .\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(cos(\pi )=-1,\) \(sin(\pi )=0\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="the-pythagorean-identity">The Pythagorean Identity</h3>
+<p>Now that we can define sine and cosine, we will learn how they relate to each other and the unit circle. Recall that the equation for the unit circle is \(\,{x}^{2}+{y}^{2}=1.\,\) Because \(x=cos\,t\) and \(y=sin\,t,\) we can substitute for \(x\) and \(y\) to get \({cos}^{2}t+{sin}^{2}t=1.\) This equation, \({cos}^{2}t+{sin}^{2}t=1,\) is known as the <strong>Pythagorean Identity</strong>. See <a href="#fig7">Figure 7</a>.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_007.jpg" alt="Graph of an angle t, with a point (x,y) on the unit circle. And equation showing the equivalence of 1, x^2 + y^2, and cos^2 t + sin^2 t." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+<p>We can use the Pythagorean Identity to find the cosine of an angle if we know the sine, or vice versa. However, because the equation yields two solutions, we need additional knowledge of the angle to choose the solution with the correct sign. If we know the quadrant where the angle is, we can easily choose the correct solution.</p>
+<div class="card definition" id="fs-id1165137925357"><span class="chip">Pythagorean Identity</span><p>The <strong>Pythagorean Identity</strong> states that, for any real number \(t,\)</p>
+<p id="eq5">\[{cos}^{2}\,t+{sin}^{2}\,t=1\]</p>
+</div>
+<div class="card howto" id="fs-id1165137731366"><span class="chip">How To</span><p><strong>Given the sine of some angle \(\,t\,\) and its quadrant location, find the cosine of \(\,t.\)</strong></p>
+<ul class="tight"><li>Substitute the known value of \(sin(t)\) into the Pythagorean Identity.</li><li>Solve for \(cos(t).\)</li><li>Choose the solution with the appropriate sign for the <strong>x</strong>-values in the quadrant where \(\,t\,\) is located.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>If \(sin(t)=\frac{3}{7}\) and \(t\) is in the second quadrant, find \(cos(t).\)</p>
+</div><p class="sol-hint">Use the Pythagorean identity \({\sin}^{2}(t)+{\cos}^{2}(t)=1\), then use the quadrant to pick the correct sign.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>If we drop a vertical line from the point on the unit circle corresponding to \(\,t,\) we create a right triangle, from which we can see that the Pythagorean Identity is simply one case of the Pythagorean Theorem. See <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_008.jpg" alt="Graph of a unit circle with an angle that intersects the circle at a point with the y-coordinate equal to 3/7." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+<p>Substituting the known value for sine into the Pythagorean Identity,</p>
+<p id="eq6">\[\begin{array}{l}{cos}^{2}(t)+{sin}^{2}(t)=1 \\ {cos}^{2}(t)+\frac{9}{49}=1 \\ {cos}^{2}(t)=\frac{40}{49} \\ \text{cos}(t)=\pm \sqrt{\frac{40}{49}}=\pm \frac{\sqrt{40}}{7}=\pm \frac{2\sqrt{10}}{7}\end{array}\]</p>
+<p>Because the angle is in the second quadrant, we know the <strong>x-</strong>value is a negative real number, so the cosine is also negative. So \(\text{cos}(t)=-\frac{2\sqrt{10}}{7}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>If \(cos(t)=\frac{24}{25}\) and \(t\) is in the fourth quadrant, find \(\text{sin}(t).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(sin(t)=-\frac{7}{25}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-sines-and-cosines-of-special-angles">Finding Sines and Cosines of Special Angles</h2>
+<p>We have already learned some properties of the special angles, such as the conversion from radians to degrees. We can also calculate sines and cosines of the special angles using the <strong>Pythagorean Identity</strong> and our knowledge of triangles.</p>
+<h3 id="finding-sines-and-cosines-of-45-angles">Finding Sines and Cosines of 45° Angles</h3>
+<p>First, we will look at angles of \(45°\) or \(\frac{\pi }{4},\) as shown in <a href="#fig9">Figure 9</a> . A \(45°-45°-90°\) triangle is an isosceles triangle, so the <strong>x-</strong> and <strong>y</strong>-coordinates of the corresponding point on the circle are the same. Because the <strong>x-</strong> and <strong>y</strong>-values are the same, the sine and cosine values will also be equal.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_009.jpg" alt="Graph of 45 degree angle inscribed within a circle with radius of 1. Equivalence between point (x,y) and (x,x) shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+<p>At \(t=\frac{\pi }{4}\) , which is 45 degrees, the radius of the unit circle bisects the first <strong>quadrantal angle</strong>. This means the radius lies along the line \(y=x.\) A unit circle has a radius equal to 1. So, the right triangle formed below the line \(y=x\) has sides \(x\) and \(y\,(y=x),\) and a radius = 1. See <strong><a href="#fig10">Figure 10</a>.</strong></p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_018.jpg" alt="Graph of circle with pi/4 angle inscribed and a radius of 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+<p>From the Pythagorean Theorem we get</p>
+<p id="eq7">\[{x}^{2}+{y}^{2}=1\]</p>
+<p>Substituting \(y=x,\) we get</p>
+<p id="eq8">\[{x}^{2}+{x}^{2}=1\]</p>
+<p>Combining like terms we get</p>
+<p id="eq9">\[2{x}^{2}=1\]</p>
+<p>And solving for \(x,\) we get</p>
+<p id="eq10">\[\begin{array}{l}{x}^{2}=\frac{1}{2} \\ \,x=\pm \frac{1}{\sqrt{2}}\end{array}\]</p>
+<p>In quadrant I, \(x=\frac{1}{\sqrt{2}}.\)</p>
+<p>At \(t=\frac{\pi }{4}\) or 45 degrees,</p>
+<p id="eq11">\[\begin{array}{l}(x,y)=(x,x)=(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}) \\ x=\frac{1}{\sqrt{2}},y=\frac{1}{\sqrt{2}} \\ cos\,t=\frac{1}{\sqrt{2}},sin\,t=\frac{1}{\sqrt{2}}\end{array}\]</p>
+<p>If we then rationalize the denominators, we get</p>
+<p id="eq12">\[\begin{array}{l}cos\,t=\frac{1}{\sqrt{2}}\frac{\sqrt{2}}{\sqrt{2}} \\ =\frac{\sqrt{2}}{2} \\ sin\,t=\frac{1}{\sqrt{2}}\frac{\sqrt{2}}{\sqrt{2}} \\ =\frac{\sqrt{2}}{2}\end{array}\]</p>
+<p>Therefore, the \((x,y)\) coordinates of a point on a circle of radius \(1\) at an angle of \(45°\) are \((\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}).\)</p>
+<h3 id="finding-sines-and-cosines-of-30-and-60-angles">Finding Sines and Cosines of 30° and 60° Angles</h3>
+<p>Next, we will find the cosine and sine at an angle of \(30°,\) or \(\frac{\pi }{6}\) . First, we will draw a triangle inside a circle with one side at an angle of \(30°,\) and another at an angle of \(-30°,\) as shown in <a href="#fig11">Figure 11</a>. If the resulting two right triangles are combined into one large triangle, notice that all three angles of this larger triangle will be \(60°,\) as shown in <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_010.jpg" alt="Graph of a circle with 30 degree angle and negative 30 degree angle inscribed to form a trangle." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_011.jpg" alt="Image of two 30/60/90 triangles back to back. Label for hypoteneuse r and side y." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+<p>Because all the angles are equal, the sides are also equal. The vertical line has length \(2y,\) and since the sides are all equal, we can also conclude that \(r=2y\) or \(y=\frac{1}{2}r.\) Since \(sin\,t=y\) ,</p>
+<p id="eq13">\[sin(\frac{\pi }{6})=\frac{1}{2}r\]</p>
+<p>And since \(r=1\) in our <strong>unit circle</strong>,</p>
+<p id="eq14">\[\begin{array}{l}sin(\frac{\pi }{6})=\frac{1}{2}(1) \\ \,=\frac{1}{2}\end{array}\]</p>
+<p>Using the Pythagorean Identity, we can find the cosine value.</p>
+<p id="eq15">\[\begin{array}{ll}{cos}^{2}\frac{\pi }{6}+{sin}^{2}(\frac{\pi }{6})=1 &amp; \\ {cos}^{2}(\frac{\pi }{6})+{(\frac{1}{2})}^{2}=1 &amp; \\ {cos}^{2}(\frac{\pi }{6})=\frac{3}{4} &amp; \text{Use the square root property}. \\ \,cos(\frac{\pi }{6})=\frac{\pm \sqrt{3}}{\pm \sqrt{4}}=\frac{\sqrt{3}}{2} &amp; \text{Since }y\text{ is positive, choose the positive root}.\end{array}\]</p>
+<p>The \((x,y)\) coordinates for the point on a circle of radius \(1\) at an angle of \(30°\) are \((\frac{\sqrt{3}}{2},\frac{1}{2}).\) At \(t=\frac{\pi }{3}\) (60°), the radius of the unit circle, 1, serves as the hypotenuse of a 30-60-90 degree right triangle, \(BAD,\) as shown in <a href="#fig13">Figure 13</a>. Angle \(A\) has measure \(60°.\) At point \(B,\) we draw an angle \(ABC\) with measure of \(60°.\) We know the angles in a triangle sum to \(180°,\) so the measure of angle \(C\) is also \(60°.\) Now we have an equilateral triangle. Because each side of the equilateral triangle \(ABC\) is the same length, and we know one side is the radius of the unit circle, all sides must be of length 1.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_019.jpg" alt="Graph of circle with an isoceles triangle inscribed." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+<p>The measure of angle \(ABD\) is 30°. So, if double, angle \(ABC\) is 60°. \(BD\) is the perpendicular bisector of \(AC,\) so it cuts \(AC\) in half. This means that \(AD\) is \(\frac{1}{2}\) the radius, or \(\frac{1}{2}.\) Notice that \(AD\) is the <strong>x</strong>-coordinate of point \(B,\) which is at the intersection of the 60° angle and the unit circle. This gives us a triangle \(BAD\) with hypotenuse of 1 and side \(x\) of length \(\frac{1}{2}.\)</p>
+<p>From the Pythagorean Theorem, we get</p>
+<p id="eq16">\[{x}^{2}+{y}^{2}=1\]</p>
+<p>Substituting \(x=\frac{1}{2},\) we get</p>
+<p id="eq17">\[{(\frac{1}{2})}^{2}+{y}^{2}=1\]</p>
+<p>Solving for \(y,\) we get</p>
+<p id="eq18">\[\begin{array}{l}\frac{1}{4}+{y}^{2}=1 \\ \,{y}^{2}=1-\frac{1}{4} \\ \,{y}^{2}=\frac{3}{4} \\ \,y=\pm \frac{\sqrt{3}}{2}\end{array}\]</p>
+<p>Since \(t=\frac{\pi }{3}\) has the terminal side in quadrant I where the <strong>y-</strong>coordinate is positive, we choose \(y=\frac{\sqrt{3}}{2},\) the positive value.</p>
+<p>At \(t=\frac{\pi }{3}\) (60°), the \((x,y)\) coordinates for the point on a circle of radius \(1\) at an angle of \(60°\) are \((\frac{1}{2},\frac{\sqrt{3}}{2}),\) so we can find the sine and cosine.</p>
+<p id="eq19">\[\begin{array}{l}(x,y)=(\frac{1}{2},\frac{\sqrt{3}}{2}) \\ x=\frac{1}{2},y=\frac{\sqrt{3}}{2} \\ cos\,t=\frac{1}{2},sin\,t=\frac{\sqrt{3}}{2}\end{array}\]</p>
+<p>We have now found the cosine and sine values for all of the most commonly encountered angles in the first quadrant of the unit circle. <a href="#tab1">Table 1</a> summarizes these values.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Angle</strong></td><td>0</td><td>\(\frac{\pi }{6},\) or 30</td><td>\(\frac{\pi }{4},\) or 45°</td><td>\(\frac{\pi }{3},\) or 60°</td><td>\(\frac{\pi }{2},\) or 90°</td></tr><tr><td><strong>Cosine</strong></td><td>1</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(\frac{1}{2}\)</td><td>0</td></tr><tr><td><strong>Sine</strong></td><td>0</td><td>\(\frac{1}{2}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>1</td></tr></tbody></table></div>
+<p><a href="#fig14">Figure 14</a> shows the common angles in the first quadrant of the unit circle.</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_021n.jpg" alt="Graph of a quarter circle with angles of 0, 30, 45, 60, and 90 degrees inscribed. Equivalence of angles in radians shown. Points along circle are marked." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+<h3 id="using-a-calculator-to-find-sine-and-cosine">Using a Calculator to Find Sine and Cosine</h3>
+<p>To find the cosine and sine of angles other than the <strong>special angles</strong>, we turn to a computer or calculator. <strong>Be aware</strong>: Most calculators can be set into “degree” or “radian” mode, which tells the calculator the units for the input value. When we evaluate \(cos(30)\) on our calculator, it will evaluate it as the cosine of 30 degrees if the calculator is in degree mode, or the cosine of 30 radians if the calculator is in radian mode.</p>
+<div class="card howto" id="fs-id1165137892278"><span class="chip">How To</span><p><strong>Given an angle in radians, use a graphing calculator to find the cosine.</strong></p>
+<ul class="tight"><li>If the calculator has degree mode and radian mode, set it to radian mode.</li><li>Press the COS key.</li><li>Enter the radian value of the angle and press the close-parentheses key ")".</li><li>Press ENTER.</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(cos(\frac{5\pi }{3})\) using a graphing calculator or computer.</p>
+</div><p class="sol-hint">Make sure your calculator is in radian mode before evaluating.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Enter the following keystrokes:</p>
+<p><strong>COS</strong> \((5\times \pi ÷3)\) <strong>ENTER</strong></p>
+<p id="eq20">\[cos(\frac{5\pi }{3})=0.5\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can find the cosine or sine of an angle in degrees directly on a calculator with degree mode. For calculators or software that use only radian mode, we can find the sine of \(20°,\) for example, by including the conversion factor to radians as part of the input:</p>
+<p><strong>SIN</strong> \((20\times \pi ÷180)\) <strong>ENTER</strong></p>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Evaluate \(sin(\frac{\pi }{3}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>approximately 0.866025403</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="identifying-the-domain-and-range-of-sine-and-cosine-functions">Identifying the Domain and Range of Sine and Cosine Functions</h2>
+<p>Now that we can find the sine and cosine of an angle, we need to discuss their domains and ranges. What are the domains of the sine and cosine functions? That is, what are the smallest and largest numbers that can be inputs of the functions? Because angles smaller than 0 and angles larger than \(2\pi\) can still be graphed on the unit circle and have real values of \(x,\,y,\) and \(r,\) there is no lower or upper limit to the angles that can be inputs to the sine and cosine functions. The input to the sine and cosine functions is the rotation from the positive <strong>x</strong>-axis, and that may be any real number.</p>
+<p>What are the ranges of the sine and cosine functions? What are the least and greatest possible values for their output? We can see the answers by examining the <strong>unit circle</strong>, as shown in <a href="#fig15">Figure 15</a>. The bounds of the <strong>x</strong>-coordinate are \([-1,1].\) The bounds of the <strong>y</strong>-coordinate are also \([-1,1].\) Therefore, the range of both the sine and cosine functions is \([-1,1].\)</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_013.jpg" alt="Graph of unit circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+<h2 id="finding-reference-angles">Finding Reference Angles</h2>
+<p>We have discussed finding the sine and cosine for angles in the first quadrant, but what if our angle is in another quadrant? For any given angle in the first quadrant, there is an angle in the second quadrant with the same sine value. Because the sine value is the <strong>y</strong>-coordinate on the unit circle, the other angle with the same sine will share the same <strong>y</strong>-value, but have the opposite <strong>x</strong>-value. Therefore, its cosine value will be the opposite of the first angle’s cosine value.</p>
+<p>Likewise, there will be an angle in the fourth quadrant with the same cosine as the original angle. The angle with the same cosine will share the same <strong>x</strong>-value but will have the opposite <strong>y</strong>-value. Therefore, its sine value will be the opposite of the original angle’s sine value.</p>
+<p>As shown in <a href="#fig16">Figure 16</a>, angle \(α\,\) has the same sine value as angle \(\,t;\) the cosine values are opposites. Angle \(β\,\) has the same cosine value as angle \(t;\) the sine values are opposites.</p>
+<p id="eq21">\[\begin{array}{lll}sin(t)=\,sin(α) &amp; \text{and} &amp; cos(t)=-cos(α) \\ sin(t)=-sin(β) &amp; \text{and} &amp; cos(t)=\,cos(β)\end{array}\]</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_014-11cd.jpg" alt="Graph of two side by side circles. First graph has circle with angle t and angle alpha with radius r. Second graph has circle with angle t and angle beta inscribed with radius r." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16</figcaption></figure>
+<p>Recall that an angle’s <strong>reference angle</strong> is the acute angle, \(\,t,\) formed by the terminal side of the angle \(t\) and the horizontal axis. A reference angle is always an angle between \(0\) and \(90°,\) or \(0\) and \(\frac{\pi }{2}\) radians. As we can see from <a href="#fig17">Figure 17</a>, for any angle in quadrants II, III, or IV, there is a reference angle in quadrant I.</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_01_019-5d63.jpg" alt="Four side by side graphs. First graph shows an angle of t in quadrant 1 in it's normal position. Second graph shows an angle of t in quadrant 2 due to a rotation of pi minus t. Third graph shows an angle of t in quadrant 3 due to a rotation of t minus pi. Fourth graph shows an angle of t in quadrant 4 due to a rotation of two pi minus t." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17</figcaption></figure>
+<div class="card howto" id="fs-id1165134122927"><span class="chip">How To</span><p><strong>Given an angle between \(0\) and \(2\pi ,\) find its reference angle.</strong></p>
+<ul class="tight"><li>An angle in the first quadrant is its own reference angle.</li><li>For an angle in the second or third quadrant, the reference angle is \(|\pi -t|\) or \(|180°-t|.\)</li><li>For an angle in the fourth quadrant, the reference angle is \(2\pi -t\) or \(360°-t.\)</li><li>If an angle is less than \(0\) or greater than \(2\pi ,\) add or subtract \(2\pi\) as many times as needed to find an equivalent angle between \(0\) and \(2\pi .\)</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find the reference angle of \(225°\) as shown in <a href="#fig18">Figure 18</a>.</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_016.jpg" alt="Graph of circle with 225 degree angle inscribed." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+</div><p class="sol-hint">Find the acute angle between the terminal side and the nearest x-axis.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because \(225°\) is in the third quadrant, the reference angle is</p>
+<p id="eq22">\[|(180°-225°)|=|-45°|=45°\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Find the reference angle of \(\frac{5\pi }{3}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{\pi }{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-reference-angles">Using Reference Angles</h2>
+<p>Now let’s take a moment to reconsider the Ferris wheel introduced at the beginning of this section. Suppose a rider snaps a photograph while stopped twenty feet above ground level. The rider then rotates three-quarters of the way around the circle. What is the rider’s new elevation? To answer questions such as this one, we need to evaluate the sine or cosine functions at angles that are greater than 90 degrees or at a <strong>negative angle</strong>. Reference angles make it possible to evaluate trigonometric functions for angles outside the first quadrant. They can also be used to find \((x,y)\) coordinates for those angles. We will use the <strong>reference angle</strong> of the angle of rotation combined with the quadrant in which the terminal side of the angle lies.</p>
+<h3 id="using-reference-angles-to-evaluate-trigonometric-functions">Using Reference Angles to Evaluate Trigonometric Functions</h3>
+<p>We can find the cosine and sine of any angle in any quadrant if we know the cosine or sine of its reference angle. The absolute values of the cosine and sine of an angle are the same as those of the reference angle. The sign depends on the quadrant of the original angle. The cosine will be positive or negative depending on the sign of the <strong>x</strong>-values in that quadrant. The sine will be positive or negative depending on the sign of the <strong>y</strong>-values in that quadrant.</p>
+<div class="card definition" id="fs-id1165137451827"><span class="chip">Using Reference Angles to Find Cosine and Sine</span><p>Angles have cosines and sines with the same absolute value as cosines and sines of their reference angles. The sign (positive or negative) can be determined from the quadrant of the angle.</p>
+</div>
+<div class="card howto" id="fs-id1165137401083"><span class="chip">How To</span><p><strong>Given an angle in standard position, find the reference angle, and the cosine and sine of the original angle.</strong></p>
+<ul class="tight"><li>Measure the angle between the terminal side of the given angle and the horizontal axis. That is the reference angle.</li><li>Determine the values of the cosine and sine of the reference angle.</li><li>Give the cosine the same sign as the <strong>x</strong>-values in the quadrant of the original angle.</li><li>Give the sine the same sign as the <strong>y</strong>-values in the quadrant of the original angle.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><ul class="tight"><li>ⓐ Using a reference angle, find the exact value of \(cos(150°)\) and \(\text{sin}(150°).\)</li><li>ⓑ Using the reference angle, find \(cos\,\frac{5\pi }{4}\) and \(sin\,\frac{5\pi }{4}.\)</li></ul>
+</div><p class="sol-hint">Find the reference angle first, look up its exact sine/cosine, then fix the signs using the quadrant.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ 150° is located in the second quadrant. The angle it makes with the <strong>x</strong>-axis is 180° − 150° = 30°, so the reference angle is 30°. This tells us that 150° has the same sine and cosine values as 30°, except for the sign. We know that Since 150° is in the second quadrant, the <strong>x</strong>-coordinate of the point on the circle is negative, so the cosine value is negative. The <strong>y</strong>-coordinate is positive, so the sine value is positive.<p>This tells us that 150° has the same sine and cosine values as 30°, except for the sign. We know that</p>
+<p id="eq23">\[cos(30°)=\frac{\sqrt{3}}{2}\,\text{and}\,sin(30°)=\frac{1}{2}.\]</p>
+<p>Since 150° is in the second quadrant, the <strong>x</strong>-coordinate of the point on the circle is negative, so the cosine value is negative. The <strong>y</strong>-coordinate is positive, so the sine value is positive.</p>
+<p id="eq24">\[cos(150°)=-\frac{\sqrt{3}}{2}\,\text{and}\,sin(150°)=\frac{1}{2}\]</p>
+</li><li>ⓑ \(\frac{5\pi }{4}\) is in the third quadrant. Its reference angle is \(\frac{5\pi }{4}-\pi =\frac{\pi }{4}.\) The cosine and sine of \(\frac{\pi }{4}\) are both \(\frac{\sqrt{2}}{2}.\) In the third quadrant, both \(x\) and \(y\) are negative, so:<p id="eq25">\[cos\,\frac{5\pi }{4}=-\frac{\sqrt{2}}{2}\,\text{and}\,sin\,\frac{5\pi }{4}=-\frac{\sqrt{2}}{2}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><ul class="tight"><li>ⓐ Use the reference angle of \(315°\) to find \(cos(315°)\) and \(sin(315°).\)</li><li>ⓑ Use the reference angle of \(-\frac{\pi }{6}\) to find \(cos(-\frac{\pi }{6})\) and \(sin(-\frac{\pi }{6}).\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ \(\text{cos}(315°)=\frac{\sqrt{2}}{2},\text{ sin}(315°)=\frac{-\sqrt{2}}{2}\)</li><li>ⓑ \(cos(-\frac{\pi }{6})=\frac{\sqrt{3}}{2},\,sin(-\frac{\pi }{6})=-\frac{1}{2}\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="using-reference-angles-to-find-coordinates">Using Reference Angles to Find Coordinates</h3>
+<p>Now that we have learned how to find the cosine and sine values for special angles in the first quadrant, we can use symmetry and reference angles to fill in cosine and sine values for the rest of the special angles on the unit circle. They are shown in <a href="#fig19">Figure 19</a>. Take time to learn the \((x,y)\) coordinates of all of the major angles in the first quadrant.</p>
+<figure class="plot" id="fig19"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_017-6107.jpg" alt="Graph of unit circle with angles in degrees, angles in radians, and points along the circle inscribed." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 19 — Special angles and coordinates of corresponding points on the unit circle</figcaption></figure>
+<p>In addition to learning the values for special angles, we can use reference angles to find \((x,y)\) coordinates of any point on the unit circle, using what we know of reference angles along with the <strong>identities</strong></p>
+<p id="eq26">\[\begin{array}{ll}x=cos\,t &amp; y=sin\,t\end{array}\]</p>
+<p>First we find the reference angle corresponding to the given angle. Then we take the sine and cosine values of the <strong>reference angle</strong>, and give them the signs corresponding to the <strong>y</strong>- and <strong>x</strong>-values of the quadrant.</p>
+<div class="card howto" id="fs-id1165137676498"><span class="chip">How To</span><p><strong>Given the angle of a point on a circle and the radius of the circle, find the \((x,y)\) coordinates of the point.</strong></p>
+<ul class="tight"><li>Find the reference angle by measuring the smallest angle to the <strong>x</strong>-axis.</li><li>Find the cosine and sine of the reference angle.</li><li>Determine the appropriate signs for \(x\) and \(y\) in the given quadrant.</li></ul>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find the coordinates of the point on the unit circle at an angle of \(\frac{7\pi }{6}.\)</p>
+</div><p class="sol-hint">Find the reference angle for \(\frac{7\pi}{6}\), get its unit-circle coordinates, then adjust the signs for the correct quadrant.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We know that the angle \(\frac{7\pi }{6}\) is in the third quadrant.</p>
+<p>First, let’s find the reference angle by measuring the angle to the <strong>x</strong>-axis. To find the reference angle of an angle whose terminal side is in quadrant III, we find the difference of the angle and \(\pi .\)</p>
+<p id="eq27">\[\frac{7\pi }{6}-\pi =\frac{\pi }{6}\]</p>
+<p>Next, we will find the cosine and sine of the reference angle:</p>
+<p id="eq28">\[cos(\frac{\pi }{6})=\frac{\sqrt{3}}{2}\,sin(\frac{\pi }{6})=\frac{1}{2}\]</p>
+<p>We must determine the appropriate signs for <strong>x</strong> and <strong>y</strong> in the given quadrant. Because our original angle is in the third quadrant, where both \(x\) and \(y\) are negative, both cosine and sine are negative.</p>
+<p id="eq29">\[\begin{array}{l}cos(\frac{7\pi }{6})=-\frac{\sqrt{3}}{2} \\ sin(\frac{7\pi }{6})=-\frac{1}{2}\end{array}\]</p>
+<p>Now we can calculate the \((x,y)\) coordinates using the identities \(x=cos\,θ\) and \(y=sin\,θ.\)</p>
+<p>The coordinates of the point are \((-\frac{\sqrt{3}}{2},-\frac{1}{2})\) on the unit circle.</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Find the coordinates of the point on the unit circle at an angle of \(\frac{5\pi }{3}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((\frac{1}{2},-\frac{\sqrt{3}}{2})\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165137583095"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with sine and cosine functions.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/trigunitcir" target="_blank" rel="noopener">Trigonometric Functions Using the Unit Circle</a></li><li><a href="https://openstax.org/l/sincosuc" target="_blank" rel="noopener">Sine and Cosine from the Unit Circle</a></li><li><a href="https://openstax.org/l/sincosmult" target="_blank" rel="noopener">Sine and Cosine from the Unit Circle and Multiples of Pi Divided by Six</a></li><li><a href="https://openstax.org/l/sincosmult4" target="_blank" rel="noopener">Sine and Cosine from the Unit Circle and Multiples of Pi Divided by Four</a></li><li><a href="https://openstax.org/l/trigrefang" target="_blank" rel="noopener">Trigonometric Functions Using Reference Angles</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Cosine</td><td>\(cos\,t=x\)</td></tr><tr><td>Sine</td><td>\(sin\,t=y\)</td></tr><tr><td>Pythagorean Identity</td><td>\({cos}^{2}t+{sin}^{2}t=1\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Finding the function values for the sine and cosine begins with drawing a unit circle, which is centered at the origin and has a radius of 1 unit.</li><li>Using the unit circle, the sine of an angle \(t\) equals the <strong>y</strong>-value of the endpoint on the unit circle of an arc of length \(t\) whereas the cosine of an angle \(\,t\,\) equals the <strong>x</strong>-value of the endpoint. See <a href="#example1">Example 1</a>.</li><li>The sine and cosine values are most directly determined when the corresponding point on the unit circle falls on an axis. See <a href="#example2">Example 2</a>.</li><li>When the sine or cosine is known, we can use the Pythagorean Identity to find the other. The Pythagorean Identity is also useful for determining the sines and cosines of special angles. See <a href="#example3">Example 3</a>.</li><li>Calculators and graphing software are helpful for finding sines and cosines if the proper procedure for entering information is known. See <a href="#example4">Example 4</a>.</li><li>The domain of the sine and cosine functions is all real numbers.</li><li>The range of both the sine and cosine functions is \([-1,1].\)</li><li>The sine and cosine of an angle have the same absolute value as the sine and cosine of its reference angle.</li><li>The signs of the sine and cosine are determined from the <strong>x</strong>- and <strong>y</strong>-values in the quadrant of the original angle.</li><li>An angle’s reference angle is the size angle, \(\,t,\) formed by the terminal side of the angle \(\,t\,\) and the horizontal axis. See <a href="#example5">Example 5</a>.</li><li>Reference angles can be used to find the sine and cosine of the original angle. See <a href="#example6">Example 6</a>.</li><li>Reference angles can also be used to find the coordinates of a point on a circle. See <a href="#example7">Example 7</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Describe the unit circle.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The unit circle is a circle of radius 1 centered at the origin.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>What do the <strong>x-</strong> and <strong>y-</strong>coordinates of the points on the unit circle represent?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Discuss the difference between a coterminal angle and a reference angle.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Coterminal angles are angles that share the same terminal side. A reference angle is the size of the smallest acute angle, \(\,t,\) formed by the terminal side of the angle \(\,t\,\) and the horizontal axis.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Explain how the cosine of an angle in the second quadrant differs from the cosine of its reference angle in the unit circle.</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Explain how the sine of an angle in the second quadrant differs from the sine of its reference angle in the unit circle.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The sine values are equal.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, use the given sign of the sine and cosine functions to find the quadrant in which the terminal point determined by \(t\) lies.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\text{sin}(t)&lt;0\) and \(\text{cos}(t)&lt;0\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\text{sin}(t)&gt;0\) and \(cos(t)&gt;0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>I</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(sin(t)&gt;0\) and \(cos(t)&lt;0\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(sin(t)&lt;0\) and \(cos(t)&gt;0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>IV</p>
+</div></div></div></div>
+<p>For the following exercises, find the exact value of each trigonometric function.</p>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(sin\,\frac{\pi }{2}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(sin\,\frac{\pi }{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(cos\,\frac{\pi }{2}\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(cos\,\frac{\pi }{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(sin\,\frac{\pi }{4}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(cos\,\frac{\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(sin\,\frac{\pi }{6}\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(sin\,\pi\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(sin\,\frac{3\pi }{2}\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(cos\,\pi\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>−1</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(cos\,0\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(cos\,\frac{\pi }{6}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(sin\,0\)</p>
+</div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, state the reference angle for the given angle.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(240°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(60°\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(-170°\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(100°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(80°\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(-315°\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(135°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(45°\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(\frac{5\pi }{4}\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(\frac{2\pi }{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(\frac{5\pi }{6}\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(\frac{-11\pi }{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(\frac{-\,7\pi }{4}\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(\frac{-\pi }{8}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{8}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the reference angle, the quadrant of the terminal side, and the sine and cosine of each angle. If the angle is not one of the special angles on the unit circle, use a calculator and round to three decimal places.</p>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(225°\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(300°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(60°,\) Quadrant IV, \(\text{sin}(300°)=-\frac{\sqrt{3}}{2},cos(300°)=\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(320°\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(135°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(45°,\) Quadrant II, \(\text{sin}(135°)=\frac{\sqrt{2}}{2},\) \(cos(135°)=-\frac{\sqrt{2}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(210°\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(120°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(60°,\) Quadrant II, \(\text{sin}(120°)=\frac{\sqrt{3}}{2},\) \(cos(120°)=-\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(250°\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(150°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(30°,\) Quadrant II, \(\text{sin}(150°)=\frac{1}{2},\) \(cos(150°)=-\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\frac{5\pi }{4}\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(\frac{7\pi }{6}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{6},\) Quadrant III, \(\text{sin}(\frac{7\pi }{6})=-\frac{1}{2},\) \(\text{cos}(\frac{7\pi }{6})=-\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(\frac{5\pi }{3}\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(\frac{3\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{4},\) Quadrant II, \(\text{sin}(\frac{3\pi }{4})=\frac{\sqrt{2}}{2},\) \(cos(\frac{3\pi }{4})=-\frac{\sqrt{2}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(\frac{4\pi }{3}\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(\frac{2\pi }{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3},\) Quadrant II, \(\text{sin}(\frac{2\pi }{3})=\frac{\sqrt{3}}{2},\) \(\,cos(\frac{2\pi }{3})=-\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(\frac{5\pi }{6}\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(\frac{7\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{4},\) Quadrant IV, \(\text{sin}(\frac{7\pi }{4})=-\frac{\sqrt{2}}{2},\) \(\text{ cos}(\frac{7\pi }{4})=\frac{\sqrt{2}}{2}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the requested value.</p>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>If \(\text{cos}(t)=\frac{1}{7}\) and \(t\) is in the 4<sup>th</sup> quadrant, find \(\text{sin}(t).\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>If \(\text{cos}(t)=\frac{2}{9}\) and \(t\) is in the 1<sup>st</sup> quadrant, find \(\text{sin}(t).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{77}}{9}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>If \(\text{sin}(t)=\frac{3}{8}\) and \(t\) is in the 2<sup>nd</sup> quadrant, find \(\text{cos}(t).\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>If \(\text{sin}(t)=-\frac{1}{4}\) and \(t\) is in the 3<sup>rd</sup> quadrant, find \(\text{cos}(t).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\sqrt{15}}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Find the coordinates of the point on a circle with radius 15 corresponding to an angle of \(220°.\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>Find the coordinates of the point on a circle with radius 20 corresponding to an angle of \(120°.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-10,10\sqrt{3})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Find the coordinates of the point on a circle with radius 8 corresponding to an angle of \(\frac{7\pi }{4}.\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Find the coordinates of the point on a circle with radius 16 corresponding to an angle of \(\frac{5\pi }{9}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-2.778,15.757)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>State the domain of the sine and cosine functions.</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>State the range of the sine and cosine functions.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([-1,1]\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, use the given point on the unit circle to find the value of the sine and cosine of \(t\text{.}\)</p>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_201-0de7.jpg" alt="Graph of a quarter circle with angles of 0, 30, 45, 60, and 90 degrees inscribed. Equivalence of angles in radians shown. Points along circle are marked." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_202-e1b5.jpg" alt="Graph of circle with angle of t inscribed. Point of (negative square root of 3 over 2, 1/2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sint=\frac{1}{2},cost=-\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_203-fa4f.jpg" alt="Graph of circle with angle of t inscribed. Point of (1/2, negative square root of 3 over 2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_204-45e8.jpg" alt="Graph of circle with angle of t inscribed. Point of (negative square root of 2 over 2, negative square root of 2 over 2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=-\frac{\sqrt{2}}{2},cos\,t=-\frac{\sqrt{2}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_205-13e7.jpg" alt="Graph of circle with angle of t inscribed. Point of (1/2, square root of 3 over 2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_206-f63a.jpg" alt="Graph of circle with angle of t inscribed. Point of (-1/2, square root of 3 over 2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=\frac{\sqrt{3}}{2},cos\,t=-\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_207-7df6.jpg" alt="Graph of circle with angle of t inscribed. Point of (-1/2, negative square root of 3 over 2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_208-fb31.jpg" alt="Graph of circle with angle of t inscribed. Point of (square root of 2 over 2, negative square root of 2 over 2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=-\frac{\sqrt{2}}{2},cos\,t=\frac{\sqrt{2}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_209-848a.jpg" alt="Graph of circle with angle of t inscribed. Point of (1,0) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_210-607b.jpg" alt="Graph of circle with angle of t inscribed. Point of (-1,0) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=0,cos\,t=-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_211-7dbb.jpg" alt="Graph of circle with angle of t inscribed. Point of (0.111,0.994) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_212-c62f.jpg" alt="Graph of circle with angle of t inscribed. Point of (0.803,-0.596 is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=-0.596,cos\,t=0.803\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex72"><div class="n">72</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_213-8f02.jpg" alt="Graph of circle with angle of t inscribed. Point of (negative square root of 2 over 2, square root of 2 over 2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex73"><div class="n">73</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_214-6804.jpg" alt="Graph of circle with angle of t inscribed. Point of (square root of 3 over 2, 1/2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=\frac{1}{2},cos\,t=\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex74"><div class="n">74</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_215-c020.jpg" alt="Graph of circle with angle of t inscribed. Point of (negative square root of 3 over 2, -1/2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex75"><div class="n">75</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_216-6e7c.jpg" alt="Graph of circle with angle of t inscribed. Point of (square root of 3 over 2, -1/2) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=-\frac{1}{2},cos\,t=\frac{\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex76"><div class="n">76</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_217-4fec.jpg" alt="Graph of circle with angle of t inscribed. Point of (0, -1) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex77"><div class="n">77</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_218-39ef.jpg" alt="Graph of circle with angle of t inscribed. Point of (-0.649, 0.761) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=0.761,cos\,t=-0.649\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex78"><div class="n">78</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_219-34fc.jpg" alt="Graph of circle with angle of t inscribed. Point of (-0.948, -0.317) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex79"><div class="n">79</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_05_02_220-889b.jpg" alt="Graph of circle with angle of t inscribed. Point of (0, 1) is at intersection of terminal side of angle and edge of circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,t=1,cos\,t=0\)</p>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a graphing calculator to evaluate.</p>
+<div class="exercise" id="ex80"><div class="n">80</div><div class="body"><p>\(sin\,\frac{5\pi }{9}\)</p>
+</div></div>
+<div class="exercise" id="ex81"><div class="n">81</div><div class="body"><p>\(cos\,\frac{5\pi }{9}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>−0.1736</p>
+</div></div></div></div>
+<div class="exercise" id="ex82"><div class="n">82</div><div class="body"><p>\(sin\,\frac{\pi }{10}\)</p>
+</div></div>
+<div class="exercise" id="ex83"><div class="n">83</div><div class="body"><p>\(cos\,\frac{\pi }{10}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.9511</p>
+</div></div></div></div>
+<div class="exercise" id="ex84"><div class="n">84</div><div class="body"><p>\(sin\,\frac{3\pi }{4}\)</p>
+</div></div>
+<div class="exercise" id="ex85"><div class="n">85</div><div class="body"><p>\(cos\,\frac{3\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>−0.7071</p>
+</div></div></div></div>
+<div class="exercise" id="ex86"><div class="n">86</div><div class="body"><p>\(sin\,98°\)</p>
+</div></div>
+<div class="exercise" id="ex87"><div class="n">87</div><div class="body"><p>\(cos\,98°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>−0.1392</p>
+</div></div></div></div>
+<div class="exercise" id="ex88"><div class="n">88</div><div class="body"><p>\(cos\,310°\)</p>
+</div></div>
+<div class="exercise" id="ex89"><div class="n">89</div><div class="body"><p>\(sin\,310°\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>−0.7660</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, evaluate.</p>
+<div class="exercise" id="ex90"><div class="n">90</div><div class="body"><p>\(sin(\frac{11\pi }{3})cos(\frac{-5\pi }{6})\)</p>
+</div></div>
+<div class="exercise" id="ex91"><div class="n">91</div><div class="body"><p>\(sin(\frac{3\pi }{4})cos(\frac{5\pi }{3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2}}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex92"><div class="n">92</div><div class="body"><p>\(sin(-\frac{4\pi }{3})cos(\frac{\pi }{2})\)</p>
+</div></div>
+<div class="exercise" id="ex93"><div class="n">93</div><div class="body"><p>\(sin(\frac{-9\pi }{4})cos(\frac{-\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\sqrt{6}}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex94"><div class="n">94</div><div class="body"><p>\(sin(\frac{\pi }{6})cos(\frac{-\pi }{3})\)</p>
+</div></div>
+<div class="exercise" id="ex95"><div class="n">95</div><div class="body"><p>\(sin(\frac{7\pi }{4})cos(\frac{-2\pi }{3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2}}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex96"><div class="n">96</div><div class="body"><p>\(cos(\frac{5\pi }{6})cos(\frac{2\pi }{3})\)</p>
+</div></div>
+<div class="exercise" id="ex97"><div class="n">97</div><div class="body"><p>\(cos(\frac{-\pi }{3})cos(\frac{\pi }{4})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2}}{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex98"><div class="n">98</div><div class="body"><p>\(sin(\frac{-5\pi }{4})sin(\frac{11\pi }{6})\)</p>
+</div></div>
+<div class="exercise" id="ex99"><div class="n">99</div><div class="body"><p>\(sin(\pi )sin(\frac{\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<p>For the following exercises, use this scenario: A child enters a carousel that takes one minute to revolve once around. The child enters at the point \((0,1),\) that is, on the due north position. Assume the carousel revolves counter clockwise.</p>
+<div class="exercise" id="ex100"><div class="n">100</div><div class="body"><p>What are the coordinates of the child after 45 seconds?</p>
+</div></div>
+<div class="exercise" id="ex101"><div class="n">101</div><div class="body"><p>What are the coordinates of the child after 90 seconds?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,-1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex102"><div class="n">102</div><div class="body"><p>What is the coordinates of the child after 125 seconds?</p>
+</div></div>
+<div class="exercise" id="ex103"><div class="n">103</div><div class="body"><p>When will the child have coordinates \((0.707,-0.707)\) if the ride lasts 6 minutes? (There are multiple answers.)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>37.5 seconds, 97.5 seconds, 157.5 seconds, 217.5 seconds, 277.5 seconds, 337.5 seconds</p>
+</div></div></div></div>
+<div class="exercise" id="ex104"><div class="n">104</div><div class="body"><p>When will the child have coordinates \((-0.866,-0.5)\) if the ride last 6 minutes?</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>cosine function</dt><dd>the <strong>x</strong>-value of the point on a unit circle corresponding to a given angle</dd><dt>Pythagorean Identity</dt><dd>a corollary of the Pythagorean Theorem stating that the square of the cosine of a given angle plus the square of the sine of that angle equals 1</dd><dt>sine function</dt><dd>the <strong>y</strong>-value of the point on a unit circle corresponding to a given angle</dd><dt>unit circle</dt><dd>a circle with a center at \((0,0)\) and radius 1.</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

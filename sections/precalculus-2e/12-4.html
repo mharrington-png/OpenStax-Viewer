@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derivatives · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Derivatives</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.4</span>Derivatives</h1>
+<p>Device and media usage changes at different rates for different groups of people. Communication and technology companies, marketers, educators, and their advocates maintain a close watch on trends and preferences. According to data from the Pew Research Center, Millennial ownership of smartphones only increased by one percent from 2018 to 2019 (from 92% to 93%). But for people over 74 years old, the number jumped from 30% to 40% in the same period.</p>
+<p>Other device ownership and usage trends may go in different directions by generation. From 2018 to 2019, Millennial tablet computer ownership dropped from 64% to 52%. But during the same period, the Baby Boom generation's tablet computer ownership stayed exactly even with 52% reporting ownership. And the 74-and-older group's tablet ownership increased from 25% to 33%. <span class="footnote">(https://www.pewresearch.org/fact-tank/2019/09/09/us-generations-technology-use/)</span></p>
+<p>What do these scenarios have in common? The functions representing them have changed over time. In this section, we will consider methods of computing such changes over time.</p>
+<h2 id="finding-the-average-rate-of-change-of-a-function">Finding the Average Rate of Change of a Function</h2>
+<p>The functions describing the examples above involve a change over time. Change divided by time is one example of a rate. The rates of change in the previous examples are each different. In other words, some changed faster than others. If we were to graph the functions, we could compare the rates by determining the slopes of the graphs.</p>
+<p>A <strong>tangent line</strong> to a curve is a line that intersects the curve at only a single point but does not cross it there. (The tangent line may intersect the curve at another point away from the point of interest.) If we zoom in on a curve at that point, the curve appears linear, and the <strong>slope of the curve</strong> at that point is close to the slope of the tangent line at that point.</p>
+<p><a href="#fig1">Figure 1</a> represents the function \(f(x)={x}^{3}-4x.\) We can see the slope at various points along the curve.</p>
+<ul class="tight"><li>slope at \(x=-2\) is 8</li><li>slope at \(x=-1\) is –1</li><li>slope at \(x=2\) is 8</li></ul>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_12_04_001.jpg" alt="Graph of f(x) = x^3 - 4x with tangent lines at x = -2 with a slope of 8, at x = -3 with a slope of -1, and at x=2 with a slope of 8." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Graph showing tangents to curve at –2, –1, and 2.</figcaption></figure>
+<p>Let’s imagine a point on the curve of function \(f\) at \(x=a\) as shown in <a href="#fig2">Figure 2</a>. The coordinates of the point are \((a,f(a)).\) Connect this point with a second point on the curve a little to the right of \(x=a,\) with an <strong>x</strong>-value increased by some small real number \(h.\) The coordinates of this second point are \((a+h,f(a+h))\) for some positive-value \(h.\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_12_04_002.jpg" alt="Graph of an increasing function that demonstrates the rate of change of the function by drawing a line between the two points, (a, f(a)) and (a, f(a+h))." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Connecting point \(a\) with a point just beyond allows us to measure a slope close to that of a tangent line at \(x=a.\)</figcaption></figure>
+<p>We can calculate the slope of the line connecting the two points \((a,f(a))\) and \((a+h,f(a+h)),\) called a <strong>secant line</strong>, by applying the slope formula,</p>
+<p>\(\text{slope = }\frac{\text{change in }y}{\text{change in }x}\)</p>
+<p>We use the notation \({m}_{sec}\) to represent the slope of the secant line connecting two points.</p>
+<p id="eq1">\[\begin{array}{l}{m}_{sec}=\frac{f(a+h)-f(a)}{(a+h)-(a)} \\ \,=\frac{f(a+h)-f(a)}{a+h-a}\end{array}\]</p>
+<p>The slope \({m}_{sec}\) equals the <strong>average rate of change</strong> between two points \((a,f(a))\) and \((a+h,f(a+h)).\)</p>
+<p id="eq2">\[{m}_{sec}=\frac{f(a+h)-f(a)}{h}\]</p>
+<div class="card definition" id="fs-id1165137841587"><span class="chip">The Average Rate of Change between Two Points on a Curve</span><p>The <strong>average rate of change</strong> (AROC) between two points \((a,f(a))\) and \((a+h,f(a+h))\) on the curve of \(f\) is the slope of the line connecting the two points and is given by</p>
+<p id="eq3">\[\text{AROC}=\frac{f(a+h)-f(a)}{h}\]</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Find the average rate of change connecting the points \((2,-6)\) and \((-1,5).\)</p>
+</div><p class="sol-hint">Divide the change in y by the change in x between the two points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We know the average rate of change connecting two points may be given by</p>
+<p id="eq4">\[\text{AROC}=\frac{f(a+h)-f(a)}{h}.\]</p>
+<p>If one point is \((2,-6),\) or \((2,f(2)),\) then \(f(2)=-6.\)</p>
+<p>The value \(h\) is the displacement from \(2\) to \(-1,\) which equals \(-1-2=-3.\)</p>
+<p>For the other point, \(f(a+h)\) is the <strong>y</strong>-coordinate at \(a+h,\) which is \(2+(-3)\) or \(-1,\) so \(f(a+h)=f(-1)=5.\)</p>
+<p id="eq5">\[\begin{array}{l}\text{AROC}=\frac{f(a+h)-f(a)}{h} \\ \,=\frac{5-(-6)}{-3} \\ \,=\frac{11}{-3} \\ \,=-\frac{11}{3}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Find the average rate of change connecting the points \((-5,1.5)\) and \((-2.5,9).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>3</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="understanding-the-instantaneous-rate-of-change">Understanding the Instantaneous Rate of Change</h2>
+<p>Now that we can find the average rate of change, suppose we make \(h\) in <a href="#fig2">Figure 2</a> smaller and smaller. Then \(a+h\) will approach \(a\) as \(h\) gets smaller, getting closer and closer to 0. Likewise, the second point \((a+h,f(a+h))\) will approach the first point, \((a,f(a)).\) As a consequence, the connecting line between the two points, called the secant line, will get closer and closer to being a tangent to the function at \(x=a,\) and the slope of the secant line will get closer and closer to the slope of the tangent at \(x=a.\) See <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_003.jpg" alt="Graph of an increasing function that contains a point, P, at (a, f(a)). At the point, there is a tangent line and two secant lines where one secant line is connected to Q1 and another secant line is connected to Q2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — The connecting line between two points moves closer to being a tangent line at \(x=a.\)</figcaption></figure>
+<p>Because we are looking for the <strong>slope of the tangent</strong> at \(x=a,\) we can think of the measure of the slope of the curve of a function \(f\) at a given point as the rate of change at a particular instant. We call this slope the <strong>instantaneous rate of change</strong>, or the <strong>derivative</strong> of the function at \(x=a.\) Both can be found by finding the limit of the slope of a line connecting the point at \(x=a\) with a second point infinitesimally close along the curve. For a function \(f\) both the instantaneous rate of change of the function and the derivative of the function at \(x=a\) are written as \(f'(a),\) and we can define them as a <strong>two-sided limit</strong> that has the same value whether approached from the left or the right.</p>
+<p id="eq6">\[{f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h}\]</p>
+<p>The expression by which the limit is found is known as the <strong>difference quotient</strong>.</p>
+<div class="card definition" id="fs-id1165137645227"><span class="chip">Definition of Instantaneous Rate of Change and Derivative</span><p>The <strong>derivative</strong>, or <strong>instantaneous rate of change</strong>, of a function \(f\) at \(x=a,\) is given by</p>
+<p id="eq7">\[f'(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h}\]</p>
+<p>The expression \(\frac{f(a+h)-f(a)}{h}\) is called the difference quotient.</p>
+<p>We use the difference quotient to evaluate the limit of the rate of change of the function as \(h\) approaches 0.</p>
+</div>
+<h3 id="derivatives-interpretations-and-notation">Derivatives: Interpretations and Notation</h3>
+<p>The <strong>derivative</strong> of a function can be interpreted in different ways. It can be observed as the behavior of a graph of the function or calculated as a numerical rate of change of the function.</p>
+<ul class="tight"><li>The derivative of a function \(f(x)\) at a point \(x=a\) is the slope of the tangent line to the curve \(f(x)\) at \(x=a.\) The derivative of \(f(x)\) at \(x=a\) is written \({f}^{\prime }(a).\)</li><li>The derivative \({f}^{\prime }(a)\) measures how the curve changes at the point \((a,f(a)).\)</li><li>The derivative \({f}^{\prime }(a)\) may be thought of as the instantaneous rate of change of the function \(f(x)\) at \(x=a.\)</li><li>If a function measures distance as a function of time, then the derivative measures the instantaneous <strong>velocity</strong> at time \(t=a.\)</li></ul>
+<div class="card definition" id="fs-id1165137761191"><span class="chip">Notations for the Derivative</span><p>The equation of the derivative of a function \(f(x)\) is written as \({y}^{\prime }={f}^{\prime }(x),\) where \(y=f(x).\) The notation \({f}^{\prime }(x)\) is read as “ \(f\text{ prime of }x.\) ” Alternate notations for the derivative include the following:</p>
+<p id="eq8">\[{f}^{\prime }(x)={y}^{\prime }=\frac{dy}{dx}=\frac{df}{dx}=\frac{d}{dx}f(x)=Df(x)\]</p>
+<p>The expression \({f}^{\prime }(x)\) is now a function of \(x\) ; this function gives the slope of the curve \(y=f(x)\) at any value of \(x.\) The derivative of a function \(f(x)\) at a point \(x=a\) is denoted \({f}^{\prime }(a).\)</p>
+</div>
+<div class="card howto" id="fs-id1165135526118"><span class="chip">How To</span><p><strong>Given a function \(f,\) find the derivative by applying the definition of the derivative.</strong></p>
+<ul class="tight"><li>Calculate \(f(a+h).\)</li><li>Calculate \(f(a).\)</li><li>Substitute and simplify \(\frac{f(a+h)-f(a)}{h}.\)</li><li>Evaluate the limit if it exists: \({f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h}.\)</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find the derivative of the function \(f(x)={x}^{2}-3x+5\) at \(x=a.\)</p>
+</div><p class="sol-hint">Set up the difference quotient \(\frac{f(a+h)-f(a)}{h}\), expand it, simplify, then let h approach 0.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have:</p>
+<p id="eq9">\[\begin{array}{ll}{f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h} &amp; \text{ Definition of a derivative }\end{array}\]</p>
+<p>Substitute \(f(a+h)={(a+h)}^{2}-3(a+h)+5\) and \(f(a)={a}^{2}-3a+5.\)</p>
+<p id="eq10">\[\begin{array}{ll}{f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{(a+h)(a+h)-3(a+h)+5-({a}^{2}-3a+5)}{h} &amp; \\ \,=\underset{h\to 0}{lim}\frac{{a}^{2}+2ah+{h}^{2}-3a-3h+5-{a}^{2}+3a-5}{h} &amp; \text{Evaluate to remove parentheses}. \\ \,=\underset{h\to 0}{lim}\frac{{a}^{2}+2ah+{h}^{2}-3a-3h+5-{a}^{2}+3a-5}{h} &amp; \text{Simplify}. \\ \,=\underset{h\to 0}{lim}\frac{2ah+{h}^{2}-3h}{h} &amp; \\ \,=\underset{h\to 0}{lim}\frac{h(2a+h-3)}{h} &amp; \text{Factor out an }h. \\ \,=2a+0-3 &amp; \text{Evaluate the limit}. \\ \,=2a-3 &amp; \end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find the derivative of the function \(f(x)=3{x}^{2}+7x\) at \(x=a.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({f}^{\prime }(a)=6a+7\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-derivatives-of-rational-functions">Finding Derivatives of Rational Functions</h3>
+<p>To find the derivative of a rational function, we will sometimes simplify the expression using algebraic techniques we have already learned.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the derivative of the function \(f(x)=\frac{3+x}{2-x}\) at \(x=a.\)</p>
+</div><p class="sol-hint">Set up the difference quotient, combine the resulting fractions over a common denominator, then simplify before letting h approach 0.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>\(\begin{array}{ll}{f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h} &amp; \\ \,=\underset{h\to 0}{lim}\frac{\frac{3+(a+h)}{2-(a+h)}-(\frac{3+a}{2-a})}{h} &amp; \text{Substitute }f(a+h)\text{ and }f(a) \\ \,=\underset{h\to 0}{lim}\frac{(2-(a+h))(2-a)[\frac{3+(a+h)}{2-(a+h)}-(\frac{3+a}{2-a})]}{(2-(a+h))(2-a)(h)} &amp; \text{Multiply numerator and denominator by }(2-(a+h))(2-a) \\ \,=\underset{h\to 0}{lim}\frac{(2-(a+h))(2-a)(\frac{3+(a+h)}{(2-(a+h))})-(2-(a+h))(2-a)(\frac{3+a}{2-a})}{(2-(a+h))(2-a)(h)} &amp; \text{Distribute} \\ \,=\underset{h\to 0}{lim}\frac{6-3a+2a-{a}^{2}+2h-ah-6+3a+3h-2a+{a}^{2}+ah}{(2-(a+h))(2-a)(h)} &amp; \text{Multiply} \\ \,=\underset{h\to 0}{lim}\frac{5h}{(2-(a+h))(2-a)(h)} &amp; \text{Combine like terms} \\ \,=\underset{h\to 0}{lim}\frac{5}{(2-(a+h))(2-a)} &amp; \text{Cancel like factors} \\ \,=\frac{5}{(2-(a+0))(2-a)}=\frac{5}{(2-a)(2-a)}=\frac{5}{{(2-a)}^{2}} &amp; \text{Evaluate the limit}\end{array}\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the derivative of the function \(f(x)=\frac{10x+11}{5x+4}\) at \(x=a.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({f}^{\prime }(a)=\frac{-15}{{(5a+4)}^{2}}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-derivatives-of-functions-with-roots">Finding Derivatives of Functions with Roots</h3>
+<p>To find derivatives of functions with roots, we use the methods we have learned to find limits of functions with roots, including multiplying by a conjugate.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the <strong>derivative</strong> of the function \(f(x)=4\sqrt{x}\) at \(x=36.\)</p>
+</div><p class="sol-hint">Set up the difference quotient at \(x=36\), rationalize by multiplying by the conjugate, then simplify and let h approach 0.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have</p>
+<p id="eq11">\[\begin{array}{ll}{f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h} &amp; \\ \,=\underset{h\to 0}{lim}\frac{4\sqrt{a+h}-4\sqrt{a}}{h} &amp; \text{Substitute }f(a+h)\text{ and }f(a)\end{array}\]</p>
+<p>Multiply the numerator and denominator by the conjugate: \(\frac{4\sqrt{a+h}+4\sqrt{a}}{4\sqrt{a+h}+4\sqrt{a}}.\)</p>
+<p id="eq12">\[\begin{array}{ll}\,{f}^{\prime }(a)=\underset{h\to 0}{lim}(\frac{4\sqrt{a+h}-4\sqrt{a}}{h})\cdot (\frac{4\sqrt{a+h}+4\sqrt{a}}{4\sqrt{a+h}+4\sqrt{a}}) &amp; \\ \,=\underset{h\to 0}{lim}(\frac{16(a+h)-16a}{h4(\sqrt{a+h}+\sqrt{a})}) &amp; \text{Multiply}. \\ \,=\underset{h\to 0}{lim}(\frac{16a+16h-16a}{h4(\sqrt{a+h}+\sqrt{a})}) &amp; \text{Distribute and combine like terms}. \\ \,=\underset{h\to 0}{lim}(\frac{16h}{h(4\sqrt{a+h}+4\sqrt{a})}) &amp; \text{Simplify}. \\ \,=\underset{h\to 0}{lim}(\frac{16}{4\sqrt{a+h}+4\sqrt{a}}) &amp; \text{Evaluate the limit by letting }h=0. \\ \,=\frac{16}{8\sqrt{a}}=\frac{2}{\sqrt{a}} &amp; \\ {f}^{\prime }(36)=\frac{2}{\sqrt{36}} &amp; \text{Evaluate the derivative at }x=36. \\ \,=\frac{2}{6} &amp; \\ \,=\frac{1}{3} &amp; \end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Find the derivative of the function \(f(x)=9\sqrt{x}\) at \(x=9.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{3}{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-instantaneous-rates-of-change">Finding Instantaneous Rates of Change</h2>
+<p>Many applications of the derivative involve determining the rate of change at a given instant of a function with the independent variable time—which is why the term <strong>instantaneous</strong> is used. Consider the height of a ball tossed upward with an initial velocity of 64 feet per second, given by \(s(t)=-16{t}^{2}+64t+6,\) where \(t\) is measured in seconds and \(s(t)\) is measured in feet. We know the path is that of a parabola. The derivative will tell us how the height is changing at any given point in time. The height of the ball is shown in <a href="#fig4">Figure 4</a> as a function of time. In physics, we call this the “<strong>s</strong>-<strong>t</strong> graph.”</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_004.jpg" alt="Graph of a negative parabola with a vertex at (2, 70) and two points at (1, 55) and (3, 55)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Using the function above, \(s(t)=-16{t}^{2}+64t+6,\) what is the instantaneous velocity of the ball at 1 second and 3 seconds into its flight?</p>
+</div><p class="sol-hint">Find the derivative of the position function to get velocity, then evaluate it at each given time.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The velocity at \(t=1\) and \(t=3\) is the instantaneous rate of change of distance per time, or velocity. Notice that the initial height is 6 feet. To find the instantaneous velocity, we find the <strong>derivative</strong> and evaluate it at \(t=1\) and \(t=3:\)</p>
+<p>\(\begin{array}{ll}{f}^{\prime }(a)=\underset{h\,\to \,0}{lim}\,\frac{f(a+h)-f(a)}{h} &amp; \\ {s}^{\prime }(t)=\underset{h\,\to \,0}{lim}\,\frac{-16{(t+h)}^{2}+64(t+h)+6-(-16{t}^{2}+64t+6)}{h} &amp; \text{Substitute }s(t+h)\text{ and }s(t). \\ \,=\underset{h\,\to \,0}{lim\,}\frac{-16{t}^{2}-32ht-{h}^{2}+64t+64h+6+16{t}^{2}-64t-6}{h} &amp; \text{Distribute}. \\ \,=\underset{h\,\to \,0}{lim}\,\frac{-32ht-{h}^{2}+64h}{h} &amp; \text{Simplify}. \\ \,=\underset{h\,\to \,0}{lim}\,\frac{h(-32t-h+64)}{h} &amp; \text{Factor the numerator}. \\ \,=\underset{h\,\to \,0}{lim}-32t-h+64 &amp; \text{Cancel out the common factor }h. \\ \,{s}^{\prime }(t)=-32t+64 &amp; \text{Evaluate the limit by letting }h=0.\end{array}\)</p>
+<p>For any value of \(t\) , \({s}^{\prime }(t)\) tells us the velocity at that value of \(t.\)</p>
+<p>Evaluate \(t=1\) and \(t=3.\)</p>
+<p id="eq13">\[\begin{array}{l}{s}^{\prime }(1)=-32(1)+64=32 \\ {s}^{\prime }(3)=-32(3)+64=-32\end{array}\]</p>
+<p>The velocity of the ball after 1 second is 32 feet per second, as it is on the way up.</p>
+<p>The velocity of the ball after 3 seconds is \(-32\) feet per second, as it is on the way down.</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>The position of the ball is given by \(s(t)=-16{t}^{2}+64t+6.\) What is its velocity 2 seconds into flight?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>0</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="using-graphs-to-find-instantaneous-rates-of-change">Using Graphs to Find Instantaneous Rates of Change</h3>
+<p>We can estimate an instantaneous rate of change at \(x=a\) by observing the slope of the curve of the function \(f(x)\) at \(x=a.\) We do this by drawing a line tangent to the function at \(x=a\) and finding its slope.</p>
+<div class="card howto" id="fs-id1165135596394"><span class="chip">How To</span><p><strong>Given a graph of a function \(f(x),\) find the instantaneous rate of change of the function at \(x=a.\)</strong></p>
+<ul class="tight"><li>Locate \(x=a\) on the graph of the function \(f(x).\)</li><li>Draw a tangent line, a line that goes through \(x=a\) at \(a\) and at no other point in that section of the curve. Extend the line far enough to calculate its slope as<p id="eq14">\[\frac{\text{change in }y}{\text{change in }x}.\]</p>
+</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>From the graph of the function \(y=f(x)\) presented in <a href="#fig5">Figure 5</a>, estimate each of the following:</p>
+<ul class="tight"><li>ⓐ \(f(0)\)</li><li>ⓑ \(f(2)\)</li><li>ⓒ \(f'(0)\)</li><li>ⓓ \(f'(2)\)</li></ul>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_005.jpg" alt="Graph of an odd function with multiplicity of two and with two points at (0, 1) and (2, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+</div><p class="sol-hint">Read the slope of the tangent line directly off the graph at each indicated point.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To find the functional value, \(f(a),\) find the <strong>y</strong>-coordinate at \(x=a.\)</p>
+<p>To find the <strong>derivative</strong> at \(x=a,\) \({f}^{\prime }(a),\) draw a tangent line at \(x=a,\) and estimate the slope of that tangent line. See <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_006.jpg" alt="Graph of the previous function with tangent lines at the two points (0, 1) and (2, 1). The graph demonstrates the slopes of the tangent lines. The slope of the tangent line at x = 0 is 0, and the slope of the tangent line at x = 2 is 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<ul class="tight"><li>ⓐ \(f(0)\) is the <strong>y</strong>-coordinate at \(x=0.\) The point has coordinates \((0,1),\) thus \(f(0)=1.\)</li><li>ⓑ \(f(2)\) is the <strong>y</strong>-coordinate at \(x=2.\) The point has coordinates \((2,1),\) thus \(f(2)=1.\)</li><li>ⓒ \({f}^{\prime }(0)\) is found by estimating the slope of the tangent line to the curve at \(x=0.\) The tangent line to the curve at \(x=0\) appears horizontal. Horizontal lines have a slope of 0, thus \({f}^{\prime }(0)=0.\)</li><li>ⓓ \({f}^{\prime }(2)\) is found by estimating the slope of the tangent line to the curve at \(x=2.\) Observe the path of the tangent line to the curve at \(x=2.\) As the \(x\) value moves one unit to the right, the \(y\) value moves up four units to another point on the line. Thus, the slope is 4, so \({f}^{\prime }(2)=4.\)</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Using the graph of the function \(f(x)={x}^{3}-3x\) shown in <a href="#fig7">Figure 7</a>, estimate: \(f(1),\) \({f}^{\prime }(1),\) \(f(0),\) and \({f}^{\prime }(0).\)</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_007.jpg" alt="Graph of the function f(x) = x^3-3x with a viewing window of [-4. 4] by [-5, 7" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-2,\) 0, 0, \(-3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="using-instantaneous-rates-of-change-to-solve-real-world-problems">Using Instantaneous Rates of Change to Solve Real-World Problems</h3>
+<p>Another way to interpret an instantaneous rate of change at \(x=a\) is to observe the function in a real-world context. The unit for the derivative of a function \(f(x)\) is</p>
+<p id="eq15">\[\frac{\text{output units }}{\text{ input unit }}\]</p>
+<p>Such a unit shows by how many units the output changes for each one-unit change of input. The instantaneous rate of change at a given instant shows the same thing: the units of change of output per one-unit change of input.</p>
+<p>One example of an instantaneous rate of change is a marginal cost. For example, suppose the production cost for a company to produce \(x\) items is given by \(C(x),\) in thousands of dollars. The derivative function tells us how the cost is changing for any value of \(x\) in the domain of the function. In other words, \({C}^{\prime }(x)\) is interpreted as a <strong>marginal cost</strong>, the additional cost in thousands of dollars of producing one more item when \(x\) items have been produced. For example, \({C}^{\prime }(11)\) is the approximate additional cost in thousands of dollars of producing the 12<sup>th</sup> item after 11 items have been produced. \({C}^{\prime }(11)=2.50\) means that when 11 items have been produced, producing the 12<sup>th</sup> item would increase the total cost by approximately $2,500.00.</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>The cost in dollars of producing \(x\) laptop computers in dollars is \(f(x)={x}^{2}-100x.\) At the point where 200 computers have been produced, what is the approximate cost of producing the 201<sup>st</sup> unit?</p>
+</div><p class="sol-hint">Recognize this as asking for the derivative (marginal cost) at x=200, then compute it using the difference quotient or derivative rules.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>If \(f(x)={x}^{2}-100x\) describes the cost of producing \(x\) computers, \({f}^{\prime }(x)\) will describe the marginal cost. We need to find the derivative. For purposes of calculating the derivative, we can use the following functions:</p>
+<p id="eq16">\[\begin{array}{l}f(x+h)={(x+h)}^{2}-100(x+h) \\ \,f(x)={x}^{2}-100x\end{array}\]</p>
+<p>\(\begin{array}{ll}\,{f}^{\prime }(x)=\underset{h\to 0}{lim}\frac{f(x+h)-f(x)}{h} &amp; \text{Formula for a derivative} \\ \,=\underset{h\to 0}{lim}\frac{{(x+h)}^{2}-100(x+h)-({x}^{2}-100x)}{h} &amp; \text{Substitute }f(x+h)\text{ and }f(x). \\ \,=\underset{h\to 0}{lim}\frac{{x}^{2}+2xh+{h}^{2}-100x-100h-{x}^{2}+100x}{h} &amp; \text{Multiply polynomials, distribute}. \\ \,=\underset{h\to 0}{lim}\frac{2xh+{h}^{2}-100h}{h} &amp; \text{Collect like terms}. \\ \,=\underset{h\to 0}{lim}\frac{h(2x+h-100)}{h} &amp; \text{Factor and cancel like terms}. \\ \,=\underset{h\to 0}{lim}\,2x+h-100 &amp; \text{Simplify}. \\ \,=(2x-100) &amp; \text{Evaluate when }h=0. \\ \,{f}^{\prime }(x)=2x-100 &amp; \text{Formula for marginal cost} \\ {f}^{\prime }(200)=2(200)-100=300 &amp; \text{Evaluate for 200 units}.\end{array}\)</p>
+<p>The marginal cost of producing the 201<sup>st</sup> unit will be approximately $300.</p>
+</div></div></div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>A car leaves an intersection. The distance it travels in miles is given by the function \(f(t),\) where \(t\) represents hours. Explain the following notations:</p>
+<ul class="tight"><li>ⓐ \(f(0)=0\)</li><li>ⓑ \({f}^{\prime }(1)=60\)</li><li>ⓒ \(f(1)=70\)</li><li>ⓓ \(f(2.5)=150\)</li></ul>
+</div><p class="sol-hint">Match each notation to what it represents in context: is it a value, a rate of change, or an interval?</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we need to evaluate the function \(f(t)\) and the derivative of the function \({f}^{\prime }(t),\) and distinguish between the two. When we evaluate the function \(f(t),\) we are finding the distance the car has traveled in \(t\) hours. When we evaluate the derivative \({f}^{\prime }(t),\) we are finding the speed of the car after \(t\) hours.</p>
+<ul class="tight"><li>ⓐ \(f(0)=0\) means that in zero hours, the car has traveled zero miles.</li><li>ⓑ \({f}^{\prime }(1)=60\) means that one hour into the trip, the car is traveling 60 miles per hour.</li><li>ⓒ \(f(1)=70\) means that one hour into the trip, the car has traveled 70 miles. At some point during the first hour, then, the car must have been traveling faster than it was at the 1-hour mark.</li><li>ⓓ \(f(2.5)=150\) means that two hours and thirty minutes into the trip, the car has traveled 150 miles.</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>A runner runs along a straight east-west road. The function \(f(t)\) gives how many feet eastward of her starting point she is after \(t\) seconds. Interpret each of the following as it relates to the runner.</p>
+<ul class="tight"><li>ⓐ \(f(0)=0\)</li><li>ⓑ \(f(10)=150\)</li><li>ⓒ \({f}^{\prime }(10)=15\)</li><li>ⓓ \({f}^{\prime }(20)=-10\)</li><li>ⓔ \(f(40)=-100\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ After zero seconds, she has traveled 0 feet.</li><li>ⓑ After 10 seconds, she has traveled 150 feet east.</li><li>ⓒ After 10 seconds, she is moving eastward at a rate of 15 ft/sec.</li><li>ⓓ After 20 seconds, she is moving westward at a rate of 10 ft/sec.</li><li>ⓔAfter 40 seconds, she is 100 feet westward of her starting point.</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-points-where-a-function-s-derivative-does-not-exist">Finding Points Where a Function’s Derivative Does Not Exist</h3>
+<p>To understand where a function’s derivative does not exist, we need to recall what normally happens when a function \(f(x)\) has a derivative at \(x=a\) . Suppose we use a graphing utility to zoom in on \(x=a\) . If the function \(f(x)\) is <strong>differentiable</strong>, that is, if it is a function that can be differentiated, then the closer one zooms in, the more closely the graph approaches a straight line. This characteristic is called <strong>linearity</strong>.</p>
+<p>Look at the graph in <a href="#fig8">Figure 8</a>. The closer we zoom in on the point, the more linear the curve appears.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_008.jpg" alt="Graph of a negative parabola that is zoomed in on a point to show that the curve becomes linear the closer it is zoomed in." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+<p>We might presume the same thing would happen with any continuous function, but that is not so. The function \(f(x)=|x|,\) for example, is continuous at \(x=0,\) but not differentiable at \(x=0.\) As we zoom in close to 0 in <a href="#fig9">Figure 9</a>, the graph does not approach a straight line. No matter how close we zoom in, the graph maintains its sharp corner.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_009.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Graph of the function \(f(x)=|x|,\) with <strong>x</strong>-axis from –0.1 to 0.1 and <strong>y</strong>-axis from –0.1 to 0.1.</figcaption></figure>
+<p>We zoom in closer by narrowing the range to produce <a href="#fig10">Figure 10</a> and continue to observe the same shape. This graph does not appear linear at \(x=0.\)</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_010.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Graph of the function \(f(x)=|x|,\) with <strong>x</strong>-axis from –0.001 to 0.001 and <strong>y</strong>-axis from—0.001 to 0.001.</figcaption></figure>
+<p>What are the characteristics of a graph that is not differentiable at a point? Here are some examples in which function \(f(x)\) is not differentiable at \(x=a.\)</p>
+<p>In <a href="#fig11">Figure 11</a>, we see the graph of</p>
+<p id="eq17">\[f(x)=\left\{\begin{array}{ll}{x}^{2}, &amp; x\le 2 \\ 8-x, &amp; x&gt;2\end{array}.\right.\]</p>
+<p>Notice that, as \(x\) approaches 2 from the left, the left-hand limit may be observed to be 4, while as \(x\) approaches 2 from the right, the right-hand limit may be observed to be 6. We see that it has a discontinuity at \(x=2.\)</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_011.jpg" alt="Graph of a piecewise function where from negative infinity to (2, 4) is a positive parabola and from (2, 6) to positive infinity is a linear line." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — The graph of \(f(x)\) has a discontinuity at \(x=2.\)</figcaption></figure>
+<p>In <a href="#fig12">Figure 12</a>, we see the graph of \(f(x)=|x|.\) We see that the graph has a corner point at \(x=0.\)</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_012.jpg" alt="Graph of an absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — The graph of \(f(x)=|x|\) has a corner point at \(x=0\) .</figcaption></figure>
+<p>In <a href="#fig13">Figure 13</a>, we see that the graph of \(f(x)={x}^{\frac{2}{3}}\) has a cusp at \(x=0.\) A cusp has a unique feature. Moving away from the cusp, both the left-hand and right-hand limits approach either infinity or negative infinity. Notice the tangent lines as \(x\) approaches 0 from both the left and the right appear to get increasingly steeper, but one has a negative slope, the other has a positive slope.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_013.jpg" alt="Graph of f(x) = x^(2/3) with a viewing window of [-3, 3] by [-2, 3]." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — The graph of \(f(x)={x}^{\frac{2}{3}}\) has a cusp at \(x=0.\)</figcaption></figure>
+<p>In <a href="#fig14">Figure 14</a>, we see that the graph of \(f(x)={x}^{\frac{1}{3}}\) has a vertical tangent at \(x=0.\) Recall that vertical tangents are vertical lines, so where a vertical tangent exists, the slope of the line is undefined. This is why the derivative, which measures the slope, does not exist there.</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_014.jpg" alt="Graph of f(x) = x^(1/3) with a viewing window of [-3, 3] by [-3, 3]." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14 — The graph of \(f(x)={x}^{\frac{1}{3}}\) has a <strong>vertical tangent</strong> at \(x=0.\)</figcaption></figure>
+<div class="card definition" id="fs-id1165137874552"><span class="chip">Differentiability</span><p>A function \(f(x)\) is differentiable at \(x=a\) if the derivative exists at \(x=a,\) which means that \({f}^{\prime }(a)\) exists.</p>
+<p>There are four cases for which a function \(f(x)\) is not differentiable at a point \(x=a.\)</p>
+<ul class="tight"><li>When there is a discontinuity at \(x=a.\)</li><li>When there is a corner point at \(x=a.\)</li><li>When there is a cusp at \(x=a.\)</li><li>Any other time when there is a vertical tangent at \(x=a.\)</li></ul>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Using <a href="#fig15">Figure 15</a>, determine where the function is</p>
+<ul class="tight"><li>continuous</li><li>discontinuous</li><li>differentiable</li><li>not differentiable</li></ul>
+<p>At the points where the graph is discontinuous or not differentiable, state why.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_015.jpg" alt="Graph of a piecewise function that has a removable discontinuity at (-2, -1) and is discontinuous when x =1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+</div><p class="sol-hint">Look at where the tangent line's slope is positive, negative, or zero to identify increasing, decreasing, and turning points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The graph of \(f(x)\) is continuous on \((-\infty ,-2)∪(-2,\,1)∪(1,\infty ).\) The graph of \(f(x)\) has a removable discontinuity at \(x=-2\) and a jump discontinuity at \(x=1.\) See <a href="#fig16">Figure 16</a>.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_016.jpg" alt="Graph of the previous function that shows the intervals of continuity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16 — Three intervals where the function is continuous</figcaption></figure>
+<p>The graph of is differentiable on \((-\infty ,-2)∪(-2,-1)∪(-1,1)∪(1,2)∪(2,\infty ).\) The graph of \(f(x)\) is not differentiable at \(x=-2\) because it is a point of discontinuity, at \(x=-1\) because of a sharp corner, at \(x=1\) because it is a point of discontinuity, and at \(x=2\) because of a sharp corner. See <a href="#fig17">Figure 17</a>.</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_017.jpg" alt="Graph of the previous function that not only shows the intervals of continuity but also labels the parts of the graph that has sharp corners and discontinuities. The sharp corners are at (-1, -1) and (2, 3), and the discontinuities are at (-2, -1) and (1, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17 — Five intervals where the function is differentiable</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Determine where the function \(y=f(x)\) shown in <a href="#fig18">Figure 18</a> is continuous and differentiable from the graph.</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_018.jpg" alt="Graph of a piecewise function with three pieces." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The graph of \(f\) is continuous on \((-\infty ,1)∪(1,3)∪(3,\infty ).\) The graph of \(f\) is discontinuous at \(x=1\) and \(x=3.\) The graph of \(f\) is differentiable on \((-\infty ,1)∪(1,3)∪(3,\infty ).\) The graph of \(f\) is not differentiable at \(x=1\) and \(x=3.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-an-equation-of-a-line-tangent-to-the-graph-of-a-function">Finding an Equation of a Line Tangent to the Graph of a Function</h2>
+<p>The equation of a tangent line to a curve of the function \(f(x)\) at \(x=a\) is derived from the point-slope form of a line, \(y=m(x-{x}_{1})+{y}_{1}.\) The slope of the line is the slope of the curve at \(x=a\) and is therefore equal to \({f}^{\prime }(a),\) the derivative of \(f(x)\) at \(x=a.\) The coordinate pair of the point on the line at \(x=a\) is \((a,f(a)).\)</p>
+<p>If we substitute into the point-slope form, we have</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_019.jpg" alt="The point-slope formula that demonstrates that m = f(a), x1 = a, and y_1 = f(a)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The equation of the tangent line is</p>
+<p id="eq18">\[y=f'(a)(x-a)+f(a)\]</p>
+<div class="card definition" id="fs-id1165134075138"><span class="chip">The Equation of a Line Tangent to a Curve of the Function <strong>f</strong></span><p>The equation of a line tangent to the curve of a function \(f\) at a point \(x=a\) is</p>
+<p id="eq19">\[y=f'(a)(x-a)+f(a)\]</p>
+</div>
+<div class="card howto" id="fs-id1165134075234"><span class="chip">How To</span><p><strong>Given a function \(f,\) find the equation of a line tangent to the function at \(x=a.\)</strong></p>
+<ul class="tight"><li>Find the derivative of \(f(x)\) at \(x=a\) using \({f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h}.\)</li><li>Evaluate the function at \(x=a.\) This is \(f(a).\)</li><li>Substitute \((a,f(a))\) and \({f}^{\prime }(a)\) into \(y=f'(a)(x-a)+f(a).\)</li><li>Write the equation of the tangent line in the form \(y=mx+b.\)</li></ul>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Find the equation of a line tangent to the curve \(f(x)={x}^{2}-4x\) at \(x=3.\)</p>
+</div><p class="sol-hint">Find the derivative to get the slope at \(x=3\), then use the point-slope form with the function's value there.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using:</p>
+<p id="eq20">\[f'(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h}\]</p>
+<p>Substitute \(f(a+h)={(a+h)}^{2}-4(a+h)\) and \(f(a)={a}^{2}-4a.\)</p>
+<p id="eq21">\[\begin{array}{ll}{f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{(a+h)(a+h)-4(a+h)-({a}^{2}-4a)}{h} &amp; \\ \,=\underset{h\to 0}{lim}\frac{{a}^{2}+2ah+{h}^{2}-4a-4h-{a}^{2}+4a}{h} &amp; \text{Remove parentheses}. \\ \,=\underset{h\to 0}{lim}\frac{{a}^{2}+2ah+{h}^{2}-4a-4h-{a}^{2}+4a}{h} &amp; \text{Combine like terms}. \\ \,=\underset{h\to 0}{lim}\frac{2ah+{h}^{2}-4h}{h} &amp; \\ \,=\underset{h\to 0}{lim}\frac{h(2a+h-4)}{h} &amp; \text{Factor out }h. \\ \,=2a+0-4 &amp; \\ {f}^{\prime }(a)=2a-4 &amp; \text{Evaluate the limit}. \\ {f}^{\prime }(3)=2(3)-4=2 &amp; \end{array}\]</p>
+<p>Equation of tangent line at \(x=3:\)</p>
+<p id="eq22">\[\begin{array}{l}y=f'(a)(x-a)+f(a) \\ y=f'(3)(x-3)+f(3) \\ y=2(x-3)+(-3) \\ y=2x-9\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can use a graphing utility to graph the function and the tangent line. In so doing, we can observe the point of tangency at \(x=3\) as shown in <a href="#fig19">Figure 19</a>.</p>
+<figure class="plot" id="fig19"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_020.jpg" alt="Graph of f(x) = x^2-4x with a tangent line at x = 3 which has the equation of y = 2x - 9." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 19 — Graph confirms the point of tangency at \(x=3.\)</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Find the equation of a tangent line to the curve of the function \(f(x)=5{x}^{2}-x+4\) at \(x=2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y=19x-16\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-the-instantaneous-speed-of-a-particle">Finding the Instantaneous Speed of a Particle</h2>
+<p>If a function measures position versus time, the derivative measures displacement versus time, or the speed of the object. A change in speed or direction relative to a change in time is known as <strong><strong>velocity</strong></strong>. The velocity at a given instant is known as <strong>instantaneous velocity</strong>.</p>
+<p>In trying to find the speed or velocity of an object at a given instant, we seem to encounter a contradiction. We normally define speed as the distance traveled divided by the elapsed time. But in an instant, no distance is traveled, and no time elapses. How will we divide zero by zero? The use of a derivative solves this problem. A derivative allows us to say that even while the object’s velocity is constantly changing, it has a certain velocity at a given instant. That means that if the object traveled at that exact velocity for a unit of time, it would travel the specified distance.</p>
+<div class="card definition" id="fs-id1165134075481"><span class="chip">Instantaneous Velocity</span><p>Let the function \(s(t)\) represent the position of an object at time \(t.\) The <strong>instantaneous velocity</strong> or velocity of the object at time \(t=a\) is given by</p>
+<p id="eq23">\[{s}^{\prime }(a)=\underset{h\to 0}{lim}\frac{s(a+h)-s(a)}{h}\]</p>
+</div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>A ball is tossed upward from a height of 200 feet with an initial velocity of 36 ft/sec. If the height of the ball in feet after \(t\) seconds is given by \(s(t)=-16{t}^{2}+36t+200,\) find the instantaneous velocity of the ball at \(t=2.\)</p>
+</div><p class="sol-hint">Find the derivative of the position function to get velocity, then evaluate it at \(t=2.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we must find the derivative \({s}^{\prime }(t)\) . Then we evaluate the derivative at \(t=2,\) using \(s(a+h)=-16{(a+h)}^{2}+36(a+h)+200\) and \(s(a)=-16{a}^{2}+36a+200.\)</p>
+<p id="eq24">\[\begin{array}{l}{s}^{\prime }(a)=\underset{h\to 0}{lim}\frac{s(a+h)-s(a)}{h} \\ \,=\underset{h\to 0}{lim}\frac{-16{(a+h)}^{2}+36(a+h)+200-(-16{a}^{2}+36a+200)}{h} \\ \,=\underset{h\to 0}{lim}\frac{-16({a}^{2}+2ah+{h}^{2})+36(a+h)+200-(-16{a}^{2}+36a+200)}{h} \\ \,=\underset{h\to 0}{lim}\frac{-16{a}^{2}-32ah-16{h}^{2}+36a+36h+200+16{a}^{2}-36a-200}{h} \\ \,=\underset{h\to 0}{lim}\frac{-16{a}^{2}-32ah-16{h}^{2}+36a+36h+200+16{a}^{2}-36a-200}{h} \\ \,=\underset{h\to 0}{lim}\frac{-32ah-16{h}^{2}+36h}{h} \\ \,=\underset{h\to 0}{lim}\frac{h(-32a-16h+36)}{h} \\ \,=\underset{h\to 0}{lim}(-32a-16h+36) \\ \,=-32a-16\cdot 0+36 \\ {s}^{\prime }(a)=-32a+36 \\ {s}^{\prime }(2)=-32(2)+36 \\ \,=-28\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This result means that at time \(t=2\) seconds, the ball is dropping at a rate of 28 ft/sec.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>A fireworks rocket is shot upward out of a pit 12 ft below the ground at a velocity of 60 ft/sec. Its height in feet after \(t\) seconds is given by \(s=-16{t}^{2}+60t-12.\) What is its instantaneous velocity after 4 seconds?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>–68 ft/sec, it is dropping back to Earth at a rate of 68 ft/s.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165135613891"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with derivatives.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/estimatederiv" target="_blank" rel="noopener">Estimate the Derivative</a></li><li><a href="https://openstax.org/l/estimatederiv4" target="_blank" rel="noopener">Estimate the Derivative Ex. 4</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>average rate of change</td><td>\(\text{AROC}=\frac{f(a+h)-f(a)}{h}\)</td></tr><tr><td>derivative of a function</td><td>\({f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The slope of the secant line connecting two points is the average rate of change of the function between those points. See <a href="#example1">Example 1</a>.</li><li>The derivative, or instantaneous rate of change, is a measure of the slope of the curve of a function at a given point, or the slope of the line tangent to the curve at that point. See <a href="#example2">Example 2</a>, <a href="#example3">Example 3</a>, and <a href="#example4">Example 4</a>.</li><li>The difference quotient is the quotient in the formula for the instantaneous rate of change:<br> \(\frac{f(a+h)-f(a)}{h}\)</li><li>Instantaneous rates of change can be used to find solutions to many real-world problems. See <a href="#example5">Example 5</a>.</li><li>The instantaneous rate of change can be found by observing the slope of a function at a point on a graph by drawing a line tangent to the function at that point. See <a href="#example6">Example 6</a>.</li><li>Instantaneous rates of change can be interpreted to describe real-world situations. See <a href="#example7">Example 7</a> and <a href="#example8">Example 8</a>.</li><li>Some functions are not differentiable at a point or points. See <a href="#example9">Example 9</a>.</li><li>The point-slope form of a line can be used to find the equation of a line tangent to the curve of a function. See <a href="#example10">Example 10</a>.</li><li>Velocity is a change in position relative to time. Instantaneous velocity describes the velocity of an object at a given instant. Average velocity describes the velocity maintained over an interval of time.</li><li>Using the derivative makes it possible to calculate instantaneous velocity even though there is no elapsed time. See <a href="#example11">Example 11</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>How is the slope of a linear function similar to the derivative?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The slope of a linear function stays the same. The derivative of a general function varies according to \(x.\) Both the slope of a line and the derivative at a point measure the rate of change of the function.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>What is the difference between the average rate of change of a function on the interval \([x,x+h]\) and the derivative of the function at \(x?\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>A car traveled 110 miles during the time period from 2:00 <strong>P.M.</strong> to 4:00 <strong>P.M.</strong> What was the car's average velocity? At exactly 2:30 <strong>P.M.</strong>, the speed of the car registered exactly 62 miles per hour. What is another name for the speed of the car at 2:30 <strong>P.M.</strong>? Why does this speed differ from the average velocity?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Average velocity is 55 miles per hour. The instantaneous velocity at 2:30 <strong>p.m.</strong> is 62 miles per hour. The instantaneous velocity measures the velocity of the car at an instant of time whereas the average velocity gives the velocity of the car over an interval.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Explain the concept of the slope of a curve at point \(x.\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Suppose water is flowing into a tank at an average rate of 45 gallons per minute. Translate this statement into the language of mathematics.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The average rate of change of the amount of water in the tank is 45 gallons per minute. If \(f(x)\) is the function giving the amount of water in the tank at any time \(t,\) then the average rate of change of \(f(x)\) between \(t=a\) and \(t=b\) is \(f(a)+45(b-a).\)</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, use the definition of derivative \(\underset{h\to 0}{lim}\frac{f(x+h)-f(x)}{h}\) to calculate the derivative of each function.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(f(x)=3x-4\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(f(x)=-2x+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(x)=-2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(f(x)={x}^{2}-2x+1\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(f(x)=2{x}^{2}+x-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(x)=4x+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(f(x)=2{x}^{2}+5\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(f(x)=\frac{-1}{x-2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(x)=\frac{1}{{(x-2)}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(f(x)=\frac{2+x}{1-x}\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(f(x)=\frac{5-2x}{3+2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-16}{{(3+2x)}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(f(x)=\sqrt{1+3x}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(f(x)=3{x}^{3}-{x}^{2}+2x+5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(x)=9{x}^{2}-2x+2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(f(x)=5\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x)=5\pi\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(x)=0\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the average rate of change between the two points.</p>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\((-2,0)\) and \((-4,5)\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\((4,-3)\) and \((-2,-1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{1}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\((0,5)\) and \((6,5)\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\((7,-2)\) and \((7,10)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>undefined</p>
+</div></div></div></div>
+<p>For the following polynomial functions, find the derivatives.</p>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(f(x)={x}^{3}+1\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(f(x)=-3{x}^{2}-7x=6\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(x)=-6x-7\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(f(x)=7{x}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(f(x)=3{x}^{3}+2{x}^{2}+x-26\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(x)=9{x}^{2}+4x+1\)</p>
+</div></div></div></div>
+<p>For the following functions, find the equation of the tangent line to the curve at the given point \(x\) on the curve.</p>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\begin{array}{ll}f(x)=2{x}^{2}-3x &amp; x=3\end{array}\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\begin{array}{ll}f(x)={x}^{3}+1 &amp; x=2\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=12x-15\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(\begin{array}{ll}f(x)=\sqrt{x} &amp; x=9\end{array}\)</p>
+</div></div>
+<p>For the following exercise, find \(k\) such that the given line is tangent to the graph of the function.</p>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(\begin{array}{ll}f(x)={x}^{2}-kx, &amp; y=4x-9\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(k=-10\) or \(k=2\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, consider the graph of the function \(f\) and determine where the function is continuous/discontinuous and differentiable/not differentiable.</p>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_201.jpg" alt="Graph of a piecewise function with three segments. The first segment goes from negative infinity to (-3, -2), an open point; the second segment goes from (-3, 1) to (2, 3), which are both open points; the final segment goes from (2, 2), an open point, to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_202.jpg" alt="Graph of a piecewise function with three segments. The first segment goes from negative infinity to (-2, -1), an open point; the second segment goes from (-2, -4), an open point, to (0, 0), a closed point; the final segment goes from (0, 1), an open point, to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>Discontinuous at \(x=-2\) and \(x=0.\) Not differentiable at –2, 0, 2.</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_203.jpg" alt="Graph of a piecewise function with two segments and an asymptote at x = 3. The first segment, which has a removable discontinuity at x = -2, goes from negative infinity to the asymptote, and the final segment goes from the asymptote to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_204.jpg" alt="Graph of a piecewise function with two segments. The first segment goes from (-4, 0), an open point to (5, -2), and the final segment goes from (5, 3), an open point, to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>Discontinuous at \(x=5.\) Not differentiable at -4, –2, 0, 1, 3, 4, 5.</p>
+</div></div></div></div>
+<p>For the following exercises, use <a href="#fig20">Figure 20</a> to estimate either the function at a given value of \(x\) or the derivative at a given value of \(x,\) as indicated.</p>
+<figure class="plot" id="fig20"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_205.jpg" alt="Graph of an odd function with multiplicity of 2 with a turning point at (0, -2) and (2, -6)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 20</figcaption></figure>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(f(-1)\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(f(0)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(0)=-2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(f(1)\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(f(2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(2)=-6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(f(3)\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\({f}^{\prime }(-1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(-1)=9\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\({f}^{\prime }(0)\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\({f}^{\prime }(1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(1)=-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\({f}^{\prime }(2)\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\({f}^{\prime }(3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{\prime }(3)=9\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Sketch the function based on the information below:</p>
+<p>\({f}^{\prime }(x)=2x\) , \(f(2)=4\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Numerically evaluate the derivative. Explore the behavior of the graph of \(f(x)={x}^{2}\) around \(x=1\) by graphing the function on the following domains: \([0.9,1.1]\) , \([0.99,1.01]\) , \([0.999,1.001],\) and \([0.9999,\,1.0001]\) . We can use the feature on our calculator that automatically sets Ymin and Ymax to the Xmin and Xmax values we preset. (On some of the commonly used graphing calculators, this feature may be called ZOOM FIT or ZOOM AUTO). By examining the corresponding range values for this viewing window, approximate how the curve changes at \(x=1,\) that is, approximate the derivative at \(x=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers vary. The slope of the tangent line near \(x=1\) is 2.</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<p>For the following exercises, explain the notation in words. The volume \(f(t)\) of a tank of gasoline, in gallons, \(t\) minutes after noon.</p>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(f(0)=600\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(f'(30)=-20\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>At 12:30 <strong>p.m.</strong>, the rate of change of the number of gallons in the tank is –20 gallons per minute. That is, the tank is losing 20 gallons per minute.</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(f(30)=0\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(f'(200)=30\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>At 200 minutes after noon, the volume of gallons in the tank is changing at the rate of 30 gallons per minute.</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(f(240)=500\)</p>
+</div></div>
+<p>For the following exercises, explain the functions in words. The height, \(s,\) of a projectile after \(t\) seconds is given by \(s(t)=-16{t}^{2}+80t.\)</p>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(s(2)=96\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The height of the projectile after 2 seconds is 96 feet.</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\(s'(2)=16\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(s(3)=96\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The height of the projectile at \(t=3\) seconds is 96 feet.</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(s'(3)=-16\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(s(0)=0,s(5)=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The height of the projectile is zero at \(t=0\) and again at \(t=5.\) In other words, the projectile starts on the ground and falls to earth again after 5 seconds.</p>
+</div></div></div></div>
+<p>For the following exercises, the volume \(V\) of a sphere with respect to its radius \(r\) is given by \(V=\frac{4}{3}\pi {r}^{3}.\)</p>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Find the average rate of change of \(V\) as \(r\) changes from 1 cm to 2 cm.</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Find the instantaneous rate of change of \(V\) when \(r=3\text{ cm}\text{.}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(36\pi\)</p>
+</div></div></div></div>
+<p>For the following exercises, the revenue generated by selling \(x\) items is given by \(R(x)=2{x}^{2}+10x.\)</p>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Find the average change of the revenue function as \(x\) changes from \(x=10\) to \(x=20.\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Find \(R'(10)\) and interpret.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>$50.00 per unit, which is the instantaneous rate of change of revenue when exactly 10 units are sold.</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>Find \(R'(15)\) and interpret. Compare \(R'(15)\) to \(R'(10),\) and explain the difference.</p>
+</div></div>
+<p>For the following exercises, the cost of producing \(x\) cellphones is described by the function \(C(x)={x}^{2}-4x+1000.\)</p>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>Find the average rate of change in the total cost as \(x\) changes from \(x=10\text{ to }x=15.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>$21 per unit</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>Find the approximate marginal cost, when 15 cellphones have been produced, of producing the 16<sup>th</sup> cellphone.</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>Find the approximate marginal cost, when 20 cellphones have been produced, of producing the 21<sup>st</sup> cellphone.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>$36</p>
+</div></div></div></div>
+<h3 id="extension">Extension</h3>
+<p>For the following exercises, use the definition for the derivative at a point \(x=a,\) \(\underset{x\to a}{lim}\frac{f(x)-f(a)}{x-a},\) to find the derivative of the functions.</p>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>\(f(x)=\frac{1}{{x}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>\(f(x)=5{x}^{2}-x+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f'(x)=10a-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>\(f(x)=-{x}^{2}+4x+7\)</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>\(f(x)=\frac{-4}{3-{x}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{4}{{(3-x)}^{2}}\)</p>
+</div></div></div></div>
+</div>
+<h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
+<h3 id="finding-limits-a-numerical-and-graphical-approach">Finding Limits: A Numerical and Graphical Approach</h3>
+<p>For the following exercises, use <a href="#fig21">Figure 21</a>.</p>
+<figure class="plot" id="fig21"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_207.jpg" alt="Graph of a piecewise function with two segments. The first segment goes from (-1, 2), a closed point, to (3, -6), a closed point, and the second segment goes from (3, 5), an open point, to (7, 9), a closed point." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 21</figcaption></figure>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\(\underset{x\to {-1}^{+}}{lim}f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>\(\underset{x\to {-1}^{-}}{lim}f(x)\)</p>
+</div></div>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>\(\underset{x\to -1}{lim}f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>does not exist</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>\(\underset{x\to 3}{lim}f(x)\)</p>
+</div></div>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>At what values of \(x\) is the function discontinuous? What condition of continuity is violated?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Discontinuous at \(x=-1(\underset{x\to \,a\,}{lim}f(x)\) does not exist \(),x=3\,(\) jump discontinuity \()\) , and \(x=7\,(\underset{x\to \,a\,}{lim}f(x)\) does not exist \().\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>Using <a href="#tab2">Table 2</a>, estimate \(\underset{x\to 0}{lim}f(x).\)</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(x\)</td><td>\(F(x)\)</td></tr><tr><td>−0.1</td><td>2.875</td></tr><tr><td>−0.01</td><td>2.92</td></tr><tr><td>−0.001</td><td>2.998</td></tr><tr><td>0</td><td>Undefined</td></tr><tr><td>0.001</td><td>2.9987</td></tr><tr><td>0.01</td><td>2.865</td></tr><tr><td>0.1</td><td>2.78145</td></tr><tr><td>0.15</td><td>2.678</td></tr></tbody></table></div>
+</div></div>
+<p>For the following exercises, with the use of a graphing utility, use numerical or graphical evidence to determine the left- and right-hand limits of the function given as \(x\) approaches \(a.\) If the function has limit as \(x\) approaches \(a,\) state it. If not, discuss why there is no limit.</p>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(f(x)=\left\{\begin{array}{lll}|x|-1, &amp; if &amp; x\ne 1 \\ {x}^{3}, &amp; if &amp; x=1\end{array}\right.\,a=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{ll}\underset{x\to -2}{lim} &amp; f(x)=0\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(f(x)=\left\{\begin{array}{lll}\frac{1}{x+1}, &amp; if &amp; x=-2 \\ {(x+1)}^{2}, &amp; if &amp; x\ne -2\end{array}\right.\,a=-2\)</p>
+</div></div>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>\(f(x)=\left\{\begin{array}{lll}\sqrt{x+3}, &amp; if &amp; x&lt;1 \\ -\sqrt[3]{x}, &amp; if &amp; x&gt;1\end{array}\,a=1\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Does not exist</p>
+</div></div></div></div>
+<h3 id="finding-limits-properties-of-limits">Finding Limits: Properties of Limits</h3>
+<p>For the following exercises, find the limits if \(\underset{x\to c}{lim}f(x)=-3\) and \(\underset{x\to c}{lim}g(x)=5.\)</p>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>\(\underset{x\to c}{lim}(f(x)+g(x))\)</p>
+</div></div>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>\(\underset{x\to c}{lim}\frac{f(x)}{g(x)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{3}{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(\underset{x\to c}{lim}(f(x)\cdot g(x))\)</p>
+</div></div>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(\underset{x\to {0}^{+}}{lim}f(x),f(x)=\left\{\begin{array}{l}3{x}^{2}+2x+1 \\ 5x+3\end{array}\,\begin{array}{l}x&gt;0 \\ x&lt;0\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>\(\underset{x\to {0}^{-}}{lim}f(x),f(x)=\left\{\begin{array}{l}3{x}^{2}+2x+1 \\ 5x+3\end{array}\,\begin{array}{l}x&gt;0 \\ x&lt;0\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>\(\underset{x\to {3}^{+}}{lim}(3x-[x])\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(6\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the limits using algebraic techniques.</p>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>\(\underset{h\to 0}{lim}(\frac{{(h+6)}^{2}-36}{h})\)</p>
+</div></div>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>\(\underset{x\to 25}{lim}(\frac{{x}^{2}-625}{\sqrt{x}-5})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(500\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>\(\underset{x\to 1}{lim}(\frac{-{x}^{2}-9x}{x})\)</p>
+</div></div>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>\(\begin{array}{l}lim \\ {}^{x\to 4}\end{array}\frac{7-\sqrt{12x+1}}{x-4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{6}{7}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>\(\underset{x\to -3}{lim}(\frac{\frac{1}{3}+\frac{1}{x}}{3+x})\)</p>
+</div></div>
+<h3 id="continuity">Continuity</h3>
+<p>For the following exercises, use numerical evidence to determine whether the limit exists at \(x=a.\) If not, describe the behavior of the graph of the function at \(x=a.\)</p>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>\(f(x)=\frac{-2}{x-4};\,a=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>At \(x=4,\) the function has a vertical asymptote.</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><p>\(f(x)=\frac{-2}{{(x-4)}^{2}};\,a=4\)</p>
+</div></div>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><p>\(f(x)=\frac{-x}{{x}^{2}-x-6};\,a=3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>At \(x=3,\) the function has a vertical asymptote.</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p>\(f(x)=\frac{6{x}^{2}+23x+20}{4{x}^{2}-25};\,a=-\frac{5}{2}\)</p>
+</div></div>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p>\(f(x)=\frac{\sqrt{x}-3}{9-x};\,a=9\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Removable discontinuity at \(a=9\)</p>
+</div></div></div></div>
+<p>For the following exercises, determine where the given function \(f(x)\) is continuous. Where it is not continuous, state which conditions fail, and classify any discontinuities.</p>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>\(f(x)={x}^{2}-2x-15\)</p>
+</div></div>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-2x-15}{x-5}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Removable discontinuity at \(x=5\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex28"><div class="n">28</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-2x}{{x}^{2}-4x+4}\)</p>
+</div></div>
+<div class="exercise" id="reviewex29"><div class="n">29</div><div class="body"><p>\(f(x)=\frac{{x}^{3}-125}{2{x}^{2}-12x+10}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Removable discontinuity at \(x=5\) , discontinuity at \(x=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex30"><div class="n">30</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-\frac{1}{x}}{2-x}\)</p>
+</div></div>
+<div class="exercise" id="reviewex31"><div class="n">31</div><div class="body"><p>\(f(x)=\frac{x+2}{{x}^{2}-3x-10}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Removable discontinuity at \(x=-2\) , discontinuity at \(x=5\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex32"><div class="n">32</div><div class="body"><p>\(f(x)=\frac{x+2}{{x}^{3}+8}\)</p>
+</div></div>
+<h3 id="derivatives">Derivatives</h3>
+<p>For the following exercises, find the average rate of change \(\frac{f(x+h)-f(x)}{h}.\)</p>
+<div class="exercise" id="reviewex33"><div class="n">33</div><div class="body"><p>\(f(x)=3x+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex34"><div class="n">34</div><div class="body"><p>\(f(x)=5\)</p>
+</div></div>
+<div class="exercise" id="reviewex35"><div class="n">35</div><div class="body"><p>\(f(x)=\frac{1}{x+1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{(x+1)(x+h+1)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex36"><div class="n">36</div><div class="body"><p>\(f(x)=ln(x)\)</p>
+</div></div>
+<div class="exercise" id="reviewex37"><div class="n">37</div><div class="body"><p>\(f(x)={e}^{2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{e}^{2x+2h}-{e}^{2x}}{h}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the derivative of the function.</p>
+<div class="exercise" id="reviewex38"><div class="n">38</div><div class="body"><p>\(f(x)=4x-6\)</p>
+</div></div>
+<div class="exercise" id="reviewex39"><div class="n">39</div><div class="body"><p>\(f(x)=5{x}^{2}-3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(10x-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex40"><div class="n">40</div><div class="body"><p>Find the equation of the tangent line to the graph of \(f(x)\) at the indicated \(x\) value. <br> \(f(x)=-{x}^{3}+4x\) ; \(x=2.\)</p>
+</div></div>
+<p>For the following exercises, with the aid of a graphing utility, explain why the function is not differentiable everywhere on its domain. Specify the points where the function is not differentiable.</p>
+<div class="exercise" id="reviewex41"><div class="n">41</div><div class="body"><p>\(f(x)=\frac{x}{|x|}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function would not be differentiable at however, 0 is not in its domain. So it is differentiable everywhere in its domain.</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex42"><div class="n">42</div><div class="body"><p>Given that the volume of a right circular cone is \(V=\frac{1}{3}\pi {r}^{2}h\) and that a given cone has a fixed height of 9 cm and variable radius length, find the instantaneous rate of change of volume with respect to radius length when the radius is 2 cm. Give an exact answer in terms of \(\pi\)</p>
+</div></div>
+<h2 id="practice-test">Practice Test</h2>
+<p>For the following exercises, use the graph of \(f\) in <a href="#fig22">Figure 22</a>.</p>
+<figure class="plot" id="fig22"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_208.jpg" alt="Graph of a piecewise function with two segments. The first segment goes from negative infinity to (-1, 0), an open point, and the second segment goes from (-1, 3), an open point, to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 22</figcaption></figure>
+<div class="exercise" id="practiceex1"><div class="n">1</div><div class="body"><p>\(f(1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>3</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex2"><div class="n">2</div><div class="body"><p>\(\underset{x\to {-1}^{+}}{lim}f(x)\)</p>
+</div></div>
+<div class="exercise" id="practiceex3"><div class="n">3</div><div class="body"><p>\(\underset{x\to {-1}^{-}}{lim}f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex4"><div class="n">4</div><div class="body"><p>\(\underset{x\to -1}{lim}f(x)\)</p>
+</div></div>
+<div class="exercise" id="practiceex5"><div class="n">5</div><div class="body"><p>\(\underset{x\to -2}{lim}f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-1\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex6"><div class="n">6</div><div class="body"><p>At what values of \(x\) is \(f\) discontinuous? What property of continuity is violated?</p>
+</div></div>
+<p>For the following exercises, with the use of a graphing utility, use numerical or graphical evidence to determine the left- and right-hand limits of the function given as \(x\) approaches \(a.\) If the function has a limit as \(x\) approaches \(a,\) state it. If not, discuss why there is no limit</p>
+<div class="exercise" id="practiceex7"><div class="n">7</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}\frac{1}{x}-3,\text{ i}f &amp; x\le 2 \\ {x}^{3}+1,if &amp; x&gt;2\end{array}\,a=2\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to {2}^{-}}{lim}f(x)=-\frac{5}{2}a\) and \(\underset{x\to {2}^{+}}{lim}f(x)=9\) Thus, the limit of the function as \(x\) approaches 2 does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex8"><div class="n">8</div><div class="body"><p>\(f(x)=\left\{\begin{array}{lll}{x}^{3}+1, &amp; if &amp; x&lt;1 \\ 3{x}^{2}-1, &amp; if &amp; x=1 \\ -\sqrt{x+3}+4, &amp; if &amp; x&gt;1\end{array}\,a=1\right.\)</p>
+</div></div>
+<p>For the following exercises, evaluate each limit using algebraic techniques.</p>
+<div class="exercise" id="practiceex9"><div class="n">9</div><div class="body"><p>\(\underset{x\to -5}{lim}(\frac{\frac{1}{5}+\frac{1}{x}}{10+2x})\)</p>
+</div></div>
+<div class="exercise" id="practiceex10"><div class="n">10</div><div class="body"><p>\(\underset{h\to 0}{lim}(\frac{\sqrt{{h}^{2}+25}-5}{{h}^{2}})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{1}{50}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex11"><div class="n">11</div><div class="body"><p>\(\underset{h\to 0}{lim}(\frac{1}{h}-\frac{1}{{h}^{2}+h})\)</p>
+</div></div>
+<p>For the following exercises, determine whether or not the given function \(f\) is continuous. If it is continuous, show why. If it is not continuous, state which conditions fail.</p>
+<div class="exercise" id="practiceex12"><div class="n">12</div><div class="body"><p>\(f(x)=\sqrt{{x}^{2}-4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(1\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex13"><div class="n">13</div><div class="body"><p>\(f(x)=\frac{{x}^{3}-4{x}^{2}-9x+36}{{x}^{3}-3{x}^{2}+2x-6}\)</p>
+</div></div>
+<p>For the following exercises, use the definition of a derivative to find the derivative of the given function at \(x=a.\)</p>
+<div class="exercise" id="practiceex14"><div class="n">14</div><div class="body"><p>\(f(x)=\frac{3}{5+2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Removable discontinuity at \(x=3\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex15"><div class="n">15</div><div class="body"><p>\(f(x)=\frac{3}{\sqrt{x}}\)</p>
+</div></div>
+<div class="exercise" id="practiceex16"><div class="n">16</div><div class="body"><p>\(f(x)=2{x}^{2}+9x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f'(x)=-\frac{3}{2a\frac{3}{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex17"><div class="n">17</div><div class="body"><p>For the graph in <a href="#fig23">Figure 23</a>, determine where the function is continuous/discontinuous and differentiable/not differentiable.</p>
+<figure class="plot" id="fig23"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_209.jpg" alt="Graph of a piecewise function with three segments. The first segment goes from negative infinity to (-2, -1), an open point; the second segment goes from (-2, -4), an open point, to (0, 0), a closed point; the final segment goes from (0, 1), an open point, to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 23</figcaption></figure>
+</div></div>
+<p>For the following exercises, with the aid of a graphing utility, explain why the function is not differentiable everywhere on its domain. Specify the points where the function is not differentiable.</p>
+<div class="exercise" id="practiceex18"><div class="n">18</div><div class="body"><p>\(f(x)=|x-2|-|x+2|\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Discontinuous at −2, 0, not differentiable at −2, 0, 2</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex19"><div class="n">19</div><div class="body"><p>\(f(x)=\frac{2}{1+{e}^{\frac{2}{x}}}\)</p>
+</div></div>
+<p>For the following exercises, explain the notation in words when the height of a projectile in feet, \(s,\) is a function of time \(t\) in seconds after launch and is given by the function \(s(t).\)</p>
+<div class="exercise" id="practiceex20"><div class="n">20</div><div class="body"><p>\(s(0)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Not differentiable at \(x=0\) (no limit)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex21"><div class="n">21</div><div class="body"><p>\(s(2)\)</p>
+</div></div>
+<div class="exercise" id="practiceex22"><div class="n">22</div><div class="body"><p>\(s'(2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The height of the projectile at \(t=2\) Seconds</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex23"><div class="n">23</div><div class="body"><p>\(\frac{s(2)-s(1)}{2-1}\)</p>
+</div></div>
+<div class="exercise" id="practiceex24"><div class="n">24</div><div class="body"><p>\(s(t)=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The average velocity from \(t=1\) \(t=2\)</p>
+</div></div></div></div>
+<p>For the following exercises, use technology to evaluate the limit.</p>
+<div class="exercise" id="practiceex25"><div class="n">25</div><div class="body"><p>\(\underset{x\to 0}{lim}\frac{sin(x)}{3x}\)</p>
+</div></div>
+<div class="exercise" id="practiceex26"><div class="n">26</div><div class="body"><p>\(\underset{x\to 0}{lim}\frac{{tan}^{2}(x)}{2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex27"><div class="n">27</div><div class="body"><p>\(\underset{x\to 0}{lim}\frac{sin(x)(1-cos(x))}{2{x}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="practiceex28"><div class="n">28</div><div class="body"><p>Evaluate the limit by hand.</p>
+<p>\(\begin{array}{l}lim \\ {}^{x\to 1}\end{array}f(x),\text{ where }f(x)=\left\{\begin{array}{ll}4x-7 &amp; x\ne 1 \\ {x}^{2}-4 &amp; x=1\end{array}\right.\)</p>
+<p>At what value(s) of \(x\) is the function below discontinuous?</p>
+<p>\(f(x)=\left\{\begin{array}{l}4x-7\,x\ne 1 \\ {x}^{2}-4\,x=1\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\)</p>
+</div></div></div></div>
+<p>For the following exercises, consider the function whose graph appears in <a href="#fig24">Figure 24</a>.</p>
+<figure class="plot" id="fig24"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_04_210.jpg" alt="Graph of a positive parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 24</figcaption></figure>
+<div class="exercise" id="practiceex29"><div class="n">29</div><div class="body"><p>Find the average rate of change of the function from \(x=1\text{ to }x=3.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex30"><div class="n">30</div><div class="body"><p>Find all values of \(x\) at which \(f'(x)=0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex31"><div class="n">31</div><div class="body"><p>Find all values of \(x\) at which \(f'(x)\) does not exist.</p>
+</div></div>
+<div class="exercise" id="practiceex32"><div class="n">32</div><div class="body"><p>Find an equation of the tangent line to the graph of \(f\) the indicated point: \(f(x)=3{x}^{2}-2x-6,\,x=-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-14x-18\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the function \(f(x)=x{(1-x)}^{\frac{2}{5}}\) .</p>
+<div class="exercise" id="practiceex33"><div class="n">33</div><div class="body"><p>Graph the function \(f(x)=x{(1-x)}^{\frac{2}{5}}\) by entering \(f(x)=x{({(1-x)}^{2})}^{\frac{1}{5}}\) and then by entering \(f(x)=x{({(1-x)}^{\frac{1}{5}})}^{2}\) .</p>
+</div></div>
+<div class="exercise" id="practiceex34"><div class="n">34</div><div class="body"><p>Explore the behavior of the graph of \(f(x)\) around \(x=1\) by graphing the function on the following domains, [0.9, 1.1], [0.99, 1.01], [0.999, 1.001], and [0.9999, 1.0001]. Use this information to determine whether the function appears to be differentiable at \(x=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph is not differentiable at \(x=1\) (cusp).</p>
+</div></div></div></div>
+<p>For the following exercises, find the derivative of each of the functions using the definition: \(\underset{h\to 0}{lim}\frac{f(x+h)-f(x)}{h}\)</p>
+<div class="exercise" id="practiceex35"><div class="n">35</div><div class="body"><p>\(f(x)=2x-8\)</p>
+</div></div>
+<div class="exercise" id="practiceex36"><div class="n">36</div><div class="body"><p>\(f(x)=4{x}^{2}-7\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{'}(x)=8x\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex37"><div class="n">37</div><div class="body"><p>\(f(x)=x-\frac{1}{2}{x}^{2}\)</p>
+</div></div>
+<div class="exercise" id="practiceex38"><div class="n">38</div><div class="body"><p>\(f(x)=\frac{1}{x+2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{'}(x)=-\frac{1}{{(2+x)}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex39"><div class="n">39</div><div class="body"><p>\(f(x)=\frac{3}{x-1}\)</p>
+</div></div>
+<div class="exercise" id="practiceex40"><div class="n">40</div><div class="body"><p>\(f(x)=-{x}^{3}+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{'}(x)=-3{x}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex41"><div class="n">41</div><div class="body"><p>\(f(x)={x}^{2}+{x}^{3}\)</p>
+</div></div>
+<div class="exercise" id="practiceex42"><div class="n">42</div><div class="body"><p>\(f(x)=\sqrt{x-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f'(x)=\frac{1}{2\sqrt{x-1}}\)</p>
+</div></div></div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>average rate of change</dt><dd>the slope of the line connecting the two points \((a,f(a))\) and \((a+h,f(a+h))\) on the curve of \(f(x);\) it is given by \(\text{AROC}=\frac{f(a+h)-f(a)}{h}.\)</dd><dt>derivative</dt><dd>the slope of a function at a given point; denoted \({f}^{\prime }(a),\) at a point \(x=a\) it is \({f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h},\) providing the limit exists.</dd><dt>differentiable</dt><dd>a function \(f(x)\) for which the derivative exists at \(x=a.\) In other words, if \({f}^{\prime }(a)\) exists.</dd><dt>instantaneous rate of change</dt><dd>the slope of a function at a given point; at \(x=a\) it is given by \({f}^{\prime }(a)=\underset{h\to 0}{lim}\frac{f(a+h)-f(a)}{h}.\)</dd><dt>instantaneous velocity</dt><dd>the change in speed or direction at a given instant; a function \(s(t)\) represents the position of an object at time \(t,\) and the instantaneous velocity or velocity of the object at time \(t=a\) is given by \({s}^{\prime }(a)=\underset{h\to 0}{lim}\frac{s(a+h)-s(a)}{h}.\)</dd><dt>secant line</dt><dd>a line that intersects two points on a curve</dd><dt>tangent line</dt><dd>a line that intersects a curve at a single point</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

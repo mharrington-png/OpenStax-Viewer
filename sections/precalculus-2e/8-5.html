@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polar Form of Complex Numbers · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Polar Form of Complex Numbers</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 8.5</span>Polar Form of Complex Numbers</h1>
+<p>“God made the integers; all else is the work of man.” This rather famous quote by nineteenth-century German mathematician Leopold <strong>Kronecker</strong> sets the stage for this section on the polar form of a complex number. Complex numbers were invented by people and represent over a thousand years of continuous investigation and struggle by mathematicians such as <strong>Pythagoras</strong>, <strong>Descartes</strong>, De Moivre, <strong>Euler</strong>, <strong>Gauss</strong>, and others. Complex numbers answered questions that for centuries had puzzled the greatest minds in science.</p>
+<p>We first encountered complex numbers in Complex Numbers. In this section, we will focus on the mechanics of working with complex numbers: translation of complex numbers from polar form to rectangular form and vice versa, interpretation of complex numbers in the scheme of applications, and application of De Moivre’s Theorem.</p>
+<h2 id="plotting-complex-numbers-in-the-complex-plane">Plotting Complex Numbers in the Complex Plane</h2>
+<p>Plotting a <strong>complex number</strong> \(a+bi\) is similar to plotting a real number, except that the horizontal axis represents the real part of the number, \(a,\) and the vertical axis represents the imaginary part of the number, \(bi.\)</p>
+<div class="card howto" id="fs-id1165137938490"><span class="chip">How To</span><p><strong>Given a complex number \(a+bi,\) plot it in the complex plane.</strong></p>
+<ul class="tight"><li>Label the horizontal axis as the <strong>real</strong> axis and the vertical axis as the <strong>imaginary axis.</strong></li><li>Plot the point in the complex plane by moving \(a\) units in the horizontal direction and \(b\) units in the vertical direction.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Plot the complex number \(2-3i\) in the <strong>complex plane</strong>.</p>
+</div><p class="sol-hint">Treat the real part as the horizontal coordinate and the imaginary part as the vertical coordinate.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>From the origin, move two units in the positive horizontal direction and three units in the negative vertical direction. See <a href="#fig1">Figure 1</a>.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_001.jpg" alt="Plot of 2-3i in the complex plane (2 along the real axis, -3 along the imaginary axis)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Plot the point \(1+5i\) in the complex plane.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_002.jpg" alt="Plot of 1+5i in the complex plane (1 along the real axis, 5 along the imaginary axis)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-the-absolute-value-of-a-complex-number">Finding the Absolute Value of a Complex Number</h2>
+<p>The first step toward working with a complex number in <strong>polar form</strong> is to find the absolute value. The absolute value of a complex number is the same as its <strong>magnitude</strong>, or \(|z|.\) It measures the distance from the origin to a point in the plane. For example, the graph of \(z=2+4i,\) in <a href="#fig2">Figure 2</a>, shows \(|z|.\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_003.jpg" alt="Plot of 2 + 4i in the complex plane and its magnitude, |z| = rad 2 squared + 4 squared = rad 4 + 16 = rad 20 = 2 rad 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<div class="card definition" id="fs-id1165134541127"><span class="chip">Absolute Value of a Complex Number</span><p>Given \(z=x+yi,\) a complex number, the absolute value of \(z\) is defined as</p>
+<p id="eq1">\[|z|=\sqrt{{x}^{2}+{y}^{2}}\]</p>
+<p>It is the distance from the origin to the point \((x,y).\)</p>
+<p>Notice that the absolute value of a real number gives the distance of the number from 0, while the absolute value of a complex number gives the distance of the number from the origin, \((0,\,0).\)</p>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find the absolute value of \(z=\sqrt{5}-i.\)</p>
+</div><p class="sol-hint">Use the same distance formula as for a point: \(|z|=\sqrt{{a}^{2}+{b}^{2}}.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the formula, we have</p>
+<p id="eq2">\[\begin{array}{l}|z|=\sqrt{{x}^{2}+{y}^{2}} \\ |z|=\sqrt{{(\sqrt{5})}^{2}+{(-1)}^{2}} \\ |z|=\sqrt{5+1} \\ |z|=\sqrt{6}\end{array}\]</p>
+<p>See <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_004.jpg" alt="Plot of z=(rad5 - i) in the complex plane and its magnitude rad6." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Find the absolute value of the complex number \(z=12-5i.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>13</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Given \(z=3-4i,\) find \(|z|.\)</p>
+</div><p class="sol-hint">Use the same distance formula as for a point: \(|z|=\sqrt{{a}^{2}+{b}^{2}}.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the formula, we have</p>
+<p id="eq3">\[\begin{array}{l}|z|=\sqrt{{x}^{2}+{y}^{2}} \\ |z|=\sqrt{{(3)}^{2}+{(-4)}^{2}} \\ |z|=\sqrt{9+16} \\ \begin{array}{l}|z|=\sqrt{25} \\ |z|=5\end{array}\end{array}\]</p>
+<p>The absolute value \(z\) is 5. See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_005.jpg" alt="Plot of (3-4i) in the complex plane and its magnitude |z| =5." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Given \(z=1-7i,\) find \(|z|.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(|z|=\sqrt{50}=5\sqrt{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="writing-complex-numbers-in-polar-form">Writing Complex Numbers in Polar Form</h2>
+<p>The <strong>polar form of a complex number</strong> expresses a number in terms of an angle \(θ\) and its distance from the origin \(r.\) Given a complex number in <strong>rectangular form</strong> expressed as \(z=x+yi,\) we use the same conversion formulas as we do to write the number in trigonometric form:</p>
+<p id="eq4">\[\begin{array}{l}x=rcos\,θ \\ y=rsin\,θ \\ r=\sqrt{{x}^{2}+{y}^{2}}\end{array}\]</p>
+<p>We review these relationships in <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_006.jpg" alt="Triangle plotted in the complex plane (x axis is real, y axis is imaginary). Base is along the x/real axis, height is some y/imaginary value in Q 1, and hypotenuse r extends from origin to that point (x+yi) in Q 1. The angle at the origin is theta. There is an arc going through (x+yi)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<p>We use the term <strong>modulus</strong> to represent the absolute value of a complex number, or the distance from the origin to the point \((x,y).\) The modulus, then, is the same as \(r,\) the radius in polar form. We use \(θ\) to indicate the angle of direction (just as with polar coordinates). Substituting, we have</p>
+<p id="eq5">\[\begin{array}{l}z=x+yi \\ z=rcos\,θ+(rsin\,θ)i \\ z=r(cos\,θ+isin\,θ)\end{array}\]</p>
+<div class="card definition" id="fs-id1165135505465"><span class="chip">Polar Form of a Complex Number</span><p>Writing a complex number in polar form involves the following conversion formulas:</p>
+<p id="eq6">\[\begin{array}{l}x=rcos\,θ \\ y=rsin\,θ \\ r=\sqrt{{x}^{2}+{y}^{2}}\end{array}\]</p>
+<p>Making a direct substitution, we have</p>
+<p id="eq7">\[\begin{array}{l}z=x+yi \\ z=(rcos\,θ)+i(rsin\,θ) \\ z=r(cos\,θ+isin\,θ)\end{array}\]</p>
+<p>where \(r\) is the <strong>modulus</strong> and \(θ\) is the <strong>argument</strong>. We often use the abbreviation \(r\text{cis}\,θ\) to represent \(r(cos\,θ+isin\,θ).\)</p>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Express the complex number \(4i\) using polar coordinates.</p>
+</div><p class="sol-hint">Find r as the distance from the origin, then find \(\theta\) from the point's position on the axis.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>On the complex plane, the number \(z=4i\) is the same as \(z=0+4i.\) Writing it in polar form, we have to calculate \(r\) first.</p>
+<p id="eq8">\[\begin{array}{l}r=\sqrt{{x}^{2}+{y}^{2}} \\ r=\sqrt{{0}^{2}+{4}^{2}} \\ r=\sqrt{16} \\ r=4\end{array}\]</p>
+<p>Next, we look at \(x.\) If \(x=rcos\,θ,\) and \(x=0,\) then \(θ=\frac{\pi }{2}.\) In polar coordinates, the complex number \(z=0+4i\) can be written as \(z=4(cos(\frac{\pi }{2})+isin(\frac{\pi }{2}))\) or \(4\text{cis}(\,\frac{\pi }{2}).\) See <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_007.jpg" alt="Plot of z=4i in the complex plane, also shows that the in polar coordinate it would be (4,pi/2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Express \(z=3i\) as \(r\,\text{cis}\,θ\) in polar form.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(z=3(cos(\frac{\pi }{2})+isin(\frac{\pi }{2}))\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find the polar form of \(-4+4i.\)</p>
+</div><p class="sol-hint">Find r using \(\sqrt{{a}^{2}+{b}^{2}}\) and \(\theta\) using \(\tan\theta=\frac{b}{a},\) adjusting for the quadrant.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, find the value of \(r.\)</p>
+<p id="eq9">\[\begin{array}{l}r=\sqrt{{x}^{2}+{y}^{2}} \\ r=\sqrt{{(-4)}^{2}+({4}^{2})} \\ r=\sqrt{32} \\ r=4\sqrt{2}\end{array}\]</p>
+<p>Find the angle \(θ\) using the formula:</p>
+<p id="eq10">\[\begin{array}{l}cos\,θ=\frac{x}{r} \\ cos\,θ=\frac{-4}{4\sqrt{2}} \\ cos\,θ=-\frac{1}{\sqrt{2}} \\ θ={cos}^{-1}(-\frac{1}{\sqrt{2}})=\frac{3\pi }{4}\end{array}\]</p>
+<p>Thus, the solution is \(4\sqrt{2}\text{cis}(\frac{3\pi }{4}).\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Write \(z=\sqrt{3}+i\) in polar form.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(z=2(cos(\frac{\pi }{6})+isin(\frac{\pi }{6}))\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="converting-a-complex-number-from-polar-to-rectangular-form">Converting a Complex Number from Polar to Rectangular Form</h2>
+<p>Converting a complex number from polar form to rectangular form is a matter of evaluating what is given and using the distributive property. In other words, given \(z=r(cos\,θ+isin\,θ),\) first evaluate the trigonometric functions \(cos\,θ\) and \(sin\,θ.\) Then, multiply through by \(r.\)</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Convert the polar form of the given complex number to rectangular form:</p>
+<p id="eq11">\[z=12(cos(\frac{\pi }{6})+isin(\frac{\pi }{6}))\]</p>
+</div><p class="sol-hint">Substitute r and \(\theta\) into \(a=r\cos\theta\) and \(b=r\sin\theta.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We begin by evaluating the trigonometric expressions.</p>
+<p id="eq12">\[cos(\frac{\pi }{6})=\frac{\sqrt{3}}{2}\,\text{and}\,sin(\frac{\pi }{6})=\frac{1}{2}\]</p>
+<p>After substitution, the complex number is</p>
+<p id="eq13">\[z=12(\frac{\sqrt{3}}{2}+\frac{1}{2}i)\]</p>
+<p>We apply the distributive property:</p>
+<p id="eq14">\[\begin{array}{l}z=12(\frac{\sqrt{3}}{2}+\frac{1}{2}i) \\ \,=(12)\frac{\sqrt{3}}{2}+(12)\frac{1}{2}i \\ \,=6\sqrt{3}+6i\end{array}\]</p>
+<p>The rectangular form of the given point in complex form is \(6\sqrt{3}+6i.\)</p>
+</div></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find the rectangular form of the complex number given \(r=13\) and \(tan\,θ=\frac{5}{12}.\) Assume the number is in the first quadrant.</p>
+</div><p class="sol-hint">Sketch a right triangle with legs 5 and 12 to find \(\cos\theta\) and \(\sin\theta\), then use \(a=r\cos\theta\) and \(b=r\sin\theta.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>If \(tan\,θ=\frac{5}{12},\) and \(tan\,θ=\frac{y}{x},\) we first confirm \(r=\sqrt{{x}^{2}+{y}^{2}}=\sqrt{{12}^{2}+{5}^{2}}=13\text{. }\) We then find \(cos\,θ=\frac{x}{r}\) and \(sin\,θ=\frac{y}{r}.\)</p>
+<p id="eq15">\[\begin{array}{l}z=13(cos\,θ+isin\,θ) \\ =13(\frac{12}{13}+\frac{5}{13}i) \\ =12+5i\end{array}\]</p>
+<p>The rectangular form of the given number in complex form is \(12+5i.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Convert the complex number to rectangular form:</p>
+<p id="eq16">\[z=4(cos\frac{11\pi }{6}+isin\frac{11\pi }{6})\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(z=2\sqrt{3}-2i\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-products-of-complex-numbers-in-polar-form">Finding Products of Complex Numbers in Polar Form</h2>
+<p>Now that we can convert complex numbers to polar form we will learn how to perform operations on complex numbers in polar form. For the rest of this section, we will work with formulas developed by French mathematician Abraham <strong>De Moivre</strong> (1667-1754). These formulas have made working with products, quotients, powers, and roots of complex numbers much simpler than they appear. The rules are based on multiplying the moduli and adding the arguments.</p>
+<div class="card definition" id="fs-id1165137473607"><span class="chip">Products of Complex Numbers in Polar Form</span><p>If \({z}_{1}={r}_{1}(cos\,{θ}_{1}+isin\,{θ}_{1})\) and \({z}_{2}={r}_{2}(cos\,{θ}_{2}+isin\,{θ}_{2}),\) then the product of these numbers is given as:</p>
+<p id="eq17">\[\begin{array}{l}{z}_{1}{z}_{2}={r}_{1}{r}_{2}[cos({θ}_{1}+{θ}_{2})+isin({θ}_{1}+{θ}_{2})] \\ {z}_{1}{z}_{2}={r}_{1}{r}_{2}\text{cis}({θ}_{1}+{θ}_{2})\end{array}\]</p>
+<p>Notice that the product calls for multiplying the moduli and adding the angles.</p>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find the product of \({z}_{1}{z}_{2},\) given \({z}_{1}=4(cos(80°)+isin(80°))\) and \({z}_{2}=2(cos(145°)+isin(145°)).\)</p>
+</div><p class="sol-hint">Multiply the two moduli together and add the two angles.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Follow the formula</p>
+<p id="eq18">\[\begin{array}{l}{z}_{1}{z}_{2}=4\cdot 2[cos(80°+145°)+isin(80°+145°)] \\ {z}_{1}{z}_{2}=8[cos(225°)+isin(225°)] \\ {z}_{1}{z}_{2}=8[cos(\frac{5\pi }{4})+isin(\frac{5\pi }{4})] \\ {z}_{1}{z}_{2}=8[-\frac{\sqrt{2}}{2}+i(-\frac{\sqrt{2}}{2})] \\ {z}_{1}{z}_{2}=-4\sqrt{2}-4i\sqrt{2}\end{array}\]</p>
+</div></div></div>
+<h2 id="finding-quotients-of-complex-numbers-in-polar-form">Finding Quotients of Complex Numbers in Polar Form</h2>
+<p>The quotient of two complex numbers in polar form is the quotient of the two moduli and the difference of the two arguments.</p>
+<div class="card definition" id="fs-id1165137892433"><span class="chip">Quotients of Complex Numbers in Polar Form</span><p>If \({z}_{1}={r}_{1}(cos\,{θ}_{1}+isin\,{θ}_{1})\) and \({z}_{2}={r}_{2}(cos\,{θ}_{2}+isin\,{θ}_{2}),\) then the quotient of these numbers is</p>
+<p id="eq19">\[\begin{array}{l}\frac{{z}_{1}}{{z}_{2}}=\frac{{r}_{1}}{{r}_{2}}[cos({θ}_{1}-{θ}_{2})+isin({θ}_{1}-{θ}_{2})],\,{z}_{2}\ne 0 \\ \frac{{z}_{1}}{{z}_{2}}=\frac{{r}_{1}}{{r}_{2}}\text{cis}({θ}_{1}-{θ}_{2}),\,{z}_{2}\ne 0\,\end{array}\]</p>
+<p>Notice that the moduli are divided, and the angles are subtracted.</p>
+</div>
+<div class="card howto" id="fs-id1165137897028"><span class="chip">How To</span><p><strong>Given two complex numbers in polar form, find the quotient.</strong></p>
+<ul class="tight"><li>Divide \(\frac{{r}_{1}}{{r}_{2}}.\)</li><li>Find \({θ}_{1}-{θ}_{2}.\)</li><li>Substitute the results into the formula: \(z=r(cos\,θ+isin\,θ).\) Replace \(r\) with \(\frac{{r}_{1}}{{r}_{2}},\) and replace \(θ\) with \({θ}_{1}-{θ}_{2}.\)</li><li>Calculate the new trigonometric expressions and multiply through by \(r.\)</li></ul>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Find the quotient of \({z}_{1}=2(cos(213°)+isin(213°))\) and \({z}_{2}=4(cos(33°)+isin(33°)).\)</p>
+</div><p class="sol-hint">Divide the moduli and subtract the angles.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Using the formula, we have</p>
+<p id="eq20">\[\begin{array}{l}\frac{{z}_{1}}{{z}_{2}}=\frac{2}{4}[cos(213°-33°)+isin(213°-33°)] \\ \frac{{z}_{1}}{{z}_{2}}=\frac{1}{2}[cos(180°)+isin(180°)] \\ \frac{{z}_{1}}{{z}_{2}}=\frac{1}{2}[-1+0i] \\ \frac{{z}_{1}}{{z}_{2}}=-\frac{1}{2}+0i \\ \frac{{z}_{1}}{{z}_{2}}=-\frac{1}{2}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Find the product and the quotient of \({z}_{1}=2\sqrt{3}(cos(150°)+isin(150°))\) and \({z}_{2}=2(cos(30°)+isin(30°)).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({z}_{1}{z}_{2}=-4\sqrt{3};\frac{{z}_{1}}{{z}_{2}}=-\frac{\sqrt{3}}{2}+\frac{3}{2}i\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-powers-of-complex-numbers-in-polar-form">Finding Powers of Complex Numbers in Polar Form</h2>
+<p>Finding powers of complex numbers is greatly simplified using <strong>De Moivre’s Theorem</strong>. It states that, for a positive integer \(n,{z}^{n}\) is found by raising the modulus to the \(n\text{th}\) power and multiplying the argument by \(n.\) It is the standard method used in modern mathematics.</p>
+<div class="card definition" id="fs-id1165135388434"><span class="chip">De Moivre’s Theorem</span><p>If \(z=r(cos\,θ+isin\,θ)\) is a complex number, then</p>
+<p id="eq21">\[\begin{array}{l}{z}^{n}={r}^{n}[cos(nθ)+isin(nθ)] \\ {z}^{n}={r}^{n}\text{cis}(nθ)\end{array}\]</p>
+<p>where \(n\) is a positive integer.</p>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the expression \({(1+i)}^{5}\) using De Moivre’s Theorem.</p>
+</div><p class="sol-hint">Convert \(1+i\) to polar form first, then apply De Moivre's Theorem by raising r to the 5th power and multiplying the angle by 5.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Since De Moivre’s Theorem applies to complex numbers written in polar form, we must first write \((1+i)\) in polar form. Let us find \(r.\)</p>
+<p id="eq22">\[\begin{array}{l}r=\sqrt{{x}^{2}+{y}^{2}} \\ r=\sqrt{{(1)}^{2}+{(1)}^{2}} \\ r=\sqrt{2}\end{array}\]</p>
+<p>Then we find \(θ.\) Using the formula \(tan\,θ=\frac{y}{x}\) gives</p>
+<p id="eq23">\[\begin{array}{l}tan\,θ=\frac{1}{1} \\ tan\,θ=1 \\ θ=\frac{\pi }{4}\end{array}\]</p>
+<p>Use De Moivre’s Theorem to evaluate the expression.</p>
+<p id="eq24">\[\begin{array}{l}{(a+bi)}^{n}={r}^{n}[cos(nθ)+isin(nθ)] \\ {(1+i)}^{5}={(\sqrt{2})}^{5}[cos(5\cdot \frac{\pi }{4})+isin(5\cdot \frac{\pi }{4})] \\ {(1+i)}^{5}=4\sqrt{2}[cos(\frac{5\pi }{4})+isin(\frac{5\pi }{4})] \\ {(1+i)}^{5}=4\sqrt{2}[-\frac{\sqrt{2}}{2}+i(-\frac{\sqrt{2}}{2})] \\ {(1+i)}^{5}=-4-4i\end{array}\]</p>
+</div></div></div>
+<h2 id="finding-roots-of-complex-numbers-in-polar-form">Finding Roots of Complex Numbers in Polar Form</h2>
+<p>To find the <strong><strong>n</strong>th root of a complex number</strong> in polar form, we use the \(n\text{th}\) Root Theorem or <strong>De Moivre’s Theorem</strong> and raise the complex number to a power with a rational exponent. There are several ways to represent a formula for finding \(\,n\text{th}\) roots of complex numbers in polar form.</p>
+<div class="card definition" id="fs-id1165135420398"><span class="chip">The <strong>n</strong>th Root Theorem</span><p>To find the \(n\text{th}\) root of a complex number in polar form, use the formula given as</p>
+<p id="eq25">\[{z}^{\frac{1}{n}}={r}^{\frac{1}{n}}[cos(\frac{θ}{n}+\frac{2k\pi }{n})+isin(\frac{θ}{n}+\frac{2k\pi }{n})]\]</p>
+<p>where \(k=0,\,1,\,2,\,3,\,.\,.\,.\,,\,n-1.\) We add \(\frac{2k\pi }{n}\,\) to \(\frac{θ}{n}\) in order to obtain the periodic roots.</p>
+</div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the cube roots of \(z=8(cos(\frac{2\pi }{3})+isin(\frac{2\pi }{3})).\)</p>
+</div><p class="sol-hint">Apply the root formula, adding a full \(2\pi k\) rotation to the angle for each of the three roots before dividing by 3.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have</p>
+<p id="eq26">\[\begin{array}{l}{z}^{\frac{1}{3}}={8}^{\frac{1}{3}}[cos(\frac{\frac{2\pi }{3}}{3}+\frac{2k\pi }{3})+isin(\frac{\frac{2\pi }{3}}{3}+\frac{2k\pi }{3})] \\ {z}^{\frac{1}{3}}=2[cos(\frac{2\pi }{9}+\frac{2k\pi }{3})+isin(\frac{2\pi }{9}+\frac{2k\pi }{3})]\end{array}\]</p>
+<p>There will be three roots: \(k=0,\,1,\,2.\) When \(k=0,\) we have</p>
+<p id="eq27">\[{z}^{\frac{1}{3}}=2(cos(\frac{2\pi }{9})+isin(\frac{2\pi }{9}))\]</p>
+<p>When \(k=1,\) we have</p>
+<p id="eq28">\[\begin{array}{l}{z}^{\frac{1}{3}}=2[cos(\frac{2\pi }{9}+\frac{6\pi }{9})+isin(\frac{2\pi }{9}+\frac{6\pi }{9})]\begin{array}{llll} &amp; &amp; &amp; \end{array}\text{ Add }\frac{2(1)\pi }{3}\text{ to each angle.} \\ {z}^{\frac{1}{3}}=2(cos(\frac{8\pi }{9})+isin(\frac{8\pi }{9}))\end{array}\]</p>
+<p>When \(k=2,\) we have</p>
+<p id="eq29">\[\begin{array}{ll}{z}^{\frac{1}{3}}=2[cos(\frac{2\pi }{9}+\frac{12\pi }{9})+isin(\frac{2\pi }{9}+\frac{12\pi }{9})]\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{Add }\frac{2(2)\pi }{3}\text{ to each angle.} \\ {z}^{\frac{1}{3}}=2(cos(\frac{14\pi }{9})+isin(\frac{14\pi }{9})) &amp; \end{array}\]</p>
+<p>Remember to find the common denominator to simplify fractions in situations like this one. For \(k=1,\) the angle simplification is</p>
+<p id="eq30">\[\begin{array}{l}\frac{\frac{2\pi }{3}}{3}+\frac{2(1)\pi }{3}=\frac{2\pi }{3}(\frac{1}{3})+\frac{2(1)\pi }{3}(\frac{3}{3}) \\ =\frac{2\pi }{9}+\frac{6\pi }{9} \\ =\frac{8\pi }{9}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Find the four fourth roots of \(16(cos(120°)+isin(120°)).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({z}_{0}=2(cos(30°)+isin(30°))\)</p>
+<p>\({z}_{1}=2(cos(120°)+isin(120°))\)</p>
+<p>\({z}_{2}=2(cos(210°)+isin(210°))\)</p>
+<p>\({z}_{3}=2(cos(300°)+isin(300°))\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165133361907"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with polar forms of complex numbers.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/prodquocomplex" target="_blank" rel="noopener">The Product and Quotient of Complex Numbers in Trigonometric Form</a></li><li><a href="https://openstax.org/l/demoivre" target="_blank" rel="noopener">De Moivre’s Theorem</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Complex numbers in the form \(a+bi\) are plotted in the complex plane similar to the way rectangular coordinates are plotted in the rectangular plane. Label the <strong>x-</strong>axis as the <strong>real</strong>axis and the <strong>y-</strong>axis as the <strong>imaginary</strong> axis. See <a href="#example1">Example 1</a>.</li><li>The absolute value of a complex number is the same as its magnitude. It is the distance from the origin to the point: \(|z|=\sqrt{{a}^{2}+{b}^{2}}.\) See <a href="#example2">Example 2</a> and <a href="#example3">Example 3</a>.</li><li>To write complex numbers in polar form, we use the formulas \(x=rcos\,θ,y=rsin\,θ,\) and \(r=\sqrt{{x}^{2}+{y}^{2}}.\) Then, \(z=r(cos\,θ+isin\,θ).\) See <a href="#example4">Example 4</a> and <a href="#example5">Example 5</a>.</li><li>To convert from polar form to rectangular form, first evaluate the trigonometric functions. Then, multiply through by \(r.\) See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.</li><li>To find the product of two complex numbers, multiply the two moduli and add the two angles. Evaluate the trigonometric functions, and multiply using the distributive property. See <a href="#example8">Example 8</a>.</li><li>To find the quotient of two complex numbers in polar form, find the quotient of the two moduli and the difference of the two angles. See <a href="#example9">Example 9</a>.</li><li>To find the power of a complex number \({z}^{n},\) raise \(r\) to the power \(n,\) and multiply \(θ\) by \(n.\) See <a href="#example10">Example 10</a>.</li><li>Finding the roots of a complex number is the same as raising a complex number to a power, but using a rational exponent. See <a href="#example11">Example 11</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>A complex number is \(a+bi.\) Explain each part.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>a</strong> is the real part, <strong>b</strong> is the imaginary part, and \(i=\sqrt{-1}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>What does the absolute value of a complex number represent?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>How is a complex number converted to polar form?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Polar form converts the real and imaginary part of the complex number in polar form using \(x=rcosθ\) and \(y=rsinθ.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>How do we find the product of two complex numbers?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>What is De Moivre’s Theorem and what is it used for?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({z}^{n}={r}^{n}(cos(nθ)+isin(nθ))\) It is used to simplify polar form when a number has been raised to a power.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, find the absolute value of the given complex number.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(5+\,3i\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(-7+\,i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(5\sqrt{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(-3-3i\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\sqrt{2}-6i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{38}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(2i\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(2.2-3.1i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{14.45}\)</p>
+</div></div></div></div>
+<p>For the following exercises, write the complex number in polar form.</p>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(2+2i\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(8-4i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4\sqrt{5}cis(333.4°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(-\frac{1}{2}-\frac{1}{2}\,i\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\sqrt{3}+i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2cis(\frac{\pi }{6})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(3i\)</p>
+</div></div>
+<p>For the following exercises, convert the complex number from polar to rectangular form.</p>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(z=7cis(\frac{\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{7\sqrt{3}}{2}+i\frac{7}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(z=2cis(\frac{\pi }{3})\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(z=4cis(\frac{7\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-2\sqrt{3}-2i\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(z=7cis(25°)\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(z=3cis(240°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-1.5-i\frac{3\sqrt{3}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(z=\sqrt{2}cis(100°)\)</p>
+</div></div>
+<p>For the following exercises, find \({z}_{1}{z}_{2}\) in polar form.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\({z}_{1}=2\sqrt{3}cis(116°);\,\,{z}_{2}=2cis(82°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4\sqrt{3}cis(198°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({z}_{1}=\sqrt{2}cis(205°);\,{z}_{2}=2\sqrt{2}cis(118°)\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({z}_{1}=3cis(120°);\,{z}_{2}=\frac{1}{4}cis(60°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3}{4}cis(180°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({z}_{1}=3cis(\frac{\pi }{4});\,{z}_{2}=5cis(\frac{\pi }{6})\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\({z}_{1}=\sqrt{5}cis(\frac{5\pi }{8});\,{z}_{2}=\sqrt{15}cis(\frac{\pi }{12})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(5\sqrt{3}cis(\frac{17\pi }{24})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({z}_{1}=4cis(\frac{\pi }{2});\,{z}_{2}=2cis(\frac{\pi }{4})\)</p>
+</div></div>
+<p>For the following exercises, find \(\frac{{z}_{1}}{{z}_{2}}\) in polar form.</p>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({z}_{1}=21cis(135°);\,{z}_{2}=3cis(65°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(7cis(70°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\({z}_{1}=\sqrt{2}cis(90°);\,{z}_{2}=2cis(60°)\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\({z}_{1}=15cis(120°);\,{z}_{2}=3cis(40°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(5cis(80°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\({z}_{1}=6cis(\frac{\pi }{3});\,{z}_{2}=2cis(\frac{\pi }{4})\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\({z}_{1}=5\sqrt{2}cis(\pi );\,{z}_{2}=\sqrt{2}cis(\frac{2\pi }{3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(5cis(\frac{\pi }{3})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\({z}_{1}=2cis(\frac{3\pi }{5});\,{z}_{2}=3cis(\frac{\pi }{4})\)</p>
+</div></div>
+<p>For the following exercises, find the powers of each complex number in polar form.</p>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Find \({z}^{3}\) when \(z=5cis(45°).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(125cis(135°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Find \({z}^{4}\) when \(z=2cis(70°).\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Find \({z}^{2}\) when \(z=3cis(120°).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(9cis(240°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Find \({z}^{2}\) when \(z=4cis(\frac{\pi }{4}).\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Find \({z}^{4}\) when \(z=cis(\frac{3\pi }{16}).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(cis(\frac{3\pi }{4})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Find \({z}^{3}\) when \(z=3cis(\frac{5\pi }{3}).\)</p>
+</div></div>
+<p>For the following exercises, evaluate each root.</p>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Evaluate the cube root of \(z\) when \(z=27cis(240°).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3cis(80°),3cis(200°),3cis(320°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Evaluate the square root of \(z\) when \(z=16cis(100°).\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Evaluate the cube root of \(z\) when \(z=32cis(\frac{2\pi }{3}).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\sqrt[3]{4}cis(\frac{2\pi }{9}),2\sqrt[3]{4}cis(\frac{8\pi }{9}),2\sqrt[3]{4}cis(\frac{14\pi }{9})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Evaluate the square root of \(z\) when \(z=32\text{cis}(\pi ).\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Evaluate the square root of \(z\) when \(z=8cis(\frac{7\pi }{4}).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\sqrt{2}cis(\frac{7\pi }{8}),2\sqrt{2}cis(\frac{15\pi }{8})\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, plot the complex number in the complex plane.</p>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(2+4i\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(-3-3i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_202.jpg" alt="Plot of -3 -3i in the complex plane (-3 along real axis, -3 along imaginary axis)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(5-4i\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(-1-5i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_204.jpg" alt="Plot of -1 -5i in the complex plane (-1 along real axis, -5 along imaginary axis)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(3+2i\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(2i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_206.jpg" alt="Plot of 2i in the complex plane (0 along the real axis, 2 along the imaginary axis)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\(-4\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(6-2i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_208.jpg" alt="Plot of 6-2i in the complex plane (6 along the real axis, -2 along the imaginary axis)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(-2+i\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(1-4i\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_05_210.jpg" alt="Plot of 1-4i in the complex plane (1 along the real axis, -4 along the imaginary axis)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, find all answers rounded to the nearest hundredth.</p>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Use the rectangular to polar feature on the graphing calculator to change \(5+5i\) to polar form.</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Use the rectangular to polar feature on the graphing calculator to change \(3-2i\) to polar form.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3.61{e}^{-0.59i}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Use the rectangular to polar feature on the graphing calculator to change \(-3-8i\) to polar form.</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Use the polar to rectangular feature on the graphing calculator to change \(4cis(120°)\) to rectangular form.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-2+3.46i\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>Use the polar to rectangular feature on the graphing calculator to change \(2cis(45°)\) to rectangular form.</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>Use the polar to rectangular feature on the graphing calculator to change \(5cis(210°)\) to rectangular form.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-4.33-2.50i\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>argument</dt><dd>the angle associated with a complex number; the angle between the line from the origin to the point and the positive real axis</dd><dt>De Moivre’s Theorem</dt><dd>formula used to find the \(n\text{th}\) power or <strong>n</strong>th roots of a complex number; states that, for a positive integer \(n,{z}^{n}\) is found by raising the modulus to the \(n\text{th}\) power and multiplying the angles by \(n\)</dd><dt>modulus</dt><dd>the absolute value of a complex number, or the distance from the origin to the point \((x,y);\) also called the amplitude</dd><dt>polar form of a complex number</dt><dd>a complex number expressed in terms of an angle \(θ\) and its distance from the origin \(r;\) can be found by using conversion formulas \(x=rcos\,θ,\,y=rsin\,θ,\) and \(r=\sqrt{{x}^{2}+{y}^{2}}\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

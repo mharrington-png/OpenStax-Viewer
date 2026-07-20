@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conic Sections in Polar Coordinates · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Conic Sections in Polar Coordinates</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 10.5</span>Conic Sections in Polar Coordinates</h1>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_008n.jpg" alt="An illustrative depiction of our solar system, showing the sun and various planets, including Earth, Jupiter, and Saturn, in their orbital paths." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Planets orbiting the sun follow elliptical paths. (credit: NASA Blueshift, Flickr)</figcaption></figure>
+<p>Most of us are familiar with orbital motion, such as the motion of a planet around the sun or an electron around an atomic nucleus. Within the planetary system, orbits of planets, asteroids, and comets around a larger celestial body are often elliptical. Comets, however, may take on a parabolic or hyperbolic orbit instead. And, in reality, the characteristics of the planets’ orbits may vary over time. Each orbit is tied to the location of the celestial body being orbited and the distance and direction of the planet or other object from that body. As a result, we tend to use polar coordinates to represent these orbits.</p>
+<p>In an elliptical orbit, the <strong>periapsis</strong> is the point at which the two objects are closest, and the <strong>apoapsis</strong> is the point at which they are farthest apart. Generally, the velocity of the orbiting body tends to increase as it approaches the periapsis and decrease as it approaches the apoapsis. Some objects reach an escape velocity, which results in an infinite orbit. These bodies exhibit either a parabolic or a hyperbolic orbit about a body; the orbiting body breaks free of the celestial body’s gravitational pull and fires off into space. Each of these orbits can be modeled by a conic section in the polar coordinate system.</p>
+<h2 id="identifying-a-conic-in-polar-form">Identifying a Conic in Polar Form</h2>
+<p>Any conic may be determined by three characteristics: a single <strong>focus</strong>, a fixed line called the <strong>directrix</strong>, and the ratio of the distances of each to a point on the graph. Consider the <strong>parabola</strong> \(x=2+{y}^{2}\) shown in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_001.jpg" alt="A horizontal parabola, labeled x = 2 + y squared, opening to the right is shown. The Focus is labeled Focus @ pole and is on the horizontal Polar Axis. The vertical Directrix is shown. A point on the upper side of the parabola is labeled P times (r, theta) and two lines of equal length r are drawn from it, one to the Focus and the other to the Directrix and perpendicular to it. The line to the Focus makes an angle theta with the Polar Axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>In The Parabola, we learned how a parabola is defined by the focus (a fixed point) and the directrix (a fixed line). In this section, we will learn how to define any conic in the polar coordinate system in terms of a fixed point, the focus \(P(r,θ)\) at the pole, and a line, the directrix, which is perpendicular to the polar axis.</p>
+<p>If \(F\) is a fixed point, the focus, and \(D\) is a fixed line, the directrix, then we can let \(e\) be a fixed positive number, called the <strong>eccentricity</strong>, which we can define as the ratio of the distances from a point on the graph to the focus and the point on the graph to the directrix. Then the set of all points \(P\) such that \(e=\frac{PF}{PD}\) is a conic. In other words, we can define a conic as the set of all points \(P\) with the property that the ratio of the distance from \(P\) to \(F\) to the distance from \(P\) to \(D\) is equal to the constant \(e.\)</p>
+<p>For a conic with eccentricity \(e,\)</p>
+<ul class="tight"><li>if \(0\le e&lt;1,\) the conic is an ellipse</li><li>if \(e=1,\) the conic is a parabola</li><li>if \(e&gt;1,\) the conic is an hyperbola</li></ul>
+<p>With this definition, we may now define a conic in terms of the directrix, \(x=\pm p,\) the eccentricity \(e,\) and the angle \(θ.\) Thus, each conic may be written as a <strong>polar equation</strong>, an equation written in terms of \(r\) and \(θ.\)</p>
+<div class="card definition" id="fs-id1161380"><span class="chip">The Polar Equation for a Conic</span><p>For a conic with a focus at the origin, if the directrix is \(x=\pm p,\) where \(p\) is a positive real number, and the <strong>eccentricity</strong> is a positive real number \(e,\) the conic has a <strong>polar equation</strong></p>
+<p id="eq1">\[r=\frac{ep}{1\pm e\,\,cos\,\,θ}\]</p>
+<p>For a conic with a focus at the origin, if the directrix is \(y=\pm p,\) where \(p\) is a positive real number, and the eccentricity is a positive real number \(e,\) the conic has a polar equation</p>
+<p id="eq2">\[r=\frac{ep}{1\pm e\,\,sin\,\,θ}\]</p>
+</div>
+<div class="card howto" id="fs-id1331670"><span class="chip">How To</span><p><strong>Given the polar equation for a conic, identify the type of conic, the directrix, and the eccentricity.</strong></p>
+<ul class="tight"><li>Multiply the numerator and denominator by the reciprocal of the constant in the denominator to rewrite the equation in standard form.</li><li>Identify the eccentricity \(e\) as the coefficient of the trigonometric function in the denominator.</li><li>Compare \(e\) with 1 to determine the shape of the conic.</li><li>Determine the directrix as \(x=p\) if cosine is in the denominator and \(y=p\) if sine is in the denominator. Set \(ep\) equal to the numerator in standard form to solve for \(x\) or \(y.\)</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>For each of the following equations, identify the conic with focus at the origin, the <strong>directrix</strong>, and the <strong>eccentricity</strong>.</p>
+<ul class="tight"><li>\(r=\frac{6}{3+2\,\,sin\,\,θ}\)</li><li>\(r=\frac{12}{4+5\,\,cos\,\,θ}\)</li><li>\(r=\frac{7}{2-2\,\,sin\,\,θ}\)</li></ul>
+</div><p class="sol-hint">Rewrite each equation so the denominator's constant term is 1, then read off e as the coefficient of cosine or sine.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>For each of the three conics, we will rewrite the equation in standard form. Standard form has a 1 as the constant in the denominator. Therefore, in all three parts, the first step will be to multiply the numerator and denominator by the reciprocal of the constant of the original equation, \(\frac{1}{c},\) where \(c\) is that constant.</p>
+<ul class="tight"><li>Multiply the numerator and denominator by \(\frac{1}{3}.\) Because \(sin\,\,θ\) is in the denominator, the directrix is \(y=p.\) Comparing to standard form, note that \(e=\frac{2}{3}.\) Therefore, from the numerator, Since \(e&lt;1,\) the conic is an <strong>ellipse</strong>. The eccentricity is \(e=\frac{2}{3}\) and the directrix is \(y=3.\)<p id="eq3">\[r=\frac{6}{3+2sin\,\,θ}\cdot \frac{(\frac{1}{3})}{(\frac{1}{3})}=\frac{6(\frac{1}{3})}{3(\frac{1}{3})+2(\frac{1}{3})sin\,\,θ}=\frac{2}{1+\frac{2}{3}\,\,sin\,\,θ}\]</p>
+<p>Because \(sin\,\,θ\) is in the denominator, the directrix is \(y=p.\) Comparing to standard form, note that \(e=\frac{2}{3}.\) Therefore, from the numerator,</p>
+<p id="eq4">\[\begin{array}{l}2=ep \\ 2=\frac{2}{3}p \\ (\frac{3}{2})2=(\frac{3}{2})\frac{2}{3}p \\ 3=p\end{array}\]</p>
+<p>Since \(e&lt;1,\) the conic is an <strong>ellipse</strong>. The eccentricity is \(e=\frac{2}{3}\) and the directrix is \(y=3.\)</p>
+</li><li>Multiply the numerator and denominator by \(\frac{1}{4}.\) Because \(\text{cos}\,θ\) is in the denominator, the directrix is \(x=p.\) Comparing to standard form, \(e=\frac{5}{4}.\) Therefore, from the numerator, Since \(e&gt;1,\) the conic is a <strong>hyperbola</strong>. The eccentricity is \(e=\frac{5}{4}\) and the directrix is \(x=\frac{12}{5}=2.4.\)<p id="eq5">\[\begin{array}{l}\begin{array}{l} \\ \\ r=\frac{12}{4+5\,\,cos\,\,θ}\cdot \frac{(\frac{1}{4})}{(\frac{1}{4})}\end{array} \\ r=\frac{12(\frac{1}{4})}{4(\frac{1}{4})+5(\frac{1}{4})cos\,\,θ} \\ r=\frac{3}{1+\frac{5}{4}\,\,cos\,\,θ}\end{array}\]</p>
+<p>Because \(\text{cos}\,θ\) is in the denominator, the directrix is \(x=p.\) Comparing to standard form, \(e=\frac{5}{4}.\) Therefore, from the numerator,</p>
+<p id="eq6">\[\begin{array}{l}\,\,3=ep \\ \,\,3=\frac{5}{4}p \\ \,(\frac{4}{5})3=(\frac{4}{5})\frac{5}{4}p \\ \,\,\,\frac{12}{5}=p\end{array}\]</p>
+<p>Since \(e&gt;1,\) the conic is a <strong>hyperbola</strong>. The eccentricity is \(e=\frac{5}{4}\) and the directrix is \(x=\frac{12}{5}=2.4.\)</p>
+</li><li>Multiply the numerator and denominator by \(\frac{1}{2}.\) Because sine is in the denominator, the directrix is \(y=-p.\) Comparing to standard form, \(e=1.\) Therefore, from the numerator, Because \(e=1,\) the conic is a <strong>parabola</strong>. The eccentricity is \(e=1\) and the directrix is \(y=-\frac{7}{2}=-3.5.\)<p id="eq7">\[\begin{array}{l} \\ \\ \begin{array}{l}r=\frac{7}{2-2\,\,sin\,\,θ}\cdot \frac{(\frac{1}{2})}{(\frac{1}{2})} \\ r=\frac{7(\frac{1}{2})}{2(\frac{1}{2})-2(\frac{1}{2})\,\,sin\,\,θ} \\ r=\frac{\frac{7}{2}}{1-sin\,\,θ}\end{array}\end{array}\]</p>
+<p>Because sine is in the denominator, the directrix is \(y=-p.\) Comparing to standard form, \(e=1.\) Therefore, from the numerator,</p>
+<p id="eq8">\[\begin{array}{l}\frac{7}{2}=ep \\ \frac{7}{2}=(1)p \\ \frac{7}{2}=p\end{array}\]</p>
+<p>Because \(e=1,\) the conic is a <strong>parabola</strong>. The eccentricity is \(e=1\) and the directrix is \(y=-\frac{7}{2}=-3.5.\)</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Identify the conic with focus at the origin, the directrix, and the eccentricity for \(r=\frac{2}{3-cos\,\,θ}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>ellipse; \(e=\frac{1}{3};\,x=-2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-the-polar-equations-of-conics">Graphing the Polar Equations of Conics</h2>
+<p>When graphing in Cartesian coordinates, each conic section has a unique equation. This is not the case when graphing in polar coordinates. We must use the eccentricity of a conic section to determine which type of curve to graph, and then determine its specific characteristics. The first step is to rewrite the conic in standard form as we have done in the previous example. In other words, we need to rewrite the equation so that the denominator begins with 1. This enables us to determine \(e\) and, therefore, the shape of the curve. The next step is to substitute values for \(θ\) and solve for \(r\) to plot a few key points. Setting \(θ\) equal to \(0,\frac{\pi }{2},\pi ,\) and \(\frac{3\pi }{2}\) provides the vertices so we can create a rough sketch of the graph.</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Graph \(r=\frac{5}{3+3\,\,cos\,\,θ}.\)</p>
+</div><p class="sol-hint">Divide numerator and denominator by 3 to get the constant term to 1, then read off e to classify the conic before plotting key points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we rewrite the conic in standard form by multiplying the numerator and denominator by the reciprocal of 3, which is \(\frac{1}{3}.\)</p>
+<p id="eq9">\[\begin{array}{l}\begin{array}{l} \\ \\ r=\frac{5}{3+3\,\,cos\,\,θ}=\frac{5(\frac{1}{3})}{3(\frac{1}{3})+3(\frac{1}{3})cos\,\,θ}\end{array} \\ r=\frac{\frac{5}{3}}{1+cos\,\,θ}\end{array}\]</p>
+<p>Because \(e=1,\) we will graph a <strong>parabola</strong> with a focus at the origin. The function has a \(cos\,\,θ,\) and there is an addition sign in the denominator, so the directrix is \(x=p.\)</p>
+<p id="eq10">\[\begin{array}{l}\frac{5}{3}=ep \\ \frac{5}{3}=(1)p \\ \frac{5}{3}=p\end{array}\]</p>
+<p>The directrix is \(x=\frac{5}{3}.\)</p>
+<p>Plotting a few key points as in <a href="#tab1">Table 1</a> will enable us to see the vertices. See <a href="#fig3">Figure 3</a>.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td></tr><tr><td>\(θ\)</td><td>\(0\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\pi\)</td><td>\(\frac{3\pi }{2}\)</td></tr><tr><td>\(r=\frac{5}{3+3\,\,cos\,\,θ}\)</td><td>\(\frac{5}{6}\approx 0.83\)</td><td>\(\frac{5}{3}\approx 1.67\)</td><td>undefined</td><td>\(\frac{5}{3}\approx 1.67\)</td></tr></tbody></table></div>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_002.jpg" alt="A horizontal parabola opening left is shown in a polar coordinate system. The Focus is at the Pole. The Directrix, the vertical line x = 5/3, is shown. The Vertex is labeled A. The points where the parabola intersects the vertical axis through the Pole are labeled: the upper point is B, the lower point is D. The Polar Axis tick marks are labeled 2, 3, 4, 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can check our result with a graphing utility. See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_003.jpg" alt="A horizontal parabola opening left is shown in a polar coordinate system. The Vertex is on the Polar Axis at r = 1. The Polar Axis tick marks are labeled 2, 3, 4, 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Graph \(r=\frac{8}{2-3\,\,sin\,\,θ}.\)</p>
+</div><p class="sol-hint">Divide numerator and denominator by 2 to get the constant term to 1, then read off e to classify the conic before plotting key points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we rewrite the conic in standard form by multiplying the numerator and denominator by the reciprocal of 2, which is \(\frac{1}{2}.\)</p>
+<p id="eq11">\[\begin{array}{l}\begin{array}{l} \\ \\ r=\frac{8}{2-3sin\,\,θ}=\frac{8(\frac{1}{2})}{2(\frac{1}{2})-3(\frac{1}{2})sin\,\,θ}\end{array} \\ r=\frac{4}{1-\frac{3}{2}\,\,sin\,\,θ}\end{array}\]</p>
+<p>Because \(e=\frac{3}{2},e&gt;1,\) so we will graph a <strong>hyperbola</strong> with a focus at the origin. The function has a \(sin\,\,θ\) term and there is a subtraction sign in the denominator, so the directrix is \(y=-p.\)</p>
+<p id="eq12">\[\begin{array}{l}4=ep \\ 4=(\frac{3}{2})p \\ 4(\frac{2}{3})=p \\ \frac{8}{3}=p\end{array}\]</p>
+<p>The directrix is \(y=-\frac{8}{3}.\)</p>
+<p>Plotting a few key points as in <a href="#tab2">Table 2</a> will enable us to see the vertices. See <a href="#fig5">Figure 5</a>.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td></tr><tr><td>\(θ\)</td><td>\(0\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\pi\)</td><td>\(\frac{3\pi }{2}\)</td></tr><tr><td>\(r=\frac{8}{2-3sin\,θ}\)</td><td>\(4\)</td><td>\(-8\)</td><td>\(4\)</td><td>\(\frac{8}{5}=1.6\)</td></tr></tbody></table></div>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_004.jpg" alt="A vertical hyperbola is shown in a polar coordinate system, centered below the Pole. The Vertices are on the vertical axis through the Pole. The upper Vertex is labeled D and the lower Vertex is labeled B. The points where the upper branch of the hyperbola intersect the Polar Axis and its horizontal extension are labeled A and C respectively. The Polar Axis tick marks are labeled 1, 2, 3, 4, 5, 6, 7, 8, 9, 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+</div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Graph \(r=\frac{10}{5-4\,\,cos\,\,θ}.\)</p>
+</div><p class="sol-hint">Divide numerator and denominator by 5 to get the constant term to 1, then read off e to classify the conic before plotting key points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we rewrite the conic in standard form by multiplying the numerator and denominator by the reciprocal of 5, which is \(\frac{1}{5}.\)</p>
+<p id="eq13">\[\begin{array}{l} \\ \begin{array}{l}r=\frac{10}{5-4cos\,\,θ}=\frac{10(\frac{1}{5})}{5(\frac{1}{5})-4(\frac{1}{5})cos\,\,θ} \\ r=\frac{2}{1-\frac{4}{5}\,\,cos\,\,θ}\end{array}\end{array}\]</p>
+<p>Because \(e=\frac{4}{5},e&lt;1,\) so we will graph an <strong>ellipse</strong> with a <strong>focus</strong> at the origin. The function has a \(\text{cos}\,θ,\) and there is a subtraction sign in the denominator, so the <strong>directrix</strong> is \(x=-p.\)</p>
+<p id="eq14">\[\begin{array}{l}2=ep \\ 2=(\frac{4}{5})p \\ 2(\frac{5}{4})=p \\ \frac{5}{2}=p\end{array}\]</p>
+<p>The directrix is \(x=-\frac{5}{2}.\)</p>
+<p>Plotting a few key points as in <a href="#tab3">Table 3</a> will enable us to see the vertices. See <a href="#fig6">Figure 6</a>.</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td></td><td>A</td><td>B</td><td>C</td><td>D</td></tr><tr><td>\(θ\)</td><td>\(0\)</td><td>\(\frac{\pi }{2}\)</td><td>\(\pi\)</td><td>\(\frac{3\pi }{2}\)</td></tr><tr><td>\(r=\frac{10}{5-4\,\,cos\,\,θ}\)</td><td>\(10\)</td><td>\(2\)</td><td>\(\frac{10}{9}\approx 1.1\)</td><td>\(2\)</td></tr></tbody></table></div>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_006.jpg" alt="A horizontal ellipse is shown in a polar coordinate system, centered on the Polar Axis to the right of the Pole. The Vertices are on the Polar Axis. The right Vertex is labeled A and the left Vertex is labeled C and is to the left of the Pole.  Point A is on the Polar Axis at r = 10. The Polar Axis tick marks are labeled 2, 4, 6, 8, 10, 12. The upper and lower points where the ellipse intersects the vertical axis through the Pole are labeled B and D respectively. The Directrix, the vertical line x = negative 5/2, is shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can check our result using a graphing utility. See <a href="#fig7">Figure 7</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_007.jpg" alt="An oval shape is plotted on a polar coordinate system with concentric circles and radial lines. The oval is horizontally oriented and centered close to the origin, extending mostly into the right half of the plane." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — \(r=\frac{10}{5-4\,\,cos\,\,θ}\) graphed on a viewing window of \([-3,12,1]\) by \([-4,4,1],θ\,\text{min =}\,0\) and \(θ\,\text{max =}\,2\pi .\)</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Graph \(r=\frac{2}{4-cos\,\,θ}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_009.jpg" alt="A two-dimensional Cartesian coordinate system displays a dark blue circle. The x-axis is labeled 'x' and ranges from -0.5 to 1, with tick marks every 0.25. The y-axis is labeled 'y' and ranges from -0.75 to 0.75, with tick marks every 0.25. The circle is centered at (0.25, 0) and has a radius of 0.5, extending from x = -0.25 to x = 0.75 and from y = -0.5 to y = 0.5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="de-ning-conics-in-terms-of-a-focus-and-a-directrix">Deﬁning Conics in Terms of a Focus and a Directrix</h2>
+<p>So far we have been using polar equations of conics to describe and graph the curve. Now we will work in reverse; we will use information about the origin, eccentricity, and directrix to determine the polar equation.</p>
+<div class="card howto" id="fs-id3026921"><span class="chip">How To</span><p><strong>Given the focus, eccentricity, and directrix of a conic, determine the polar equation.</strong></p>
+<ul class="tight"><li>Determine whether the directrix is horizontal or vertical. If the directrix is given in terms of \(y,\) we use the general polar form in terms of sine. If the directrix is given in terms of \(x,\) we use the general polar form in terms of cosine.</li><li>Determine the sign in the denominator. If \(p&lt;0,\) use subtraction. If \(p&gt;0,\) use addition.</li><li>Write the coefficient of the trigonometric function as the given eccentricity.</li><li>Write the absolute value of \(p\) in the numerator, and simplify the equation.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find the polar form of the <strong>conic</strong> given a <strong>focus</strong> at the origin, \(e=3\) and <strong>directrix</strong> \(y=-2.\)</p>
+</div><p class="sol-hint">Since the directrix is horizontal and below the pole, use the \(r=\frac{ep}{1-e\sin\theta}\) form with the given e and p.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The directrix is \(y=-p,\) so we know the trigonometric function in the denominator is sine.</p>
+<p>Because \(y=-2,-2&lt;0,\) so we know there is a subtraction sign in the denominator. We use the standard form of</p>
+<p id="eq15">\[r=\frac{ep}{1-e\,\,sin\,\,θ}\]</p>
+<p>and \(e=3\) and \(|-2|=2=p.\)</p>
+<p>Therefore,</p>
+<p id="eq16">\[\begin{array}{l} \\ \begin{array}{l}r=\frac{(3)(2)}{1-3\,\,sin\,\,θ} \\ r=\frac{6}{1-3\,\,sin\,\,θ}\end{array}\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Find the <strong>polar form of a conic</strong> given a <strong>focus</strong> at the origin, \(e=\frac{3}{5},\) and <strong>directrix</strong> \(x=4.\)</p>
+</div><p class="sol-hint">Since the directrix is vertical and to the right of the pole, use the \(r=\frac{ep}{1+e\cos\theta}\) form with the given e and p.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because the directrix is \(x=p,\) we know the function in the denominator is cosine. Because \(x=4,4&gt;0,\) so we know there is an addition sign in the denominator. We use the standard form of</p>
+<p id="eq17">\[r=\frac{ep}{1+e\,\,cos\,\,θ}\]</p>
+<p>and \(e=\frac{3}{5}\) and \(|4|=4=p.\)</p>
+<p>Therefore,</p>
+<p id="eq18">\[\begin{array}{l}\begin{array}{l} \\ \\ r=\frac{(\frac{3}{5})(4)}{1+\frac{3}{5}\,cos\,θ}\end{array} \\ r=\frac{\frac{12}{5}}{1+\frac{3}{5}\,cos\,θ} \\ r=\frac{\frac{12}{5}}{1(\frac{5}{5})+\frac{3}{5}\,cos\,θ} \\ r=\frac{\frac{12}{5}}{\frac{5}{5}+\frac{3}{5}\,cos\,θ} \\ r=\frac{12}{5}\cdot \frac{5}{5+3\,cos\,θ} \\ r=\frac{12}{5+3\,cos\,θ}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Find the polar form of the conic given a focus at the origin, \(e=1,\) and directrix \(x=-1.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(r=\frac{1}{1-cosθ}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Convert the conic \(r=\frac{1}{5-5sin\,θ}\) to rectangular form.</p>
+</div><p class="sol-hint">Multiply both sides by the denominator, substitute \(r\sin\theta=y\) and \(r=\sqrt{{x}^{2}+{y}^{2}},\) then isolate and square the square root.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will rearrange the formula to use the identities \(r=\sqrt{{x}^{2}+{y}^{2}},x=r\,cos\,θ,\text{and }y=r\,sin\,θ.\)</p>
+<p id="eq19">\[\begin{array}{ll}\,\,r=\frac{1}{5-5\,sin\,θ} &amp; \\ r\cdot (5-5\,sin\,θ)=\frac{1}{5-5\,sin\,θ}\cdot (5-5\,sin\,θ) &amp; \text{Eliminate the fraction}. \\ \,\,\,5r-5r\,sin\,θ=1 &amp; \text{Distribute}. \\ \,\,5r=1+5r\,sin\,θ &amp; \text{Isolate }5r. \\ \,\,25{r}^{2}={(1+5r\,sin\,θ)}^{2} &amp; \text{Square both sides}. \\ \,\,25({x}^{2}+{y}^{2})={(1+5y)}^{2} &amp; \text{Substitute }r=\sqrt{{x}^{2}+{y}^{2}}\,\text{and }y=r\,sin\,θ. \\ \,\,\,25{x}^{2}+25{y}^{2}=1+10y+25{y}^{2} &amp; \text{Distribute and use FOIL}. \\ \,\,\,25{x}^{2}-10y=1 &amp; \text{Rearrange terms and set equal to 1}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Convert the conic \(r=\frac{2}{1+2\,\,cos\,\,θ}\) to rectangular form.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(4-8x+3{x}^{2}-{y}^{2}=0\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id2773738"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with conics in polar coordinates.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/determineconic" target="_blank" rel="noopener">Polar Equations of Conic Sections</a></li><li><a href="https://openstax.org/l/graphconic1" target="_blank" rel="noopener">Graphing Polar Equations of Conics - 1</a></li><li><a href="https://openstax.org/l/graphconic2" target="_blank" rel="noopener">Graphing Polar Equations of Conics - 2</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Any conic may be determined by a single focus, the corresponding eccentricity, and the directrix. We can also define a conic in terms of a fixed point, the focus \(P(r,θ)\) at the pole, and a line, the directrix, which is perpendicular to the polar axis.</li><li>A conic is the set of all points \(e=\frac{PF}{PD},\) where eccentricity \(e\) is a positive real number. Each conic may be written in terms of its polar equation. See <a href="#example1">Example 1</a>.</li><li>The polar equations of conics can be graphed. See <a href="#example2">Example 2</a>, <a href="#example3">Example 3</a>, and <a href="#example4">Example 4</a>.</li><li>Conics can be defined in terms of a focus, a directrix, and eccentricity. See <a href="#example5">Example 5</a> and <a href="#example6">Example 6</a>.</li><li>We can use the identities \(r=\sqrt{{x}^{2}+{y}^{2}},x=r\,\,cos\,\,θ,\) and \(y=r\,\,sin\,\,θ\) to convert the equation for a conic from polar to rectangular form. See <a href="#example7">Example 7</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Explain how eccentricity determines which conic section is given.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>If eccentricity is less than 1, it is an ellipse. If eccentricity is equal to 1, it is a parabola. If eccentricity is greater than 1, it is a hyperbola.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>If a conic section is written as a polar equation, what must be true of the denominator?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>If a conic section is written as a polar equation, and the denominator involves \(sin\,\,θ,\) what conclusion can be drawn about the directrix?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The directrix will be parallel to the polar axis.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>If the directrix of a conic section is perpendicular to the polar axis, what do we know about the equation of the graph?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>What do we know about the focus/foci of a conic section if it is written as a polar equation?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>One of the foci will be located at the origin.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, identify the conic with a focus at the origin, and then give the directrix and eccentricity.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(r=\frac{6}{1-2\,\,cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(r=\frac{3}{4-4\,\,sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Parabola with \(e=1\) and directrix \(\frac{3}{4}\) units below the pole.</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(r=\frac{8}{4-3\,\,cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(r=\frac{5}{1+2\,\,sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Hyperbola with \(e=2\) and directrix \(\frac{5}{2}\) units above the pole.</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(r=\frac{16}{4+3\,\,cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(r=\frac{3}{10+10\,\,cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Parabola with \(e=1\) and directrix \(\frac{3}{10}\) units to the right of the pole.</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(r=\frac{2}{1-cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(r=\frac{4}{7+2\,\,cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Ellipse with \(e=\frac{2}{7}\) and directrix \(2\) units to the right of the pole.</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(r(1-cos\,\,θ)=3\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(r(3+5sin\,\,θ)=11\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Hyperbola with \(e=\frac{5}{3}\) and directrix \(\frac{11}{5}\) units above the pole.</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(r(4-5sin\,\,θ)=1\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(r(7+8cos\,\,θ)=7\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Hyperbola with \(e=\frac{8}{7}\) and directrix \(\frac{7}{8}\) units to the right of the pole.</p>
+</div></div></div></div>
+<p>For the following exercises, convert the polar equation of a conic section to a rectangular equation.</p>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(r=\frac{4}{1+3\,\,sin\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(r=\frac{2}{5-3\,\,sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(25{x}^{2}+16{y}^{2}-12y-4=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(r=\frac{8}{3-2\,\,cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(r=\frac{3}{2+5\,\,cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(21{x}^{2}-4{y}^{2}-30x+9=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(r=\frac{4}{2+2\,\,sin\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(r=\frac{3}{8-8\,\,cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(64{y}^{2}=48x+9\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(r=\frac{2}{6+7\,\,cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(r=\frac{5}{5-11\,\,sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(96{y}^{2}-25{x}^{2}+110y+25=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(r(5+2\,\,cos\,\,θ)=6\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(r(2-cos\,\,θ)=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3{x}^{2}+4{y}^{2}-2x-1=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(r(2.5-2.5\,\,sin\,\,θ)=5\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(r=\frac{6sec\,\,θ}{-2+3\,\,sec\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(5{x}^{2}+9{y}^{2}-24x-36=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(r=\frac{6csc\,\,θ}{3+2\,\,csc\,\,θ}\)</p>
+</div></div>
+<p>For the following exercises, graph the given conic section. If it is a parabola, label the vertex, focus, and directrix. If it is an ellipse, label the vertices and foci. If it is a hyperbola, label the vertices and foci.</p>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(r=\frac{5}{2+cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_201.jpg" alt="An ellipse with vertices at (-5,0), (5/3,0), (-1.67, 2.89), (-1.67, -2.89) and foci at (-10/3, 0) and (0,0) is shown on a Cartesian grid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(r=\frac{2}{3+3\,\,sin\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(r=\frac{10}{5-4\,\,sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_203.jpg" alt="A graph of an ellipse on a Cartesian coordinate system with its four vertices labeled as (0, 10), (0, -10/9), (-30/9, 40/9), (40/9, 30/9), and two foci at (0, 80/9) and (0, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(r=\frac{3}{1+2\,\,cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(r=\frac{8}{4-5\,\,cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_205.jpg" alt="A hyperbola graph with foci (0,0) and (-80/9,0) and vertices (-8/9,0) and (-8,0). The branches open left and right along the x-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(r=\frac{3}{4-4\,\,cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(r=\frac{2}{1-sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_207.jpg" alt="A graph displays an upward-opening parabola with its vertex at (0, -1), focus at (0, 0), and directrix at y = -2. The x-axis ranges from -5 to 5, and the y-axis from -3 to 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(r=\frac{6}{3+2\,\,sin\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(r(1+cos\,\,θ)=5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_209.jpg" alt="A graph of a parabola is shown on a coordinate plane. The x-axis extends from -16 to 10, and the y-axis extends from -16 to 16. The parabola opens to the left, passing through the origin of the y-axis at approximately y=4.47 and y=-4.47, and through the x-axis at 5/2 (which is 2.5). The focus of the parabola is a green dot located at the origin (0,0) and labeled &amp;quot;Focus (0, 0)&amp;quot;. The vertex of the parabola is a blue dot located at (5/2, 0) and labeled &amp;quot;Vertex (5/2, 0)&amp;quot;. The directrix of the parabola is a vertical orange line at x=5, labeled &amp;quot;x = 5&amp;quot;." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(r(3-4sin\,\,θ)=9\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(r(3-2sin\,\,θ)=6\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_211.jpg" alt="A graph displays an ellipse on a coordinate plane. The ellipse is vertically oriented. Its vertices are labeled as (0, 6), (0, -6/5), (-2.68, 2.4), and (2.68, 2.4). The foci are labeled as (0, 24/5) and (0, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(r(6-4cos\,\,θ)=5\)</p>
+</div></div>
+<p>For the following exercises, find the polar equation of the conic with focus at the origin and the given eccentricity and directrix.</p>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Directrix: \(x=4;\,e=\frac{1}{5}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{4}{5+cosθ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>Directrix: \(x=-4;\,e=5\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>Directrix: \(y=2;\,e=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{4}{1+2sinθ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Directrix: \(y=-2;\,e=\frac{1}{2}\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Directrix: \(x=1;\,e=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{1}{1+cosθ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Directrix: \(x=-1;\,e=1\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Directrix: \(x=-\frac{1}{4};\,e=\frac{7}{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{7}{8-28cosθ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Directrix: \(y=\frac{2}{5};\,e=\frac{7}{2}\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Directrix: \(y=4;\,e=\frac{3}{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{12}{2+3sinθ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Directrix: \(x=-2;\,e=\frac{8}{3}\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Directrix: \(x=-5;\,e=\frac{3}{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{15}{4-3cosθ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Directrix: \(y=2;\,e=2.5\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>Directrix: \(x=-3;\,e=\frac{1}{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{3}{3-3cosθ}\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>Recall from Rotation of Axes that equations of conics with an \(xy\) term have rotated graphs. For the following exercises, express each equation in polar form with \(r\) as a function of \(θ.\)</p>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\(xy=2\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\({x}^{2}+xy+{y}^{2}=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\pm \frac{2}{\sqrt{1+sinθcosθ}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\(2{x}^{2}+4xy+2{y}^{2}=9\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>\(16{x}^{2}+24xy+9{y}^{2}=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\pm \frac{2}{4cosθ+3sinθ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\(2xy+y=1\)</p>
+</div></div>
+</div>
+<h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
+<h3 id="the-ellipse">The Ellipse</h3>
+<p>For the following exercises, write the equation of the ellipse in standard form. Then identify the center, vertices, and foci.</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\(\frac{{x}^{2}}{25}+\frac{{y}^{2}}{64}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{{5}^{2}}+\frac{{y}^{2}}{{8}^{2}}=1;\) center: \((0,0);\) vertices: \((5,0),(-5,0),(0,8),(0,-8);\) foci: \((0,\sqrt{39}),(0,-\sqrt{39})\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>\(\frac{{(x-2)}^{2}}{100}+\frac{{(y+3)}^{2}}{36}=1\)</p>
+</div></div>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>\(9{x}^{2}+{y}^{2}+54x-4y+76=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+3)}^{2}}{{1}^{2}}+\frac{{(y-2)}^{2}}{{3}^{2}}=1\,\,(-3,2);\,\,(-2,2),(-4,2),(-3,5),(-3,-1);\,\,(-3,2+2\sqrt{2}),(-3,2-2\sqrt{2})\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>\(9{x}^{2}+36{y}^{2}-36x+72y+36=0\)</p>
+</div></div>
+<p>For the following exercises, graph the ellipse, noting center, vertices, and foci.</p>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>\(\frac{{x}^{2}}{36}+\frac{{y}^{2}}{9}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>center: \((0,0);\) vertices: \((6,0),(-6,0),(0,3),(0,-3);\) foci: \((3\sqrt{3},0),(-3\sqrt{3},0)\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_223.jpg" alt="A blue ellipse is plotted on a grid. It is centered at the origin (0,0) and extends horizontally from x=-5.5 to x=5.5 and vertically from y=-3 to y=3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>\(\frac{{(x-4)}^{2}}{25}+\frac{{(y+3)}^{2}}{49}=1\)</p>
+</div></div>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(4{x}^{2}+{y}^{2}+16x+4y-44=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>center: \((-2,-2);\) vertices: \((2,-2),(-6,-2),(-2,6),(-2,-10);\) foci: \((-2,-2+4\sqrt{3},),(-2,-2-4\sqrt{3})\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_225.jpg" alt="A blue ellipse is shown on a coordinate plane with x-axis ranging from -20 to 20 and y-axis from -15 to 15. The ellipse is vertically oriented, centered at (0, -2.5), with its widest points at approximately x = -2.5 and x = 2.5, and its highest and lowest points at y = 5 and y = -10, respectively." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(2{x}^{2}+3{y}^{2}-20x+12y+38=0\)</p>
+</div></div>
+<p>For the following exercises, use the given information to find the equation for the ellipse.</p>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>Center at \((0,0),\) focus at \((3,0),\) vertex at \((-5,0)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{25}+\frac{{y}^{2}}{16}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>Center at \((2,-2),\) vertex at \((7,-2),\) focus at \((4,-2)\)</p>
+</div></div>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>A whispering gallery is to be constructed such that the foci are located 35 feet from the center. If the length of the gallery is to be 100 feet, what should the height of the ceiling be?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Approximately 35.71 feet</p>
+</div></div></div></div>
+<h3 id="the-hyperbola">The Hyperbola</h3>
+<p>For the following exercises, write the equation of the hyperbola in standard form. Then give the center, vertices, and foci.</p>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(\frac{{x}^{2}}{81}-\frac{{y}^{2}}{9}=1\)</p>
+</div></div>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(\frac{{(y+1)}^{2}}{16}-\frac{{(x-4)}^{2}}{36}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(y+1)}^{2}}{{4}^{2}}-\frac{{(x-4)}^{2}}{{6}^{2}}=1;\) center: \((4,-1);\) vertices: \((4,3),(4,-5);\) foci: \((4,-1+2\sqrt{13}),(4,-1-2\sqrt{13})\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>\(9{y}^{2}-4{x}^{2}+54y-16x+29=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>\(3{x}^{2}-{y}^{2}-12x-6y-9=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-2)}^{2}}{{2}^{2}}-\frac{{(y+3)}^{2}}{{(2\sqrt{3})}^{2}}=1;\) center: \((2,-3);\) vertices: \((4,-3),(0,-3);\) foci: \((6,-3),(-2,-3)\)</p>
+</div></div></div></div>
+<p>For the following exercises, graph the hyperbola, labeling vertices and foci.</p>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>\(\frac{{x}^{2}}{9}-\frac{{y}^{2}}{16}=1\)</p>
+</div></div>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>\(\frac{{(y-1)}^{2}}{49}-\frac{{(x+1)}^{2}}{4}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_228.jpg" alt="A graph displays a hyperbola centered at (-1, 1). The two vertices are at (-1, 8) and (-1, -6). The two foci are at (-1, 8.28) and (-1, -6.28)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>\({x}^{2}-4{y}^{2}+6x+32y-91=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>\(2{y}^{2}-{x}^{2}-12y-6=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_230.jpg" alt="This graph illustrates a hyperbola with a vertical transverse axis, showing its two branches, vertices at (0, 6.46) and (0, -0.46), and foci at (0, 9) and (0, -3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, find the equation of the hyperbola.</p>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>Center at \((0,0),\) vertex at \((0,4),\) focus at \((0,-6)\)</p>
+</div></div>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>Foci at \((3,7)\) and \((7,7),\) vertex at \((6,7)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-5)}^{2}}{1}-\frac{{(y-7)}^{2}}{3}=1\)</p>
+</div></div></div></div>
+<h3 id="the-parabola">The Parabola</h3>
+<p>For the following exercises, write the equation of the parabola in standard form. Then give the vertex, focus, and directrix.</p>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><p>\({y}^{2}=12x\)</p>
+</div></div>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><p>\({(x+2)}^{2}=\frac{1}{2}(y-1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({(x+2)}^{2}=\frac{1}{2}(y-1);\) vertex: \((-2,1);\) focus: \((-2,\frac{9}{8});\) directrix: \(y=\frac{7}{8}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p>\({y}^{2}-6y-6x-3=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p>\({x}^{2}+10x-y+23=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({(x+5)}^{2}=(y+2);\) vertex: \((-5,-2);\) focus: \((-5,-\frac{7}{4});\) directrix: \(y=-\frac{9}{4}\)</p>
+</div></div></div></div>
+<p>For the following exercises, graph the parabola, labeling vertex, focus, and directrix.</p>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>\({x}^{2}+4y=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><p>\({(y-1)}^{2}=\frac{1}{2}(x+3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_232.jpg" alt="A graph on a coordinate plane displays a parabola opening to the right. The vertex of the parabola is marked at (-3, 1). The focus is labeled as the point (-23/8, 1). A vertical orange line, representing the directrix, is shown at x = -25/8. The x-axis ranges from -5 to 5, and the y-axis ranges from -3 to 3, with major grid lines at integer values." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex28"><div class="n">28</div><div class="body"><p>\({x}^{2}-8x-10y+46=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex29"><div class="n">29</div><div class="body"><p>\(2{y}^{2}+12y+6x+15=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_234.jpg" alt="A graph displays a horizontal parabola opening left, with its vertex at (1/2, -3), focus at (-1/4, -3), and a vertical directrix line represented by x = 5/4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, write the equation of the parabola using the given information.</p>
+<div class="exercise" id="reviewex30"><div class="n">30</div><div class="body"><p>Focus at \((-4,0);\) directrix is \(x=4\)</p>
+</div></div>
+<div class="exercise" id="reviewex31"><div class="n">31</div><div class="body"><p>Focus at \((2,\frac{9}{8});\) directrix is \(y=\frac{7}{8}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({(x-2)}^{2}=(\frac{1}{2})(y-1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex32"><div class="n">32</div><div class="body"><p>A cable TV receiving dish is the shape of a paraboloid of revolution. Find the location of the receiver, which is placed at the focus, if the dish is 5 feet across at its opening and 1.5 feet deep.</p>
+</div></div>
+<h3 id="rotation-of-axes">Rotation of Axes</h3>
+<p>For the following exercises, determine which of the conic sections is represented.</p>
+<div class="exercise" id="reviewex33"><div class="n">33</div><div class="body"><p>\(16{x}^{2}+24xy+9{y}^{2}+24x-60y-60=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({B}^{2}-4AC=0,\) parabola</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex34"><div class="n">34</div><div class="body"><p>\(4{x}^{2}+14xy+5{y}^{2}+18x-6y+30=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex35"><div class="n">35</div><div class="body"><p>\(4{x}^{2}+xy+2{y}^{2}+8x-26y+9=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({B}^{2}-4AC=-31&lt;0,\) ellipse</p>
+</div></div></div></div>
+<p>For the following exercises, determine the angle \(θ\) that will eliminate the \(xy\) term, and write the corresponding equation without the \(xy\) term.</p>
+<div class="exercise" id="reviewex36"><div class="n">36</div><div class="body"><p>\({x}^{2}+4xy-2{y}^{2}-6=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex37"><div class="n">37</div><div class="body"><p>\({x}^{2}-xy+{y}^{2}-6=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ={45}^{∘},{{x}^{\prime }}^{2}+3{{y}^{\prime }}^{2}-12=0\)</p>
+</div></div></div></div>
+<p>For the following exercises, graph the equation relative to the \({x}^{\prime }{y}^{\prime }\) system in which the equation has no \({x}^{\prime }{y}^{\prime }\) term.</p>
+<div class="exercise" id="reviewex38"><div class="n">38</div><div class="body"><p>\(9{x}^{2}-24xy+16{y}^{2}-80x-60y+100=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex39"><div class="n">39</div><div class="body"><p>\({x}^{2}-xy+{y}^{2}-2=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(θ={45}^{∘}\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_236.jpg" alt="A graph on the Cartesian coordinate plane shows an ellipse centered at the origin (0,0). The x-axis extends from -4 to 4, and the y-axis extends from -4 to 4. The ellipse intersects the x-axis at (-2,0) and (2,0), and these points are explicitly labeled. The ellipse intersects the y-axis at (0,1) and (0,-1). The major axis of the ellipse lies along the x-axis and has a length of 4, while the minor axis lies along the y-axis and has a length of 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex40"><div class="n">40</div><div class="body"><p>\(6{x}^{2}+24xy-{y}^{2}-12x+26y+11=0\)</p>
+</div></div>
+<h3 id="conic-sections-in-polar-coordinates">Conic Sections in Polar Coordinates</h3>
+<p>For the following exercises, given the polar equation of the conic with focus at the origin, identify the eccentricity and directrix.</p>
+<div class="exercise" id="reviewex41"><div class="n">41</div><div class="body"><p>\(r=\frac{10}{1-5\,\,cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Hyperbola with \(e=5\) and directrix \(2\) units to the left of the pole.</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex42"><div class="n">42</div><div class="body"><p>\(r=\frac{6}{3+2\,\,cos\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="reviewex43"><div class="n">43</div><div class="body"><p>\(r=\frac{1}{4+3\,\,sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Ellipse with \(e=\frac{3}{4}\) and directrix \(\frac{1}{3}\) unit above the pole.</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex44"><div class="n">44</div><div class="body"><p>\(r=\frac{3}{5-5\,\,sin\,\,θ}\)</p>
+</div></div>
+<p>For the following exercises, graph the conic given in polar form. If it is a parabola, label the vertex, focus, and directrix. If it is an ellipse or a hyperbola, label the vertices and foci.</p>
+<div class="exercise" id="reviewex45"><div class="n">45</div><div class="body"><p>\(r=\frac{3}{1-sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_238.jpg" alt="A graph illustrating a parabola opening upwards, with its focus at (0, 0), vertex at (0, -3/2), and a horizontal directrix line labeled y = -3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex46"><div class="n">46</div><div class="body"><p>\(r=\frac{8}{4+3\,\,sin\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="reviewex47"><div class="n">47</div><div class="body"><p>\(r=\frac{10}{4+5\,\,cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_240.jpg" alt="A horizontal hyperbola graph opens left and right. Its vertices are at (10/9, 0) and (10, 0), and its foci are at (0, 0) and (100/9, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex48"><div class="n">48</div><div class="body"><p>\(r=\frac{9}{3-6\,\,cos\,\,θ}\)</p>
+</div></div>
+<p>For the following exercises, given information about the graph of a conic with focus at the origin, find the equation in polar form.</p>
+<div class="exercise" id="reviewex49"><div class="n">49</div><div class="body"><p>Directrix is \(x=3\) and eccentricity \(e=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{3}{1+cos\,\, θ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex50"><div class="n">50</div><div class="body"><p>Directrix is \(y=-2\) and eccentricity \(e=4\)</p>
+</div></div>
+<h2 id="practice-test">Practice Test</h2>
+<p>For the following exercises, write the equation in standard form and state the center, vertices, and foci.</p>
+<div class="exercise" id="practiceex1"><div class="n">1</div><div class="body"><p>\(\frac{{x}^{2}}{9}+\frac{{y}^{2}}{4}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{{3}^{2}}+\frac{{y}^{2}}{{2}^{2}}=1;\) center: \((0,0);\) vertices: \((3,0),(-3,0),(0,2),(0,-2);\) foci: \((\sqrt{5},0),(-\sqrt{5},0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex2"><div class="n">2</div><div class="body"><p>\(9{y}^{2}+16{x}^{2}-36y+32x-92=0\)</p>
+</div></div>
+<p>For the following exercises, sketch the graph, identifying the center, vertices, and foci.</p>
+<div class="exercise" id="practiceex3"><div class="n">3</div><div class="body"><p>\(\frac{{(x-3)}^{2}}{64}+\frac{{(y-2)}^{2}}{36}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>center: \((3,2);\) vertices: \((11,2),(-5,2),(3,8),(3,-4);\) foci: \((3+2\sqrt{7},2),(3-2\sqrt{7},2)\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_242.jpg" alt="An ellipse is graphed on a Cartesian coordinate plane. The ellipse is centered at (3, 2) and extends horizontally from x = -4 to x = 10, and vertically from y = -3 to y = 7." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex4"><div class="n">4</div><div class="body"><p>\(2{x}^{2}+{y}^{2}+8x-6y-7=0\)</p>
+</div></div>
+<div class="exercise" id="practiceex5"><div class="n">5</div><div class="body"><p>Write the standard form equation of an ellipse with a center at \((1,2),\) vertex at \((7,2),\) and focus at \((4,2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-1)}^{2}}{36}+\frac{{(y-2)}^{2}}{27}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex6"><div class="n">6</div><div class="body"><p>A whispering gallery is to be constructed with a length of 150 feet. If the foci are to be located 20 feet away from the wall, how high should the ceiling be?</p>
+</div></div>
+<p>For the following exercises, write the equation of the hyperbola in standard form, and give the center, vertices, foci, and asymptotes.</p>
+<div class="exercise" id="practiceex7"><div class="n">7</div><div class="body"><p>\(\frac{{x}^{2}}{49}-\frac{{y}^{2}}{81}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{{7}^{2}}-\frac{{y}^{2}}{{9}^{2}}=1;\) center: \((0,0);\) vertices \((7,0),(-7,0);\) foci: \((\sqrt{130},0),(-\sqrt{130},0);\) asymptotes: \(y=\pm \frac{9}{7}x\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex8"><div class="n">8</div><div class="body"><p>\(16{y}^{2}-9{x}^{2}+128y+112=0\)</p>
+</div></div>
+<p>For the following exercises, graph the hyperbola, noting its center, vertices, and foci. State the equations of the asymptotes.</p>
+<div class="exercise" id="practiceex9"><div class="n">9</div><div class="body"><p>\(\frac{{(x-3)}^{2}}{25}-\frac{{(y+3)}^{2}}{1}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>center: \((3,-3);\) vertices: \((8,-3),(-2,-3);\) foci: \((3+\sqrt{26},-3),(3-\sqrt{26},-3);\) asymptotes: \(y=\pm \frac{1}{5}(x-3)-3\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_244.jpg" alt="A graph plots a horizontal hyperbola opening left and right. The center is at (3, -3). Vertices are at (-2, -3) and (8, -3). Foci are at (3-sqrt(26), -3) and (3+sqrt(26), -3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex10"><div class="n">10</div><div class="body"><p>\({y}^{2}-{x}^{2}+4y-4x-18=0\)</p>
+</div></div>
+<div class="exercise" id="practiceex11"><div class="n">11</div><div class="body"><p>Write the standard form equation of a hyperbola with foci at \((1,0)\) and \((1,6),\) and a vertex at \((1,2).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(y-3)}^{2}}{1}-\frac{{(x-1)}^{2}}{8}=1\)</p>
+</div></div></div></div>
+<p>For the following exercises, write the equation of the parabola in standard form, and give the vertex, focus, and equation of the directrix.</p>
+<div class="exercise" id="practiceex12"><div class="n">12</div><div class="body"><p>\({y}^{2}+10x=0\)</p>
+</div></div>
+<div class="exercise" id="practiceex13"><div class="n">13</div><div class="body"><p>\(3{x}^{2}-12x-y+11=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({(x-2)}^{2}=\frac{1}{3}(y+1);\) vertex: \((2,-1);\) focus: \((2,-\frac{11}{12});\) directrix: \(y=-\frac{13}{12}\)</p>
+</div></div></div></div>
+<p>For the following exercises, graph the parabola, labeling the vertex, focus, and directrix.</p>
+<div class="exercise" id="practiceex14"><div class="n">14</div><div class="body"><p>\({(x-1)}^{2}=-4(y+3)\)</p>
+</div></div>
+<div class="exercise" id="practiceex15"><div class="n">15</div><div class="body"><p>\({y}^{2}+8x-8y+40=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_247.jpg" alt="A graph displays a parabola plotted on a coordinate plane. The x-axis ranges from -20 to 10 and the y-axis from -15 to 15, with grid lines at intervals of 5. The parabola opens to the left. The vertex of the parabola is marked at (-3, 4) with a dark blue dot and labeled as &amp;quot;Vertex (-3, 4)&amp;quot;. The focus is marked at (-5, 4) with a teal dot and labeled as &amp;quot;Focus (-5, 4)&amp;quot;. A vertical orange line represents the directrix, which is the line x = -1, and is labeled as &amp;quot;x = -1&amp;quot;." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex16"><div class="n">16</div><div class="body"><p>Write the equation of a parabola with a focus at \((2,3)\) and directrix \(y=-1.\)</p>
+</div></div>
+<div class="exercise" id="practiceex17"><div class="n">17</div><div class="body"><p>A searchlight is shaped like a paraboloid of revolution. If the light source is located 1.5 feet from the base along the axis of symmetry, and the depth of the searchlight is 3 feet, what should the width of the opening be?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Approximately \(8.49\) feet</p>
+</div></div></div></div>
+<p>For the following exercises, determine which conic section is represented by the given equation, and then determine the angle \(θ\) that will eliminate the \(xy\) term.</p>
+<div class="exercise" id="practiceex18"><div class="n">18</div><div class="body"><p>\(3{x}^{2}-2xy+3{y}^{2}=4\)</p>
+</div></div>
+<div class="exercise" id="practiceex19"><div class="n">19</div><div class="body"><p>\({x}^{2}+4xy+4{y}^{2}+6x-8y=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>parabola; \(θ\approx {63.4}^{∘}\)</p>
+</div></div></div></div>
+<p>For the following exercises, rewrite in the \({x}^{\prime }{y}^{\prime }\) system without the \({x}^{\prime }{y}^{\prime }\) term, and graph the rotated graph.</p>
+<div class="exercise" id="practiceex20"><div class="n">20</div><div class="body"><p>\(11{x}^{2}+10\sqrt{3}xy+{y}^{2}=4\)</p>
+</div></div>
+<div class="exercise" id="practiceex21"><div class="n">21</div><div class="body"><p>\(16{x}^{2}+24xy+9{y}^{2}-125x=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({{x}^{\prime }}^{2}-4{x}^{\prime }+3{y}^{\prime }=0\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_249.jpg" alt="A Cartesian coordinate system displays a parabola that opens downwards. The x-axis is labeled from -6 to 6, and the y-axis is labeled from -6 to 6. The parabola passes through the origin (0,0) and appears to cross the x-axis again at x=4. Its vertex is indicated by a blue dot and labeled with the coordinates (2, 4/3). The curve extends infinitely downwards on both ends, indicated by arrows." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, identify the conic with focus at the origin, and then give the directrix and eccentricity.</p>
+<div class="exercise" id="practiceex22"><div class="n">22</div><div class="body"><p>\(r=\frac{3}{2-sin\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="practiceex23"><div class="n">23</div><div class="body"><p>\(r=\frac{5}{4+6\,\,cos\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Hyperbola with \(e=\frac{3}{2},\) and directrix \(\frac{5}{6}\) units to the right of the pole.</p>
+</div></div></div></div>
+<p>For the following exercises, graph the given conic section. If it is a parabola, label vertex, focus, and directrix. If it is an ellipse or a hyperbola, label vertices and foci.</p>
+<div class="exercise" id="practiceex24"><div class="n">24</div><div class="body"><p>\(r=\frac{12}{4-8\,\,sin\,\,θ}\)</p>
+</div></div>
+<div class="exercise" id="practiceex25"><div class="n">25</div><div class="body"><p>\(r=\frac{2}{4+4\,\,sin\,\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_05_251n.jpg" alt="A downward-opening parabola is graphed. Its vertex is at (0, 1/4) and its focus is at (0, 0). The directrix is the horizontal line y = 1/2, shown above the vertex." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex26"><div class="n">26</div><div class="body"><p>Find a polar equation of the conic with focus at the origin, eccentricity of \(e=2,\) and directrix: \(x=3.\)</p>
+</div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>eccentricity</dt><dd>the ratio of the distances from a point \(P\) on the graph to the focus \(F\) and to the directrix \(D\) represented by \(e=\frac{PF}{PD},\) where \(e\) is a positive real number</dd><dt>polar equation</dt><dd>an equation of a curve in polar coordinates \(r\,\) and \(θ\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

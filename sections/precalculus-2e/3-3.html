@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power Functions and Polynomial Functions · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Power Functions and Polynomial Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.3</span>Power Functions and Polynomial Functions</h1>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_001.jpg" alt="Three birds on a cliff with the sun rising in the background." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — (credit: Jason Bay, Flickr)</figcaption></figure>
+<p>Suppose a certain species of bird thrives on a small island. Its population over the last few years is shown in <a href="#tab1">Table 1</a>.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Year</strong></td><td>\(2009\)</td><td>\(2010\)</td><td>\(2011\)</td><td>\(2012\)</td><td>\(2013\)</td></tr><tr><td><strong>Bird Population</strong></td><td>\(800\)</td><td>\(897\)</td><td>\(992\)</td><td>\(1,083\)</td><td>\(1,169\)</td></tr></tbody></table></div>
+<p>The population can be estimated using the function \(P(t)=-0.3{t}^{3}+97t+800,\) where \(P(t)\) represents the bird population on the island \(t\) years after 2009. We can use this model to estimate the maximum bird population and when it will occur. We can also use this model to predict when the bird population will disappear from the island. In this section, we will examine functions that we can use to estimate and predict these types of changes.</p>
+<h2 id="identifying-power-functions">Identifying Power Functions</h2>
+<p>In order to better understand the bird problem, we need to understand a specific type of function. A <strong>power function</strong>is a function with a single term that is the product of a real number, a <strong>coefficient,</strong> and a variable raised to a fixed real number. (A number that multiplies a variable raised to an exponent is known as a coefficient.)</p>
+<p>As an example, consider functions for area or volume. The function for the <strong>area of a circle</strong> with radius \(r\) is</p>
+<p id="eq1">\[A(r)=\pi {r}^{2}\]</p>
+<p>and the function for the <strong>volume of a sphere</strong> with radius \(r\) is</p>
+<p id="eq2">\[V(r)=\frac{4}{3}\pi {r}^{3}\]</p>
+<p>Both of these are examples of power functions because they consist of a coefficient, \(\pi\) or \(\frac{4}{3}\pi ,\) multiplied by a variable \(r\) raised to a power.</p>
+<div class="card definition" id="fs-id1165135356525"><span class="chip">Power Function</span><p>A <strong>power function</strong> is a function that can be represented in the form</p>
+<p id="eq3">\[f(x)=k{x}^{p}\]</p>
+<p>where \(k\) and \(p\) are real numbers, and \(k\) is known as the <strong>coefficient</strong>.</p>
+</div>
+<div class="card qa" id="fs-id1165137661479"><span class="chip">Q&amp;A</span><p><strong>Is \(f(x)={2}^{x}\) a power function?</strong></p>
+<p><strong>No. A power function contains a variable base raised to a fixed power. This function has a constant base raised to a variable power. This is called an exponential function, not a power function.</strong></p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Which of the following functions are power functions?</p>
+<p>\(\begin{array}{ll}f(x)=1 &amp; \text{Constant function} \\ f(x)=x &amp; \text{Identity function} \\ f(x)={x}^{2} &amp; \text{Quadratic}\,\text{ function} \\ f(x)={x}^{3} &amp; \text{Cubic function} \\ f(x)=\frac{1}{x}\, &amp; \text{Reciprocal function} \\ f(x)=\frac{1}{{x}^{2}} &amp; \text{Reciprocal squared function} \\ f(x)=\sqrt{x} &amp; \text{Square root function} \\ f(x)=\sqrt[3]{x} &amp; \text{Cube root function}\end{array}\)</p>
+</div><p class="sol-hint">Check whether each function is a single term of the form \(k{x}^{p}\) — that's the test for a power function.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>All of the listed functions are power functions.</p>
+<p>The constant and identity functions are power functions because they can be written as \(f(x)={x}^{0}\) and \(f(x)={x}^{1}\) respectively.</p>
+<p>The quadratic and cubic functions are power functions with whole number powers \(f(x)={x}^{2}\) and \(f(x)={x}^{3}.\)</p>
+<p>The <strong>reciprocal</strong> and reciprocal squared functions are power functions with negative whole number powers because they can be written as \(f(x)={x}^{-1}\) and \(f(x)={x}^{-2}.\)</p>
+<p>The square and <strong>cube root</strong> functions are power functions with fractional powers because they can be written as \(f(x)={x}^{1/2}\) or \(f(x)={x}^{1/3}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Which functions are power functions?<br></p>
+<p>\(\begin{array}{l}f(x)=2{x}^{2}\cdot 4{x}^{3} \\ g(x)=-{x}^{5}+5{x}^{3}-4x \\ h(x)=\frac{2{x}^{5}-1}{3{x}^{2}+4}\end{array}\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(x)\) is a power function because it can be written as \(f(x)=8{x}^{4}.\) The other functions are not power functions.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="identifying-end-behavior-of-power-functions">Identifying End Behavior of Power Functions</h2>
+<p><a href="#fig2">Figure 2</a> shows the graphs of \(f(x)={x}^{2},\,g(x)={x}^{4}\) and \(\text{and}\,h(x)={x}^{6},\) which are all power functions with even, positive integer powers. Notice that these graphs have similar shapes, very much like that of the quadratic function in the toolkit. However, as the power increases, the graphs flatten somewhat near the origin and become steeper away from the origin.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_002.jpg" alt="Graph of three functions, h(x)=x^2 in green, g(x)=x^4 in orange, and f(x)=x^6 in blue." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Even-power functions</figcaption></figure>
+<p>To describe the behavior as numbers become larger and larger, we use the idea of infinity. We use the symbol \(\infty\) for positive infinity and \(-\infty\) for negative infinity. When we say that “ \(x\) approaches infinity,” which can be symbolically written as \(x\to \infty ,\) we are describing a behavior; we are saying that \(x\) is increasing without bound.</p>
+<p>With the even-power function, as the input increases or decreases without bound, the output values become very large, positive numbers. Equivalently, we could describe this behavior by saying that as \(x\) approaches positive or negative infinity, the \(f(x)\) values increase without bound. In symbolic form, we could write</p>
+<p id="eq4">\[\text{as }x\to \pm \infty ,\,f(x)\to \infty \]</p>
+<p><a href="#fig3">Figure 3</a> shows the graphs of \(f(x)={x}^{3},\,g(x)={x}^{5},\,\text{and}\,h(x)={x}^{7},\) which are all power functions with odd, whole-number powers. Notice that these graphs look similar to the cubic function in the toolkit. Again, as the power increases, the graphs flatten near the origin and become steeper away from the origin.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_003-07aa.jpg" alt="Graph of three functions, f(x)=x^3 in green, g(x)=x^5 in orange, and h(x)=x^7 in blue." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Odd-power function</figcaption></figure>
+<p>These examples illustrate that functions of the form \(f(x)={x}^{n}\) reveal symmetry of one kind or another. First, in <a href="#fig2">Figure 2</a> we see that even functions of the form \(f(x)={x}^{n}\text{, }n\text{ even,}\) are symmetric about the \(y\text{-}\) axis. In <a href="#fig3">Figure 3</a> we see that odd functions of the form \(f(x)={x}^{n}\text{, }n\text{ odd,}\) are symmetric about the origin.</p>
+<p>For these odd power functions, as \(x\) approaches negative infinity, \(f(x)\) decreases without bound. As \(x\) approaches positive infinity, \(f(x)\) increases without bound. In symbolic form we write</p>
+<p id="eq5">\[\begin{array}{l}\text{as}\,x\to -\infty ,\,f(x)\to -\infty \, \\ \text{as}\,x\to \infty ,\,f(x)\to \infty \end{array}\]</p>
+<p>The behavior of the graph of a function as the input values get very small ( \(x\to -\infty\) ) and get very large ( \(x\to \infty\) ) is referred to as the <strong>end behavior</strong> of the function. We can use words or symbols to describe end behavior.</p>
+<p><a href="#fig4">Figure 4</a> shows the end behavior of power functions in the form \(f(x)=k{x}^{n}\) where \(n\) is a non-negative integer depending on the power and the constant.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_004abcd.jpg" alt="Graph of an even-powered function with a positive constant. As x goes to negative infinity, the function goes to positive infinity; as x goes to positive infinity, the function goes to positive infinity. Graph of an odd-powered function with a positive constant. As x goes to negative infinity, the function goes to positive infinity; as x goes to positive infinity, the function goes to negative infinity. Graph of an even-powered function with a negative constant. As x goes to negative infinity, the function goes to negative infinity; as x goes to positive infinity, the function goes to negative infinity. Graph of an odd-powered function with a negative constant. As x goes to negative infinity, the function goes to negative infinity; as x goes to positive infinity, the function goes to negative infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<div class="card howto" id="fs-id1165135161436"><span class="chip">How To</span><p><strong>Given a power function \(f(x)=k{x}^{n}\) where</strong> \(n\) <strong>is a positive integer, identify the end behavior.</strong></p>
+<ul class="tight"><li>Determine whether the power is even or odd.</li><li>Determine whether the constant is positive or negative.</li><li>Use <a href="#fig4">Figure 4</a> to identify the end behavior.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Describe the end behavior of the graph of \(f(x)={x}^{8}.\)</p>
+</div><p class="sol-hint">Check whether the exponent is even or odd, and whether the coefficient is positive or negative, to read off the end behavior.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The coefficient is 1 (positive) and the exponent of the power function is 8 (an even number). As \(x\) approaches infinity, the output (value of \(f(x)\) ) increases without bound. We write as \(x\to \infty ,\,f(x)\to \infty .\) As \(x\) approaches negative infinity, the output increases without bound. In symbolic form, as \(x\to -\infty ,\,f(x)\to \infty .\) We can graphically represent the function as shown in <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_008.jpg" alt="A graph showing a blue U-shaped curve, symmetric about the y-axis, with its lowest point at the origin (0,0) and extending upwards rapidly on both sides. The x-axis is labeled from -3 to 3, and the y-axis from -1 to 6." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+</div></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Describe the end behavior of the graph of \(f(x)=-{x}^{9}.\)</p>
+</div><p class="sol-hint">The exponent's parity sets the basic shape; the negative coefficient just flips it about the x-axis.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The exponent of the power function is 9 (an odd number). Because the coefficient is \(-1\) (negative), the graph is the reflection about the \(x\text{-}\) axis of the graph of \(f(x)={x}^{9}.\) <a href="#fig6">Figure 6</a> shows that as \(x\) approaches infinity, the output decreases without bound. As \(x\) approaches negative infinity, the output increases without bound. In symbolic form, we would write</p>
+<p id="eq6">\[\begin{array}{l}\text{as}\,x\to -\infty ,\,f(x)\to \infty \, \\ \text{as}\,x\to \infty ,\,f(x)\to -\infty \end{array}\]</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_009.png" alt="A graph of the function f(x) = -x^9 is shown on a Cartesian coordinate system, with x and y axes ranging from -5 to 5 and -10 to 10 respectively." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can check our work by using the table feature on a graphing utility.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(x\)</td><td>\(f(x)\)</td></tr><tr><td>–10</td><td>1,000,000,000</td></tr><tr><td>–5</td><td>1,953,125</td></tr><tr><td>0</td><td>0</td></tr><tr><td>5</td><td>–1,953,125</td></tr><tr><td>10</td><td>–1,000,000,000</td></tr></tbody></table></div>
+<p>We can see from <a href="#tab2">Table 2</a> that, when we substitute very small values for \(x,\) the output is very large, and when we substitute very large values for \(x,\) the output is very small (meaning that it is a very large negative value).</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Describe in words and symbols the end behavior of \(f(x)=-5{x}^{4}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>As \(x\) approaches positive or negative infinity, \(f(x)\) decreases without bound: as \(x\to \pm \infty\) , \(f(x)\to -\infty\) because of the negative coefficient.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="identifying-polynomial-functions">Identifying Polynomial Functions</h2>
+<p>An oil pipeline bursts in the Gulf of Mexico, causing an oil slick in a roughly circular shape. The slick is currently 24 miles in radius, but that radius is increasing by 8 miles each week. We want to write a formula for the area covered by the oil slick by combining two functions. The radius \(r\) of the spill depends on the number of weeks \(w\) that have passed. This relationship is linear.</p>
+<p id="eq7">\[r(w)=24+8w\]</p>
+<p>We can combine this with the formula for the area \(A\) of a circle.</p>
+<p id="eq8">\[A(r)=\pi {r}^{2}\]</p>
+<p>Composing these functions gives a formula for the area in terms of weeks.</p>
+<p id="eq9">\[\begin{array}{l}A(w)=A(r(w)) \\ \,=A(24+8w) \\ \,=\pi {(24+8w)}^{2}\end{array}\]</p>
+<p>Multiplying gives the formula.</p>
+<p id="eq10">\[A(w)=576\pi +384\pi w+64\pi {w}^{2}\]</p>
+<p>This formula is an example of a <strong>polynomial function</strong>. A polynomial function consists of either zero or the sum of a finite number of non-zero terms, each of which is a product of a number, called the coefficient of the term, and a variable raised to a non-negative integer power.</p>
+<div class="card definition" id="fs-id1165137715427"><span class="chip">Polynomial Functions</span><p>Let \(n\) be a non-negative integer. A <strong>polynomial function</strong> is a function that can be written in the form</p>
+<p id="eq11">\[f(x)={a}_{n}{x}^{n}+{a}_{n-1}{x}^{n-1}+...+{a}_{2}{x}^{2}+{a}_{1}x+{a}_{0}\]</p>
+<p>This is called the general form of a polynomial function. Each \({a}_{i}\) is a coefficient and in this section can only be a real number, but \({a}_{n}\,\ne \,0\) . Each product \({a}_{i}{x}^{i}\) is a <strong>term of a polynomial function</strong>.</p>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Which of the following are polynomial functions?<br></p>
+<p id="eq12">\[\begin{array}{l}\begin{array}{l} \\ f(x)=2{x}^{3}\cdot 3x+4\end{array} \\ g(x)=-x({x}^{2}-4) \\ h(x)=5\sqrt{x}+2\end{array}\]</p>
+</div><p class="sol-hint">Expand each expression and check whether every exponent on the variable ends up a non-negative whole number.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The first two functions are examples of polynomial functions because they can be written in the form \(f(x)={a}_{n}{x}^{n}+{a}_{n-1}{x}^{n-1}+...+{a}_{2}{x}^{2}+{a}_{1}x+{a}_{1}\) where the powers are non-negative integers and the coefficients are real numbers.</p>
+<ul class="tight"><li>\(f(x)\) can be written as \(f(x)=6{x}^{4}+4.\)</li><li>\(g(x)\) can be written as \(g(x)=-{x}^{3}+4x.\)</li><li>\(h(x)\) cannot be written in this form and is therefore not a polynomial function.</li></ul>
+</div></div></div>
+<h2 id="identifying-the-degree-and-leading-coefficient-of-a-polynomial-function">Identifying the Degree and Leading Coefficient of a Polynomial Function</h2>
+<p>Because of the form of a polynomial function, we can see an infinite variety in the number of terms and the power of the variable. Although the order of the terms in the polynomial function is not important for performing operations, we typically arrange the terms in descending order of power, or in general form. The <strong>degree</strong> of the polynomial is the highest power of the variable that occurs in the polynomial; it is the power of the first variable if the function is in general form. The <strong>leading term</strong> is the term containing the highest power of the variable, or the term with the highest degree. The <strong>leading coefficient</strong> is the coefficient of the leading term.</p>
+<div class="card definition" id="fs-id1165135193124"><span class="chip">Terminology of Polynomial Functions</span><p>We often rearrange polynomials so that the powers are descending.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_010n.jpg" alt="Diagram to show what the components of the leading term in a function are. The leading coefficient is a_n and the degree of the variable is the exponent in x^n. Both the leading coefficient and highest degree variable make up the leading term. So the function looks like f(x)=a_nx^n +…+a_2x^2+a_1x+a_0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>When a polynomial is written in this way, we say that it is in general form.</p>
+</div>
+<div class="card howto" id="fs-id1165134031372"><span class="chip">How To</span><p><strong>Given a polynomial function, identify the degree and leading coefficient.</strong></p>
+<ul class="tight"><li>Find the highest power of \(x\) to determine the degree of the function.</li><li>Identify the term containing the highest power of \(x\) to find the leading term.</li><li>Identify the coefficient of the leading term.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Identify the degree, leading term, and leading coefficient of the following polynomial functions.</p>
+<p id="eq13">\[\begin{array}{l}\begin{array}{l} \\ \,f(x)=3+2{x}^{2}-4{x}^{3}\end{array} \\ \,g(t)=5{t}^{5}-2{t}^{3}+7t \\ h(p)=6p-{p}^{3}-2\end{array}\]</p>
+</div><p class="sol-hint">Find the term with the highest exponent in each function — that's your leading term.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>For the function \(f(x),\) the highest power of \(x\) is 3, so the degree is 3. The leading term is the term containing that degree, \(-4{x}^{3}.\) The leading coefficient is the coefficient of that term, \(-4.\)</p>
+<p>For the function \(g(t),\) the highest power of \(t\) is \(5,\) so the degree is \(5.\) The leading term is the term containing that degree, \(5{t}^{5}.\) The leading coefficient is the coefficient of that term, \(5.\)</p>
+<p>For the function \(h(p),\) the highest power of \(p\) is \(3,\) so the degree is \(3.\) The leading term is the term containing that degree, \(-{p}^{3};\) the leading coefficient is the coefficient of that term, \(-1.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Identify the degree, leading term, and leading coefficient of the polynomial \(f(x)=4{x}^{2}-{x}^{6}+2x-6.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The degree is 6. The leading term is \(-{x}^{6}.\) The leading coefficient is \(-1.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="identifying-end-behavior-of-polynomial-functions">Identifying End Behavior of Polynomial Functions</h3>
+<p>Knowing the degree of a polynomial function is useful in helping us predict its end behavior. To determine its end behavior, look at the leading term of the polynomial function. Because the power of the leading term is the highest, that term will grow significantly faster than the other terms as \(x\) gets very large or very small, so its behavior will dominate the graph. For any polynomial, the end behavior of the polynomial will match the end behavior of the term of highest degree. See <a href="#tab3">Table 3</a>.</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>Polynomial Function</td><td>Leading Term</td><td>Graph of Polynomial Function</td></tr><tr><td>\(f(x)=5{x}^{4}+2{x}^{3}-x-4\)</td><td>\(5{x}^{4}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_011.jpg" alt="Graph of f(x)=5x^4+2x^3-x-4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>\(f(x)=-2{x}^{6}-{x}^{5}+3{x}^{4}+{x}^{3}\)</td><td>\(-2{x}^{6}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_012.jpg" alt="Graph of f(x)=-2x^6-x^5+3x^4+x^3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>\(f(x)=3{x}^{5}-4{x}^{4}+2{x}^{2}+1\)</td><td>\(3{x}^{5}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_013.jpg" alt="Graph of f(x)=3x^5-4x^4+2x^2+1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>\(f(x)=-6{x}^{3}+7{x}^{2}+3x+1\)</td><td>\(-6{x}^{3}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_014.jpg" alt="Graph of f(x)=-6x^3+7x^2+3x+1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Describe the end behavior and determine a possible degree of the polynomial function in <a href="#fig7">Figure 7</a>.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_015.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div><p class="sol-hint">Match the graph's rising/falling ends to the even/odd, positive/negative leading-term pattern.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As the input values \(x\) get very large, the output values \(f(x)\) increase without bound. As the input values \(x\) get very small, the output values \(f(x)\) decrease without bound. We can describe the end behavior symbolically by writing</p>
+<p id="eq14">\[\begin{array}{l}\text{as}\,x\to -\infty ,\,f(x)\to -\infty \, \\ \text{as}\,x\to \infty ,\,f(x)\to \infty \end{array}\]</p>
+<p>In words, we could say that as \(x\) values approach infinity, the function values approach infinity, and as \(x\) values approach negative infinity, the function values approach negative infinity.</p>
+<p>We can tell this graph has the shape of an odd degree power function that has not been reflected, so the degree of the polynomial creating this graph must be odd and the leading coefficient must be positive.</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Describe the end behavior, and determine a possible degree of the polynomial function in <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_016n.jpg" alt="Graph of an even-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>As \(x\to \infty ,\,f(x)\to -\infty ;\,as\,x\to -\infty ,\,f(x)\to -\infty .\) It has the shape of an even degree power function with a negative coefficient.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Given the function \(f(x)=-3{x}^{2}(x-1)(x+4),\) express the function as a polynomial in general form, and determine the leading term, degree, and end behavior of the function.</p>
+</div><p class="sol-hint">Multiply out the factors first to find the general form, then read the leading term straight from that.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Obtain the general form by expanding the given expression for \(f(x).\)</p>
+<p id="eq15">\[\begin{array}{l}\begin{array}{l} \\ f(x)=-3{x}^{2}(x-1)(x+4)\end{array} \\ \,=-3{x}^{2}({x}^{2}+3x-4) \\ \,=-3{x}^{4}-9{x}^{3}+12{x}^{2}\end{array}\]</p>
+<p>The general form is \(f(x)=-3{x}^{4}-9{x}^{3}+12{x}^{2}.\) The leading term is \(-3{x}^{4};\) therefore, the degree of the polynomial is 4. The degree is even (4) and the leading coefficient is negative (–3), so the end behavior is</p>
+<p id="eq16">\[\begin{array}{l}\text{as}\,x\to -\infty ,\,f(x)\to -\infty \, \\ \text{as}\,x\to \infty ,\,f(x)\to -\infty \end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Given the function \(f(x)=0.2(x-2)(x+1)(x-5),\) express the function as a polynomial in general form and determine the leading term, degree, and end behavior of the function.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The leading term is \(0.2{x}^{3},\) so it is a degree 3 polynomial. As \(x\) approaches positive infinity, \(f(x)\) increases without bound; as \(x\) approaches negative infinity, \(f(x)\) decreases without bound.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="identifying-local-behavior-of-polynomial-functions">Identifying Local Behavior of Polynomial Functions</h3>
+<p>In addition to the end behavior of polynomial functions, we are also interested in what happens in the “middle” of the function. In particular, we are interested in locations where graph behavior changes. A <strong>turning point</strong>is a point at which the function values change from increasing to decreasing or decreasing to increasing.</p>
+<p>We are also interested in the intercepts. As with all functions, the <strong>y-</strong>intercept is the point at which the graph intersects the vertical axis. The point corresponds to the coordinate pair in which the input value is zero. Because a polynomial is a function, only one output value corresponds to each input value so there can be only one <strong>y-</strong>intercept \((0,{a}_{0}).\) The <strong>x-</strong>intercepts occur at the input values that correspond to an output value of zero. It is possible to have more than one <strong>x-</strong>intercept. See <a href="#fig9">Figure 9</a><strong>.</strong></p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_017.jpg" alt="A graph of a cubic function on a Cartesian coordinate system shows two turning points, three x-intercepts, and one y-intercept, illustrating key features of the curve." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+<div class="card definition" id="fs-id1165135378843"><span class="chip">Intercepts and Turning Points of Polynomial Functions</span><p>A <strong>turning point</strong> of a graph is a point at which the graph changes direction from increasing to decreasing or decreasing to increasing. The <strong>y-</strong>intercept is the point at which the function has an input value of zero. The \(x\text{-}\) intercepts are the points at which the output value is zero.</p>
+</div>
+<div class="card howto" id="fs-id1165137766902"><span class="chip">How To</span><p><strong>Given a polynomial function, determine the intercepts.</strong></p>
+<ul class="tight"><li>Determine the <strong>y-</strong>intercept by setting \(x=0\) and finding the corresponding output value.</li><li>Determine the \(x\text{-}\) intercepts by solving for the input values that yield an output value of zero.</li></ul>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Given the polynomial function \(f(x)=(x-2)(x+1)(x-4),\) written in factored form for your convenience, determine the \(y\text{-}\) and \(x\text{-}\) intercepts.</p>
+</div><p class="sol-hint">Evaluate at \(x=0\) for the y-intercept, and set each factor to zero for the x-intercepts.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The <strong>y-</strong>intercept occurs when the input is zero so substitute 0 for \(x.\)</p>
+<p id="eq17">\[\begin{array}{l}f(0)=(0-2)(0+1)(0-4) \\ \,=(-2)(1)(-4) \\ \,=8\end{array}\]</p>
+<p>The <strong>y-</strong>intercept is (0, 8).</p>
+<p>The <strong>x</strong>-intercepts occur when the output is zero.</p>
+<p id="eq18">\[\begin{array}{l}\,0=(x-2)(x+1)(x-4) \\ \begin{array}{lllllllll}x-2=0 &amp; &amp; \text{or} &amp; &amp; x+1=0 &amp; &amp; \text{or} &amp; &amp; x-4=0 \\ \,x=2 &amp; &amp; \text{or} &amp; &amp; \,x=-1 &amp; &amp; \text{or} &amp; &amp; \,x=4\end{array}\end{array}\]</p>
+<p>The \(x\text{-}\) intercepts are \((2,0),(-1,0),\) and \((4,0).\)</p>
+<p>We can see these intercepts on the graph of the function shown in <a href="#fig10">Figure 10</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_018.jpg" alt="Graph of f(x)=(x-2)(x+1)(x-4), which labels all the intercepts." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+</div></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Given the polynomial function \(f(x)={x}^{4}-4{x}^{2}-45,\) determine the \(y\text{-}\) and \(x\text{-}\) intercepts.</p>
+</div><p class="sol-hint">Factor the polynomial — treat it like a quadratic in \({x}^{2}\) — before solving for the x-intercepts.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The <strong>y-</strong>intercept occurs when the input is zero.</p>
+<p id="eq19">\[\begin{array}{l}\begin{array}{l} \\ f(0)={(0)}^{4}-4{(0)}^{2}-45\end{array} \\ \,=-45\end{array}\]</p>
+<p>The <strong>y-</strong>intercept is \((0,-45).\)</p>
+<p>The <strong>x</strong>-intercepts occur when the output is zero. To determine when the output is zero, we will need to factor the polynomial.</p>
+<p id="eq20">\[\begin{array}{l}f(x)={x}^{4}-4{x}^{2}-45 \\ \,=({x}^{2}-9)({x}^{2}+5) \\ \,=(x-3)(x+3)({x}^{2}+5)\end{array}\]</p>
+<p id="eq21">\[0=(x-3)(x+3)({x}^{2}+5)\]</p>
+<p id="eq22">\[\begin{array}{lllll}x-3=0 &amp; \text{or} &amp; x+3=0 &amp; \text{or} &amp; {x}^{2}+5=0 \\ \,x=3 &amp; \text{or} &amp; \,x=-3 &amp; \text{or} &amp; \text{(no real solution)}\end{array}\]</p>
+<p>The <strong>x</strong>-intercepts are \((3,0)\) and \((-3,0).\)</p>
+<p>We can see these intercepts on the graph of the function shown in <a href="#fig11">Figure 11</a>. We can see that the function is even because \(f(x)=f(-x).\)</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_019.jpg" alt="Graph of f(x)=x^4-4x^2-45, which labels all the intercepts at (-3, 0), (3, 0), and (0, -45)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Given the polynomial function \(f(x)=2{x}^{3}-6{x}^{2}-20x,\) determine the \(y\text{-}\) and \(x\text{-}\) intercepts.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p><strong>y</strong>-intercept \((0,0);\) <strong>x</strong>-intercepts \((0,0),(-2,0),\) and \((5,0)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="comparing-smooth-and-continuous-graphs">Comparing Smooth and Continuous Graphs</h3>
+<p>The degree of a polynomial function helps us to determine the number of \(x\text{-}\) intercepts and the number of turning points. A polynomial function of \(n\text{th}\) degree is the product of \(n\) factors, so it will have at most \(n\) roots or zeros, or \(x\text{-}\) intercepts. The graph of the polynomial function of degree \(n\) must have at most \(n-1\) turning points. This means the graph has at most one fewer turning point than the degree of the polynomial or one fewer than the number of factors.</p>
+<p>A <strong>continuous function</strong> has no breaks in its graph: the graph can be drawn without lifting the pen from the paper. A <strong>smooth curve</strong> is a graph that has no sharp corners. The turning points of a smooth graph must always occur at rounded curves. The graphs of polynomial functions are both continuous and smooth.</p>
+<div class="card definition" id="fs-id1165137847104"><span class="chip">Intercepts and Turning Points of Polynomials</span><p>A polynomial of degree \(n\) will have, at most, \(n\) <strong>x</strong>-intercepts and \(n-1\) turning points.</p>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Without graphing the function, determine the local behavior of the function by finding the maximum number of \(x\text{-}\) intercepts and turning points for \(f(x)=-3{x}^{10}+4{x}^{7}-{x}^{4}+2{x}^{3}.\)</p>
+</div><p class="sol-hint">The degree caps the number of x-intercepts, and one less than the degree caps the turning points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The polynomial has a degree of \(10,\) so there are at most \(10\) \(x\) -intercepts and at most \(10-1=9\) turning points.</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Without graphing the function, determine the maximum number of \(x\text{-}\) intercepts and turning points for \(f(x)=108-13{x}^{9}-8{x}^{4}+14{x}^{12}+2{x}^{3}\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>There are at most 12 \(x\text{-}\) intercepts and at most 11 turning points.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>What can we conclude about the polynomial represented by the graph shown in <a href="#fig12">Figure 12</a> based on its intercepts and turning points?</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_020.jpg" alt="Graph of an even-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+</div><p class="sol-hint">Count the x-intercepts and turning points on the graph, then use those counts as a lower bound on the degree.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The end behavior of the graph tells us this is the graph of an even-degree polynomial. See <a href="#fig13">Figure 13</a>.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_021.jpg" alt="Graph of an even-degree polynomial that denotes the turning points and intercepts." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+<p>The graph has 2 \(x\text{-}\) intercepts, suggesting a degree of 2 or greater, and 3 turning points, suggesting a degree of 4 or greater. Based on this, it would be reasonable to conclude that the degree is even and at least 4.</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>What can we conclude about the polynomial represented by the graph shown in <a href="#fig14">Figure 14</a> based on its intercepts and turning points?</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_022-9b31.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The end behavior indicates an odd-degree polynomial function; there are 3 \(x\text{-}\) intercepts and 2 turning points, so the degree is odd and at least 3. Because of the end behavior, we know that the lead coefficient must be negative.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Given the function \(f(x)=-4x(x+3)(x-4),\) determine the local behavior.</p>
+</div><p class="sol-hint">Evaluate at \(x=0\) for the y-intercept, set each factor to zero for the x-intercepts, then use the degree to bound the turning points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The \(y\text{-}\) intercept is found by evaluating \(f(0).\)</p>
+<p id="eq23">\[\begin{array}{l}f(0)=-4(0)(0+3)(0-4) \\ \,=0\end{array}\]</p>
+<p>The \(y\text{-}\) intercept is \((0,0).\)</p>
+<p>The \(x\text{-}\) intercepts are found by determining the zeros of the function.</p>
+<p id="eq24">\[\begin{array}{l}0=-4x(x+3)(x-4) \\ \begin{array}{lllllllll}x=0 &amp; &amp; \text{or} &amp; &amp; x+3=0 &amp; &amp; \text{or} &amp; &amp; x-4=0 \\ x=0 &amp; &amp; \text{or} &amp; &amp; \,x=-3 &amp; &amp; \text{or} &amp; &amp; \,x=4\end{array}\end{array}\]</p>
+<p>The \(x\text{-}\) intercepts are \((0,0),(-3,0),\) and \((4,0).\)</p>
+<p>The degree is 3 so the graph has at most 2 turning points.</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Given the function \(f(x)=0.2(x-2)(x+1)(x-5),\) determine the local behavior.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The \(x\text{-}\) intercepts are \((2,0),(-1,0),\) and \((5,0),\) the <strong>y-</strong>intercept is \((0,\text{2}),\) and the graph has at most 2 turning points.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165137653058"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with power and polynomial functions.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/keyinfopoly" target="_blank" rel="noopener">Find Key Information about a Given Polynomial Function</a></li><li><a href="https://openstax.org/l/endbehavior" target="_blank" rel="noopener">End Behavior of a Polynomial Function</a></li><li><a href="https://openstax.org/l/turningpoints" target="_blank" rel="noopener">Turning Points and \(x\text{-}\) intercepts of Polynomial Functions</a></li><li><a href="https://openstax.org/l/leastposdegree" target="_blank" rel="noopener">Least Possible Degree of a Polynomial Function</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>general form of a polynomial function</td><td>\(f(x)={a}_{n}{x}^{n}+{a}_{n-1}{x}^{n-1}+...+{a}_{2}{x}^{2}+{a}_{1}x+{a}_{1}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A power function is a variable base raised to a number power. See <a href="#example1">Example 1</a>.</li><li>The behavior of a graph as the input decreases beyond bound and increases beyond bound is called the end behavior.</li><li>The end behavior depends on whether the power is even or odd. See <a href="#example2">Example 2</a> and <a href="#example3">Example 3</a>.</li><li>A polynomial function is the sum of terms, each of which consists of a transformed power function with positive whole number power. See <a href="#example4">Example 4</a>.</li><li>The degree of a polynomial function is the highest power of the variable that occurs in a polynomial. The term containing the highest power of the variable is called the leading term. The coefficient of the leading term is called the leading coefficient. See <a href="#example5">Example 5</a>.</li><li>The end behavior of a polynomial function is the same as the end behavior of the power function represented by the leading term of the function. See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.</li><li>A polynomial of degree \(n\) will have at most \(n\) <strong>x-</strong>intercepts and at most \(n-1\) turning points. See <a href="#example8">Example 8</a>, <a href="#example9">Example 9</a>, <a href="#example10">Example 10</a>, <a href="#example11">Example 11</a>, and <a href="#example12">Example 12</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Explain the difference between the coefficient of a power function and its degree.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The coefficient of the power function is the real number that is multiplied by the variable raised to a power. The degree is the highest power appearing in the function.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>If a polynomial function is in factored form, what would be a good first step in order to determine the degree of the function?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>In general, explain the end behavior of a polynomial with odd degree if the leading coefficient is positive.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>As \(x\) decreases without bound, so does \(f(x).\) As \(x\) increases without bound, so does \(f(x).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>What is the relationship between the degree of a polynomial function and the maximum number of turning points in its graph?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>What can we conclude if, in general, the graph of a polynomial function exhibits the following end behavior? As \(x\to -\infty ,\,f(x)\to -\infty\) and as \(x\to \infty ,\,f(x)\to -\infty .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The polynomial function is of even degree and leading coefficient is negative.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, identify the function as a power function, a polynomial function, or neither.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(f(x)={x}^{5}\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(f(x)={({x}^{2})}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)\) is a power function because it contains a variable base raised to a fixed power. It is also a polynomial, with all coefficients except one equal to zero.</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(f(x)=x-{x}^{4}\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(f(x)=\frac{{x}^{2}}{{x}^{2}-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Neither</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(f(x)=2x(x+2){(x-1)}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(f(x)={3}^{x+1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Neither</p>
+</div></div></div></div>
+<p>For the following exercises, find the degree and leading coefficient for the given polynomial.</p>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(-3x4\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(7-2{x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Degree = 2, Coefficient = –2</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(-2{x}^{2}-\,3{x}^{5}+\,x-6\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(x(4-{x}^{2})(2x+1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Degree =4, Coefficient = –2</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\({x}^{2}{(2x-3)}^{2}\)</p>
+</div></div>
+<p>For the following exercises, determine the end behavior of the functions.</p>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x)={x}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>As \(x\to \infty\) , \(f(x)\to \infty\) , as \(x\to -\infty\) , \(f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(f(x)={x}^{3}\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(f(x)=-{x}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>As \(x\to -\infty\) , \(f(x)\to -\infty\) , as \(x\to \infty\) , \(f(x)\to -\infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(f(x)=-{x}^{9}\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(f(x)=-2{x}^{4}-\,3{x}^{2}+\,x-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>As \(x\to -\infty\) , \(f(x)\to -\infty\) ,as \(x\to \infty\) , \(f(x)\to -\infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(f(x)=3{x}^{2}+\,x-2\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(f(x)={x}^{2}(2{x}^{3}-x+1)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>As \(x\to \infty\) , \(f(x)\to \infty\) , as \(x\to -\infty\) , \(f(x)\to -\infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(f(x)={(2-x)}^{7}\)</p>
+</div></div>
+<p>For the following exercises, find the intercepts of the functions.</p>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(f(t)=2(t-1)(t+2)(t-3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>y</strong>-intercept is \((0,12),\) <strong>t</strong>-intercepts are \((1,0);(-2,0);\text{and }(3,0).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(g(n)=-2(3n-1)(2n+1)\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(f(x)={x}^{4}-16\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>y</strong>-intercept is \((0,-16).\) <strong>x</strong>-intercepts are \((2,0)\) and \((-2,0).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(f(x)={x}^{3}+27\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(f(x)=x({x}^{2}-2x-8)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>y</strong>-intercept is \((0,0).\) <strong>x</strong>-intercepts are \((0,0),(4,0),\) and \((-2,\,0).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(f(x)=(x+3)(4{x}^{2}-1)\)</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, determine the least possible degree of the polynomial function shown.</p>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_201.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>3</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_202.jpg" alt="Graph of an even-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_203.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>5</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_204.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_205.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>3</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_206.jpg" alt="Graph of an even-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_207.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>5</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_208.jpg" alt="Graph of an even-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, determine whether the graph of the function provided is a graph of a polynomial function. If so, determine the number of turning points and the least possible degree for the function.</p>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_209.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes. Number of turning points is 2. Least possible degree is 3.</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_210.jpg" alt="Graph of an equation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_211.jpg" alt="Graph of an even-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes. Number of turning points is 1. Least possible degree is 2.</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_212.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_213.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes. Number of turning points is 0. Least possible degree is 1.</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_214.jpg" alt="Graph of an equation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>No.</p>
+</div></div></div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_215.jpg" alt="Graph of an odd-degree polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes. Number of turning points is 0. Least possible degree is 1.</p>
+</div></div></div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, make a table to confirm the end behavior of the function.</p>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(f(x)=-{x}^{3}\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(f(x)={x}^{4}-5{x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>\(x\)</td><td>\(f(x)\)</td></tr><tr><td>10</td><td>9,500</td></tr><tr><td>100</td><td>99,950,000</td></tr><tr><td>–10</td><td>9,500</td></tr><tr><td>–100</td><td>99,950,000</td></tr></tbody></table></div>
+<p>as \(x\to -\infty\) , \(f(x)\to \infty\) , as \(x\to \infty\) , \(f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(f(x)={x}^{2}{(1-x)}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(f(x)=(x-1)(x-2)(3-x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>\(x\)</td><td>\(f(x)\)</td></tr><tr><td>10</td><td>–504</td></tr><tr><td>100</td><td>–941,094</td></tr><tr><td>–10</td><td>1,716</td></tr><tr><td>–100</td><td>1,061,106</td></tr></tbody></table></div>
+<p>as \(x\to -\infty\) , \(f(x)\to \infty\) , as \(x\to \infty\) , \(f(x)\to -\infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(f(x)=\frac{{x}^{5}}{10}-{x}^{4}\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, graph the polynomial functions using a calculator. Based on the graph, determine the intercepts and the end behavior.</p>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(f(x)={x}^{3}(x-2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_216.jpg" alt="Graph of f(x)=x^3(x-2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The \(y\text{-}\) intercept is \((0,\,0).\) The \(x\text{-}\) intercepts are \((0,\,0),\,(2,\,0).\) As \(x\to -\infty\) , \(f(x)\to \infty\) , as \(x\to \infty\) , \(f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\(f(x)=x(x-3)(x+3)\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(f(x)=x(14-2x)(10-2x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_218.jpg" alt="Graph of f(x)=x(14-2x)(10-2x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The \(y\text{-}\) intercept is \((0,0)\) . The \(x\text{-}\) intercepts are \((0,\,0),\,(5,\,0),\,(7,\,0).\) As \(x\to -\infty\) , \(f(x)\to \infty\) , as \(x\to \infty\) , \(f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(f(x)=x(14-2x){(10-2x)}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(f(x)={x}^{3}-16x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_220.jpg" alt="A graph of a cubic function is displayed on a Cartesian coordinate system. The x-axis ranges from -10 to 10, and the y-axis ranges from -400 to 300. The blue curve represents the function, exhibiting an S-shape characteristic of a cubic polynomial. It passes through the origin (0,0) and has approximate x-intercepts at x = -4 and x = 2. The function increases, reaches a local maximum near x = -2, then decreases to a local minimum near x = 2, and subsequently increases again." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The \(y\text{-}\) intercept is \((0,\,0).\) The \(x\text{-}\) intercept is \((-4,\,0),\,(0,\,0),\,(4,\,0).\) As \(x\to -\infty\) , \(f(x)\to \infty\) , as \(x\to \infty\) , \(f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\(f(x)={x}^{3}-27\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\(f(x)={x}^{4}-81\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_222.jpg" alt="Graph of f(x)=x^3-27." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The \(y\text{-}\) intercept is \((0,\,-81).\) The \(x\text{-}\) intercept are \((3,\,0),\,(-3,\,0).\) As \(x\to -\infty\) , \(f(x)\to \infty\) , as \(x\to \infty\) , \(f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\(f(x)=-{x}^{3}+{x}^{2}+2x\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>\(f(x)={x}^{3}-2{x}^{2}-15x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_03_224.jpg" alt="Graph of f(x)=-x^3+x^2+2x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The \(y\text{-}\) intercept is \((0,\,0).\) The \(x\text{-}\) intercepts are \((-3,\,0),\,(0,\,0),\,(5,\,0).\) As \(x\to -\infty\) , \(f(x)\to \infty\) , as \(x\to \infty\) , \(f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\(f(x)={x}^{3}-0.01x\)</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, use the information about the graph of a polynomial function to determine the function. Assume the leading coefficient is 1 or –1. There may be more than one correct answer.</p>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>The \(y-\) intercept is \((0,-4).\) The \(x-\) intercepts are \((-2,0),\,(2,0).\,\) Degree is 2.</p>
+<p>End behavior: \(\text{as}\,x\to -\infty\) , \(f(x)\to \infty\) , \(\text{as}\,x\to \infty ,\,f(x)\to \infty .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={x}^{2}-4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>The \(y-\) intercept is \((0,9).\) The \(x\text{-}\) intercepts are \((-3,0),\,(3,0).\,\) Degree is 2.</p>
+<p>End behavior: \(\text{as}\,x\to -\infty\) , \(f(x)\to -\infty\) , \(\text{as}\,x\to \infty\) , \(f(x)\to -\infty .\)</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>The \(y-\) intercept is \((0,0).\) The \(x-\) intercepts are \((0,0),\,(2,0).\,\) Degree is 3.</p>
+<p>End behavior: \(\text{as}\,x\to -\infty\) , \(f(x)\to -\infty\) , \(\text{as}\,x\to \infty\) , \(f(x)\to \infty .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={x}^{3}-4{x}^{2}+4x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>The \(y-\) intercept is \((0,1).\) The \(x-\) intercept is \((1,0).\) Degree is 3.</p>
+<p>End behavior: \(\text{as}\,x\to -\infty\) , \(f(x)\to \infty\) , \(\,\text{as}\,x\to \infty\) , \(f(x)\to -\infty .\)</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>The \(y-\) intercept is \((0,1).\) There is no \(x-\) intercept. Degree is 4.</p>
+<p>End behavior: \(\text{as}\,x\to -\infty\) , \(f(x)\to \infty\) , \(\text{as}\,x\to \infty\) , \(\,f(x)\to \infty .\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={x}^{4}+1\)</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<p>For the following exercises, use the written statements to construct a polynomial function that represents the required information.</p>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>An oil slick is expanding as a circle. The radius of the circle is increasing at the rate of 20 meters per day. Express the area of the circle as a function of \(d,\) the number of days elapsed.</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>A cube has an edge of 3 feet. The edge is increasing at the rate of 2 feet per minute. Express the volume of the cube as a function of \(m,\) the number of minutes elapsed.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(V(m)=8{m}^{3}+36{m}^{2}+54m+27\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>A rectangle has a length of 10 inches and a width of 6 inches. If the length is increased by \(x\) inches and the width increased by twice that amount, express the area of the rectangle as a function of \(x.\)</p>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>An open box is to be constructed by cutting out square corners of \(x-\) inch sides from a piece of cardboard 8 inches by 8 inches and then folding up the sides. Express the volume of the box as a function of \(x.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(V(x)=4{x}^{3}-32{x}^{2}+64x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>A rectangle is twice as long as it is wide. Squares of side 2 feet are cut out from each corner. Then the sides are folded up to make an open box. Express the volume of the box as a function of the width ( \(x\) ).</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>coefficient</dt><dd>a nonzero real number multiplied by a variable raised to an exponent</dd><dt>continuous function</dt><dd>a function whose graph can be drawn without lifting the pen from the paper because there are no breaks in the graph</dd><dt>degree</dt><dd>the highest power of the variable that occurs in a polynomial</dd><dt>end behavior</dt><dd>the behavior of the graph of a function as the input decreases without bound and increases without bound</dd><dt>leading coefficient</dt><dd>the coefficient of the leading term</dd><dt>leading term</dt><dd>the term containing the highest power of the variable</dd><dt>polynomial function</dt><dd>a function that consists of either zero or the sum of a finite number of non-zero terms, each of which is a product of a number, called the coefficient of the term, and a variable raised to a non-negative integer power.</dd><dt>power function</dt><dd>a function that can be represented in the form \(f(x)=k{x}^{p}\) where \(k\) is a constant, the base is a variable, and the exponent, \(p,\) is a constant</dd><dt>smooth curve</dt><dd>a graph with no sharp corners</dd><dt>term of a polynomial function</dt><dd>any \({a}_{i}{x}^{i}\) of a polynomial function in the form \(f(x)={a}_{n}{x}^{n}+{a}_{n-1}{x}^{n-1}+...+{a}_{2}{x}^{2}+{a}_{1}x+{a}_{0}\)</dd><dt>turning point</dt><dd>the location at which the graph of a function changes direction</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding Limits: Properties of Limits · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Finding Limits: Properties of Limits</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.2</span>Finding Limits: Properties of Limits</h1>
+<p>Consider the <strong>rational function</strong></p>
+<p id="eq1">\[f(x)=\frac{{x}^{2}-6x-7}{x-7}\]</p>
+<p>The function can be factored as follows:</p>
+<p id="eq2">\[f(x)=\frac{(x-7)(x+1)}{x-7},\text{ which gives us }f(x)=x+1,x\ne 7.\]</p>
+<p>Does this mean the function \(f\) is the same as the function \(g(x)=x+1?\)</p>
+<p>The answer is no. Function \(f\) does not have \(x=7\) in its domain, but \(g\) does. Graphically, we observe there is a hole in the graph of \(f(x)\) at \(x=7,\) as shown in <a href="#fig1">Figure 1</a> and no such hole in the graph of \(g(x),\) as shown in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_02_001.jpg" alt="Graph of an increasing function where f(x) = (x^2-6x-7)/(x-7) with a discontinuity at (7, 8)" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The graph of function \(f\) contains a break at <strong>\(x=7\)</strong> and is therefore not continuous at \(x=7.\)</figcaption></figure>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_02_002.jpg" alt="Graph of an increasing function where g(x) = x+1" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — The graph of function \(g\) is continuous.</figcaption></figure>
+<p>So, do these two different functions also have different limits as \(x\) approaches 7?</p>
+<p>Not necessarily. Remember, in determining a <strong>limit</strong> of a function as \(x\) approaches \(a,\) what matters is whether the output approaches a real number as we get close to \(x=a.\) The existence of a limit does not depend on what happens when \(x\) equals \(a.\)</p>
+<p>Look again at <a href="#fig1">Figure 1</a> and <a href="#fig2">Figure 2</a>. Notice that in both graphs, as \(x\) approaches 7, the output values approach 8. This means</p>
+<p id="eq3">\[\underset{x\to 7}{lim}f(x)=\underset{x\to 7}{lim}g(x).\]</p>
+<p>Remember that when determining a limit, the concern is what occurs near \(x=a,\) not at \(x=a.\) In this section, we will use a variety of methods, such as rewriting functions by factoring, to evaluate the limit. These methods will give us formal verification for what we formerly accomplished by intuition.</p>
+<h2 id="finding-the-limit-of-a-sum-a-difference-and-a-product">Finding the Limit of a Sum, a Difference, and a Product</h2>
+<p>Graphing a function or exploring a table of values to determine a limit can be cumbersome and time-consuming. When possible, it is more efficient to use the <strong>properties of limits</strong>, which is a collection of theorems for finding limits.</p>
+<p>Knowing the properties of limits allows us to compute limits directly. We can add, subtract, multiply, and divide the limits of functions as if we were performing the operations on the functions themselves to find the limit of the result. Similarly, we can find the limit of a function raised to a power by raising the limit to that power. We can also find the limit of the root of a function by taking the root of the limit. Using these operations on limits, we can find the limits of more complex functions by finding the limits of their simpler component functions.</p>
+<div class="card definition" id="fs-id1165137673669"><span class="chip">Properties of Limits</span><p>Let \(a,\,k,\,A,\) and \(B\) represent real numbers, and \(f\) and \(g\) be functions, such that \(\underset{x\to a}{lim}f(x)=A\) and \(\underset{x\to a}{lim}g(x)=B.\) For limits that exist and are finite, the properties of limits are summarized in <a href="#tab1">Table 1</a></p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Constant, <strong>k</strong></td><td>\(\underset{x\to a}{lim}k=k\)</td></tr><tr><td>Constant times a function</td><td>\(\underset{x\to a}{lim}[k\cdot f(x)]=k\underset{x\to a}{lim}f(x)=kA\)</td></tr><tr><td>Sum of functions</td><td>\(\underset{x\to a}{lim}[f(x)+g(x)]=\underset{x\to a}{lim}f(x)+\underset{x\to a}{lim}g(x)=A+B\)</td></tr><tr><td>Difference of functions</td><td>\(\underset{x\to a}{lim}[f(x)-g(x)]=\underset{x\to a}{lim}f(x)-\underset{x\to a}{lim}g(x)=A-B\)</td></tr><tr><td>Product of functions</td><td>\(\underset{x\to a}{lim}[f(x)\cdot g(x)]=\underset{x\to a}{lim}f(x)\cdot \underset{x\to a}{lim}g(x)=A\cdot B\)</td></tr><tr><td>Quotient of functions</td><td>\(\underset{x\to a}{lim}\frac{f(x)}{g(x)}=\frac{\underset{x\to a}{lim}f(x)}{\underset{x\to a}{lim}g(x)}=\frac{A}{B},B\ne 0\)</td></tr><tr><td>Function raised to an exponent</td><td>\(\underset{x\to a}{lim}{[f(x)]}^{n}={[\underset{x\to a}{lim}f(x)]}^{n}={A}^{n},\) where \(n\) is a positive integer</td></tr><tr><td><strong>n</strong>th root of a function, where n is a positive integer</td><td>\(\underset{x\to a}{lim}\sqrt[n]{f(x)}=\sqrt[n]{\underset{x\to a}{lim}[f(x)]}=\sqrt[n]{A}\)</td></tr><tr><td>Polynomial function</td><td>\(\underset{x\to a}{lim}p(x)=p(a)\)</td></tr></tbody></table></div>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 3}{lim}(2x+5).\)</p>
+</div><p class="sol-hint">Since this is a polynomial, direct substitution of x=3 will work.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq4">\[\begin{array}{ll}\underset{x\to 3}{lim}(2x+5)=\underset{x\to 3}{lim}(2x)+\underset{x\to 3}{lim}(5) &amp; \text{Sum of functions property} \\ \,=\underset{x\to 3}{2lim}(x)+\underset{x\to 3}{lim}(5) &amp; \text{Constant times a function property} \\ \,=2(3)+5 &amp; \text{Evaluate} \\ \,=11 &amp; \end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Evaluate the following limit: \(\underset{x\to -12}{lim}(-2x+2).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>26</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-the-limit-of-a-polynomial">Finding the Limit of a Polynomial</h2>
+<p>Not all functions or their limits involve simple addition, subtraction, or multiplication. Some may include polynomials. Recall that a polynomial is an expression consisting of the sum of two or more terms, each of which consists of a constant and a variable raised to a nonnegative integral power. To find the limit of a polynomial function, we can find the limits of the individual terms of the function, and then add them together. Also, the <strong>limit</strong> of a polynomial function as \(x\) approaches \(a\) is equivalent to simply evaluating the function for \(a\) .</p>
+<div class="card howto" id="fs-id1165135193626"><span class="chip">How To</span><p><strong>Given a function containing a polynomial, find its limit.</strong></p>
+<ul class="tight"><li>Use the properties of limits to break up the polynomial into individual terms.</li><li>Find the limits of the individual terms.</li><li>Add the limits together.</li><li>Alternatively, evaluate the function for \(a\) .</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 3}{lim}(5{x}^{2}).\)</p>
+</div><p class="sol-hint">Since this is a polynomial, direct substitution of x=3 will work.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq5">\[\begin{array}{ll}\underset{x\to 3}{lim}(5{x}^{2})=5\underset{x\to 3}{lim}({x}^{2}) &amp; \text{Constant times a function property} \\ \,=5({3}^{2}) &amp; \text{Function raised to an exponent property} \\ \,=45 &amp; \end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 4}{lim}({x}^{3}-5).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>59</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 5}{lim}(2{x}^{3}-3x+1).\)</p>
+</div><p class="sol-hint">Since this is a polynomial, direct substitution of x=5 will work.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq6">\[\begin{array}{ll}\underset{x\to 5}{lim}(2{x}^{3}-3x+1)=\underset{x\to 5}{lim}(2{x}^{3})-\underset{x\to 5}{lim}(3x)+\underset{x\to 5}{lim}(1) &amp; \text{Sum of functions} \\ \,=\underset{x\to 5}{2lim}({x}^{3})-\underset{x\to 5}{3lim}(x)+\underset{x\to 5}{lim}(1) &amp; \text{Constant times a function} \\ \,=2({5}^{3})-3(5)+1 &amp; \text{Function raised to an exponent} \\ \,=236 &amp; \text{Evaluate}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Evaluate the following limit: \(\underset{x\to -1}{lim}({x}^{4}-4{x}^{3}+5).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>10</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-the-limit-of-a-power-or-a-root">Finding the Limit of a Power or a Root</h2>
+<p>When a limit includes a power or a root, we need another property to help us evaluate it. The square of the <strong>limit</strong> of a function equals the limit of the square of the function; the same goes for higher powers. Likewise, the square root of the limit of a function equals the limit of the square root of the function; the same holds true for higher roots.</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 2}{lim}{(3x+1)}^{5}.\)</p>
+</div><p class="sol-hint">Apply the power rule for limits: find the limit of the inside expression first, then raise it to the 5th power.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will take the limit of the function as \(x\) approaches 2 and raise the result to the 5<sup>th</sup> power.</p>
+<p id="eq7">\[\begin{array}{l}\underset{x\to 2}{lim}{(3x+1)}^{5}={(\underset{x\to 2}{lim}(3x+1))}^{5} \\ \,={(3(2)+1)}^{5} \\ \,={7}^{5} \\ \,=\text{16,807}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Evaluate the following limit: \(\underset{x\to -4}{lim}{(10x+36)}^{3}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-64\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card qa" id="fs-id1165137642913"><span class="chip">Q&amp;A</span><p><strong>If we can’t directly apply the properties of a limit, for example in \(\underset{x\to 2}{lim}(\frac{{x}^{2}+6x+8}{x-2})\) , can we still determine the limit of the function as \(x\) approaches \(a\) ?</strong></p>
+<p><strong>Yes. Some functions may be algebraically rearranged so that one can evaluate the limit of a simplified equivalent form of the function.</strong></p>
+</div>
+<h2 id="finding-the-limit-of-a-quotient">Finding the Limit of a Quotient</h2>
+<p>Finding the limit of a function expressed as a quotient can be more complicated. We often need to rewrite the function algebraically before applying the properties of a limit. If the denominator evaluates to 0 when we apply the properties of a limit directly, we must rewrite the quotient in a different form. One approach is to write the quotient in factored form and simplify.</p>
+<div class="card howto" id="fs-id1165137925330"><span class="chip">How To</span><p><strong>Given the limit of a function in quotient form, use factoring to evaluate it.</strong></p>
+<ul class="tight"><li>Factor the numerator and denominator completely.</li><li>Simplify by dividing any factors common to the numerator and denominator.</li><li>Evaluate the resulting limit, remembering to use the correct domain.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 2}{lim}(\frac{{x}^{2}-6x+8}{x-2}).\)</p>
+</div><p class="sol-hint">Try direct substitution first — since it gives 0/0, factor the numerator and cancel the common factor before substituting again.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Factor where possible, and simplify.</p>
+<p id="eq8">\[\begin{array}{ll}\underset{x\to 2}{lim}(\frac{{x}^{2}-6x+8}{x-2})=\underset{x\to 2}{lim}(\frac{(x-2)(x-4)}{x-2}) &amp; \text{Factor the numerator}. \\ \,=\underset{x\to 2}{lim}(\frac{(x-2)(x-4)}{x-2}) &amp; \text{Cancel the common factors}. \\ \,=\underset{x\to 2}{lim}(x-4) &amp; \text{Evaluate}. \\ \,=2-4=-2 &amp; \end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>When the limit of a rational function cannot be evaluated directly, factored forms of the numerator and denominator may simplify to a result that can be evaluated.</p>
+<p>Notice, the function</p>
+<p id="eq9">\[f(x)=\frac{{x}^{2}-6x+8}{x-2}\]</p>
+<p>is equivalent to the function</p>
+<p id="eq10">\[f(x)=x-4,x\ne 2.\]</p>
+<p>Notice that the limit exists even though the function is not defined at \(x\text{ = 2}\text{.}\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Evaluate the following limit: \(\underset{x\to 7}{lim}(\frac{{x}^{2}-11x+28}{7-x}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-3\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 5}{lim}(\frac{\frac{1}{x}-\frac{1}{5}}{x-5}).\)</p>
+</div><p class="sol-hint">Combine the fractions in the numerator over a common denominator first, then simplify the resulting complex fraction before substituting.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Find the LCD for the denominators of the two terms in the numerator, and convert both fractions to have the LCD as their denominator.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_EQ_12_02_001.jpg" alt="This image illustrates the step-by-step process of evaluating the limit of a rational function as x approaches 5. The solution shows how to simplify the expression by multiplying the numerator and denominator by the least common denominator (LCD), applying the distributive property, simplifying, factoring the numerator, canceling like terms, and finally evaluating the simplified expression at x=5 to arrive at the result of -1/25." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>When determining the <strong>limit</strong> of a rational function that has terms added or subtracted in either the numerator or denominator, the first step is to find the common denominator of the added or subtracted terms; then, convert both terms to have that denominator, or simplify the rational function by multiplying numerator and denominator by the least common denominator. Then check to see if the resulting numerator and denominator have any common factors.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to -5}{lim}(\frac{\frac{1}{5}+\frac{1}{x}}{10+2x}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-\frac{1}{50}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto" id="fs-id1165135332980"><span class="chip">How To</span><p><strong>Given a limit of a function containing a root, use a conjugate to evaluate.</strong></p>
+<ul class="tight"><li>If the quotient as given is not in indeterminate \((\frac{0}{0})\) form, evaluate directly.</li><li>Otherwise, rewrite the sum (or difference) of two quotients as a single quotient, using the <strong>least common denominator (LCD)</strong>.</li><li>If the numerator includes a root, rationalize the numerator; multiply the numerator and denominator by the <strong>conjugate</strong> of the numerator. Recall that \(a\pm \sqrt{b}\) are conjugates.</li><li>Simplify.</li><li>Evaluate the resulting limit.</li></ul>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 0}{lim}(\frac{\sqrt{25-x}-5}{x}).\)</p>
+</div><p class="sol-hint">Multiply numerator and denominator by the conjugate of the numerator to eliminate the square root.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>\(\begin{array}{ll}\underset{x\to 0}{lim}(\frac{\sqrt{25-x}-5}{x})=\underset{x\to 0}{lim}(\frac{(\sqrt{25-x}-5)}{x}\cdot \frac{(\sqrt{25-x}+5)}{(\sqrt{25-x}+5)}) &amp; \text{Multiply numerator and denominator by the conjugate}. \\ \,=\underset{x\to 0}{lim}(\frac{(25-x)-25}{x(\sqrt{25-x}+5)}) &amp; \text{Multiply: }(\sqrt{25-x}-5)\cdot (\sqrt{25-x}+5)=(25-x)-25. \\ \,=\underset{x\to 0}{lim}(\frac{-x}{x(\sqrt{25-x}+5)}) &amp; \text{Combine like terms}. \\ \,=\underset{x\to 0}{lim}(\frac{-x}{x(\sqrt{25-x}+5)}) &amp; \text{Simplify }\frac{-x}{x}=-1. \\ \,=\frac{-1}{\sqrt{25-0}+5} &amp; \text{Evaluate}. \\ \,=\frac{-1}{5+5}=-\frac{1}{10} &amp; \end{array}\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>When determining a <strong>limit</strong> of a function with a root as one of two terms where we cannot evaluate directly, think about multiplying the numerator and denominator by the conjugate of the terms.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Evaluate the following limit: \(\underset{h\to 0}{lim}(\frac{\sqrt{16-h}-4}{h}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-\frac{1}{8}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 4}{lim}(\frac{4-x}{\sqrt{x}-2}).\)</p>
+</div><p class="sol-hint">Multiply numerator and denominator by the conjugate of the denominator to eliminate the square root.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>\(\begin{array}{ll}\underset{x\to 4}{lim}(\frac{4-x}{\sqrt{x}-2})=\underset{x\to 4}{lim}(\frac{(2+\sqrt{x})(2-\sqrt{x})}{\sqrt{x}-2}) &amp; \text{Factor.} \\ \,=\underset{x\to 4}{lim}(\frac{(2+\sqrt{x})(2-\sqrt{x})}{-(2-\sqrt{x})}) &amp; \text{Factor }-1\text{ out of the denominator}\text{. Simplify}. \\ \,=\underset{x\to 4}{lim}-(2+\sqrt{x}) &amp; \text{Evaluate}. \\ \,=-(2+\sqrt{4}) &amp; \\ \,=-4 &amp; \end{array}\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Multiplying by a conjugate would expand the numerator; look instead for factors in the numerator. Four is a perfect square so that the numerator is in the form</p>
+<p id="eq11">\[{a}^{2}-{b}^{2}\]</p>
+<p>and may be factored as</p>
+<p id="eq12">\[(a+b)(a-b).\]</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Evaluate the following limit: \(\underset{x\to 3}{lim}(\frac{x-3}{\sqrt{x}-\sqrt{3}}).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(2\sqrt{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto" id="fs-id1165135344974"><span class="chip">How To</span><p><strong>Given a quotient with absolute values, evaluate its limit.</strong></p>
+<ul class="tight"><li>Try factoring or finding the LCD.</li><li>If the <strong>limit</strong> cannot be found, choose several values close to and on either side of the input where the function is undefined.</li><li>Use the numeric evidence to estimate the limits on both sides.</li></ul>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(\underset{x\to 7}{lim}\frac{|x-7|}{x-7}.\)</p>
+</div><p class="sol-hint">Rewrite the absolute value as its piecewise definition and evaluate the one-sided limits separately.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The function is undefined at \(x=7,\) so we will try values close to 7 from the left and the right.</p>
+<p>Left-hand limit: \(\frac{|6.9-7|}{6.9-7}=\frac{|6.99-7|}{6.99-7}=\frac{|6.999-7|}{6.999-7}=-1\)</p>
+<p>Right-hand limit: \(\frac{|7.1-7|}{7.1-7}=\frac{|7.01-7|}{7.01-7}=\frac{|7.001-7|}{7.001-7}=1\)</p>
+<p>Since the left- and right-hand limits are not equal, there is no limit.</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Evaluate \(\underset{x\to {6}^{+}}{lim}\frac{6-x}{|x-6|}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(-1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165135255403"><span class="chip">Media</span><p>Access the following online resource for additional instruction and practice with properties of limits.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/limitanalytic" target="_blank" rel="noopener">Determine a Limit Analytically</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The properties of limits can be used to perform operations on the limits of functions rather than the functions themselves. See <a href="#example1">Example 1</a>.</li><li>The limit of a polynomial function can be found by finding the sum of the limits of the individual terms. See <a href="#example2">Example 2</a> and <a href="#example3">Example 3</a>.</li><li>The limit of a function that has been raised to a power equals the same power of the limit of the function. Another method is direct substitution. See <a href="#example4">Example 4</a>.</li><li>The limit of the root of a function equals the corresponding root of the limit of the function.</li><li>One way to find the limit of a function expressed as a quotient is to write the quotient in factored form and simplify. See <a href="#example5">Example 5</a>.</li><li>Another method of finding the limit of a complex fraction is to find the LCD. See <a href="#example6">Example 6</a>.</li><li>A limit containing a function containing a root may be evaluated using a conjugate. See <a href="#example7">Example 7</a>.</li><li>The limits of some functions expressed as quotients can be found by factoring. See <a href="#example8">Example 8</a>.</li><li>One way to evaluate the limit of a quotient containing absolute values is by using numeric evidence. Setting it up piecewise can also be useful. See <a href="#example9">Example 9</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Give an example of a type of function \(f\) whose limit, as \(x\) approaches \(a,\) is \(f(a).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>If \(f\) is a polynomial function, the limit of a polynomial function as \(x\) approaches \(a\) will always be \(f(a).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>When direct substitution is used to evaluate the limit of a rational function as \(x\) approaches \(a\) and the result is \(f(a)=\frac{0}{0},\) does this mean that the limit of \(f\) does not exist?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>What does it mean to say the limit of \(f(x),\) as \(x\) approaches \(c,\) is undefined?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>It could mean either (1) the values of the function increase or decrease without bound as \(x\) approaches \(c,\) or (2) the left and right-hand limits are not equal.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, evaluate the limits algebraically.</p>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(\underset{x\to 0}{lim}(3)\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(\underset{x\to 2}{lim}(\frac{-5x}{{x}^{2}-1})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-10}{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\underset{x\to 2}{lim}(\frac{{x}^{2}-5x+6}{x+2})\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\underset{x\to 3}{lim}(\frac{{x}^{2}-9}{x-3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>6</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\underset{x\to -1}{lim}(\frac{{x}^{2}-2x-3}{x+1})\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\underset{x\to \frac{3}{2}}{lim}(\frac{6{x}^{2}-17x+12}{2x-3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\underset{x\to -\frac{7}{2}}{lim}(\frac{8{x}^{2}+18x-35}{2x+7})\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\underset{x\to 3}{lim}(\frac{{x}^{2}-9}{{x}^{2}-5x+6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>6</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\underset{x\to -3}{lim}(\frac{-7{x}^{4}-21{x}^{3}}{-12{x}^{4}+108{x}^{2}})\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\underset{x\to 3}{lim}(\frac{{x}^{2}+2x-3}{x-3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>does not exist</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\underset{h\to 0}{lim}(\frac{{(3+h)}^{3}-27}{h})\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\underset{h\to 0}{lim}(\frac{{(2-h)}^{3}-8}{h})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-12\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\underset{h\to 0}{lim}(\frac{{(h+3)}^{2}-9}{h})\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\underset{h\to 0}{lim}(\frac{\sqrt{5-h}-\sqrt{5}}{h})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\sqrt{5}}{10}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\underset{x\to 0}{lim}(\frac{\sqrt{3-x}-\sqrt{3}}{x})\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\underset{x\to 9}{lim}(\frac{{x}^{2}-81}{3-\sqrt{x}})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-108\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\underset{x\to 1}{lim}(\frac{\sqrt{x}-{x}^{2}}{1-\sqrt{x}})\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\underset{x\to 0}{lim}(\frac{x}{\sqrt{1+2x}-1})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\underset{x\to \frac{1}{2}}{lim}(\frac{{x}^{2}-\frac{1}{4}}{2x-1})\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\underset{x\to 4}{lim}(\frac{{x}^{3}-64}{{x}^{2}-16})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>6</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(\underset{x\to {2}^{-}}{lim}(\frac{|x-2|}{x-2})\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(\underset{x\to {2}^{+}}{lim}(\frac{|x-2|}{x-2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\underset{x\to 2}{lim}(\frac{|x-2|}{x-2})\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\underset{x\to {4}^{-}}{lim}(\frac{|x-4|}{4-x})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(\underset{x\to {4}^{+}}{lim}(\frac{|x-4|}{4-x})\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(\underset{x\to 4}{lim}(\frac{|x-4|}{4-x})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>does not exist</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(\underset{x\to 2}{lim}(\frac{-8+6x-{x}^{2}}{x-2})\)</p>
+</div></div>
+<p>For the following exercise, use the given information to evaluate the limits: \(\underset{x\to c}{lim}f(x)=3,\) \(\underset{x\to c}{lim}g(x)=5\) .</p>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(\underset{x\to c}{lim}\,[\,2f(x)+\sqrt{g(x)}\,]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(6+\sqrt{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(\underset{x\to c}{lim}\,[\,3f(x)+\sqrt{g(x)}\,]\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(\underset{x\to c}{lim}\frac{f(x)}{g(x)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3}{5}\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the following limits.</p>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(\underset{x\to 2}{lim}cos(\pi x)\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(\underset{x\to 2}{lim}sin(\pi x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(\underset{x\to 2}{lim}sin(\frac{\pi }{x})\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}2{x}^{2}+2x+1, &amp; x\le 0 \\ x-3, &amp; x&gt;0\end{array}\right.\text{; }\underset{x\to {0}^{+}}{lim}f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}2{x}^{2}+2x+1, &amp; x\le 0 \\ x-3, &amp; x&gt;0\end{array}\right.\text{; }\underset{x\to {0}^{-}}{lim}f(x)\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}2{x}^{2}+2x+1, &amp; x\le 0 \\ x-3, &amp; x&gt;0\end{array}\right.\text{; }\underset{x\to 0}{lim}f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>does not exist; right-hand limit is not the same as the left-hand limit.</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(\underset{x\to 4}{lim}\frac{\sqrt{x+5}-3}{x-4}\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(\underset{x\to {2}^{+}}{lim}(2x-[x])\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\underset{x\to 2}{lim}\frac{\sqrt{x+7}-3}{{x}^{2}-x-2}\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(\underset{x\to {3}^{+}}{lim}\frac{{x}^{2}}{{x}^{2}-9}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Limit does not exist; limit approaches infinity.</p>
+</div></div></div></div>
+<p>For the following exercises, find the average rate of change \(\frac{f(x+h)-f(x)}{h}.\)</p>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(f(x)=x+1\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(f(x)=2{x}^{2}-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4x+2h\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(f(x)={x}^{2}+3x+4\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(f(x)={x}^{2}+4x-100\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2x+h+4\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(f(x)=3{x}^{2}+1\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(f(x)=cos(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{cos(x+h)-cos(x)}{h}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(f(x)=2{x}^{3}-4x\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(f(x)=\frac{1}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-1}{x(x+h)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\(f(x)=\frac{1}{{x}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(f(x)=\sqrt{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-1}{\sqrt{x+h}+\sqrt{x}}\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Find an equation that could be represented by <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_02_201.jpg" alt="Graph of increasing function with a removable discontinuity at (2, 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>Find an equation that could be represented by <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_02_202.jpg" alt="Graph of increasing function with a removable discontinuity at (-3, -1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\frac{{x}^{2}+5x+6}{x+3}\)</p>
+</div></div></div></div>
+<p>For the following exercises, refer to <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_02_203F.jpg" alt="Graph of increasing function from zero to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>What is the right-hand limit of the function as \(x\) approaches 0?</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>What is the left-hand limit of the function as \(x\) approaches 0?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>does not exist</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>The position function \(s(t)=-16{t}^{2}+144t\) gives the position of a projectile as a function of time. Find the average velocity (average rate of change) on the interval \([1,2]\) .</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>The height of a projectile is given by \(s(t)=-64{t}^{2}+192t\) Find the average rate of change of the height from \(t=1\) second to \(t=1.5\) seconds.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>52</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>The amount of money in an account after \(t\) years compounded continuously at 4.25% interest is given by the formula \(A={A}_{0}{e}^{0.0425t},\) where \({A}_{0}\) is the initial amount invested. Find the average rate of change of the balance of the account from \(t=1\) year to \(t=2\) years if the initial amount invested is $1,000.00.</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>properties of limits</dt><dd>a collection of theorems for finding limits of functions by performing mathematical operations on the limits</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

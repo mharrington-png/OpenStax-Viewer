@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Functions and Function Notation · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Functions and Function Notation</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 1.1</span>Functions and Function Notation</h1>
+<p>A jetliner changes altitude as its distance from the starting point of a flight increases. The weight of a growing child increases with time. In each case, one quantity depends on another. There is a relationship between the two quantities that we can describe, analyze, and use to make predictions. In this section, we will analyze such relationships.</p>
+<h2 id="determining-whether-a-relation-represents-a-function">Determining Whether a Relation Represents a Function</h2>
+<p>A <strong>relation</strong> is a set of ordered pairs. The set of the first components of each <strong>ordered pair</strong> is called the <strong>domain</strong>and the set of the second components of each ordered pair is called the <strong>range</strong>. Consider the following set of ordered pairs. The first numbers in each pair are the first five natural numbers. The second number in each pair is twice that of the first.</p>
+<p id="eq1">\[\{(1,\,2),\,(2,\,4),\,(3,\,6),\,(4,\,8),\,(5,\,10)\}\]</p>
+<p>The domain is \(\{1,\,2,\,3,\,4,\,5\}.\) The range is \(\{2,\,4,\,6,\,8,\,10\}.\)</p>
+<p>Note that each value in the domain is also known as an <strong>input</strong> value, or <strong>independent variable</strong>, and is often labeled with the lowercase letter \(x.\) Each value in the range is also known as an <strong>output</strong> value, or <strong>dependent variable</strong>, and is often labeled lowercase letter \(y.\)</p>
+<p>A function \(f\) is a relation that assigns a single value in the range to each value in the domain<strong>.</strong> In other words, no <strong>x</strong>-values are repeated. For our example that relates the first five <strong>natural numbers</strong> to numbers double their values, this relation is a function because each element in the domain, \(\{1,\,2,\,3,\,4,\,5\},\) is paired with exactly one element in the range, \(\{2,\,4,\,6,\,8,\,10\}.\)</p>
+<p>Now let’s consider the set of ordered pairs that relates the terms “even” and “odd” to the first five natural numbers. It would appear as</p>
+<p id="eq2">\[\{(\text{odd},\,1),\,(\text{even},\,2),\,(\text{odd},\,3),\,(\text{even},\,4),\,(\text{odd},\,5)\}\]</p>
+<p>Notice that each element in the domain, \(\{\text{even,}\,\text{odd}\}\) is <strong>not</strong> paired with exactly one element in the range, \(\{1,\,2,\,3,\,4,\,5\}.\) For example, the term “odd” corresponds to three values from the range, \(\{1,\,3,\,5\}\) and the term “even” corresponds to two values from the range, \(\{2,\,4\}.\) This violates the definition of a function, so this relation is not a function.</p>
+<p><a href="#fig1">Figure 1</a> compares relations that are functions and not functions.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_001.jpg" alt="Three relations that demonstrate what constitute a function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — (a) This relationship is a function because each input is associated with a single output. Note that input \(q\) and \(r\) both give output \(n.\) (b) This relationship is also a function. In this case, each input is associated with a single output. (c) This relationship is not a function because input \(q\) is associated with two different outputs.</figcaption></figure>
+<div class="card definition" id="fs-id1165137533627"><span class="chip">Function</span><p>A <strong>function</strong> is a relation in which each possible input value leads to exactly one output value. We say “the output is a function of the input.”</p>
+<p>The <strong>input</strong> values make up the <strong>domain</strong>, and the <strong>output</strong> values make up the <strong>range</strong>.</p>
+</div>
+<div class="card howto" id="fs-id1165137445319"><span class="chip">How To</span><p><strong>Given a relationship between two quantities, determine whether the relationship is a function.</strong></p>
+<ul class="tight"><li>Identify the input values.</li><li>Identify the output values.</li><li>If each input value leads to only one output value, classify the relationship as a function. If any input value leads to two or more outputs, do not classify the relationship as a function.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>The coffee shop menu, shown in <a href="#fig2">Figure 2</a> consists of items and their prices.</p>
+<ul class="tight"><li>ⓐ Is price a function of the item?</li><li>ⓑ Is the item a function of the price?</li></ul>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_004.jpg" alt="A menu of donut prices from a coffee shop where a plain donut is $1.49 and a jelly donut and chocolate donut are $1.99." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+</div><p class="sol-hint">For each direction, check whether any single input pairs with more than one output.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ Let’s begin by considering the input as the items on the menu. The output values are then the prices. See <a href="#fig3">Figure 3</a>. Each item on the menu has only one price, so the price is a function of the item.<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_027.jpg" alt="A menu of donut prices from a coffee shop where a plain donut is $1.49 and a jelly donut and chocolate donut are $1.99." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<p>Each item on the menu has only one price, so the price is a function of the item.</p>
+</li><li>ⓑ Two items on the menu have the same price. If we consider the prices to be the input values and the items to be the output, then the same input value could have more than one output associated with it. See <a href="#fig4">Figure 4</a>. Therefore, the item is a not a function of price.<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_028.jpg" alt="Association of the prices to the donuts." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p>Therefore, the item is a not a function of price.</p>
+</li></ul>
+</div></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>In a particular math class, the overall percent grade corresponds to a grade point average. Is grade point average a function of the percent grade? Is the percent grade a function of the grade point average? <a href="#tab1">Table 1</a> shows a possible rule for assigning grade points.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Percent grade</strong></td><td>0–56</td><td>57–61</td><td>62–66</td><td>67–71</td><td>72–77</td><td>78–86</td><td>87–91</td><td>92–100</td></tr><tr><td><strong>Grade point average</strong></td><td>0.0</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.5</td><td>3.0</td><td>3.5</td><td>4.0</td></tr></tbody></table></div>
+</div><p class="sol-hint">Scan Table 1 for any input value that maps to two different outputs.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>For any percent grade earned, there is an associated grade point average, so the grade point average is a function of the percent grade. In other words, if we input the percent grade, the output is a specific grade point average.</p>
+<p>In the grading system given, there is a range of percent grades that correspond to the same grade point average. For example, students who receive a grade point average of 3.0 could have a variety of percent grades ranging from 78 all the way to 86. Thus, percent grade is not a function of grade point average.</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p><a href="#tab2">Table 2</a> <span class="footnote">(http://www.baseball-almanac.com/legendary/lisn100.shtml. Accessed 3/24/2014.)</span> lists the five greatest baseball players of all time in order of rank.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Player</td><td>Rank</td></tr><tr><td>Babe Ruth</td><td>1</td></tr><tr><td>Willie Mays</td><td>2</td></tr><tr><td>Ty Cobb</td><td>3</td></tr><tr><td>Walter Johnson</td><td>4</td></tr><tr><td>Hank Aaron</td><td>5</td></tr></tbody></table></div>
+<ul class="tight"><li>ⓐ Is the rank a function of the player name?</li><li>ⓑ Is the player name a function of the rank?</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ yes</li><li>ⓑ yes. (Note: If two players had been tied for, say, 4th place, then the name would not have been a function of rank.)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="using-function-notation">Using Function Notation</h3>
+<p>Once we determine that a relationship is a function, we need to display and define the functional relationships so that we can understand and use them, and sometimes also so that we can program them into computers. There are various ways of representing functions. A standard <strong>function notation</strong> is one representation that facilitates working with functions.</p>
+<p>To represent “height is a function of age,” we start by identifying the descriptive variables \(h\) for height and \(a\) for age. The letters \(f,\,g,\) and \(h\) are often used to represent functions just as we use \(x,\,y,\) and \(z\) to represent numbers and \(A,\,B,\) and \(C\) to represent sets.</p>
+<p id="eq3">\[\begin{array}{lllll}h\text{ is }f\text{ of }a &amp; &amp; &amp; &amp; \text{We name the function }f;\text{ height is a function of age}. \\ h=f(a) &amp; &amp; &amp; &amp; \text{We use parentheses to indicate the function input}\text{. } \\ f(a) &amp; &amp; &amp; &amp; \text{We name the function }f;\text{ the expression is read as “}f\text{ of }a\text{.”}\end{array}\]</p>
+<p>Remember, we can use any letter to name the function; the notation \(h(a)\) shows us that \(h\) depends on \(a.\) The value \(a\) must be put into the function \(h\) to get a result. The parentheses indicate that age is input into the function; they do not indicate multiplication.</p>
+<p>We can also give an algebraic expression as the input to a function. For example \(f(a+b)\) means “first add <strong>a</strong> and <strong>b</strong>, and the result is the input for the function <strong>f</strong>.” The operations must be performed in this order to obtain the correct result.</p>
+<div class="card definition" id="fs-id1165137444349"><span class="chip">Function Notation</span><p>The notation \(y=f(x)\) defines a function named \(f.\) This is read as \(\text{“}y\) is a function of \(x.\text{”}\) The letter \(x\) represents the input value, or independent variable. The letter \(y\text{,}\) or \(f(x),\) represents the output value, or dependent variable.</p>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Use function notation to represent a function whose input is the name of a month and output is the number of days in that month. Assume that the domain does not include leap years.</p>
+</div><p class="sol-hint">Write the rule as f(month) = number of days, then match each month to its day count.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The number of days in a month is a function of the name of the month, so if we name the function \(f,\) we write \(\text{days}=f(\text{month})\) or \(d=f(m).\) The name of the month is the input to a “rule” that associates a specific number (the output) with each input.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_005.jpg" alt="The function 31 = f(January) where 31 is the output, f is the rule, and January is the input." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<p>For example, \(f(\text{March})=31,\) because March has 31 days. The notation \(d=f(m)\) reminds us that the number of days, \(d\) (the output), is dependent on the name of the month, \(m\) (the input).</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Note that the inputs to a function do not have to be numbers; function inputs can be names of people, labels of geometric objects, or any other element that determines some kind of output. However, most of the functions we will work with in this book will have numbers as inputs and outputs.</p>
+</div></div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>A function \(N=f(y)\) gives the number of police officers, \(N,\) in a town in year \(y.\) What does \(f(2005)=300\) represent?</p>
+</div><p class="sol-hint">Match each part of the notation to what it stands for: the input, the output, and the function name.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>When we read \(f(2005)=300,\) we see that the input year is 2005. The value for the output, the number of police officers \((N),\) is 300. Remember, \(N=f(y).\) The statement \(f(2005)=300\) tells us that in the year 2005 there were 300 police officers in the town.</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Use function notation to express the weight of a pig in pounds as a function of its age in days \(d\text{.}\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(w=f(d)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card qa" id="fs-id1165137740780"><span class="chip">Q&amp;A</span><p><strong>Instead of a notation such as \(y=f(x),\) could we use the same symbol for the output as for the function, such as \(y=y(x),\) meaning “<strong>y</strong> is a function of <strong>x</strong>?”</strong></p>
+<p><strong>Yes, this is often done, especially in applied subjects that use higher math, such as physics and engineering. However, in exploring math itself we like to maintain a distinction between a function such as \(f,\) which is a rule or procedure, and the output \(y\) we get by applying \(f\) to a particular input \(x.\) This is why we usually use notation such as \(y=f(x),P=W(d),\) and so on.</strong></p>
+</div>
+<h3 id="representing-functions-using-tables">Representing Functions Using Tables</h3>
+<p>A common method of representing functions is in the form of a table. The table rows or columns display the corresponding input and output values. In some cases, these values represent all we know about the relationship; other times, the table provides a few select examples from a more complete relationship.</p>
+<p><a href="#tab3">Table 3</a> lists the input number of each month (January = 1, February = 2, and so on) and the output value of the number of days in that month. This information represents all we know about the months and days for a given year (that is not a leap year). Note that, in this table, we define a days-in-a-month function \(f\) where \(D=f(m)\) identifies months by an integer rather than by name.</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td><strong>Month number, \(m\) (input)</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr><tr><td><strong>Days in month, \(D\) (output)</strong></td><td>31</td><td>28</td><td>31</td><td>30</td><td>31</td><td>30</td><td>31</td><td>31</td><td>30</td><td>31</td><td>30</td><td>31</td></tr></tbody></table></div>
+<p><a href="#tab4">Table 4</a> defines a function \(Q=g(n).\) Remember, this notation tells us that \(g\) is the name of the function that takes the input \(n\) and gives the output \(Q\text{.}\)</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>\(n\)</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>\(Q\)</td><td>8</td><td>6</td><td>7</td><td>6</td><td>8</td></tr></tbody></table></div>
+<p><a href="#tab5">Table 5</a> displays the age of children in years and their corresponding heights. This table displays just some of the data available for the heights and ages of children. We can see right away that this table does not represent a function because the same input value, 5 years, has two different output values, 40 in. and 42 in.</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td><strong>Age in years, \(a\) (input)</strong></td><td>5</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td><strong>Height in inches, \(h\) (output)</strong></td><td>40</td><td>42</td><td>44</td><td>47</td><td>50</td><td>52</td><td>54</td></tr></tbody></table></div>
+<div class="card howto" id="fs-id1165137804163"><span class="chip">How To</span><p><strong>Given a table of input and output values, determine whether the table represents a function.</strong></p>
+<ul class="tight"><li>Identify the input and output values.</li><li>Check to see if each input value is paired with only one output value. If so, the table represents a function.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Which table, <a href="#tab6">Table 6</a>, <a href="#tab7">Table 7</a>, or <a href="#tab8">Table 8</a>, represents a function (if any)?</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>Input</td><td>Output</td></tr><tr><td>2</td><td>1</td></tr><tr><td>5</td><td>3</td></tr><tr><td>8</td><td>6</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>Input</td><td>Output</td></tr><tr><td>–3</td><td>5</td></tr><tr><td>0</td><td>1</td></tr><tr><td>4</td><td>5</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td>Input</td><td>Output</td></tr><tr><td>1</td><td>0</td></tr><tr><td>5</td><td>2</td></tr><tr><td>5</td><td>4</td></tr></tbody></table></div>
+</div><p class="sol-hint">Scan each table for an input value paired with two different outputs.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><a href="#tab6">Table 6</a> and <a href="#tab7">Table 7</a> define functions. In both, each input value corresponds to exactly one output value. <a href="#tab8">Table 8</a> does not define a function because the input value of 5 corresponds to two different output values.</p>
+<p>When a table represents a function, corresponding input and output values can also be specified using function notation.</p>
+<p>The function represented by <a href="#tab6">Table 6</a> can be represented by writing</p>
+<p id="eq4">\[f(2)=1,f(5)=3,\text{and }f(8)=6\]</p>
+<p>Similarly, the statements</p>
+<p id="eq5">\[g(-3)=5,\,g(0)=1,\text{and }g(4)=5\]</p>
+<p>represent the function in <a href="#tab7">Table 7</a>.</p>
+<p><a href="#tab8">Table 8</a> cannot be expressed in a similar way because it does not represent a function.</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Does <a href="#tab9">Table 9</a> represent a function?</p>
+<div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td>Input</td><td>Output</td></tr><tr><td>1</td><td>10</td></tr><tr><td>2</td><td>100</td></tr><tr><td>3</td><td>1000</td></tr></tbody></table></div>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>yes</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-input-and-output-values-of-a-function">Finding Input and Output Values of a Function</h2>
+<p>When we know an input value and want to determine the corresponding output value for a function, we <strong>evaluate</strong> the function. Evaluating will always produce one result because each input value of a function corresponds to exactly one output value.</p>
+<p>When we know an output value and want to determine the input values that would produce that output value, we set the output equal to the function’s formula and <strong>solve</strong> for the input. Solving can produce more than one solution because different input values can produce the same output value.</p>
+<h3 id="evaluation-of-functions-in-algebraic-forms">Evaluation of Functions in Algebraic Forms</h3>
+<p>When we have a function in formula form, it is usually a simple matter to evaluate the function. For example, the function \(f(x)=5-3{x}^{2}\) can be evaluated by squaring the input value, multiplying by 3, and then subtracting the product from 5.</p>
+<div class="card howto" id="fs-id1165135613610"><span class="chip">How To</span><p><strong>Given the formula for a function, evaluate.</strong></p>
+<ul class="tight"><li>Substitute the input variable in the formula with the value provided.</li><li>Calculate the result.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(f(x)={x}^{2}+3x-4\) at:</p>
+<ul class="tight"><li>ⓐ \(2\)</li><li>ⓑ \(a\)</li><li>ⓒ \(a+h\)</li><li>ⓓ Now evaluate \(\frac{f(a+h)-f(a)}{h}\)</li></ul>
+</div><p class="sol-hint">Substitute each given input directly into the formula in place of x.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Replace the \(x\) in the function with each specified value.</p>
+<ul class="tight"><li>ⓐ Because the input value is a number, 2, we can use simple algebra to simplify.<p id="eq6">\[\begin{array}{l}f(2)={2}^{2}+3(2)-4 \\ =4+6-4 \\ =6\end{array}\]</p>
+</li><li>ⓑ In this case, the input value is a letter so we cannot simplify the answer any further.<p id="eq7">\[f(a)={a}^{2}+3a-4\]</p>
+</li><li>ⓒ With an input value of \(a+h,\) we must use the distributive property.<p id="eq8">\[\begin{array}{l}f(a+h)={(a+h)}^{2}+3(a+h)-4 \\ ={a}^{2}+2ah+{h}^{2}+3a+3h-4\end{array}\]</p>
+</li><li>ⓓ In this case, we apply the input values to the function more than once, and then perform algebraic operations on the result. We already found that and we know that Now we combine the results and simplify.<p id="eq9">\[f(a+h)={a}^{2}+2ah+{h}^{2}+3a+3h-4\]</p>
+<p>and we know that</p>
+<p id="eq10">\[f(a)={a}^{2}+3a-4\]</p>
+<p>Now we combine the results and simplify.</p>
+<p id="eq11">\[\begin{array}{l}\begin{array}{l} \\ \frac{f(a+h)-f(a)}{h}=\frac{({a}^{2}+2ah+{h}^{2}+3a+3h-4)-({a}^{2}+3a-4)}{h}\end{array} \\ \begin{array}{ll}\,=\frac{2ah+{h}^{2}+3h}{h} &amp; \\ \,=\frac{h(2a+h+3)}{h} &amp; \begin{array}{ll}\begin{array}{ll} &amp; \end{array} &amp; \end{array}\text{Factor out }h. \\ \,=2a+h+3 &amp; \begin{array}{ll}\begin{array}{ll} &amp; \end{array} &amp; \end{array}\text{Simplify}.\end{array}\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Given the function \(h(p)={p}^{2}+2p,\) evaluate \(h(4).\)</p>
+</div><p class="sol-hint">Replace p with 4 in the formula and simplify.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To evaluate \(h(4),\) we substitute the value 4 for the input variable \(p\) in the given function.</p>
+<p id="eq12">\[\begin{array}{l}h(p)={p}^{2}+2p \\ h(4)={(4)}^{2}+2(4) \\ \,=16+8 \\ \,=24\end{array}\]</p>
+<p>Therefore, for an input of 4, we have an output of 24.</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Given the function \(g(m)=\sqrt{m-4},\) evaluate \(g(5).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(g(5)=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Given the function \(h(p)={p}^{2}+2p,\) solve for \(h(p)=3.\)</p>
+</div><p class="sol-hint">Set the formula equal to 3 and solve the resulting quadratic equation.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq13">\[\begin{array}{llll}\,h(p)=3 &amp; &amp; &amp; \\ \,{p}^{2}+2p=3 &amp; &amp; &amp; \text{Substitute the original function }h(p)={p}^{2}+2p. \\ \,{p}^{2}+2p-3=0 &amp; &amp; &amp; \text{Subtract 3 from each side}. \\ (p+3\text{)(}p-1)=0 &amp; &amp; &amp; \text{Factor}.\end{array}\]</p>
+<p>If \((p+3)(p-1)=0,\) either \((p+3)=0\) or \((p-1)=0\) (or both of them equal 0). We will set each factor equal to 0 and solve for \(p\) in each case.</p>
+<p id="eq14">\[\begin{array}{ll}(p+3)=0, &amp; p=-3 \\ (p-1)=0, &amp; p=1\end{array}\]</p>
+<p>This gives us two solutions. The output \(h(p)=3\) when the input is either \(p=1\) or \(p=-3.\) We can also verify by graphing as in <a href="#fig6">Figure 6</a>. The graph verifies that \(h(1)=h(-3)=3\) and \(h(4)=24.\)</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_006-5f6f.jpg" alt="Graph of a parabola with labeled points (-3, 3), (1, 3), and (4, 24)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Given the function \(g(m)=\sqrt{m-4},\) solve \(g(m)=2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(m=8\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="evaluating-functions-expressed-in-formulas">Evaluating Functions Expressed in Formulas</h3>
+<p>Some functions are defined by mathematical rules or procedures expressed in <strong>equation</strong> form. If it is possible to express the function output with a <strong>formula</strong> involving the input quantity, then we can define a function in algebraic form. For example, the equation \(2n+6p=12\) expresses a functional relationship between \(n\) and \(p.\) We can rewrite it to decide if \(p\) is a function of \(n.\)</p>
+<div class="card howto" id="fs-id1165137827882"><span class="chip">How To</span><p><strong>Given a function in equation form, write its algebraic formula.</strong></p>
+<ul class="tight"><li>Solve the equation to isolate the output variable on one side of the equal sign, with the other side as an expression that involves <strong>only</strong> the input variable.</li><li>Use all the usual algebraic methods for solving equations, such as adding or subtracting the same quantity to or from both sides, or multiplying or dividing both sides of the equation by the same quantity.</li></ul>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Express the relationship \(2n+6p=12\) as a function \(p=f(n),\) if possible.</p>
+</div><p class="sol-hint">Isolate p on one side of the equation.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To express the relationship in this form, we need to be able to write the relationship where \(p\) is a function of \(n,\) which means writing it as \(p=[\text{expression}\,\text{involving}\,n].\)</p>
+<p id="eq15">\[\begin{array}{ll}2n+6p=12 &amp; \\ 6p=12-2n &amp; \begin{array}{lll} &amp; &amp; \end{array}\text{Subtract }2n\text{ from both sides}. \\ p=\frac{12-2n}{6} &amp; \begin{array}{lll} &amp; &amp; \end{array}\text{Divide both sides by 6 and simplify}. \\ p=\frac{12}{6}-\frac{2n}{6} &amp; \\ p=2-\frac{1}{3}n &amp; \end{array}\]</p>
+<p>Therefore, \(p\) as a function of \(n\) is written as</p>
+<p id="eq16">\[p=f(n)=2-\frac{1}{3}n\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>It is important to note that not every relationship expressed by an equation can also be expressed as a function with a formula.</p>
+</div></div></div></div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Does the equation \({x}^{2}+{y}^{2}=1\) represent a function with \(x\) as input and \(y\) as output? If so, express the relationship as a function \(y=f(x).\)</p>
+</div><p class="sol-hint">Try solving for y and see whether a given x produces one output or two.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we subtract \({x}^{2}\) from both sides.</p>
+<p id="eq17">\[{y}^{2}=1-{x}^{2}\]</p>
+<p>We now try to solve for \(y\) in this equation.</p>
+<p id="eq18">\[\begin{array}{l}y=\pm \sqrt{1-{x}^{2}} \\ \,=+\sqrt{1-{x}^{2}}\text{ and }-\sqrt{1-{x}^{2}}\end{array}\]</p>
+<p>We get two outputs corresponding to the same input, so this relationship cannot be represented as a single function \(y=f(x).\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>If \(x-8{y}^{3}=0,\) express \(y\) as a function of \(x.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y=f(x)=\frac{\sqrt[3]{x}}{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card qa" id="fs-id1165135581166"><span class="chip">Q&amp;A</span><p><strong>Are there relationships expressed by an equation that do represent a function but which still cannot be represented by an algebraic formula?</strong></p>
+<p><strong>Yes, this can happen. For example, given the equation \(x=y+{2}^{y},\) if we want to express \(y\) as a function of \(x,\) there is no simple algebraic formula involving only \(x\) that equals \(y.\) However, each \(x\) does determine a unique value for \(y,\) and there are mathematical procedures by which \(y\) can be found to any desired accuracy. In this case, we say that the equation gives an implicit (implied) rule for \(y\) as a function of \(x,\) even though the formula cannot be written explicitly.</strong></p>
+</div>
+<h3 id="evaluating-a-function-given-in-tabular-form">Evaluating a Function Given in Tabular Form</h3>
+<p>As we saw above, we can represent functions in tables. Conversely, we can use information in tables to write functions, and we can evaluate functions using the tables. For example, how well do our pets recall the fond memories we share with them? There is an urban legend that a goldfish has a memory of 3 seconds, but this is just a myth. Goldfish can remember up to 3 months, while the beta fish has a memory of up to 5 months. And while a puppy’s memory span is no longer than 30 seconds, the adult dog can remember for 5 minutes. This is meager compared to a cat, whose memory span lasts for 16 hours.</p>
+<p>The function that relates the type of pet to the duration of its memory span is more easily visualized with the use of a table. See <a href="#tab10">Table 10</a>. <span class="footnote">(http://www.kgbanswers.com/how-long-is-a-dogs-memory-span/4221590. Accessed 3/24/2014.)</span></p>
+<div class="tablewrap" id="tab10"><table class="data"><caption>Table 10</caption><tbody><tr><td>Pet</td><td>Memory span in hours</td></tr><tr><td>Puppy</td><td>0.008</td></tr><tr><td>Adult dog</td><td>0.083</td></tr><tr><td>Cat</td><td>16</td></tr><tr><td>Goldfish</td><td>2160</td></tr><tr><td>Beta fish</td><td>3600</td></tr></tbody></table></div>
+<p>At times, evaluating a function in table form may be more useful than using equations. Here let us call the function \(P.\) The <strong>domain</strong> of the function is the type of pet and the range is a real number representing the number of hours the pet’s memory span lasts. We can evaluate the function \(P\) at the input value of “goldfish.” We would write \(P(\text{goldfish})=2160.\) Notice that, to evaluate the function in table form, we identify the input value and the corresponding output value from the pertinent row of the table. The tabular form for function \(P\) seems ideally suited to this function, more so than writing it in paragraph or function form.</p>
+<div class="card howto" id="fs-id1165137838337"><span class="chip">How To</span><p><strong>Given a function represented by a table, identify specific output and input values.</strong></p>
+<ul class="tight"><li>Find the given input in the row (or column) of input values.</li><li>Identify the corresponding output value paired with that input value.</li><li>Find the given output values in the row (or column) of output values, noting every time that output value appears.</li><li>Identify the input value(s) corresponding to the given output value.</li></ul>
+</div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Using <a href="#tab11">Table 11</a>,</p>
+<ul class="tight"><li>ⓐ Evaluate \(g(3).\)</li><li>ⓑ Solve \(g(n)=6.\)</li></ul>
+<div class="tablewrap" id="tab11"><table class="data"><caption>Table 11</caption><tbody><tr><td><strong>\(n\)</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td><strong>\(g(n)\)</strong></td><td>8</td><td>6</td><td>7</td><td>6</td><td>8</td></tr></tbody></table></div>
+</div><p class="sol-hint">Locate the input in one column of the table and read its paired output — then reverse the search for part ⓑ.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐEvaluating \(g(3)\) means determining the output value of the function \(g\) for the input value of \(n=3.\) The table output value corresponding to \(n=3\) is 7, so \(g(3)=7.\)</li><li>ⓑSolving \(g(n)=6\) means identifying the input values, \(n,\) that produce an output value of 6. The table below shows two solutions: \(2\) and \(4.\)</li></ul>
+<div class="tablewrap" id="tab12"><table class="data"><caption>Table 12</caption><tbody><tr><td><strong>\(n\)</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td><strong>\(g(n)\)</strong></td><td>8</td><td>6</td><td>7</td><td>6</td><td>8</td></tr></tbody></table></div>
+<p>When we input 2 into the function \(g,\) our output is 6. When we input 4 into the function \(g,\) our output is also 6.</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Using the table from <strong>Evaluating and Solving a Tabular Function</strong> above, evaluate \(g(1).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(g(1)=8\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-function-values-from-a-graph">Finding Function Values from a Graph</h3>
+<p>Evaluating a function using a graph also requires finding the corresponding output value for a given input value, only in this case, we find the output value by looking at the graph. Solving a function equation using a graph requires finding all instances of the given output value on the graph and observing the corresponding input value(s).</p>
+<div class="card example" id="example12"><div class="ex-head"><span class="num">Example 12</span><span class="t"></span></div><div class="ex-body"><p>Given the graph in <a href="#fig7">Figure 7</a>,</p>
+<ul class="tight"><li>ⓐ Evaluate \(f(2).\)</li><li>ⓑ Solve \(f(x)=4.\)</li></ul>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_007-985e.jpg" alt="Graph of a positive parabola centered at (1, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div><p class="sol-hint">For part ⓐ, find the height of the curve at x = 2; for part ⓑ, find where the curve reaches height 4.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ To evaluate \(f(2),\) locate the point on the curve where \(x=2,\) then read the <strong>y</strong>-coordinate of that point. The point has coordinates \((2,1),\) so \(f(2)=1.\) See <a href="#fig8">Figure 8</a>.<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_008.jpg" alt="Graph of a positive parabola centered at (1, 0) with the labeled point (2, 1) where f(2) =1." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</li><li>ⓑ To solve \(f(x)=4,\) we find the output value \(4\) on the vertical axis. Moving horizontally along the line \(y=4,\) we locate two points of the curve with output value \(4:\) \((-1,4)\) and \((3,4).\) These points represent the two solutions to \(f(x)=4:\) \(-1\) or \(3.\) This means \(f(-1)=4\) and \(f(3)=4,\) or when the input is \(-1\) or \(\text{3,}\) the output is \(\text{4}\text{.}\) See <a href="#fig9">Figure 9</a>.<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_009-4a94.jpg" alt="Graph of an upward-facing parabola with a vertex at (0,1) and labeled points at (-1, 4) and (3,4). A line at y = 4 intersects the parabola at the labeled points." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Using <a href="#fig7">Figure 7</a>, solve \(f(x)=1.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=0\) or \(x=2\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="determining-whether-a-function-is-one-to-one">Determining Whether a Function is One-to-One</h2>
+<p>Some functions have a given output value that corresponds to two or more input values. For example, in the stock chart shown in the figure at the beginning of this chapter, the stock price was $1000 on five different dates, meaning that there were five different input values that all resulted in the same output value of $1000.</p>
+<p>However, some functions have only one input value for each output value, as well as having only one output for each input. We call these functions one-to-one functions. As an example, consider a school that uses only letter grades and decimal equivalents, as listed in <a href="#tab13">Table 13</a>.</p>
+<div class="tablewrap" id="tab13"><table class="data"><caption>Table 13</caption><tbody><tr><td>Letter grade</td><td>Grade point average</td></tr><tr><td>A</td><td>4.0</td></tr><tr><td>B</td><td>3.0</td></tr><tr><td>C</td><td>2.0</td></tr><tr><td>D</td><td>1.0</td></tr></tbody></table></div>
+<p>This grading system represents a one-to-one function, because each letter input yields one particular grade point average output and each grade point average corresponds to one input letter.</p>
+<p>To visualize this concept, let’s look again at the two simple functions sketched in <a href="#fig1">Figure 1</a><strong>(a)</strong>and <a href="#fig1">Figure 1</a><strong>(b)</strong>. The function in part (a) shows a relationship that is not a one-to-one function because inputs \(q\) and \(r\) both give output \(n.\) The function in part (b) shows a relationship that is a one-to-one function because each input is associated with a single output.</p>
+<div class="card definition" id="fs-id1165135261974"><span class="chip">One-to-One Function</span><p>A <strong>one-to-one function</strong> is a function in which each output value corresponds to exactly one input value.</p>
+</div>
+<div class="card example" id="example13"><div class="ex-head"><span class="num">Example 13</span><span class="t"></span></div><div class="ex-body"><p>Is the area of a circle a function of its radius? If yes, is the function one-to-one?</p>
+</div><p class="sol-hint">Write the area formula, then check whether two different radii could ever give the same area.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>A circle of radius \(r\) has a unique area measure given by \(A=\pi {r}^{2},\) so for any input, \(r,\) there is only one output, \(A.\) The area is a function of radius \(r.\)</p>
+<p>If the function is one-to-one, the output value, the area, must correspond to a unique input value, the radius. Any area measure \(A\) is given by the formula \(A=\pi {r}^{2}.\) Because areas and radii are positive numbers, there is exactly one solution: \(\sqrt{\frac{A}{\pi }}.\) So the area of a circle is a one-to-one function of the circle’s radius.</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><ul class="tight"><li>ⓐ Is a balance a function of the bank account number?</li><li>ⓑ Is a bank account number a function of the balance?</li><li>ⓒ Is a balance a one-to-one function of the bank account number?</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ yes, because each bank account has a single balance at any given time</li><li>ⓑ no, because several bank account numbers may have the same balance</li><li>ⓒ no, because the same output may correspond to more than one input.</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-10"><div class="ex-head"><span class="num">Try It #10</span></div><div class="ex-body"><p>Evaluate the following: <br>ⓐ If each percent grade earned in a course translates to one letter grade, is the letter grade a function of the percent grade? <br>ⓑ If so, is the function one-to-one?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ Yes, letter grade is a function of percent grade;</li><li>ⓑ No, it is not one-to-one. There are 100 different percent numbers we could get but only about five possible letter grades, so there cannot be only one percent number that corresponds to each letter grade.</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-the-vertical-line-test">Using the Vertical Line Test</h2>
+<p>As we have seen in some examples above, we can represent a function using a graph. Graphs display a great many input-output pairs in a small space. The visual information they provide often makes relationships easier to understand. By convention, graphs are typically constructed with the input values along the horizontal axis and the output values along the vertical axis.</p>
+<p>The most common graphs name the input value \(x\) and the output value \(y,\) and we say \(y\) is a function of \(x,\) or \(y=f(x)\) when the function is named \(f.\) The graph of the function is the set of all points \((x,y)\) in the plane that satisfies the equation \(y=f(x).\) If the function is defined for only a few input values, then the graph of the function is only a few points, where the <strong>x</strong>-coordinate of each point is an input value and the <strong>y</strong>-coordinate of each point is the corresponding output value. For example, the black dots on the graph in <a href="#fig10">Figure 10</a> tell us that \(f(0)=2\) and \(f(6)=1.\) However, the set of all points \((x,y)\) satisfying \(y=f(x)\) is a curve. The curve shown includes \((0,2)\) and \((6,1)\) because the curve passes through those points.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_011-659b.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+<p>The <strong>vertical line test</strong> can be used to determine whether a graph represents a function. If we can draw any vertical line that intersects a graph more than once, then the graph does <strong>not</strong> define a function because a function has only one output value for each input value. See <a href="#fig11">Figure 11</a>.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_012-73a7.jpg" alt="Three graphs visually showing what is and is not a function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+<div class="card howto" id="fs-id1165135460884"><span class="chip">How To</span><p><strong>Given a graph, use the vertical line test to determine if the graph represents a function.</strong></p>
+<ul class="tight"><li>Inspect the graph to see if any vertical line drawn would intersect the curve more than once.</li><li>If there is any such line, determine that the graph does not represent a function.</li></ul>
+</div>
+<div class="card example" id="example14"><div class="ex-head"><span class="num">Example 14</span><span class="t"></span></div><div class="ex-body"><p>Which of the graphs in <a href="#fig12">Figure 12</a> represent(s) a function \(y=f(x)?\)</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_013abc-9102.jpg" alt="Graph of a polynomial." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+</div><p class="sol-hint">Imagine a vertical line sweeping across each graph and count how many times it can cross.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>If any vertical line intersects a graph more than once, the relation represented by the graph is not a function. Notice that any vertical line would pass through only one point of the two graphs shown in parts (a) and (b) of <a href="#fig12">Figure 12</a>. From this we can conclude that these two graphs represent functions. The third graph does not represent a function because, at most <strong>x</strong>-values, a vertical line would intersect the graph at more than one point, as shown in <a href="#fig13">Figure 13</a>.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_016.jpg" alt="A circle with radius 3 centered at the origin is shown. A vertical dashed line at x=2 intersects the circle at two points, demonstrating that the circle is not a function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-11"><div class="ex-head"><span class="num">Try It #11</span></div><div class="ex-body"><p>Does the graph in <a href="#fig14">Figure 14</a> represent a function?</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_017-6d3f.jpg" alt="Graph of absolute value function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>yes</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-the-horizontal-line-test">Using the Horizontal Line Test</h2>
+<p>Once we have determined that a graph defines a function, an easy way to determine if it is a one-to-one function is to use the <strong>horizontal line test</strong>. Draw horizontal lines through the graph. If any horizontal line intersects the graph more than once, then the graph does not represent a one-to-one function.</p>
+<div class="card howto" id="fs-id1165137736232"><span class="chip">How To</span><p><strong>Given a graph of a function, use the horizontal line test to determine if the graph represents a one-to-one function.</strong></p>
+<ul class="tight"><li>Inspect the graph to see if any horizontal line drawn would intersect the curve more than once.</li><li>If there is any such line, determine that the function is not one-to-one.</li></ul>
+</div>
+<div class="card example" id="example15"><div class="ex-head"><span class="num">Example 15</span><span class="t"></span></div><div class="ex-body"><p>Consider the functions shown in <a href="#fig12">Figure 12</a><strong>(a)</strong> and <a href="#fig12">Figure 12</a><strong>(b)</strong>. Are either of the functions one-to-one?</p>
+</div><p class="sol-hint">Imagine a horizontal line sweeping across each graph and count the crossings.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The function in <a href="#fig12">Figure 12</a><strong>(a)</strong>is not one-to-one. The horizontal line shown in <a href="#fig15">Figure 15</a> intersects the graph of the function at two points (and we can even find horizontal lines that intersect it at three points.)</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_010-140f.jpg" alt="A graph of a function f(x) displays a blue curve on a coordinate plane with x and f(x) axes from -5 to 5. A dashed orange horizontal line at y=3 intersects the curve at two points." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+<p>The function in <a href="#fig12">Figure 12</a><strong>(b)</strong> is one-to-one. Any horizontal line will intersect a diagonal line at most once.</p>
+</div></div></div>
+<div class="tryit" id="tryit-12"><div class="ex-head"><span class="num">Try It #12</span></div><div class="ex-body"><p>Is the graph shown in <a href="#fig12">Figure 12</a><strong>(c)</strong> one-to-one?</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>No, because it does not pass the horizontal line test.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="identifying-basic-toolkit-functions">Identifying Basic Toolkit Functions</h2>
+<p>In this text, we will be exploring functions—the shapes of their graphs, their unique characteristics, their algebraic formulas, and how to solve problems with them. When learning to read, we start with the alphabet. When learning to do arithmetic, we start with numbers. When working with functions, it is similarly helpful to have a base set of building-block elements. We call these our “toolkit functions,” which form a set of basic named functions for which we know the graph, formula, and special properties. Some of these functions are programmed to individual buttons on many calculators. For these definitions we will use \(x\) as the input variable and \(y=f(x)\) as the output variable.</p>
+<p>We will see these toolkit functions, combinations of toolkit functions, their graphs, and their transformations frequently throughout this book. It will be very helpful if we can recognize these toolkit functions and their features quickly by name, formula, graph, and basic table properties. The graphs and sample table values are included with each function shown in <a href="#tab14">Table 14</a>.</p>
+<div class="tablewrap" id="tab14"><table class="data"><caption>Table 14</caption><tbody><tr><td>Toolkit Functions</td></tr><tr><td>Name</td><td>Function</td><td>Graph</td></tr><tr><td>Constant</td><td>\(f(x)=c,\) where \(c\) is a constant</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_018n-c166.jpg" alt="Graph of a constant function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Identity</td><td>\(f(x)=x\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_019n-76a3.jpg" alt="Graph of a straight line." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Absolute value</td><td>\(f(x)=|x|\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_020n-ec22.jpg" alt="Graph of absolute function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Quadratic</td><td>\(f(x)={x}^{2}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_021-0f74.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Cubic</td><td>\(f(x)={x}^{3}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_022n-45dd.jpg" alt="Graph of f(x) = x^3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Reciprocal</td><td>\(f(x)=\frac{1}{x}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_023n-0d2b.jpg" alt="Graph of f(x)=1/x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Reciprocal squared</td><td>\(f(x)=\frac{1}{{x}^{2}}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_024-a33e.jpg" alt="Graph of f(x)=1/x^2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Square root</td><td>\(f(x)=\sqrt{x}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_025-de47.jpg" alt="Graph of f(x)=sqrt(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Cube root</td><td>\(f(x)=\sqrt[3]{x}\)</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_026n-b744.jpg" alt="Graph of f(x)=x^(1/3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+<div class="card callout" id="fs-id1165134042311"><span class="chip">Media</span><p>Access the following online resources for additional instruction and practice with functions.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/relationfunction" target="_blank" rel="noopener">Determine if a Relation is a Function</a></li><li><a href="https://openstax.org/l/vertlinetest" target="_blank" rel="noopener">Vertical Line Test</a></li><li><a href="https://openstax.org/l/introtofunction" target="_blank" rel="noopener">Introduction to Functions</a></li><li><a href="https://openstax.org/l/vertlinegraph" target="_blank" rel="noopener">Vertical Line Test on Graph</a></li><li><a href="https://openstax.org/l/onetoone" target="_blank" rel="noopener">One-to-one Functions</a></li><li><a href="https://openstax.org/l/graphonetoone" target="_blank" rel="noopener">Graphs as One-to-one Functions</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab15"><table class="data"><caption>Table 15</caption><tbody><tr><td>Constant function</td><td>\(f(x)=c,\) where \(c\) is a constant</td></tr><tr><td>Identity function</td><td>\(f(x)=x\)</td></tr><tr><td>Absolute value function</td><td>\(f(x)=|x|\)</td></tr><tr><td>Quadratic function</td><td>\(f(x)={x}^{2}\)</td></tr><tr><td>Cubic function</td><td>\(f(x)={x}^{3}\)</td></tr><tr><td>Reciprocal function</td><td>\(f(x)=\frac{1}{x}\)</td></tr><tr><td>Reciprocal squared function</td><td>\(f(x)=\frac{1}{{x}^{2}}\)</td></tr><tr><td>Square root function</td><td>\(f(x)=\sqrt{x}\)</td></tr><tr><td>Cube root function</td><td>\(f(x)=\sqrt[3]{x}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A relation is a set of ordered pairs. A function is a specific type of relation in which each domain value, or input, leads to exactly one range value, or output. See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.</li><li>Function notation is a shorthand method for relating the input to the output in the form \(y=f(x).\) See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a>.</li><li>In tabular form, a function can be represented by rows or columns that relate to input and output values. See <a href="#example5">Example 5</a>.</li><li>To evaluate a function, we determine an output value for a corresponding input value. Algebraic forms of a function can be evaluated by replacing the input variable with a given value. See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.</li><li>To solve for a specific function value, we determine the input values that yield the specific output value. See <a href="#example8">Example 8</a>.</li><li>An algebraic form of a function can be written from an equation. See <a href="#example9">Example 9</a> and <a href="#example10">Example 10</a>.</li><li>Input and output values of a function can be identified from a table. See <a href="#example11">Example 11</a>.</li><li>Relating input values to output values on a graph is another way to evaluate a function. See <a href="#example12">Example 12</a>.</li><li>A function is one-to-one if each output value corresponds to only one input value. See <a href="#example13">Example 13</a>.</li><li>A graph represents a function if any vertical line drawn on the graph intersects the graph at no more than one point. See <a href="#example14">Example 14</a>.</li><li>The graph of a one-to-one function passes the horizontal line test. See <a href="#example15">Example 15</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What is the difference between a relation and a function?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A relation is a set of ordered pairs. A function is a special kind of relation in which no two ordered pairs have the same first coordinate.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>What is the difference between the input and the output of a function?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Why does the vertical line test tell us whether the graph of a relation represents a function?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>When a vertical line intersects the graph of a relation more than once, that indicates that for that input there is more than one output. At any particular input value, there can be only one output if the relation is to be a function.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>How can you determine if a relation is a one-to-one function?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Why does the horizontal line test tell us whether the graph of a function is one-to-one?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>When a horizontal line intersects the graph of a function more than once, that indicates that for that output there is more than one input. A function is one-to-one if each output corresponds to only one input.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, determine whether the relation represents a function.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(\{(a,b),\,(c,d),\,(a,c)\}\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\{(a,b),(b,c),(c,c)\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<p>For the following exercises, determine whether the relation represents \(y\) as a function of \(x.\)</p>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(5x+2y=10\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(y={x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(x={y}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(3{x}^{2}+y=14\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(2x+{y}^{2}=6\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(y=-2{x}^{2}+40x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(y=\frac{1}{x}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(x=\frac{3y+5}{7y-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(x=\sqrt{1-{y}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(y=\frac{3x+5}{7x-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\({x}^{2}+{y}^{2}=9\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(2xy=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(x={y}^{3}\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(y={x}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(y=\sqrt{1-{x}^{2}}\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(x=\pm \sqrt{1-y}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(y=\pm \sqrt{1-x}\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({y}^{2}={x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>not a function</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({y}^{3}={x}^{2}\)</p>
+</div></div>
+<p>For the following exercises, evaluate \(f\) at the indicated values \(f(-3),f(2),f(-a),-f(a),f(a+h).\)</p>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(f(x)=2x-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(-3)=-11;\) <br> \(f(2)=-1;\) <br> \(f(-a)=-2a-5;\) <br> \(-f(a)=-2a+5;\) <br> \(f(a+h)=2a+2h-5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(f(x)=-5{x}^{2}+2x-1\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(f(x)=\sqrt{2-x}+5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(-3)=\sqrt{5}+5;\) <br> \(f(2)=5;\) <br> \(f(-a)=\sqrt{2+a}+5;\) <br> \(-f(a)=-\sqrt{2-a}-5;\) <br> \(f(a+h)=\sqrt{2-a-h}+5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(f(x)=\frac{6x-1}{5x+2}\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(f(x)=|x-1|-|x+1|\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(-3)=2;\) \(f(2)=1-3=-2;\) <br> \(f(-a)=|-a-1|-|-a+1|;\) <br> \(-f(a)=-|a-1|+|a+1|;\) <br> \(f(a+h)=|a+h-1|-|a+h+1|\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>Given the function \(g(x)=5-{x}^{2},\) evaluate \(\frac{g(x+h)-g(x)}{h},\,h\ne 0.\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>Given the function \(g(x)={x}^{2}+2x,\) evaluate \(\frac{g(x)-g(a)}{x-a},\,x\ne a.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{g(x)-g(a)}{x-a}=x+a+2,\,x\ne a\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>Given the function \(k(t)=2t-1:\)</p>
+<ul class="tight"><li>ⓐ Evaluate \(k(2).\)</li><li>ⓑ Solve \(k(t)=7.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>Given the function \(f(x)=8-3x:\)</p>
+<ul class="tight"><li>ⓐ Evaluate \(f(-2).\)</li><li>ⓑ Solve \(f(x)=-1.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(f(-2)=14;\)</li><li>ⓑ \(x=3\)</li></ul>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Given the function \(p(c)={c}^{2}+c:\)</p>
+<ul class="tight"><li>ⓐ Evaluate \(p(-3).\)</li><li>ⓑ Solve \(p(c)=2.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>Given the function \(f(x)={x}^{2}-3x:\)</p>
+<ul class="tight"><li>ⓐ Evaluate \(f(5).\)</li><li>ⓑ Solve \(f(x)=4.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(f(5)=10;\)</li><li>ⓑ \(x=-1\) or \(x=4\)</li></ul>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Given the function \(f(x)=\sqrt{x+2}:\)</p>
+<ul class="tight"><li>ⓐ Evaluate \(f(7).\)</li><li>ⓑ Solve \(f(x)=4.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Consider the relationship \(3r+2t=18.\)</p>
+<ul class="tight"><li>ⓐ Write the relationship as a function \(r=f(t).\)</li><li>ⓑ Evaluate \(f(-3).\)</li><li>ⓒ Solve \(f(t)=2.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(f(t)=6-\frac{2}{3}t;\)</li><li>ⓑ \(f(-3)=8;\)</li><li>ⓒ \(t=6\)</li></ul>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, use the vertical line test to determine which graphs show relations that are functions.</p>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_201-5fd2.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_202-c11d.jpg" alt="A graph displays two curves originating from the origin (0,0) and extending rightwards. The upper curve goes upwards, and the lower curve goes downwards, both symmetric about the x-axis, increasingly steep." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>not a function</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_203-401d.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_204-3920.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_205-9b65.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_206-a4e5.jpg" alt="A graph of the cubic function y=x^3, displaying its characteristic S-shape. The curve passes through the origin (0,0), (-1,-1), and (1,1), extending infinitely upwards and downwards as x increases or decreases." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_207-0288.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_208-492c.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_209-6bc3.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_210-1a0b.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_211-3512.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_212-3015.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Given the following graph,</p>
+<ul class="tight"><li>ⓐ Evaluate \(f(-1).\)</li><li>ⓑ Solve for \(f(x)=3.\)</li></ul>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_213-fd68.jpg" alt="A coordinate plane with x-axis from -3 to 10 and y-axis from 0 to 4. A blue curve starts at (-2,0) and extends to the right, showing increasing positive values, resembling a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Given the following graph,</p>
+<ul class="tight"><li>ⓐ Evaluate \(f(0).\)</li><li>ⓑ Solve for \(f(x)=-3.\)</li></ul>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_214-4087.jpg" alt="A Cartesian graph displays a blue W-shaped curve, typical of a quartic function. It has a local maximum at (0,1) and two local minima around (-2,-3) and (2,-3), extending upwards symmetrically." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(f(0)=1;\)</li><li>ⓑ \(f(x)=-3,\,x=-2\) or \(x=2\)</li></ul>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Given the following graph,</p>
+<ul class="tight"><li>ⓐ Evaluate \(f(4).\)</li><li>ⓑ Solve for \(f(x)=1.\)</li></ul>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_215-571f.jpg" alt="Graph of relation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, determine if the given graph is a one-to-one function.</p>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_216-4707.jpg" alt="Graph of a circle." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>not a function so it is also not a one-to-one function</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_232-8b55.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_217-7861.jpg" alt="Graph of a rotated cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>one-to-one function</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_218-bd16.jpg" alt="Graph of half of 1/x." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_233-a0df.jpg" alt="Graph of a one-to-one function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>function, but not one-to-one</p>
+</div></div></div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, determine whether the relation represents a function.</p>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\(\{(-1,-1),(-2,-2),(-3,-3)\}\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>\(\{(3,4),(4,5),(5,6)\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>\(\{(2,5),(7,11),(15,8),(7,9)\}\)</p>
+</div></div>
+<p>For the following exercises, determine if the relation represented in table form represents \(y\) as a function of \(x.\)</p>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><div class="tablewrap" id="tab16"><table class="data"><caption>Table 16</caption><tbody><tr><td><strong>\(x\)</strong></td><td>5</td><td>10</td><td>15</td></tr><tr><td><strong>\(y\)</strong></td><td>3</td><td>8</td><td>14</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>function</p>
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><div class="tablewrap" id="tab17"><table class="data"><caption>Table 17</caption><tbody><tr><td><strong>\(x\)</strong></td><td>5</td><td>10</td><td>15</td></tr><tr><td><strong>\(y\)</strong></td><td>3</td><td>8</td><td>8</td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><div class="tablewrap" id="tab18"><table class="data"><caption>Table 18</caption><tbody><tr><td><strong>\(x\)</strong></td><td>5</td><td>10</td><td>10</td></tr><tr><td><strong>\(y\)</strong></td><td>3</td><td>8</td><td>14</td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><p>not a function</p>
+</div></div></div></div>
+<p>For the following exercises, use the function \(f\) represented in <a href="#tab19">Table 19</a>.</p>
+<div class="tablewrap" id="tab19"><table class="data"><caption>Table 19</caption><tbody><tr><td>x</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr><tr><td>f(x)</td><td>74</td><td>28</td><td>1</td><td>53</td><td>56</td><td>3</td><td>36</td><td>45</td><td>14</td><td>47</td></tr></tbody></table></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>Evaluate \(f(3).\)</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>Solve \(f(x)=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=1,\,x=2\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the function \(f\) at the values \(f(-2),\,f(-1),\,f(0),\,f(1),\) and \(f(2).\)</p>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>\(f(x)=4-2x\)</p>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>\(f(x)=8-3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{lllll}f(-2)=14; &amp; f(-1)=11; &amp; f(0)=8; &amp; f(1)=5; &amp; f(2)=2\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>\(f(x)=8{x}^{2}-7x+3\)</p>
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><p>\(f(x)=3+\sqrt{x+3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{lllll}f(-2)=4;\, &amp; f(-1)=4.414; &amp; f(0)=4.732; &amp; f(1)=5; &amp; f(2)=5.236\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex72"><div class="n">72</div><div class="body"><p>\(f(x)=\frac{x-2}{x+3}\)</p>
+</div></div>
+<div class="exercise" id="ex73"><div class="n">73</div><div class="body"><p>\(f(x)={3}^{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{lllll}f(-2)=\frac{1}{9}; &amp; f(-1)=\frac{1}{3}; &amp; f(0)=1; &amp; f(1)=3; &amp; f(2)=9\end{array}\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the expressions, given functions \(f,g,\) and \(h:\)</p>
+<ul class="tight"><li>\(f(x)=3x-2\)</li><li>\(g(x)=5-{x}^{2}\)</li><li>\(h(x)=-2{x}^{2}+3x-1\)</li></ul>
+<div class="exercise" id="ex74"><div class="n">74</div><div class="body"><p>\(3f(1)-4g(-2)\)</p>
+</div></div>
+<div class="exercise" id="ex75"><div class="n">75</div><div class="body"><p>\(f(\frac{7}{3})-h(-2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>20</p>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, graph \(y={x}^{2}\) on the given domain. Determine the corresponding range. Show each graph.</p>
+<div class="exercise" id="ex76"><div class="n">76</div><div class="body"><p>\([-0.1,\,0.1]\)</p>
+</div></div>
+<div class="exercise" id="ex77"><div class="n">77</div><div class="body"><p>\([-10,\text{ 10}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([0,\text{ 100}]\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_220-324e.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex78"><div class="n">78</div><div class="body"><p>\([-100,100]\)</p>
+</div></div>
+<p>For the following exercises, graph \(y={x}^{3}\) on the given domain. Determine the corresponding range. Show each graph.</p>
+<div class="exercise" id="ex79"><div class="n">79</div><div class="body"><p>\([-0.1,\text{ 0}\text{.1}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([-0.001,\text{ 0}\text{.001}]\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_222-2e5d.jpg" alt="Graph of a parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex80"><div class="n">80</div><div class="body"><p>\([-10,\text{ 10}]\)</p>
+</div></div>
+<div class="exercise" id="ex81"><div class="n">81</div><div class="body"><p>\([-100,\text{ 100}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([-1,000,000,\text{ 1,000,000}]\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_224-c9b5.jpg" alt="Graph of a cubic function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, graph \(y=\sqrt{x}\) on the given domain. Determine the corresponding range. Show each graph.</p>
+<div class="exercise" id="ex82"><div class="n">82</div><div class="body"><p>\([0,\text{ 0}\text{.01}]\)</p>
+</div></div>
+<div class="exercise" id="ex83"><div class="n">83</div><div class="body"><p>\([0,\text{ 100}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([0,\text{ 10}]\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_226-6e2a.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex84"><div class="n">84</div><div class="body"><p>\([0,\text{ 10,000}]\)</p>
+</div></div>
+<p>For the following exercises, graph \(y=\sqrt[3]{x}\) on the given domain. Determine the corresponding range. Show each graph.</p>
+<div class="exercise" id="ex85"><div class="n">85</div><div class="body"><p>\([-0.001,\text{0.001}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([-0.1,\text{0.1}]\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_228-c583.jpg" alt="Graph of a square root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex86"><div class="n">86</div><div class="body"><p>\([-1000,\text{1000}]\)</p>
+</div></div>
+<div class="exercise" id="ex87"><div class="n">87</div><div class="body"><p>\([-1,000,000,\text{1,000,000}]\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\([-100,\text{ 100}]\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_01_01_230-869c.jpg" alt="Graph of a cubic root function." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex88"><div class="n">88</div><div class="body"><p>The amount of garbage, \(G,\) produced by a city with population \(p\) is given by \(G=f(p).\) \(G\) is measured in tons per week, and \(p\) is measured in thousands of people.</p>
+<ul class="tight"><li>ⓐ The town of Tola has a population of 40,000 and produces 13 tons of garbage each week. Express this information in terms of the function \(f.\)</li><li>ⓑ Explain the meaning of the statement \(f(5)=2.\)</li></ul>
+</div></div>
+<div class="exercise" id="ex89"><div class="n">89</div><div class="body"><p>The number of cubic yards of dirt, \(D,\) needed to cover a garden with area \(a\) square feet is given by \(D=g(a).\)</p>
+<ul class="tight"><li>ⓐ A garden with area 5000 ft<sup>2</sup> requires 50 yd<sup>3</sup> of dirt. Express this information in terms of the function \(g.\)</li><li>ⓑ Explain the meaning of the statement \(g(100)=1.\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ \(g(5000)=50;\)</li><li>ⓑ The number of cubic yards of dirt required for a garden of 100 square feet is 1.</li></ul>
+</div></div></div></div>
+<div class="exercise" id="ex90"><div class="n">90</div><div class="body"><p>Let \(f(t)\) be the number of ducks in a lake \(t\) years after 1990. Explain the meaning of each statement:</p>
+<ul class="tight"><li>ⓐ \(f(5)=30\)</li><li>ⓑ \(f(10)=40\)</li></ul>
+</div></div>
+<div class="exercise" id="ex91"><div class="n">91</div><div class="body"><p>Let \(h(t)\) be the height above ground, in feet, of a rocket \(t\) seconds after launching. Explain the meaning of each statement:</p>
+<ul class="tight"><li>\(h(1)=200\)</li><li>\(h(2)=350\)</li></ul>
+<div class="answer"><button>Show answer</button><div class="a"><ul class="tight"><li>ⓐ The height of a rocket above ground after 1 second is 200 ft.</li><li>ⓑ the height of a rocket above ground after 2 seconds is 350 ft.</li></ul>
+</div></div></div></div>
+<div class="exercise" id="ex92"><div class="n">92</div><div class="body"><p>Show that the function \(f(x)=3{(x-5)}^{2}+7\) is <strong>not</strong> one-to-one.</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>dependent variable</dt><dd>an output variable</dd><dt>domain</dt><dd>the set of all possible input values for a relation</dd><dt>function</dt><dd>a relation in which each input value yields a unique output value</dd><dt>horizontal line test</dt><dd>a method of testing whether a function is one-to-one by determining whether any horizontal line intersects the graph more than once</dd><dt>independent variable</dt><dd>an input variable</dd><dt>input</dt><dd>each object or value in a domain that relates to another object or value by a relationship known as a function</dd><dt>one-to-one function</dt><dd>a function for which each value of the output is associated with a unique input value</dd><dt>output</dt><dd>each object or value in the range that is produced when an input value is entered into a function</dd><dt>range</dt><dd>the set of output values that result from the input values in a relation</dd><dt>relation</dt><dd>a set of ordered pairs</dd><dt>vertical line test</dt><dd>a method of testing whether a graph represents a function by determining whether a vertical line intersects the graph no more than once</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

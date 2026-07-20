@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parametric Equations · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Parametric Equations</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 8.6</span>Parametric Equations</h1>
+<p>Consider the path a moon follows as it orbits a planet, which simultaneously rotates around the sun, as seen in <a href="#fig1">Figure 1</a>. At any moment, the moon is located at a particular spot relative to the planet. But how do we write and solve the equation for the position of the moon when the distance from the planet, the speed of the moon’s orbit around the planet, and the speed of rotation around the sun are all unknowns? We can solve only for one variable at a time.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_001.jpg" alt="Illustration of a planet's circular orbit around the sun." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<p>In this section, we will consider sets of equations given by \(x(t)\) and \(y(t)\) where \(t\) is the independent variable of time. We can use these parametric equations in a number of applications when we are looking for not only a particular position but also the direction of the movement. As we trace out successive values of \(t,\) the orientation of the curve becomes clear. This is one of the primary advantages of using <strong>parametric equations</strong>: we are able to trace the movement of an object along a path according to time. We begin this section with a look at the basic components of parametric equations and what it means to parameterize a curve. Then we will learn how to eliminate the parameter, translate the equations of a curve defined parametrically into rectangular equations, and find the parametric equations for curves defined by rectangular equations.</p>
+<h2 id="parameterizing-a-curve">Parameterizing a Curve</h2>
+<p>When an object moves along a curve—or <strong>curvilinear path</strong>—in a given direction and in a given amount of time, the position of the object in the plane is given by the <strong>x-</strong>coordinate and the <strong>y-</strong>coordinate. However, both \(x\) and \(y\) vary over time and so are functions of time. For this reason, we add another variable, the <strong>parameter</strong>, upon which both \(x\) and \(y\) are dependent functions. In the example in the section opener, the parameter is time, \(t.\) The \(x\) position of the moon at time, \(t,\) is represented as the function \(x(t),\) and the \(y\) position of the moon at time, \(t,\) is represented as the function \(y(t).\) Together, \(x(t)\) and \(y(t)\) are called parametric equations, and generate an ordered pair \((x(t),\,y(t)).\) Parametric equations primarily describe motion and direction.</p>
+<p>When we parameterize a curve, we are translating a single equation in two variables, such as \(x\) and \(y ,\) into an equivalent pair of equations in three variables, \(x,y,\) and \(t.\) One of the reasons we parameterize a curve is because the parametric equations yield more information: specifically, the direction of the object’s motion over time.</p>
+<p>When we graph parametric equations, we can observe the individual behaviors of \(x\) and of \(y.\) There are a number of shapes that cannot be represented in the form \(y=f(x),\) meaning that they are not functions. For example, consider the graph of a circle, given as \({r}^{2}={x}^{2}+{y}^{2}.\) Solving for \(y\) gives \(y=\pm \sqrt{{r}^{2}-{x}^{2}},\) or two equations: \({y}_{1}=\sqrt{{r}^{2}-{x}^{2}}\) and \({y}_{2}=-\sqrt{{r}^{2}-{x}^{2}}.\) If we graph \({y}_{1}\) and \({y}_{2}\) together, the graph will not pass the vertical line test, as shown in <a href="#fig2">Figure 2</a>. Thus, the equation for the graph of a circle is not a function.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_002.jpg" alt="Graph of a circle in the rectangular coordinate system - the vertical line test shows that the circle r^2 = x^2 + y^2 is not a function. The dotted red vertical line intersects the function in two places - it should only intersect in one place to be a function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>However, if we were to graph each equation on its own, each one would pass the vertical line test and therefore would represent a function. In some instances, the concept of breaking up the equation for a circle into two functions is similar to the concept of creating parametric equations, as we use two functions to produce a non-function. This will become clearer as we move forward.</p>
+<div class="card definition" id="fs-id1165131990671"><span class="chip">Parametric Equations</span><p>Suppose \(t\) is a number on an interval, \(I.\) The set of ordered pairs, \((x(t),\) \(y(t)),\) where \(x=f(t)\) and \(y=g(t),\) forms a plane curve based on the parameter \(t.\) The equations \(x=f(t)\) and \(y=g(t)\) are the parametric equations.</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Parameterize the curve \(y={x}^{2}-1\) letting \(x(t)=t.\) Graph both equations.</p>
+</div><p class="sol-hint">Since x(t)=t, just replace x with t everywhere in the original equation to get y(t).</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>If \(x(t)=t,\) then to find \(y(t)\) we replace the variable \(x\) with the expression given in \(x(t).\) In other words, \(y(t)={t}^{2}-1.\) Make a table of values similar to <a href="#tab1">Table 1</a>, and sketch the graph.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\(t\)</td><td>\(x(t)\)</td><td>\(y(t)\)</td></tr><tr><td>\(-4\)</td><td>\(-4\)</td><td>\(y(-4)={(-4)}^{2}-1=15\)</td></tr><tr><td>\(-3\)</td><td>\(-3\)</td><td>\(y(-3)={(-3)}^{2}-1=8\)</td></tr><tr><td>\(-2\)</td><td>\(-2\)</td><td>\(y(-2)={(-2)}^{2}-1=3\)</td></tr><tr><td>\(-1\)</td><td>\(-1\)</td><td>\(y(-1)={(-1)}^{2}-1=0\)</td></tr><tr><td>\(0\)</td><td>\(0\)</td><td>\(y(0)={(0)}^{2}-1=-1\)</td></tr><tr><td>\(1\)</td><td>\(1\)</td><td>\(y(1)={(1)}^{2}-1=0\)</td></tr><tr><td>\(2\)</td><td>\(2\)</td><td>\(y(2)={(2)}^{2}-1=3\)</td></tr><tr><td>\(3\)</td><td>\(3\)</td><td>\(y(3)={(3)}^{2}-1=8\)</td></tr><tr><td>\(4\)</td><td>\(4\)</td><td>\(y(4)={(4)}^{2}-1=15\)</td></tr></tbody></table></div>
+<p>See the graphs in <a href="#fig3">Figure 3</a>. It may be helpful to use the <strong>TRACE</strong> feature of a graphing calculator to see how the points are generated as \(t\) increases.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_015.jpg" alt="Graph of a parabola in two forms: a parametric equation and rectangular coordinates. It is the same function, just different ways of writing it." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — (a) Parametric \(y(t)={t}^{2}-1\) (b) Rectangular \(y={x}^{2}-1\)</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The arrows indicate the direction in which the curve is generated. Notice the curve is identical to the curve of \(y={x}^{2}-1.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Construct a table of values and plot the parametric equations: \(x(t)=t-3,\) \(y(t)=2t+4;\,-1\le t\le 2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(t\)</td><td>\(x(t)\)</td><td>\(y(t)\)</td></tr><tr><td>\(-1\)</td><td>\(-4\)</td><td>\(2\)</td></tr><tr><td>\(0\)</td><td>\(-3\)</td><td>\(4\)</td></tr><tr><td>\(1\)</td><td>\(-2\)</td><td>\(6\)</td></tr><tr><td>\(2\)</td><td>\(-1\)</td><td>\(8\)</td></tr></tbody></table></div>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_006.jpg" alt="A coordinate plane displays a blue line segment ascending from (-4, 2) to (0, 10). Arrows indicate its direction along grid lines, highlighting its positive slope." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find a pair of parametric equations that models the graph of \(y=1-{x}^{2},\) using the parameter \(x(t)=t.\) Plot some points and sketch the graph.</p>
+</div><p class="sol-hint">Since x(t)=t, substitute t for x in the original equation to get y(t), then plug in a few t-values to plot points.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>If \(x(t)=t\) and we substitute \(t\) for \(x\) into the \(y\) equation, then \(y(t)=1-{t}^{2}.\) Our pair of parametric equations is</p>
+<p id="eq1">\[\begin{array}{l}x(t)=t \\ y(t)=1-{t}^{2}\end{array}\]</p>
+<p>To graph the equations, first we construct a table of values like that in <a href="#tab3">Table 3</a>. We can choose values around \(t=0,\) from \(t=-3\) to \(t=3.\) The values in the \(x(t)\) column will be the same as those in the \(t\) column because \(x(t)=t.\) Calculate values for the column \(y(t).\)</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>\(t\)</td><td>\(x(t)=t\)</td><td>\(y(t)=1-{t}^{2}\)</td></tr><tr><td>\(-3\)</td><td>\(-3\)</td><td>\(y(-3)=1-{(-3)}^{2}=-8\)</td></tr><tr><td>\(-2\)</td><td>\(-2\)</td><td>\(y(-2)=1-{(-2)}^{2}=-3\)</td></tr><tr><td>\(-1\)</td><td>\(-1\)</td><td>\(y(-1)=1-{(-1)}^{2}=0\)</td></tr><tr><td>\(0\)</td><td>\(0\)</td><td>\(y(0)=1-0=1\)</td></tr><tr><td>\(1\)</td><td>\(1\)</td><td>\(y(1)=1-{(1)}^{2}=0\)</td></tr><tr><td>\(2\)</td><td>\(2\)</td><td>\(y(2)=1-{(2)}^{2}=-3\)</td></tr><tr><td>\(3\)</td><td>\(3\)</td><td>\(y(3)=1-{(3)}^{2}=-8\)</td></tr></tbody></table></div>
+<p>The graph of \(y=1-{t}^{2}\) is a parabola facing downward, as shown in <a href="#fig4">Figure 4</a>. We have mapped the curve over the interval \([-3,\,3],\) shown as a solid line with arrows indicating the orientation of the curve according to \(t.\) Orientation refers to the path traced along the curve in terms of increasing values of \(t.\) As this parabola is symmetric with respect to the line \(x=0,\) the values of \(x\) are reflected across the <strong>y</strong>-axis.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_007.jpg" alt="Graph of given downward facing parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Parameterize the curve given by \(x={y}^{3}-2y.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}x(t)={t}^{3}-2t \\ y(t)=t\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>An object travels at a steady rate along a straight path \((-5,\,3)\) to \((3,\,-1)\) in the same plane in four seconds. The coordinates are measured in meters. Find parametric equations for the position of the object.</p>
+</div><p class="sol-hint">Divide the change in each coordinate by the total time to get the rate, then write x(t) and y(t) as linear functions starting at the initial point.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The parametric equations are simple linear expressions, but we need to view this problem in a step-by-step fashion. The <strong>x</strong>-value of the object starts at \(-5\) meters and goes to 3 meters. This means the distance <strong>x</strong> has changed by 8 meters in 4 seconds, which is a rate of \(\frac{\text{8 m}}{4\text{ s}},\) or \(2\,\text{m}/\text{s}.\) We can write the <strong>x</strong>-coordinate as a linear function with respect to time as \(x(t)=2t-5.\) In the linear function template \(y=mx+b,2t=mx\) and \(-5=b.\)</p>
+<p>Similarly, the <strong>y</strong>-value of the object starts at 3 and goes to \(-1,\) which is a change in the distance <strong>y</strong> of −4 meters in 4 seconds, which is a rate of \(\frac{-4\text{ m}}{4\text{ s}},\) or \(-1\text{m}/\text{s}.\) We can also write the <strong>y</strong>-coordinate as the linear function \(y(t)=-t+3.\) Together, these are the parametric equations for the position of the object, where \(x\) and \(y\) are expressed in meters and \(t\) represents time:</p>
+<p id="eq2">\[\begin{array}{l}x(t)=2t-5 \\ y(t)=-t+3\end{array}\]</p>
+<p>Using these equations, we can build a table of values for \(t,x,\) and \(y\) (see <a href="#tab4">Table 4</a>). In this example, we limited values of \(t\) to non-negative numbers. In general, any value of \(t\) can be used.</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>\(t\)</td><td>\(x(t)=2t-5\)</td><td>\(y(t)=-t+3\)</td></tr><tr><td>\(0\)</td><td>\(x=2(0)-5=-5\)</td><td>\(y=-(0)+3=3\)</td></tr><tr><td>\(1\)</td><td>\(x=2(1)-5=-3\)</td><td>\(y=-(1)+3=2\)</td></tr><tr><td>\(2\)</td><td>\(x=2(2)-5=-1\)</td><td>\(y=-(2)+3=1\)</td></tr><tr><td>\(3\)</td><td>\(x=2(3)-5=1\)</td><td>\(y=-(3)+3=0\)</td></tr><tr><td>\(4\)</td><td>\(x=2(4)-5=3\)</td><td>\(y=-(4)+3=-1\)</td></tr></tbody></table></div>
+<p>From this table, we can create three graphs, as shown in <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_003.jpg" alt="Three graphs side by side. (A) has the horizontal position over time, (B) has the vertical position over time, and (C) has the position of the object in the plane at time t. See caption for more information." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — (a) A graph of \(x\) vs. \(t,\) representing the horizontal position over time. (b) A graph of \(y\) vs. \(t,\) representing the vertical position over time. (c) A graph of \(y\) vs. \(x,\) representing the position of the object in the plane at time \(t.\)</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Again, we see that, in <a href="#fig5">Figure 5</a>(c), when the parameter represents time, we can indicate the movement of the object along the path with arrows.</p>
+</div></div></div></div>
+<h2 id="eliminating-the-parameter">Eliminating the Parameter</h2>
+<p>In many cases, we may have a pair of parametric equations but find that it is simpler to draw a curve if the equation involves only two variables, such as \(x\) and \(y.\) Eliminating the parameter is a method that may make graphing some curves easier. However, if we are concerned with the mapping of the equation according to time, then it will be necessary to indicate the orientation of the curve as well. There are various methods for eliminating the parameter \(t\) from a set of parametric equations; not every method works for every type of equation. Here we will review the methods for the most common types of equations.</p>
+<h3 id="eliminating-the-parameter-from-polynomial-exponential-and-logarithmic-equations">Eliminating the Parameter from Polynomial, Exponential, and Logarithmic Equations</h3>
+<p>For polynomial, exponential, or logarithmic equations expressed as two parametric equations, we choose the equation that is most easily manipulated and solve for \(t.\) We substitute the resulting expression for \(t\) into the second equation. This gives one equation in \(x\) and \(y.\)</p>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Given \(x(t)={t}^{2}+1\) and \(y(t)=2+t,\) eliminate the parameter, and write the parametric equations as a Cartesian equation.</p>
+</div><p class="sol-hint">Solve the simpler equation for t, then substitute that expression into the other equation.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will begin with the equation for \(y\) because the linear equation is easier to solve for \(t.\)</p>
+<p id="eq3">\[\begin{array}{l}y=2+t \\ y-2=t\end{array}\]</p>
+<p>Next, substitute \(y-2\) for \(t\) in \(x(t).\)</p>
+<p id="eq4">\[\begin{array}{ll}x={t}^{2}+1 &amp; \\ x={(y-2)}^{2}+1 &amp; \text{Substitute the expression for }t\text{ into }x. \\ x={y}^{2}-4y+4+1 &amp; \\ x={y}^{2}-4y+5 &amp; \\ x={y}^{2}-4y+5 &amp; \end{array}\]</p>
+<p>The Cartesian form is \(x={y}^{2}-4y+5.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>This is an equation for a parabola in which, in rectangular terms, \(x\) is dependent on \(y.\) From the curve’s vertex at \((1,2),\) the graph sweeps out to the right. See <a href="#fig6">Figure 6</a>. In this section, we consider sets of equations given by the functions \(x(t)\) and \(y(t),\) where \(t\) is the independent variable of time. Notice, both \(x\) and \(y\) are functions of time; so in general \(y\) is not a function of \(x.\)</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_008.jpg" alt="Graph of given sideways (extending to the right) parabola." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Given the equations below, eliminate the parameter and write as a rectangular equation for \(y\) as a function of \(x.\)</p>
+<p id="eq5">\[\begin{array}{l}x(t)=2{t}^{2}+6 \\ y(t)=5-t\end{array}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y=5-\sqrt{\frac{1}{2}x-3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Eliminate the parameter and write as a Cartesian equation: \(x(t)={e}^{-t}\) and \(y(t)=3{e}^{t}\)</p>
+</div><p class="sol-hint">Solve one equation for \({e}^{t}\) (or \({e}^{-t}\)), then substitute into the other.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Isolate \({e}^{t}.\)</p>
+<p id="eq6">\[\begin{array}{l}x={e}^{-t} \\ {e}^{t}=\frac{1}{x}\end{array}\]</p>
+<p>Substitute the expression into \(y(t).\)</p>
+<p id="eq7">\[\begin{array}{l}y=3{e}^{t} \\ y=3(\frac{1}{x}) \\ y=\frac{3}{x}\end{array}\]</p>
+<p>The Cartesian form is \(y=\frac{3}{x}.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The graph of the parametric equation is shown in <a href="#fig7">Figure 7</a><strong>(a)</strong>. The domain is restricted to \(t&gt;0.\) The Cartesian equation, \(y=\frac{3}{x}\) is shown in <a href="#fig7">Figure 7</a><strong>(b)</strong> and has only one restriction on the domain, \(x\ne 0.\)</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_009.jpg" alt="Graph of the parametric equation with domain restricted to t&amp;gt;0, and a graph of that parametric equation in polar coordinates with domain only restricted to x not equal to 0. The Cartesian coordinate version has an extra reflection of the function across the origin in Q 3 (original was just in Q 1). " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div></div></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Eliminate the parameter and write as a Cartesian equation: \(x(t)=\sqrt{t}+2\) and \(y(t)=log(t).\)</p>
+</div><p class="sol-hint">Solve \(x(t)=\sqrt{t}+2\) for t, then substitute that expression into \(y(t).\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Solve the first equation for \(t.\)</p>
+<p id="eq8">\[\begin{array}{ll}\,x=\sqrt{t}+2 &amp; \\ \,x-2=\sqrt{t} &amp; \\ {(x-2)}^{2}=t &amp; \text{Square both sides}.\end{array}\]</p>
+<p>Then, substitute the expression for \(t\) into the \(y\) equation.</p>
+<p id="eq9">\[\begin{array}{l}y=log(t) \\ y=log{(x-2)}^{2}\end{array}\]</p>
+<p>The Cartesian form is \(y=log{(x-2)}^{2}.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>To be sure that the parametric equations are equivalent to the Cartesian equation, check the domains. The parametric equations restrict the domain on \(x=\sqrt{t}+2\) to \(t&gt;0;\) we restrict the domain on \(x\) to \(x&gt;2.\) The domain for the parametric equation \(y=log(t)\) is restricted to \(t&gt;0;\) we limit the domain on \(y=log{(x-2)}^{2}\) to \(x&gt;2.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Eliminate the parameter and write as a <strong>rectangular equation</strong>.</p>
+<p id="eq10">\[\begin{array}{l}x(t)={t}^{2} \\ y(t)=ln\,t\,t&gt;0\end{array}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y=ln\sqrt{x}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="eliminating-the-parameter-from-trigonometric-equations">Eliminating the Parameter from Trigonometric Equations</h3>
+<p>Eliminating the parameter from trigonometric equations is a straightforward substitution. We can use a few of the familiar trigonometric identities and the Pythagorean Theorem.</p>
+<p>First, we use the identities:</p>
+<p id="eq11">\[\begin{array}{l}x(t)=acos\,t \\ y(t)=bsin\,t\end{array}\]</p>
+<p>Solving for \(cos\,t\) and \(sin\,t,\) we have</p>
+<p id="eq12">\[\begin{array}{l}\frac{x}{a}=cos\,t \\ \frac{y}{b}=sin\,t\end{array}\]</p>
+<p>Then, use the Pythagorean Theorem:</p>
+<p id="eq13">\[{cos}^{2}t+{sin}^{2}t=1\]</p>
+<p>Substituting gives</p>
+<p id="eq14">\[{cos}^{2}t+{sin}^{2}t={(\frac{x}{a})}^{2}+{(\frac{y}{b})}^{2}=1\]</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Eliminate the parameter from the given pair of <strong>trigonometric equations</strong> where \(0\le t\le 2\pi\) and sketch the graph.</p>
+<p id="eq15">\[\begin{array}{l}x(t)=4cos\,t \\ y(t)=3sin\,t\end{array}\]</p>
+</div><p class="sol-hint">Use the Pythagorean identity \({\sin}^{2}t+{\cos}^{2}t=1\) to combine the two equations into one.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Solving for \(cos\,t\) and \(sin\,t,\) we have</p>
+<p id="eq16">\[\begin{array}{l}x=4cos\,t \\ \frac{x}{4}=cos\,t \\ y=3sin\,t \\ \frac{y}{3}=sin\,t\end{array}\]</p>
+<p>Next, use the Pythagorean identity and make the substitutions.</p>
+<p id="eq17">\[\begin{array}{l}{cos}^{2}t+{sin}^{2}t=1 \\ {(\frac{x}{4})}^{2}+{(\frac{y}{3})}^{2}=1 \\ \frac{{x}^{2}}{16}+\frac{{y}^{2}}{9}=1\end{array}\]</p>
+<p>The graph for the equation is shown in <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_011.jpg" alt="Graph of given ellipse centered at (0,0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Applying the general equations for <strong>conic sections</strong> (introduced in Analytic Geometry, we can identify \(\frac{{x}^{2}}{16}+\frac{{y}^{2}}{9}=1\) as an ellipse centered at \((0,0).\) Notice that when \(t=0\) the coordinates are \((4,0),\) and when \(t=\frac{\pi }{2}\) the coordinates are \((0,3).\) This shows the orientation of the curve with increasing values of \(t.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Eliminate the parameter from the given pair of parametric equations and write as a Cartesian equation: \(x(t)=2cos\,t\) and \(y(t)=3sin\,t.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{{x}^{2}}{4}+\frac{{y}^{2}}{9}=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-cartesian-equations-from-curves-defined-parametrically">Finding Cartesian Equations from Curves Defined Parametrically</h2>
+<p>When we are given a set of parametric equations and need to find an equivalent Cartesian equation, we are essentially “eliminating the parameter.” However, there are various methods we can use to rewrite a set of parametric equations as a Cartesian equation. The simplest method is to set one equation equal to the parameter, such as \(x(t)=t.\) In this case, \(y(t)\) can be any expression. For example, consider the following pair of equations.</p>
+<p id="eq18">\[\begin{array}{l}x(t)=t \\ y(t)={t}^{2}-3\end{array}\]</p>
+<p>Rewriting this set of parametric equations is a matter of substituting \(x\) for \(t.\) Thus, the Cartesian equation is \(y={x}^{2}-3.\)</p>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Use two different methods to find the Cartesian equation equivalent to the given set of parametric equations.</p>
+<p id="eq19">\[\begin{array}{l}x(t)=3t-2 \\ y(t)=t+1\end{array}\]</p>
+</div><p class="sol-hint">Try solving one equation for t and substituting, then also try using a trig or algebraic identity, and check both methods give the same result.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p><strong>Method 1</strong>. First, let’s solve the \(x\) equation for \(t.\) Then we can substitute the result into the \(y\) equation.</p>
+<p id="eq20">\[\begin{array}{l}x=3t-2 \\ \,x+2=3t \\ \frac{x+2}{3}=t\end{array}\]</p>
+<p>Now substitute the expression for \(t\) into the \(y\) equation.</p>
+<p id="eq21">\[\begin{array}{l}y=t+1 \\ y=(\frac{x+2}{3})+1 \\ y=\frac{x}{3}+\frac{2}{3}+1 \\ y=\frac{1}{3}x+\frac{5}{3}\end{array}\]</p>
+<p><strong>Method 2</strong>. Solve the \(y\) equation for \(t\) and substitute this expression in the \(x\) equation.</p>
+<p id="eq22">\[\begin{array}{l}\,y=t+1 \\ y-1=t\end{array}\]</p>
+<p>Make the substitution and then solve for \(y.\)</p>
+<p id="eq23">\[\begin{array}{l}\,x=3(y-1)-2 \\ \,x=3y-3-2 \\ \,x=3y-5 \\ x+5=3y \\ \frac{x+5}{3}=y \\ \,y=\frac{1}{3}x+\frac{5}{3}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Write the given parametric equations as a Cartesian equation: \(x(t)={t}^{3}\) and \(y(t)={t}^{6}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(y={x}^{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-parametric-equations-for-curves-defined-by-rectangular-equations">Finding Parametric Equations for Curves Defined by Rectangular Equations</h2>
+<p>Although we have just shown that there is only one way to interpret a set of parametric equations as a rectangular equation, there are multiple ways to interpret a rectangular equation as a set of parametric equations. Any strategy we may use to find the parametric equations is valid if it produces equivalency. In other words, if we choose an expression to represent \(x,\) and then substitute it into the \(y\) equation, and it produces the same graph over the same domain as the rectangular equation, then the set of parametric equations is valid. If the domain becomes restricted in the set of parametric equations, and the function does not allow the same values for \(x\) as the domain of the rectangular equation, then the graphs will be different.</p>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Find a set of equivalent parametric equations for \(y={(x+3)}^{2}+1.\)</p>
+</div><p class="sol-hint">Let \(x(t)=t\) and substitute directly into the given equation to get y(t).</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>An obvious choice would be to let \(x(t)=t.\) Then \(y(t)={(t+3)}^{2}+1.\) But let’s try something more interesting. What if we let \(x=t+3?\) Then we have</p>
+<p id="eq24">\[\begin{array}{l}y={(x+3)}^{2}+1 \\ y={((t+3)+3)}^{2}+1 \\ y={(t+6)}^{2}+1\end{array}\]</p>
+<p>The set of parametric equations is</p>
+<p id="eq25">\[\begin{array}{l}x(t)=t+3 \\ y(t)={(t+6)}^{2}+1\end{array}\]</p>
+<p>See <a href="#fig9">Figure 9</a>.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_06_012.jpg" alt="Graph of parametric and rectangular coordinate versions of the same parabola - they are the same!" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</div></div></div>
+<div class="card callout" id="fs-id1165137930360"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with parametric equations.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/introparametric" target="_blank" rel="noopener">Introduction to Parametric Equations</a></li><li><a href="https://openstax.org/l/convertpara" target="_blank" rel="noopener">Converting Parametric Equations to Rectangular Form</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Parameterizing a curve involves translating a rectangular equation in two variables, \(x\) and \(y,\) into two equations in three variables, <strong>x</strong>, <strong>y</strong>, and <strong>t</strong>. Often, more information is obtained from a set of parametric equations. See <a href="#example1">Example 1</a>, <a href="#example2">Example 2</a>, and <a href="#example3">Example 3</a>.</li><li>Sometimes equations are simpler to graph when written in rectangular form. By eliminating \(t,\) an equation in \(x\) and \(y\) is the result.</li><li>To eliminate \(t,\) solve one of the equations for \(t,\) and substitute the expression into the second equation. See <a href="#example4">Example 4</a>, <a href="#example5">Example 5</a>, <a href="#example6">Example 6</a>, and <a href="#example7">Example 7</a>.</li><li>Finding the rectangular equation for a curve defined parametrically is basically the same as eliminating the parameter. Solve for \(t\) in one of the equations, and substitute the expression into the second equation. See <a href="#example8">Example 8</a>.</li><li>There are an infinite number of ways to choose a set of parametric equations for a curve defined as a rectangular equation.</li><li>Find an expression for \(x\) such that the domain of the set of parametric equations remains the same as the original rectangular equation. See <a href="#example9">Example 9</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What is a system of parametric equations?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A pair of functions that is dependent on an external factor. The two functions are written in terms of the same parameter. For example, \(x=f(t)\) and \(y=f(t).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Some examples of a third parameter are time, length, speed, and scale. Explain when time is used as a parameter.</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Explain how to eliminate a parameter given a set of parametric equations.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Choose one equation to solve for \(t,\) substitute into the other equation and simplify.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>What is a benefit of writing a system of parametric equations as a Cartesian equation?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>What is a benefit of using parametric equations?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Some equations cannot be written as functions, like a circle. However, when written as two parametric equations, separately the equations are functions.</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>Why are there many sets of parametric equations to represent on Cartesian function?</p>
+</div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, eliminate the parameter \(t\) to rewrite the parametric equation as a Cartesian equation.</p>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=5-t \\ y(t)=8-2t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-2+2x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=6-3t \\ y(t)=10-t\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2t+1 \\ y(t)=3\sqrt{t}\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=3\sqrt{\frac{x-1}{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=3t-1 \\ y(t)=2{t}^{2}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2{e}^{t} \\ y(t)=1-5t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=2{e}^{\frac{1-y}{5}}\) or \(y=1-5ln(\frac{x}{2})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)={e}^{-2t} \\ y(t)=2{e}^{-t}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=4\text{log}(t) \\ y(t)=3+2t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x=4log(\frac{y-3}{2})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=\text{log}(2t) \\ y(t)=\sqrt{t-1}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)={t}^{3}-t \\ y(t)=2t\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x={(\frac{y}{2})}^{3}-\frac{y}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=t-{t}^{4} \\ y(t)=t+2\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)={e}^{2t} \\ y(t)={e}^{6t}\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={x}^{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)={t}^{5} \\ y(t)={t}^{10}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=4\text{cos}\,t \\ y(t)=5sin\,t\,\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({(\frac{x}{4})}^{2}+{(\frac{y}{5})}^{2}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=3sin\,t \\ y(t)=6cos\,t\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2{\text{cos}}^{2}t \\ y(t)=-sin\,t\,\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({y}^{2}=1-\frac{1}{2}x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=cos\,t+4 \\ y(t)=2{sin}^{2}t\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=t-1 \\ y(t)={t}^{2}\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={x}^{2}+2x+1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=-t \\ y(t)={t}^{3}+1\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2t-1 \\ y(t)={t}^{3}-2\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y={(\frac{x+1}{2})}^{3}-2\)</p>
+</div></div></div></div>
+<p>For the following exercises, rewrite the parametric equation as a Cartesian equation by building an \(x\text{-}y\) table.</p>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2t-1 \\ y(t)=t+4\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=4-t \\ y(t)=3t+2\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=-3x+14\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=2t-1 \\ y(t)=5t\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(\left\{\begin{array}{l}x(t)=4t-1 \\ y(t)=4t+2\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=x+3\)</p>
+</div></div></div></div>
+<p>For the following exercises, parameterize (write parametric equations for) each Cartesian equation by setting \(x(t)=t\) or by setting \(y(t)=t.\)</p>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(y(x)=3{x}^{2}+3\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(y(x)=2sin\,x+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\left\{\begin{array}{l}x(t)=t \\ y(t)=2sint+1\end{array}\right.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(x(y)=3log(y)+y\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(x(y)=\sqrt{y}+2y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\left\{\begin{array}{l}x(t)=\sqrt{t}+2t \\ y(t)=t\end{array}\right.\)</p>
+</div></div></div></div>
+<p>For the following exercises, parameterize (write parametric equations for) each Cartesian equation by using \(x(t)=acos\,t\) and \(y(t)=bsin\,t.\) Identify the curve.</p>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(\frac{{x}^{2}}{4}+\frac{{y}^{2}}{9}=1\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(\frac{{x}^{2}}{16}+\frac{{y}^{2}}{36}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\left\{\begin{array}{l}x(t)=4cos\,t \\ y(t)=6sin\,t\end{array}\right.;\) Ellipse</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\({x}^{2}+{y}^{2}=16\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\({x}^{2}+{y}^{2}=10\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\left\{\begin{array}{l}x(t)=\sqrt{10}cost \\ y(t)=\sqrt{10}sint\end{array}\right.;\) Circle</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>Parameterize the line from \((3,0)\) to \((-2,-5)\) so that the line is at \((3,0)\) at \(t=0,\) and at \((-2,-5)\) at \(t=1.\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>Parameterize the line from \((-1,0)\) to \((3,-2)\) so that the line is at \((-1,0)\) at \(t=0,\) and at \((3,-2)\) at \(t=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\left\{\begin{array}{l}x(t)=-1+4t \\ y(t)=-2t\end{array}\right.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Parameterize the line from \((-1,5)\) to \((2,3)\) so that the line is at \((-1,5)\) at \(t=0,\) and at \((2,3)\) at \(t=1.\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Parameterize the line from \((4,1)\) to \((6,-2)\) so that the line is at \((4,1)\) at \(t=0,\) and at \((6,-2)\) at \(t=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\left\{\begin{array}{l}x(t)=4+2t \\ y(t)=1-3t\end{array}\right.\)</p>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use the table feature in the graphing calculator to determine whether the graphs intersect.</p>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\left\{\begin{array}{l}{x}_{1}(t)=3t \\ {y}_{1}(t)=2t-1\end{array}\right.\text{ and }\left\{\begin{array}{l}{x}_{2}(t)=t+3 \\ {y}_{2}(t)=4t-4\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(\left\{\begin{array}{l}{x}_{1}(t)={t}^{2} \\ {y}_{1}(t)=2t-1\end{array}\right.\text{ and }\left\{\begin{array}{l}{x}_{2}(t)=-t+6 \\ {y}_{2}(t)=t+1\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>yes, at \(t=2\)</p>
+</div></div></div></div>
+<p>For the following exercises, use a graphing calculator to complete the table of values for each set of parametric equations.</p>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(\left\{\begin{array}{l}{x}_{1}(t)=3{t}^{2}-3t+7 \\ {y}_{1}(t)=2t+3\end{array}\right.\)</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>\(t\)</td><td>\(x\)</td><td>\(y\)</td></tr><tr><td>–1</td><td></td><td></td></tr><tr><td>0</td><td></td><td></td></tr><tr><td>1</td><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(\left\{\begin{array}{l}{x}_{1}(t)={t}^{2}-4 \\ {y}_{1}(t)=2{t}^{2}-1\end{array}\right.\)</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>\(t\)</td><td>\(x\)</td><td>\(y\)</td></tr><tr><td>1</td><td></td><td></td></tr><tr><td>2</td><td></td><td></td></tr><tr><td>3</td><td></td><td></td></tr></tbody></table></div>
+<div class="answer"><button>Show answer</button><div class="a"><div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>\(t\)</td><td>\(x\)</td><td>\(y\)</td></tr><tr><td>1</td><td>-3</td><td>1</td></tr><tr><td>2</td><td>0</td><td>7</td></tr><tr><td>3</td><td>5</td><td>17</td></tr></tbody></table></div>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(\left\{\begin{array}{l}{x}_{1}(t)={t}^{4} \\ {y}_{1}(t)={t}^{3}+4\end{array}\right.\)</p>
+<div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td>\(t\)</td><td>\(x\)</td><td>\(y\)</td></tr><tr><td>-1</td><td></td><td></td></tr><tr><td>0</td><td></td><td></td></tr><tr><td>1</td><td></td><td></td></tr><tr><td>2</td><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Find two different sets of parametric equations for \(y={(x+1)}^{2}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>answers may vary: \(\left\{\begin{array}{l}x(t)=t-1 \\ y(t)={t}^{2}\end{array}\right.\text{ and }\left\{\begin{array}{l}x(t)=t+1 \\ y(t)={(t+2)}^{2}\end{array}\right.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Find two different sets of parametric equations for \(y=3x-2.\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Find two different sets of parametric equations for \(y={x}^{2}-4x+4.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>answers may vary: , \(\left\{\begin{array}{l}x(t)=t \\ y(t)={t}^{2}-4t+4\end{array}\right.\text{ and }\left\{\begin{array}{l}x(t)=t+2 \\ y(t)={t}^{2}\end{array}\right.\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>parameter</dt><dd>a variable, often representing time, upon which \(x\) and \(y\) are both dependent</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

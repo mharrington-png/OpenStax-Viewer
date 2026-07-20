@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modeling Using Variation · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Modeling Using Variation</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.9</span>Modeling Using Variation</h1>
+<p>A pre-owned car dealer has just offered their best candidate, Nicole, a position in sales. The position offers 16% commission on her sales. Her earnings depend on the amount of her sales. For instance, if she sells a vehicle for $4,600, she will earn $736. As she considers the offer, she takes into account the typical price of the dealer's cars, the overall market, and how many she can reasonably expect to sell. In this section, we will look at relationships, such as this one, between earnings, sales, and commission rate.</p>
+<h2 id="solving-direct-variation-problems">Solving Direct Variation Problems</h2>
+<p>In the example above, Nicole’s earnings can be found by multiplying her sales by her commission. The formula \(e=0.16s\) tells us her earnings, \(e,\) come from the product of 0.16, her commission, and the sale price of the vehicle. If we create a table, we observe that as the sales price increases, the earnings increase as well, which should be intuitive. See <a href="#tab1">Table 1</a>.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>\(s\) , sales prices</td><td>\(e=0.16s\)</td><td>Interpretation</td></tr><tr><td>$4,600</td><td>\(e=0.16(4,600)=736\)</td><td>A sale of a $4,600 vehicle results in $736 earnings.</td></tr><tr><td>$9,200</td><td>\(e=0.16(9,200)=1,472\)</td><td>A sale of a $9,200 vehicle results in $1472 earnings.</td></tr><tr><td>$18,400</td><td>\(e=0.16(18,400)=2,944\)</td><td>A sale of a $18,400 vehicle results in $2944 earnings.</td></tr></tbody></table></div>
+<p>Notice that earnings are a multiple of sales. As sales increase, earnings increase in a predictable way. Double the sales of the vehicle from $4,600 to $9,200, and we double the earnings from $736 to $1,472. As the input increases, the output increases as a multiple of the input. A relationship in which one quantity is a constant multiplied by another quantity is called <strong>direct variation</strong>. Each variable in this type of relationship <strong>varies directly</strong>with the other.</p>
+<p><a href="#fig1">Figure 1</a> represents the data for Nicole’s potential earnings. We say that earnings vary directly with the sales price of the car. The formula \(y=k{x}^{n}\) is used for direct variation. The value \(k\) is a nonzero constant greater than zero and is called the <strong>constant of variation</strong>. In this case, \(k=0.16\) and \(n=1.\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_001.jpg" alt="Graph of y=(0.16)x where the horizontal axis is labeled, “s, Sales Price in Dollars”, and the vertical axis is labeled, “e, Earnings, $”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<div class="card definition" id="fs-id1165137730075"><span class="chip">Direct Variation</span><p>If \(x\,\text{and}\,y\) are related by an equation of the form</p>
+<p id="eq1">\[y=k{x}^{n}\]</p>
+<p>then we say that the relationship is <strong>direct variation</strong> and \(y\) <strong>varies directly</strong> with the \(n\text{th}\) power of \(x.\) In direct variation relationships, there is a nonzero constant ratio \(k=\frac{y}{{x}^{n}},\) where \(k\) is called the <strong>constant of variation</strong>, which helps to define the relationship between the variables.</p>
+</div>
+<div class="card howto" id="fs-id1165137550958"><span class="chip">How To</span><p><strong>Given a description of a direct variation problem, solve for an unknown.</strong></p>
+<ul class="tight"><li>Identify the input, \(x,\) and the output, \(y.\)</li><li>Determine the constant of variation. You may need to divide \(y\) by the specified power of \(x\) to determine the constant of variation.</li><li>Use the constant of variation to write an equation for the relationship.</li><li>Substitute known values into the equation to find the unknown.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>The quantity \(y\) varies directly with the cube of \(x.\) If \(y=25\) when \(x=2,\) find \(y\) when \(x\) is 6.</p>
+</div><p class="sol-hint">Find k by dividing y by x cubed, then use that constant to solve for y at the new x value.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The general formula for direct variation with a cube is \(y=k{x}^{3}.\) The constant can be found by dividing \(y\) by the cube of \(x.\)</p>
+<p id="eq2">\[\begin{array}{l}\begin{array}{l} \\ k=\frac{y}{{x}^{3}}\end{array} \\ \,=\frac{25}{{2}^{3}} \\ \,=\frac{25}{8}\end{array}\]</p>
+<p>Now use the constant to write an equation that represents this relationship.</p>
+<p id="eq3">\[y=\frac{25}{8}{x}^{3}\]</p>
+<p>Substitute \(x=6\) and solve for \(y.\)</p>
+<p id="eq4">\[\begin{array}{l}y=\frac{25}{8}{(6)}^{3} \\ \,=675\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The graph of this equation is a simple cubic, as shown in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_002.jpg" alt="Graph of y=25/8(x^3) with the labeled points (2, 25) and (6, 675)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+</div></div></div></div>
+<div class="card qa" id="fs-id1165137736204"><span class="chip">Q&amp;A</span><p><strong>Do the graphs of all direct variation equations look like <a href="#example1">Example 1</a>?</strong></p>
+<p><strong>No. Direct variation equations are power functions—they may be linear, quadratic, cubic, quartic, radical, etc. But all of the graphs pass through \((0,0).\)</strong></p>
+</div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>The quantity \(y\) varies directly with the square of \(x.\) If \(y=24\) when \(x=3,\) find \(y\) when \(x\) is 4.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{128}{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solving-inverse-variation-problems">Solving Inverse Variation Problems</h2>
+<p>Water temperature in an ocean varies inversely to the water’s depth. Between the depths of 250 feet and 500 feet, the formula \(T=\frac{14,000}{d}\) gives us the temperature in degrees Fahrenheit at a depth in feet below Earth’s surface. Consider the Atlantic Ocean, which covers 22% of Earth’s surface. At a certain location, at the depth of 500 feet, the temperature may be 28°F.</p>
+<p>If we create <a href="#tab2">Table 2</a>, we observe that, as the depth increases, the water temperature decreases.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(d,\) depth</td><td>\(T=\frac{\text{14,000}}{d}\)</td><td>Interpretation</td></tr><tr><td>500 ft</td><td>\(\frac{14,000}{500}=28\)</td><td>At a depth of 500 ft, the water temperature is 28° F.</td></tr><tr><td>350 ft</td><td>\(\frac{14,000}{350}=40\)</td><td>At a depth of 350 ft, the water temperature is 40° F.</td></tr><tr><td>250 ft</td><td>\(\frac{14,000}{250}=56\)</td><td>At a depth of 250 ft, the water temperature is 56° F.</td></tr></tbody></table></div>
+<p>We notice in the relationship between these variables that, as one quantity increases, the other decreases. The two quantities are said to be <strong>inversely proportional</strong> and each term <strong>varies inversely</strong> with the other. Inversely proportional relationships are also called <strong>inverse variations</strong>.</p>
+<p>For our example, <a href="#fig3">Figure 3</a> depicts the <strong>inverse variation</strong>. We say the water temperature varies inversely with the depth of the water because, as the depth increases, the temperature decreases. The formula \(y=\frac{k}{x}\) for inverse variation in this case uses \(k=14,000.\)</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_003-0a3b.jpg" alt="Graph of y=(14000)/x where the horizontal axis is labeled, “Depth, d (ft)”, and the vertical axis is labeled, “Temperature, T (Degrees Fahrenheit)”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<div class="card definition" id="fs-id1165135397976"><span class="chip">Inverse Variation</span><p>If \(x\) and \(y\) are related by an equation of the form</p>
+<p id="eq5">\[y=\frac{k}{{x}^{n}}\]</p>
+<p>where \(k\) is a nonzero constant, then we say that \(y\) <strong>varies inversely</strong> with the \(n\text{th}\) power of \(x.\) In <strong>inversely proportional</strong> relationships, or <strong>inverse variations</strong>, there is a constant multiple \(k={x}^{n}y.\)</p>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>A tourist plans to drive 100 miles. Find a formula for the time the trip will take as a function of the speed the tourist drives.</p>
+</div><p class="sol-hint">Since speed times time equals a fixed distance, solve that relationship for time in terms of speed.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Recall that multiplying speed by time gives distance. If we let \(t\) represent the drive time in hours, and \(v\) represent the velocity (speed or rate) at which the tourist drives, then \(vt=\text{distance}\text{.}\) Because the distance is fixed at 100 miles, \(vt=100.\) Solving this relationship for the time gives us our function.</p>
+<p id="eq6">\[\begin{array}{l}t(v)=\frac{100}{v} \\ \,=100{v}^{-1}\end{array}\]</p>
+<p>We can see that the constant of variation is 100 and, although we can write the relationship using the negative exponent, it is more common to see it written as a fraction.</p>
+</div></div></div>
+<div class="card howto" id="fs-id1165135187117"><span class="chip">How To</span><p><strong>Given a description of an indirect variation problem, solve for an unknown.</strong></p>
+<ul class="tight"><li>Identify the input, \(x,\) and the output, \(y.\)</li><li>Determine the constant of variation. You may need to multiply \(y\) by the specified power of \(x\) to determine the constant of variation.</li><li>Use the constant of variation to write an equation for the relationship.</li><li>Substitute known values into the equation to find the unknown.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>A quantity \(y\) varies inversely with the cube of \(x.\) If \(y=25\) when \(x=2,\) find \(y\) when \(x\) is 6.</p>
+</div><p class="sol-hint">Find k by multiplying y by x cubed, then use that constant to solve for y at the new x.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The general formula for inverse variation with a cube is \(y=\frac{k}{{x}^{3}}.\) The constant can be found by multiplying \(y\) by the cube of \(x.\)</p>
+<p id="eq7">\[\begin{array}{l}k={x}^{3}y \\ \,={2}^{3}\cdot 25 \\ \,=200\end{array}\]</p>
+<p>Now we use the constant to write an equation that represents this relationship.</p>
+<p id="eq8">\[\begin{array}{l}y=\frac{k}{{x}^{3}},\,k=200 \\ y=\frac{200}{{x}^{3}}\end{array}\]</p>
+<p>Substitute \(x=6\) and solve for \(y.\)</p>
+<p id="eq9">\[\begin{array}{l}y=\frac{200}{{6}^{3}} \\ \,=\frac{25}{27}\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The graph of this equation is a rational function, as shown in <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_004.jpg" alt="Graph of y=25/(x^3) with the labeled points (2, 25) and (6, 25/27)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>A quantity \(y\) varies inversely with the square of \(x.\) If \(y=8\) when \(x=3,\) find \(y\) when \(x\) is 4.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{9}{2}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solving-problems-involving-joint-variation">Solving Problems Involving Joint Variation</h2>
+<p>Many situations are more complicated than a basic direct variation or inverse variation model. One variable often depends on multiple other variables. When a variable is dependent on the product or quotient of two or more variables, this is called <strong>joint variation</strong>. For example, the cost of busing students for each school trip varies with the number of students attending and the distance from the school. The variable \(c,\) cost, varies jointly with the number of students, \(n,\) and the distance, \(d.\)</p>
+<div class="card definition" id="fs-id1165135177639"><span class="chip">Joint Variation</span><p>Joint variation occurs when a variable varies directly or inversely with multiple variables.</p>
+<p>For instance, if \(x\) varies directly with both \(y\) and \(z,\) we have \(x=kyz.\) If \(x\) varies directly with \(y\) and inversely with \(z,\) we have \(x=\frac{ky}{z}.\) Notice that we only use one constant in a joint variation equation.</p>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>A quantity \(x\) varies directly with the square of \(y\) and inversely with the cube root of \(z.\) If \(x=6\) when \(y=2\) and \(z=8,\) find \(x\) when \(y=1\) and \(z=27.\)</p>
+</div><p class="sol-hint">Substitute the first set of values into the general joint-variation equation to solve for k, then plug in the new values.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Begin by writing an equation to show the relationship between the variables.</p>
+<p id="eq10">\[x=\frac{k{y}^{2}}{\sqrt[3]{z}}\]</p>
+<p>Substitute \(x=6,\) \(y=2,\) and \(z=8\) to find the value of the constant \(k.\)</p>
+<p id="eq11">\[\begin{array}{l}\begin{array}{l} \\ 6=\frac{k{2}^{2}}{\sqrt[3]{8}}\end{array} \\ 6=\frac{4k}{2} \\ 3=k\end{array}\]</p>
+<p>Now we can substitute the value of the constant into the equation for the relationship.</p>
+<p id="eq12">\[x=\frac{3{y}^{2}}{\sqrt[3]{z}}\]</p>
+<p>To find \(x\) when \(y=1\) and \(z=27,\) we will substitute values for \(y\) and \(z\) into our equation.</p>
+<p id="eq13">\[\begin{array}{l} \\ x=\frac{3{(1)}^{2}}{\sqrt[3]{27}} \\ \,=1\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>\(x\) varies directly with the square of \(y\) and inversely with \(z.\) If \(x=40\) when \(y=4\) and \(z=2,\) find \(x\) when \(y=10\) and \(z=25.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=20\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165137425403"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with direct and inverse variation.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/directvariation" target="_blank" rel="noopener">Direct Variation</a></li><li><a href="https://openstax.org/l/inversevariatio" target="_blank" rel="noopener">Inverse Variation</a></li><li><a href="https://openstax.org/l/directinverse" target="_blank" rel="noopener">Direct and Inverse Variation</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>Direct variation</td><td>\(y=k{x}^{n},k\text{ is a nonzero constant}.\)</td></tr><tr><td>Inverse variation</td><td>\(y=\frac{k}{{x}^{n}},k\text{ is a nonzero constant}.\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A relationship where one quantity is a constant multiplied by another quantity is called direct variation. See <a href="#example1">Example 1</a>.</li><li>Two variables that are directly proportional to one another will have a constant ratio.</li><li>A relationship where one quantity is a constant divided by another quantity is called inverse variation. See <a href="#example2">Example 2</a>.</li><li>Two variables that are inversely proportional to one another will have a constant multiple. See <a href="#example3">Example 3</a>.</li><li>In many problems, a variable varies directly or inversely with multiple variables. We call this type of relationship joint variation. See <a href="#example4">Example 4</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What is true of the appearance of graphs that reflect a direct variation between two variables?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph will have the appearance of a power function.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>If two variables vary inversely, what will an equation representing their relationship look like?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Is there a limit to the number of variables that can jointly vary? Explain.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>No. Multiple variables may jointly vary.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, write an equation describing the relationship of the given variables.</p>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(y\) varies directly as \(x\) and when \(x=6,\,y=12.\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(y\) varies directly as the square of \(x\) and when \(x=4,\,y=80\text{. }\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=5{x}^{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(y\) varies directly as the square root of \(x\) and when \(x=36,\,y=24.\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(y\) varies directly as the cube of \(x\) and when \(x=36,\,y=24.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{1}{1944}{x}^{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(y\) varies directly as the cube root of \(x\) and when \(x=27,\,y=15.\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(y\) varies directly as the fourth power of \(x\) and when \(x=1,\,y=6.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=6{x}^{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(y\) varies inversely as \(x\) and when \(x=4,\,y=2.\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(y\) varies inversely as the square of \(x\) and when \(x=3,\,y=2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{18}{{x}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(y\) varies inversely as the cube of \(x\) and when \(x=2,\,y=5.\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(y\) varies inversely as the fourth power of \(x\) and when \(x=3,\,y=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{81}{{x}^{4}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(y\) varies inversely as the square root of \(x\) and when \(x=25,\,y=3.\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(y\) varies inversely as the cube root of \(x\) and when \(x=64,\,y=5.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{20}{\sqrt[3]{x}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(y\) varies jointly with \(x\) and \(z\) and when \(x=2\) and \(z=3\) , \(y=36.\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(y\) varies jointly as \(x\) , \(z\) , and \(w\) and when \(x=1\) , \(z=2\) , \(w=5\) , then \(y=100.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=10xzw\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(y\) varies jointly as the square of \(x\) and the square of \(z\) and when \(x=3\) and \(z=4\) , then \(y=72.\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(y\) varies jointly as \(x\) and the square root of \(z\) and when \(x=2\) and \(z=25\) , then \(y=100.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=10x\sqrt{z}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(y\) varies jointly as the square of \(x\) the cube of \(z\) and the square root of \(w.\) When \(x=1\) , \(z=2\) , and \(w=36,\text{ then }y=48.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(y\) varies jointly as \(x\) and \(z\) and inversely as \(w.\) When \(x=3\) , \(z=5\) , and \(w=6\) , then \(y=10.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=4\frac{xz}{w}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(y\) varies jointly as the square of \(x\) and the square root of \(z\) and inversely as the cube of \(w\text{. }\) When \(x=3,z=4,\text{ and }w=3,\text{ then }y=6.\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(y\) varies jointly as \(x\) and \(z\) and inversely as the square root of \(w\) and the square of \(t\text{.}\) When \(x=3\) , \(z=1,w=25\) , and \(t=2\) , then \(y=6.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=40\frac{xz}{\sqrt{w}{t}^{2}}\)</p>
+</div></div></div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, use the given information to find the unknown value.</p>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(y\) varies directly as \(x\) . When \(x=3\) , then \(y=12\) . Find \(y\) when \(x=20.\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(y\) varies directly as the square of \(x\) . When \(x=2\) , then \(y=16\) . Find \(y\) when \(x=8\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=256\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(y\) varies directly as the cube of \(x\) . When \(x=3\) , then \(y=5\) . Find \(y\) when \(x=4\) .</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(y\) varies directly as the square root of \(x.\) When \(x=16\) , then \(y=4\) . Find \(y\text{ when }x=36\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(y\) varies directly as the cube root of \(x.\) When \(x=125\) , then \(y=15\) . Find \(y\) when \(x=1\) , \(000.\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(y\) varies inversely with \(x.\) When \(x=3\) , then \(y=2\) . Find \(y\) when \(x=1\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=6\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(y\) varies inversely with the square of \(x\) . When \(x=4\) , then \(y=3\) . Find \(y\) when \(x=2\) .</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(y\) varies inversely with the cube of \(x.\) When \(x=3\) , then \(y=1\) . Find \(y\) when \(x=1\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=27\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(y\) varies inversely with the square root of \(x.\) When \(x=64,\) then \(y=12.\) Find \(y\) when \(x=36.\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(y\) varies inversely with the cube root of \(x.\) When \(x=27,\) then \(y=5.\) Find \(y\) when \(x=125.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(y\) varies jointly as \(x\,\text{and}\,z.\) When \(x=4\) and \(z=2,\) then \(y=16.\) Find \(y\) when \(x=3\) and \(z=3.\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(y\) varies jointly as \(x,\,z,\,\text{and}\,w.\) When \(x=2,\) \(z=1,\) and \(w=12,\) then \(y=72.\) Find \(y\) when \(x=1,\) \(z=2,\) and \(w=3.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=18\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(y\) varies jointly as \(x\) and the square of \(z.\) When \(x=2\) and \(z=4,\) then \(y=144.\) Find \(y\) when \(x=4\) and \(z=5.\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(y\) varies jointly as the square of \(x\) and the square root of \(z.\) When \(x=2\) and \(z=9,\) then \(y=24.\) Find \(y\) when \(x=3\) and \(z=25.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=90\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(y\) varies jointly as \(x\) and \(z\) and inversely as \(w.\) When \(x=5,\) \(z=2,\) and \(w=20,\) then \(y=4.\) Find \(y\) when \(x=3\) and \(z=8,\) and \(w=48.\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(y\) varies jointly as the square of \(x\) and the cube of \(z\) and inversely as the square root of \(w\text{. }\) When \(x=2,\) \(z=2,\) and \(w=64,\) then \(y=12.\) Find \(y\) when \(x=1,\) \(z=3,\) and \(w=4.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{81}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(y\) varies jointly as the square of \(x\) and of \(z\) and inversely as the square root of \(w\) and of \(t\text{.}\) When \(x=2,\) \(z=3,\) \(w=16,\) and \(t=3,\) then \(y=1.\) Find \(y\) when \(x=3,\) \(z=2,\) \(w=36,\) and \(t=5.\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a calculator to graph the equation implied by the given variation.</p>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(y\) varies directly with the square of \(x\) and when \(x=2,\,y=3.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{3}{4}{x}^{2}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_201.jpg" alt="Graph of y=3/4(x^2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(y\) varies directly as the cube of \(x\) and when \(x=2,\,y=4.\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(y\) varies directly as the square root of \(x\) and when \(x=36,\,y=2.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{1}{3}\sqrt{x}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_203.jpg" alt="Graph of y=1/3sqrt(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(y\) varies inversely with \(x\) and when \(x=6,\,y=2.\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(y\) varies inversely as the square of \(x\) and when \(x=1,\,y=4.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\frac{4}{{x}^{2}}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_205.jpg" alt="A graph of a function with a vertical dashed asymptote at x=0 and a horizontal dashed asymptote at y=0. The blue curve is symmetric about the y-axis, approaching infinity near x=0 and zero as x extends horizontally." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, use Kepler’s Law, which states that the square of the time, \(T,\) required for a planet to orbit the Sun varies directly with the cube of the mean distance, \(a,\) that the planet is from the Sun.</p>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Using the Earth’s time of 1 year and mean distance of 93 million miles, find the equation relating \(T\) and \(a.\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Use the result from the previous exercise to determine the time required for Mars to orbit the Sun if its mean distance is 142 million miles.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>≈ 1.89 years</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Using Earth’s distance of 150 million kilometers, find the equation relating \(T\) and \(a.\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Use the result from the previous exercise to determine the time required for Venus to orbit the Sun if its mean distance is 108 million kilometers.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>≈ 0.61 years</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Using Earth’s distance of 1 astronomical unit (A.U.), determine the time for Saturn to orbit the Sun if its mean distance is 9.54 A.U.</p>
+</div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<p>For the following exercises, use the given information to answer the questions.</p>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>The distance \(s\) that an object falls varies directly with the square of the time, \(t,\) of the fall. If an object falls 16 feet in one se<strong>c</strong>ond, how long for it to fall 144 feet?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>3 seconds</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>The velocity \(v\) of a falling object varies directly to the time, \(t,\) of the fall. If after 2 seconds, the velocity of the object is 64 feet per second, what is the velocity after 5 seconds?</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>The rate of vibration of a string under constant tension varies inversely with the length of the string. If a string is 24 inches long and vibrates 128 times per second, what is the length of a string that vibrates 64 times per second?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>48 inches</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>The volume of a gas held at constant temperature varies indirectly as the pressure of the gas. If the volume of a gas is 1200 cubic centimeters when the pressure is 200 millimeters of mercury, what is the volume when the pressure is 300 millimeters of mercury?</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>The weight of an object above the surface of the Earth varies inversely with the square of the distance from the center of the Earth. If a body weighs 50 pounds when it is 3960 miles from Earth’s center, what would it weigh it were 3970 miles from Earth’s center?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>≈ 49.75 pounds</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>The intensity of light measured in foot-candles varies inversely with the square of the distance from the light source. Suppose the intensity of a light bulb is 0.08 foot-candles at a distance of 3 meters. Find the intensity level at 8 meters.</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>The current in a circuit varies inversely with its resistance measured in ohms. When the current in a circuit is 40 amperes, the resistance is 10 ohms. Find the current if the resistance is 12 ohms.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>≈ 33.33 amperes</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>The force exerted by the wind on a plane surface varies jointly with the square of the velocity of the wind and with the area of the plane surface. If the area of the surface is 40 square feet surface and the wind velocity is 20 miles per hour, the resulting force is 15 pounds. Find the force on a surface of 65 square feet with a velocity of 30 miles per hour.</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>The horsepower (hp) that a shaft can safely transmit varies jointly with its speed (in revolutions per minute (rpm)) and the cube of the diameter. If the shaft of a certain material 3 inches in diameter can transmit 45 hp at 100 rpm, what must the diameter be in order to transmit 60 hp at 150 rpm?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>≈ 2.88 inches</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>The kinetic energy \(K\) of a moving object varies jointly with its mass \(m\) and the square of its velocity \(v.\) If an object weighing 40 kilograms with a velocity of 15 meters per second has a kinetic energy of 1000 joules, find the kinetic energy if the velocity is increased to 20 meters per second.</p>
+</div></div>
+</div>
+<h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
+<p>You have reached the end of Chapter 3: Polynomial and Rational Functions. Let’s review some of the Key Terms, Concepts and Equations you have learned.</p>
+<h3 id="complex-numbers">Complex Numbers</h3>
+<p>Perform the indicated operation with complex numbers.</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\((4+3i)+(-2-5i)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2-2i\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>\((6-5i)-(10+3i)\)</p>
+</div></div>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>\((2-3i)(3+6i)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(24+3i\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>\(\frac{2-i}{2+i}\)</p>
+</div></div>
+<p>Solve the following equations over the complex number system.</p>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>\({x}^{2}-4x+5=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{2+i,\,2-i\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>\({x}^{2}+2x+10=0\)</p>
+</div></div>
+<h3 id="quadratic-functions">Quadratic Functions</h3>
+<p>For the following exercises, write the quadratic function in standard form. Then, give the vertex and axes intercepts. Finally, graph the function.</p>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(f(x)={x}^{2}-4x-5\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={(x-2)}^{2}-9\,\text{vertex}\,(2,-9),\,\text{intercepts}\,(5,0);\,(-1,0);\,(0,-5)\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_206.jpg" alt="Graph of f(x)=x^2-4x-5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(f(x)=-2{x}^{2}-4x\)</p>
+</div></div>
+<p>For the following problems, find the equation of the quadratic function using the given information.</p>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>The vertex is \((-2,3)\) and a point on the graph is \((3,6).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\frac{3}{25}{(x+2)}^{2}+3\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>The vertex is \((-3,6.5)\) and a point on the graph is \((2,6).\)</p>
+</div></div>
+<p>Answer the following questions.</p>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>A rectangular plot of land is to be enclosed by fencing. One side is along a river and so needs no fence. If the total fencing available is 600 meters, find the dimensions of the plot to have maximum area.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>300 meters by 150 meters, the longer side parallel to river.</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>An object projected from the ground at a 45 degree angle with initial velocity of 120 feet per second has height, \(h,\) in terms of horizontal distance traveled, \(x,\) given by \(h(x)=\frac{-32}{{(120)}^{2}}{x}^{2}+x.\) Find the maximum height the object attains.</p>
+</div></div>
+<h3 id="power-functions-and-polynomial-functions">Power Functions and Polynomial Functions</h3>
+<p>For the following exercises, determine if the function is a polynomial function and, if so, give the degree and leading coefficient.</p>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(f(x)=4{x}^{5}-3{x}^{3}+2x-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes, degree = 5, leading coefficient = 4</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>\(f(x)={5}^{x+1}-{x}^{2}\)</p>
+</div></div>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>\(f(x)={x}^{2}(3-6x+{x}^{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes, degree = 4, leading coefficient = 1</p>
+</div></div></div></div>
+<p>For the following exercises, determine end behavior of the polynomial function.</p>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>\(f(x)=2{x}^{4}+3{x}^{3}-5{x}^{2}+7\)</p>
+</div></div>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>\(f(x)=4{x}^{3}-6{x}^{2}+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{As}\,x\to -\infty ,\,f(x)\to -\infty ,\,\text{as}\,x\to \infty ,\,f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>\(f(x)=2{x}^{2}(1+3x-{x}^{2})\)</p>
+</div></div>
+<h3 id="graphs-of-polynomial-functions">Graphs of Polynomial Functions</h3>
+<p>For the following exercises, find all zeros of the polynomial function, noting multiplicities.</p>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>\(f(x)={(x+3)}^{2}(2x-1){(x+1)}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>–3 with multiplicity 2, \(\frac{1}{2}\) with multiplicity 1, –1 with multiplicity 3</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>\(f(x)={x}^{5}+4{x}^{4}+4{x}^{3}\)</p>
+</div></div>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>\(f(x)={x}^{3}-4{x}^{2}+x-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4 with multiplicity 1</p>
+</div></div></div></div>
+<p>For the following exercises, based on the given graph, determine the zeros of the function and note multiplicity.</p>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_208.jpg" alt="Graph of an odd-degree polynomial with two turning points." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_209.jpg" alt="Graph of an even-degree polynomial with two turning points." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}\) with multiplicity 1, 3 with multiplicity 3</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p>Use the Intermediate Value Theorem to show that at least one zero lies between 2 and 3 for the function \(f(x)={x}^{3}-5x+1\)</p>
+</div></div>
+<h3 id="dividing-polynomials">Dividing Polynomials</h3>
+<p>For the following exercises, use long division to find the quotient and remainder.</p>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p>\(\frac{{x}^{3}-2{x}^{2}+4x+4}{x-2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{2}+4\) with remainder 12</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>\(\frac{3{x}^{4}-4{x}^{2}+4x+8}{x+1}\)</p>
+</div></div>
+<p>For the following exercises, use synthetic division to find the quotient. If the divisor is a factor, then write the factored form.</p>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><p>\(\frac{{x}^{3}-2{x}^{2}+5x-1}{x+3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{2}-5x+20-\frac{61}{x+3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex28"><div class="n">28</div><div class="body"><p>\(\frac{{x}^{3}+4x+10}{x-3}\)</p>
+</div></div>
+<div class="exercise" id="reviewex29"><div class="n">29</div><div class="body"><p>\(\frac{2{x}^{3}+6{x}^{2}-11x-12}{x+4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2{x}^{2}-2x-3\) , so factored form is \((x+4)(2{x}^{2}-2x-3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex30"><div class="n">30</div><div class="body"><p>\(\frac{3{x}^{4}+3{x}^{3}+2x+2}{x+1}\)</p>
+</div></div>
+<h3 id="zeros-of-polynomial-functions">Zeros of Polynomial Functions</h3>
+<p>For the following exercises, use the Rational Zero Theorem to help you solve the polynomial equation.</p>
+<div class="exercise" id="reviewex31"><div class="n">31</div><div class="body"><p>\(2{x}^{3}-3{x}^{2}-18x-8=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{-2,\,4,\,-\frac{1}{2}\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex32"><div class="n">32</div><div class="body"><p>\(3{x}^{3}+11{x}^{2}+8x-4=0\)</p>
+</div></div>
+<div class="exercise" id="reviewex33"><div class="n">33</div><div class="body"><p>\(2{x}^{4}-17{x}^{3}+46{x}^{2}-43x+12=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{1,\,3,\,4,\,\frac{1}{2}\}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex34"><div class="n">34</div><div class="body"><p>\(4{x}^{4}+8{x}^{3}+19{x}^{2}+32x+12=0\)</p>
+</div></div>
+<p>For the following exercises, use Descartes’ Rule of Signs to find the possible number of positive and negative solutions.</p>
+<div class="exercise" id="reviewex35"><div class="n">35</div><div class="body"><p>\({x}^{3}-3{x}^{2}-2x+4=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0 or 2 positive, 1 negative</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex36"><div class="n">36</div><div class="body"><p>\(2{x}^{4}-{x}^{3}+4{x}^{2}-5x+1=0\)</p>
+</div></div>
+<h3 id="rational-functions">Rational Functions</h3>
+<p>For the following rational functions, find the intercepts and the vertical and horizontal asymptotes, and then use them to sketch a graph.</p>
+<div class="exercise" id="reviewex37"><div class="n">37</div><div class="body"><p>\(f(x)=\frac{x+2}{x-5}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Intercepts \((-2,0)\text{and}(0,-\frac{2}{5})\) , Asymptotes \(x=5\) and \(y=1.\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_210.jpg" alt="Graph of f(x)=(x+1)/(x-5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex38"><div class="n">38</div><div class="body"><p>\(f(x)=\frac{{x}^{2}+1}{{x}^{2}-4}\)</p>
+</div></div>
+<div class="exercise" id="reviewex39"><div class="n">39</div><div class="body"><p>\(f(x)=\frac{3{x}^{2}-27}{{x}^{2}+x-2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Intercepts (3, 0), (-3, 0), and \((0,\frac{27}{2})\) , Asymptotes \(x=1,\,x=-2,\,y=3.\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_212.jpg" alt="Graph of f(x)=(3x^2-27)/(x^2+x-2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex40"><div class="n">40</div><div class="body"><p>\(f(x)=\frac{x+2}{{x}^{2}-9}\)</p>
+</div></div>
+<p>For the following exercises, find the slant asymptote.</p>
+<div class="exercise" id="reviewex41"><div class="n">41</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-1}{x+2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=\,x-2\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex42"><div class="n">42</div><div class="body"><p>\(f(x)=\frac{2{x}^{3}-{x}^{2}+4}{{x}^{2}+1}\)</p>
+</div></div>
+<h3 id="inverses-and-radical-functions">Inverses and Radical Functions</h3>
+<p>For the following exercises, find the inverse of the function with the domain given.</p>
+<div class="exercise" id="reviewex43"><div class="n">43</div><div class="body"><p>\(f(x)={(x-2)}^{2},\,x\ge 2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=\sqrt{x}+2\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex44"><div class="n">44</div><div class="body"><p>\(f(x)={(x+4)}^{2}-3,\,x\ge -4\)</p>
+</div></div>
+<div class="exercise" id="reviewex45"><div class="n">45</div><div class="body"><p>\(f(x)={x}^{2}+6x-2,\,x\ge -3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=\sqrt{x+11}-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex46"><div class="n">46</div><div class="body"><p>\(f(x)=2{x}^{3}-3\)</p>
+</div></div>
+<div class="exercise" id="reviewex47"><div class="n">47</div><div class="body"><p>\(f(x)=\sqrt{4x+5}-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=\frac{{(x+3)}^{2}-5}{4},\,x\ge -3\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex48"><div class="n">48</div><div class="body"><p>\(f(x)=\frac{x-3}{2x+1}\)</p>
+</div></div>
+<h3 id="modeling-using-variation">Modeling Using Variation</h3>
+<p>For the following exercises, find the unknown value.</p>
+<div class="exercise" id="reviewex49"><div class="n">49</div><div class="body"><p>\(y\) varies directly as the square of \(x.\) If when \(x=3,\,y=36,\) find \(y\) if \(x=4.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=64\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex50"><div class="n">50</div><div class="body"><p>\(y\) varies inversely as the square root of \(x\) If when \(x=25,\,y=2,\) find \(y\) if \(x=4.\)</p>
+</div></div>
+<div class="exercise" id="reviewex51"><div class="n">51</div><div class="body"><p>\(y\) varies jointly as the cube of \(x\) and as \(z.\) If when \(x=1\) and \(z=2,\) \(y=6,\) find \(y\) if \(x=2\) and \(z=3.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y\,=\,72\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex52"><div class="n">52</div><div class="body"><p>\(y\) varies jointly as \(x\) and the square of \(z\) and inversely as the cube of \(w.\) If when \(x=3,\) \(z=4,\) and \(w=2,\) \(y=48,\) find \(y\) if \(x=4,\) \(z=5,\) and \(w=3.\)</p>
+</div></div>
+<p>For the following exercises, solve the application problem.</p>
+<div class="exercise" id="reviewex53"><div class="n">53</div><div class="body"><p>The weight of an object above the surface of the earth varies inversely with the square of the distance from the center of the earth. If a person weighs 150 pounds when he is on the surface of the earth (3,960 miles from center), find the weight of the person if he is 20 miles above the surface.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>148.5 pounds</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex54"><div class="n">54</div><div class="body"><p>The volume \(V\) of an ideal gas varies directly with the temperature \(T\) and inversely with the pressure \(P\) . A cylinder contains oxygen at a temperature of 310 degrees K and a pressure of 18 atmospheres in a volume of 120 liters. Find the pressure if the volume is decreased to 100 liters and the temperature is increased to 320 degrees K.</p>
+</div></div>
+<h2 id="chapter-test">Chapter Test</h2>
+<p>Perform the indicated operation or solve the equation.</p>
+<div class="exercise" id="practiceex1"><div class="n">1</div><div class="body"><p>\((3-4i)(4+2i)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(20-10i\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex2"><div class="n">2</div><div class="body"><p>\(\frac{1-4i}{3+4i}\)</p>
+</div></div>
+<div class="exercise" id="practiceex3"><div class="n">3</div><div class="body"><p>\({x}^{2}-4x+13=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\{2+3i,\,2-3i\}\)</p>
+</div></div></div></div>
+<p>Give the degree and leading coefficient of the following polynomial function.</p>
+<div class="exercise" id="practiceex4"><div class="n">4</div><div class="body"><p>\(f(x)={x}^{3}(3-6x-2{x}^{2})\)</p>
+</div></div>
+<p>Determine the end behavior of the polynomial function.</p>
+<div class="exercise" id="practiceex5"><div class="n">5</div><div class="body"><p>\(f(x)=8{x}^{3}-3{x}^{2}+2x-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(As\,x\to -\infty ,\,f(x)\to -\infty ,\,as\,x\to \infty ,\,f(x)\to \infty\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex6"><div class="n">6</div><div class="body"><p>\(f(x)=-2{x}^{2}(4-3x-5{x}^{2})\)</p>
+</div></div>
+<p>Write the quadratic function in standard form. Determine the vertex and axes intercepts and graph the function.</p>
+<div class="exercise" id="practiceex7"><div class="n">7</div><div class="body"><p>\(f(x)={x}^{2}+2x-8\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={(x+1)}^{2}-9\) , vertex \((-1,-9)\) , intercepts \((2,0);(-4,0);\,(0,-8)\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_214.jpg" alt="Graph of f(x)=x^2+2x-8." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>Given information about the graph of a quadratic function, find its equation.</p>
+<div class="exercise" id="practiceex8"><div class="n">8</div><div class="body"><p>Vertex \((2,0)\) and point on graph \((4,12).\)</p>
+</div></div>
+<p>Solve the following application problem.</p>
+<div class="exercise" id="practiceex9"><div class="n">9</div><div class="body"><p>A rectangular field is to be enclosed by fencing. In addition to the enclosing fence, another fence is to divide the field into two parts, running parallel to two sides. If 1,200 feet of fencing is available, find the maximum area that can be enclosed.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>60,000 square feet</p>
+</div></div></div></div>
+<p>Find all zeros of the following polynomial functions, noting multiplicities.</p>
+<div class="exercise" id="practiceex10"><div class="n">10</div><div class="body"><p>\(f(x)={(x-3)}^{3}(3x-1){(x-1)}^{2}\)</p>
+</div></div>
+<div class="exercise" id="practiceex11"><div class="n">11</div><div class="body"><p>\(f(x)=2{x}^{6}-12{x}^{5}+18{x}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0 with multiplicity 4, 3 with multiplicity 2</p>
+</div></div></div></div>
+<p>Based on the graph, determine the zeros of the function and multiplicities.</p>
+<div class="exercise" id="practiceex12"><div class="n">12</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_215.jpg" alt="Graph of an odd-degree polynomial with two turning points." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>Use long division to find the quotient.</p>
+<div class="exercise" id="practiceex13"><div class="n">13</div><div class="body"><p>\(\frac{2{x}^{3}+3x-4}{x+2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2{x}^{2}-4x+11-\frac{26}{x+2}\)</p>
+</div></div></div></div>
+<p>Use synthetic division to find the quotient. If the divisor is a factor, write the factored form.</p>
+<div class="exercise" id="practiceex14"><div class="n">14</div><div class="body"><p>\(\frac{{x}^{4}+3{x}^{2}-4}{x-2}\)</p>
+</div></div>
+<div class="exercise" id="practiceex15"><div class="n">15</div><div class="body"><p>\(\frac{2{x}^{3}+5{x}^{2}-7x-12}{x+3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2{x}^{2}-x-4\) . So factored form is \((x+3)(2{x}^{2}-x-4)\)</p>
+</div></div></div></div>
+<p>Use the Rational Zero Theorem to help you find the zeros of the polynomial functions.</p>
+<div class="exercise" id="practiceex16"><div class="n">16</div><div class="body"><p>\(f(x)=2{x}^{3}+5{x}^{2}-6x-9\)</p>
+</div></div>
+<div class="exercise" id="practiceex17"><div class="n">17</div><div class="body"><p>\(f(x)=4{x}^{4}+8{x}^{3}+21{x}^{2}+17x+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{1}{2}\) (has multiplicity 2), \(\frac{-1\pm i\sqrt{15}}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex18"><div class="n">18</div><div class="body"><p>\(f(x)=4{x}^{4}+16{x}^{3}+13{x}^{2}-15x-18\)</p>
+</div></div>
+<div class="exercise" id="practiceex19"><div class="n">19</div><div class="body"><p>\(f(x)={x}^{5}+6{x}^{4}+13{x}^{3}+14{x}^{2}+12x+8\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-2\) (has multiplicity 3), \(\pm i\)</p>
+</div></div></div></div>
+<p>Given the following information about a polynomial function, find the function.</p>
+<div class="exercise" id="practiceex20"><div class="n">20</div><div class="body"><p>It has a double zero at \(x=3\) and zeroes at \(x=1\) and \(x=-2\) . Its <strong>y</strong>-intercept is \((0,12).\)</p>
+</div></div>
+<div class="exercise" id="practiceex21"><div class="n">21</div><div class="body"><p>It has a zero of multiplicity 3 at \(x=\frac{1}{2}\) and another zero at \(x=-3\) . It contains the point \((1,8).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=2{(2x-1)}^{3}(x+3)\)</p>
+</div></div></div></div>
+<p>Use Descartes’ Rule of Signs to determine the possible number of positive and negative solutions.</p>
+<div class="exercise" id="practiceex22"><div class="n">22</div><div class="body"><p>\(8{x}^{3}-21{x}^{2}+6=0\)</p>
+</div></div>
+<p>For the following rational functions, find the intercepts and horizontal and vertical asymptotes, and sketch a graph.</p>
+<div class="exercise" id="practiceex23"><div class="n">23</div><div class="body"><p>\(f(x)=\frac{x+4}{{x}^{2}-2x-3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Intercepts \((-4,0),\,(0,-\frac{4}{3})\) , Asymptotes \(x=3,\,x\,=-1,\,y=0\) . <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_09_216.jpg" alt="Graph of f(x)=(x+4)/(x^2-2x-3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex24"><div class="n">24</div><div class="body"><p>\(f(x)=\frac{{x}^{2}+2x-3}{{x}^{2}-4}\)</p>
+</div></div>
+<p>Find the slant asymptote of the rational function.</p>
+<div class="exercise" id="practiceex25"><div class="n">25</div><div class="body"><p>\(f(x)=\frac{{x}^{2}+3x-3}{x-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=x+4\)</p>
+</div></div></div></div>
+<p>Find the inverse of the function.</p>
+<div class="exercise" id="practiceex26"><div class="n">26</div><div class="body"><p>\(f(x)=\sqrt{x-2}+4\)</p>
+</div></div>
+<div class="exercise" id="practiceex27"><div class="n">27</div><div class="body"><p>\(f(x)=3{x}^{3}-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({f}^{-1}(x)=\sqrt[3]{\frac{x+4}{3}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex28"><div class="n">28</div><div class="body"><p>\(f(x)=\frac{2x+3}{3x-1}\)</p>
+</div></div>
+<p>Find the unknown value.</p>
+<div class="exercise" id="practiceex29"><div class="n">29</div><div class="body"><p>\(y\) varies inversely as the square of \(x\) and when \(x=3,\) \(y=2.\) Find \(y\) if \(x=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=18\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex30"><div class="n">30</div><div class="body"><p>\(y\) varies jointly with \(x\) and the cube root of \(z.\) If when \(x=2\) and \(z=27,\) \(y=12,\) find \(y\) if \(x=5\) and \(z=8.\)</p>
+</div></div>
+<p>Solve the following application problem.</p>
+<div class="exercise" id="practiceex31"><div class="n">31</div><div class="body"><p>The distance a body falls varies directly as the square of the time it falls. If an object falls 64 feet in 2 seconds, how long will it take to fall 256 feet?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4 seconds</p>
+</div></div></div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>constant of variation</dt><dd>the non-zero value \(k\) that helps define the relationship between variables in direct or inverse variation</dd><dt>direct variation</dt><dd>the relationship between two variables that are a constant multiple of each other; as one quantity increases, so does the other</dd><dt>inverse variation</dt><dd>the relationship between two variables in which the product of the variables is a constant</dd><dt>inversely proportional</dt><dd>a relationship where one quantity is a constant divided by the other quantity; as one quantity increases, the other decreases</dd><dt>joint variation</dt><dd>a relationship where a variable varies directly or inversely with multiple variables</dd><dt>varies directly</dt><dd>a relationship where one quantity is a constant multiplied by the other quantity</dd><dt>varies inversely</dt><dd>a relationship where one quantity is a constant divided by the other quantity</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inverse Trigonometric Functions · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Inverse Trigonometric Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 6.3</span>Inverse Trigonometric Functions</h1>
+<p>For any <strong>right triangle</strong>, given one other angle and the length of one side, we can figure out what the other angles and sides are. But what if we are given only two sides of a right triangle? We need a procedure that leads us from a ratio of sides to an angle. This is where the notion of an inverse to a trigonometric function comes into play. In this section, we will explore the <strong>inverse trigonometric functions</strong>.</p>
+<h2 id="understanding-and-using-the-inverse-sine-cosine-and-tangent-functions">Understanding and Using the Inverse Sine, Cosine, and Tangent Functions</h2>
+<p>In order to use inverse trigonometric functions, we need to understand that an inverse trigonometric function “undoes” what the original trigonometric function “does,” as is the case with any other function and its inverse. In other words, the domain of the inverse function is the range of the original function, and vice versa, as summarized in <a href="#fig1">Figure 1</a>.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_013.jpg" alt="A chart that says “Trig Functinos”, “Inverse Trig Functions”, “Domain: Measure of an angle”, “Domain: Ratio”, “Range: Ratio”, and “Range: Measure of an angle”." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<p>For example, if \(f(x)=sin\,x,\) then we would write \({f}^{-1}(x)={sin}^{-1}x.\) Be aware that \({sin}^{-1}x\) does not mean \(\frac{1}{sinx}.\) The following examples illustrate the inverse trigonometric functions:</p>
+<ul class="tight"><li>Since \(\text{sin}(\frac{\pi }{6})=\frac{1}{2},\) then \(\frac{\pi }{6}={\text{sin}}^{-1}(\frac{1}{2}).\)</li><li>Since \(cos(\pi )=-1,\) then \(\pi ={cos}^{-1}(-1).\)</li><li>Since \(tan(\frac{\pi }{4})=1,\) then \(\frac{\pi }{4}={tan}^{-1}(1).\)</li></ul>
+<p>In previous sections, we evaluated the trigonometric functions at various angles, but at times we need to know what angle would yield a specific sine, cosine, or tangent value. For this, we need inverse functions. Recall that, for a <strong>one-to-one function</strong>, if \(f(a)=b,\) then an inverse function would satisfy \({f}^{-1}(b)=a.\)</p>
+<p>Bear in mind that the sine, cosine, and tangent functions are not one-to-one functions. The graph of each function would fail the horizontal line test. In fact, no periodic function can be one-to-one because each output in its range corresponds to at least one input in every period, and there are an infinite number of periods. As with other functions that are not one-to-one, we will need to restrict the <strong>domain</strong> of each function to yield a new function that is one-to-one. We choose a domain for each function that includes the number 0. <a href="#fig2">Figure 2</a> shows the graph of the sine function limited to \([-\frac{\pi }{2},\frac{\pi }{2}]\) and the graph of the cosine function limited to \([0,\pi ].\)</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_001.jpg" alt="Two side-by-side graphs. The first graph, graph A, shows half of a period of the function sine of x. The second graph, graph B, shows half a period of the function cosine of x." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — (a) Sine function on a restricted domain of \([-\frac{\pi }{2},\frac{\pi }{2}];\) (b) Cosine function on a restricted domain of \([0,\pi ]\)</figcaption></figure>
+<p><a href="#fig3">Figure 3</a> shows the graph of the tangent function limited to \((-\frac{\pi }{2},\frac{\pi }{2}).\)</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_003.jpg" alt="A graph of one period of tangent of x, from -pi/2 to pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3 — Tangent function on a restricted domain of \((-\frac{\pi }{2},\frac{\pi }{2})\)</figcaption></figure>
+<p>These conventional choices for the restricted domain are somewhat arbitrary, but they have important, helpful characteristics. Each domain includes the origin and some positive values, and most importantly, each results in a one-to-one function that is invertible. The conventional choice for the restricted domain of the tangent function also has the useful property that it extends from one <strong>vertical asymptote</strong> to the next instead of being divided into two parts by an asymptote.</p>
+<p>On these restricted domains, we can define the <strong>inverse trigonometric functions</strong>.</p>
+<ul class="tight"><li>The <strong>inverse sine function</strong> \(y={sin}^{-1}x\) means \(x=sin\,y.\) The inverse sine function is sometimes called the <strong>arcsine</strong> function, and notated \(arcsinx.\)<p id="eq1">\[y={sin}^{-1}x\,\text{has domain}\,[-1,1]\,\text{and range}\,[-\frac{\pi }{2},\frac{\pi }{2}]\]</p>
+</li><li>The <strong>inverse cosine function</strong> \(y={cos}^{-1}x\) means \(x=cos\,y.\) The inverse cosine function is sometimes called the <strong>arccosine</strong> function, and notated \(arccos\,x.\)<p id="eq2">\[y={cos}^{-1}x\,\text{has domain}\,[-1,1]\,\text{and range}\,[0,\pi ]\]</p>
+</li><li>The <strong>inverse tangent function</strong> \(y={tan}^{-1}x\) means \(x=tan\,y.\) The inverse tangent function is sometimes called the <strong>arctangent</strong> function, and notated \(arctan\,x.\)<p id="eq3">\[y={tan}^{-1}x\,\text{has domain}\,(-\infty ,\infty )\,\text{and range}\,(-\frac{\pi }{2},\frac{\pi }{2})\]</p>
+</li></ul>
+<p>The graphs of the inverse functions are shown in <a href="#fig4">Figure 4</a>, <a href="#fig5">Figure 5</a>, and <a href="#fig6">Figure 6</a>. Notice that the output of each of these inverse functions is a <strong>number,</strong>an angle in radian measure. We see that \({sin}^{-1}x\) has domain \([-1,1]\) and range \([-\frac{\pi }{2},\frac{\pi }{2}],\) \({cos}^{-1}x\) has domain \([-1,1]\) and range \([0,\pi ],\) and \({tan}^{-1}x\) has domain of all real numbers and range \((-\frac{\pi }{2},\frac{\pi }{2}).\) To find the <strong>domain</strong> and <strong>range</strong> of inverse trigonometric functions, switch the domain and range of the original functions. Each graph of the inverse trigonometric function is a reflection of the graph of the original function about the line \(y=x.\)</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_004n.jpg" alt="A graph of the functions of sine of x and arc sine of x. There is a dotted line y=x between the two graphs, to show inverse nature of the two functions" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The sine function and inverse sine (or arcsine) function</figcaption></figure>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_005n.jpg" alt="A graph of the functions of cosine of x and arc cosine of x. There is a dotted line at y=x to show the inverse nature of the two functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The cosine function and inverse cosine (or arccosine) function</figcaption></figure>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_006n.jpg" alt="A graph of the functions of tangent of x and arc tangent of x. There is a dotted line at y=x to show the inverse nature of the two functions." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — The tangent function and inverse tangent (or arctangent) function</figcaption></figure>
+<div class="card definition" id="fs-id1165135528318"><span class="chip">Relations for Inverse Sine, Cosine, and Tangent Functions</span><p>For angles in the interval \([-\frac{\pi }{2},\frac{\pi }{2}],\) if \(sin\,y=x,\) then \({sin}^{-1}x=y.\)</p>
+<p>For angles in the interval \([0,\pi ],\) if \(cos\,y=x,\) then \({cos}^{-1}x=y.\)</p>
+<p>For angles in the interval \((-\frac{\pi }{2},\frac{\pi }{2}),\) if \(tan\,y=x,\) then \({tan}^{-1}x=y.\)</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Given \(sin(\frac{5\pi }{12})\approx 0.96593,\) write a relation involving the inverse sine.</p>
+</div><p class="sol-hint">Undo the sine by applying \({\sin}^{-1}\) to both sides of the equation.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Use the relation for the inverse sine. If \(sin\,y=x,\) then \({sin}^{-1}x=y\) .</p>
+<p>In this problem, \(x=0.96593,\) and \(y=\frac{5\pi }{12}.\)</p>
+<p id="eq4">\[{sin}^{-1}(0.96593)\approx \frac{5\pi }{12}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Given \(cos(0.5)\approx 0.8776,\) write a relation involving the inverse cosine.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(arccos(0.8776)\approx 0.5\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-the-exact-value-of-expressions-involving-the-inverse-sine-cosine-and-tangent-functions">Finding the Exact Value of Expressions Involving the Inverse Sine, Cosine, and Tangent Functions</h2>
+<p>Now that we can identify inverse functions, we will learn to evaluate them. For most values in their domains, we must evaluate the inverse trigonometric functions by using a calculator, interpolating from a table, or using some other numerical technique. Just as we did with the original trigonometric functions, we can give exact values for the inverse functions when we are using the special angles, specifically \(\frac{\pi }{6}\) (30°), \(\frac{\pi }{4}\) (45°), and \(\frac{\pi }{3}\) (60°), and their reflections into other quadrants.</p>
+<div class="card howto" id="fs-id1165135445917"><span class="chip">How To</span><p><strong>Given a “special” input value, evaluate an inverse trigonometric function.</strong></p>
+<ul class="tight"><li>Find angle \(x\) for which the original trigonometric function has an output equal to the given input for the inverse trigonometric function.</li><li>If \(x\) is not in the defined range of the inverse, find another angle \(y\) that is in the defined range and has the same sine, cosine, or tangent as \(x,\) depending on which corresponds to the given inverse function.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Evaluate each of the following.</p>
+<ul class="tight"><li>ⓐ \({\text{sin}}^{-1}(\frac{1}{2})\)</li><li>ⓑ \({\text{sin}}^{-1}(-\frac{\sqrt{2}}{2})\)</li><li>ⓒ \({cos}^{-1}(-\frac{\sqrt{3}}{2})\)</li><li>ⓓ \({tan}^{-1}(1)\)</li></ul>
+</div><p class="sol-hint">Recall the exact sine/cosine/tangent values for the standard angles, then find which restricted-range angle gives each one.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ Evaluating \({sin}^{-1}(\frac{1}{2})\) is the same as determining the angle that would have a sine value of \(\frac{1}{2}.\) In other words, what angle \(x\) would satisfy \(sin(x)=\frac{1}{2}?\) There are multiple values that would satisfy this relationship, such as \(\frac{\pi }{6}\) and \(\frac{5\pi }{6},\) but we know we need the angle in the interval \([-\frac{\pi }{2},\frac{\pi }{2}],\) so the answer will be \({sin}^{-1}(\frac{1}{2})=\frac{\pi }{6}.\) Remember that the inverse is a function, so for each input, we will get exactly one output.</li><li>ⓑ To evaluate \({sin}^{-1}(-\frac{\sqrt{2}}{2}),\) we know that \(\frac{5\pi }{4}\) and \(\frac{7\pi }{4}\) both have a sine value of \(-\frac{\sqrt{2}}{2},\) but neither is in the interval \([-\frac{\pi }{2},\frac{\pi }{2}].\) For that, we need the negative angle coterminal with \(\frac{7\pi }{4}:\) \({\text{sin}}^{-1}(-\frac{\sqrt{2}}{2})=-\frac{\pi }{4}.\)</li><li>ⓒTo evaluate \({cos}^{-1}(-\frac{\sqrt{3}}{2}),\) we are looking for an angle in the interval \([0,\pi ]\) with a cosine value of \(-\frac{\sqrt{3}}{2}.\) The angle that satisfies this is \({cos}^{-1}(-\frac{\sqrt{3}}{2})=\frac{5\pi }{6}.\)</li><li>ⓓ Evaluating \({tan}^{-1}(1),\) we are looking for an angle in the interval \((-\frac{\pi }{2},\frac{\pi }{2})\) with a tangent value of 1. The correct angle is \({tan}^{-1}(1)=\frac{\pi }{4}.\)</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Evaluate each of the following.</p>
+<ul class="tight"><li>ⓐ \({\text{sin}}^{-1}(-1)\)</li><li>ⓑ \({tan}^{-1}(-1)\)</li><li>ⓒ \({cos}^{-1}(-1)\)</li><li>ⓓ \({cos}^{-1}(\frac{1}{2})\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ \(-\frac{\pi }{2};\)</li><li>ⓑ \(-\frac{\pi }{4};\)</li><li>ⓒ \(\pi ;\)</li><li>ⓓ \(\frac{\pi }{3}\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-a-calculator-to-evaluate-inverse-trigonometric-functions">Using a Calculator to Evaluate Inverse Trigonometric Functions</h2>
+<p>To evaluate <strong>inverse trigonometric functions</strong> that do not involve the special angles discussed previously, we will need to use a calculator or other type of technology. Most scientific calculators and calculator-emulating applications have specific keys or buttons for the inverse sine, cosine, and tangent functions. These may be labeled, for example, <strong>SIN</strong> \({\,}^{-1}\) , <strong>ARCSIN</strong>, or <strong>ASIN</strong>.</p>
+<p>In the previous chapter, we worked with trigonometry on a right triangle to solve for the sides of a triangle given one side and an additional angle. Using the inverse trigonometric functions, we can solve for the angles of a right triangle given two sides, and we can use a calculator to find the values to several decimal places.</p>
+<p>In these examples and exercises, the answers will be interpreted as angles and we will use \(θ\) as the independent variable. The value displayed on the calculator may be in degrees or radians, so be sure to set the mode appropriate to the application.</p>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \({sin}^{-1}(0.97)\) using a calculator.</p>
+</div><p class="sol-hint">Just apply the calculator's \({\sin}^{-1}\) button directly, making sure it's in the correct angle mode.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because the output of the inverse function is an angle, the calculator will give us a degree value if in degree mode and a radian value if in radian mode. Calculators also use the same domain restrictions on the angles as we are using.</p>
+<p>In radian mode, \({sin}^{-1}(0.97)\approx 1.3252.\) In degree mode, \({sin}^{-1}(0.97)\approx 75.93°.\) Note that in calculus and beyond we will use radians in almost all cases.</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Evaluate \({cos}^{-1}(-0.4)\) using a calculator.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>1.9823 or 113.578°</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto" id="fs-id1165134572555"><span class="chip">How To</span><p><strong>Given two sides of a right triangle like the one shown in <a href="#fig7">Figure 7</a>, find an angle.</strong></p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_012.jpg" alt="An illustration of a right triangle with an angle theta. Adjacent to theta is the side a, opposite theta is the side p, and the hypoteneuse is side h." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+<ul class="tight"><li>If one given side is the hypotenuse of length \(h\) and the side of length \(a\) adjacent to the desired angle is given, use the equation \(θ={cos}^{-1}(\frac{a}{h}).\)</li><li>If one given side is the hypotenuse of length \(h\) and the side of length \(p\) opposite to the desired angle is given, use the equation \(θ={sin}^{-1}(\frac{p}{h}).\)</li><li>If the two legs (the sides adjacent to the right angle) are given, then use the equation \(θ={tan}^{-1}(\frac{p}{a}).\)</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Solve the triangle in <a href="#fig8">Figure 8</a> for the angle \(θ.\)</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_007.jpg" alt="An illustration of a right triangle with the angle theta. Adjacent to the angle theta is a side with a length of 9 and a hypoteneuse of length 12." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div><p class="sol-hint">Set up a ratio of two known sides using an inverse trig function, then evaluate with a calculator.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Because we know the hypotenuse and the side adjacent to the angle, it makes sense for us to use the cosine function.</p>
+<p id="eq5">\[\begin{array}{ll}cos\,θ=\frac{9}{12} &amp; \begin{array}{lll} &amp; &amp; \end{array} \\ θ={cos}^{-1}(\frac{9}{12}) &amp; \begin{array}{lll} &amp; &amp; \end{array}\text{Apply definition of the inverse}. \\ θ\approx 0.7227\text{ or about }41.4096° &amp; \begin{array}{lll} &amp; &amp; \end{array}\text{Evaluate}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Solve the triangle in <a href="#fig9">Figure 9</a> for the angle \(θ.\)</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_008.jpg" alt="An illustration of a right triangle with the angle theta. Opposite to the angle theta is a side with a length of 6 and a hypoteneuse of length 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({sin}^{-1}(0.6)=36.87°=0.6435\) radians</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-exact-values-of-composite-functions-with-inverse-trigonometric-functions">Finding Exact Values of Composite Functions with Inverse Trigonometric Functions</h2>
+<p>There are times when we need to compose a trigonometric function with an inverse trigonometric function. In these cases, we can usually find exact values for the resulting expressions without resorting to a calculator. Even when the input to the composite function is a variable or an expression, we can often find an expression for the output. To help sort out different cases, let \(f(x)\) and \(g(x)\) be two different trigonometric functions belonging to the set \(\{sin(x),cos(x),tan(x)\}\) and let \({f}^{-1}(y)\) and \({g}^{-1}(y)\) be their inverses.</p>
+<h3 id="evaluating-compositions-of-the-form-f-f-1-y-and-f-1-f-x">Evaluating Compositions of the Form <strong>f</strong>(<strong>f</strong><sup>−1</sup>(<strong>y</strong>)) and <strong>f</strong><sup>−1</sup>(<strong>f</strong>(<strong>x</strong>))</h3>
+<p>For any trigonometric function, \(f({f}^{-1}(y))=y\) for all \(y\) in the proper domain for the given function. This follows from the definition of the inverse and from the fact that the range of \(f\) was defined to be identical to the domain of \({f}^{-1}.\) However, we have to be a little more careful with expressions of the form \({f}^{-1}(f(x)).\)</p>
+<div class="card definition" id="fs-id1165135332809"><span class="chip">Compositions of a trigonometric function and its inverse</span><p id="eq6">\[\begin{array}{l}sin({sin}^{-1}x)=x\,\text{for}\,-1\le x\le 1 \\ cos({cos}^{-1}x)=x\,\text{for}\,-1\le x\le 1 \\ tan({tan}^{-1}x)=x\,\text{for}\,-\infty &lt;x&lt;\infty \end{array}\]</p>
+<p><br></p>
+<p id="eq7">\[\begin{array}{l}{sin}^{-1}(sin\,x)=x\,\text{only for }-\frac{\pi }{2}\le x\le \frac{\pi }{2} \\ {cos}^{-1}(cos\,x)=x\,\text{only for }0\le x\le \pi \\ {tan}^{-1}(tan\,x\,)=x\,\text{only for }-\frac{\pi }{2}&lt;x&lt;\frac{\pi }{2}\end{array}\]</p>
+</div>
+<div class="card qa" id="fs-id1165135361177"><span class="chip">Q&amp;A</span><p><strong>Is it correct that \({sin}^{-1}(sin\,x)=x?\)</strong></p>
+<p><strong>No. This equation is correct if \(x\) belongs to the restricted domain \([-\frac{\pi }{2},\frac{\pi }{2}],\) but sine is defined for all real input values, and for \(x\) outside the restricted interval, the equation is not correct because its inverse always returns a value in \([-\frac{\pi }{2},\frac{\pi }{2}].\) The situation is similar for cosine and tangent and their inverses. For example, \({sin}^{-1}(sin(\frac{3\pi }{4}))=\frac{\pi }{4}.\)</strong></p>
+</div>
+<div class="card howto" id="fs-id1165135453004"><span class="chip">How To</span><p><strong>Given an expression of the form f<sup>−1</sup>(f(θ)) where \(f(θ)=sin\,θ,\,cos\,θ,\text{ or }tan\,θ,\) evaluate.</strong></p>
+<ul class="tight"><li>If \(θ\) is in the restricted domain of \(f,\text{ then }{f}^{-1}(f(θ))=θ.\)</li><li>If not, then find an angle \(ϕ\) within the restricted domain of \(f\) such that \(f(ϕ)=f(θ).\) Then \({f}^{-1}(f(θ))=ϕ.\)</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the following:</p>
+<ul class="tight"><li>ⓐ \({sin}^{-1}(sin(\frac{\pi }{3}))\)</li><li>ⓑ \({sin}^{-1}(sin(\frac{2\pi }{3}))\)</li><li>ⓒ \({cos}^{-1}(cos(\frac{2\pi }{3}))\)</li><li>ⓓ \({cos}^{-1}(cos(-\frac{\pi }{3}))\)</li></ul>
+</div><p class="sol-hint">Work from the inside out: evaluate the inner trig or inverse trig function first, then apply the outer one.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ \(\frac{\pi }{3}\text{ is in }[-\frac{\pi }{2},\frac{\pi }{2}],\) so \({sin}^{-1}(sin(\frac{\pi }{3}))=\frac{\pi }{3}.\)</li><li>ⓑ \(\frac{2\pi }{3}\text{ is not in }[-\frac{\pi }{2},\frac{\pi }{2}],\) but \(sin(\frac{2\pi }{3})=sin(\frac{\pi }{3}),\) so \({sin}^{-1}(sin(\frac{2\pi }{3}))=\frac{\pi }{3}.\)</li><li>ⓒ \(\frac{2\pi }{3}\text{ is in }[0,\pi ],\) so \({cos}^{-1}(cos(\frac{2\pi }{3}))=\frac{2\pi }{3}.\)</li><li>ⓓ \(-\frac{\pi }{3}\text{ is not in }[0,\pi ],\) but \(cos(-\frac{\pi }{3})=cos(\frac{\pi }{3})\) because cosine is an even function. \(\frac{\pi }{3}\text{ is in }[0,\pi ],\) so \({cos}^{-1}(cos(-\frac{\pi }{3}))=\frac{\pi }{3}.\)</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Evaluate \({tan}^{-1}(tan(\frac{\pi }{8}))\,\text{and}\,{tan}^{-1}(tan(\frac{11\pi }{9})).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{\pi }{8};\frac{2\pi }{9}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="evaluating-compositions-of-the-form-f-1-g-x">Evaluating Compositions of the Form <strong>f</strong><sup>−1</sup>(<strong>g</strong>(<strong>x</strong>))</h3>
+<p>Now that we can compose a trigonometric function with its inverse, we can explore how to evaluate a composition of a trigonometric function and the inverse of another trigonometric function. We will begin with compositions of the form \({f}^{-1}(g(x)).\) For special values of \(x,\) we can exactly evaluate the inner function and then the outer, inverse function. However, we can find a more general approach by considering the relation between the two acute angles of a right triangle where one is \(θ,\) making the other \(\frac{\pi }{2}-θ.\) Consider the sine and cosine of each angle of the right triangle in <a href="#fig10">Figure 10</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_009.jpg" alt="An illustration of a right triangle with angles theta and pi/2 - theta. Opposite the angle theta and adjacent the angle pi/2-theta is the side a. Adjacent the angle theta and opposite the angle pi/2 - theta is the side b. The hypoteneuse is labeled c." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Right triangle illustrating the cofunction relationships</figcaption></figure>
+<p>Because \(cos\,θ=\frac{b}{c}=sin(\frac{\pi }{2}-θ),\) we have \({sin}^{-1}(cos\,θ)=\frac{\pi }{2}-θ\) if \(0\le θ\le \pi .\) If \(θ\) is not in this domain, then we need to find another angle that has the same cosine as \(θ\) and does belong to the restricted domain; we then subtract this angle from \(\frac{\pi }{2}.\) Similarly, \(sin\,θ=\frac{a}{c}=cos(\frac{\pi }{2}-θ),\) so \({cos}^{-1}(sin\,θ)=\frac{\pi }{2}-θ\) if \(-\frac{\pi }{2}\le θ\le \frac{\pi }{2}.\) These are just the function-cofunction relationships presented in another way.</p>
+<div class="card howto" id="fs-id1165135449630"><span class="chip">How To</span><p><strong>Given functions of the form \({sin}^{-1}(cos\,x)\) and \({cos}^{-1}(sin\,x),\) evaluate them.</strong></p>
+<ul class="tight"><li>If \(x\text{ is in }[0,\pi ],\) then \({sin}^{-1}(cos\,x)=\frac{\pi }{2}-x.\)</li><li>If \(x\text{ is not in }[0,\pi ],\) then find another angle \(y\text{ in }[0,\pi ]\) such that \(cos\,y=cos\,x.\)<p id="eq8">\[{sin}^{-1}(cos\,x)=\frac{\pi }{2}-y\]</p>
+</li><li>If \(x\text{ is in }[-\frac{\pi }{2},\frac{\pi }{2}],\) then \({cos}^{-1}(sin\,x)=\frac{\pi }{2}-x.\)</li><li>If \(x\text{ is not in}\,[-\frac{\pi }{2},\frac{\pi }{2}],\) then find another angle \(y\text{ in }[-\frac{\pi }{2},\frac{\pi }{2}]\) such that \(sin\,y=sin\,x.\)<p id="eq9">\[{cos}^{-1}(sin\,x)=\frac{\pi }{2}-y\]</p>
+</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \({sin}^{-1}(cos(\frac{13\pi }{6}))\)</p>
+<ul class="tight"><li>ⓐby direct evaluation.</li><li>ⓑ by the method described previously.</li></ul>
+</div><p class="sol-hint">Evaluate the inner cosine first (reducing the angle to one within a full rotation), then apply \({\sin}^{-1}\) to that result.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ Here, we can directly evaluate the inside of the composition. Now, we can evaluate the inverse function as we did earlier.<p id="eq10">\[\begin{array}{l} \\ \begin{array}{l}cos(\frac{13\pi }{6})=cos(\frac{\pi }{6}+2\pi ) \\ \,=cos(\frac{\pi }{6}) \\ \,=\frac{\sqrt{3}}{2}\end{array}\end{array}\]</p>
+<p>Now, we can evaluate the inverse function as we did earlier.</p>
+<p id="eq11">\[{sin}^{-1}(\frac{\sqrt{3}}{2})=\frac{\pi }{3}\]</p>
+</li><li>ⓑ We have \(x=\frac{13\pi }{6}\text{,}\,y=\frac{\pi }{6},\) and<p id="eq12">\[\begin{array}{l}{sin}^{-1}(cos(\frac{13\pi }{6}))=\frac{\pi }{2}-\frac{\pi }{6} \\ =\frac{\pi }{3}\,\end{array}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Evaluate \({cos}^{-1}(sin(-\frac{11\pi }{4})).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{3\pi }{4}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="evaluating-compositions-of-the-form-f-g-1-x">Evaluating Compositions of the Form <strong>f</strong>(<strong>g</strong><sup>−1</sup>(<strong>x</strong>))</h3>
+<p>To evaluate compositions of the form \(f({g}^{-1}(x)),\) where \(f\) and \(g\) are any two of the functions sine, cosine, or tangent and \(x\) is any input in the domain of \({g}^{-1},\) we have exact formulas, such as \(sin({cos}^{-1}x)=\sqrt{1-{x}^{2}}.\) When we need to use them, we can derive these formulas by using the trigonometric relations between the angles and sides of a right triangle, together with the use of Pythagoras’s relation between the lengths of the sides. We can use the Pythagorean identity, \({sin}^{2}x+{cos}^{2}x=1,\) to solve for one when given the other. We can also use the <strong>inverse trigonometric functions</strong> to find compositions involving algebraic expressions.</p>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find an exact value for \(sin({cos}^{-1}(\frac{4}{5})).\)</p>
+</div><p class="sol-hint">Sketch a right triangle where \(\cos\theta=\frac{4}{5}\), then read the sine ratio from the same triangle.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Beginning with the inside, we can say there is some angle such that \(θ={cos}^{-1}(\frac{4}{5}),\) which means \(cos\,θ=\frac{4}{5},\) and we are looking for \(sin\,θ.\) We can use the Pythagorean identity to do this.</p>
+<p id="eq13">\[\begin{array}{llll}{sin}^{2}θ+{cos}^{2}θ=1 &amp; &amp; &amp; \text{Use our known value for cosine}. \\ {sin}^{2}θ+{(\frac{4}{5})}^{2}=1 &amp; &amp; &amp; \text{Solve for sine}. \\ {sin}^{2}θ=1-\frac{16}{25} &amp; &amp; &amp; \\ sin\,θ=\pm \sqrt{\frac{9}{25}}=\pm \frac{3}{5} &amp; &amp; &amp; \end{array}\]</p>
+<p>Since \(θ={cos}^{-1}(\frac{4}{5})\) is in quadrant I, \(sin\,θ\) must be positive, so the solution is \(\frac{3}{5}.\) See <a href="#fig11">Figure 11</a>.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_010.jpg" alt="An illustration of a right triangle with an angle theta. Oppostie the angle theta is a side with length 3. Adjacent the angle theta is a side with length 4. The hypoteneuse has angle of length 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — Right triangle illustrating that if \(cos\,θ=\frac{4}{5},\) then \(sin\,θ=\frac{3}{5}\)</figcaption></figure>
+<p>We know that the inverse cosine always gives an angle on the interval \([0,\pi ],\) so we know that the sine of that angle must be positive; therefore \(sin({cos}^{-1}(\frac{4}{5}))=sin\,θ=\frac{3}{5}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Evaluate \(cos({tan}^{-1}(\frac{5}{12})).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{12}{13}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Find an exact value for \(sin({tan}^{-1}(\frac{7}{4})).\)</p>
+</div><p class="sol-hint">Sketch a right triangle where \(\tan\theta=\frac{7}{4}\), use the Pythagorean theorem for the missing side, then read off the sine ratio.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>While we could use a similar technique as in <a href="#example6">Example 6</a>, we will demonstrate a different technique here. From the inside, we know there is an angle such that \(tan\,θ=\frac{7}{4}.\) We can envision this as the opposite and adjacent sides on a right triangle, as shown in <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_011n.jpg" alt="An illustration of a right triangle with angle theta. Adjacent the angle theta is a side with length 4. Opposite the angle theta is a side with length 7." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — A right triangle with two sides known</figcaption></figure>
+<p>Using the Pythagorean Theorem, we can find the hypotenuse of this triangle.</p>
+<p id="eq14">\[\begin{array}{l}\begin{array}{l} \\ \,{4}^{2}+{7}^{2}={\text{hypotenuse}}^{2}\end{array} \\ \text{hypotenuse}=\sqrt{65}\end{array}\]</p>
+<p>Now, we can evaluate the sine of the angle as the opposite side divided by the hypotenuse.</p>
+<p id="eq15">\[sin\,θ=\frac{7}{\sqrt{65}}\]</p>
+<p>This gives us our desired composition.</p>
+<p id="eq16">\[\begin{array}{l}sin({tan}^{-1}(\frac{7}{4}))=sin\,θ \\ \,=\frac{7}{\sqrt{65}} \\ \,=\frac{7\sqrt{65}}{65}\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Evaluate \(cos({sin}^{-1}(\frac{7}{9})).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{4\sqrt{2}}{9}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Find a simplified expression for \(cos({sin}^{-1}(\frac{x}{3}))\) for \(-3\le x\le 3.\)</p>
+</div><p class="sol-hint">Sketch a right triangle where \(\sin\theta=\frac{x}{3}\), use the Pythagorean theorem for the missing side in terms of \(x\), then read off the cosine ratio.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We know there is an angle \(θ\) such that \(sin\,θ=\frac{x}{3}.\)</p>
+<p id="eq17">\[\begin{array}{ll}{sin}^{2}θ+{cos}^{2}θ=1 &amp; \text{Use the Pythagorean Theorem}. \\ \,{(\frac{x}{3})}^{2}+{cos}^{2}θ=1 &amp; \text{Solve for cosine}. \\ {cos}^{2}θ=1-\frac{{x}^{2}}{9} &amp; \\ cosθ=\pm \sqrt{\frac{9-{x}^{2}}{9}}=\pm \frac{\sqrt{9-{x}^{2}}}{3} &amp; \end{array}\]</p>
+<p>Because we know that the inverse sine must give an angle on the interval \([-\frac{\pi }{2},\frac{\pi }{2}],\) we can deduce that the cosine of that angle must be positive.</p>
+<p id="eq18">\[cos({sin}^{-1}(\frac{x}{3}))=\frac{\sqrt{9-{x}^{2}}}{3}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Find a simplified expression for \(sin({tan}^{-1}(4x))\) for \(-\frac{1}{4}\le x\le \frac{1}{4}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{4x}{\sqrt{16{x}^{2}+1}}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165134282131"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with inverse trigonometric functions.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/evalinverstrig" target="_blank" rel="noopener">Evaluate Expressions Involving Inverse Trigonometric Functions</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>An inverse function is one that “undoes” another function. The domain of an inverse function is the range of the original function and the range of an inverse function is the domain of the original function.</li><li>Because the trigonometric functions are not one-to-one on their natural domains, inverse trigonometric functions are defined for restricted domains.</li><li>For any trigonometric function \(f(x),\) if \(x={f}^{-1}(y),\) then \(f(x)=y.\) However, \(f(x)=y\) only implies \(x={f}^{-1}(y)\) if \(x\) is in the restricted domain of \(f.\) See <a href="#example1">Example 1</a>.</li><li>Special angles are the outputs of inverse trigonometric functions for special input values; for example, \(\frac{\pi }{4}={tan}^{-1}(1)\,\text{and}\,\frac{\pi }{6}={sin}^{-1}(\frac{1}{2}).\) See <a href="#example2">Example 2</a>.</li><li>A calculator will return an angle within the restricted domain of the original trigonometric function. See <a href="#example3">Example 3</a>.</li><li>Inverse functions allow us to find an angle when given two sides of a right triangle. See <a href="#example4">Example 4</a>.</li><li>In function composition, if the inside function is an inverse trigonometric function, then there are exact expressions; for example, \(sin({cos}^{-1}(x))=\sqrt{1-{x}^{2}}.\) See <a href="#example5">Example 5</a>.</li><li>If the inside function is a trigonometric function, then the only possible combinations are \({sin}^{-1}(cos\,x)=\frac{\pi }{2}-x\) if \(0\le x\le \pi\) and \({cos}^{-1}(sin\,x)=\frac{\pi }{2}-x\) if \(-\frac{\pi }{2}\le x\le \frac{\pi }{2}.\) See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.</li><li>When evaluating the composition of a trigonometric function with an inverse trigonometric function, draw a reference triangle to assist in determining the ratio of sides that represents the output of the trigonometric function. See <a href="#example8">Example 8</a>.</li><li>When evaluating the composition of a trigonometric function with an inverse trigonometric function, you may use trig identities to assist in determining the ratio of sides. See <a href="#example9">Example 9</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Why do the functions \(f(x)={sin}^{-1}x\) and \(g(x)={cos}^{-1}x\) have different ranges?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function \(y=sinx\) is one-to-one on \([-\frac{\pi }{2},\frac{\pi }{2}];\) thus, this interval is the range of the inverse function of \(y=sinx,\) \(f(x)={sin}^{-1}x.\) The function \(y=cosx\) is one-to-one on \([0,\pi ];\) thus, this interval is the range of the inverse function of \(y=cosx,f(x)={cos}^{-1}x.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Since the functions \(y=cos\,x\) and \(y={cos}^{-1}x\) are inverse functions, why is \({cos}^{-1}(cos(-\frac{\pi }{6}))\) not equal to \(-\frac{\pi }{6}?\)</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Explain the meaning of \(\frac{\pi }{6}=arcsin(0.5).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{6}\) is the radian measure of an angle between \(-\frac{\pi }{2}\) and \(\frac{\pi }{2}\) whose sine is 0.5.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Most calculators do not have a key to evaluate \({sec}^{-1}(2).\) Explain how this can be done using the cosine function or the inverse cosine function.</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Why must the domain of the sine function, \(sin\,x,\) be restricted to \([-\frac{\pi }{2},\frac{\pi }{2}]\) for the inverse sine function to exist?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>In order for any function to have an inverse, the function must be one-to-one and must pass the horizontal line test. The regular sine function is not one-to-one unless its domain is restricted in some way. Mathematicians have agreed to restrict the sine function to the interval \([-\frac{\pi }{2},\frac{\pi }{2}]\) so that it is one-to-one and possesses an inverse.</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>Discuss why this statement is incorrect: \(arccos(cos\,x)=x\) for all \(x.\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>Determine whether the following statement is true or false and explain your answer: \(arccos(-x)=\pi -arccos\,x.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>True . The angle, \({θ}_{1}\) that equals \(arccos(-x)\) , \(x&gt;0\) , will be a second quadrant angle with reference angle, \({θ}_{2}\) , where \({θ}_{2}\) equals \(arccosx\) , \(x&gt;0\) . Since \({θ}_{2}\) is the reference angle for \({θ}_{1}\) , \({θ}_{2}=\pi -{θ}_{1}\) and \(arccos(-x)\) = \(\pi -arccosx\) -</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, evaluate the expressions.</p>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\({sin}^{-1}(\frac{\sqrt{2}}{2})\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\({sin}^{-1}(-\frac{1}{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\pi }{6}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\({cos}^{-1}(\frac{1}{2})\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\({cos}^{-1}(-\frac{\sqrt{2}}{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\({tan}^{-1}(1)\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\({tan}^{-1}(-\sqrt{3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\({tan}^{-1}(-1)\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\({tan}^{-1}(\sqrt{3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\({tan}^{-1}(\frac{-1}{\sqrt{3}})\)</p>
+</div></div>
+<p>For the following exercises, use a calculator to evaluate each expression. Express answers to the nearest hundredth.</p>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\({cos}^{-1}(-0.4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1.98</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(arcsin(0.23)\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(arccos(\frac{3}{5})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.93</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\({cos}^{-1}(0.8)\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\({tan}^{-1}(6)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1.41</p>
+</div></div></div></div>
+<p>For the following exercises, find the angle \(θ\) in the given right triangle. Round answers to the nearest hundredth.</p>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_201.jpg" alt="An illustration of a right triangle with angle theta. Opposite the angle theta is a side with length of 7. The hypotenuse has a lngeth of 10." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_202.jpg" alt="An illustration of a right triangle with angle theta. Adjacent the angle theta is a side of length 19. Opposite the angle theta is a side with length 12." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>0.56 radians</p>
+</div></div></div></div>
+<p>For the following exercises, find the exact value, if possible, without a calculator. If it is not possible, explain why.</p>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({sin}^{-1}(cos(\pi ))\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({tan}^{-1}(sin(\pi ))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({cos}^{-1}(sin(\frac{\pi }{3}))\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\({tan}^{-1}(sin(\frac{\pi }{3}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.71</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({sin}^{-1}(cos(\frac{-\pi }{2}))\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({tan}^{-1}(sin(\frac{4\pi }{3}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>-0.71</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\({sin}^{-1}(sin(\frac{5\pi }{6}))\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\({tan}^{-1}(sin(\frac{-5\pi }{2}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(cos({sin}^{-1}(\frac{4}{5}))\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(sin({cos}^{-1}(\frac{3}{5}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.8</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(sin({tan}^{-1}(\frac{4}{3}))\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(cos({tan}^{-1}(\frac{12}{5}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{5}{13}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(cos({sin}^{-1}(\frac{1}{2}))\)</p>
+</div></div>
+<p>For the following exercises, find the exact value of the expression in terms of \(x\) with the help of a reference triangle.</p>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(tan({sin}^{-1}(x-1))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{x-1}{\sqrt{-{x}^{2}+2x}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(sin({cos}^{-1}(1-x))\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(cos({sin}^{-1}(\frac{1}{x}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{{x}^{2}-1}}{x}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(cos({tan}^{-1}(3x-1))\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(tan({sin}^{-1}(x+\frac{1}{2}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{x+0.5}{\sqrt{-{x}^{2}-x+\frac{3}{4}}}\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, evaluate the expression without using a calculator. Give the exact value.</p>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\frac{{sin}^{-1}(\frac{1}{2})-{cos}^{-1}(\frac{\sqrt{2}}{2})+{sin}^{-1}(\frac{\sqrt{3}}{2})-{cos}^{-1}(1)}{{cos}^{-1}(\frac{\sqrt{3}}{2})-{sin}^{-1}(\frac{\sqrt{2}}{2})+{cos}^{-1}(\frac{1}{2})-{sin}^{-1}(0)}\)</p>
+</div></div>
+<p>For the following exercises, find the function if \(sin\,t=\frac{x}{x+1}.\)</p>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(cos\,t\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2x+1}}{\left(x+1\right)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(sec\,t\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(cot\,t\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\sqrt{2x+1}}{x}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(cos({sin}^{-1}(\frac{x}{x+1}))\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\({tan}^{-1}(\frac{x}{\sqrt{2x+1}})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(t\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Graph \(y={sin}^{-1}x\) and state the domain and range of the function.</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Graph \(y=arccos\,x\) and state the domain and range of the function.</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_204.jpg" alt="A graph of the function arc cosine of x over -1 to 1. The range of the function is 0 to pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>domain \([-1,1];\) range \([0,\pi ]\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Graph one cycle of \(y={tan}^{-1}x\) and state the domain and range of the function.</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>For what value of \(x\) does \(sin\,x={sin}^{-1}x?\) Use a graphing calculator to approximate the answer.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>approximately \(x=0.00\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>For what value of \(x\) does \(cos\,x={cos}^{-1}x?\) Use a graphing calculator to approximate the answer.</p>
+</div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Suppose a 13-foot ladder is leaning against a building, reaching to the bottom of a second-ﬂoor window 12 feet above the ground. What angle, in radians, does the ladder make with the building?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.395 radians</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Suppose you drive 0.6 miles on a road so that the vertical distance changes from 0 to 150 feet. What is the angle of elevation of the road?</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>An isosceles triangle has two congruent sides of length 9 inches. The remaining side has a length of 8 inches. Find the angle that a side of 9 inches makes with the 8-inch side.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1.11 radians</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>Without using a calculator, approximate the value of \(arctan(10,000).\) Explain why your answer is reasonable.</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>A truss (interior beam structure) for the roof of a house is constructed from two identical right triangles. Each has a base of 12 feet and height of 4 feet. Find the measure of the acute angle adjacent to the 4-foot side.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1.25 radians</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>The line \(y=\frac{3}{5}x\) passes through the origin in the <strong>x</strong>,<strong>y</strong>-plane. What is the measure of the angle that the line makes with the positive <strong>x</strong>-axis?</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>The line \(y=\frac{-3}{7}x\) passes through the origin in the <strong>x</strong>,<strong>y</strong>-plane. What is the measure of the angle that the line makes with the negative <strong>x</strong>-axis?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0.405 radians</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>What percentage grade should a road have if the angle of elevation of the road is 4 degrees? (The percentage grade is defined as the change in the altitude of the road over a 100-foot horizontal distance. For example a 5% grade means that the road rises 5 feet for every 100 feet of horizontal distance.)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>A 20-foot ladder leans up against the side of a building so that the foot of the ladder is 10 feet from the base of the building. If specifications call for the ladder's angle of elevation to be between 35 and 45 degrees, does the placement of this ladder satisfy safety specifications?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>No. The angle the ladder makes with the horizontal is 60 degrees.</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>Suppose a 15-foot ladder leans against the side of a house so that the angle of elevation of the ladder is 42 degrees. How far is the foot of the ladder from the side of the house?</p>
+</div></div>
+</div>
+<h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
+<h3 id="graphs-of-the-sine-and-cosine-functions">Graphs of the Sine and Cosine Functions</h3>
+<p>For the following exercises, graph the functions for two periods and determine the amplitude or stretching factor, period, midline equation, and asymptotes.</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\(f(x)=-3cos\,x+3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 3; period: \(2\pi ;\) midline: \(y=3;\) no asymptotes<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_206.jpg" alt="A graph of two periods of a function with a cosine parent function. The graph has a range of [0,6] graphed over -2pi to 2pi. Maximums as -pi and pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>\(f(x)=\frac{1}{4}sin\,x\)</p>
+</div></div>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>\(f(x)=3cos(x+\frac{\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 3; period: \(2\pi ;\) midline: \(y=0;\) no asymptotes<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_208.jpg" alt="A graph of four periods of a function with a cosine parent function. Graphed from -4pi to 4pi. Range is [-3,3]." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>\(f(x)=-2sin(x-\frac{2\pi }{3})\)</p>
+</div></div>
+<div class="exercise" id="reviewex5"><div class="n">5</div><div class="body"><p>\(f(x)=3sin(x-\frac{\pi }{4})-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 3; period: \(2\pi ;\) midline: \(y=-4;\) no asymptotes<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_210.jpg" alt="A graph of two periods of a sinusoidal function. Range is [-7,-1]. Maximums at -5pi/4 and 3pi/4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex6"><div class="n">6</div><div class="body"><p>\(f(x)=2(cos(x-\frac{4\pi }{3})+1)\)</p>
+</div></div>
+<div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(f(x)=6sin(3x-\frac{\pi }{6})-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 6; period: \(\frac{2\pi }{3};\) midline: \(y=-1;\) no asymptotes<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_212.jpg" alt="A sinusoidal graph over two periods. Range is [-7,5], amplitude is 6, and period is 2pi/3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(f(x)=-100sin(50x-20)\)</p>
+</div></div>
+<h3 id="graphs-of-the-other-trigonometric-functions">Graphs of the Other Trigonometric Functions</h3>
+<p>For the following exercises, graph the functions for two periods and determine the amplitude or stretching factor, period, midline equation, and asymptotes.</p>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>\(f(x)=tan\,x-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>stretching factor: none; period: \(\pi ;\) midline: \(y=-4;\) asymptotes: \(x=\frac{\pi }{2}+\pi k,\) where \(k\) is an integer<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_214.jpg" alt="A graph of a tangent function over two periods. Graphed from -pi to pi, with asymptotes at -pi/2 and pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>\(f(x)=2tan(x-\frac{\pi }{6})\)</p>
+</div></div>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>\(f(x)=-3tan(4x)-2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>stretching factor: 3; period: \(\frac{\pi }{4};\) midline: \(y=-2;\) asymptotes: \(x=\frac{\pi }{8}+\frac{\pi }{4}k,\) where \(k\) is an integer<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_216.jpg" alt="A graph of a tangent function over two periods. Asymptotes at -pi/8 and pi/8. Period of pi/4. Midline at y=-2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(f(x)=0.2cos(0.1x)+0.3\)</p>
+</div></div>
+<p>For the following exercises, graph two full periods. Identify the period, the phase shift, the amplitude, and asymptotes.</p>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(f(x)=\frac{1}{3}sec\,x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: none; period: \(2\pi ;\) no phase shift; asymptotes: \(x=\frac{\pi }{2}k,\) where \(k\) is an odd integer<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_218.jpg" alt="A graph of two periods of a secant function. Period of 2 pi, graphed from -2pi to 2pi. Asymptotes at -3pi/2, -pi/2, pi/2, and 3pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>\(f(x)=3cot\,x\)</p>
+</div></div>
+<div class="exercise" id="reviewex15"><div class="n">15</div><div class="body"><p>\(f(x)=4csc(5x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: none; period: \(\frac{2\pi }{5};\) no phase shift; asymptotes: \(x=\frac{\pi }{5}k,\) where \(k\) is an integer<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_220.jpg" alt="A graph of a cosecant functionover two and a half periods. Graphed from -pi to pi, period of 2pi/5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex16"><div class="n">16</div><div class="body"><p>\(f(x)=8sec(\frac{1}{4}x)\)</p>
+</div></div>
+<div class="exercise" id="reviewex17"><div class="n">17</div><div class="body"><p>\(f(x)=\frac{2}{3}csc(\frac{1}{2}x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: none; period: \(4\pi ;\) no phase shift; asymptotes: \(x=2\pi k,\) where \(k\) is an integer<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_222.jpg" alt="A graph of two periods of a cosecant function. Graphed from -4pi to 4pi. Asymptotes at multiples of 2pi. Period of 4pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex18"><div class="n">18</div><div class="body"><p>\(f(x)=-csc(2x+\pi )\)</p>
+</div></div>
+<p>For the following exercises, use this scenario: The population of a city has risen and fallen over a 20-year interval. Its population may be modeled by the following function: \(y=12,000+8,000sin(0.628x),\) where the domain is the years since 1980 and the range is the population of the city.</p>
+<div class="exercise" id="reviewex19"><div class="n">19</div><div class="body"><p>What is the largest and smallest population the city may have?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>largest: 20,000; smallest: 4,000</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex20"><div class="n">20</div><div class="body"><p>Graph the function on the domain of \([0,40]\) .</p>
+</div></div>
+<div class="exercise" id="reviewex21"><div class="n">21</div><div class="body"><p>What are the amplitude, period, and phase shift for the function?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 8,000; period: 10; phase shift: 0</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex22"><div class="n">22</div><div class="body"><p>Over this domain, when does the population reach 18,000? 13,000?</p>
+</div></div>
+<div class="exercise" id="reviewex23"><div class="n">23</div><div class="body"><p>What is the predicted population in 2007? 2010?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>In 2007, the predicted population is 4,413. In 2010, the population will be 11,924.</p>
+</div></div></div></div>
+<p>For the following exercises, suppose a weight is attached to a spring and bobs up and down, exhibiting symmetry.</p>
+<div class="exercise" id="reviewex24"><div class="n">24</div><div class="body"><p>Suppose the graph of the displacement function is shown in <a href="#fig13">Figure 13</a>, where the values on the <strong>x</strong>-axis represent the time in seconds and the <strong>y</strong>-axis represents the displacement in inches. Give the equation that models the vertical displacement of the weight on the spring.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_225.jpg" alt="A graph of a consine function over one period. Graphed on the domain of [0,10]. Range is [-5,5]." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+</div></div>
+<div class="exercise" id="reviewex25"><div class="n">25</div><div class="body"><p>At time = 0, what is the displacement of the weight?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>5 in.</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex26"><div class="n">26</div><div class="body"><p>At what time does the displacement from the equilibrium point equal zero?</p>
+</div></div>
+<div class="exercise" id="reviewex27"><div class="n">27</div><div class="body"><p>What is the time required for the weight to return to its initial height of 5 inches? In other words, what is the period for the displacement function?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>10 seconds</p>
+</div></div></div></div>
+<h3 id="inverse-trigonometric-functions">Inverse Trigonometric Functions</h3>
+<p>For the following exercises, find the exact value without the aid of a calculator.</p>
+<div class="exercise" id="reviewex28"><div class="n">28</div><div class="body"><p>\({sin}^{-1}(1)\)</p>
+</div></div>
+<div class="exercise" id="reviewex29"><div class="n">29</div><div class="body"><p>\({cos}^{-1}(\frac{\sqrt{3}}{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{6}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex30"><div class="n">30</div><div class="body"><p>\({tan}^{-1}(-1)\)</p>
+</div></div>
+<div class="exercise" id="reviewex31"><div class="n">31</div><div class="body"><p>\({cos}^{-1}(\frac{1}{\sqrt{2}})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{4}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex32"><div class="n">32</div><div class="body"><p>\({sin}^{-1}(\frac{-\sqrt{3}}{2})\)</p>
+</div></div>
+<div class="exercise" id="reviewex33"><div class="n">33</div><div class="body"><p>\({sin}^{-1}(cos(\frac{\pi }{6}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex34"><div class="n">34</div><div class="body"><p>\({cos}^{-1}(tan(\frac{3\pi }{4}))\)</p>
+</div></div>
+<div class="exercise" id="reviewex35"><div class="n">35</div><div class="body"><p>\(sin({sec}^{-1}(\frac{3}{5}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>No solution</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex36"><div class="n">36</div><div class="body"><p>\(cot({sin}^{-1}(\frac{3}{5}))\)</p>
+</div></div>
+<div class="exercise" id="reviewex37"><div class="n">37</div><div class="body"><p>\(tan({cos}^{-1}(\frac{5}{13}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{12}{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="reviewex38"><div class="n">38</div><div class="body"><p>\(sin({cos}^{-1}(\frac{x}{x+1}))\)</p>
+</div></div>
+<div class="exercise" id="reviewex39"><div class="n">39</div><div class="body"><p>Graph \(f(x)=cos\,x\) and \(f(x)=sec\,x\) on the interval \([0,2\pi )\) and explain any observations.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graphs are not symmetrical with respect to the line \(y=x.\) They are symmetrical with respect to the \(y\) -axis.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_226.jpg" alt="A graph of cosine of x and secant of x. Cosine of x has maximums where secant has minimums and vice versa. Asymptotes at x=-3pi/2, -pi/2, pi/2, and 3pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="reviewex40"><div class="n">40</div><div class="body"><p>Graph \(f(x)=sin\,x\) and \(f(x)=csc\,x\) and explain any observations.</p>
+</div></div>
+<div class="exercise" id="reviewex41"><div class="n">41</div><div class="body"><p>Graph the function \(f\,(x)=\frac{x}{1}-\frac{{x}^{3}}{3!}+\frac{{x}^{5}}{5!}-\frac{{x}^{7}}{7!}\) on the interval \([-1,1]\) and compare the graph to the graph of \(f(x)=sin\,x\) on the same interval. Describe any observations.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The graphs appear to be identical.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_228.jpg" alt="Two graphs of two identical functions on the interval [-1 to 1]. Both graphs appear sinusoidal." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<h2 id="chapter-practice-test">Chapter Practice Test</h2>
+<p>For the following exercises, sketch the graph of each function for two full periods. Determine the amplitude, the period, and the equation for the midline.</p>
+<div class="exercise" id="practiceex1"><div class="n">1</div><div class="body"><p>\(f(x)=0.5sin\,x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 0.5; period: \(2\pi ;\) midline \(y=0\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_229.jpg" alt="A graph of two periods of a sinusoidal function, graphed over -2pi to 2pi. The range is [-0.5,0.5]. X-intercepts at multiples of pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex2"><div class="n">2</div><div class="body"><p>\(f(x)=5cos\,x\)</p>
+</div></div>
+<div class="exercise" id="practiceex3"><div class="n">3</div><div class="body"><p>\(f(x)=5sin\,x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 5; period: \(2\pi ;\) midline: \(y=0\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_231.jpg" alt="Two periods of a sine function, graphed over -2pi to 2pi. The range is [-5,5], amplitude of 5, period of 2pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex4"><div class="n">4</div><div class="body"><p>\(f(x)=sin(3x)\)</p>
+</div></div>
+<div class="exercise" id="practiceex5"><div class="n">5</div><div class="body"><p>\(f(x)=-cos(x+\frac{\pi }{3})+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 1; period: \(2\pi ;\) midline: \(y=1\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_233.jpg" alt="A graph of two periods of a cosine function, graphed over -7pi/3 to 5pi/3. Range is [0,2], Period is 2pi, amplitude is1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex6"><div class="n">6</div><div class="body"><p>\(f(x)=5sin(3(x-\frac{\pi }{6}))+4\)</p>
+</div></div>
+<div class="exercise" id="practiceex7"><div class="n">7</div><div class="body"><p>\(f(x)=3cos(\frac{1}{3}x-\frac{5\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 3; period: \(6\pi ;\) midline: \(y=0\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_235.jpg" alt="A graph of two periods of a cosine function, over -7pi/2 to 17pi/2. The range is [-3,3], period is 6pi, and amplitude is 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex8"><div class="n">8</div><div class="body"><p>\(f(x)=tan(4x)\)</p>
+</div></div>
+<div class="exercise" id="practiceex9"><div class="n">9</div><div class="body"><p>\(f(x)=-2tan(x-\frac{7\pi }{6})+2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: none; period: \(\pi ;\) midline: \(y=0,\) asymptotes: \(x=\frac{2\pi }{3}+\pi k,\) where \(k\) is an integer<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_237.jpg" alt="A graph of two periods of a tangent function over -5pi/6 to 7pi/6. Period is pi, midline at y=0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex10"><div class="n">10</div><div class="body"><p>\(f(x)=\pi cos(3x+\pi )\)</p>
+</div></div>
+<div class="exercise" id="practiceex11"><div class="n">11</div><div class="body"><p>\(f(x)=5csc(3x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: none; period: \(\frac{2\pi }{3};\) midline: \(y=0,\) asymptotes: \(x=\frac{\pi }{3}k,\) where \(k\) is an integer<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_239.jpg" alt="A graph of two periods of a cosecant functinon, over -2pi/3 to 2pi/3. Vertical asymptotes at multiples of pi/3. Period of 2pi/3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex12"><div class="n">12</div><div class="body"><p>\(f(x)=\pi sec(\frac{\pi }{2}x)\)</p>
+</div></div>
+<div class="exercise" id="practiceex13"><div class="n">13</div><div class="body"><p>\(f(x)=2csc(x+\frac{\pi }{4})-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: none; period: \(2\pi ;\) midline: \(y=-3\) <br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_241.jpg" alt="A graph of two periods of a cosecant function, graphed from -9pi/4 to 7pi/4. Period is 2pi, midline at y=-3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, determine the amplitude, period, and midline of the graph, and then find a formula for the function.</p>
+<div class="exercise" id="practiceex14"><div class="n">14</div><div class="body"><p>Give in terms of a sine function.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_242.jpg" alt="A graph of two periods of a sine function, graphed from -2 to 2. Range is [-6,-2], period is 2, and amplitude is 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="practiceex15"><div class="n">15</div><div class="body"><p>Give in terms of a sine function.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_243.jpg" alt="A graph of two periods of a sine function, graphed over -2 to 2. Range is [-2,2], period is 2, and amplitude is 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 2; period: 2; midline: \(y=0;\) \(f(x)=2sin(\pi (x-1))\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex16"><div class="n">16</div><div class="body"><p>Give in terms of a tangent function.<br></p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_244.jpg" alt="A graph of two periods of a tangent function, graphed over -3pi/4 to 5pi/4. Vertical asymptotes at x=-pi/4, 3pi/4. Period is pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, find the amplitude, period, phase shift, and midline.</p>
+<div class="exercise" id="practiceex17"><div class="n">17</div><div class="body"><p>\(y=sin(\frac{\pi }{6}x+\pi )-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>amplitude: 1; period: 12; phase shift: \(-6;\) midline \(y=-3\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex18"><div class="n">18</div><div class="body"><p>\(y=8sin(\frac{7\pi }{6}x+\frac{7\pi }{2})+6\)</p>
+</div></div>
+<div class="exercise" id="practiceex19"><div class="n">19</div><div class="body"><p>The outside temperature over the course of a day can be modeled as a sinusoidal function. Suppose you know the temperature is 68°F at midnight and the high and low temperatures during the day are 80°F and 56°F, respectively. Assuming \(t\) is the number of hours since midnight, find a function for the temperature, \(D,\) in terms of \(t.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(D(t)=68-12sin(\frac{\pi }{12}x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex20"><div class="n">20</div><div class="body"><p>Water is pumped into a storage bin and empties according to a periodic rate. The depth of the water is 3 feet at its lowest at 2:00 a.m. and 71 feet at its highest, which occurs every 5 hours. Write a cosine function that models the depth of the water as a function of time, and then graph the function for one period.</p>
+</div></div>
+<p>For the following exercises, find the period and horizontal shift of each function.</p>
+<div class="exercise" id="practiceex21"><div class="n">21</div><div class="body"><p>\(g(x)=3tan(6x+42)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>period: \(\frac{\pi }{6};\) horizontal shift: \(-7\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex22"><div class="n">22</div><div class="body"><p>\(n(x)=4csc(\frac{5\pi }{3}x-\frac{20\pi }{3})\)</p>
+</div></div>
+<div class="exercise" id="practiceex23"><div class="n">23</div><div class="body"><p>Write the equation for the graph in <a href="#fig14">Figure 14</a> in terms of the secant function and give the period and phase shift.</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_246.jpg" alt="A graph of 2 periods of a secant function, graphed over -2 to 2. The period is 2 and there is no phase shift." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=sec(\pi x);\) period: 2; phase shift: 0</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex24"><div class="n">24</div><div class="body"><p>If \(tan\,x=3,\) find \(tan(-x).\)</p>
+</div></div>
+<div class="exercise" id="practiceex25"><div class="n">25</div><div class="body"><p>If \(sec\,x=4,\) find \(sec(-x).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(4\)</p>
+</div></div></div></div>
+<p>For the following exercises, graph the functions on the specified window and answer the questions.</p>
+<div class="exercise" id="practiceex26"><div class="n">26</div><div class="body"><p>Graph \(m(x)=sin(2x)+cos(3x)\) on the viewing window \([-10,10]\) by \([-3,3].\) Approximate the graph’s period.</p>
+</div></div>
+<div class="exercise" id="practiceex27"><div class="n">27</div><div class="body"><p>Graph \(n(x)=0.02sin(50\pi x)\) on the following domains in \(x:\) \([0,1]\) and \([0,3].\) Suppose this function models sound waves. Why would these views look so different?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The views are different because the period of the wave is \(\frac{1}{25}.\) Over a bigger domain, there will be more cycles of the graph.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_248.jpg" alt="Two side-by-side graphs of a sinusodial function. The first graph is graphed over 0 to 1, the second graph is graphed over 0 to 3. There are many periods for each." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="practiceex28"><div class="n">28</div><div class="body"><p>Graph \(f(x)=\frac{sin\,x}{x}\) on \([-0.5,0.5]\) and explain any observations.</p>
+</div></div>
+<p>For the following exercises, let \(f(x)=\frac{3}{5}cos(6x).\)</p>
+<div class="exercise" id="practiceex29"><div class="n">29</div><div class="body"><p>What is the largest possible value for \(f(x)?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3}{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex30"><div class="n">30</div><div class="body"><p>What is the smallest possible value for \(f(x)?\)</p>
+</div></div>
+<div class="exercise" id="practiceex31"><div class="n">31</div><div class="body"><p>Where is the function increasing on the interval \([0,2\pi ]?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>On the approximate intervals \((0.5,1),(1.6,2.1),(2.6,3.1),(3.7,4.2),(4.7,5.2),(5.6,6.28)\)</p>
+</div></div></div></div>
+<p>For the following exercises, find and graph one period of the periodic function with the given amplitude, period, and phase shift.</p>
+<div class="exercise" id="practiceex32"><div class="n">32</div><div class="body"><p>Sine curve with amplitude 3, period \(\frac{\pi }{3},\) and phase shift \((h,k)=(\frac{\pi }{4},2)\)</p>
+</div></div>
+<div class="exercise" id="practiceex33"><div class="n">33</div><div class="body"><p>Cosine curve with amplitude 2, period \(\frac{\pi }{6},\) and phase shift \((h,k)=(-\frac{\pi }{4},3)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=2cos(12(x+\frac{\pi }{4}))+3\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_251.jpg" alt="A graph of one period of a cosine function, graphed over -pi/4 to 0. Range is [1,5], period is pi/6." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, graph the function. Describe the graph and, wherever applicable, any periodic behavior, amplitude, asymptotes, or undefined points.</p>
+<div class="exercise" id="practiceex34"><div class="n">34</div><div class="body"><p>\(f(x)=5cos(3x)+4sin(2x)\)</p>
+</div></div>
+<div class="exercise" id="practiceex35"><div class="n">35</div><div class="body"><p>\(f(x)={e}^{sint}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>This graph is periodic with a period of \(2\pi .\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_254.jpg" alt="A graph of two periods of a sinusoidal function, The graph has a period of 2pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, find the exact value.</p>
+<div class="exercise" id="practiceex36"><div class="n">36</div><div class="body"><p>\({sin}^{-1}(\frac{\sqrt{3}}{2})\)</p>
+</div></div>
+<div class="exercise" id="practiceex37"><div class="n">37</div><div class="body"><p>\({tan}^{-1}(\sqrt{3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex38"><div class="n">38</div><div class="body"><p>\({cos}^{-1}(-\frac{\sqrt{3}}{2})\)</p>
+</div></div>
+<div class="exercise" id="practiceex39"><div class="n">39</div><div class="body"><p>\({cos}^{-1}(sin(\pi ))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\pi }{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex40"><div class="n">40</div><div class="body"><p>\({cos}^{-1}(tan(\frac{7\pi }{4}))\)</p>
+</div></div>
+<div class="exercise" id="practiceex41"><div class="n">41</div><div class="body"><p>\(cos({sin}^{-1}(1-2x))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{1-{(1-2x)}^{2}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex42"><div class="n">42</div><div class="body"><p>\({cos}^{-1}(-0.4)\)</p>
+</div></div>
+<div class="exercise" id="practiceex43"><div class="n">43</div><div class="body"><p>\(cos({tan}^{-1}({x}^{2}))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{\sqrt{1+{x}^{4}}}\)</p>
+</div></div></div></div>
+<p>For the following exercises, suppose \(sin\,t=\frac{x}{x+1}.\) Evaluate the following expressions.</p>
+<div class="exercise" id="practiceex44"><div class="n">44</div><div class="body"><p>\(tan\,t\)</p>
+</div></div>
+<div class="exercise" id="practiceex45"><div class="n">45</div><div class="body"><p>\(csc\,t\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{x+1}{x}\)</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex46"><div class="n">46</div><div class="body"><p>Given <a href="#fig15">Figure 15</a>, find the measure of angle \(θ\) to three decimal places. Answer in radians.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_06_03_255.jpg" alt="An illustration of a right triangle with angle theta. Opposite the angle theta is a side with length 12, adjacent to the angle theta is a side with length 19." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+</div></div>
+<p>For the following exercises, determine whether the equation is true or false.</p>
+<div class="exercise" id="practiceex47"><div class="n">47</div><div class="body"><p>\(arcsin(sin(\frac{5\pi }{6}))=\frac{5\pi }{6}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>False</p>
+</div></div></div></div>
+<div class="exercise" id="practiceex48"><div class="n">48</div><div class="body"><p>\(arccos(cos(\frac{5\pi }{6}))=\frac{5\pi }{6}\)</p>
+</div></div>
+<div class="exercise" id="practiceex49"><div class="n">49</div><div class="body"><p>The grade of a road is 7%. This means that for every horizontal distance of 100 feet on the road, the vertical rise is 7 feet. Find the angle the road makes with the horizontal in radians.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>approximately 0.07 radians</p>
+</div></div></div></div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>arccosine</dt><dd>another name for the inverse cosine; \(arccos\,x={cos}^{-1}x\)</dd><dt>arcsine</dt><dd>another name for the inverse sine; \(arcsin\,x={sin}^{-1}x\)</dd><dt>arctangent</dt><dd>another name for the inverse tangent; \(arctan\,x={tan}^{-1}x\)</dd><dt>inverse cosine function</dt><dd>the function \({cos}^{-1}x,\) which is the inverse of the cosine function and the angle that has a cosine equal to a given number</dd><dt>inverse sine function</dt><dd>the function \({sin}^{-1}x,\) which is the inverse of the sine function and the angle that has a sine equal to a given number</dd><dt>inverse tangent function</dt><dd>the function \({tan}^{-1}x,\) which is the inverse of the tangent function and the angle that has a tangent equal to a given number</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

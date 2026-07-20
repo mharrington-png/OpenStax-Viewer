@@ -45,6 +45,17 @@ const BOOK_DEFAULTS = {
     license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
     source: { name: "OpenStax Intermediate Algebra 2e", url: "https://openstax.org/books/intermediate-algebra-2e", author: "Lynn Marecek, Andrea Honeycutt Mathis" },
   },
+  "precalculus-2e": {
+    repo: "osbooks-college-algebra-bundle",
+    sectionsDir: "sections/precalculus-2e",
+    brand: "MX Precalc",
+    // NC-SA, unlike College Algebra 2e's CC BY, despite living in the same repo —
+    // confirmed directly from precalculus-2e.collection.xml's own <md:license> tag
+    // (openstax.org/details/books/precalculus-2e agrees). Never let this book's
+    // footer show a plain "CC BY" license — see CLAUDE.md convention 3.
+    license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
+    source: { name: "OpenStax Precalculus 2e", url: "https://openstax.org/books/precalculus-2e", author: "Jay Abramson" },
+  },
 };
 
 // Optional --file=<path> / --repo=<owner/name> / --book=<id> flags (order-independent)

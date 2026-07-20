@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geometric Sequences · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Geometric Sequences</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 11.3</span>Geometric Sequences</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Determine if a sequence is geometric (IA 12.3.1).</li><li>Find the general term (nth term) of a geometric sequence (IA 12.3.2).</li></ul>
+<h3 id="objective-1-determine-if-a-sequence-is-geometric-ia-12-3-1">Objective 1: Determine if a sequence is geometric (IA 12.3.1)</h3>
+<p>A sequence is called a <strong>geometric sequence</strong> if the ratio between consecutive terms is always the same.</p>
+<p>The ratio between consecutive terms in a geometric sequence is <strong>r</strong>, the <strong>common ratio</strong>, where <strong>n</strong> is greater than or equal to two.</p>
+<p id="eq1">\[r=\frac{{a}_{n}}{{a}_{n-1}}\]</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_03_001_img.png" alt="This figure shows two sets of sequences where r is the common ratio." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Determine if each sequence is geometric. If so, indicate the common ratio.</p>
+<p>ⓐ \(4,8,16,32,64,128\text{,}\,\text{…}\)</p>
+<p>ⓑ \(-2,6,-12,36,-72,216\text{,}\,\text{…}\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To determine if the sequence is geometric, we find the ratio of the consecutive terms shown.</p>
+<p>ⓐ<br> \(\begin{array}{llll}\begin{array}{l} \\ \\ \\ \\ \text{Find the ratio of} \\ \text{the consecutive terms.}\end{array} &amp; &amp; &amp; \,\begin{array}{lllllllllll}4, &amp; &amp; 8, &amp; &amp; 16, &amp; &amp; 32, &amp; &amp; 64, &amp; &amp; 128,\text{…} \\ \\ \\ \frac{8}{4} &amp; &amp; \frac{16}{8} &amp; &amp; \frac{32}{16} &amp; &amp; \frac{64}{32} &amp; &amp; \frac{128}{64} &amp; &amp; \\ 2 &amp; &amp; 2 &amp; &amp; 2 &amp; &amp; 2 &amp; &amp; 2 &amp; &amp; \end{array} \\ \\ \\ &amp; &amp; &amp; \,\text{The sequence is geometric. The common ratio is}\,r=2.\end{array}\)</p>
+<p>ⓑ<br> \(\begin{array}{llll}\begin{array}{l} \\ \\ \\ \\ \text{Find the ratio of} \\ \text{the consecutive terms.}\end{array} &amp; &amp; &amp; \,\begin{array}{lllllllllll}-2, &amp; &amp; 6, &amp; &amp; -12, &amp; &amp; 36, &amp; &amp; -72, &amp; &amp; 216,\text{…} \\ \\ \\ \frac{6}{-2} &amp; &amp; \frac{-12}{6} &amp; &amp; \frac{36}{-12} &amp; &amp; \frac{-72}{36} &amp; &amp; \frac{216}{-72} \\ -3 &amp; &amp; -2 &amp; &amp; -3 &amp; &amp; -2 &amp; &amp; -3 &amp; &amp; \end{array} \\ \\ \\ &amp; &amp; &amp; \,\text{The sequence is not geometric. There is no common ratio.}\end{array}\)</p>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Determine if each sequence is geometric. If so, indicate the common ratio.</p>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>\(-150\) , \(-30\) , \(-15\) , \(-5\) , \(-\frac{5}{2}\) , …</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Find the ratio of consecutive terms.</td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>8, 4, 2, 1, \(\frac{1}{2}\) , \(\frac{1}{4}\) , …</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Find the ratio of consecutive terms.</td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><div class="ex-body"><p>Write the first five terms of the sequence where the first term is 3 and the common ratio is \(r=-2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We start with the first term and multiply it by the common ratio. Then we multiply that result by the common ratio to get the next term, and so on.</p>
+<p id="eq2">\[\begin{array}{lllllllllllll}{a}_{1} &amp; &amp; &amp; {a}_{2} &amp; &amp; &amp; {a}_{3} &amp; &amp; &amp; {a}_{4} &amp; &amp; &amp; {a}_{5} \\ 3 &amp; &amp; &amp; 3·(-2) &amp; &amp; &amp; -6·(-2) &amp; &amp; &amp; 12·(-2) &amp; &amp; &amp; -24·(-2) \\ &amp; &amp; &amp; -6 &amp; &amp; &amp; 12 &amp; &amp; &amp; -24 &amp; &amp; &amp; 48\end{array}\]</p>
+<p>The sequence is \(3,-6,12,-24,48\text{,}\,\text{…}\)</p>
+</div></div></div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>Write the first five terms of the sequence where the first term is 7 and the common ratio is \(r=-3\) .</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>\({a}_{1}\)</td><td>\({a}_{2}\)</td><td>\({a}_{3}\)</td><td>\({a}_{4}\)</td><td>\({a}_{5}\)</td></tr><tr><td>7</td><td></td><td></td><td></td><td></td></tr><tr><td>The sequence is: ________________________________________</td></tr></tbody></table></div>
+</div></div>
+<h3 id="objective-2-find-the-general-term-nth-term-of-a-geometric-sequence-ia-12-3-2">Objective 2: Find the general term (nth term) of a geometric sequence (IA 12.3.2)</h3>
+<p>Let’s find the formula for the general term of a geometric sequence.</p>
+<p>Let’s write the first few terms of the sequence where the first term is \({a}_{1}\) and the common ratio is \(r\) . We will then look for a pattern.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_03_002_img.png" alt="This figure shows an image of a geometric sequence." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card definition" id="eip-214"><span class="chip">General term (nth term) of a geometric sequence</span></div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 3</span><span class="t"></span></div><div class="ex-body"><ul class="tight"><li>ⓐ Find the thirteenth term of a sequence where the first term is 81 and the common ratio is r=1/3.</li><li>ⓑ Find the ninth term of the sequence 6, 18, 54, 162, 486, 1458, … Then find the general term for the sequence.</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ Find the thirteenth term of a sequence where the first term is 81 and the common ratio is r=1/3.<p>Find the thirteenth term of a sequence where the first term is 81 and the common ratio is r=1/3.</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>To find the 13th term, use the formula with \({a}_{1}=81, r=1/3 and n=13\)</td><td>\({a}_{n}={a}_{1}{r}^{n-1}\)</td></tr><tr><td>Substitute</td><td>\({a}_{13}=81{(\frac{1}{3})}^{13-1}\)</td></tr><tr><td>Simplify</td><td>\(\begin{array}{l}{a}_{13}=81{(\frac{1}{3})}^{13-1} \\ {a}_{13}=81{(\frac{1}{3})}^{12} \\ {a}_{13}=\frac{1}{729}\end{array}\)</td></tr></tbody></table></div>
+</li><li>ⓑ Find the ninth term of the sequence 6, 18, 54, 162, 486, 1458, … Then find the general term for the sequence.<p>Find the ninth term of the sequence 6, 18, 54, 162, 486, 1458, … Then find the general term for the sequence.</p>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>Let’s first determine \({a}_{1}\) and the common ratio \(r\)</td><td>\(\begin{array}{l}The first term is 6, so {a}_{1}=6 \\ The ratio is: \frac{18}{6}=\frac{54}{18}=\frac{162}{54}=\frac{482}{162}=\frac{1458}{486}=3\end{array}\)</td></tr><tr><td>To find the 9th term, use the formula with \({a}_{1}=6, r=3\) and n=9.<br>Substitute these values and simplify</td><td>\(\begin{array}{l}{a}_{n}={a}_{1}{r}^{n-1} \\ {a}_{9}=6{(3)}^{9-1} \\ {a}_{9}=6{(3)}^{8} \\ {a}_{9}=39366\end{array}\)</td></tr><tr><td>To find the general term, substitute \({a}_{1}=6\) and \(r=3\) into the formula</td><td>\(\begin{array}{l}{a}_{n}={a}_{1}{r}^{n-1} \\ {a}_{n}=6{(3)}^{n-1}\end{array}\)</td></tr></tbody></table></div>
+</li></ul>
+</div></div></div>
+<h4 id="practice-makes-perfect-3">Practice Makes Perfect</h4>
+<p>Find the general term (nth term) of a geometric sequence.</p>
+<div class="exercise warmup" id="warmex4"><div class="n">P4</div><div class="body"><p>Find the sixteenth term of a sequence where the first term is 11 and the common ratio is −6.</p>
+</div></div>
+<div class="exercise warmup" id="warmex5"><div class="n">P5</div><div class="body"><p>Find the 10th term of the sequence 9, 18, 36, 72, 144, 288, …. Then give the formula for the general term.</p>
+</div></div>
+<p>Find the general term (nth term) of a geometric sequence.</p>
+<p>A patient takes a 30 mg antibiotic capsule. At the end of any hour, the amount of antibiotic remaining in her body is only 90% of the amount in the beginning of that hour. The table below shows the amount of medicine remaining in the body at the beginning of each hour.</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td>Time <strong>t</strong></td><td>Dose remaining after time <strong>t</strong></td></tr><tr><td>1</td><td>30mg</td></tr><tr><td>2</td><td>27mg</td></tr><tr><td>3</td><td>24.3mg</td></tr><tr><td>4</td><td>21.87mg</td></tr><tr><td>5</td><td>19.68mg</td></tr></tbody></table></div>
+<ul class="tight"><li>ⓐ Find the ratio of consecutive terms. Is this a geometric sequence?</li><li>ⓑ Find a formula for the general term of this sequence.</li><li>ⓒ How much of the medicine is left at the beginning of hour 7? Hour 12? Hour 24?</li></ul>
+</div></details>
+<p>Many jobs offer an annual cost-of-living increase to keep salaries consistent with inflation. Suppose, for example, a recent college graduate finds a position as a sales manager earning an annual salary of $26,000. He is promised a 2% cost of living increase each year. His annual salary in any given year can be found by multiplying his salary from the previous year by 102%. His salary will be $26,520 after one year; $27,050.40 after two years; $27,591.41 after three years; and so on. When a salary increases by a constant rate each year, the salary grows by a constant factor. In this section, we will review sequences that grow in this way.</p>
+<h2 id="finding-common-ratios">Finding Common Ratios</h2>
+<p>The yearly salary values described form a <strong>geometric sequence</strong> because they change by a constant factor each year. Each term of a geometric sequence increases or decreases by a constant factor called the <strong>common ratio</strong>. The sequence below is an example of a geometric sequence because each term increases by a constant factor of 6. Multiplying any term of the sequence by the common ratio 6 generates the subsequent term.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_03_001.jpg" alt="A sequence , {1, 6, 36, 216, 1296, ...} that shows all the numbers have a common ratio of 6." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card definition" id="fs-id1165137749987"><span class="chip">Definition of a Geometric Sequence</span><p>A <strong>geometric sequence</strong> is one in which any term divided by the previous term is a constant. This constant is called the <strong>common ratio</strong> of the sequence. The common ratio can be found by dividing any term in the sequence by the previous term. If \({a}_{1}\) is the initial term of a geometric sequence and \(r\) is the common ratio, the sequence will be</p>
+<p id="eq3">\[\{{a}_{1}, \,{a}_{1}r,\,{a}_{1}{r}^{2},\,{a}_{1}{r}^{3},\,...\}.\]</p>
+</div>
+<div class="card howto" id="fs-id1165137417317"><span class="chip">How To</span><p><strong>Given a set of numbers, determine if they represent a geometric sequence.</strong></p>
+<ul class="tight"><li>Divide each term by the previous term.</li><li>Compare the quotients. If they are the same, a common ratio exists and the sequence is geometric.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Is the sequence geometric? If so, find the common ratio.</p>
+<ul class="tight"><li>ⓐ \(1\text{,}\,2\text{,}\,4\text{,}\,8\text{,}\,16\text{,}\,...\)</li><li>ⓑ \(48\text{,}\,12\text{,}\,4\text{, }2\text{,}\,...\)</li></ul>
+</div><p class="sol-hint">Divide each term by the one before it and check whether that ratio stays constant.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Divide each term by the previous term to determine whether a common ratio exists.</p>
+<ul class="tight"><li>ⓐ \(\begin{array}{llllllllll}\frac{2}{1}=2 &amp; &amp; &amp; \frac{4}{2}=2 &amp; &amp; &amp; \frac{8}{4}=2 &amp; &amp; &amp; \frac{16}{8}=2\end{array}\) The sequence is geometric because there is a common ratio. The common ratio is 2.<p>The sequence is geometric because there is a common ratio. The common ratio is 2.</p>
+</li><li>ⓑ \(\begin{array}{lllllll}\frac{12}{48}=\frac{1}{4} &amp; &amp; &amp; \frac{4}{12}=\frac{1}{3} &amp; &amp; &amp; \frac{2}{4}=\frac{1}{2}\end{array}\) The sequence is not geometric because there is not a common ratio.<p>The sequence is not geometric because there is not a common ratio.</p>
+</li></ul>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The graph of each sequence is shown in <a href="#fig1">Figure 1</a>. It seems from the graphs that both (a) and (b) appear have the form of the graph of an exponential function in this viewing window. However, we know that (a) is geometric and so this interpretation holds, but (b) is not.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_03_002.jpg" alt="Graph of two sequences where graph (a) is geometric and graph (b) is exponential." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+</div></div></div></div>
+<div class="card qa" id="fs-id1165137742586"><span class="chip">Q&amp;A</span><p><strong>If you are told that a sequence is geometric, do you have to divide every term by the previous term to find the common ratio?</strong></p>
+<p><strong>No. If you know that the sequence is geometric, you can choose any one term in the sequence and divide it by the previous term to find the common ratio.</strong></p>
+</div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Is the sequence geometric? If so, find the common ratio.</p>
+<p id="eq4">\[5,10,15,20,...\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The sequence is not geometric because \(\frac{10}{5}\ne \frac{15}{10}\) .</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Is the sequence geometric? If so, find the common ratio.</p>
+<p id="eq5">\[100,20,4,\frac{4}{5},...\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The sequence is geometric. The common ratio is \(\frac{1}{5}\) .</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="writing-terms-of-geometric-sequences">Writing Terms of Geometric Sequences</h2>
+<p>Now that we can identify a geometric sequence, we will learn how to find the terms of a geometric sequence if we are given the first term and the common ratio. The terms of a geometric sequence can be found by beginning with the first term and multiplying by the common ratio repeatedly. For instance, if the first term of a geometric sequence is \({a}_{1}=-2\) and the common ratio is \(r=4,\,\) we can find subsequent terms by multiplying \(-2\cdot 4\) to get \(-8\) then multiplying the result \(-8\cdot 4\) to get \(-32\) and so on.</p>
+<p id="eq6">\[\begin{array}{l}{a}_{1}=-2 \\ {a}_{2}=(-2\cdot 4)=-8 \\ {a}_{3}=(-8\cdot 4)=-32 \\ {a}_{4}=(-32\cdot 4)=-128\end{array}\]</p>
+<p>The first four terms are \(\{-2\text{, }-8\text{, }-32\text{, }-128\}.\)</p>
+<div class="card howto" id="fs-id1165137939702"><span class="chip">How To</span><p><strong>Given the first term and the common factor, find the first four terms of a geometric sequence.</strong></p>
+<ul class="tight"><li>Multiply the initial term, \({a}_{1},\) by the common ratio to find the next term, \({a}_{2}.\)</li><li>Repeat the process, using \({a}_{n}={a}_{2}\) to find \({a}_{3}\) and then \({a}_{3}\) to find \({a}_{4,}\) until all four terms have been identified.</li><li>Write the terms separated by commons within brackets.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>List the first four terms of the geometric sequence with \({a}_{1}=5\) and \(r=-2.\)</p>
+</div><p class="sol-hint">Multiply each term by r to get the next one, starting from \({a}_{1}.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Multiply \({a}_{1}\) by \(-2\) to find \({a}_{2}.\) Repeat the process, using \({a}_{2}\) to find \({a}_{3},\) and so on.</p>
+<p id="eq7">\[\begin{array}{l}{a}_{1}=5 \\ {a}_{2}=-2{a}_{1}=-10 \\ {a}_{3}=-2{a}_{2}=20 \\ {a}_{4}=-2{a}_{3}=-40\end{array}\]</p>
+<p>The first four terms are \(\{5,-10,20,-40\}.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>List the first five terms of the geometric sequence with \({a}_{1}=18\) and \(r=\frac{1}{3}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\{18,6,2,\frac{2}{3},\frac{2}{9}\}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-recursive-formulas-for-geometric-sequences">Using Recursive Formulas for Geometric Sequences</h2>
+<p>A <strong>recursive formula</strong> allows us to find any term of a geometric sequence by using the previous term. Each term is the product of the common ratio and the previous term. For example, suppose the common ratio is 9. Then each term is nine times the previous term. As with any recursive formula, the initial term must be given.</p>
+<div class="card definition" id="fs-id1165137448332"><span class="chip">Recursive Formula for a Geometric Sequence</span><p>The recursive formula for a geometric sequence with common ratio \(r\) and first term \({a}_{1}\) is</p>
+<p id="eq8">\[{a}_{n}=r{a}_{n-1},n\ge 2\]</p>
+</div>
+<div class="card howto" id="fs-id1165135207482"><span class="chip">How To</span><p><strong>Given the first several terms of a geometric sequence, write its recursive formula.</strong></p>
+<ul class="tight"><li>State the initial term.</li><li>Find the common ratio by dividing any term by the preceding term.</li><li>Substitute the common ratio into the recursive formula for a geometric sequence.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Write a recursive formula for the following geometric sequence.</p>
+<p id="eq9">\[\{6\text{, }9\text{, }13.5\text{, }20.25\text{, }...\}\]</p>
+</div><p class="sol-hint">Find the common ratio between consecutive terms, then write the rule \({a}_{n}=r\cdot {a}_{n-1}\) with the first term.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The first term is given as 6. The common ratio can be found by dividing the second term by the first term.</p>
+<p id="eq10">\[r=\frac{9}{6}=1.5\]</p>
+<p>Substitute the common ratio into the recursive formula for geometric sequences and define \({a}_{1}.\)</p>
+<p id="eq11">\[\begin{array}{l}{a}_{n}=r{a}_{n-1} \\ {a}_{n}=1.5{a}_{n-1}\,\text{for }n\ge 2 \\ {a}_{1}=6\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The sequence of data points follows an exponential pattern. The common ratio is also the base of an exponential function as shown in <a href="#fig2">Figure 2</a></p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_03_003.jpg" alt="Graph of the geometric sequence." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+</div></div></div></div>
+<div class="card qa" id="fs-id1165137804164"><span class="chip">Q&amp;A</span><p><strong>Do we have to divide the second term by the first term to find the common ratio?</strong></p>
+<p><strong>No. We can divide any term in the sequence by the previous term. It is, however, most common to divide the second term by the first term because it is often the easiest method of finding the common ratio.</strong></p>
+</div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Write a recursive formula for the following geometric sequence.</p>
+<p id="eq12">\[\{2\text{, }\frac{4}{3}\text{, }\frac{8}{9}\text{, }\frac{16}{27}\text{, }...\}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}{a}_{1}=2 \\ {a}_{n}=\frac{2}{3}{a}_{n-1}\,\text{for }n\ge 2\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-explicit-formulas-for-geometric-sequences">Using Explicit Formulas for Geometric Sequences</h2>
+<p>Because a geometric sequence is an exponential function whose domain is the set of positive integers, and the common ratio is the base of the function, we can write explicit formulas that allow us to find particular terms.</p>
+<p id="eq13">\[{a}_{n}={a}_{1}{r}^{n-1}\]</p>
+<p>Let’s take a look at the sequence \(\{18\text{, }36\text{, }72\text{, }144\text{, }288\text{, }...\}.\) This is a geometric sequence with a common ratio of 2 and an exponential function with a base of 2. An explicit formula for this sequence is</p>
+<p id="eq14">\[{a}_{n}=18·{2}^{n-1}\]</p>
+<p>The graph of the sequence is shown in <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_03_004.jpg" alt="Graph of the geometric sequence." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<div class="card definition" id="fs-id1165137647200"><span class="chip">Explicit Formula for a Geometric Sequence</span><p>The \(n\) th term of a geometric sequence is given by the <strong>explicit formula</strong>:</p>
+<p id="eq15">\[{a}_{n}={a}_{1}{r}^{n-1}\]</p>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Given a geometric sequence with \({a}_{1}=3\) and \({a}_{4}=24,\) find \({a}_{2}.\)</p>
+</div><p class="sol-hint">Use \({a}_{4}={a}_{1}\cdot {r}^{3}\) to solve for r, then multiply \({a}_{1}\) by r once to get \({a}_{2}.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The sequence can be written in terms of the initial term and the common ratio \(r.\)</p>
+<p id="eq16">\[3,3r,3{r}^{2},3{r}^{3},...\]</p>
+<p>Find the common ratio using the given fourth term.</p>
+<p id="eq17">\[\begin{array}{ll}{a}_{n}={a}_{1}{r}^{n-1} &amp; \\ {a}_{4}=3{r}^{3} &amp; \text{Write the fourth term of sequence in terms of }{α}_{1}\,\text{and }r \\ 24=3{r}^{3} &amp; \text{Substitute }24\,\text{for}\,{a}_{4} \\ \,\,\,8={r}^{3} &amp; \text{Divide} \\ \,\,\,r=2 &amp; \text{Solve for the common ratio}\end{array}\]</p>
+<p>Find the second term by multiplying the first term by the common ratio.</p>
+<p id="eq18">\[\begin{array}{ll}{a}_{2} &amp; =2{a}_{1} \\ &amp; =2(3) \\ &amp; =6\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The common ratio is multiplied by the first term once to find the second term, twice to find the third term, three times to find the fourth term, and so on. The tenth term could be found by multiplying the first term by the common ratio nine times or by multiplying by the common ratio raised to the ninth power.</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Given a geometric sequence with \({a}_{2}=4\) and \({a}_{3}=32\) , find \({a}_{6}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({a}_{6}=16,384\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Write an explicit formula for the \(n\text{th}\) term of the following geometric sequence.</p>
+<p id="eq19">\[\{2\text{, }10\text{, }50\text{, }250\text{, }...\}\]</p>
+</div><p class="sol-hint">Find the first term and common ratio, then substitute them into \({a}_{n}={a}_{1}{r}^{n-1}.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The first term is 2. The common ratio can be found by dividing the second term by the first term.</p>
+<p id="eq20">\[\frac{10}{2}=5\]</p>
+<p>The common ratio is 5. Substitute the common ratio and the first term of the sequence into the formula.</p>
+<p id="eq21">\[\begin{array}{l}{a}_{n}={a}_{1}{r}^{(n-1)} \\ {a}_{n}=2\cdot {5}^{n-1}\end{array}\]</p>
+<p>The graph of this sequence in <a href="#fig4">Figure 4</a> shows an exponential pattern.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_03_005.jpg" alt="Graph of the geometric sequence." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Write an explicit formula for the following geometric sequence.</p>
+<p id="eq22">\[\{-1\text{, }3\text{, }-9\text{, }27\text{, }...\}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({a}_{n}=-{(-3)}^{n-1}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solving-application-problems-with-geometric-sequences">Solving Application Problems with Geometric Sequences</h2>
+<p>In real-world scenarios involving geometric sequences, we may need to use an initial term of \({a}_{0}\) instead of \({a}_{1}.\) In these problems, we can alter the explicit formula slightly by using the following formula:</p>
+<p id="eq23">\[{a}_{n}={a}_{0}{r}^{n}\]</p>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>In 2013, the number of students in a small school is 284. It is estimated that the student population will increase by 4% each year.</p>
+<ul class="tight"><li>ⓐWrite a formula for the student population.</li><li>ⓑEstimate the student population in 2020.</li></ul>
+</div><p class="sol-hint">Model the population as a geometric sequence with the starting count as \({a}_{1}\) and \(1+\text{rate}\) as r, then use the explicit formula.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ The situation can be modeled by a geometric sequence with an initial term of 284. The student population will be 104% of the prior year, so the common ratio is 1.04. Let \(P\) be the student population and \(n\) be the number of years after 2013. Using the explicit formula for a geometric sequence we get<p>The situation can be modeled by a geometric sequence with an initial term of 284. The student population will be 104% of the prior year, so the common ratio is 1.04.</p>
+<p>Let \(P\) be the student population and \(n\) be the number of years after 2013. Using the explicit formula for a geometric sequence we get</p>
+<p id="eq24">\[{P}_{n} =284\cdot {1.04}^{n}\]</p>
+</li><li>ⓑ We can find the number of years since 2013 by subtracting. We are looking for the population after 7 years. We can substitute 7 for \(n\) to estimate the population in 2020. The student population will be about 374 in 2020.<p>We can find the number of years since 2013 by subtracting.</p>
+<p id="eq25">\[2020-2013=7\]</p>
+<p>We are looking for the population after 7 years. We can substitute 7 for \(n\) to estimate the population in 2020.</p>
+<p id="eq26">\[{P}_{7}=284\cdot {1.04}^{7}\approx 374\]</p>
+<p>The student population will be about 374 in 2020.</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>A business starts a new website. Initially the number of hits is 293 due to the curiosity factor. The business estimates the number of hits will increase by 2.6% per week.</p>
+<ul class="tight"><li>ⓐWrite a formula for the number of hits.</li><li>ⓑEstimate the number of hits in 5 weeks.</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ \({P}_{n} = 293\cdot 1.026{a}^{n}\)</li><li>ⓑThe number of hits will be about 333.</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165137443318"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with geometric sequences.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/geometricseq" target="_blank" rel="noopener">Geometric Sequences</a></li><li><a href="https://openstax.org/l/sequencetype" target="_blank" rel="noopener">Determine the Type of Sequence</a></li><li><a href="https://openstax.org/l/sequenceformula" target="_blank" rel="noopener">Find the Formula for a Sequence</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td>recursive formula for \(nth\) term of a geometric sequence</td><td>\({a}_{n}=r{a}_{n-1},n\ge 2\)</td></tr><tr><td>explicit formula for \(nth\) term of a geometric sequence</td><td>\({a}_{n}={a}_{1}{r}^{n-1}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A geometric sequence is a sequence in which the ratio between any two consecutive terms is a constant.</li><li>The constant ratio between two consecutive terms is called the common ratio.</li><li>The common ratio can be found by dividing any term in the sequence by the previous term. See <a href="#example1">Example 1</a>.</li><li>The terms of a geometric sequence can be found by beginning with the first term and multiplying by the common ratio repeatedly. See <a href="#example2">Example 2</a> and <a href="#example4">Example 4</a>.</li><li>A recursive formula for a geometric sequence with common ratio \(r\) is given by \({a}_{n}=r{a}_{n-1}\) for \(n\ge 2\) .</li><li>As with any recursive formula, the initial term of the sequence must be given. See <a href="#example3">Example 3</a>.</li><li>An explicit formula for a geometric sequence with common ratio \(r\) is given by \({a}_{n}={a}_{1}{r}^{n-1}.\) See <a href="#example5">Example 5</a>.</li><li>In application problems, we sometimes alter the explicit formula slightly to \({a}_{n}={a}_{0}{r}^{n}.\) See <a href="#example6">Example 6</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What is a geometric sequence?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A sequence in which the ratio between any two consecutive terms is constant.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>How is the common ratio of a geometric sequence found?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>What is the procedure for determining whether a sequence is geometric?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Divide each term in a sequence by the preceding term. If the resulting quotients are equal, then the sequence is geometric.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>What is the difference between an arithmetic sequence and a geometric sequence?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Describe how exponential functions and geometric sequences are similar. How are they different?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Both geometric sequences and exponential functions have a constant ratio. However, their domains are not the same. Exponential functions are defined for all real numbers, and geometric sequences are defined only for positive integers. Another difference is that the base of a geometric sequence (the common ratio) can be negative, but the base of an exponential function must be positive.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, find the common ratio for the geometric sequence.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(1,3,9,27,81,...\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(-0.125,0.25,-0.5,1,-2,...\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The common ratio is \(-2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(-2,-\frac{1}{2},-\frac{1}{8},-\frac{1}{32},-\frac{1}{128},...\)</p>
+</div></div>
+<p>For the following exercises, determine whether the sequence is geometric. If so, find the common ratio.</p>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(-6,-12,-24,-48,-96,...\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The sequence is geometric. The common ratio is 2.</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(5,5.2,5.4,5.6,5.8,...\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(-1,\frac{1}{2},-\frac{1}{4},\frac{1}{8},-\frac{1}{16},...\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The sequence is geometric. The common ratio is \(-\frac{1}{2}.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(6,8,11,15,20,...\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(0.8,4,20,100,500,...\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The sequence is geometric. The common ratio is \(5.\)</p>
+</div></div></div></div>
+<p>For the following exercises, write the first five terms of the geometric sequence, given the first term and common ratio.</p>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(\begin{array}{ll}{a}_{1}=8, &amp; r=0.3\end{array}\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\begin{array}{ll}{a}_{1}=5, &amp; r=\frac{1}{5}\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(5,1,\frac{1}{5},\frac{1}{25},\frac{1}{125}\)</p>
+</div></div></div></div>
+<p>For the following exercises, write the first five terms of the geometric sequence, given any two terms.</p>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\begin{array}{ll}{a}_{7}=64, &amp; {a}_{10}\end{array}=512\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\begin{array}{ll}{a}_{6}=25, &amp; {a}_{8}\end{array}=6.25\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(800,400,200,100,50\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the specified term for the geometric sequence, given the first term and common ratio.</p>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>The first term is \(2,\,\) and the common ratio is \(3.\) Find the 5<sup>th</sup> term.</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>The first term is 16 and the common ratio is \(-\frac{1}{3}.\) Find the 4<sup>th</sup> term.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{4}=-\frac{16}{27}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the specified term for the geometric sequence, given the first four terms.</p>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\({a}_{n}=\{-1,2,-4,8,...\}.\) Find \({a}_{12}.\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\({a}_{n}=\{-2,\frac{2}{3},-\frac{2}{9},\frac{2}{27},...\}.\) Find \({a}_{7}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{7}=-\frac{2}{729}\)</p>
+</div></div></div></div>
+<p>For the following exercises, write the first five terms of the geometric sequence.</p>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(\begin{array}{ll}{a}_{1}=-486, &amp; {a}_{n}=-\frac{1}{3}\end{array}{a}_{n-1}\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(\begin{array}{ll}{a}_{1}=7, &amp; {a}_{n}=0.2{a}_{n-1}\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(7,1.4,0.28,0.056,0.0112\)</p>
+</div></div></div></div>
+<p>For the following exercises, write a recursive formula for each geometric sequence.</p>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({a}_{n}=\{-1,5,-25,125,...\}\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({a}_{n}=\{-32,-16,-8,-4,...\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{ll}a=1-32, &amp; {a}_{n}=\frac{1}{2}{a}_{n-1}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({a}_{n}=\{14,56,224,896,...\}\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\({a}_{n}=\{10,-3,0.9,-0.27,...\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{ll}{a}_{1}=10, &amp; {a}_{n}=-0.3{a}_{n-1}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({a}_{n}=\{0.61,1.83,5.49,16.47,...\}\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({a}_{n}=\{\frac{3}{5},\frac{1}{10},\frac{1}{60},\frac{1}{360},...\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{ll}{a}_{1}=\frac{3}{5}, &amp; {a}_{n}=\frac{1}{6}{a}_{n-1}\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\({a}_{n}=\{-2,\frac{4}{3},-\frac{8}{9},\frac{16}{27},...\}\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\({a}_{n}=\{\frac{1}{512},-\frac{1}{128},\frac{1}{32},-\frac{1}{8},...\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{1}=\frac{1}{512},{a}_{n}=-4{a}_{n-1}\)</p>
+</div></div></div></div>
+<p>For the following exercises, write the first five terms of the geometric sequence.</p>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\({a}_{n}=-4\cdot {5}^{n-1}\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\({a}_{n}=12\cdot {(-\frac{1}{2})}^{n-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(12,-6,3,-\frac{3}{2},\frac{3}{4}\)</p>
+</div></div></div></div>
+<p>For the following exercises, write an explicit formula for each geometric sequence.</p>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\({a}_{n}=\{-2,-4,-8,-16,...\}\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\({a}_{n}=\{1,3,9,27,...\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{n}={3}^{n-1}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\({a}_{n}=\{-4,-12,-36,-108,...\}\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\({a}_{n}=\{0.8,-4,20,-100,...\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{n}=0.8\cdot {(-5)}^{n-1}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\({a}_{n}=\{-1.25,-5,-20,-80,...\}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\({a}_{n}=\{-1,-\frac{4}{5},-\frac{16}{25},-\frac{64}{125},...\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{n}=-{(\frac{4}{5})}^{n-1}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\({a}_{n}=\{2,\frac{1}{3},\frac{1}{18},\frac{1}{108},...\}\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\({a}_{n}=\{3,-1,\frac{1}{3},-\frac{1}{9},...\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{n}=3\cdot {(-\frac{1}{3})}^{n-1}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the specified term for the geometric sequence given.</p>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Let \({a}_{1}=4,\) \({a}_{n}=-3{a}_{n-1}.\) Find \({a}_{8}.\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>Let \({a}_{n}=-{(-\frac{1}{3})}^{n-1}.\) Find \({a}_{12}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{12}=\frac{1}{177,147}\)</p>
+</div></div></div></div>
+<p>For the following exercises, find the number of terms in the given finite geometric sequence.</p>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\({a}_{n}=\{-1,3,-9,...,2187\}\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\({a}_{n}=\{2,1,\frac{1}{2},...,\frac{1}{1024}\}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>There are \(12\) terms in the sequence.</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, determine whether the graph shown represents a geometric sequence.</p>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_03_201.jpg" alt="Graph of a scattered plot with labeled points: (1, -3), (2, -1), (3, 1), (4, 3), and (5, 5). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_03_202.jpg" alt="Graph of a scattered plot with labeled points: (1, -0.5), (2, 0.25), (3, 1.375), (4, 3.0625), and (5, 5.5938). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>The graph does not represent a geometric sequence.</p>
+</div></div></div></div>
+<p>For the following exercises, use the information provided to graph the first five terms of the geometric sequence.</p>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(\begin{array}{ll}{a}_{1}=1, &amp; r=\frac{1}{2}\end{array}\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(\begin{array}{ll}{a}_{1}=3, &amp; {a}_{n}=2{a}_{n-1}\end{array}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_03_203.jpg" alt="Graph of a scattered plot with labeled points: (1, 3), (2, 6), (3, 12), (4, 24), and (5, 48). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\({a}_{n}=27\cdot {0.3}^{n-1}\)</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Use recursive formulas to give two examples of geometric sequences whose 3<sup>rd</sup> terms are \(200.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary. Examples: \({\begin{array}{ll}{a}_{1}=800, &amp; {a}_{n}=0.5a\end{array}}_{n-1}\) and \({\begin{array}{ll}{a}_{1}=12.5, &amp; {a}_{n}=4a\end{array}}_{n-1}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Use explicit formulas to give two examples of geometric sequences whose 7<sup>th</sup> terms are \(1024.\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>Find the 5<sup>th</sup> term of the geometric sequence \(\{b,4b,16b,...\}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{5}=256b\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>Find the 7<sup>th</sup> term of the geometric sequence \(\{64a(-b),32a(-3b),16a(-9b),...\}.\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>At which term does the sequence \(\{10,12,14.4,17.28,\,\,...\}\) exceed \(100?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The sequence exceeds \(100\) at the 14<sup>th</sup> term, \({a}_{14}\approx 107.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>At which term does the sequence \(\{\frac{1}{2187},\frac{1}{729},\frac{1}{243},\frac{1}{81}\,\,...\}\) begin to have integer values?</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>For which term does the geometric sequence \({a}_{{}_{n}}=-36{(\frac{2}{3})}^{n-1}\) first have a non-integer value?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{4}=-\frac{32}{3}\) is the first non-integer value</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Use the recursive formula to write a geometric sequence whose common ratio is an integer. Show the first four terms, and then find the 10<sup>th</sup> term.</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Use the explicit formula to write a geometric sequence whose common ratio is a decimal number between 0 and 1. Show the first 4 terms, and then find the 8<sup>th</sup> term.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary. Example: Explicit formula with a decimal common ratio: \({a}_{n}=400\cdot {0.5}^{n-1};\) First 4 terms: \(\begin{array}{ll}400,200,100,50; &amp; {a}_{8}=3.125\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>Is it possible for a sequence to be both arithmetic and geometric? If so, give an example.</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>common ratio</dt><dd>the ratio between any two consecutive terms in a geometric sequence</dd><dt>geometric sequence</dt><dd>a sequence in which the ratio of a term to a previous term is a constant</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

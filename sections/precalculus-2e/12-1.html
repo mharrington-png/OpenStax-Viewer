@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding Limits: Numerical and Graphical Approaches · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Finding Limits: Numerical and Graphical Approaches</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.1</span>Finding Limits: Numerical and Graphical Approaches</h1>
+<p>Intuitively, we know what a <strong>limit</strong> is. A car can go only so fast and no faster. A trash can might hold 33 gallons and no more. It is natural for measured amounts to have limits. What, for instance, is the limit to the height of a woman? The tallest woman on record was Jinlian Zeng from China, who was 8 ft 1 in. <span class="footnote">(https://en.wikipedia.org/wiki/Human_height and http://en.wikipedia.org/wiki/List_of_tallest_people)</span> Is this the limit of the height to which women can grow? Perhaps not, but there is likely a limit that we might describe in inches if we were able to determine what it was.</p>
+<p>To put it mathematically, the function whose input is a woman and whose output is a measured height in inches has a limit. In this section, we will examine numerical and graphical approaches to identifying limits.</p>
+<h2 id="understanding-limit-notation">Understanding Limit Notation</h2>
+<p>We have seen how a <strong>sequence</strong> can have a limit, a value that the sequence of terms moves toward as the number of terms increases. For example, the terms of the sequence</p>
+<p id="eq1">\[1,\frac{1}{2},\frac{1}{4},\frac{1}{8}...\]</p>
+<p>gets closer and closer to 0. A sequence is one type of function, but functions that are not sequences can also have limits. We can describe the behavior of the function as the input values get close to a specific value. If the limit of a function \(f(x)=L\text{,}\) then as the input \(x\) gets closer and closer to \(a,\) the output <strong>y</strong>-coordinate gets closer and closer to \(L.\) We say that the output “approaches” \(L.\)</p>
+<p><a href="#fig1">Figure 1</a> provides a visual representation of the mathematical concept of limit. As the input value \(x\) approaches \(a,\) the output value \(f(x)\) approaches \(L.\)</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_001.jpg" alt="Graph representing how a function with a hole at (a, L) approaches a limit." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The output (<strong>y</strong>--coordinate) approaches \(L\) as the input (<strong>x</strong>-coordinate) approaches \(a.\)</figcaption></figure>
+<p>We write the equation of a limit as</p>
+<p id="eq2">\[\underset{x\to a}{lim}f(x)=L.\]</p>
+<p>This notation indicates that as \(x\) approaches \(a\) both from the left of \(x=a\) and the right of \(x=a,\) the output value approaches \(L.\)</p>
+<p>Consider the function</p>
+<p id="eq3">\[f(x)=\frac{{x}^{2}-6x-7}{x-7}.\]</p>
+<p>We can factor the function as shown.</p>
+<p id="eq4">\[\begin{array}{ll}f(x)=\frac{(x-7)(x+1)}{x-7}\, &amp; \text{Cancel like factors in numerator and denominator.} \\ f(x)=x+1,x\ne 7 &amp; \text{Simplify.}\end{array}\]</p>
+<p>Notice that \(x\) cannot be 7, or we would be dividing by 0, so 7 is not in the domain of the original function. In order to avoid changing the function when we simplify, we set the same condition, \(x\ne 7,\) for the simplified function. We can represent the function graphically as shown in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_002.jpg" alt="Graph of an increasing function, f(x) = (x^2-6x-7)/(x-7), with a hole at (7, 8)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Because 7 is not allowed as an input, there is no point at \(x=7.\)</figcaption></figure>
+<p>What happens at \(x=7\) is completely different from what happens at points close to \(x=7\) on either side. The notation</p>
+<p id="eq5">\[\underset{x\to \,7}{lim}f(x)=8\]</p>
+<p>indicates that as the input \(x\) approaches 7 from either the left or the right, the output approaches 8. The output can get as close to 8 as we like if the input is sufficiently near 7.</p>
+<p>What happens at \(x=7?\) When \(x=7,\) there is no corresponding output. We write this as</p>
+<p id="eq6">\[f(7)\text{ does not exist.}\]</p>
+<p>This notation indicates that 7 is not in the domain of the function. We had already indicated this when we wrote the function as</p>
+<p id="eq7">\[f(x)=x+1,\,x\ne 7.\]</p>
+<p>Notice that the limit of a function can exist even when \(f(x)\) is not defined at \(x=a.\) Much of our subsequent work will be determining limits of functions as \(x\) nears \(a,\) even though the output at \(x=a\) does not exist.</p>
+<div class="card definition" id="fs-id1165137601862"><span class="chip">The Limit of a Function</span><p>A quantity \(L\) is the <strong>limit</strong> of a function \(f(x)\) as \(x\) approaches \(a\) if, as the input values of \(x\) approach \(a\) (but do not equal \(a),\) the corresponding output values of \(f(x)\) get closer to \(L.\) Note that the value of the limit is not affected by the output value of \(f(x)\) at \(a.\) Both \(a\) and \(L\) must be real numbers. We write it as</p>
+<p id="eq8">\[\underset{x\to a}{lim}f(x)=L\]</p>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>For the following limit, define \(a,f(x),\) and \(L.\)</p>
+<p id="eq9">\[\underset{x\to 2}{lim}\,(3x+5)=11\]</p>
+</div><p class="sol-hint">Match the notation \(\lim_{x\to a}f(x)=L\) piece by piece to the given limit expression.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we recognize the notation of a limit. If the limit exists, as \(x\) approaches \(a,\) we write</p>
+<p id="eq10">\[\underset{x\to a}{lim}\,f(x)=L.\]</p>
+<p>We are given</p>
+<p id="eq11">\[\underset{x\to 2}{lim}(3x+5)=11.\]</p>
+<p>This means that \(a=2,f(x)=3x+5,\text{ and }L=11.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Recall that \(y=3x+5\) is a line with no breaks. As the input values approach 2, the output values will get close to 11. This may be phrased with the equation \(\underset{x\to 2}{lim}(3x+5)=11,\) which means that as \(x\) nears 2 (but is not exactly 2), the output of the function \(f(x)=3x+5\) gets as close as we want to \(3(2)+5,\) or 11, which is the limit \(L,\) as we take values of \(x\) sufficiently near 2 but not at \(x=2.\)</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>For the following limit, define \(a,f(x),\) and \(L.\)</p>
+<p id="eq12">\[\underset{x\to 5}{lim}(2{x}^{2}-4)=46\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(a=5,\) \(f(x)=2{x}^{2}-4,\) and \(L=46.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="understanding-left-hand-limits-and-right-hand-limits">Understanding Left-Hand Limits and Right-Hand Limits</h3>
+<p>We can approach the input of a function from either side of a value—from the left or the right. <a href="#fig3">Figure 3</a> shows the values of</p>
+<p id="eq13">\[f(x)=x+1,x\ne 7\]</p>
+<p>as described earlier and depicted in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_013.jpg" alt="Table showing that f(x) approaches 8 from either side as x approaches 7 from either side." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<p>Values described as “from the left” are less than the input value 7 and would therefore appear to the left of the value on a number line. The input values that approach 7 from the left in <a href="#fig3">Figure 3</a> are \(6.9,\) \(6.99,\) and \(6.999.\) The corresponding outputs are \(7.9,7.99,\) and \(7.999.\) These values are getting closer to 8. The limit of values of \(f(x)\) as \(x\) approaches from the left is known as the left-hand limit. For this function, 8 is the left-hand limit of the function \(f(x)=x+1,x\ne 7\) as \(x\) approaches 7.</p>
+<p>Values described as “from the right” are greater than the input value 7 and would therefore appear to the right of the value on a number line. The input values that approach 7 from the right in <a href="#fig3">Figure 3</a> are \(7.1,\) \(7.01,\) and \(7.001.\) The corresponding outputs are \(8.1,\) \(8.01,\) and \(8.001.\) These values are getting closer to 8. The limit of values of \(f(x)\) as \(x\) approaches from the right is known as the right-hand limit. For this function, 8 is also the right-hand limit of the function \(f(x)=x+1,x\ne 7\) as \(x\) approaches 7.</p>
+<p><a href="#fig3">Figure 3</a> shows that we can get the output of the function within a distance of 0.1 from 8 by using an input within a distance of 0.1 from 7. In other words, we need an input \(x\) within the interval \(6.9&lt;x&lt;7.1\) to produce an output value of \(f(x)\) within the interval \(7.9&lt;f(x)&lt;8.1.\)</p>
+<p>We also see that we can get output values of \(f(x)\) successively closer to 8 by selecting input values closer to 7. In fact, we can obtain output values within any specified interval if we choose appropriate input values.</p>
+<p><a href="#fig4">Figure 4</a> provides a visual representation of the left- and right-hand limits of the function. From the graph of \(f(x),\) we observe the output can get infinitesimally close to \(L=8\) as \(x\) approaches 7 from the left and as \(x\) approaches 7 from the right.</p>
+<p>To indicate the left-hand limit, we write</p>
+<p id="eq14">\[\underset{x\to {7}^{-}}{lim}f(x)=8.\]</p>
+<p>To indicate the right-hand limit, we write</p>
+<p id="eq15">\[\underset{x\to {7}^{+}}{lim}f(x)=8.\]</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_003.jpg" alt="Graph of the previous function explaining the function's limit at (7, 8)" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — The left- and right-hand limits are the same for this function.</figcaption></figure>
+<div class="card definition" id="fs-id1165137580289"><span class="chip">Left- and Right-Hand Limits</span><p>The <strong>left-hand limit</strong> of a function \(f(x)\) as \(x\) approaches \(a\) from the left is equal to \(L,\) denoted by</p>
+<p id="eq16">\[\underset{x\to {a}^{-}}{lim}f(x)=L.\]</p>
+<p>The values of \(f(x)\) can get as close to the limit \(L\) as we like by taking values of \(x\) sufficiently close to \(a\) such that \(x&lt;a\) and \(x\ne a.\)</p>
+<p>The <strong>right-hand limit</strong> of a function \(f(x),\) as \(x\) approaches \(a\) from the right, is equal to \(L,\) denoted by</p>
+<p id="eq17">\[\underset{x\to {a}^{+}}{lim}f(x)=L.\]</p>
+<p>The values of \(f(x)\) can get as close to the limit \(L\) as we like by taking values of \(x\) sufficiently close to \(a\) but greater than \(a.\) Both \(a\) and \(L\) are real numbers.</p>
+</div>
+<h3 id="understanding-two-sided-limits">Understanding Two-Sided Limits</h3>
+<p>In the previous example, the left-hand limit and right-hand limit as \(x\) approaches \(a\) are equal. If the left- and right-hand limits are equal, we say that the function \(f(x)\) has a <strong>two-sided limit</strong> as \(x\) approaches \(a.\) More commonly, we simply refer to a two-sided limit as a limit. If the left-hand limit does not equal the right-hand limit, or if one of them does not exist, we say the limit does not exist.</p>
+<div class="card definition" id="fs-id1165137406395"><span class="chip">The Two-Sided Limit of Function as <strong>x</strong> Approaches <strong>a</strong></span><p>The limit of a function \(f(x),\) as \(x\) approaches \(a,\) is equal to \(L,\) that is,</p>
+<p id="eq18">\[\underset{x\to a\,}{lim}f(x)=L\]</p>
+<p>if and only if</p>
+<p id="eq19">\[\underset{x\to {a}^{-}}{lim}f(x)=\underset{x\to {a}^{+}}{lim}f(x).\]</p>
+<p>In other words, the left-hand limit of a function \(f(x)\) as \(x\) approaches \(a\) is equal to the right-hand limit of the same function as \(x\) approaches \(a.\) If such a limit exists, we refer to the limit as a two-sided limit. Otherwise we say the limit does not exist.</p>
+</div>
+<h2 id="finding-a-limit-using-a-graph">Finding a Limit Using a Graph</h2>
+<p>To visually determine if a limit exists as \(x\) approaches \(a,\) we observe the graph of the function when \(x\) is very near to \(x=a.\) In <a href="#fig5">Figure 5</a> we observe the behavior of the graph on both sides of \(a.\)</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_004F.jpg" alt="Graph of a function that explains the behavior of a limit at (a, L) where the function is increasing when x is less than a and decreasing when x is greater than a." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<p>To determine if a left-hand limit exists, we observe the branch of the graph to the left of \(x=a,\) but near \(x=a.\) This is where \(x&lt;a.\) We see that the outputs are getting close to some real number \(L\) so there is a left-hand limit.</p>
+<p>To determine if a right-hand limit exists, observe the branch of the graph to the right of \(x=a,\) but near \(x=a.\) This is where \(x&gt;a.\) We see that the outputs are getting close to some real number \(L,\) so there is a right-hand limit.</p>
+<p>If the left-hand limit and the right-hand limit are the same, as they are in <a href="#fig5">Figure 5</a>, then we know that the function has a two-sided limit. Normally, when we refer to a “limit,” we mean a two-sided limit, unless we call it a one-sided limit.</p>
+<p>Finally, we can look for an output value for the function \(f(x)\) when the input value \(x\) is equal to \(a.\) The coordinate pair of the point would be \((a,f(a)).\) If such a point exists, then \(f(a)\) has a value. If the point does not exist, as in <a href="#fig5">Figure 5</a>, then we say that \(f(a)\) does not exist.</p>
+<div class="card howto" id="fs-id1165137595258"><span class="chip">How To</span><p><strong>Given a function \(f(x),\) use a graph to find the limits and a function value as \(x\) approaches \(a.\)</strong></p>
+<ul class="tight"><li>Examine the graph to determine whether a left-hand limit exists.</li><li>Examine the graph to determine whether a right-hand limit exists.</li><li>If the two one-sided limits exist and are equal, then there is a two-sided limit—what we normally call a “limit.”</li><li>If there is a point at \(x=a,\) then \(f(a)\) is the corresponding function value.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><ul class="tight"><li>Determine the following limits and function value for the function \(f\) shown in <a href="#fig6">Figure 6</a>.<ul class="tight"><li>\(\underset{x\to {2}^{-}}{lim}f(x)\)</li><li>\(\underset{x\to {2}^{+}}{lim}f(x)\)</li><li>\(\underset{x\to 2}{lim}f(x)\)</li><li>\(f(2)\)</li></ul>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_005.jpg" alt="Graph of a piecewise function that has a positive parabola centered at the origin and goes from negative infinity to (2, 8), an open point, and a decreasing line from (2, 3), a closed point, to positive infinity on the x-axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</li><li>Determine the following limits and function value for the function \(f\) shown in <a href="#fig7">Figure 7</a>.<ul class="tight"><li>\(\underset{x\to {2}^{-}}{lim}f(x)\)</li><li>\(\underset{x\to {2}^{+}}{lim}f(x)\)</li><li>\(\underset{x\to 2}{lim}f(x)\)</li><li>\(f(2)\)</li></ul>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_006.jpg" alt="Graph of a piecewise function that has a positive parabola from negative infinity to 2 on the x-axis, a decreasing line from 2 to positive infinity on the x-axis, and a point at (2, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</li></ul>
+</div><p class="sol-hint">Trace the graph from the left and from the right separately to find each one-sided limit, then compare them to the actual function value at that point.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>Looking at <a href="#fig6">Figure 6</a>:<ul class="tight"><li>\(\underset{x\to {2}^{-}}{lim}f(x)=8;\) when \(x&lt;2,\) but infinitesimally close to 2, the output values get close to \(y=8.\)</li><li>\(\underset{x\to \,2{\,}^{+}}{lim}f(x)=3;\) when \(x&gt;2,\) but infinitesimally close to 2, the output values approach \(y=3.\)</li><li>\(\underset{x\to \,2}{lim}f(x)\) does not exist because \(\underset{x\to \,2{\,}^{-}}{lim}f(x)\ne \underset{x\to \,2{\,}^{+}}{lim}f(x);\) the left and right-hand limits are not equal.</li><li>\(f(2)=3\) because the graph of the function \(f\) passes through the point \((2,f(2))\) or \((2,3).\)</li></ul>
+</li><li>Looking at <a href="#fig7">Figure 7</a>:<ul class="tight"><li>\(\underset{x\to \,2{\,}^{-}}{lim}f(x)=8;\) when \(x&lt;2\) but infinitesimally close to 2, the output values approach \(y=8.\)</li><li>\(\underset{x\to \,2{\,}^{+}}{lim}f(x)=8;\) when \(x&gt;2\) but infinitesimally close to 2, the output values approach \(y=8.\)</li><li>\(\underset{x\to \,2}{lim}f(x)=8\) because \(\underset{x\to \,2{\,}^{-}}{lim}f(x)=\underset{x\to \,2{\,}^{+}}{lim}f(x)=8;\) the left and right-hand limits are equal.</li><li>\(f(2)=4\) because the graph of the function \(f\) passes through the point \((2,f(2))\) or \((2,4).\)</li></ul>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Using the graph of the function \(y=f(x)\) shown in <a href="#fig8">Figure 8</a>, estimate the following limits.</p>
+<ul class="tight"><li>\(\underset{x\to {0}^{-}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to {0}^{+}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to 0}{lim}f(x)\)</li><li>\(\underset{x\to {2}^{-}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to {2}^{+}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to 2}{lim}f(x)\)</li><li>\(\underset{x\to {4}^{-}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to {4}^{+}}{\text{lim}}f(x)\)</li><li>\(\underset{x\to 4}{lim}f(x)\)</li></ul>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_007n.jpg" alt="Graph of a piecewise function that has three segments: 1) negative infinity to 0, 2) 0 to 2, and 3) 2 to positive inifnity, which has a discontinuity at (4, 4)" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>a. 0; b. 2; c. does not exist; d. \(-2;\) e. 0; f. does not exist; g. 4; h. 4; i. 4</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="finding-a-limit-using-a-table">Finding a Limit Using a Table</h2>
+<p>Creating a table is a way to determine limits using numeric information. We create a table of values in which the input values of \(x\) approach \(a\) from both sides. Then we determine if the output values get closer and closer to some real value, the <strong>limit</strong> \(L.\)</p>
+<p>Let’s consider an example using the following function:</p>
+<p id="eq20">\[\underset{x\to \,5}{lim}(\frac{{x}^{3}-125}{x-5})\]</p>
+<p>To create the table, we evaluate the function at values close to \(x=5.\) We use some input values less than 5 and some values greater than 5 as in <a href="#fig9">Figure 9</a>. The table values show that when \(x&gt;5\) but nearing 5, the corresponding output gets close to 75. When \(x&gt;5\) but nearing 5, the corresponding output also gets close to 75.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_008n.jpg" alt="Table shows that as x values approach 5 from the positive or negative direction, f(x) gets very close to 75. But when x is equal to 5, y is undefined." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+<p>Because</p>
+<p id="eq21">\[\underset{x\to {5}^{-}}{lim}f(x)=75=\underset{x\to {5}^{+}}{lim}f(x),\]</p>
+<p>then</p>
+<p id="eq22">\[\underset{x\to 5}{lim}f(x)=75.\]</p>
+<p>Remember that \(f(5)\) does not exist.</p>
+<div class="card howto" id="fs-id1165137422676"><span class="chip">How To</span><p><strong>Given a function</strong> \(f,\) <strong>use a table to find the limit as</strong> \(x\) <strong>approaches</strong> \(a\) <strong>and the value of</strong> \(f(a),\) <strong>if it exists.</strong></p>
+<ul class="tight"><li>Choose several input values that approach \(a\) from both the left and right. Record them in a table.</li><li>Evaluate the function at each input value. Record them in the table.</li><li>Determine if the table values indicate a left-hand limit and a right-hand limit.</li><li>If the left-hand and right-hand limits exist and are equal, there is a two-sided limit.</li><li>Replace \(x\) with \(a\) to find the value of \(f(a).\)</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Numerically estimate the limit of the following expression by setting up a table of values on both sides of the limit.</p>
+<p id="eq23">\[\underset{x\to 0}{lim}(\frac{5sin(x)}{3x})\]</p>
+</div><p class="sol-hint">Plug in x-values that get closer and closer to the target from both sides and watch what the outputs approach.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can estimate the value of a limit, if it exists, by evaluating the function at values near \(x=0.\) We cannot find a function value for \(x=0\) directly because the result would have a denominator equal to 0, and thus would be undefined.</p>
+<p id="eq24">\[f(x)=\frac{5sin(x)}{3x}\]</p>
+<p>We create <a href="#fig10">Figure 10</a> by choosing several input values close to \(x=0,\) with half of them less than \(x=0\) and half of them greater than \(x=0.\) Note that we need to be sure we are using radian mode. We evaluate the function at each input value to complete the table.</p>
+<p>The table values indicate that when \(x&lt;0\) but approaching 0, the corresponding output nears \(\frac{5}{3}.\)</p>
+<p>When \(x&gt;0\) but approaching 0, the corresponding output also nears \(\frac{5}{3}.\)</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_009.jpg" alt="Table shows that as x values approach 0 from the positive or negative direction, f(x) gets very close to 5 over 3. But when x is equal to 0, y is undefined." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+<p>Because</p>
+<p id="eq25">\[\underset{x\to {0}^{-}}{lim}f(x)=\frac{5}{3}=\underset{x\to {0}^{+}}{lim}f(x),\]</p>
+<p>then</p>
+<p id="eq26">\[\underset{x\to 0}{lim}f(x)=\frac{5}{3}.\]</p>
+</div></div></div>
+<div class="card qa" id="fs-id1165135173500"><span class="chip">Q&amp;A</span><p><strong>Is it possible to check our answer using a graphing utility?</strong></p>
+<p><strong>Yes. We previously used a table to find a limit of 75 for the function \(f(x)=\frac{{x}^{3}-125}{x-5}\) as \(x\) approaches 5. To check, we graph the function on a viewing window as shown in <a href="#fig11">Figure 11</a>. A graphical check shows both branches of the graph of the function get close to the output 75 as \(x\) nears 5. Furthermore, we can use the ‘trace’ feature of a graphing calculator. By appraoching \(x=5\) we may numerically observe the corresponding outputs getting close to \(75.\)</strong></p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_010F.jpg" alt="Graph of an increasing function with a discontinuity at (5, 75)" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+</div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Numerically estimate the limit of the following function by making a table:</p>
+<p id="eq27">\[\underset{x\to 0}{lim}(\frac{20sin(x)}{4x})\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\underset{x\to 0}{lim}(\frac{20sin(x)}{4x})=5\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_014.jpg" alt="Table showing that f(x) approaches 5 from either side as x approaches 0 from either side." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card qa" id="fs-id1165137862682"><span class="chip">Q&amp;A</span><p><strong>Is one method for determining a limit better than the other?</strong></p>
+<p><strong>No. Both methods have advantages. Graphing allows for quick inspection. Tables can be used when graphical utilities aren’t available, and they can be calculated to a higher precision than could be seen with an unaided eye inspecting a graph.</strong></p>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>With the use of a graphing utility, if possible, determine the left- and right-hand limits of the following function as \(x\) approaches 0. If the function has a limit as \(x\) approaches 0, state it. If not, discuss why there is no limit.</p>
+<p id="eq28">\[f(x)=3sin(\frac{\pi }{x})\]</p>
+</div><p class="sol-hint">Zoom in on the graph near \(x=0\) from both directions and compare what each side approaches.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can use a graphing utility to investigate the behavior of the graph close to \(x=0.\) Centering around \(x=0,\) we choose two viewing windows such that the second one is zoomed in closer to \(x=0\) than the first one. The result would resemble <a href="#fig12">Figure 12</a> for \([-2,2]\) by \([-3,3].\)</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_011F.jpg" alt="Graph of a sinusodial function zoomed in at [-2, 2] by [-3, 3]." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+<p>The result would resemble <a href="#fig13">Figure 13</a> for \([-0.1,0.1]\) by \([-3,3].\)</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_012F.jpg" alt="Graph of the same sinusodial function as in the previous image zoomed in at [-0.1, 0.1] by [-3. 3]." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — Even closer to zero, we are even less able to distinguish any limits.</figcaption></figure>
+<p>The closer we get to 0, the greater the swings in the output values are. That is not the behavior of a function with either a left-hand limit or a right-hand limit. And if there is no left-hand limit or right-hand limit, there certainly is no limit to the function \(f(x)\) as \(x\) approaches 0.</p>
+<p>We write</p>
+<p id="eq29">\[\underset{x\to {0}^{-}}{lim}(3sin(\frac{\pi }{x}))\text{ does not exist}.\]</p>
+<p id="eq30">\[\underset{x\to {0}^{+}}{lim}(3sin(\frac{\pi }{x}))\text{ does not exist}.\]</p>
+<p id="eq31">\[\underset{x\to 0}{lim}(3sin(\frac{\pi }{x}))\text{ does not exist}\text{.}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Numerically estimate the following limit: \(\underset{x\to 0}{lim}(sin(\frac{2}{x})).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>does not exist</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165137588596"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with finding limits.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/introtolimits" target="_blank" rel="noopener">Introduction to Limits</a></li><li><a href="https://openstax.org/l/formaldeflimit" target="_blank" rel="noopener">Formal Definition of a Limit</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A function has a limit if the output values approach some value \(L\) as the input values approach some quantity \(a.\) See <a href="#example1">Example 1</a>.</li><li>A shorthand notation is used to describe the limit of a function according to the form \(\underset{x\to \,a}{lim}f(x)=L,\) which indicates that as \(x\) approaches \(a,\) both from the left of \(x=a\) and the right of \(x=a,\) the output value gets close to \(L.\)</li><li>A function has a left-hand limit if \(f(x)\) approaches \(L\) as \(x\) approaches \(a\) where \(x&lt;a.\) A function has a right-hand limit if \(f(x)\) approaches \(L\) as \(x\) approaches \(a\) where \(x&gt;a.\)</li><li>A two-sided limit exists if the left-hand limit and the right-hand limit of a function are the same. A function is said to have a limit if it has a two-sided limit.</li><li>A graph provides a visual method of determining the limit of a function.</li><li>If the function has a limit as \(x\) approaches \(a,\) the branches of the graph will approach the same \(y\text{-}\) coordinate near \(x=a\) from the left and the right. See <a href="#example2">Example 2</a>.</li><li>A table can be used to determine if a function has a limit. The table should show input values that approach \(a\) from both directions so that the resulting output values can be evaluated. If the output values approach some number, the function has a limit. See <a href="#example3">Example 3</a>.</li><li>A graphing utility can also be used to find a limit. See <a href="#example4">Example 4</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Explain the difference between a value at \(x=a\) and the limit as \(x\) approaches \(a.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The value of the function, the output, at \(x=a\) is \(f(a).\) When the \(\underset{x\to a}{lim}f(x)\) is taken, the values of \(x\) get infinitely close to \(a\) but never equal \(a.\) As the values of \(x\) approach \(a\) from the left and right, the limit is the value that the function is approaching.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Explain why we say a function does not have a limit as \(x\) approaches \(a\) if, as \(x\) approaches \(a,\) the left-hand limit is not equal to the right-hand limit.</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, estimate the functional values and the limits from the graph of the function \(f\) provided in <a href="#fig14">Figure 14</a>.</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_201.jpg" alt="A piecewise function with discontinuities at x = -2, x = 1, and x = 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(\underset{x\to -{2}^{-}}{lim}\,f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>–4</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(\underset{x\to -{2}^{+}}{lim}\,f(x)\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(\underset{x\to -2}{lim}\,f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>–4</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(f(-2)\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(\underset{x\to {1}^{-}}{lim}\,f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>2</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(\underset{x\to {1}^{+}}{lim}\,f(x)\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(\underset{x\to 1}{lim}\,f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>does not exist</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(f(1)\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\underset{x\to {4}^{-}}{lim}\,f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>4</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\underset{x\to {4}^{+}}{lim}\,f(x)\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(\underset{x\to 4}{lim}\,f(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>does not exist</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(f(4)\)</p>
+</div></div>
+<p>For the following exercises, draw the graph of a function from the functional values and limits provided.</p>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\underset{x\to {0}^{-}}{lim}\,f(x)=2\) , \(\underset{x\to {0}^{+}}{lim}\,f(x)=-3\) , \(\underset{x\to 2}{lim}\,f(x)=2\) , \(\,f(0)=4\) , \(\,f(2)=-1\) , \(\,f(-3)\text{ does not exist}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\underset{x\to {2}^{-}}{lim}\,f(x)=0\) , \(\,\underset{x\to {2}^{+}}{lim}=-2\) , \(\underset{x\to 0}{lim}\,f(x)=3\) , \(\,f(2)=5\) , \(\,f(0)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\underset{x\to {2}^{-}}{lim}\,f(x)=2\) , \(\,\underset{x\to {2}^{+}}{lim}\,f(x)=-3\) , \(\,\underset{x\to 0}{lim}\,f(x)=5\) , \(\,f(0)=1\) , \(\,f(1)=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\underset{x\to {3}^{-}}{lim}\,f(x)=0\) , \(\,\underset{x\to {3}^{+}}{lim}\,f(x)=5\) , \(\,\underset{x\to 5}{lim}\,f(x)=0\) , \(\,f(5)=4\) , \(\,f(3)\text{ does not exist}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(\underset{x\to 4}{lim}\,f(x)=6\) , \(\,\underset{x\to {6}^{+}}{lim}\,f(x)=-1\) , \(\,\underset{x\to 0}{lim}\,f(x)=5\) , \(\,f(4)=6\) , \(\,f(2)=6\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(\underset{x\to -3}{lim}\,f(x)=2\) , \(\,\underset{x\to {1}^{+}}{lim}\,f(x)=-2\) , \(\,\underset{x\to 3}{lim}\,f(x)=-4\) , \(\,f(-3)=0\) , \(\,f(0)=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(\underset{x\to \pi }{lim}\,f(x)={\pi }^{2}\) , \(\,\underset{x\to -\pi }{lim}\,f(x)=\frac{\pi }{2}\) , \(\,\underset{x\to {1}^{-}}{lim}\,f(x)=0\) , \(\,f(\pi )=\sqrt{2}\) , \(\,f(0)\text{ does not exist}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary.</p>
+</div></div></div></div>
+<p>For the following exercises, use a graphing calculator to determine the limit to 5 decimal places as \(x\) approaches 0.</p>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(f(x)={(1+x)}^{\frac{1}{x}}\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(g(x)={(1+x)}^{\frac{2}{x}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>7.38906</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(h(x)={(1+x)}^{\frac{3}{x}}\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(i(x)={(1+x)}^{\frac{4}{x}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>54.59815</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(j(x)={(1+x)}^{\frac{5}{x}}\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>Based on the pattern you observed in the exercises above, make a conjecture as to the limit of \(f(x)={(1+x)}^{\frac{6}{x}},\) \(g(x)={(1+x)}^{\frac{7}{x}},\) \(\text{and }h(x)={(1+x)}^{\frac{n}{x}}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({e}^{6}\approx 403.428794,\) \({e}^{7}\approx 1096.633158,\) \({e}^{n}\)</p>
+</div></div></div></div>
+<p>For the following exercises, use a graphing utility to find graphical evidence to determine the left- and right-hand limits of the function given as \(x\) approaches \(a.\) If the function has a limit as \(x\) approaches \(a,\) state it. If not, discuss why there is no limit.</p>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\((x)=\left\{\begin{array}{ll}|x|-1, &amp; \text{if }x\ne 1 \\ {x}^{3}, &amp; \text{if }x=1\end{array}\,a=1\right.\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\((x)=\left\{\begin{array}{ll}\frac{1}{x+1}, &amp; \text{if }x=-2 \\ {(x+1)}^{2}, &amp; \text{if }x\ne -2\end{array}\,a=-2\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to -2}{lim}f(x)=1\)</p>
+</div></div></div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, use numerical evidence to determine whether the limit exists at \(x=a.\) If not, describe the behavior of the graph of the function near \(x=a.\) Round answers to two decimal places.</p>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-4x}{16-{x}^{2}};a=4\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-x-6}{{x}^{2}-9};a=3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 3}{lim}(\frac{{x}^{2}-x-6}{{x}^{2}-9})=\frac{5}{6}\approx 0.83\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-6x-7}{{x}^{2}-\,7x};a=7\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-1}{{x}^{2}-3x+2};a=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 1}{lim}(\frac{{x}^{2}-1}{{x}^{2}-3x+2})=-2.00\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(f(x)=\frac{1-{x}^{2}}{{x}^{2}-3x+2};a=1\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(f(x)=\frac{10-10{x}^{2}}{{x}^{2}-3x+2};a=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 1}{lim}(\frac{10-10{x}^{2}}{{x}^{2}-3x+2})=20.00\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(f(x)=\frac{x}{6{x}^{2}-5x-6};a=\frac{3}{2}\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(f(x)=\frac{x}{4{x}^{2}+4x+1};a=-\frac{1}{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to \frac{-1}{2}}{lim}(\frac{x}{4{x}^{2}+4x+1})\) does not exist. Function values decrease without bound as \(x\) approaches –0.5 from either left or right.</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(f(x)=\frac{2}{x-4};\,a=4\)</p>
+</div></div>
+<p>For the following exercises, use a calculator to estimate the limit by preparing a table of values. If there is no limit, describe the behavior of the function as \(x\) approaches the given value.</p>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(\underset{x\to 0}{lim}\frac{7tanx}{3x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 0}{lim}\frac{7tanx}{3x}=\frac{7}{3}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_202.jpg" alt="Table shows as the function approaches 0, the value is 7 over 3 but the function is undefined at 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(\underset{x\to 4}{lim}\frac{{x}^{2}}{x-4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_01_203.jpg" alt="Table shows as the function approaches 4, the value does not exist since approaching the limit value from the left is negative infinity and approaching the limit value from the right is positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(\underset{x\to 0}{lim}\frac{2sinx}{4tanx}\)</p>
+</div></div>
+<p>For the following exercises, use a graphing utility to find numerical or graphical evidence to determine the left and right-hand limits of the function given as \(x\) approaches \(a.\) If the function has a limit as \(x\) approaches \(a,\) state it. If not, discuss why there is no limit.</p>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\underset{x\to 0}{lim}{e}^{{e}^{\frac{1}{x}}}\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(\underset{x\to 0}{lim}{e}^{{e}^{-\,\frac{1}{{x}^{2}}}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 0}{lim}{e}^{{e}^{-\,\frac{1}{{x}^{2}}}}=1.0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(\underset{x\to 0}{lim}\frac{|x|}{x}\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(\underset{x\to -1}{lim}\frac{|x+1|}{x+1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to -{1}^{-}}{lim}\frac{|x+1|}{x+1}=\frac{-(x+1)}{(x+1)}=-1\) and \(\underset{x\to -{1}^{+}}{lim}\frac{|x+1|}{x+1}=\frac{(x+1)}{(x+1)}=1;\) since the right-hand limit does not equal the left-hand limit, \(\underset{x\to -1}{lim}\frac{|x+1|}{x+1}\) does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(\underset{x\to 5}{lim}\frac{|x-5|}{5-x}\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(\underset{x\to -1}{lim}\frac{1}{{(x+1)}^{2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to -1}{lim}\frac{1}{{(x+1)}^{2}}\) does not exist. The function increases without bound as \(x\) approaches \(-1\) from either side.</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(\underset{x\to 1}{lim}\frac{1}{{(x-1)}^{3}}\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(\underset{x\to 0}{lim}\frac{5}{1-{e}^{\frac{2}{x}}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 0}{lim}\frac{5}{1-{e}^{\frac{2}{x}}}\) does not exist. Function values approach 5 from the left and approach 0 from the right.</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Use numerical and graphical evidence to compare and contrast the limits of two functions whose formulas appear similar: \(f(x)=|\frac{1-x}{x}|\) and \(g(x)=|\frac{1+x}{x}|\) as \(x\) approaches 0. Use a graphing utility, if possible, to determine the left- and right-hand limits of the functions \(f(x)\) and \(g(x)\) as \(x\) approaches 0. If the functions have a limit as \(x\) approaches 0, state it. If not, discuss why there is no limit.</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>According to the Theory of Relativity, the mass \(m\) of a particle depends on its velocity \(v\) . That is</p>
+<p id="eq32">\[m=\frac{{m}_{o}}{\sqrt{1-({v}^{2}/{c}^{2})}}\]</p>
+<p>where \({m}_{o}\) is the mass when the particle is at rest and \(c\) is the speed of light. Find the limit of the mass, \(m,\) as \(v\) approaches \({c}^{-}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Through examination of the postulates and an understanding of relativistic physics, as \(v\to c,\) \(m\to \infty .\) Take this one step further to the solution,</p>
+<p id="eq33">\[\underset{v\to {c}^{-}}{lim}m=\underset{v\to {c}^{-}}{lim}\frac{{m}_{o}}{\sqrt{1-({v}^{2}/{c}^{2})}}=\infty \]</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>Allow the speed of light, \(c,\) to be equal to 1.0. If the mass, \(m,\) is 1, what occurs to \(m\) as \(v\to c?\) Using the values listed in <a href="#tab1">Table 1</a>, make a conjecture as to what the mass is as \(v\) approaches 1.00.</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>\(v\)</strong></td><td><strong>\(m\)</strong></td></tr><tr><td>0.5</td><td>1.15</td></tr><tr><td>0.9</td><td>2.29</td></tr><tr><td>0.95</td><td>3.20</td></tr><tr><td>0.99</td><td>7.09</td></tr><tr><td>0.999</td><td>22.36</td></tr><tr><td>0.99999</td><td>223.61</td></tr></tbody></table></div>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>left-hand limit</dt><dd>the limit of values of \(f(x)\) as \(x\) approaches from \(a\) the left, denoted \(\underset{x\to {a}^{-}}{lim}f(x)=L.\) The values of \(f(x)\) can get as close to the limit \(L\) as we like by taking values of \(x\) sufficiently close to \(a\) such that \(x&lt;a\) and \(x\ne a.\) Both \(a\) and \(L\) are real numbers.</dd><dt>limit</dt><dd>when it exists, the value, \(L,\) that the output of a function \(f(x)\) approaches as the input \(x\) gets closer and closer to \(a\) but does not equal \(a.\) The value of the output, \(f(x),\) can get as close to \(L\) as we choose to make it by using input values of \(x\) sufficiently near to \(x=a,\) but not necessarily at \(x=a.\) Both \(a\) and \(L\) are real numbers, and \(L\) is denoted \(\underset{x\to a}{lim}f(x)=L.\)</dd><dt>right-hand limit</dt><dd>the limit of values of \(f(x)\) as \(x\) approaches \(a\) from the right, denoted \(\underset{x\to {a}^{+}}{lim}f(x)=L.\) The values of \(f(x)\) can get as close to the limit \(L\) as we like by taking values of \(x\) sufficiently close to \(a\) where \(x&gt;a,\) and \(x\ne a.\) Both \(a\) and \(L\) are real numbers.</dd><dt>two-sided limit</dt><dd>the limit of a function \(f(x),\) as \(x\) approaches \(a,\) is equal to \(L,\) that is, \(\underset{x\to a}{lim}f(x)=L\) if and only if \(\underset{x\to {a}^{-}}{lim}f(x)=\underset{x\to {a}^{+}}{lim}f(x).\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

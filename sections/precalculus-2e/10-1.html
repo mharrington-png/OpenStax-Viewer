@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Ellipse · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">The Ellipse</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 10.1</span>The Ellipse</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Complete the square of a binomial expression. (IA 9.2.1)</li><li>Graph a circle. (IA 11.1.4)</li></ul>
+<h3 id="objective-1-complete-the-square-of-a-binomial-expression-ia-9-2-1">Objective 1: Complete the square of a binomial expression. (IA 9.2.1)</h3>
+<div class="card definition" id="eip-idm397457056"><span class="chip">Vocabulary</span><p>Fill in the blanks.</p>
+<p>We say that \({x}^{2}+4x+4\) is a ________ <strong>square trinomial</strong> because \({x}^{2}+4x+4={( + )}^{2}\) .</p>
+<p>The <strong>square root property</strong> states that \({(x+2)}^{2}=9\) means that \((x+2)=\) ________ and \((x+2)=-\) ________.</p>
+</div>
+<p>Complete the square of a binomial expression.</p>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Use the square root property to solve \({(x+3)}^{2}=5\) . Use the steps below to guide your work.</p>
+<ul class="tight"><li>ⓐ Take a square root of both sides. Remember to have ± on the right side.</li><li>ⓑ Solve for x.</li></ul>
+</div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>Complete the square of a binomial expression.</p>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Use the square root property to solve \({x}^{2}+6x+9=7\) . Use the steps below to guide your work.</p>
+<ul class="tight"><li>ⓐ \({x}^{2}+6x+9\) is a perfect square trinomial. Factor it into \({(\_+\_)}^{2}\) .</li><li>ⓑ Take a square root of both sides. Remember to have ± on the right side.</li><li>ⓒ Solve for x.</li></ul>
+</div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<p>But what happens if we have to solve an equation where the trinomial is not a perfect square?</p>
+<p>For example, \({x}^{2}+4x+5=2\) ? For these types of equations, we can use a process called <strong>completing the square</strong>.</p>
+<p>Recall \({(x+1)}^{2}=(x+1)(x+1)={x}^{2}+x+x+1={x}^{2}+2+1\) .</p>
+<p>We can use the <strong>Binomial Squares Pattern</strong> to make a perfect square.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_09_02_018_img.png" alt="The image presents two fundamental algebraic identities: (a + b)^2 = a^2 + 2ab + b^2 and (a - b)^2 = a^2 - 2ab + b^2. For each identity, it visually breaks down the expanded form, labeling a^2 as ' (first term)^2', 2ab as '2 · (product of terms)', and b^2 as ' (second term)^2', explaining the components of the binomial expansion." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Complete the square for \({x}^{2}+6x\) to make it a perfect square.</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Since there is a plus sign between the two terms, we will use the (<strong>a</strong> + <strong>b</strong>)<sup>2</sup> pattern \({a}^{2}+2ab+{b}^{2}={(a+b)}^{2}\) .</td><td>\({x}^{2}+6x\)</td></tr><tr><td>We ultimately need to find the last term of this trinomial that will make it a perfect square trinomial. To do that we will need to find <strong>b</strong>. But first we start with determining <strong>a</strong>. Notice that the first term of <strong>x</strong><sup>2</sup> + 6<strong>x</strong> is a square, <strong>x</strong><sup>2</sup>. This tells us that <strong>a</strong> = <strong>x</strong>.</td><td>\({x}^{2}+2·x·b+{b}^{2}\)</td></tr><tr><td>What number, <strong>b</strong>, when multiplied with 2<strong>x</strong>, gives 6<strong>x</strong>? It would have to be 3, which is (½)(6). <br>So <strong>b</strong> = 3.</td><td>\({x}^{2}+2·3·x+\_\)</td></tr><tr><td>Now to complete the perfect square trinomial, we will find the last term by squaring <strong>b</strong>, which is 3<sup>2</sup> = 9.</td><td>\({x}^{2}+6x+9\)</td></tr><tr><td>We can now factor.</td><td>\({(x+3)}^{2}\)</td></tr></tbody></table></div>
+<p>So, we found that adding 9 to <strong>x</strong><sup>2</sup> + 6<strong>x</strong> completes the square, and we write it as (<strong>x</strong> + 3)<sup>2</sup>.</p>
+</div></div></div>
+<div class="card howto" id="eip-idm230671872"><span class="chip">How To</span><ul class="tight"><li>Identify <strong>b</strong>, the coefficient of <strong>x</strong>.</li><li>Find \(\frac{1}{2}{b}^{2}\) , the number needed to complete the square.</li><li>Add \(\frac{1}{2}{b}^{2}\) to \({x}^{2}+bx\)</li><li>Factor the perfect square trinomial, writing it as a binomial squared.</li></ul>
+</div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Determine what number would have to be added to the given terms to create a perfect square trinomial. Then rewrite as a binomial squared.</p>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>\({x}^{2}+12x\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>\({x}^{2}+5x\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>\({x}^{2}-\frac{1}{2}x\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex4"><div class="n">P4</div><div class="body"><p>\({x}^{2}+\frac{3}{2}x\)</p>
+</div></div>
+<h3 id="objective-2-graph-a-circle-ia-11-1-4">Objective 2: Graph a circle. (IA 11.1.4)</h3>
+<p>A <strong>circle</strong> is all points in a plane that are a fixed distance from a given point in the plane. The given point is called the <strong>center</strong>, (<strong>h</strong>, <strong>k</strong>) and the fixed distance is called the <strong>radius</strong>, <strong>r</strong>, of the circle.</p>
+<p>The <strong>standard or graphing form</strong> of the equation of a circle with center, (<strong>h</strong>, <strong>k</strong>) and radius, <strong>r</strong>, is \({(x-h)}^{2}+{(y-k)}^{2}={r}^{2}\) .</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_01_009_img.png" alt="This image illustrates a circle on a coordinate plane, centered at (h, k), with a point (x, y) on its circumference and a radius denoted by 'r'. Alongside the visual representation, the standard equation of a circle, (x - h) ^2 + (y - k) ^2 = r ^2, is provided, which defines the relationship between the center, any point on the circle, and its radius." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><div class="ex-body"><p>Write the standard (graphing) form of the equation of the circle with radius 2 and center (-1, 3).</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Use the standard, (graphing) form of the equation of a circle.</td><td>\({(x-h)}^{2}+{(y-k)}^{2}={r}^{2}\)</td></tr><tr><td>Substitute in the values (h, k)=(1, -3), where h=1, k=-3.</td><td>\((x-{(-1))}^{2}+(y-{(3))}^{2}={2}^{2}\)</td></tr><tr><td>Simplify.</td><td>\({(x+1)}^{2}+{(y-3)}^{2}=4\)</td></tr></tbody></table></div>
+</div></div></div>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 3</span><span class="t">Graph a circle</span></div><div class="ex-body"><p>Find the center and radius, then graph the circle: \({(x+2)}^{2}+{(y-1)}^{2}=9\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>Use the standard (graphing) form of the equation of a circle.</td><td>\({(x-h)}^{2}+{(y-k)}^{2}={r}^{2}\)</td></tr><tr><td>Identify the center, (<strong>h</strong>,<strong>k</strong>) and radius, <strong>r</strong>.</td><td>\((x-{(-2))}^{2}+{(y-1)}^{2}={3}^{2}\)</td></tr><tr><td>Graph the circle.</td><td>Center (-2, 1), <strong>r</strong>=3<br><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_01_013c_img.jpg" alt="A circle is plotted on a coordinate plane. Its center is at (-2, 1) and its radius is labeled as r = 3. The circle passes through points such as (-2, 4), (1, 1), (-2, -2), and (-5, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<p>The <strong>general form of the equation of a circle</strong> is \({x}^{2}+{y}^{2}+ax+by+c=0\) . If we are given an equation in general form, we can change it to standard, also called the graphing form, by completing the squares in both x and y. Then we can graph the circle using its center and radius.</p>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the center and radius, then graph the circle: \({x}^{2}+{y}^{2}-4x-6y+4=0\)</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We need to rewrite this general form into standard (graphing) form in order to find the center and radius.</p>
+<div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>Group the x-terms and y-terms. Collect the constants on the right side.</td><td>\({x}^{2}-4x+{y}^{2}-6y=-4\)</td></tr><tr><td>Complete the squares.</td><td>\({x}^{2}-4x+4+{y}^{2}-6y+9=-4+4+9\)</td></tr><tr><td>Rewrite as binomial squares.</td><td>\({(x-2)}^{2}+{(y-3)}^{2}=9\)</td></tr><tr><td>Identify the center and radius.</td><td>Center (2, 3), <strong>r</strong>=3</td></tr><tr><td>Graph the circle.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_11_01_015e_img.jpg" alt="A circle is plotted on a coordinate plane with its center at (2, 3) and a radius of 3 units. The grid clearly shows the circle's position and size relative to the axes." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<div class="exercise warmup" id="warmex5"><div class="n">P5</div><div class="body"><p>Write the standard (graphing) form of the equation of the circle with radius 4 and center (2,–5).</p>
+</div></div>
+<div class="exercise warmup" id="warmex6"><div class="n">P6</div><div class="body"><p>Find the center and radius, then graph the circle: \({(x-3)}^{2}+{(y+1)}^{2}=4\)</p>
+</div></div>
+<div class="exercise warmup" id="warmex7"><div class="n">P7</div><div class="body"><p>Find the center and radius, then graph the circle: \({x}^{2}+{y}^{2}-6x-8y+9=0\)</p>
+</div></div>
+</div></details>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_001.jpg" alt="The grand National Statuary Hall in the US Capitol, featuring a magnificent dome, ornate chandelier, marble columns, red drapes, and statues of prominent figures on a checkered floor." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The National Statuary Hall in Washington, D.C. (credit: Greg Palmer, Flickr)</figcaption></figure>
+<p>Can you imagine standing at one end of a large room and still being able to hear a whisper from a person standing at the other end? The National Statuary Hall in Washington, D.C., shown in <a href="#fig1">Figure 1</a>, is such a room. <span class="footnote">(Architect of the Capitol. http://www.aoc.gov. Accessed April 15, 2014.)</span> It is an semi-circular room called a <strong>whispering chamber</strong> because the shape makes it possible for sound to travel along the walls and dome. In this section, we will investigate the shape of this room and its real-world applications, including how far apart two people in Statuary Hall can stand and still hear each other whisper.</p>
+<h2 id="writing-equations-of-ellipses-in-standard-form">Writing Equations of Ellipses in Standard Form</h2>
+<p>A conic section, or <strong>conic</strong>, is a shape resulting from intersecting a right circular cone with a plane. The angle at which the plane intersects the cone determines the shape, as shown in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_002.jpg" alt="Illustration of conic sections: ellipse, hyperbola, and parabola, demonstrating how they are formed by the intersection of a plane with a double cone." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<p>Conic sections can also be described by a set of points in the coordinate plane. Later in this chapter, we will see that the graph of any quadratic equation in two variables is a conic section. The signs of the equations and the coefficients of the variable terms determine the shape. This section focuses on the four variations of the standard form of the equation for the ellipse. An <strong>ellipse</strong> is the set of all points \((x,y)\) in a plane such that the sum of their distances from two fixed points is a constant. Each fixed point is called a <strong>focus</strong> (plural: <strong>foci</strong>).</p>
+<p>We can draw an ellipse using a piece of cardboard, two thumbtacks, a pencil, and string. Place the thumbtacks in the cardboard to form the foci of the ellipse. Cut a piece of string longer than the distance between the two thumbtacks (the length of the string represents the constant in the definition). Tack each end of the string to the cardboard, and trace a curve with a pencil held taut against the string. The result is an ellipse. See <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_003.jpg" alt="This figure shows two thumbtacks stuck in a piece of paper with a slack piece of string between them. A pencil pulls the string taught and by moving around, draws an ellipse." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<p>Every ellipse has two axes of symmetry. The longer axis is called the <strong>major axis</strong>, and the shorter axis is called the <strong>minor axis</strong>. Each endpoint of the major axis is the <strong>vertex</strong> of the ellipse (plural: <strong>vertices</strong>), and each endpoint of the minor axis is a <strong>co-vertex</strong> of the ellipse. The <strong>center of an ellipse</strong> is the midpoint of both the major and minor axes. The axes are perpendicular at the center. The foci always lie on the major axis, and the sum of the distances from the foci to any point on the ellipse (the constant sum) is greater than the distance between the foci. See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_004.jpg" alt="A horizontal ellipse centered at (0, 0) in the x y coordinate system, with Major and Minor Axes, Vertices and Co-Vertices, Foci, and Center labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p>In this section, we restrict ellipses to those that are positioned vertically or horizontally in the coordinate plane. That is, the axes will either lie on or be parallel to the <strong>x</strong>- and <strong>y</strong>-axes. Later in the chapter, we will see ellipses that are rotated in the coordinate plane.</p>
+<p>To work with horizontal and vertical ellipses in the coordinate plane, we consider two cases: those that are centered at the origin and those that are centered at a point other than the origin. First we will learn to derive the equations of ellipses, and then we will learn how to write the equations of ellipses in standard form. Later we will use what we learn to draw the graphs.</p>
+<h3 id="deriving-the-equation-of-an-ellipse-centered-at-the-origin">Deriving the Equation of an Ellipse Centered at the Origin</h3>
+<p>To derive the equation of an <strong>ellipse</strong> centered at the origin, we begin with the foci \((-c,0)\) and \((c,0).\) The ellipse is the set of all points \((x,y)\) such that the sum of the distances from \((x,y)\) to the foci is constant, as shown in <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_014.jpg" alt="A horizontal ellipse centered at (0, 0) in the x y coordinate system, with Vertices at (negative a, 0) and (a, 0) and Foci at (negative c, 0) and (c, 0). Lines of length d1 and d2 connect a point (x, y) on the ellipse to the two Foci." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<p>If \((a,0)\) is a <strong>vertex</strong> of the ellipse, the distance from \((-c,0)\) to \((a,0)\) is \(a-(-c)=a+c.\) The distance from \((c,0)\) to \((a,0)\) is \(a-c\) . The sum of the distances from the <strong>foci</strong> to the vertex is</p>
+<p id="eq1">\[(a+c)+(a-c)=2a\]</p>
+<p>If \((x,y)\) is a point on the ellipse, then we can define the following variables:</p>
+<p id="eq2">\[\begin{array}{l}{d}_{1}=\text{the distance from }(-c,0)\,\text{to }(x,y) \\ {d}_{2}=\text{the distance from }(c,0)\,\text{to }(x,y)\end{array}\]</p>
+<p>By the definition of an ellipse, \({d}_{1}+{d}_{2}\) is constant for any point \((x,y)\) on the ellipse. We know that the sum of these distances is \(2a\) for the vertex \((a,0).\) It follows that \({d}_{1}+{d}_{2}=2a\) for any point on the ellipse. We will begin the derivation by applying the distance formula. The rest of the derivation is algebraic.</p>
+<p id="eq3">\[\begin{array}{ll}{d}_{1}+{d}_{2}=\sqrt{{(x-(-c))}^{2}+{(y-0)}^{2}}+\sqrt{{(x-c)}^{2}+{(y-0)}^{2}}=2a &amp; \text{Distance formula} \\ \sqrt{{(x+c)}^{2}+{y}^{2}}+\sqrt{{(x-c)}^{2}+{y}^{2}}=2a &amp; \text{Simplify expressions}\text{.} \\ \sqrt{{(x+c)}^{2}+{y}^{2}}=2a-\sqrt{{(x-c)}^{2}+{y}^{2}} &amp; \text{Move radical to opposite side}\text{.} \\ {(x+c)}^{2}+{y}^{2}={[2a-\sqrt{{(x-c)}^{2}+{y}^{2}}]}^{2} &amp; \text{Square both sides}\text{.} \\ {x}^{2}+2cx+{c}^{2}+{y}^{2}=4{a}^{2}-4a\sqrt{{(x-c)}^{2}+{y}^{2}}+{(x-c)}^{2}+{y}^{2} &amp; \text{Expand the squares}\text{.} \\ {x}^{2}+2cx+{c}^{2}+{y}^{2}=4{a}^{2}-4a\sqrt{{(x-c)}^{2}+{y}^{2}}+{x}^{2}-2cx+{c}^{2}+{y}^{2} &amp; \text{Expand remaining squares}\text{.} \\ 2cx=4{a}^{2}-4a\sqrt{{(x-c)}^{2}+{y}^{2}}-2cx &amp; \text{Combine like terms}\text{.} \\ 4cx-4{a}^{2}=-4a\sqrt{{(x-c)}^{2}+{y}^{2}} &amp; \text{Isolate the radical}\text{.} \\ cx-{a}^{2}=-a\sqrt{{(x-c)}^{2}+{y}^{2}} &amp; \text{Divide by 4}\text{.} \\ {[cx-{a}^{2}]}^{2}={a}^{2}{[\sqrt{{(x-c)}^{2}+{y}^{2}}]}^{2} &amp; \text{Square both sides}\text{.} \\ {c}^{2}{x}^{2}-2{a}^{2}cx+{a}^{4}={a}^{2}({x}^{2}-2cx+{c}^{2}+{y}^{2}) &amp; \text{Expand the squares}\text{.} \\ {c}^{2}{x}^{2}-2{a}^{2}cx+{a}^{4}={a}^{2}{x}^{2}-2{a}^{2}cx+{a}^{2}{c}^{2}+{a}^{2}{y}^{2} &amp; \text{Distribute }{a}^{2}. \\ {a}^{2}{x}^{2}-{c}^{2}{x}^{2}+{a}^{2}{y}^{2}={a}^{4}-{a}^{2}{c}^{2} &amp; \text{Rewrite}\text{.} \\ {x}^{2}({a}^{2}-{c}^{2})+{a}^{2}{y}^{2}={a}^{2}({a}^{2}-{c}^{2}) &amp; \text{Factor common terms}\text{.} \\ {x}^{2}{b}^{2}+{a}^{2}{y}^{2}={a}^{2}{b}^{2} &amp; \text{Set }{b}^{2}={a}^{2}-{c}^{2}. \\ \frac{{x}^{2}{b}^{2}}{{a}^{2}{b}^{2}}+\frac{{a}^{2}{y}^{2}}{{a}^{2}{b}^{2}}=\frac{{a}^{2}{b}^{2}}{{a}^{2}{b}^{2}} &amp; \text{Divide both sides by }{a}^{2}{b}^{2}. \\ \frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1 &amp; \text{Simplify}\text{.}\end{array}\]</p>
+<p>Thus, the standard equation of an ellipse is \(\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1.\) This equation defines an ellipse centered at the origin. If \(a&gt;b,\) the ellipse is stretched further in the horizontal direction, and if \(b&gt;a,\) the ellipse is stretched further in the vertical direction.</p>
+<h3 id="writing-equations-of-ellipses-centered-at-the-origin-in-standard-form">Writing Equations of Ellipses Centered at the Origin in Standard Form</h3>
+<p>Standard forms of equations tell us about key features of graphs. Take a moment to recall some of the standard forms of equations we’ve worked with in the past: linear, quadratic, cubic, exponential, logarithmic, and so on. By learning to interpret standard forms of equations, we are bridging the relationship between algebraic and geometric representations of mathematical phenomena.</p>
+<p>The key features of the <strong>ellipse</strong> are its center, <strong>vertices</strong>, <strong>co-vertices</strong>, <strong>foci</strong>, and lengths and positions of the <strong>major and minor axes</strong>. Just as with other equations, we can identify all of these features just by looking at the standard form of the equation. There are four variations of the standard form of the ellipse. These variations are categorized first by the location of the center (the origin or not the origin), and then by the position (horizontal or vertical). Each is presented along with a description of how the parts of the equation relate to the graph. Interpreting these parts allows us to form a mental picture of the ellipse.</p>
+<div class="card definition" id="fs-id1343526"><span class="chip">Standard Forms of the Equation of an Ellipse with Center (0,0)</span><p>The standard form of the equation of an ellipse with center \((0,0)\) and major axis on the <strong>x-axis</strong> is</p>
+<p id="eq4">\[\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1\]</p>
+<p>where</p>
+<ul class="tight"><li>\(a&gt;b\)</li><li>the length of the major axis is \(2a\)</li><li>the coordinates of the vertices are \((\pm a,0)\)</li><li>the length of the minor axis is \(2b\)</li><li>the coordinates of the co-vertices are \((0,\pm b)\)</li><li>the coordinates of the foci are \((\pm c,0)\) , where \({c}^{2}={a}^{2}-{b}^{2}.\) See <a href="#fig6">Figure 6</a><strong>a</strong></li></ul>
+<p>The standard form of the equation of an ellipse with center \((0,0)\) and major axis on the <strong>y-axis</strong> is</p>
+<p id="eq5">\[\frac{{x}^{2}}{{b}^{2}}+\frac{{y}^{2}}{{a}^{2}}=1\]</p>
+<p>where</p>
+<ul class="tight"><li>\(a&gt;b\)</li><li>the length of the major axis is \(2a\)</li><li>the coordinates of the vertices are \((0,\pm a)\)</li><li>the length of the minor axis is \(2b\)</li><li>the coordinates of the co-vertices are \((\pm b,0)\)</li><li>the coordinates of the foci are \((0,\pm c)\) , where \({c}^{2}={a}^{2}-{b}^{2}.\) See <a href="#fig6">Figure 6</a><strong>b</strong></li></ul>
+<p>Note that the vertices, co-vertices, and foci are related by the equation \({c}^{2}={a}^{2}-{b}^{2}.\) When we are given the coordinates of the foci and vertices of an ellipse, we can use this relationship to find the equation of the ellipse in standard form.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_005.jpg" alt="Two ellipses centered at the origin. (a) shows an ellipse with a horizontal major axis, and (b) shows an ellipse with a vertical major axis. Key points like vertices, co-vertices, and foci are labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — (a) Horizontal ellipse with center \((0,0)\) (b) Vertical ellipse with center \((0,0)\)</figcaption></figure>
+</div>
+<div class="card howto" id="fs-id1369821"><span class="chip">How To</span><p><strong>Given the vertices and foci of an ellipse centered at the origin, write its equation in standard form.</strong></p>
+<ul class="tight"><li>Determine whether the major axis lies on the <strong>x</strong>- or <strong>y</strong>-axis.<ul class="tight"><li>If the given coordinates of the vertices and foci have the form \((\pm a,0)\) and \((\pm c,0)\) respectively, then the major axis is the <strong>x</strong>-axis. Use the standard form \(\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1.\)</li><li>If the given coordinates of the vertices and foci have the form \((0,\pm a)\) and \((0,\pm c),\) respectively, then the major axis is the <strong>y</strong>-axis. Use the standard form \(\frac{{x}^{2}}{{b}^{2}}+\frac{{y}^{2}}{{a}^{2}}=1.\)</li></ul>
+</li><li>Use the equation \({c}^{2}={a}^{2}-{b}^{2},\) along with the given coordinates of the vertices and foci, to solve for \({b}^{2}.\)</li><li>Substitute the values for \({a}^{2}\) and \({b}^{2}\) into the standard form of the equation determined in Step 1.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>What is the standard form equation of the ellipse that has vertices \((\pm 8,0)\) and foci \((\pm 5,0)?\)</p>
+</div><p class="sol-hint">Since the vertices and foci both lie on the x-axis, use \({b}^{2}={a}^{2}-{c}^{2}\) to find the missing value.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The foci are on the <strong>x</strong>-axis, so the major axis is the <strong>x</strong>-axis. Thus, the equation will have the form</p>
+<p id="eq6">\[\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1\]</p>
+<p>The vertices are \((\pm 8,0),\) so \(a=8\) and \({a}^{2}=64.\)</p>
+<p>The foci are \((\pm 5,0),\) so \(c=5\) and \({c}^{2}=25.\)</p>
+<p>We know that the vertices and foci are related by the equation \({c}^{2}={a}^{2}-{b}^{2}.\) Solving for \({b}^{2},\) we have:</p>
+<p id="eq7">\[\begin{array}{ll}{c}^{2}={a}^{2}-{b}^{2} &amp; \\ 25=64-{b}^{2}\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{Substitute for }{c}^{2}\,\text{and }{a}^{2}. \\ {b}^{2}=39 &amp; \text{Solve for }{b}^{2}.\end{array}\]</p>
+<p>Now we need only substitute \({a}^{2}=64\) and \({b}^{2}=39\) into the standard form of the equation. The equation of the ellipse is \(\frac{{x}^{2}}{64}+\frac{{y}^{2}}{39}=1.\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>What is the standard form equation of the ellipse that has vertices \((0,\pm 4)\) and foci \((0,\pm \sqrt{15})?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({x}^{2}+\frac{{y}^{2}}{16}=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card qa" id="fs-id1347532"><span class="chip">Q&amp;A</span><p><strong>Can we write the equation of an ellipse centered at the origin given coordinates of just one focus and vertex?</strong></p>
+<p><strong>Yes. Ellipses are symmetrical, so the coordinates of the vertices of an ellipse centered around the origin will always have the form \((\pm a,0)\) or \((0,\,\pm a).\) Similarly, the coordinates of the foci will always have the form \((\pm c,0)\) or \((0,\,\pm c).\) Knowing this, we can use \(a\) and \(c\) from the given points, along with the equation \({c}^{2}={a}^{2}-{b}^{2},\) to find \({b}^{2}.\)</strong></p>
+</div>
+<h3 id="writing-equations-of-ellipses-not-centered-at-the-origin">Writing Equations of Ellipses Not Centered at the Origin</h3>
+<p>Like the graphs of other equations, the graph of an <strong>ellipse</strong> can be translated. If an ellipse is translated \(h\) units horizontally and \(k\) units vertically, the center of the ellipse will be \((h,k).\) This <strong>translation</strong> results in the standard form of the equation we saw previously, with \(x\) replaced by \((x-h)\) and <strong>y</strong> replaced by \((y-k).\)</p>
+<div class="card definition" id="fs-id1360258"><span class="chip">Standard Forms of the Equation of an Ellipse with Center (<strong>h</strong>, <strong>k</strong>)</span><p>The standard form of the equation of an ellipse with center \((h,\,\,k)\) and <strong>major axis</strong> parallel to the <strong>x</strong>-axis is</p>
+<p id="eq8">\[\frac{{(x-h)}^{2}}{{a}^{2}}+\frac{{(y-k)}^{2}}{{b}^{2}}=1\]</p>
+<p>where</p>
+<ul class="tight"><li>\(a&gt;b\)</li><li>the length of the major axis is \(2a\)</li><li>the coordinates of the vertices are \((h\pm a,k)\)</li><li>the length of the minor axis is \(2b\)</li><li>the coordinates of the co-vertices are \((h,k\pm b)\)</li><li>the coordinates of the foci are \((h\pm c,k),\) where \({c}^{2}={a}^{2}-{b}^{2}.\) See <a href="#fig7">Figure 7</a><strong>a</strong></li></ul>
+<p>The standard form of the equation of an ellipse with center \((h,k)\) and major axis parallel to the <strong>y</strong>-axis is</p>
+<p id="eq9">\[\frac{{(x-h)}^{2}}{{b}^{2}}+\frac{{(y-k)}^{2}}{{a}^{2}}=1\]</p>
+<p>where</p>
+<ul class="tight"><li>\(a&gt;b\)</li><li>the length of the major axis is \(2a\)</li><li>the coordinates of the vertices are \((h,k\pm a)\)</li><li>the length of the minor axis is \(2b\)</li><li>the coordinates of the co-vertices are \((h\pm b,k)\)</li><li>the coordinates of the foci are \((h,k\pm c),\) where \({c}^{2}={a}^{2}-{b}^{2}.\) See <a href="#fig7">Figure 7</a><strong>b</strong></li></ul>
+<p>Just as with ellipses centered at the origin, ellipses that are centered at a point \((h,k)\) have vertices, co-vertices, and foci that are related by the equation \({c}^{2}={a}^{2}-{b}^{2}.\) We can use this relationship along with the midpoint and distance formulas to find the equation of the ellipse in standard form when the vertices and foci are given.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_006-1.jpg" alt="Diagrams illustrating the components of a horizontal ellipse (a) and a vertical ellipse (b), both centered at (h, k), with their major and minor axes, vertices, and foci labeled." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — (a) Horizontal ellipse with center \((h,k)\) (b) Vertical ellipse with center \((h,k)\)</figcaption></figure>
+</div>
+<div class="card howto" id="fs-id1328854"><span class="chip">How To</span><p><strong>Given the vertices and foci of an ellipse not centered at the origin, write its equation in standard form.</strong></p>
+<ul class="tight"><li>Determine whether the major axis is parallel to the <strong>x</strong>- or <strong>y</strong>-axis.<ul class="tight"><li>If the <strong>y</strong>-coordinates of the given vertices and foci are the same, then the major axis is parallel to the <strong>x</strong>-axis. Use the standard form \(\frac{{(x-h)}^{2}}{{a}^{2}}+\frac{{(y-k)}^{2}}{{b}^{2}}=1.\)</li><li>If the <strong>x</strong>-coordinates of the given vertices and foci are the same, then the major axis is parallel to the <strong>y</strong>-axis. Use the standard form \(\frac{{(x-h)}^{2}}{{b}^{2}}+\frac{{(y-k)}^{2}}{{a}^{2}}=1.\)</li></ul>
+</li><li>Identify the center of the ellipse \((h,k)\) using the midpoint formula and the given coordinates for the vertices.</li><li>Find \({a}^{2}\) by solving for the length of the major axis, \(2a,\) which is the distance between the given vertices.</li><li>Find \({c}^{2}\) using \(h\) and \(k,\) found in Step 2, along with the given coordinates for the foci.</li><li>Solve for \({b}^{2}\) using the equation \({c}^{2}={a}^{2}-{b}^{2}.\)</li><li>Substitute the values for \(h,\,k,\,{a}^{2},\) and \({b}^{2}\) into the standard form of the equation determined in Step 1.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>What is the standard form equation of the ellipse that has vertices \((-2,-8)\) and \((-2,\text{2})\)</p>
+<p>and foci \((-2,-7)\) and \((-2,\text{1})?\)</p>
+</div><p class="sol-hint">Find the center as the midpoint of the vertices, then use the vertical orientation form since the vertices share the same x-coordinate.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The <strong>x</strong>-coordinates of the vertices and foci are the same, so the major axis is parallel to the <strong>y</strong>-axis. Thus, the equation of the ellipse will have the form</p>
+<p id="eq10">\[\frac{{(x-h)}^{2}}{{b}^{2}}+\frac{{(y-k)}^{2}}{{a}^{2}}=1\]</p>
+<p>First, we identify the center, \((h,k).\) The center is halfway between the vertices, \((-2,-8)\) and \((-2,\text{2}).\) Applying the midpoint formula, we have:</p>
+<p id="eq11">\[\begin{array}{l}(h,k)=(\frac{-2+(-2)}{2},\frac{-8+2}{2}) \\ \,=(-2,-3)\end{array}\]</p>
+<p>Next, we find \({a}^{2}.\) The length of the major axis, \(2a,\) is bounded by the vertices. We solve for \(a\) by finding the distance between the <strong>y</strong>-coordinates of the vertices.</p>
+<p id="eq12">\[\begin{array}{l}2a=2-(-8) \\ 2a=10 \\ a=5\end{array}\]</p>
+<p>So \({a}^{2}=25.\)</p>
+<p>Now we find \({c}^{2}.\) The foci are given by \((h,k\pm c).\) So, \((h,k-c)=(-2,-7)\) and \((h,k+c)=(-2,\text{1}).\) We substitute \(k=-3\) using either of these points to solve for \(c.\)</p>
+<p id="eq13">\[\begin{array}{l}k+c=1 \\ -3+c=1 \\ c=4\end{array}\]</p>
+<p>So \({c}^{2}=16.\)</p>
+<p>Next, we solve for \({b}^{2}\) using the equation \({c}^{2}={a}^{2}-{b}^{2}.\)</p>
+<p id="eq14">\[\begin{array}{l}{c}^{2}={a}^{2}-{b}^{2} \\ 16=25-{b}^{2} \\ {b}^{2}=9\end{array}\]</p>
+<p>Finally, we substitute the values found for \(h,k,{a}^{2},\) and \({b}^{2}\) into the standard form equation for an ellipse:</p>
+<p id="eq15">\[\frac{{(x+2)}^{2}}{9}+\frac{{(y+3)}^{2}}{25}=1\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>What is the standard form equation of the ellipse that has vertices \((-3,3)\) and \((5,3)\) and foci \((1-2\sqrt{3},3)\) and \((1+2\sqrt{3},3)?\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{{(x-1)}^{2}}{16}+\frac{{(y-3)}^{2}}{4}=1\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-ellipses-centered-at-the-origin">Graphing Ellipses Centered at the Origin</h2>
+<p>Just as we can write the equation for an ellipse given its graph, we can graph an ellipse given its equation. To graph ellipses centered at the origin, we use the standard form \(\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1,\,\,a&gt;b\) for horizontal ellipses and \(\frac{{x}^{2}}{{b}^{2}}+\frac{{y}^{2}}{{a}^{2}}=1,\,\,a&gt;b\) for vertical ellipses.</p>
+<div class="card howto" id="fs-id1333613"><span class="chip">How To</span><p><strong>Given the standard form of an equation for an ellipse centered at \((0,\,0),\) sketch the graph.</strong></p>
+<ul class="tight"><li>Use the standard forms of the equations of an ellipse to determine the major axis, vertices, co-vertices, and foci.<ul class="tight"><li>If the equation is in the form \(\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1,\) where \(a&gt;b,\) then<ul class="tight"><li>the major axis is the <strong>x</strong>-axis</li><li>the coordinates of the vertices are \((\pm a,0)\)</li><li>the coordinates of the co-vertices are \((0,\pm b)\)</li><li>the coordinates of the foci are \((\pm c,0)\)</li></ul>
+</li><li>If the equation is in the form \(\frac{{x}^{2}}{{b}^{2}}+\frac{{y}^{2}}{{a}^{2}}=1,\) where \(a&gt;b,\) then<ul class="tight"><li>the major axis is the <strong>y</strong>-axis</li><li>the coordinates of the vertices are \((0,\pm a)\)</li><li>the coordinates of the co-vertices are \((\pm b,0)\)</li><li>the coordinates of the foci are \((0,\pm c)\)</li></ul>
+</li></ul>
+</li><li>Solve for \(c\) using the equation \({c}^{2}={a}^{2}-{b}^{2}.\)</li><li>Plot the center, vertices, co-vertices, and foci in the coordinate plane, and draw a smooth curve to form the ellipse.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Graph the ellipse given by the equation, \(\frac{{x}^{2}}{9}+\frac{{y}^{2}}{25}=1.\) Identify and label the center, vertices, co-vertices, and foci.</p>
+</div><p class="sol-hint">Read a and b as the square roots of the denominators, then find c with \({c}^{2}={a}^{2}-{b}^{2}\) to locate the foci.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we determine the position of the major axis. Because \(25&gt;9,\) the major axis is on the <strong>y</strong>-axis. Therefore, the equation is in the form \(\frac{{x}^{2}}{{b}^{2}}+\frac{{y}^{2}}{{a}^{2}}=1,\) where \({b}^{2}=9\) and \({a}^{2}=25.\) It follows that:</p>
+<ul class="tight"><li>the center of the ellipse is \((0,0)\)</li><li>the coordinates of the vertices are \((0,\pm a)=(0,\pm \sqrt{25})=(0,\pm 5)\)</li><li>the coordinates of the co-vertices are \((\pm b,0)=(\pm \sqrt{9},0)=(\pm 3,0)\)</li><li>the coordinates of the foci are \((0,\pm c),\) where \({c}^{2}={a}^{2}-{b}^{2}\) Solving for \(c,\) we have:</li></ul>
+<p id="eq16">\[\begin{array}{l}c=\pm \sqrt{{a}^{2}-{b}^{2}} \\ =\pm \sqrt{25-9} \\ =\pm \sqrt{16} \\ =\pm 4\end{array}\]</p>
+<p>Therefore, the coordinates of the foci are \((0,\pm 4).\)</p>
+<p>Next, we plot and label the center, vertices, co-vertices, and foci, and draw a smooth curve to form the ellipse. See <a href="#fig8">Figure 8</a>.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_007.jpg" alt="A vertical ellipse centered at (0, 0) in the x y coordinate system, with vertices at (0,5) and (0,negative 5), co-vertices at (3, 0) and (negative 3, 0), and foci at (0, 4) and (0, negative 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Graph the ellipse given by the equation \(\frac{{x}^{2}}{36}+\frac{{y}^{2}}{4}=1.\) Identify and label the center, vertices, co-vertices, and foci.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>center: \((0,0);\) vertices: \((\pm 6,0);\) co-vertices: \((0,\pm 2);\) foci: \((\pm 4\sqrt{2},0)\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_008.jpg" alt="A Cartesian coordinate system shows an ellipse centered at the origin (0,0). The major axis is horizontal, with vertices at (-6, 0) and (6, 0). The minor axis is vertical, with y-intercepts at (0, 2) and (0, -2). The foci of the ellipse are located at (-4√2, 0) and (4√2, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Graph the ellipse given by the equation \(4{x}^{2}+25{y}^{2}=100.\) Rewrite the equation in standard form. Then identify and label the center, vertices, co-vertices, and foci.</p>
+</div><p class="sol-hint">Divide every term by 100 first to get the equation into standard form, then read off a, b, and c.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, use algebra to rewrite the equation in standard form.</p>
+<p id="eq17">\[\begin{array}{l} 4{x}^{2}+25{y}^{2}=100 \\ \,\frac{4{x}^{2}}{100}+\frac{25{y}^{2}}{100}=\frac{100}{100} \\ \,\frac{{x}^{2}}{25}+\frac{{y}^{2}}{4}=1\end{array}\]</p>
+<p>Next, we determine the position of the major axis. Because \(25&gt;4,\) the major axis is on the <strong>x</strong>-axis. Therefore, the equation is in the form \(\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1,\) where \({a}^{2}=25\) and \({b}^{2}=4.\) It follows that:</p>
+<ul class="tight"><li>the center of the ellipse is \((0,0)\)</li><li>the coordinates of the vertices are \((\pm a,0)=(\pm \sqrt{25},0)=(\pm 5,0)\)</li><li>the coordinates of the co-vertices are \((0,\pm b)=(0,\pm \sqrt{4})=(0,\pm 2)\)</li><li>the coordinates of the foci are \((\pm c,0),\) where \({c}^{2}={a}^{2}-{b}^{2}.\) Solving for \(c,\) we have:</li></ul>
+<p id="eq18">\[\begin{array}{l}c=\pm \sqrt{{a}^{2}-{b}^{2}} \\ =\pm \sqrt{25-4} \\ =\pm \sqrt{21}\end{array}\]</p>
+<p>Therefore the coordinates of the foci are \((\pm \sqrt{21},0).\)</p>
+<p>Next, we plot and label the center, vertices, co-vertices, and foci, and draw a smooth curve to form the ellipse.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_009.jpg" alt="A horizontal ellipse centered at (0, 0) with vertices at (5, 0) and (negative 5, 0), co-vertices at (0, 2) and (0, negative 2), and foci at (square root of 21, 0) and (negative square root of 21, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Graph the ellipse given by the equation \(49{x}^{2}+16{y}^{2}=784.\) Rewrite the equation in standard form. Then identify and label the center, vertices, co-vertices, and foci.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Standard form: \(\frac{{x}^{2}}{16}+\frac{{y}^{2}}{49}=1;\) center: \((0,0);\) vertices: \((0,\pm 7);\) co-vertices: \((\pm 4,0);\) foci: \((0,\pm \sqrt{33})\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_010.jpg" alt="A coordinate plane shows an ellipse centered at (4, 2). Its major axis extends horizontally from (-2, 2) to (10, 2), and its minor axis extends vertically from (4, 2 - 2sqrt(5)) to (4, 2 + 2sqrt(5))." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="graphing-ellipses-not-centered-at-the-origin">Graphing Ellipses Not Centered at the Origin</h2>
+<p>When an <strong>ellipse</strong> is not centered at the origin, we can still use the standard forms to find the key features of the graph. When the ellipse is centered at some point, \((h,k),\) we use the standard forms \(\frac{{(x-h)}^{2}}{{a}^{2}}+\frac{{(y-k)}^{2}}{{b}^{2}}=1,\,\,a&gt;b\) for horizontal ellipses and \(\frac{{(x-h)}^{2}}{{b}^{2}}+\frac{{(y-k)}^{2}}{{a}^{2}}=1,\,\,a&gt;b\) for vertical ellipses. From these standard equations, we can easily determine the center, vertices, co-vertices, foci, and positions of the major and minor axes.</p>
+<div class="card howto" id="fs-id1298882"><span class="chip">How To</span><p><strong>Given the standard form of an equation for an ellipse centered at \((h,\,k),\) sketch the graph.</strong></p>
+<ul class="tight"><li>Use the standard forms of the equations of an ellipse to determine the center, position of the major axis, vertices, co-vertices, and foci.<ul class="tight"><li>If the equation is in the form \(\frac{{(x-h)}^{2}}{{a}^{2}}+\frac{{(y-k)}^{2}}{{b}^{2}}=1,\) where \(a&gt;b,\) then<ul class="tight"><li>the center is \((h,k)\)</li><li>the major axis is parallel to the <strong>x</strong>-axis</li><li>the coordinates of the vertices are \((h\pm a,k)\)</li><li>the coordinates of the co-vertices are \((h,k\pm b)\)</li><li>the coordinates of the foci are \((h\pm c,k)\)</li></ul>
+</li><li>If the equation is in the form \(\frac{{(x-h)}^{2}}{{b}^{2}}+\frac{{(y-k)}^{2}}{{a}^{2}}=1,\) where \(a&gt;b,\) then<ul class="tight"><li>the center is \((h,k)\)</li><li>the major axis is parallel to the <strong>y</strong>-axis</li><li>the coordinates of the vertices are \((h,k\pm a)\)</li><li>the coordinates of the co-vertices are \((h\pm b,k)\)</li><li>the coordinates of the foci are \((h,k\pm c)\)</li></ul>
+</li></ul>
+</li><li>Solve for \(c\) using the equation \({c}^{2}={a}^{2}-{b}^{2}.\)</li><li>Plot the center, vertices, co-vertices, and foci in the coordinate plane, and draw a smooth curve to form the ellipse.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Graph the ellipse given by the equation, \(\frac{{(x+2)}^{2}}{4}+\frac{{(y-5)}^{2}}{9}=1.\) Identify and label the center, vertices, co-vertices, and foci.</p>
+</div><p class="sol-hint">Identify the center (h,k) from the equation first, then read a and b from the denominators to plot vertices and co-vertices around that center.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First, we determine the position of the major axis. Because \(9&gt;4,\) the major axis is parallel to the <strong>y</strong>-axis. Therefore, the equation is in the form \(\frac{{(x-h)}^{2}}{{b}^{2}}+\frac{{(y-k)}^{2}}{{a}^{2}}=1,\) where \({b}^{2}=4\) and \({a}^{2}=9.\) It follows that:</p>
+<ul class="tight"><li>the center of the ellipse is \((h,k)=(-2,\text{5})\)</li><li>the coordinates of the vertices are \((h,k\pm a)=(-2,5\pm \sqrt{9})=(-2,5\pm 3),\) or \((-2,\text{2})\) and \((-2,\text{8})\)</li><li>the coordinates of the co-vertices are \((h\pm b,k)=(-2\pm \sqrt{4},5)=(-2\pm 2,5),\) or \((-4,5)\) and \((0,\text{5})\)</li><li>the coordinates of the foci are \((h,k\pm c),\) where \({c}^{2}={a}^{2}-{b}^{2}.\) Solving for \(c,\) we have:</li></ul>
+<p id="eq19">\[\begin{array}{l}\begin{array}{l} \\ c=\pm \sqrt{{a}^{2}-{b}^{2}}\end{array} \\ =\pm \sqrt{9-4} \\ =\pm \sqrt{5}\end{array}\]</p>
+<p>Therefore, the coordinates of the foci are \((-2,\text{5}-\sqrt{5})\) and \((-2,\text{5+}\sqrt{5}).\)</p>
+<p>Next, we plot and label the center, vertices, co-vertices, and foci, and draw a smooth curve to form the ellipse.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_011.jpg" alt="A vertical ellipse centered at (negative 2, 5) with vertices at (negative 2, 2) and (negative 2, 8), co-vertices at (0, 5) and (negative 4, 5), and foci at (negative 2, 5 + square root of 5) and (negative 2, 5 minus square root of 5). The Major and Minor Axes, connecting the Vertices and Co-Vertices respectively, are shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Graph the ellipse given by the equation \(\frac{{(x-4)}^{2}}{36}+\frac{{(y-2)}^{2}}{20}=1.\) Identify and label the center, vertices, co-vertices, and foci.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Center: \((4,2);\) vertices: \((-2,2)\) and \((10,2);\) co-vertices: \((4,2-2\sqrt{5})\) and \((4,2+2\sqrt{5});\) foci: \((0,2)\) and \((8,2)\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_012.jpg" alt="A graph of an ellipse centered at (4, 2) on a Cartesian coordinate system. The horizontal major axis extends from (-2, 2) to (10, 2), and the vertical minor axis from (4, 2 - 2&amp;#13;5) to (4, 2 + 2&amp;#13;5). Foci are at (0, 2) and (8, 2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto" id="fs-id1365689"><span class="chip">How To</span><p><strong>Given the general form of an equation for an ellipse centered at (<strong>h</strong>, <strong>k</strong>), express the equation in standard form.</strong></p>
+<ul class="tight"><li>Recognize that an ellipse described by an equation in the form \(a{x}^{2}+b{y}^{2}+cx+dy+e=0\) is in general form.</li><li>Rearrange the equation by grouping terms that contain the same variable. Move the constant term to the opposite side of the equation.</li><li>Factor out the coefficients of the \({x}^{2}\) and \({y}^{2}\) terms in preparation for completing the square.</li><li>Complete the square for each variable to rewrite the equation in the form of the sum of multiples of two binomials squared set equal to a constant, \({m}_{1}{(x-h)}^{2}+{m}_{2}{(y-k)}^{2}={m}_{3},\) where \({m}_{1},{m}_{2},\) and \({m}_{3}\) are constants.</li><li>Divide both sides of the equation by the constant term to express the equation in standard form.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Graph the ellipse given by the equation \(4{x}^{2}+9{y}^{2}-40x+36y+100=0.\) Identify and label the center, vertices, co-vertices, and foci.</p>
+</div><p class="sol-hint">Complete the square in both x and y to rewrite the equation in standard form, then identify the center, a, and b.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We must begin by rewriting the equation in standard form.</p>
+<p id="eq20">\[4{x}^{2}+9{y}^{2}-40x+36y+100=0\]</p>
+<p>Group terms that contain the same variable, and move the constant to the opposite side of the equation.</p>
+<p id="eq21">\[(4{x}^{2}-40x)+(9{y}^{2}+36y)=-100\]</p>
+<p>Factor out the coefficients of the squared terms.</p>
+<p id="eq22">\[4({x}^{2}-10x)+9({y}^{2}+4y)=-100\]</p>
+<p>Complete the square twice. Remember to balance the equation by adding the same constants to each side.</p>
+<p id="eq23">\[4({x}^{2}-10x+25)+9({y}^{2}+4y+4)=-100+100+36\]</p>
+<p>Rewrite as perfect squares.</p>
+<p id="eq24">\[4{(x-5)}^{2}+9{(y+2)}^{2}=36\]</p>
+<p>Divide both sides by the constant term to place the equation in standard form.</p>
+<p id="eq25">\[\frac{{(x-5)}^{2}}{9}+\frac{{(y+2)}^{2}}{4}=1\]</p>
+<p>Now that the equation is in standard form, we can determine the position of the major axis. Because \(9&gt;4,\) the major axis is parallel to the <strong>x</strong>-axis. Therefore, the equation is in the form \(\frac{{(x-h)}^{2}}{{a}^{2}}+\frac{{(y-k)}^{2}}{{b}^{2}}=1,\) where \({a}^{2}=9\) and \({b}^{2}=4.\) It follows that:</p>
+<ul class="tight"><li>the center of the ellipse is \((h,k)=(5,-2)\)</li><li>the coordinates of the vertices are \((h\pm a,k)=(5\pm \sqrt{9},-2)=(5\pm 3,-2),\) or \((2,-2)\) and \((8,-2)\)</li><li>the coordinates of the co-vertices are \((h,k\pm b)=(\text{5},-2\pm \sqrt{4})=(\text{5},-2\pm 2),\) or \((5,-4)\) and \((5,\text{0})\)</li><li>the coordinates of the foci are \((h\pm c,k),\) where \({c}^{2}={a}^{2}-{b}^{2}.\) Solving for \(c,\) we have:</li></ul>
+<p id="eq26">\[\begin{array}{l}c=\pm \sqrt{{a}^{2}-{b}^{2}} \\ =\pm \sqrt{9-4} \\ =\pm \sqrt{5}\end{array}\]</p>
+<p>Therefore, the coordinates of the foci are \((\text{5}-\sqrt{5},-2)\) and \((\text{5+}\sqrt{5},-2).\)</p>
+<p>Next we plot and label the center, vertices, co-vertices, and foci, and draw a smooth curve to form the ellipse as shown in <a href="#fig11">Figure 11</a>.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_018.jpg" alt="A horizontal ellipse centered at (5, negative 2) with vertices at (2, negative 2) and (8, negative 2), co-vertices at (5, 0) and (5, negative 4), and foci at (5 + square root of 5, negative 2) and (5 minus square root of 5, negative 2). The Major and Minor Axes, connecting the Vertices and Co-Vertices respectively, are shown." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Express the equation of the ellipse given in standard form. Identify the center, vertices, co-vertices, and foci of the ellipse.</p>
+<p id="eq27">\[4{x}^{2}+{y}^{2}-24x+2y+21=0\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{{(x-3)}^{2}}{4}+\frac{{(y+1)}^{2}}{16}=1;\) center: \((3,-1);\) vertices: \((3,-\text{5})\) and \((3,\text{3});\) co-vertices: \((1,-1)\) and \((5,-1);\) foci: \((3,-\text{1}-2\sqrt{3})\) and \((3,-\text{1+}2\sqrt{3})\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="solving-applied-problems-involving-ellipses">Solving Applied Problems Involving Ellipses</h2>
+<p>Many real-world situations can be represented by ellipses, including orbits of planets, satellites, moons and comets, and shapes of boat keels, rudders, and some airplane wings. A medical device called a lithotripter uses elliptical reflectors to break up kidney stones by generating sound waves. Some buildings, called whispering chambers, are designed with elliptical domes so that a person whispering at one focus can easily be heard by someone standing at the other focus. This occurs because of the acoustic properties of an ellipse. When a sound wave originates at one focus of a whispering chamber, the sound wave will be reflected off the elliptical dome and back to the other focus. See <a href="#fig12">Figure 12</a>. In the whisper chamber at the Museum of Science and Industry in Chicago, two people standing at the foci—about 43 feet apart—can hear each other whisper. When these chambers are placed in unexpected places, such as the ones inside Bush International Airport in Houston and Grand Central Terminal in New York City, they can induce surprised reactions among travelers.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_013.jpg" alt="An illustration of a semi-ellipsoidal dome with two focal points, F and F'. Blue lines with arrows represent rays originating from focal point F'. These rays reflect off the inner curved surface of the dome and converge at the second focal point F, demonstrating the reflective property of an ellipse." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — Sound waves are reflected between foci in an elliptical room, called a whispering chamber.</figcaption></figure>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>A large room in an art gallery is a whispering chamber. Its dimensions are 46 feet wide by 96 feet long as shown in <a href="#fig13">Figure 13</a>.</p>
+<ul class="tight"><li>What is the standard form of the equation of the ellipse representing the outline of the room? Hint: assume a horizontal ellipse, and let the center of the room be the point \((0,0).\)</li><li>If two visitors standing at the foci of this room can hear each other whisper, how far apart are the two visitors? Round to the nearest foot.</li></ul>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_015.jpg" alt="A horizontal ellipse with rays originating at each focus and going through the other focus." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+</div><p class="sol-hint">Model the room as an ellipse using half the width and length as b and a, then find c to locate the foci where the whisperers should stand.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>We are assuming a horizontal ellipse with center \((0,0),\) so we need to find an equation of the form \(\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1,\) where \(a&gt;b.\) We know that the length of the major axis, \(2a,\) is longer than the length of the minor axis, \(2b.\) So the length of the room, 96, is represented by the major axis, and the width of the room, 46, is represented by the minor axis. Therefore, the equation of the ellipse is \(\frac{{x}^{2}}{2304}+\frac{{y}^{2}}{529}=1.\)<ul class="tight"><li>Solving for \(a,\) we have \(2a=96,\) so \(a=48,\) and \({a}^{2}=2304.\)</li><li>Solving for \(b,\) we have \(2b=46,\) so \(b=23,\) and \({b}^{2}=529.\)</li></ul>
+<p>Therefore, the equation of the ellipse is \(\frac{{x}^{2}}{2304}+\frac{{y}^{2}}{529}=1.\)</p>
+</li><li>To find the distance between the senators, we must find the distance between the foci, \((\pm c,0),\) where \({c}^{2}={a}^{2}-{b}^{2}.\) Solving for \(c,\) we have: The points \((\pm 42,0)\) represent the foci. Thus, the distance between the senators is \(2(42)=84\) feet.<p id="eq28">\[\begin{array}{ll}{c}^{2}={a}^{2}-{b}^{2} &amp; \\ {c}^{2}=2304-529 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Substitute using the values found in part (a)}. \\ c=\pm \sqrt{2304-529} &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Take the square root of both sides}. \\ c=\pm \sqrt{1775} &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Subtract}. \\ c\approx \pm 42 &amp; \begin{array}{llll} &amp; &amp; &amp; \end{array}\text{Round to the nearest foot}.\end{array}\]</p>
+<p>The points \((\pm 42,0)\) represent the foci. Thus, the distance between the senators is \(2(42)=84\) feet.</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Suppose a whispering chamber is 480 feet long and 320 feet wide.</p>
+<p>ⓐ What is the standard form of the equation of the ellipse representing the room? Hint: assume a horizontal ellipse, and let the center of the room be the point \((0,0).\) <br>ⓑ If two people are standing at the foci of this room and can hear each other whisper, how far apart are the people? Round to the nearest foot.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ \(\frac{{x}^{2}}{57,600}+\frac{{y}^{2}}{25,600}=1\)</li><li>ⓑ The people are standing 358 feet apart.</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1315937"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with ellipses.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/conicellipse" target="_blank" rel="noopener">Conic Sections: The Ellipse</a></li><li><a href="https://openstax.org/l/grphellorigin" target="_blank" rel="noopener">Graph an Ellipse with Center at the Origin</a></li><li><a href="https://openstax.org/l/grphellnot" target="_blank" rel="noopener">Graph an Ellipse with Center Not at the Origin</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>Horizontal ellipse, center at origin</td><td>\(\frac{{x}^{2}}{{a}^{2}}+\frac{{y}^{2}}{{b}^{2}}=1,\,\,a&gt;b\)</td></tr><tr><td>Vertical ellipse, center at origin</td><td>\(\frac{{x}^{2}}{{b}^{2}}+\frac{{y}^{2}}{{a}^{2}}=1,\,\,a&gt;b\)</td></tr><tr><td>Horizontal ellipse, center \((h,k)\)</td><td>\(\frac{{(x-h)}^{2}}{{a}^{2}}+\frac{{(y-k)}^{2}}{{b}^{2}}=1,\,\,a&gt;b\)</td></tr><tr><td>Vertical ellipse, center \((h,k)\)</td><td>\(\frac{{(x-h)}^{2}}{{b}^{2}}+\frac{{(y-k)}^{2}}{{a}^{2}}=1,\,\,a&gt;b\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>An ellipse is the set of all points \((x,y)\) in a plane such that the sum of their distances from two fixed points is a constant. Each fixed point is called a focus (plural: foci).</li><li>When given the coordinates of the foci and vertices of an ellipse, we can write the equation of the ellipse in standard form. See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.</li><li>When given an equation for an ellipse centered at the origin in standard form, we can identify its vertices, co-vertices, foci, and the lengths and positions of the major and minor axes in order to graph the ellipse. See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a>.</li><li>When given the equation for an ellipse centered at some point other than the origin, we can identify its key features and graph the ellipse. See <a href="#example5">Example 5</a> and <a href="#example6">Example 6</a>.</li><li>Real-world situations can be modeled using the standard equations of ellipses and then evaluated to find key features, such as lengths of axes and distance between foci. See <a href="#example7">Example 7</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Define an ellipse in terms of its foci.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>An ellipse is the set of all points in the plane the sum of whose distances from two fixed points, called the foci, is a constant.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Where must the foci of an ellipse lie?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>What special case of the ellipse do we have when the major and minor axis are of the same length?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>This special case would be a circle.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>For the special case mentioned in the previous question, what would be true about the foci of that ellipse?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>What can be said about the symmetry of the graph of an ellipse with center at the origin and foci along the <strong>y</strong>-axis?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>It is symmetric about the <strong>x</strong>-axis, <strong>y</strong>-axis, and the origin.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, determine whether the given equations represent ellipses. If yes, write in standard form.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(2{x}^{2}+y=4\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(4{x}^{2}+9{y}^{2}=36\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>yes; \(\frac{{x}^{2}}{{3}^{2}}+\frac{{y}^{2}}{{2}^{2}}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(4{x}^{2}-{y}^{2}=4\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(4{x}^{2}+9{y}^{2}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>yes; \(\frac{{x}^{2}}{{(\frac{1}{2})}^{2}}+\frac{{y}^{2}}{{(\frac{1}{3})}^{2}}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(4{x}^{2}-8x+9{y}^{2}-72y+112=0\)</p>
+</div></div>
+<p>For the following exercises, write the equation of an ellipse in standard form, and identify the end points of the major and minor axes as well as the foci.</p>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(\frac{{x}^{2}}{4}+\frac{{y}^{2}}{49}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{{2}^{2}}+\frac{{y}^{2}}{{7}^{2}}=1;\) Endpoints of major axis \((0,7)\) and \((0,-7).\) Endpoints of minor axis \((2,0)\) and \((-2,0).\) Foci at \((0,3\sqrt{5}),(0,-3\sqrt{5}).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(\frac{{x}^{2}}{100}+\frac{{y}^{2}}{64}=1\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\({x}^{2}+9{y}^{2}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{{(1)}^{2}}+\frac{{y}^{2}}{{(\frac{1}{3})}^{2}}=1;\) Endpoints of major axis \((1,0)\) and \((-1,0).\) Endpoints of minor axis \((0,\frac{1}{3}),(0,-\frac{1}{3}).\) Foci at \((\frac{2\sqrt{2}}{3},0),(-\frac{2\sqrt{2}}{3},0).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(4{x}^{2}+16{y}^{2}=1\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(\frac{{(x-2)}^{2}}{49}+\frac{{(y-4)}^{2}}{25}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-2)}^{2}}{{7}^{2}}+\frac{{(y-4)}^{2}}{{5}^{2}}=1;\) Endpoints of major axis \((9,4),(-5,4).\) Endpoints of minor axis \((2,9),(2,-1).\) Foci at \((2+2\sqrt{6},4),(2-2\sqrt{6},4).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(\frac{{(x-2)}^{2}}{81}+\frac{{(y+1)}^{2}}{16}=1\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(\frac{{(x+5)}^{2}}{4}+\frac{{(y-7)}^{2}}{9}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+5)}^{2}}{{2}^{2}}+\frac{{(y-7)}^{2}}{{3}^{2}}=1;\) Endpoints of major axis \((-5,10),(-5,4).\) Endpoints of minor axis \((-3,7),(-7,7).\) Foci at \((-5,7+\sqrt{5}),(-5,7-\sqrt{5}).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(\frac{{(x-7)}^{2}}{49}+\frac{{(y-7)}^{2}}{49}=1\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(4{x}^{2}-8x+9{y}^{2}-72y+112=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-1)}^{2}}{{3}^{2}}+\frac{{(y-4)}^{2}}{{2}^{2}}=1;\) Endpoints of major axis \((4,4),(-2,4).\) Endpoints of minor axis \((1,6),(1,2).\) Foci at \((1+\sqrt{5},4),(1-\sqrt{5},4).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(9{x}^{2}-54x+9{y}^{2}-54y+81=0\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(4{x}^{2}-24x+36{y}^{2}-360y+864=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-3)}^{2}}{{(3\sqrt{2})}^{2}}+\frac{{(y-5)}^{2}}{{(\sqrt{2})}^{2}}=1;\) Endpoints of major axis \((3+3\sqrt{2},5),(3-3\sqrt{2},5).\) Endpoints of minor axis \((3,5+\sqrt{2}),(3,5-\sqrt{2}).\) Foci at \((7,5),(-1,5).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(4{x}^{2}+24x+16{y}^{2}-128y+228=0\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(4{x}^{2}+40x+25{y}^{2}-100y+100=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+5)}^{2}}{{(5)}^{2}}+\frac{{(y-2)}^{2}}{{(2)}^{2}}=1;\) Endpoints of major axis \((0,2),(-10,2).\) Endpoints of minor axis \((-5,4),(-5,0).\) Foci at \((-5+\sqrt{21},2),(-5-\sqrt{21},2).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({x}^{2}+2x+100{y}^{2}-1000y+2401=0\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(4{x}^{2}+24x+25{y}^{2}+200y+336=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+3)}^{2}}{{(5)}^{2}}+\frac{{(y+4)}^{2}}{{(2)}^{2}}=1;\) Endpoints of major axis \((2,-4),(-8,-4).\) Endpoints of minor axis \((-3,-2),(-3,-6).\) Foci at \((-3+\sqrt{21},-4),(-3-\sqrt{21},-4).\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(9{x}^{2}+72x+16{y}^{2}+16y+4=0\)</p>
+</div></div>
+<p>For the following exercises, find the foci for the given ellipses.</p>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(\frac{{(x+3)}^{2}}{25}+\frac{{(y+1)}^{2}}{36}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Foci \((-3,-1+\sqrt{11}),(-3,-1-\sqrt{11})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(\frac{{(x+1)}^{2}}{100}+\frac{{(y-2)}^{2}}{4}=1\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({x}^{2}+{y}^{2}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Focus \((0,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\({x}^{2}+4{y}^{2}+4x+8y=1\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(10{x}^{2}+{y}^{2}+200x=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Foci \((-10,30),(-10,-30)\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, graph the given ellipses, noting center, vertices, and foci.</p>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(\frac{{x}^{2}}{25}+\frac{{y}^{2}}{36}=1\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(\frac{{x}^{2}}{16}+\frac{{y}^{2}}{9}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Center \((0,0),\) Vertices \((4,0),(-4,0),(0,3),(0,-3),\) Foci \((\sqrt{7},0),(-\sqrt{7},0)\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_202.jpg" alt="A Cartesian coordinate system displays an ellipse centered at the origin, with x-axis extending from -4 to 4 and y-axis from -3 to 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(4{x}^{2}+9{y}^{2}=1\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(81{x}^{2}+49{y}^{2}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Center \((0,0),\) Vertices \((\frac{1}{9},0),(-\frac{1}{9},0),(0,\frac{1}{7}),(0,-\frac{1}{7}),\) Foci \((0,\frac{4\sqrt{2}}{63}),(0,-\frac{4\sqrt{2}}{63})\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_204.jpg" alt="A graph shows an upright ellipse centered at the origin. The x-axis spans from -0.3 to 0.3, and the y-axis from -0.2 to 0.2. The ellipse's approximate x-intercepts are +/- 0.1 and y-intercepts are +/- 0.15." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(\frac{{(x-2)}^{2}}{64}+\frac{{(y-4)}^{2}}{16}=1\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(\frac{{(x+3)}^{2}}{9}+\frac{{(y-3)}^{2}}{9}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Center \((-3,3),\) Vertices \((0,3),(-6,3),(-3,0),(-3,6),\) Focus \((-3,3)\)</p>
+<p>Note that this ellipse is a circle. The circle has only one focus, which coincides with the center.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_206.jpg" alt="A blue circle is plotted on a Cartesian coordinate system. The x-axis ranges from -10 to 10, and the y-axis from -2.5 to 10. The circle is centered at (-2.5, 2.5) with a radius of 2.5 units." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(\frac{{x}^{2}}{2}+\frac{{(y+1)}^{2}}{5}=1\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(4{x}^{2}-8x+16{y}^{2}-32y-44=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Center \((1,1),\) Vertices \((5,1),(-3,1),(1,3),(1,-1),\) Foci \((1+2\sqrt{3},1),(1-2\sqrt{3},1)\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_208.jpg" alt="An ellipse is displayed on a Cartesian coordinate plane with x and y axes ranging from -5 to 5. The ellipse is horizontally elongated, centered at (1,1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\({x}^{2}-8x+25{y}^{2}-100y+91=0\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\({x}^{2}+8x+4{y}^{2}-40y+112=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Center \((-4,5),\) Vertices \((-2,5),(-6,5),(-4,6),(-4,4),\) Foci \((-4+\sqrt{3},5),(-4-\sqrt{3},5)\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_210.jpg" alt="An ellipse is plotted on a Cartesian coordinate system. The x-axis ranges from -10 to 2.5, with major ticks at -10, -7.5, -5, -2.5, 0, and 2.5. The y-axis ranges from -2.5 to 10, with major ticks at -2.5, 0, 2.5, 5, 7.5, and 10. The ellipse is centered approximately at (-4, 5) and is horizontally elongated, extending from about x=-6 to x=-2.5 and vertically from about y=4 to y=6." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(64{x}^{2}+128x+9{y}^{2}-72y-368=0\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(16{x}^{2}+64x+4{y}^{2}-8y+4=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Center \((-2,1),\) Vertices \((0,1),(-4,1),(-2,5),(-2,-3),\) Foci \((-2,1+2\sqrt{3}),(-2,1-2\sqrt{3})\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_212.jpg" alt="A graph displays a blue, vertically oriented ellipse centered around (-1, 2) on a Cartesian coordinate plane. The x-axis ranges from -5 to 2.5, and the y-axis from -5 to 7.5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(100{x}^{2}+1000x+{y}^{2}-10y+2425=0\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(4{x}^{2}+16x+4{y}^{2}+16y+16=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Center \((-2,-2),\) Vertices \((0,-2),(-4,-2),(-2,0),(-2,-4),\) Focus \((-2,-2)\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_214.jpg" alt="A graph displays a circle on a coordinate plane. The circle is centered at (-2, -2) and has a radius of 2, passing through points such as (-4, -2), (0, -2), (-2, 0), and (-2, -4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, use the given information about the graph of each ellipse to determine its equation.</p>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Center at the origin, symmetric with respect to the <strong>x</strong>- and <strong>y</strong>-axes, focus at \((4,0),\) and point on graph \((0,3).\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Center at the origin, symmetric with respect to the <strong>x</strong>- and <strong>y</strong>-axes, focus at \((0,-2),\) and point on graph \((5,0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{25}+\frac{{y}^{2}}{29}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>Center at the origin, symmetric with respect to the <strong>x</strong>- and <strong>y</strong>-axes, focus at \((3,0),\) and major axis is twice as long as minor axis.</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Center \((4,2)\) ; vertex \((9,2)\) ; one focus: \((4+2\sqrt{6},2)\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x-4)}^{2}}{25}+\frac{{(y-2)}^{2}}{1}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>Center \((3,5)\) ; vertex \((3,11)\) ; one focus: \((3,\,\text{5+4}\sqrt{\text{2}})\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>Center \((-3,4)\) ; vertex \((1,4)\) ; one focus: \((-3+2\sqrt{3},4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+3)}^{2}}{16}+\frac{{(y-4)}^{2}}{4}=1\)</p>
+</div></div></div></div>
+<p>For the following exercises, given the graph of the ellipse, determine its equation.</p>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_215.jpg" alt="A vertical ellipse centered at (0, 0) in the x y coordinate system with vertices at (0, 6) and (0, negative 6) and co-vertices at (4, 0) and (negative 4, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_216.jpg" alt="A horizontal ellipse centered at (0, 0)  in the x y coordinate system with vertices at (9, 0) and (negative 9, 0) and co-vertices at (0, 3) and (0, negative 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{81}+\frac{{y}^{2}}{9}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_217.jpg" alt="A vertical ellipse centered at (0, 0)  in the x y coordinate system with vertices at (0, 7) and (0, negative 7) and co-vertices at (5, 0) and (negative 5, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_218.jpg" alt="A vertical ellipse tangent to the y-axis at (0, 2) in the x y coordinate system and intersecting the x-axis midway between (negative 4, 0) and (negative 3, 0) and also (negative 1, 0) and (0, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{(x+2)}^{2}}{4}+\frac{{(y-2)}^{2}}{9}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_10_01_219.jpg" alt="A horizontal ellipse in the x y coordinate system extending between x = negative 2 and x = 4, intersecting the y-axis at (2, 0) and (4, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, find the area of the ellipse. The area of an ellipse is given by the formula \(\text{Area}=a\cdot b\cdot \pi .\)</p>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\(\frac{{(x-3)}^{2}}{9}+\frac{{(y-3)}^{2}}{16}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{Area = 12}\pi \,\text{square}\,\text{units}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\(\frac{{(x+6)}^{2}}{16}+\frac{{(y-6)}^{2}}{36}=1\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>\(\frac{{(x+1)}^{2}}{4}+\frac{{(y-2)}^{2}}{5}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{Area = 2}\sqrt{\text{5}}\pi\) square units.</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\(4{x}^{2}-8x+9{y}^{2}-72y+112=0\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>\(9{x}^{2}-54x+9{y}^{2}-54y+81=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\text{Area = 9}\pi\) square units.</p>
+</div></div></div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>Find the equation of the ellipse that will just fit inside a box that is 8 units wide and 4 units high.</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>Find the equation of the ellipse that will just fit inside a box that is four times as wide as it is high. Express in terms of \(h,\) the height.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{4{h}^{2}}+\frac{{y}^{2}}{\frac{1}{4}{h}^{2}}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>An arch has the shape of a semi-ellipse (the top half of an ellipse). The arch has a height of 8 feet and a span of 20 feet. Find an equation for the ellipse, and use that to find the height to the nearest 0.01 foot of the arch at a distance of 4 feet from the center.</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>An arch has the shape of a semi-ellipse. The arch has a height of 12 feet and a span of 40 feet. Find an equation for the ellipse, and use that to find the distance from the center to a point at which the height is 6 feet. Round to the nearest hundredth.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{2}}{400}+\frac{{y}^{2}}{144}=1\) . Distance = 17.32 feet</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>A bridge is to be built in the shape of a semi-elliptical arch and is to have a span of 120 feet. The height of the arch at a distance of 40 feet from the center is to be 8 feet. Find the height of the arch at its center.</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>A person in a whispering gallery standing at one focus of the ellipse can whisper and be heard by a person standing at the other focus because all the sound waves that reach the ceiling are reflected to the other person. If a whispering gallery has a length of 120 feet, and the foci are located 30 feet from the center, find the height of the ceiling at the center.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Approximately 51.96 feet</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>A person is standing 8 feet from the nearest wall in a whispering gallery. If that person is at one focus, and the other focus is 80 feet away, what is the length and height at the center of the gallery?</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>center of an ellipse</dt><dd>the midpoint of both the major and minor axes</dd><dt>conic section</dt><dd>any shape resulting from the intersection of a right circular cone with a plane</dd><dt>ellipse</dt><dd>the set of all points \((x,y)\) in a plane such that the sum of their distances from two fixed points is a constant</dd><dt>foci</dt><dd>plural of focus</dd><dt>focus (of an ellipse)</dt><dd>one of the two fixed points on the major axis of an ellipse such that the sum of the distances from these points to any point \((x,y)\) on the ellipse is a constant</dd><dt>major axis</dt><dd>the longer of the two axes of an ellipse</dd><dt>minor axis</dt><dd>the shorter of the two axes of an ellipse</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

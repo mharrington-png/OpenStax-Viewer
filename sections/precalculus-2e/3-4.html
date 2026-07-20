@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graphs of Polynomial Functions · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Graphs of Polynomial Functions</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 3.4</span>Graphs of Polynomial Functions</h1>
+<p>The revenue in millions of dollars for a fictional cable company from 2006 through 2013 is shown in <a href="#tab1">Table 1</a><strong>.</strong></p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Year</strong></td><td>2006</td><td>2007</td><td>2008</td><td>2009</td><td>2010</td><td>2011</td><td>2012</td><td>2013</td></tr><tr><td><strong>Revenues</strong></td><td>52.4</td><td>52.8</td><td>51.2</td><td>49.5</td><td>48.6</td><td>48.6</td><td>48.7</td><td>47.1</td></tr></tbody></table></div>
+<p>The revenue can be modeled by the polynomial function</p>
+<p id="eq1">\[R(t)=-0.037{t}^{4}+1.414{t}^{3}-19.777{t}^{2}+118.696t-205.332\]</p>
+<p>where \(\,R\,\) represents the revenue in millions of dollars and \(\,t\,\) represents the year, with \(\,t=6\,\) corresponding to 2006. Over which intervals is the revenue for the company increasing? Over which intervals is the revenue for the company decreasing? These questions, along with many others, can be answered by examining the graph of the polynomial function. We have already explored the local behavior of quadratics, a special case of polynomials. In this section we will explore the local behavior of polynomials in general.</p>
+<h2 id="recognizing-characteristics-of-graphs-of-polynomial-functions">Recognizing Characteristics of Graphs of Polynomial Functions</h2>
+<p>Polynomial functions of degree 2 or more have graphs that do not have sharp corners; recall that these types of graphs are called smooth curves. Polynomial functions also display graphs that have no breaks. Curves with no breaks are called continuous. <a href="#fig1">Figure 1</a> shows a graph that represents a <strong>polynomial function</strong> and a graph that represents a function that is not a polynomial.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_001.jpg" alt="Graph of f(x)=x^3-0.01x." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Which of the graphs in <a href="#fig2">Figure 2</a> represents a polynomial function?</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/figure2n3combine.jpg" alt="Two graphs in which one has a polynomial function and the other has a function closely resembling a polynomial but is not." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+</div><p class="sol-hint">Check each graph for sharp corners or breaks — polynomial functions are always smooth and continuous.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The graphs of \(\,f\,\) and \(\,h\,\) are graphs of polynomial functions. They are smooth and <strong>continuous</strong>.</p>
+<p>The graphs of \(\,g\,\) and \(\,k\,\) are graphs of functions that are not polynomials. The graph of function \(\,g\,\) has a sharp corner. The graph of function \(\,k\,\) is not continuous.</p>
+</div></div></div>
+<div class="card qa" id="fs-id1165134164967"><span class="chip">Q&amp;A</span><p><strong>Do all polynomial functions have as their domain all real numbers?</strong></p>
+<p><strong>Yes. Any real number is a valid input for a polynomial function.</strong></p>
+</div>
+<h2 id="using-factoring-to-find-zeros-of-polynomial-functions">Using Factoring to Find Zeros of Polynomial Functions</h2>
+<p>Recall that if \(\,f\,\) is a polynomial function, the values of \(\,x\,\) for which \(\,f(x)=0\,\) are called <strong>zeros</strong> of \(\,f.\,\) If the equation of the polynomial function can be factored, we can set each factor equal to zero and solve for the zeros<strong>.</strong></p>
+<p>We can use this method to find \(x\text{-}\) intercepts because at the \(x\text{-}\) intercepts we find the input values when the output value is zero. For general polynomials, this can be a challenging prospect. While quadratics can be solved using the relatively simple quadratic formula, the corresponding formulas for cubic and fourth-degree polynomials are not simple enough to remember, and formulas do not exist for general higher-degree polynomials. Consequently, we will limit ourselves to three cases in this section:</p>
+<ul class="tight"><li>The polynomial can be factored using known methods: greatest common factor and trinomial factoring.</li><li>The polynomial is given in factored form.</li><li>Technology is used to determine the intercepts.</li></ul>
+<div class="card howto" id="fs-id1165137640937"><span class="chip">How To</span><p><strong>Given a polynomial function \(f,\) find the <strong>x</strong>-intercepts by factoring.</strong></p>
+<ul class="tight"><li>Set \(f(x)=0.\)</li><li>If the polynomial function is not given in factored form:<ul class="tight"><li>Factor out any common monomial factors.</li><li>Factor any factorable binomials or trinomials.</li></ul>
+</li><li>Set each factor equal to zero and solve to find the \(x\text{-}\) intercepts.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Find the <strong>x</strong>-intercepts of \(\,f(x)={x}^{6}-3{x}^{4}+2{x}^{2}.\)</p>
+</div><p class="sol-hint">Factor out the GCF first, then factor the remaining trinomial.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We can attempt to factor this polynomial to find solutions for \(\,f(x)=0.\) <br></p>
+<p id="eq2">\[\begin{array}{ll}\begin{array}{l} \\ \,{x}^{6}-3{x}^{4}+2{x}^{2}=0\end{array} &amp; \begin{array}{l}\begin{array}{l} \\ \text{Factor out the greatest}\end{array} \\ \text{common factor}.\,\end{array} \\ \,{x}^{2}({x}^{4}-3{x}^{2}+2)=0 &amp; \text{Factor the trinomial}. \\ {x}^{2}({x}^{2}-1)({x}^{2}-2)=0 &amp; \text{Set each factor equal to zero}.\end{array}\]</p>
+<p id="eq3">\[\begin{array}{lllllllll}\begin{array}{l} \\ \end{array} &amp; \begin{array}{l} \\ \end{array} &amp; \begin{array}{l} \\ \end{array} &amp; \begin{array}{l} \\ \end{array} &amp; \begin{array}{l} \\ ({x}^{2}-1)=0\end{array} &amp; \begin{array}{l} \\ \end{array} &amp; \begin{array}{l} \\ \end{array} &amp; \begin{array}{l} \\ \end{array} &amp; \begin{array}{l} \\ ({x}^{2}-2)=0\end{array} \\ {x}^{2}=0 &amp; &amp; \text{or} &amp; &amp; \,{x}^{2}=1 &amp; &amp; \text{or} &amp; &amp; \,\,{x}^{2}=2 \\ \,x=0 &amp; &amp; &amp; &amp; \,x=\pm 1 &amp; &amp; &amp; &amp; \,\,x=\pm \sqrt{2}\end{array}\]</p>
+<p>This gives us five \(x\text{-}\) intercepts: \((0,0),(1,0),(-1,0),(\sqrt{2},0),\) and \((-\sqrt{2},0).\) See <a href="#fig3">Figure 3</a>. We can see that this is an even function.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_003-acfc.jpg" alt="Four graphs where the first graph is of an even-degree polynomial, the second graph is of an absolute function, the third graph is an odd-degree polynomial, and the fourth graph is a disjoint function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Find the \(x\text{-}\) intercepts of \(\,f(x)={x}^{3}-5{x}^{2}-x+5.\)</p>
+</div><p class="sol-hint">Group the first two terms and the last two terms, then factor out the common binomial.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Find solutions for \(\,f(x)=0\,\) by factoring.<br></p>
+<p id="eq4">\[\begin{array}{ll}\begin{array}{l} \\ \,{x}^{3}-5{x}^{2}-x+5=0\end{array} &amp; \begin{array}{l} \\ \text{Factor by grouping}.\end{array} \\ \,{x}^{2}(x-5)-(x-5)=0 &amp; \text{Factor out the common factor}. \\ \,({x}^{2}-1)(x-5)=0 &amp; \text{Factor the difference of squares}. \\ (x+1)(x-1)(x-5)=0 &amp; \text{Set each factor equal to zero}.\end{array}\]</p>
+<p id="eq5">\[\begin{array}{lllll}x+1=0 &amp; \text{or} &amp; x-1=0 &amp; \text{or} &amp; x-5=0 \\ \,\,\,\,\,\,\,\,x=-1 &amp; &amp; \,\,\,\,\,\,\,\,x=1 &amp; &amp; \,\,\,\,\,\,\,\,\,x=5\end{array}\]</p>
+<p>There are three \(x\text{-}\) intercepts: \((-1,0),(1,0),\) and \(\,(5,0).\,\) See <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_004.jpg" alt="Graph of f(x)=x^6-3x^4+2x^2 with its five intercepts, (-sqrt(2), 0), (-1, 0), (0, 0), (1, 0), and (sqrt(2), 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Find the \(y\text{-}\) and <strong>x</strong>-intercepts of \(\,g(x)={(x-2)}^{2}(2x+3).\)</p>
+</div><p class="sol-hint">Evaluate at \(x=0\) for the y-intercept, then set each factor equal to zero for the x-intercepts.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The <strong>y</strong>-intercept can be found by evaluating \(\,g(0).\)</p>
+<p id="eq6">\[\,\,\,\,\,\,\,\begin{array}{l}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,g(0)={(0-2)}^{2}(2(0)+3) \\ =12\end{array}\]</p>
+<p>So the <strong>y</strong>-intercept is \((0,12).\)</p>
+<p>The <strong>x</strong>-intercepts can be found by solving \(\,g(x)=0.\)</p>
+<p id="eq7">\[{(x-2)}^{2}(2x+3)=0\]</p>
+<p id="eq8">\[\begin{array}{lllll}{(x-2)}^{2}=0 &amp; &amp; &amp; &amp; (2x+3)=0 \\ \,x-2=0 &amp; &amp; \text{or} &amp; &amp; \,x=-\frac{3}{2} \\ \,x=2 &amp; &amp; &amp; &amp; \end{array}\]</p>
+<p>So the \(x\text{-}\) intercepts are \((2,0)\) and \((-\frac{3}{2},0).\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can always check that our answers are reasonable by using a graphing calculator to graph the polynomial as shown in <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_005.jpg" alt="Graph of f(x)=x^3-5x^2-x+5 with its three intercepts (-1, 0), (1, 0), and (5, 0)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+</div></div></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Find the \(x\text{-}\) intercepts of \(\,h(x)={x}^{3}+4{x}^{2}+x-6.\)</p>
+</div><p class="sol-hint">Read the approximate zeros off the graph, then confirm each one by substituting it back into the function.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This polynomial is not in factored form, has no common factors, and does not appear to be factorable using techniques previously discussed. Fortunately, we can use technology to find the intercepts. Keep in mind that some values make graphing difficult by hand. In these cases, we can take advantage of graphing utilities.</p>
+<p>Looking at the graph of this function, as shown in <a href="#fig6">Figure 6</a>, it appears that there are <strong>x</strong>-intercepts at \(x=-3,-2,\) and \(\,1.\)</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_006.jpg" alt="Graph of g(x)=(x-2)^2(2x+3) with its two x-intercepts (2, 0) and (-3/2, 0) and its y-intercept (0, 12)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+<p>We can check whether these are correct by substituting these values for \(x\) and verifying that</p>
+<p id="eq9">\[h(-3)=h(-2)=h(1)=0.\]</p>
+<p>Since \(\,h(x)={x}^{3}+4{x}^{2}+x-6,\,\) we have:</p>
+<p id="eq10">\[\begin{array}{l}h(-3)={(-3)}^{3}+4{(-3)}^{2}+(-3)-6=-27+36-3-6=0 \\ h(-2)={(-2)}^{3}+4{(-2)}^{2}+(-2)-6=-8+16-2-6=0 \\ \,h(1)={(1)}^{3}+4{(1)}^{2}+(1)-6=1+4+1-6=0\end{array}\]</p>
+<p>Each \(x\text{-}\) intercept corresponds to a zero of the polynomial function and each zero yields a factor, so we can now write the polynomial in factored form.</p>
+<p id="eq11">\[\begin{array}{l}h(x)={x}^{3}+4{x}^{2}+x-6 \\ \,=(x+3)(x+2)(x-1)\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Find the \(y\text{-}\) and <strong>x</strong>-intercepts of the function \(\,f(x)={x}^{4}-19{x}^{2}+30x.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p><strong>y</strong>-intercept \((0,0);\) <strong>x</strong>-intercepts \((0,0),(-5,0),(2,0),\) and \((3,0)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="identifying-zeros-and-their-multiplicities">Identifying Zeros and Their Multiplicities</h2>
+<p>Graphs behave differently at various \(x\text{-}\) intercepts. Sometimes, the graph will cross over the horizontal axis at an intercept. Other times, the graph will touch the horizontal axis and bounce off.</p>
+<p>Suppose, for example, we graph the function</p>
+<p id="eq12">\[f(x)=(x+3){(x-2)}^{2}{(x+1)}^{3}.\]</p>
+<p>Notice in <a href="#fig7">Figure 7</a> that the behavior of the function at each of the \(x\text{-}\) intercepts is different.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_007-ce92.jpg" alt="Graph of h(x)=x^3+4x^2+x-6." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — Identifying the behavior of the graph at an <strong>x</strong>-intercept by examining the multiplicity of the zero.</figcaption></figure>
+<p>The \(x\text{-}\) intercept \(\,-3\,\) is the solution of equation \(\,(x+3)=0.\,\) The graph passes directly through the \(x\text{-}\) intercept at \(x=-3.\) The factor is linear (has a degree of 1), so the behavior near the intercept is like that of a line—it passes directly through the intercept. We call this a single zero because the zero corresponds to a single factor of the function.</p>
+<p>The \(x\text{-}\) intercept \(\,2\,\,\) is the repeated solution of equation \(\,{(x-2)}^{2}=0.\,\) The graph touches the axis at the intercept and changes direction. The factor is quadratic (degree 2), so the behavior near the intercept is like that of a quadratic—it bounces off of the horizontal axis at the intercept.</p>
+<p id="eq13">\[{(x-2)}^{2}=(x-2)(x-2)\]</p>
+<p>The factor is repeated, that is, the factor \(\,(x-2)\,\) appears twice. The number of times a given factor appears in the factored form of the equation of a polynomial is called the <strong>multiplicity</strong>. The zero associated with this factor, \(\,x=2,\,\) has multiplicity 2 because the factor \(\,(x-2)\,\) occurs twice.</p>
+<p>The \(x\text{-}\) intercept \(\,-1\,\) is the repeated solution of factor \(\,{(x+1)}^{3}=0.\,\) The graph passes through the axis at the intercept, but flattens out a bit first. This factor is cubic (degree 3), so the behavior near the intercept is like that of a cubic—with the same S-shape near the intercept as the toolkit function \(\,f(x)={x}^{3}.\,\) We call this a triple zero, or a zero with multiplicity 3.</p>
+<p>For <strong>zeros</strong> with even multiplicities, the graphs <strong>touch</strong> or are tangent to the \(x\text{-}\) axis. For zeros with odd multiplicities, the graphs <strong>cross</strong> or intersect the \(x\text{-}\) axis. See <a href="#fig8">Figure 8</a> for examples of graphs of polynomial functions with multiplicity 1, 2, and 3.</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_008_fixed.jpg" alt="Graph of f(x)=(x+3)(x-2)^2(x+1)^3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+<p>For higher even powers, such as 4, 6, and 8, the graph will still touch and bounce off of the horizontal axis but, for each increasing even power, the graph will appear flatter as it approaches and leaves the \(x\text{-}\) axis.</p>
+<p>For higher odd powers, such as 5, 7, and 9, the graph will still cross through the horizontal axis, but for each increasing odd power, the graph will appear flatter as it approaches and leaves the \(x\text{-}\) axis.</p>
+<div class="card definition" id="fs-id1165135620829"><span class="chip">Graphical Behavior of Polynomials at \(x\text{-}\) Intercepts</span><p>If a polynomial contains a factor of the form \(\,{(x-h)}^{p},\,\) the behavior near the \(x\text{-}\) intercept \(\,h\,\) is determined by the power \(\,p.\,\) We say that \(\,x=h\,\) is a zero of <strong>multiplicity</strong> \(\,p.\)</p>
+<p>The graph of a polynomial function will touch the \(x\text{-}\) axis at zeros with even multiplicities. The graph will cross the <strong>x</strong>-axis at zeros with odd multiplicities.</p>
+<p>The sum of the multiplicities is the degree of the polynomial function.</p>
+</div>
+<div class="card howto" id="fs-id1165135195409"><span class="chip">How To</span><p><strong>Given a graph of a polynomial function of degree</strong> \(\,n,\,\) <strong>identify the zeros and their multiplicities.</strong></p>
+<ul class="tight"><li>If the graph crosses the <strong>x</strong>-axis and appears almost linear at the intercept, it is a single zero.</li><li>If the graph touches the <strong>x</strong>-axis and bounces off of the axis, it is a zero with even multiplicity.</li><li>If the graph crosses the <strong>x</strong>-axis at a zero, it is a zero with odd multiplicity.</li><li>The sum of the multiplicities is \(\,\le n.\)</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Use the graph of the function of degree 6 in <a href="#fig9">Figure 9</a> to identify the zeros of the function and their possible multiplicities.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_009.jpg" alt="Three graphs showing three different polynomial functions with multiplicity 1, 2, and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+</div><p class="sol-hint">Look at whether the graph touches or crosses at each zero, and remember the multiplicities must add up to the degree.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The polynomial function is of degree \(\,n.\,\) The sum of the multiplicities must be \(\,n.\)</p>
+<p>Starting from the left, the first zero occurs at \(\,x=-3.\,\) The graph touches the <strong>x</strong>-axis, so the multiplicity of the zero must be even. The zero of \(\,-3\,\) has multiplicity \(\,2.\)</p>
+<p>The next zero occurs at \(\,x=-1.\,\) The graph looks almost linear at this point. This is a single zero of multiplicity 1.</p>
+<p>The last zero occurs at \(\,x=4.\,\) The graph crosses the<strong>x</strong>-axis, so the multiplicity of the zero must be odd. We know that the multiplicity is likely 3 and that the sum of the multiplicities is likely 6.</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Use the graph of the function of degree 9 in <a href="#fig10">Figure 10</a> to identify the zeros of the function and their multiplicities.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_010-2698.jpg" alt="Graph of an even-degree polynomial with degree 6." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The graph has a zero of –5 with multiplicity 3, a zero of –1 with multiplicity 2, and a zero of 3 with multiplicity 2.</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="determining-end-behavior">Determining End Behavior</h2>
+<p>As we have already learned, the behavior of a graph of a <strong>polynomial function</strong> of the form</p>
+<p id="eq14">\[f(x)={a}_{n}{x}^{n}+{a}_{n-1}{x}^{n-1}+...+{a}_{1}x+{a}_{0}\]</p>
+<p>will either ultimately rise or fall as \(\,x\,\) increases without bound and will either rise or fall as \(\,x\,\) decreases without bound. This is because for very large inputs, say 100 or 1,000, the leading term dominates the size of the output. The same is true for very small inputs, say –100 or –1,000.</p>
+<p>Recall that we call this behavior the <strong>end behavior</strong> of a function. As we pointed out when discussing quadratic equations, when the leading term of a polynomial function, \({a}_{n}{x}^{n},\) is an even power function, as \(x\) increases or decreases without bound, \(f(x)\) increases without bound. When the leading term is an odd power function, as \(x\) decreases without bound, \(f(x)\) also decreases without bound; as \(x\) increases without bound, \(f(x)\) also increases without bound. If the leading term is negative, it will change the direction of the end behavior. <a href="#fig11">Figure 11</a> summarizes all four cases.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_011abcdn.jpg" alt="Graph of a polynomial function with degree 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11</figcaption></figure>
+<h2 id="understanding-the-relationship-between-degree-and-turning-points">Understanding the Relationship between Degree and Turning Points</h2>
+<p>In addition to the end behavior, recall that we can analyze a polynomial function’s local behavior. It may have a turning point where the graph changes from increasing to decreasing (rising to falling) or decreasing to increasing (falling to rising). Look at the graph of the polynomial function \(f(x)={x}^{4}-{x}^{3}-4{x}^{2}+4x\) in <a href="#fig12">Figure 12</a>. The graph has three turning points.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_015-432f.jpg" alt="Graph of an odd-degree polynomial with a negative leading coefficient. Note that as x goes to positive infinity, f(x) goes to negative infinity, and as x goes to negative infinity, f(x) goes to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+<p>This function \(f\) is a 4<sup>th</sup> degree polynomial function and has 3 turning points. The maximum number of turning points of a polynomial function is always one less than the degree of the function.</p>
+<div class="card definition" id="fs-id1165135502799"><span class="chip">Interpreting Turning Points</span><p>A <strong>turning point</strong> is a point of the graph where the graph changes from increasing to decreasing (rising to falling) or decreasing to increasing (falling to rising).</p>
+<p>A polynomial of degree \(n\) will have at most \(n-1\) turning points.</p>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Find the maximum number of turning points of each polynomial function.</p>
+<ul class="tight"><li>ⓐ \(f(x)=-{x}^{3}+4{x}^{5}-3{x}^{2}+1\)</li><li>ⓑ \(f(x)=-{(x-1)}^{2}(1+2{x}^{2})\)</li></ul>
+</div><p class="sol-hint">Find the degree of each polynomial (expand if needed) — the maximum turning points is always one less than that.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ \(f(x)=-x+34{x}^{5}-3{x}^{2}+1\) First, rewrite the polynomial function in descending order: \(f(x)=4{x}^{5}-{x}^{3}-3{x}^{2}+1\)Identify the degree of the polynomial function. This polynomial function is of degree 5. The maximum number of turning points is \(5-1=4.\)<p>First, rewrite the polynomial function in descending order: \(f(x)=4{x}^{5}-{x}^{3}-3{x}^{2}+1\)</p>
+<p>Identify the degree of the polynomial function. This polynomial function is of degree 5.</p>
+<p>The maximum number of turning points is \(5-1=4.\)</p>
+</li><li>ⓑ \(f(x)=-{(x-1)}^{2}(1+2{x}^{2})\)</li></ul>
+<p>First, identify the leading term of the polynomial function if the function were expanded.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_016.jpg" alt="Graph of f(x)=x^4-x^3-4x^2+4x which denotes where the function increases and decreases and its turning points." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>Then, identify the degree of the polynomial function. This polynomial function is of degree 4.</p>
+<p>The maximum number of turning points is \(4-1=3.\)</p>
+</div></div></div>
+<h2 id="graphing-polynomial-functions">Graphing Polynomial Functions</h2>
+<p>We can use what we have learned about multiplicities, end behavior, and turning points to sketch graphs of polynomial functions. Let us put this all together and look at the steps required to graph polynomial functions.</p>
+<div class="card howto" id="fs-id1165137843101"><span class="chip">How To</span><p><strong>Given a polynomial function, sketch the graph.</strong></p>
+<ul class="tight"><li>Find the intercepts.</li><li>Check for symmetry. If the function is an even function, its graph is symmetrical about the \(y\text{-}\) axis, that is, \(f(-x)=f(x).\) If a function is an odd function, its graph is symmetrical about the origin, that is, \(f(-x)=-f(x).\)</li><li>Use the multiplicities of the zeros to determine the behavior of the polynomial at the \(x\text{-}\) intercepts.</li><li>Determine the end behavior by examining the leading term.</li><li>Use the end behavior and the behavior at the intercepts to sketch a graph.</li><li>Ensure that the number of turning points does not exceed one less than the degree of the polynomial.</li><li>Optionally, use technology to check the graph.</li></ul>
+</div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Sketch a graph of \(f(x)=-2{(x+3)}^{2}(x-5).\)</p>
+</div><p class="sol-hint">Use the multiplicity of each factor to see whether the graph bounces or crosses, then combine that with the end behavior from the leading term.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This graph has two \(x\text{-}\) intercepts. At \(x=-3,\) the factor is squared, indicating a multiplicity of 2. The graph will bounce at this \(x\text{-}\) intercept. At \(x=5,\) the function has a multiplicity of one, indicating the graph will cross through the axis at this intercept.</p>
+<p>The <strong>y</strong>-intercept is found by evaluating \(f(0).\)</p>
+<p id="eq15">\[\begin{array}{l} \\ f(0)=-2{(0+3)}^{2}(0-5) \\ \,=-2\cdot 9\cdot (-5) \\ \,=90\end{array}\]</p>
+<p>The \(y\text{-}\) intercept is \((0,90).\)</p>
+<p>Additionally, we can see the leading term, if this polynomial were multiplied out, would be \(-2{x}^{3},\) so the end behavior is that of a vertically reflected cubic, with the outputs decreasing as the inputs approach infinity, and the outputs increasing as the inputs approach negative infinity. See <a href="#fig13">Figure 13</a>.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_017.jpg" alt="Showing the distribution for the leading term." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+<p>To sketch this, we consider that:</p>
+<ul class="tight"><li>As \(x\to -\infty\) the function \(f(x)\to \infty ,\) so we know the graph starts in the second quadrant and is decreasing toward the \(x\text{-}\) axis.</li><li>Since \(f(-x)=-2{(-x+3)}^{2}(-x-5)\) is not equal to \(f(x),\) the graph does not display symmetry.</li><li>At \((-3,0),\) the graph bounces off of the \(x\text{-}\) axis, so the function must start increasing.At \((0,90),\) the graph crosses the \(y\text{-}\) axis at the \(y\text{-}\) intercept. See <a href="#fig14">Figure 14</a>.<p>At \((0,90),\) the graph crosses the \(y\text{-}\) axis at the \(y\text{-}\) intercept. See <a href="#fig14">Figure 14</a>.</p>
+</li></ul>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_018.jpg" alt="Graph of the end behavior and intercepts, (-3, 0) and (0, 90), for the function f(x)=-2(x+3)^2(x-5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14</figcaption></figure>
+<p>Somewhere after this point, the graph must turn back down or start decreasing toward the horizontal axis because the graph passes through the next intercept at \((5,0).\) See <a href="#fig15">Figure 15</a>.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_019.jpg" alt="Graph of the end behavior and intercepts, (-3, 0), (0, 90) and (5, 0), for the function f(x)=-2(x+3)^2(x-5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+<p>As \(x\to \infty\) the function \(f(x)\to -\infty ,\) so we know the graph continues to decrease, and we can stop drawing the graph in the fourth quadrant.</p>
+<p>Using technology, we can create the graph for the polynomial function, shown in <a href="#fig16">Figure 16</a>, and verify that the resulting graph looks like our sketch in <a href="#fig15">Figure 15</a>.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_020.jpg" alt="Graph of f(x)=-2(x+3)^2(x-5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16 — The complete graph of the polynomial function \(f(x)=-2{(x+3)}^{2}(x-5)\)</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Sketch a graph of \(f(x)=\frac{1}{4}x{(x-1)}^{4}{(x+3)}^{3}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_021.jpg" alt="Graph of f(x)=(1/4)x(x-1)^4(x+3)^3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-the-intermediate-value-theorem">Using the Intermediate Value Theorem</h2>
+<p>In some situations, we may know two points on a graph but not the zeros. If those two points are on opposite sides of the <strong>x</strong>-axis, we can confirm that there is a zero between them. Consider a polynomial function \(f\) whose graph is smooth and continuous. The <strong>Intermediate Value Theorem</strong> states that for two numbers \(a\) and \(b\) in the domain of \(f,\) if \(a&lt;b\) and \(f(a)\ne f(b),\) then the function \(f\) takes on every value between \(f(a)\) and \(f(b).\) We can apply this theorem to a special case that is useful in graphing polynomial functions. If a point on the graph of a continuous function \(f\) at \(x=a\) lies above the \(x\text{-}\) axis and another point at \(x=b\) lies below the \(x\text{-}\) axis, there must exist a third point between \(x=a\) and \(x=b\) where the graph crosses the \(x\text{-}\) axis. Call this point \((c,\,f(c)).\) This means that we are assured there is a solution \(c\) where \(f(c)=0.\)</p>
+<p>In other words, the Intermediate Value Theorem tells us that when a polynomial function changes from a negative value to a positive value, the function must cross the \(x\text{-}\) axis. <a href="#fig17">Figure 17</a> shows that there is a zero between \(a\) and \(b.\)</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_022.jpg" alt="Graph of an odd-degree polynomial function that shows a point f(a) that’s negative, f(b) that’s positive, and f(c) that’s 0." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17 — Using the Intermediate Value Theorem to show there exists a zero.</figcaption></figure>
+<div class="card definition" id="fs-id1165135347510"><span class="chip">Use of the Intermediate Value Theorem</span><p>Let \(f\) be a polynomial function over an interval [<strong>a</strong>, <strong>b</strong>]. Bolzano's Theorem (a corollary to the <strong>Intermediate Value Theorem</strong>) states that if \(f(a)\) and \(f(b)\) have opposite signs, then there exists at least one value \(c\) between \(a\) and \(b\) for which \(f(c)=0.\)</p>
+</div>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Show that the function \(f(x)={x}^{3}-5{x}^{2}+3x+6\) has at least two real zeros between \(x=1\) and \(x=4.\)</p>
+</div><p class="sol-hint">Evaluate the function at each integer in the interval and look for sign changes.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>As a start, evaluate \(f(x)\) at the integer values \(x=1,2,3,\text{and}4.\) See <a href="#tab2">Table 2</a>.</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td><strong>\(x\)</strong></td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td><strong>\(f(x)\)</strong></td><td>5</td><td>0</td><td>–3</td><td>2</td></tr></tbody></table></div>
+<p>We see that one zero occurs at \(x=2.\) Also, since \(f(3)\) is negative and \(f(4)\) is positive, by the Intermediate Value Theorem, there must be at least one real zero between 3 and 4.</p>
+<p>We have shown that there are at least two real zeros between \(x=1\) and \(x=4.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>We can also see on the graph of the function in <a href="#fig18">Figure 18</a> that there are two real zeros between \(x=1\) and \(x=4.\)</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_023.jpg" alt="Graph of f(x)=x^3-5x^2+3x+6 and shows, by the Intermediate Value Theorem, that there exists two zeros since f(1)=5  and f(4)=2 are positive and f(3) = -3 is negative." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Show that the function \(f(x)=7{x}^{5}-9{x}^{4}-{x}^{2}\) has at least one real zero between \(x=1\) and \(x=2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>Because \(f\) is a polynomial function and since \(f(1)\,\) is negative and \(f(2)\) is positive, there is at least one real zero between \(x=1\) and \(x=2.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="writing-formulas-for-polynomial-functions">Writing Formulas for Polynomial Functions</h3>
+<p>Now that we know how to find zeros of polynomial functions, we can use them to write formulas based on graphs. Because a <strong>polynomial function</strong> written in factored form will have an \(x\text{-}\) intercept where each factor is equal to zero, we can form a function that will pass through a set of \(x\text{-}\) intercepts by introducing a corresponding set of factors.</p>
+<div class="card definition" id="fs-id1165133320785"><span class="chip">Factored Form of Polynomials</span><p>If a polynomial of degree \(p\) that can be factored into strictly linear factors has horizontal intercepts at \(x={x}_{1},{x}_{2},…,{x}_{n},\) then the polynomial can be written in the factored form: \(f(x)=a{(x-{x}_{1})}^{{p}_{1}}{(x-{x}_{2})}^{{p}_{2}}\cdots {(x-{x}_{n})}^{{p}_{n}}\) where the powers \({p}_{i}\) on each factor can be determined by the behavior of the graph at the corresponding intercept, and the stretch factor \(a\) can be determined given a value of the function other than the <strong>x</strong>-intercept.</p>
+</div>
+<div class="card howto" id="fs-id1165135580289"><span class="chip">How To</span><p><strong>Given a graph of a polynomial function, write a formula for the function.</strong></p>
+<ul class="tight"><li>Identify the <strong>x</strong>-intercepts of the graph to find the factors of the polynomial.</li><li>Examine the behavior of the graph at the <strong>x</strong>-intercepts to determine the multiplicity of each factor.</li><li>Find the polynomial of least degree containing all the factors found in the previous step.</li><li>Use any other point on the graph (the <strong>y</strong>-intercept may be easiest) to determine the stretch factor.</li></ul>
+</div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Write a formula for the polynomial function shown in <a href="#fig19">Figure 19</a>.</p>
+<figure class="plot" id="fig19"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_024.jpg" alt="Graph of a positive even-degree polynomial with zeros at x=-3, 2, 5 and y=-2." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 19</figcaption></figure>
+</div><p class="sol-hint">Turn each x-intercept into a factor (using its bounce/cross behavior for the exponent), then use the y-intercept to solve for the stretch factor.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This graph has three \(x\text{-}\) intercepts: \(x=-3,2,\) and \(5.\) The \(y\text{-}\) intercept is located at \((0,-2).\) At \(x=-3\) and \(x=5,\) the graph passes through the axis linearly, suggesting the corresponding factors of the polynomial will be linear. At \(x=2,\) the graph bounces at the intercept, suggesting the corresponding factor of the polynomial will be second degree (quadratic). Together, this gives us</p>
+<p id="eq16">\[f(x)=a(x+3){(x-2)}^{2}(x-5)\]</p>
+<p>To determine the stretch factor, we utilize another point on the graph. We will use the \(y\text{-}\) intercept \((0,-2),\) to solve for \(a.\)</p>
+<p id="eq17">\[\begin{array}{l}f(0)=a(0+3){(0-2)}^{2}(0-5) \\ \,-2=a(0+3){(0-2)}^{2}(0-5) \\ \,-2=-60a \\ \,a=\frac{1}{30}\end{array}\]</p>
+<p>The graphed polynomial appears to represent the function \(f(x)=\frac{1}{30}(x+3){(x-2)}^{2}(x-5).\)</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Given the graph shown in <a href="#fig20">Figure 20</a>, write a formula for the function shown.</p>
+<figure class="plot" id="fig20"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_025.jpg" alt="Graph of a negative even-degree polynomial with zeros at x=-1, 2, 4 and y=-4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 20</figcaption></figure>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(f(x)=-\frac{1}{8}{(x-2)}^{3}{(x+1)}^{2}(x-4)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="using-local-and-global-extrema">Using Local and Global Extrema</h3>
+<p>With quadratics, we were able to algebraically find the maximum or minimum value of the function by finding the vertex. For general polynomials, finding these turning points is not possible without more advanced techniques from calculus. Even then, finding where extrema occur can still be algebraically challenging. For now, we will estimate the locations of turning points using technology to generate a graph.</p>
+<p>Each turning point represents a local minimum or maximum. Sometimes, a turning point is the highest or lowest point on the entire graph. In these cases, we say that the turning point is a <strong>global maximum</strong>or a <strong>global minimum</strong>. These are also referred to as the absolute maximum and absolute minimum values of the function.</p>
+<div class="card definition" id="fs-id1165133248530"><span class="chip">Local and Global Extrema</span><p>A <strong>local maximum</strong> or <strong>local minimum</strong> at \(x=a\) (sometimes called the relative maximum or minimum, respectively) is the output at the highest or lowest point on the graph in an open interval around \(x=a.\) If a function has a local maximum at \(a,\) then \(f(a)\ge f(x)\) for all \(x\) in an open interval around \(x=a.\) If a function has a local minimum at \(a,\) then \(f(a)\le f(x)\) for all \(x\) in an open interval around \(x=a.\)</p>
+<p>A <strong>global maximum</strong> or <strong>global minimum</strong> is the output at the highest or lowest point of the function. If a function has a global maximum at \(a,\) then \(f(a)\ge f(x)\) for all \(x.\) If a function has a global minimum at \(a,\) then \(f(a)\le f(x)\) for all \(x.\)</p>
+<p>We can see the difference between local and global extrema in <a href="#fig21">Figure 21</a>.</p>
+<figure class="plot" id="fig21"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_026n.png" alt="Graph of an even-degree polynomial that denotes the local maximum and minimum and the global maximum." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 21</figcaption></figure>
+</div>
+<div class="card qa" id="fs-id1165135347671"><span class="chip">Q&amp;A</span><p><strong>Do all polynomial functions have a global minimum or maximum?</strong></p>
+<p><strong>No. Only polynomial functions of even degree have a global minimum or maximum. For example, \(f(x)=x\) has neither a global maximum nor a global minimum.</strong></p>
+</div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>An open-top box is to be constructed by cutting out squares from each corner of a 14 cm by 20 cm sheet of plastic then folding up the sides. Find the size of squares that should be cut out to maximize the volume enclosed by the box.</p>
+</div><p class="sol-hint">Write the volume as a product of the box's three dimensions in terms of the cut size, restrict to a reasonable domain, then use the graph to estimate the maximum.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will start this problem by drawing a picture like that in <a href="#fig22">Figure 22</a>, labeling the width of the cut-out squares with a variable, \(w.\)</p>
+<figure class="plot" id="fig22"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_027.jpg" alt="Diagram of a rectangle with four squares at the corners." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 22</figcaption></figure>
+<p>Notice that after a square is cut out from each end, it leaves a \((14-2w)\) cm by \((20-2w)\) cm rectangle for the base of the box, and the box will be \(w\) cm tall. This gives the volume</p>
+<p id="eq18">\[\begin{array}{l}V(w)=(20-2w)(14-2w)w \\ \,=280w-68{w}^{2}+4{w}^{3}\end{array}\]</p>
+<p>Notice, since the factors are \(w,\) \(20-2w\) and \(14-2w,\) the three zeros are 10, 7, and 0, respectively. Because a height of 0 cm is not reasonable, we consider the only the zeros 10 and 7. The shortest side is 14 and we are cutting off two squares, so values \(w\) may take on are greater than zero or less than 7. This means we will restrict the domain of this function to \(0&lt;w&lt;7.\) Using technology to sketch the graph of \(V(w)\) on this reasonable domain, we get a graph like that in <a href="#fig23">Figure 23</a>. We can use this graph to estimate the maximum value for the volume, restricted to values for \(w\) that are reasonable for this problem—values from 0 to 7.</p>
+<figure class="plot" id="fig23"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_028.jpg" alt="Graph of V(w)=(20-2w)(14-2w)w where the x-axis is labeled w and the y-axis is labeled V(w)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 23</figcaption></figure>
+<p>From this graph, we turn our focus to only the portion on the reasonable domain, \([0,\,7].\) We can estimate the maximum value to be around 340 cubic cm, which occurs when the squares are about 2.75 cm on each side. To improve this estimate, we could use advanced features of our technology, if available, or simply change our window to zoom in on our graph to produce <a href="#fig24">Figure 24</a>.</p>
+<figure class="plot" id="fig24"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_029.jpg" alt="Graph of V(w)=(20-2w)(14-2w)w where the x-axis is labeled w and the y-axis is labeled V(w) on the domain [2.4, 3]." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 24</figcaption></figure>
+<p>From this zoomed-in view, we can refine our estimate for the maximum volume to about 339 cubic cm, when the squares measure approximately 2.7 cm on each side.</p>
+</div></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Use technology to find the maximum and minimum values on the interval \([-1,4]\) of the function \(f(x)=-0.2{(x-2)}^{3}{(x+1)}^{2}(x-4).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The minimum occurs at approximately the point \((0,-6.5),\) and the maximum occurs at approximately the point \((3.5,7).\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165132947398"><span class="chip">Media</span><p>Access the following online resource for additional instruction and practice with graphing polynomial functions.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/ivt" target="_blank" rel="noopener">Intermediate Value Theorem</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>Polynomial functions of degree 2 or more are smooth, continuous functions. See <a href="#example1">Example 1</a>.</li><li>To find the zeros of a polynomial function, if it can be factored, factor the function and set each factor equal to zero. See <a href="#example2">Example 2</a><strong>,</strong><a href="#example3">Example 3</a><strong>,</strong>and <a href="#example4">Example 4</a>.</li><li>Another way to find the \(x\text{-}\) intercepts of a polynomial function is to graph the function and identify the points at which the graph crosses the \(x\text{-}\) axis. See <a href="#example5">Example 5</a><strong>.</strong></li><li>The multiplicity of a zero determines how the graph behaves at the \(x\text{-}\) intercepts. See <a href="#example6">Example 6</a><strong>.</strong></li><li>The graph of a polynomial will cross the horizontal axis at a zero with odd multiplicity.</li><li>The graph of a polynomial will touch the horizontal axis at a zero with even multiplicity.</li><li>The end behavior of a polynomial function depends on the leading term.</li><li>The graph of a polynomial function changes direction at its turning points.</li><li>A polynomial function of degree \(n\) has at most \(n-1\) turning points. See <a href="#example7">Example 7</a><strong>.</strong></li><li>To graph polynomial functions, find the zeros and their multiplicities, determine the end behavior, and ensure that the final graph has at most \(n-1\) turning points. See <a href="#example8">Example 8</a> and <a href="#example10">Example 10</a><strong>.</strong></li><li>Graphing a polynomial function helps to estimate local and global extremas. See <a href="#example11">Example 11</a><strong>.</strong></li><li>The Intermediate Value Theorem tells us that if \(f(a)\,\text{and}\,f(b)\) have opposite signs, then there exists at least one value \(c\) between \(a\) and \(b\) for which \(f(c)=0.\) See <a href="#example9">Example 9</a><strong>.</strong></li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>What is the difference between an \(x\text{-}\) intercept and a zero of a polynomial function \(f?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The \(x\text{-}\) intercept is where the graph of the function crosses the \(x\text{-}\) axis, and the zero of the function is the input value for which \(f(x)=0.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>If a polynomial function of degree \(n\) has \(n\) distinct zeros, what do you know about the graph of the function?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Explain how the Intermediate Value Theorem can assist us in finding a zero of a function.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>If we evaluate the function at \(a\) and at \(b\) and the sign of the function value changes, then we know a zero exists between \(a\) and \(b.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Explain how the factored form of the polynomial helps us in graphing it.</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>If the graph of a polynomial just touches the \(x\text{-}\) axis and then changes direction, what can we conclude about the factored form of the polynomial?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>There will be a factor raised to an even power.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, find the \(x\text{-}\) or <strong>t</strong>-intercepts of the polynomial functions.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(C(t)=2(t-4)(t+1)(t-6)\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(C(t)=3(t+2)(t-3)(t+5)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-2,0),(3,0),(-5,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(C(t)=4t{(t-2)}^{2}(t+1)\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(C(t)=2t(t-3){(t+1)}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((3,0),(-1,0),(0,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(C(t)=2{t}^{4}-8{t}^{3}+6{t}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(C(t)=4{t}^{4}+12{t}^{3}-40{t}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,0),\,(-5,0),\,(2,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(f(x)={x}^{4}-{x}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(f(x)={x}^{3}+{x}^{2}-20x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,0),\,(-5,0),\,(4,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(f(x)={x}^{3}+6{x}^{2}-7x\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(f(x)={x}^{3}+{x}^{2}-4x-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((2,0),\,(-2,0),\,(-1,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(f(x)={x}^{3}+2{x}^{2}-9x-18\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x)=2{x}^{3}-{x}^{2}-8x+4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-2,0),\,(2,0),\,(\frac{1}{2},0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(f(x)={x}^{6}-7{x}^{3}-8\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(f(x)=2{x}^{4}+6{x}^{2}-8\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((1,0),\,(-1,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(f(x)={x}^{3}-3{x}^{2}-x+3\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(f(x)={x}^{6}-2{x}^{4}-3{x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,0),\,(\sqrt{3},0),\,(-\sqrt{3},0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(f(x)={x}^{6}-3{x}^{4}-4{x}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(f(x)={x}^{5}-5{x}^{3}+4x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((0,0)\) , \((1,0)\) , \((-1,0)\) , \((2,0)\) , \((-2,0)\)</p>
+</div></div></div></div>
+<p>For the following exercises, use the Intermediate Value Theorem to confirm that the given polynomial has at least one zero within the given interval.</p>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(f(x)={x}^{3}-9x,\) between \(x=-4\) and \(x=-2.\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(f(x)={x}^{3}-9x,\) between \(x=2\) and \(x=4.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(2)=-10\) and \(f(4)=28.\) Sign change confirms.</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(f(x)={x}^{5}-2x,\) between \(x=1\) and \(x=2.\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(f(x)=-{x}^{4}+4,\) between \(x=1\) and \(x=3\) .</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(1)=3\) and \(f(3)=-77.\) Sign change confirms.</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(f(x)=-2{x}^{3}-x,\) between \(x=-1\) and \(x=1.\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(f(x)={x}^{3}-100x+2,\) between \(x=0.01\) and \(x=0.1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(0.01)=1.000001\) and \(f(0.1)=-7.999.\) Sign change confirms.</p>
+</div></div></div></div>
+<p>For the following exercises, find the zeros and give the multiplicity of each.</p>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(f(x)={(x+2)}^{3}{(x-3)}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(f(x)={x}^{2}{(2x+3)}^{5}{(x-4)}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0 with multiplicity 2, \(-\frac{3}{2}\) with multiplicity 5, 4 with multiplicity 2</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(f(x)={x}^{3}{(x-1)}^{3}(x+2)\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(f(x)={x}^{2}({x}^{2}+4x+4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>0 with multiplicity 2, –2 with multiplicity 2</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(f(x)={(2x+1)}^{3}(9{x}^{2}-6x+1)\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(f(x)={(3x+2)}^{5}({x}^{2}-10x+25)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-\frac{2}{3}\) with multiplicity \(5\text{,}\,5\) with multiplicity \(2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(f(x)=x(4{x}^{2}-12x+9)({x}^{2}+8x+16)\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(f(x)={x}^{6}-{x}^{5}-2{x}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\) with multiplicity \(4\text{,}\,2\) with multiplicity \(1\text{,}\,-1\) with multiplicity \(1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(f(x)=3{x}^{4}+6{x}^{3}+3{x}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(f(x)=4{x}^{5}-12{x}^{4}+9{x}^{3}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3}{2}\) with multiplicity 2, 0 with multiplicity 3</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(f(x)=2{x}^{4}({x}^{3}-4{x}^{2}+4x)\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(f(x)=4{x}^{4}(9{x}^{4}-12{x}^{3}+4{x}^{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(0\) with multiplicity \(6\text{,}\,\frac{2}{3}\) with multiplicity \(2\)</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, graph the polynomial functions. Note \(x\text{-}\) and \(y\text{-}\) intercepts, multiplicity, and end behavior.</p>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(f(x)={(x+3)}^{2}(x-2)\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(g(x)=(x+4){(x-1)}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>x</strong>-intercepts, \((1,\,0)\) with multiplicity 2, \((-4,\,0)\) with multiplicity 1, \(y\text{-}\) intercept \((0,\,4)\) . As \(x\to -\infty\) , \(g(x)\to -\infty\) , as \(x\to \infty\) , \(g(x)\to \infty\) .</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_202.jpg" alt="Graph of g(x)=(x+4)(x-1)^2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(h(x)={(x-1)}^{3}{(x+3)}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(k(x)={(x-3)}^{3}{(x-2)}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>x</strong>-intercepts \((3,0)\) with multiplicity 3, \((2,0)\) with multiplicity 2, \(y\text{-}\) intercept \((0,-108)\) . As \(x\to -\infty\) , \(k(x)\to -\infty\) , as \(x\to \infty\) , \(k(x)\to \infty .\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_204.jpg" alt="Graph of k(x)=(x-3)^3(x-2)^2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(m(x)=-2x(x-1)(x+3)\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(n(x)=-3x(x+2)(x-4)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p><strong>x</strong>-intercepts \((0,\,0),\,(-2,\,0),\,(4,\,0)\) with multiplicity 1, \(y\) -intercept \((0,\,0).\) As \(x\to -\infty\) , \(n(x)\to \infty\) , as \(x\to \infty\) , \(n(x)\to -\infty .\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_206.jpg" alt="Graph of n(x)=-3x(x+2)(x-4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, use the graphs to write the formula for a polynomial function of least degree.</p>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_03_04_207.jpg" alt="Graph of a positive odd-degree polynomial with zeros at x=-2, 1, and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_208.jpg" alt="Graph of a negative odd-degree polynomial with zeros at x=-3, 1, and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-\frac{2}{9}(x-3)(x+1)(x+3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_209.jpg" alt="Graph of a negative odd-degree polynomial with zeros at x=-1, and 2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_210.jpg" alt="Graph of a positive odd-degree polynomial with zeros at x=-2, and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\frac{1}{4}{(x+2)}^{2}(x-3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_211.jpg" alt="Graph of a negative even-degree polynomial with zeros at x=-3, -2, 3, and 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, use the graph to identify zeros and multiplicity.</p>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_212.jpg" alt="Graph of a negative even-degree polynomial with zeros at x=-4, -2, 1, and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>–4, –2, 1, 3 with multiplicity 1</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_213.jpg" alt="Graph of a positive even-degree polynomial with zeros at x=-4, -2, and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_214.jpg" alt="Graph of a positive even-degree polynomial with zeros at x=-2,, and 3." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>–2, 3 each with multiplicity 2</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_215.jpg" alt="Graph of a negative odd-degree polynomial with zeros at x=-3, -2, and 1." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, use the given information about the polynomial graph to write the equation.</p>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Degree 3. Zeros at \(x=-2,\) \(x=1,\) and \(x=3.\) <strong>y</strong>-intercept at \((0,-4).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-\frac{2}{3}(x+2)(x-1)(x-3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Degree 3. Zeros at \(x=\text{–5,}\) \(x=-2,\) and \(x=1.\) <strong>y</strong>-intercept at \((0,6)\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Degree 5. Roots of multiplicity 2 at \(x=3\) and \(x=1\) , and a root of multiplicity 1 at \(x=-3.\) <strong>y</strong>-intercept at \((0,9)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=\frac{1}{3}{(x-3)}^{2}{(x-1)}^{2}(x+3)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>Degree 4. Root of multiplicity 2 at \(x=4,\) and a roots of multiplicity 1 at \(x=1\) and \(x=-2.\) <strong>y</strong>-intercept at \((0,\text{–}3).\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>Degree 5. Double zero at \(x=1,\) and triple zero at \(x=3.\) Passes through the point \((2,15).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-15{(x-1)}^{2}{(x-3)}^{3}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>Degree 3. Zeros at \(x=4,\) \(x=3,\) and \(x=2.\) <strong>y</strong>-intercept at \((0,-24).\)</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>Degree 3. Zeros at \(x=-3,\) \(x=-2\) and \(x=1.\) <strong>y</strong>-intercept at \((0,12).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-2(x+3)(x+2)(x-1)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>Degree 5. Roots of multiplicity 2 at \(x=-3\) and \(x=2\) and a root of multiplicity 1 at \(x=-2.\)</p>
+<p><strong>y</strong>-intercept at \((0,4).\)</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>Degree 4. Roots of multiplicity 2 at \(x=\frac{1}{2}\) and roots of multiplicity 1 at \(x=6\) and \(x=-2.\)</p>
+<p><strong>y</strong>-intercept at \((0,18).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=-\frac{3}{2}{(2x-1)}^{2}(x-6)(x+2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>Double zero at \(x=-3\) and triple zero at \(x=0.\) Passes through the point \((1,32).\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, use a calculator to approximate local minima and maxima or the global minimum and maximum.</p>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>\(f(x)={x}^{3}-x-1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>local max \((-\text{.58, –}.62),\) local min \((\text{.58, –1}\text{.38})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>\(f(x)=2{x}^{3}-3x-1\)</p>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>\(f(x)={x}^{4}+x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>global min \((-\text{.63, –}\text{.47})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>\(f(x)=-{x}^{4}+3x-2\)</p>
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><p>\(f(x)={x}^{4}-{x}^{3}+1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>global min \(\text{(}\text{.75, }\text{.89)}\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, use the graphs to write a polynomial function of least degree.</p>
+<div class="exercise" id="ex72"><div class="n">72</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_216-111d.jpg" alt="Graph of a positive odd-degree polynomial with zeros at x = negative 2/3, 1/2, and 4/3 and y = 8." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex73"><div class="n">73</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_217.jpg" alt="Graph of a positive odd-degree polynomial with zeros at x=--200, and 500 and y=50000000." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)={(x-500)}^{2}(x+200)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex74"><div class="n">74</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_PreCalc_Figure_03_04_218.jpg" alt="Graph of a positive odd-degree polynomial with zeros at x=--300, and 100 and y=-90000." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<p>For the following exercises, write the polynomial function that models the given situation.</p>
+<div class="exercise" id="ex75"><div class="n">75</div><div class="body"><p>A rectangle has a length of 10 units and a width of 8 units. Squares of \(x\) by \(x\) units are cut out of each corner, and then the sides are folded up to create an open box. Express the volume of the box as a polynomial function in terms of \(x.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=4{x}^{3}-36{x}^{2}+80x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex76"><div class="n">76</div><div class="body"><p>Consider the same rectangle of the preceding problem. Squares of \(2x\) by \(2x\) units are cut out of each corner. Express the volume of the box as a polynomial in terms of \(x.\)</p>
+</div></div>
+<div class="exercise" id="ex77"><div class="n">77</div><div class="body"><p>A square has sides of 12 units. Squares \(x+1\) by \(x+1\) units are cut out of each corner, and then the sides are folded up to create an open box. Express the volume of the box as a function in terms of \(x.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=4{x}^{3}-36{x}^{2}+60x+100\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex78"><div class="n">78</div><div class="body"><p>A cylinder has a radius of \(x+2\) units and a height of 3 units greater. Express the volume of the cylinder as a polynomial function.</p>
+</div></div>
+<div class="exercise" id="ex79"><div class="n">79</div><div class="body"><p>A right circular cone has a radius of \(3x+6\) and a height 3 units less. Express the volume of the cone as a polynomial function. The volume of a cone is \(V=\frac{1}{3}\pi {r}^{2}h\) for radius \(r\) and height \(h.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(x)=9\pi ({x}^{3}+5{x}^{2}+8x+4)\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>global maximum</dt><dd>highest turning point on a graph; \(f(a)\) where \(f(a)\ge f(x)\) for all \(x.\)</dd><dt>global minimum</dt><dd>lowest turning point on a graph; \(f(a)\) where \(f(a)\le f(x)\) for all \(x.\)</dd><dt>Intermediate Value Theorem</dt><dd>for two numbers \(a\) and \(b\) in the domain of \(f,\) if \(a&lt;b\) and \(f(a)\ne f(b),\) then the function \(f\) takes on every value between \(f(a)\) and \(f(b);\) specifically, when a polynomial function changes from a negative value to a positive value, the function must cross the \(x\text{-}\) axis</dd><dt>multiplicity</dt><dd>the number of times a given factor appears in the factored form of the equation of a polynomial; if a polynomial contains a factor of the form \({(x-h)}^{p},\) \(x=h\) is a zero of multiplicity \(p.\)</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

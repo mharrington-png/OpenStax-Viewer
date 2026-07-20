@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Continuity · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Continuity</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.3</span>Continuity</h1>
+<p>Arizona is known for its dry heat. On a particular day, the temperature might rise as high as \({118}^{∘}\text{F}\) and drop down only to a brisk \({95}^{∘}\text{F}\text{.}\) <a href="#fig1">Figure 1</a> shows the function \(T,\) where the output of \(T(x)\) is the temperature in Fahrenheit degrees and the input \(x\) is the time of day, using a 24-hour clock on a particular summer day.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_001.jpg" alt="Graph of function that maps the time since midnight to the temperature. The x-axis, labelled x, represents the hours since midnight from 0 to 24. The y-axis, labelled T(x), represents the temperature from 0 to 120. The function is continuous that peaks at (16, 118)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — Temperature as a function of time forms a continuous function.</figcaption></figure>
+<p>When we analyze this graph, we notice a specific characteristic. There are no breaks in the graph. We could trace the graph without picking up our pencil. This single observation tells us a great deal about the function. In this section, we will investigate functions with and without breaks.</p>
+<h2 id="determining-whether-a-function-is-continuous-at-a-number">Determining Whether a Function Is Continuous at a Number</h2>
+<p>Let’s consider a specific example of temperature in terms of date and location, such as June 27, 2013, in Phoenix, AZ. The graph in <a href="#fig1">Figure 1</a> indicates that, at 2 <strong>a.m.</strong>, the temperature was \({96}^{∘}\text{F}\) . By 2 <strong>p.m.</strong> the temperature had risen to \({116}^{∘}\text{F,}\) and by 4 <strong>p.m.</strong> it was \({118}^{∘}\text{F}\text{.}\) Sometime between 2 <strong>a.m.</strong> and 4 <strong>p.m.</strong>, the temperature outside must have been exactly \({110.5}^{∘}\text{F}\text{.}\) In fact, any temperature between \({96}^{∘}\text{F}\) and \({118}^{∘}\text{F}\) occurred at some point that day. This means all real numbers in the output between \({96}^{∘}\text{F}\) and \({118}^{∘}\text{F}\) are generated at some point by the function according to the intermediate value theorem,</p>
+<p>Look again at <a href="#fig1">Figure 1</a>. There are no breaks in the function’s graph for this 24-hour period. At no point did the temperature cease to exist, nor was there a point at which the temperature jumped instantaneously by several degrees. A function that has no holes or breaks in its graph is known as a <strong>continuous function</strong>. Temperature as a function of time is an example of a continuous function.</p>
+<p>If temperature represents a continuous function, what kind of function would not be continuous? Consider an example of dollars expressed as a function of hours of parking. Let’s create the function \(D,\) where \(D(x)\) is the output representing cost in dollars for parking \(x\) number of hours. See <a href="#fig2">Figure 2</a>.</p>
+<p>Suppose a parking garage charges $4.00 per hour or fraction of an hour, with a $25 per day maximum charge. Park for two hours and five minutes and the charge is $12. Park an additional hour and the charge is $16. We can never be charged $13, $14, or $15. There are real numbers between 12 and 16 that the function never outputs. There are breaks in the function’s graph for this 24-hour period, points at which the price of parking jumps instantaneously by several dollars.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_002.jpg" alt="Graph of function that maps the time since midnight to the temperature. The x-axis represents the hours parked from 0 to 24. The y-axis represents dollars amounting from 0 to 28. The function is a step-function." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Parking-garage charges form a discontinuous function.</figcaption></figure>
+<p>A function that remains level for an interval and then jumps instantaneously to a higher value is called a <strong>stepwise function</strong>. This function is an example.</p>
+<p>A function that has any hole or break in its graph is known as a <strong>discontinuous function</strong>. A stepwise function, such as parking-garage charges as a function of hours parked, is an example of a discontinuous function.</p>
+<p>So how can we decide if a function is continuous at a particular number? We can check three different conditions. Let’s use the function \(y=f(x)\) represented in <a href="#fig3">Figure 3</a> as an example.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_003.jpg" alt="Graph of an increasing function with a discontinuity at (a, f(a))." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+<p><strong>Condition 1</strong> According to Condition 1, the function \(f(a)\) defined at \(x=a\) must exist. In other words, there is a <strong>y</strong>-coordinate at \(x=a\) as in <a href="#fig4">Figure 4</a>.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_004.jpg" alt="Graph of an increasing function with a discontinuity at (a, 2). The point (a, f(a)) is directly below the hole." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+<p><strong>Condition 2</strong> According to Condition 2, at \(x=a\) the limit, written \(\underset{x\to a}{lim}f(x),\) must exist. This means that at \(x=a\) the left-hand limit must equal the right-hand limit. Notice as the graph of \(f\) in <a href="#fig3">Figure 3</a> approaches \(x=a\) from the left and right, the same <strong>y</strong>-coordinate is approached. Therefore, Condition 2 is satisfied. However, there could still be a hole in the graph at \(x=a\) .</p>
+<p><strong>Condition 3</strong> According to Condition 3, the corresponding \(y\) coordinate at \(x=a\) fills in the hole in the graph of \(f.\) This is written \(\underset{x\to a}{lim}f(x)=f(a).\)</p>
+<p>Satisfying all three conditions means that the function is continuous. All three conditions are satisfied for the function represented in <a href="#fig5">Figure 5</a> so the function is continuous as \(x=a.\)</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_005.jpg" alt="Graph of an increasing function with filled-in discontinuity at (a, f(a))." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — All three conditions are satisfied. The function is continuous at \(x=a\) .</figcaption></figure>
+<p><a href="#fig6">Figure 6</a> through <a href="#fig9">Figure 9</a> provide several examples of graphs of functions that are not continuous at \(x=a\) and the condition or conditions that fail.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_006.jpg" alt="Graph of an increasing function with a discontinuity at (a, f(a))." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Condition 2 is satisfied. Conditions 1 and 3 both fail.</figcaption></figure>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_007.jpg" alt="Graph of an increasing function with a discontinuity at (a, 2). The point (a, f(a)) is directly below the hole." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7 — Conditions 1 and 2 are both satisfied. Condition 3 fails.</figcaption></figure>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_008.jpg" alt="Graph of a piecewise function with an increasing segment from negative infinity to (a, f(a)), which is closed, and another increasing segment from (a, f(a)-1), which is open, to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — Condition 1 is satisfied. Conditions 2 and 3 fail.</figcaption></figure>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_009.jpg" alt="Graph of a piecewise function with an increasing segment from negative infinity to (a, f(a)) and another increasing segment from (a, f(a) - 1) to positive infinity. This graph does not include the point (a, f(a))." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Conditions 1, 2, and 3 all fail.</figcaption></figure>
+<div class="card definition" id="fs-id1165135526945"><span class="chip">Definition of Continuity</span><p>A function \(f(x)\) is <strong>continuous</strong> at \(x=a\) provided all three of the following conditions hold true:</p>
+<ul class="tight"><li>Condition 1: \(f(a)\) exists.</li><li>Condition 2: \(\underset{x\to a}{lim}f(x)\) exists at \(x=a\) .</li><li>Condition 3: \(\underset{x\to a}{lim}f(x)=f(a)\) .</li></ul>
+<p>If a function \(f(x)\) is not continuous at \(x=a,\) the function is <strong>discontinuous</strong> at \(x=a\) .</p>
+</div>
+<h3 id="identifying-a-jump-discontinuity">Identifying a Jump Discontinuity</h3>
+<p>Discontinuity can occur in different ways. We saw in the previous section that a function could have a <strong>left-hand limit</strong> and a <strong>right-hand limit</strong> even if they are not equal. If the left- and right-hand limits exist but are different, the graph “jumps” at \(x=a\) . The function is said to have a jump discontinuity.</p>
+<p>As an example, look at the graph of the function \(y=f(x)\) in <a href="#fig10">Figure 10</a>. Notice as \(x\) approaches \(a\) how the output approaches different values from the left and from the right.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_010.jpg" alt="Graph of a piecewise function with an increasing segment from negative infinity to (a, f(a)), which is closed, and another increasing segment from (a, f(a)-1), which is open, to positive infinity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — Graph of a function with a jump discontinuity.</figcaption></figure>
+<div class="card definition" id="fs-id1165137762071"><span class="chip">Jump Discontinuity</span><p>A function \(f(x)\) has a <strong>jump discontinuity</strong> at \(x=a\) if the left- and right-hand limits both exist but are not equal: \(\underset{x\to {a}^{-}}{lim}f(x)\ne \underset{x\to {a}^{+}}{lim}f(x)\) .</p>
+</div>
+<h3 id="identifying-removable-discontinuity">Identifying Removable Discontinuity</h3>
+<p>Some functions have a discontinuity, but it is possible to redefine the function at that point to make it continuous. This type of function is said to have a removable discontinuity. Let’s look at the function \(y=f(x)\) represented by the graph in <a href="#fig11">Figure 11</a>. The function has a limit. However, there is a hole at \(x=a\) . The hole can be filled by extending the domain to include the input \(x=a\) and defining the corresponding output of the function at that value as the limit of the function at \(x=a\) .</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_011.jpg" alt="Graph of an increasing function with a removable discontinuity at (a, f(a))." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — Graph of function \(f\) with a removable discontinuity at \(x=a\) .</figcaption></figure>
+<div class="card definition" id="fs-id1165137548233"><span class="chip">Removable Discontinuity</span><p>A function \(f(x)\) has a <strong>removable discontinuity</strong> at \(x=a\) if the limit, \(\underset{x\to a}{lim}f(x),\) exists, but either</p>
+<ul class="tight"><li>\(f(a)\) does not exist <strong>or</strong></li><li>\(f(a),\) the value of the function at \(x=a\) does not equal the limit, \(f(a)\ne \underset{x\to a}{lim}f(x).\)</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Identify all discontinuities for the following functions as either a jump or a removable discontinuity.</p>
+<ul class="tight"><li>ⓐ \(f(x)=\frac{{x}^{2}-2x-15}{x-5}\)</li><li>ⓑ \(g(x)=\left\{\begin{array}{ll}x+1, &amp; x&lt;2 \\ -x, &amp; x\ge 2\end{array}\right.\)</li></ul>
+</div><p class="sol-hint">Check whether the one-sided limits agree at each break — matching limits with a hole means removable, mismatched limits mean a jump.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><ul class="tight"><li>ⓐ Notice that the function is defined everywhere except at \(x=5.\) Thus, \(f(5)\) does not exist, Condition 2 is not satisfied. Since Condition 1 is satisfied, the limit as \(x\) approaches 5 is 8, and Condition 2 is not satisfied. This means there is a removable discontinuity at \(x=5.\)<p>Notice that the function is defined everywhere except at \(x=5.\)</p>
+<p>Thus, \(f(5)\) does not exist, Condition 2 is not satisfied. Since Condition 1 is satisfied, the limit as \(x\) approaches 5 is 8, and Condition 2 is not satisfied. This means there is a removable discontinuity at \(x=5.\)</p>
+</li><li>ⓑ Condition 2 is satisfied because \(g(2)=-2.\) Notice that the function is a <strong>piecewise function</strong>, and for each piece, the function is defined everywhere on its domain. Let’s examine Condition 1 by determining the left- and right-hand limits as \(x\) approaches 2.Left-hand limit: \(\underset{x\to {2}^{-}}{lim}(x+1)=2+1=3.\) The left-hand limit exists.Right-hand limit: \(\underset{x\to {2}^{+}}{lim}(-x)=-2.\) The right-hand limit exists. But So, \(\underset{x\to 2}{lim}f(x)\) does not exist, and Condition 2 fails: There is no removable discontinuity. However, since both left- and right-hand limits exist but are not equal, the conditions are satisfied for a jump discontinuity at \(x=2.\)<p>Condition 2 is satisfied because \(g(2)=-2.\)</p>
+<p>Notice that the function is a <strong>piecewise function</strong>, and for each piece, the function is defined everywhere on its domain. Let’s examine Condition 1 by determining the left- and right-hand limits as \(x\) approaches 2.</p>
+<p>Left-hand limit: \(\underset{x\to {2}^{-}}{lim}(x+1)=2+1=3.\) The left-hand limit exists.</p>
+<p>Right-hand limit: \(\underset{x\to {2}^{+}}{lim}(-x)=-2.\) The right-hand limit exists. But</p>
+<p id="eq1">\[\underset{x\to {2}^{-}}{lim}f(x)\ne \underset{x\to {2}^{+}}{lim}f(x).\]</p>
+<p>So, \(\underset{x\to 2}{lim}f(x)\) does not exist, and Condition 2 fails: There is no removable discontinuity. However, since both left- and right-hand limits exist but are not equal, the conditions are satisfied for a jump discontinuity at \(x=2.\)</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Identify all discontinuities for the following functions as either a jump or a removable discontinuity.</p>
+<ul class="tight"><li>ⓐ \(f(x)=\frac{{x}^{2}-6x}{x-6}\)</li><li>ⓑ \(g(x)=\left\{\begin{array}{ll}\sqrt{x}, &amp; 0\le x&lt;4 \\ 2x, &amp; x\ge 4\end{array}\right.\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><ul class="tight"><li>ⓐ removable discontinuity at \(x=6;\)</li><li>ⓑ jump discontinuity at \(x=4\)</li></ul>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="recognizing-continuous-and-discontinuous-real-number-functions">Recognizing Continuous and Discontinuous Real-Number Functions</h2>
+<p>Many of the functions we have encountered in earlier chapters are continuous everywhere. They never have a hole in them, and they never jump from one value to the next. For all of these functions, the limit of \(f(x)\) as \(x\) approaches \(a\) is the same as the value of \(f(x)\) when \(x=a.\) So \(\underset{x\to a}{lim}f(x)=f(a).\) There are some functions that are continuous everywhere and some that are only continuous where they are defined on their domain because they are not defined for all real numbers.</p>
+<div class="card definition" id="fs-id1165135694008"><span class="chip">Examples of Continuous Functions</span><p>The following functions are continuous everywhere:</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Polynomial functions</td><td>Ex: \(f(x)={x}^{4}-9{x}^{2}\)</td></tr><tr><td>Exponential functions</td><td>Ex: \(f(x)={4}^{x+2}-5\)</td></tr><tr><td>Sine functions</td><td>Ex: \(f(x)=sin(2x)-4\)</td></tr><tr><td>Cosine functions</td><td>Ex: \(f(x)=-cos(x+\frac{\pi }{3})\)</td></tr></tbody></table></div>
+<p>The following functions are continuous everywhere they are defined on their domain:</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>Logarithmic functions</td><td>Ex: \(f(x)=2ln(x)\) , \(x&gt;0\)</td></tr><tr><td>Tangent functions</td><td>Ex: \(f(x)=tan(x)+2,\) \(x\ne \frac{\pi }{2}+k\pi ,\) \(k\) is an integer</td></tr><tr><td>Rational functions</td><td>Ex: \(f(x)=\frac{{x}^{2}-25}{x-7},\) \(x\ne 7\)</td></tr></tbody></table></div>
+</div>
+<div class="card howto" id="fs-id1165135465298"><span class="chip">How To</span><p><strong>Given a function \(f(x),\) determine if the function is continuous at \(x=a.\)</strong></p>
+<ul class="tight"><li>Check Condition 1: \(f(a)\) exists.</li><li>Check Condition 2: \(\underset{x\to a}{lim}f(x)\) exists at \(x=a.\)</li><li>Check Condition 3: \(\underset{x\to a}{lim}f(x)=f(a).\)</li><li>If all three conditions are satisfied, the function is continuous at \(x=a.\) If any one of the conditions is not satisfied, the function is not continuous at \(x=a.\)</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Determine whether the function \(f(x)=\left\{\begin{array}{ll}4x, &amp; x\le 3 \\ 8+x, &amp; x&gt;3\end{array}\right.\) is continuous at</p>
+<ul class="tight"><li>ⓐ \(x=3\)</li><li>ⓑ \(x=\frac{8}{3}\)</li></ul>
+</div><p class="sol-hint">Check the three-part continuity test at each point: does the function value exist, does the limit exist, and do they match?</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To determine if the function \(f\) is continuous at \(x=a,\) we will determine if the three conditions of continuity are satisfied at \(x=a\) .</p>
+<ul class="tight"><li>ⓐCondition 1: Does \(f(a)\) exist? Condition 2: Does \(\underset{x\to 3}{lim}f(x)\) exist? To the left of \(x=3,\) \(f(x)=4x;\) to the right of \(x=3,\) \(f(x)=8+x.\) We need to evaluate the left- and right-hand limits as \(x\) approaches 1. Because \(\underset{x\to {3}^{-}}{lim}f(x)\ne \underset{x\to {3}^{+}}{lim}f(x),\) \(\underset{x\to 3}{lim}f(x)\) does not exist. There is no need to proceed further. Condition 2 fails at \(x=3.\) If any of the conditions of continuity are not satisfied at \(x=3,\) the function \(f(x)\) is not continuous at \(x=3.\)<p>Condition 1: Does \(f(a)\) exist?</p>
+<p id="eq2">\[\begin{array}{l}f(3)=4(3)=12 \\ ⇒\text{Condition 1 is satisfied}.\end{array}\]</p>
+<p>Condition 2: Does \(\underset{x\to 3}{lim}f(x)\) exist?</p>
+<p>To the left of \(x=3,\) \(f(x)=4x;\) to the right of \(x=3,\) \(f(x)=8+x.\) We need to evaluate the left- and right-hand limits as \(x\) approaches 1.</p>
+<ul class="tight"><li>Left-hand limit: \(\underset{x\to {3}^{-}}{lim}f(x)=\underset{x\to {3}^{-}}{lim}4(3)=12\)</li><li>Right-hand limit: \(\underset{x\to {3}^{+}}{lim}f(x)=\underset{x\to {3}^{+}}{lim}(8+x)=8+3=11\)</li></ul>
+<p>Because \(\underset{x\to {3}^{-}}{lim}f(x)\ne \underset{x\to {3}^{+}}{lim}f(x),\) \(\underset{x\to 3}{lim}f(x)\) does not exist.</p>
+<p id="eq3">\[⇒\text{ Condition 2 fails}\text{.}\]</p>
+<p>There is no need to proceed further. Condition 2 fails at \(x=3.\) If any of the conditions of continuity are not satisfied at \(x=3,\) the function \(f(x)\) is not continuous at \(x=3.\)</p>
+</li><li>ⓑ\(x=\frac{8}{3}\) Condition 1: Does \(f(\frac{8}{3})\) exist? Condition 2: Does \(\underset{x\to \frac{8}{3}}{lim}f(x)\) exist? To the left of \(x=\frac{8}{3},\) \(f(x)=4x;\) to the right of \(x=\frac{8}{3},\) \(f(x)=8+x.\) We need to evaluate the left- and right-hand limits as \(x\) approaches \(\frac{8}{3}.\)Because \(\underset{x\to \frac{8}{3}}{lim}f(x)\) exists, Condition 3: Is \(f(\frac{8}{3})=\underset{x\to \frac{8}{3}}{lim}f(x)?\) Because all three conditions of continuity are satisfied at \(x=\frac{8}{3},\) the function \(f(x)\) is continuous at \(x=\frac{8}{3}.\)<p>\(x=\frac{8}{3}\)</p>
+<p>Condition 1: Does \(f(\frac{8}{3})\) exist?</p>
+<p id="eq4">\[\begin{array}{l}f(\frac{8}{3})=4(\frac{8}{3})=\frac{32}{3} \\ ⇒\text{Condition 1 is satisfied}.\end{array}\]</p>
+<p>Condition 2: Does \(\underset{x\to \frac{8}{3}}{lim}f(x)\) exist?</p>
+<p>To the left of \(x=\frac{8}{3},\) \(f(x)=4x;\) to the right of \(x=\frac{8}{3},\) \(f(x)=8+x.\) We need to evaluate the left- and right-hand limits as \(x\) approaches \(\frac{8}{3}.\)</p>
+<ul class="tight"><li>Left-hand limit: \(\underset{x\to {\frac{8}{3}}^{-}}{lim}f(x)=\underset{x\to {\frac{8}{3}}^{-}}{lim}4(\frac{8}{3})=\frac{32}{3}\)</li><li>Right-hand limit: \(\underset{x\to {\frac{8}{3}}^{+}}{lim}f(x)=\underset{x\to {\frac{8}{3}}^{+}}{lim}(8+x)=8+\frac{8}{3}=\frac{32}{3}\)</li></ul>
+<p>Because \(\underset{x\to \frac{8}{3}}{lim}f(x)\) exists,</p>
+<p id="eq5">\[⇒\text{Condition 2 is satisfied}.\]</p>
+<p>Condition 3: Is \(f(\frac{8}{3})=\underset{x\to \frac{8}{3}}{lim}f(x)?\)</p>
+<p id="eq6">\[\begin{array}{l}f(\frac{32}{3})=\frac{32}{3}=\underset{x\to \frac{8}{3}}{lim}f(x) \\ ⇒\text{Condition 3 is satisfied}.\end{array}\]</p>
+<p>Because all three conditions of continuity are satisfied at \(x=\frac{8}{3},\) the function \(f(x)\) is continuous at \(x=\frac{8}{3}.\)</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Determine whether the function \(f(x)=\left\{\begin{array}{ll}\frac{1}{x}, &amp; x\le 2 \\ 9x-11.5, &amp; x&gt;2\end{array}\right.\) is continuous at \(x=2.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>No. The function is not continuous at \(x=2\) because the left hand limit is \(\frac{1}{2}\) and the right hand limit is \(6.5\) .</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Determine whether the function \(f(x)=\frac{{x}^{2}-25}{x-5}\) is continuous at \(x=5.\)</p>
+</div><p class="sol-hint">Factor the numerator to see if the discontinuity is removable, then check whether the function is defined at x=5.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>To determine if the function \(f\) is continuous at \(x=5,\) we will determine if the three conditions of continuity are satisfied at \(x=5.\)</p>
+<p>Condition 1:</p>
+<p id="eq7">\[\begin{array}{l}f(5)\text{ does not exist}\text{.} \\ ⇒\text{Condition 1 fails}.\end{array}\]</p>
+<p>There is no need to proceed further. Condition 2 fails at \(x=5.\) If any of the conditions of continuity are not satisfied at \(x=5,\) the function \(f\) is not continuous at \(x=5.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>See <a href="#fig12">Figure 12</a>. Notice that for Condition 2 we have</p>
+<p id="eq8">\[\begin{array}{l}\underset{x\to 5}{lim}\frac{{x}^{2}-25}{x-5}=\underset{x\to 3}{lim}\frac{(x-5)(x+5)}{x-5} \\ \,=\underset{x\to 5}{lim}(x+5) \\ \,=5+5=10 \\ \,⇒\text{Condition 2 is satisfied}.\end{array}\]</p>
+<p>At \(x=5,\) there exists a removable discontinuity. See <a href="#fig12">Figure 12</a>.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_013.jpg" alt="Graph of an increasing function with a removable discontinuity at (5, 10)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Determine whether the function \(f(x)=\frac{9-{x}^{2}}{{x}^{2}-3x}\) is continuous at \(x=3.\) If not, state the type of discontinuity.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>No, the function is not continuous at \(x=3.\) There exists a removable discontinuity at \(x=3.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="determining-the-input-values-for-which-a-function-is-discontinuous">Determining the Input Values for Which a Function Is Discontinuous</h2>
+<p>Now that we can identify continuous functions, jump discontinuities, and removable discontinuities, we will look at more complex functions to find discontinuities. Here, we will analyze a piecewise function to determine if any real numbers exist where the function is not continuous. A <strong>piecewise function</strong> may have discontinuities at the boundary points of the function as well as within the functions that make it up.</p>
+<p>To determine the real numbers for which a piecewise function composed of polynomial functions is not continuous, recall that <strong>polynomial</strong> functions themselves are continuous on the set of real numbers. Any discontinuity would be at the boundary points. So we need to explore the three conditions of continuity at the boundary points of the piecewise function.</p>
+<div class="card howto" id="fs-id1165135523385"><span class="chip">How To</span><p><strong>Given a piecewise function, determine whether it is continuous at the boundary points.</strong></p>
+<ul class="tight"><li>For each boundary point \(a\) of the piecewise function, determine the left- and right-hand limits as \(x\) approaches \(a,\) as well as the function value at \(a.\)</li><li>Check each condition for each value to determine if all three conditions are satisfied.</li><li>Determine whether each value satisfies condition 1: \(f(a)\) exists.</li><li>Determine whether each value satisfies condition 2: \(\underset{x\to a}{lim}f(x)\) exists.</li><li>Determine whether each value satisfies condition 3: \(\underset{x\to a}{lim}f(x)=f(a).\)</li><li>If all three conditions are satisfied, the function is continuous at \(x=a.\) If any one of the conditions fails, the function is not continuous at \(x=a.\)</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Determine whether the function \(f\) is discontinuous for any real numbers.</p>
+<p id="eq9">\[f\text{(}x\text{)}=\left\{\begin{array}{ll}x+1, &amp; x&lt;2 \\ 3, &amp; 2\le x&lt;4 \\ {x}^{2}-11, &amp; x\ge 4\end{array}\right.\]</p>
+</div><p class="sol-hint">Check where the piecewise definition changes or where the function might be undefined, then apply the three-part continuity test there.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The piecewise function is defined by three functions, which are all polynomial functions, \(f(x)=x+1\) on \(x&lt;2,\) \(f(x)=3\) on \(2\le x&lt;4,\) and \(f(x)={x}^{2}-5\) on \(x\ge 4.\) Polynomial functions are continuous everywhere. Any discontinuities would be at the boundary points, \(x=2\) and \(x=4.\)</p>
+<p>At \(x=2,\) let us check the three conditions of continuity.</p>
+<p>Condition 1:</p>
+<p id="eq10">\[\begin{array}{l}f(2)=3 \\ ⇒\text{Condition 1 is satisfied}.\end{array}\]</p>
+<p>Condition 2: Because a different function defines the output left and right of \(x=2,\) does \(\underset{x\to {2}^{-}}{lim}f(x)=\underset{x\to {2}^{+}}{lim}f(x)?\)</p>
+<ul class="tight"><li>Left-hand limit: \(\underset{x\to {2}^{-}}{lim}f(x)=\underset{x\to {2}^{-}}{lim}(x+1)=2+1=3\)</li><li>Right-hand limit: \(\underset{x\to {2}^{+}}{lim}f(x)=\underset{x\to {2}^{+}}{lim}3=3\)</li></ul>
+<p>Because \(3=3\) , \(\underset{x\to {2}^{-}}{lim}f(x)=\underset{x\to {2}^{+}}{lim}f(x)\)</p>
+<p id="eq11">\[⇒\text{Condition 2 is satisfied}.\]</p>
+<p>Condition 3:</p>
+<p id="eq12">\[\begin{array}{l}\underset{x\to 2}{lim}f(x)=3=f(2) \\ ⇒\text{Condition 3 is satisfied}.\end{array}\]</p>
+<p>Because all three conditions are satisfied at \(x=2,\) the function \(f(x)\) is continuous at \(x=2.\)</p>
+<p>At \(x=4,\) let us check the three conditions of continuity.</p>
+<p>Condition 2: Because a different function defines the output left and right of \(x=4,\) does \(\underset{x\to {4}^{-}}{lim}f(x)=\underset{x\to {4}^{+}}{lim}f(x)?\)</p>
+<ul class="tight"><li>Left-hand limit: \(\underset{x\to {4}^{-}}{lim}f(x)=\underset{x\to {4}^{-}}{lim}3=3\)</li><li>Right-hand limit: \(\underset{x\to {4}^{+}}{lim}f(x)=\underset{x\to {4}^{+}}{lim}({x}^{2}-11)={4}^{2}-11=5\)</li></ul>
+<p>Because \(3\ne 5\) , \(\underset{x\to {4}^{-}}{lim}f(x)\ne \underset{x\to {4}^{+}}{lim}f(x),\) so \(\underset{x\to 4}{lim}f(x)\) does not exist.</p>
+<p id="eq13">\[⇒\text{Condition 2 fails}.\]</p>
+<p>Because one of the three conditions does not hold at \(x=4,\) the function \(f(x)\) is discontinuous at \(x=4.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>See <a href="#fig13">Figure 13</a>. At \(x=4,\) there exists a jump discontinuity. Notice that the function is continuous at \(x=2.\)</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_014.jpg" alt="Graph of a piecewise function that has disconuity at (4, 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13 — Graph is continuous at \(x=2\) but shows a jump discontinuity at \(x=4.\)</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Determine where the function \(f(x)=\left\{\begin{array}{l}\frac{\pi x}{4},\,x&lt;2 \\ \frac{\pi }{x},\,2\le x\le 6 \\ 2\pi x,\,x&gt;6\end{array}\right.\) is discontinuous.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=6\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="determining-whether-a-function-is-continuous">Determining Whether a Function Is Continuous</h2>
+<p>To determine whether a <strong>piecewise function</strong> is continuous or discontinuous, in addition to checking the boundary points, we must also check whether each of the functions that make up the piecewise function is continuous.</p>
+<div class="card howto" id="fs-id1165135682274"><span class="chip">How To</span><p><strong>Given a piecewise function, determine whether it is continuous.</strong></p>
+<ul class="tight"><li>Determine whether each component function of the piecewise function is continuous. If there are discontinuities, do they occur within the domain where that component function is applied?</li><li>For each boundary point \(x=a\) of the piecewise function, determine if each of the three conditions hold.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Determine whether the function below is continuous. If it is not, state the location and type of each discontinuity.</p>
+<p id="eq14">\[f(x)=\left\{\begin{array}{ll}sin(x), &amp; x&lt;0 \\ {x}^{3}, &amp; x&gt;0\end{array}\right.\]</p>
+</div><p class="sol-hint">Look for x-values where the function is undefined or where the pieces don't connect, then classify each discontinuity you find.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The two functions composing this piecewise function are \(f(x)=sin(x)\) on \(x&lt;0\) and \(f(x)={x}^{3}\) on \(x&gt;0.\) The sine function and all polynomial functions are continuous everywhere. Any discontinuities would be at the boundary point,</p>
+<p>At \(x=0,\) let us check the three conditions of continuity.</p>
+<p>Condition 1:</p>
+<p id="eq15">\[\begin{array}{l}f(0)\text{ does not exist}. \\ ⇒\text{Condition 1 fails}.\end{array}\]</p>
+<p>Because all three conditions are not satisfied at \(x=0,\) the function \(f(x)\) is discontinuous at \(x=0.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>See <a href="#fig14">Figure 14</a>. There exists a removable discontinuity at \(x=0;\) \(\underset{x\to 0}{lim}f(x)=0,\) thus the limit exists and is finite, but \(f(a)\) does not exist.</p>
+<figure class="plot" id="fig14"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_015.jpg" alt="Graph of a piecewise function where from negative infinity to 0 f(x) = sin(x) and from 0 to positive infinity f(x) = x^3." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 14 — Function has removable discontinuity at 0.</figcaption></figure>
+</div></div></div></div>
+<div class="card callout" id="fs-id1165135694761"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with continuity.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/continuitypoint" target="_blank" rel="noopener">Continuity at a Point</a></li><li><a href="https://openstax.org/l/contconcept" target="_blank" rel="noopener">Continuity at a Point: Concept Check</a></li></ul>
+</div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A continuous function can be represented by a graph without holes or breaks.</li><li>A function whose graph has holes is a discontinuous function.</li><li>A function is continuous at a particular number if three conditions are met:<ul class="tight"><li>Condition 1: \(f(a)\) exists.</li><li>Condition 2: \(\underset{x\to a}{lim}f(x)\) exists at \(x=a.\)</li><li>Condition 3: \(\underset{x\to a}{lim}f(x)=f(a).\)</li></ul>
+</li><li>A function has a jump discontinuity if the left- and right-hand limits are different, causing the graph to “jump.”</li><li>A function has a removable discontinuity if it can be redefined at its discontinuous point to make it continuous. See <a href="#example1">Example 1</a>.</li><li>Some functions, such as polynomial functions, are continuous everywhere. Other functions, such as logarithmic functions, are continuous on their domain. See <a href="#example2">Example 2</a> and <a href="#example3">Example 3</a>.</li><li>For a piecewise function to be continuous each piece must be continuous on its part of the domain and the function as a whole must be continuous at the boundaries. See <a href="#example4">Example 4</a> and <a href="#example5">Example 5</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>State in your own words what it means for a function \(f\) to be continuous at \(x=c.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Informally, if a function is continuous at \(x=c,\) then there is no break in the graph of the function at \(f(c),\) and \(f(c)\) is defined.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>State in your own words what it means for a function to be continuous on the interval \((a,b).\)</p>
+</div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, determine why the function \(f\) is discontinuous at a given point \(a\) on the graph. State which condition fails.</p>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>\(f(x)=ln\,|\,x+3\,|,a=-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>discontinuous at \(a=-3\) ; \(f(-3)\) does not exist</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>\(f(x)=ln\,|\,5x-2\,|,a=\frac{2}{5}\)</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-16}{x+4},a=-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>removable discontinuity at \(a=-4\) ; \(f(-4)\) is not defined</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-16x}{x},a=0\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(f(x)=\left\{\begin{array}{l}x,\,x\ne 3 \\ 2x,x=3\end{array}\right.a=3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Discontinuous at \(a=3\) ; \(\underset{x\to 3}{lim}f(x)=3,\) but \(f(3)=6,\) which is not equal to the limit.</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(f(x)=\left\{\begin{array}{l}5,\,x\ne 0 \\ 3,\,x=0\end{array}\right.\,a=0\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}\frac{1}{2-x}, &amp; x\ne 2 \\ 3, &amp; x=2\end{array}\right.\,a=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to 2}{lim}f(x)\) does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}\frac{1}{x+6}, &amp; x=-6 \\ {x}^{2}, &amp; x\ne -6\end{array}\right.\,a=-6\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}3+x, &amp; x&lt;1 \\ x, &amp; x=1 \\ {x}^{2}, &amp; x&gt;1\end{array}\,a=1\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to {1}^{-}}{lim}f(x)=4;\underset{x\to {1}^{+}}{lim}f(x)=1\) . Therefore, \(\underset{x\to 1}{lim}f(x)\) does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}3-x, &amp; x&lt;1 \\ x, &amp; x=1 \\ 2{x}^{2}, &amp; x&gt;1\end{array}\,a=1\right.\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}3+2x, &amp; x&lt;1 \\ x, &amp; x=1 \\ -{x}^{2}, &amp; x&gt;1\end{array}\,a=1\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to {1}^{-}}{lim}f(x)=5\ne \underset{x\to {1}^{+}}{lim}f(x)=-1\) . Thus \(\underset{x\to 1}{lim}f(x)\) does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}{x}^{2}, &amp; x&lt;-2 \\ 2x+1, &amp; x=-2 \\ {x}^{3}, &amp; x&gt;-2\end{array}\,a=-2\right.\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}\frac{{x}^{2}-9}{x+3}, &amp; x&lt;-3 \\ x-9, &amp; x=-3 \\ \frac{1}{x}, &amp; x&gt;-3\end{array}\,a=-3\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\underset{x\to -{3}^{-}}{lim}f(x)=-6\) , \(\underset{x\to -{3}^{+}}{lim}f(x)=-\frac{1}{3}\)</p>
+<p>Therefore, \(\underset{x\to -3}{lim}f(x)\) does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(f(x)=\left\{\begin{array}{ll}\frac{{x}^{2}-9}{x+3}, &amp; x&lt;-3 \\ x-9, &amp; x=-3 \\ -6, &amp; x&gt;-3\end{array}\,a=3\right.\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-4}{x-2},\,a=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(2)\) is not defined.</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(f(x)=\frac{25-{x}^{2}}{{x}^{2}-10x+25},\,a=5\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(f(x)=\frac{{x}^{3}-9x}{{x}^{2}+11x+24},\,a=-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(-3)\) is not defined.</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(f(x)=\frac{{x}^{3}-27}{{x}^{2}-3x},\,a=3\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(f(x)=\frac{x}{|x|},\,a=0\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(0)\) is not defined.</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(f(x)=\frac{2|x+2|}{x+2},\,a=-2\)</p>
+</div></div>
+<p>For the following exercises, determine whether or not the given function \(f\) is continuous everywhere. If it is continuous everywhere it is defined, state for what range it is continuous. If it is discontinuous, state where it is discontinuous.</p>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(f(x)={x}^{3}-2x-15\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Continuous on \((-\infty ,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(f(x)=\frac{{x}^{2}-2x-15}{x-5}\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(f(x)=2\cdot {3}^{x+4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Continuous on \((-\infty ,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(f(x)=-sin(3x)\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(f(x)=\frac{|x-2|}{{x}^{2}-2x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Discontinuous at \(x=0\) and \(x=2\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(f(x)=tan(x)+2\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(f(x)=2x+\frac{5}{x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Discontinuous at \(x=0\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(f(x)={log}_{2}(x)\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(f(x)=ln\,{x}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Continuous on \((0,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(f(x)={e}^{2x}\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(f(x)=\sqrt{x-4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Continuous on \([4,\infty )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(f(x)=sec(x)-3\) .</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(f(x)={x}^{2}+sin(x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Continuous on \((-\infty ,\infty )\) .</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>Determine the values of \(b\) and \(c\) such that the following function is continuous on the entire real number line.</p>
+<p>\(f(x)=\left\{\begin{array}{ll}x+1, &amp; 1&lt;x&lt;3 \\ {x}^{2}+bx+c, &amp; |x-2|\ge 1\end{array}\right.\)</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, refer to <a href="#fig15">Figure 15</a>. Each square represents one square unit. For each value of \(a,\) determine which of the three conditions of continuity are satisfied at \(x=a\) and which are not.</p>
+<figure class="plot" id="fig15"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_201F.jpg" alt="Graph of a piecewise function where at x = -3 the line is disconnected, at x = 2 there is a removable discontinuity, and at x = 4 there is a removable discontinuity and f(4) exists." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 15</figcaption></figure>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(x=-3\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1, but not 2 or 3</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(x=2\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(x=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>1 and 2, but not 3</p>
+</div></div></div></div>
+<p>For the following exercises, use a graphing utility to graph the function \(f(x)=sin(\frac{12\pi }{x})\) as in <a href="#fig16">Figure 16</a>. Set the <strong>x</strong>-axis a short distance before and after 0 to illustrate the point of discontinuity.</p>
+<figure class="plot" id="fig16"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_202F.jpg" alt="Graph of the sinusodial function with a viewing window of [-10, 10] by [-1, 1]." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 16</figcaption></figure>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>Which conditions for continuity fail at the point of discontinuity?</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>Evaluate \(f(0).\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(f(0)\) is undefined.</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>Solve for \(x\) if \(f(x)=0.\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>What is the domain of \(f(x)?\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-\infty ,0)∪(0,\infty )\)</p>
+</div></div></div></div>
+<p>For the following exercises, consider the function shown in <a href="#fig17">Figure 17</a>.</p>
+<figure class="plot" id="fig17"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_203.jpg" alt="Graph of a piecewise function where at x = -1 the line is disconnected and at x = 1 there is a removable discontinuity." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 17</figcaption></figure>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>At what <strong>x</strong>-coordinates is the function discontinuous?</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>What condition of continuity is violated at these points?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>At \(x=-1,\) the limit does not exist. At \(x=1,\) \(f(1)\) does not exist.</p>
+<p>At \(x=2,\) there appears to be a vertical asymptote, and the limit does not exist.</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>Consider the function shown in <a href="#fig18">Figure 18</a>. At what <strong>x</strong>-coordinates is the function discontinuous? What condition(s) of continuity were violated?</p>
+<figure class="plot" id="fig18"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_204.jpg" alt="Graph of a piecewise function where at x = -1 the line is disconnected and where at x = 1 and x = 2 there are a removable discontinuities." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 18</figcaption></figure>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>Construct a function that passes through the origin with a constant slope of 1, with removable discontinuities at \(x=-7\) and \(x=1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{{x}^{3}+6{x}^{2}-7x}{(x+7)(x-1)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>The function \(f(x)=\frac{{x}^{3}-1}{x-1}\) is graphed in <a href="#fig19">Figure 19</a>. It appears to be continuous on the interval \([-3,3],\) but there is an <strong>x</strong>-value on that interval at which the function is discontinuous. Determine the value of \(x\) at which the function is discontinuous, and explain the pitfall of utilizing technology when considering continuity of a function by examining its graph.</p>
+<figure class="plot" id="fig19"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_205F.jpg" alt="Graph of the function f(x) = (x^3 - 1)/(x-1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 19</figcaption></figure>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>Find the limit \(\underset{x\to 1}{lim}f(x)\) and determine if the following function is continuous at \(x=1:\)</p>
+<p id="eq16">\[fx=\left\{\begin{array}{ll}{x}^{2}+4 &amp; x\ne 1 \\ 2 &amp; x=1\end{array}\right.\]</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The function is discontinuous at \(x=1\) because the limit as \(x\) approaches 1 is 5 and \(f(1)=2.\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>The graph of \(f(x)=\frac{sin(2x)}{x}\) is shown in <a href="#fig20">Figure 20</a>. Is the function \(f(x)\) continuous at \(x=0?\) Why or why not?</p>
+<figure class="plot" id="fig20"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_12_03_206.jpg" alt="Graph of the function f(x) = sin(2x)/x with a viewing window of [-4.5, 4.5] by [-1, 2.5]" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 20</figcaption></figure>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>continuous function</dt><dd>a function that has no holes or breaks in its graph</dd><dt>discontinuous function</dt><dd>a function that is not continuous at \(x=a\)</dd><dt>jump discontinuity</dt><dd>a point of discontinuity in a function \(f(x)\) at \(x=a\) where both the left and right-hand limits exist, but \(\underset{x\to {a}^{-}}{lim}f(x)\ne \underset{x\to {a}^{+}}{lim}f(x)\)</dd><dt>removable discontinuity</dt><dd>a point of discontinuity in a function \(f(x)\) where the function is discontinuous, but can be redefined to make it continuous</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

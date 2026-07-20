@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sequences and Their Notations · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Sequences and Their Notations</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 11.1</span>Sequences and Their Notations</h1>
+<details class="bigfold"><summary>Corequisite Skills review (optional warm-up)</summary><div class="fold-body"><h3 id="learning-objectives">Learning Objectives</h3>
+<ul class="tight"><li>Write the first few terms of a sequence (IA 12.1.1)</li><li>Find a formula for the general term (nth term) of a sequence (IA 12.1.2)</li></ul>
+<h3 id="objective-1-write-the-first-few-terms-of-a-sequence-ia-12-1-1">Objective 1: Write the first few terms of a sequence (IA 12.1.1).</h3>
+<p>A patient takes a 30 mg antibiotic capsule. At the end of that hour, the amount of antibiotic remaining in her body is only 90% of the amount in the beginning of that hour. The 30mg dose is taken at time t = 1 hour. How much of this dose remains at the end of 1 hour? 2hours? 3 hours? 4 hours?</p>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Time t</td><td>Dose remaining after time t</td></tr><tr><td>1</td><td>0.90(30)=27mg</td></tr><tr><td>2</td><td>0.90(27)=24.3mg</td></tr><tr><td>3</td><td>0.90(24.3)=21.87mg</td></tr><tr><td>4</td><td>0.90(21.87)=19.68mg</td></tr></tbody></table></div>
+<p>This ordered list of numbers 27, 24.3, 21.87, 19.68, … is a <strong>sequence</strong>. Each number in the list is a <strong>term</strong>.</p>
+<p>A sequence is a <strong>function</strong> whose domain is the counting numbers. A sequence may have an infinite number of terms or a finite number of terms. Our sequence has three dots (ellipsis) at the end which indicates the list never ends. If the domain is the set of all counting numbers, then the sequence is an <strong>infinite sequence</strong>.</p>
+<p>Often when working with sequences we do not want to write out all the terms. We want a more compact way to show how each term is defined. When we worked with functions, we wrote \(f(x)=2x\) and we said the expression 2x was the rule that defined values in the range.</p>
+<p>While a sequence is a function, we do not use the usual function notation. Instead of writing the function as \(f(x)=2x\) , we would write it as \({a}_{n}=2n\) . The \({a}_{n}\) is the <strong><strong>n</strong>th term of the sequence</strong>, the term in the <strong>n</strong>th position where <strong>n</strong> is a value in the domain. The formula for writing the nth term of the sequence is called the <strong>general term</strong> or formula of the sequence.</p>
+<p>General sequence terms are denoted as follows:<br> \(\begin{array}{ll}{a}_{1}-first term &amp; \\ {a}_{2}-second term &amp; \\ {a}_{3}-third term &amp; \\ . &amp; \\ . &amp; \\ . &amp; \\ {a}_{n}-{n}^{th} term &amp; \\ {a}_{n+1}-(n+1) term &amp; \\ . &amp; \\ . &amp; \\ . &amp; \end{array}\)</p>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 1</span><span class="t"></span></div><div class="ex-body"><p>Write the first five terms of the sequence whose general term is \({a}_{n}=2n-7\) .</p>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>\(\begin{array}{llllll}n &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\ {a}_{n} &amp; {a}_{1} &amp; {a}_{2} &amp; {a}_{3} &amp; {a}_{4} &amp; {a}_{5} \\ 2n-7 &amp; 2(1)-7 &amp; 2(2)-7 &amp; 2(3)-7 &amp; 2(4)-7 &amp; 2(5)-7 \\ &amp; -5 &amp; -3 &amp; -1 &amp; 1 &amp; 3\end{array}\)</p>
+</div></div></div>
+<h4 id="practice-makes-perfect">Practice Makes Perfect</h4>
+<p>Write the first few terms of a sequence.</p>
+<div class="exercise warmup" id="warmex1"><div class="n">P1</div><div class="body"><p>Write the first five terms of the sequence whose general term is \({a}_{n}=4n+2\) .</p>
+<div class="tablewrap" id="tab2"><table class="data"><caption>Table 2</caption><tbody><tr><td>\(n\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td><td>\(4\)</td><td>\(5\)</td></tr><tr><td>\({a}_{n}\)</td><td>\({a}_{1}\)</td><td>\({a}_{2}\)</td><td>\({a}_{3}\)</td><td>\({a}_{4}\)</td><td>\({a}_{5}\)</td></tr><tr><td>\(4n+2\)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup" id="warmex2"><div class="n">P2</div><div class="body"><p>Write the first five terms of the sequence whose general term is \({a}_{n}={3}^{n}-1\) .</p>
+<div class="tablewrap" id="tab3"><table class="data"><caption>Table 3</caption><tbody><tr><td>\(n\)</td><td>\(1\)</td><td>\(2\)</td><td>\(3\)</td><td>\(4\)</td><td>\(5\)</td></tr><tr><td>\({a}_{n}\)</td><td>\({a}_{1}\)</td><td>\({a}_{2}\)</td><td>\({a}_{3}\)</td><td>\({a}_{4}\)</td><td>\({a}_{5}\)</td></tr><tr><td>\({3}^{n}-1\)</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+</div></div>
+<h3 id="objective-2-find-a-formula-for-the-general-term-nth-term-of-a-sequence-ia-12-1-2">Objective 2: Find a formula for the general term (nth term) of a sequence (IA 12.1.2)</h3>
+<p>Sometimes we have a few terms of a sequence and it would be helpful to know the <strong>general term or <strong>n</strong>th term</strong>. To find the general term, we <strong>look for patterns in the terms</strong>. Often the patterns involve multiples or powers. We also look for a pattern in the signs of the terms.</p>
+<div class="card example warmup"><div class="ex-head"><span class="num">Warm-up Example 2</span><span class="t"></span></div><div class="ex-body"><ul class="tight"><li>ⓐ Find a general term for the sequence whose first five terms are shown below:<br>4, 8, 12, 16, 20...</li><li>ⓑ Find a general term for the sequence whose first five terms are shown below:<br> \(\frac{1}{3}, \frac{1}{9}, \frac{1}{27}, \frac{1}{81}, \frac{1}{243}, ...\)</li></ul>
+</div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><div class="tablewrap" id="tab4"><table class="data"><caption>Table 4</caption><tbody><tr><td>ⓐ</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_006a_img.jpg" alt="A series of numbers 4, 8, 12, 16, 20, followed by an ellipsis indicating continuation." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_006b_img.jpg" alt="The notation 'n: 1, 2, 3, 4, 5, ...n' representing an ordered list or sequence of integers from 1 to n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Look for a pattern in the terms</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_006c_img.jpg" alt="The image displays the first five terms of an arithmetic sequence: 4, 8, 12, 16, 20, followed by an ellipsis, indicating the sequence continues. The common difference is 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>The numbers are all multiples of 4</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_006d_img.jpg" alt="A mathematical pattern is displayed, showing a sequence of multiplications: &amp;quot;Pattern: 4 • 1, 4 • 2, 4 • 3, 4 • 4, 4 • 5, ..., 4 • n&amp;quot;. The second factor in each term (1, 2, 3, 4, 5, n) is highlighted in red." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>The general term of the sequence:</td><td>\({a}_{n}=4n.\)</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab5"><table class="data"><caption>Table 5</caption><tbody><tr><td>ⓑ</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_008a_img.jpg" alt="A mathematical sequence showing fractions: 1/3, 1/9, 1/27, 1/81, 1/243, and so on, indicating a geometric progression where each term is (1/3)^n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_008b_img.jpg" alt="The image displays the notation &amp;quot;n:&amp;quot; followed by the sequence of integers &amp;quot;1, 2, 3, 4, 5, ... n&amp;quot;, illustrating the concept of a sequence of numbers up to an arbitrary integer 'n'." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Look for a pattern in the terms.</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_008c_img.jpg" alt="The image displays the heading &amp;quot;Terms:&amp;quot; followed by a mathematical sequence of five fractions and an ellipsis, indicating that the sequence continues. The terms are 1/3, 1/9, 1/27, 1/81, and 1/243. Each term is a fraction with a numerator of 1, and the denominators are successive powers of 3 (3^1, 3^2, 3^3, 3^4, 3^5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>The numerators are all 1 and the denominators are powers of 3</td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_008d_img.jpg" alt="A mathematical pattern displays a sequence of fractions: 1/3^1, 1/3^2, 1/3^3, 1/3^4, 1/3^5, ..., up to 1/3^n, indicating an increasing exponent in the denominator." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>The general term of the sequence:</td><td>\({a}_{n}=\frac{1}{{3}^{n}}\)</td></tr></tbody></table></div>
+</div></div></div>
+<h4 id="practice-makes-perfect-2">Practice Makes Perfect</h4>
+<div class="exercise warmup" id="warmex3"><div class="n">P3</div><div class="body"><p>Find a general term for the sequence whose first five terms are shown:<br>8, 16, 24, 32, 40, ...</p>
+<div class="tablewrap" id="tab6"><table class="data"><caption>Table 6</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_008b_img.jpg" alt="The image displays the notation &amp;quot;n:&amp;quot; followed by the sequence of integers &amp;quot;1, 2, 3, 4, 5, ... n&amp;quot;, illustrating the concept of a sequence of numbers up to an arbitrary integer 'n'." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Look for a pattern in the terms</td><td>Terms: ________________</td></tr><tr><td>The general term of the sequence: ________________</td><td></td></tr></tbody></table></div>
+</div></div>
+<div class="exercise warmup" id="warmex4"><div class="n">P4</div><div class="body"><p>Find a general term for the sequence whose first five terms are shown:<br> \(\frac{1}{4},\frac{1}{16}, \frac{1}{64}, \frac{1}{256}, \frac{1}{1024}, ...\) <br></p>
+<div class="tablewrap" id="tab7"><table class="data"><caption>Table 7</caption><tbody><tr><td></td><td><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_IntAlg_Figure_12_01_008b_img.jpg" alt="The image displays the notation &amp;quot;n:&amp;quot; followed by the sequence of integers &amp;quot;1, 2, 3, 4, 5, ... n&amp;quot;, illustrating the concept of a sequence of numbers up to an arbitrary integer 'n'." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</td></tr><tr><td>Look for a pattern in the terms</td><td>Terms: ________________</td></tr><tr><td>The general term of the sequence: ________________</td><td></td></tr></tbody></table></div>
+</div></div>
+</div></details>
+<p>A video game company launches an exciting new advertising campaign. They predict the number of online visits to their website, or hits, will double each day. The model they are using shows 2 hits the first day, 4 hits the second day, 8 hits the third day, and so on. See <a href="#tab8">Table 8</a>.</p>
+<div class="tablewrap" id="tab8"><table class="data"><caption>Table 8</caption><tbody><tr><td><strong>Day</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>…</td></tr><tr><td><strong>Hits</strong></td><td>2</td><td>4</td><td>8</td><td>16</td><td>32</td><td>…</td></tr></tbody></table></div>
+<p>If their model continues, how many hits will there be at the end of the month? To answer this question, we’ll first need to know how to determine a list of numbers written in a specific order. In this section, we will explore these kinds of ordered lists.</p>
+<h2 id="writing-the-terms-of-a-sequence-defined-by-an-explicit-formula">Writing the Terms of a Sequence Defined by an Explicit Formula</h2>
+<p>One way to describe an ordered list of numbers is as a <strong>sequence</strong>. A sequence is a function whose domain is a subset of the counting numbers. The sequence established by the number of hits on the website is</p>
+<p id="eq1">\[\{2,4,8,16,32,…\}.\]</p>
+<p>The <strong>ellipsis</strong> (…) indicates that the sequence continues indefinitely. Each number in the sequence is called a <strong>term</strong>. The first five terms of this sequence are 2, 4, 8, 16, and 32.</p>
+<p>Listing all of the terms for a sequence can be cumbersome. For example, finding the number of hits on the website at the end of the month would require listing out as many as 31 terms. A more efficient way to determine a specific term is by writing a formula to define the sequence.</p>
+<p>One type of formula is an <strong>explicit formula</strong>, which defines the terms of a sequence using their position in the sequence. Explicit formulas are helpful if we want to find a specific term of a sequence without finding all of the previous terms. We can use the formula to find the <strong>nth term of the sequence</strong>, where \(n\) is any positive number. In our example, each number in the sequence is double the previous number, so we can use powers of 2 to write a formula for the \(n\text{th}\) term.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_001.jpg" alt="Sequence of {2, 4, 8, 16, 32, ...} expressed in exponential form (i.e., {2^1, 2^2, 2^3, ..., 2^n, ...}" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>The first term of the sequence is \({2}^{1}=2,\) the second term is \({2}^{2}=4,\) the third term is \({2}^{3}=8,\) and so on. The \(n\text{th}\) term of the sequence can be found by raising 2 to the \(n\text{th}\) power. An explicit formula for a sequence is named by a lower case letter \(a,b,c...\) with the subscript \(n.\) The explicit formula for this sequence is</p>
+<p id="eq2">\[{a}_{n}={2}^{n}.\]</p>
+<p>Now that we have a formula for the \(n\text{th}\) term of the sequence, we can answer the question posed at the beginning of this section. We were asked to find the number of hits at the end of the month, which we will take to be 31 days. To find the number of hits on the last day of the month, we need to find the 31<sup>st</sup> term of the sequence. We will substitute 31 for \(n\) in the formula.</p>
+<p id="eq3">\[\begin{array}{l}{a}_{31}={2}^{31} \\ \,\,=\text{2,147,483,648}\end{array}\]</p>
+<p>If the doubling trend continues, the company will get \(\text{2,147,483,648}\) hits on the last day of the month. That is over 2.1 billion hits! The huge number is probably a little unrealistic because it does not take consumer interest and competition into account. It does, however, give the company a starting point from which to consider business decisions.</p>
+<p>Another way to represent the sequence is by using a table. The first five terms of the sequence and the \(n\text{th}\) term of the sequence are shown in <a href="#tab9">Table 9</a>.</p>
+<div class="tablewrap" id="tab9"><table class="data"><caption>Table 9</caption><tbody><tr><td><strong>\(n\)</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>\(n\)</td></tr><tr><td><strong>\(n\text{th}\) term of the sequence, \({a}_{n}\)</strong></td><td>2</td><td>4</td><td>8</td><td>16</td><td>32</td><td>\({2}^{n}\)</td></tr></tbody></table></div>
+<p>Graphing provides a visual representation of the sequence as a set of distinct points. We can see from the graph in <a href="#fig1">Figure 1</a> that the number of hits is rising at an exponential rate. This particular sequence forms an exponential function.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_002.jpg" alt="Graph of a plotted exponential function, f(n) = 2^n, where the x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<p>Lastly, we can write this particular sequence as</p>
+<p id="eq4">\[\{2,4,8,16,32,…,{2}^{n},…\}.\]</p>
+<p>A sequence that continues indefinitely is called an <strong>infinite sequence</strong>. The domain of an infinite sequence is the set of counting numbers. If we consider only the first 10 terms of the sequence, we could write</p>
+<p id="eq5">\[\{2,4,8,16,32,…,{2}^{n},…,1024\}.\]</p>
+<p>This sequence is called a <strong>finite sequence</strong> because it does not continue indefinitely.</p>
+<div class="card definition" id="fs-id1165137831577"><span class="chip">Sequence</span><p>A <strong>sequence</strong> is a function whose domain is the set of positive integers. A <strong>finite sequence</strong> is a sequence whose domain consists of only the first \(n\) positive integers. The numbers in a sequence are called <strong>terms</strong>. The variable \(a\) with a number subscript is used to represent the terms in a sequence and to indicate the position of the term in the sequence.</p>
+<p id="eq6">\[{a}_{1},{a}_{2},{a}_{3},…,{a}_{n},…\]</p>
+<p>We call \({a}_{1}\) the first term of the sequence, \({a}_{2}\) the second term of the sequence, \({a}_{3}\) the third term of the sequence, and so on. The term \({a}_{n}\) is called the <strong>nth term of the sequence</strong>, or the general term of the sequence. An <strong>explicit formula</strong> defines the \(n\text{th}\) term of a sequence using the position of the term. A sequence that continues indefinitely is an <strong>infinite sequence</strong>.</p>
+</div>
+<div class="card qa" id="fs-id1165135184176"><span class="chip">Q&amp;A</span><p><strong>Does a sequence always have to begin with</strong> \({a}_{1}?\)</p>
+<p><strong>No. In certain problems, it may be useful to define the initial term as \({a}_{0}\) instead of \({a}_{1}.\) In these problems, the domain of the function includes 0.</strong></p>
+</div>
+<div class="card howto" id="fs-id1165135434913"><span class="chip">How To</span><p><strong>Given an explicit formula, write the first</strong> \(n\) <strong>terms of a sequence.</strong></p>
+<ul class="tight"><li>Substitute each value of \(n\) into the formula. Begin with \(n=1\) to find the first term, \({a}_{1}.\)</li><li>To find the second term, \({a}_{2},\) use \(n=2.\)</li><li>Continue in the same manner until you have identified all \(n\) terms.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Write the first five terms of the sequence defined by the explicit formula \({a}_{n}=-3n+8.\)</p>
+</div><p class="sol-hint">Substitute n=1, 2, 3, 4, 5 one at a time into the explicit formula.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Substitute \(n=1\) into the formula. Repeat with values 2 through 5 for \(n.\)</p>
+<p id="eq7">\[\begin{array}{llllll}n=1 &amp; &amp; &amp; &amp; &amp; {a}_{1}=-3(1)+8=5 \\ n=2 &amp; &amp; &amp; &amp; &amp; {a}_{2}=-3(2)+8=2 \\ n=3 &amp; &amp; &amp; &amp; &amp; {a}_{3}=-3(3)+8=-1 \\ n=4 &amp; &amp; &amp; &amp; &amp; {a}_{4}=-3(4)+8=-4 \\ n=5 &amp; &amp; &amp; &amp; &amp; {a}_{5}=-3(5)+8=-7\end{array}\]</p>
+<p>The first five terms are \(\{5,\,2,\,-1,\,-4,\,-7\}.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The sequence values can be listed in a table. A table, such as <a href="#tab10">Table 10</a>, is a convenient way to input the function into a graphing utility.</p>
+<div class="tablewrap" id="tab10"><table class="data"><caption>Table 10</caption><tbody><tr><td><strong>\(n\)</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td><strong>\({a}_{n}\)</strong></td><td>5</td><td>2</td><td>–1</td><td>–4</td><td>–7</td></tr></tbody></table></div>
+<p>A graph can be made from this table of values. From the graph in <a href="#fig2">Figure 2</a>, we can see that this sequence represents a linear function, but notice the graph is not continuous because the domain is over the positive integers only.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_003.jpg" alt="Graph of a scattered plot where the x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Write the first five terms of the sequence defined by the <strong>explicit formula</strong> \({t}_{n}=5n-4.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The first five terms are \(\{1,6, 11, 16, 21\}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="investigating-alternating-sequences">Investigating Alternating Sequences</h3>
+<p>Sometimes sequences have terms that are alternate. In fact, the terms may actually alternate in sign. The steps to finding terms of the sequence are the same as if the signs did not alternate. However, the resulting terms will not show increase or decrease as \(n\) increases. Let’s take a look at the following sequence.</p>
+<p id="eq8">\[\{2,-4,6,-8\}\]</p>
+<p>Notice the first term is greater than the second term, the second term is less than the third term, and the third term is greater than the fourth term. This trend continues forever. Do not rearrange the terms in numerical order to interpret the sequence.</p>
+<div class="card howto" id="fs-id1165137643043"><span class="chip">How To</span><p><strong>Given an explicit formula with alternating terms, write the first \(n\) terms of a sequence.</strong></p>
+<ul class="tight"><li>Substitute each value of \(n\) into the formula. Begin with \(n=1\) to find the first term, \({a}_{1}.\) The sign of the term is given by the \({(-1)}^{n}\) in the explicit formula.</li><li>To find the second term, \({a}_{2},\) use \(n=2.\)</li><li>Continue in the same manner until you have identified all \(n\) terms.</li></ul>
+</div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Write the first five terms of the sequence.</p>
+<p id="eq9">\[{a}_{n}=\frac{{(-1)}^{n}{n}^{2}}{n+1}\]</p>
+</div><p class="sol-hint">Substitute the first five values of n into the formula, simplifying each term as you go.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Substitute \(n=1,\) \(n=2,\) and so on in the formula.</p>
+<p id="eq10">\[\begin{array}{lll}n=1 &amp; \begin{array}{ll} &amp; \end{array} &amp; {a}_{1}=\frac{{(-1)}^{1}{1}^{2}}{1+1}=-\frac{1}{2} \\ n=2 &amp; \begin{array}{ll} &amp; \end{array} &amp; {a}_{2}=\frac{{(-1)}^{2}{2}^{2}}{2+1}=\frac{4}{3} \\ n=3 &amp; \begin{array}{ll} &amp; \end{array} &amp; {a}_{3}=\frac{{(-1)}^{3}{3}^{2}}{3+1}=-\frac{9}{4} \\ n=4 &amp; \begin{array}{ll} &amp; \end{array} &amp; {a}_{4}=\frac{{(-1)}^{4}{4}^{2}}{4+1}=\frac{16}{5} \\ n=5 &amp; &amp; {a}_{5}=\frac{{(-1)}^{5}{5}^{2}}{5+1}=-\frac{25}{6}\end{array}\]</p>
+<p>The first five terms are \(\{-\frac{1}{2},\frac{4}{3},-\frac{9}{4},\frac{16}{5},-\frac{25}{6}\}.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>The graph of this function, shown in <a href="#fig3">Figure 3</a>, looks different from the ones we have seen previously in this section because the terms of the sequence alternate between positive and negative values.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_004.jpg" alt="Graph of a scattered plot with labeled points: (1, -1/2), (2, 4/3), (3, -9/4), (4, 16/5), and (5, -25/6). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div></div></div>
+<div class="card qa" id="fs-id1165137891457"><span class="chip">Q&amp;A</span><p><strong>In <a href="#example2">Example 2</a>, does the (–1) to the power of</strong> \(n\) <strong>account for the oscillations of signs?</strong></p>
+<p><strong>Yes, the power might be</strong> \(n,n+1,n-1,\) <strong>and so on, but any odd powers will result in a negative term, and any even power will result in a positive term.</strong></p>
+</div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Write the first five terms of the sequence.</p>
+<p id="eq11">\[{a}_{n}=\frac{4n}{{(-2)}^{n}}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The first five terms are \(\{-2, 2, -\frac{3}{2}, 1,\,\,-\frac{5}{8}\}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="investigating-piecewise-explicit-formulas">Investigating Piecewise Explicit Formulas</h3>
+<p>We’ve learned that sequences are functions whose domain is over the positive integers. This is true for other types of functions, including some <strong>piecewise functions</strong>. Recall that a piecewise function is a function defined by multiple subsections. A different formula might represent each individual subsection.</p>
+<div class="card howto" id="fs-id1165137667302"><span class="chip">How To</span><p><strong>Given an explicit formula for a piecewise function, write the first \(n\) terms of a sequence</strong></p>
+<ul class="tight"><li>Identify the formula to which \(n=1\) applies.</li><li>To find the first term, \({a}_{1},\) use \(n=1\) in the appropriate formula.</li><li>Identify the formula to which \(n=2\) applies.</li><li>To find the second term, \({a}_{2},\) use \(n=2\) in the appropriate formula.</li><li>Continue in the same manner until you have identified all \(n\) terms.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Write the first six terms of the sequence.</p>
+<p id="eq12">\[{a}_{n}=\left\{\begin{array}{ll}{n}^{2} &amp; \text{if }n\,\text{is not divisible by 3} \\ \frac{n}{3} &amp; \text{if }n\,\text{is divisible by 3}\end{array}\right.\]</p>
+</div><p class="sol-hint">Substitute the first six values of n into the formula, simplifying each term as you go.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Substitute \(n=1,n=2,\) and so on in the appropriate formula. Use \({n}^{2}\) when \(n\) is not a multiple of 3. Use \(\frac{n}{3}\) when \(n\) is a multiple of 3.</p>
+<p id="eq13">\[\begin{array}{ll}{a}_{1}={1}^{2}=1\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{1 is not a multiple of 3}\text{. Use }{n}^{2}. \\ {a}_{2}={2}^{2}=4 &amp; \text{2 is not a multiple of 3}\text{. Use }{n}^{2}. \\ {a}_{3}=\frac{3}{3}=1 &amp; \text{3 is a multiple of 3}\text{. Use }\frac{n}{3}. \\ {a}_{4}={4}^{2}=16 &amp; \text{4 is not a multiple of 3}\text{. Use }{n}^{2}. \\ {a}_{5}={5}^{2}=25 &amp; \text{5 is not a multiple of 3}\text{. Use }{n}^{2}. \\ {a}_{6}=\frac{6}{3}=2 &amp; \text{6 is a multiple of 3}\text{. Use }\frac{n}{3}.\end{array}\]</p>
+<p>The first six terms are \(\{1,\,\,4,\,\,1,\,\,16,\,\,25,\,\,2\}.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Every third point on the graph shown in <a href="#fig4">Figure 4</a> stands out from the two nearby points. This occurs because the sequence was defined by a piecewise function.</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_005.jpg" alt="Graph of a scattered plot where the x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Write the first six terms of the sequence.</p>
+<p id="eq14">\[{a}_{n}=\left\{\begin{array}{ll}2{n}^{3} &amp; \text{if }n\,\text{is odd} \\ \frac{5n}{2} &amp; \text{if }n\,\text{is even}\end{array}\right.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The first six terms are \(\{2,\,\,5,\,\,54,\,\,10,\,\,250,\,\,15\}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="finding-an-explicit-formula">Finding an Explicit Formula</h3>
+<p>Thus far, we have been given the explicit formula and asked to find a number of terms of the sequence. Sometimes, the explicit formula for the \(n\text{th}\) term of a sequence is not given. Instead, we are given several terms from the sequence. When this happens, we can work in reverse to find an explicit formula from the first few terms of a sequence. The key to finding an explicit formula is to look for a pattern in the terms. Keep in mind that the pattern may involve alternating terms, formulas for numerators, formulas for denominators, exponents, or bases.</p>
+<div class="card howto" id="fs-id1165137400858"><span class="chip">How To</span><p><strong>Given the first few terms of a sequence, find an explicit formula for the sequence.</strong></p>
+<ul class="tight"><li>Look for a pattern among the terms.</li><li>If the terms are fractions, look for a separate pattern among the numerators and denominators.</li><li>Look for a pattern among the signs of the terms.</li><li>Write a formula for \({a}_{n}\) in terms of \(n.\) Test your formula for \(n=1,\,\,n=2,\) and \(n=3.\)</li></ul>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Write an explicit formula for the \(n\text{th}\) term of each sequence.</p>
+<ul class="tight"><li>ⓐ \(\{-\frac{2}{11},\frac{3}{13},-\frac{4}{15},\frac{5}{17},-\frac{6}{19},…\}\)</li><li>ⓑ \(\{-\frac{2}{25}\text{,}-\frac{2}{125}\text{,}-\frac{2}{625}\text{,}-\frac{2}{3\text{,}125}\text{,}-\frac{2}{15\text{,}625}\text{,}…\}\)</li><li>ⓒ \(\{{e}^{4}\text{,}{e}^{5}\text{,}{e}^{6}\text{,}{e}^{7}\text{,}{e}^{8}\text{,}…\}\)</li></ul>
+</div><p class="sol-hint">Look at how each term changes from the last to spot the pattern, then write it in terms of n.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Look for the pattern in each sequence.</p>
+<ul class="tight"><li>ⓐThe terms alternate between positive and negative. We can use \({(-1)}^{n}\) to make the terms alternate. The numerator can be represented by \(n+1.\) The denominator can be represented by \(2n+9.\) \({a}_{n}=\frac{{(-1)}^{n}(n+1)}{2n+9}\)<p>\({a}_{n}=\frac{{(-1)}^{n}(n+1)}{2n+9}\)</p>
+</li><li>ⓑThe terms are all negative. So we know that the fraction is negative, the numerator is 2, and the denominator can be represented by \({5}^{n+1}.\)<p>The terms are all negative.</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Coreq_Figure_09_02_001.png" alt="The image illustrates a sequence of fractions. The top line shows the sequence as {2/25, 2/125, 2/625, 2/3,125, 2/15,125, ...} and explicitly states that the numerator is 2. The bottom line reiterates the sequence with the denominators expressed as powers of 5: {2/5^2, 2/5^3, 2/5^4, 2/5^6, 2/5^7, ..., 2/5^n}, clarifying that the denominators are increasing powers of 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<p>So we know that the fraction is negative, the numerator is 2, and the denominator can be represented by \({5}^{n+1}.\)</p>
+<p id="eq15">\[{a}_{n}=-\frac{2}{{5}^{n+1}}\]</p>
+</li><li>ⓒThe terms are powers of \(e.\) For \(n=1,\) the first term is \({e}^{4}\) so the exponent must be \(n+3.\)<p>The terms are powers of \(e.\) For \(n=1,\) the first term is \({e}^{4}\) so the exponent must be \(n+3.\)</p>
+<p id="eq16">\[{a}_{n}={e}^{n+3}\]</p>
+</li></ul>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Write an explicit formula for the \(n\text{th}\) term of the sequence.</p>
+<p id="eq17">\[\text{\{9,}\,-\text{81,}\,\text{729,}\,-\text{6,561,}\,\text{59,049,}\,\text{…\}}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({a}_{n}={(-1)}^{n+1}{9}^{n}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Write an explicit formula for the \(n\text{th}\) term of the sequence.</p>
+<p id="eq18">\[\{-\frac{3}{4},-\frac{9}{8},-\frac{27}{12},-\frac{81}{16},-\frac{243}{20},...\}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({a}_{n}=-\frac{{3}^{n}}{4n}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Write an explicit formula for the \(n\text{th}\) term of the sequence.</p>
+<p id="eq19">\[\{\frac{1}{{e}^{2}}, \frac{1}{e}, 1, e, {e}^{2},...\}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({a}_{n}={e}^{n-3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="writing-the-terms-of-a-sequence-defined-by-a-recursive-formula">Writing the Terms of a Sequence Defined by a Recursive Formula</h2>
+<p>Sequences occur naturally in the growth patterns of nautilus shells, pinecones, tree branches, and many other natural structures. We may see the sequence in the leaf or branch arrangement, the number of petals of a flower, or the pattern of the chambers in a nautilus shell. Their growth follows the Fibonacci sequence, a famous sequence in which each term can be found by adding the preceding two terms. The numbers in the sequence are 1, 1, 2, 3, 5, 8, 13, 21, 34,…. Other examples from the natural world that exhibit the Fibonacci sequence are the Calla Lily, which has just one petal, the Black-Eyed Susan with 13 petals, and different varieties of daisies that may have 21 or 34 petals.</p>
+<p>Each term of the Fibonacci sequence depends on the terms that come before it. The Fibonacci sequence cannot easily be written using an explicit formula. Instead, we describe the sequence using a <strong>recursive formula</strong>, a formula that defines the terms of a sequence using previous terms.</p>
+<p>A recursive formula always has two parts: the value of an initial term (or terms), and an equation defining \({a}_{n}\) in terms of preceding terms. For example, suppose we know the following:</p>
+<p id="eq20">\[\begin{array}{l}{a}_{1}=3 \\ {a}_{n}=2{a}_{n-1}-1 \text{for} n\ge 2\end{array}\]</p>
+<p>We can find the subsequent terms of the sequence using the first term.</p>
+<p id="eq21">\[\begin{array}{l}{a}_{1}=3 \\ {a}_{2}=2{a}_{1}-1=2(3)-1=5 \\ {a}_{3}=2{a}_{2}-1=2(5)-1=9 \\ {a}_{4}=2{a}_{3}-1=2(9)-1=17\end{array}\]</p>
+<p>So the first four terms of the sequence are \(\{3,\,\,5,\,\,9,\,\,17\}\) .</p>
+<p>The recursive formula for the Fibonacci sequence states the first two terms and defines each successive term as the sum of the preceding two terms.</p>
+<p id="eq22">\[\begin{array}{l}{a}_{1}=1 \\ {a}_{2}=1 \\ {a}_{n}={a}_{n-1}+{a}_{n-2} \text{for} n\ge 3\end{array}\]</p>
+<p>To find the tenth term of the sequence, for example, we would need to add the eighth and ninth terms. We were told previously that the eighth and ninth terms are 21 and 34, so</p>
+<p id="eq23">\[{a}_{10}={a}_{9}+{a}_{8}=34+21=55\]</p>
+<div class="card definition" id="fs-id1165134079762"><span class="chip">Recursive Formula</span><p>A <strong>recursive formula</strong> is a formula that defines each term of a sequence using preceding term(s). Recursive formulas must always state the initial term, or terms, of the sequence.</p>
+</div>
+<div class="card qa" id="fs-id1165137831948"><span class="chip">Q&amp;A</span><p><strong>Must the first two terms always be given in a recursive formula?</strong></p>
+<p><strong>No. The Fibonacci sequence defines each term using the two preceding terms, but many recursive formulas define each term using only one preceding term. These sequences need only the first term to be defined.</strong></p>
+</div>
+<div class="card howto" id="fs-id1165137408007"><span class="chip">How To</span><p><strong>Given a recursive formula with only the first term provided, write the first \(n\) terms of a sequence.</strong></p>
+<ul class="tight"><li>Identify the initial term, \({a}_{1},\) which is given as part of the formula. This is the first term.</li><li>To find the second term, \({a}_{2},\) substitute the initial term into the formula for \({a}_{n-1}.\) Solve.</li><li>To find the third term, \({a}_{3},\) substitute the second term into the formula. Solve.</li><li>Repeat until you have solved for the \(n\text{th}\) term.</li></ul>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Write the first five terms of the sequence defined by the recursive formula.</p>
+<p id="eq24">\[\begin{array}{l}\begin{array}{l} \\ {a}_{1}=9\end{array} \\ {a}_{n}=3{a}_{n-1}-20\text{, for }n\ge 2\end{array}\]</p>
+</div><p class="sol-hint">Start from the given first term, then repeatedly apply the recursive rule to generate each next term.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The first term is given in the formula. For each subsequent term, we replace \({a}_{n-1}\) with the value of the preceding term.</p>
+<p id="eq25">\[\begin{array}{ll}n=1\begin{array}{lllll} &amp; &amp; &amp; &amp; \end{array} &amp; {a}_{1}=9 \\ n=2 &amp; {a}_{2}=3{a}_{1}-20=3(9)-20=27-20=7 \\ n=3 &amp; {a}_{3}=3{a}_{2}-20=3(7)-20=21-20=1 \\ n=4 &amp; {a}_{4}=3{a}_{3}-20=3(1)-20=3-20=-17 \\ n=5 &amp; {a}_{5}=3{a}_{4}-20=3(-17)-20=-51-20=-71\end{array}\]</p>
+<p>The first five terms are \(\{9,\,\,7,\,\,1,\,\,-17,\,\,-71\}.\) See <a href="#fig5">Figure 5</a>.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_006.jpg" alt="Graph of a scattered plot with labeled points: (1, 9), (2, 7), (3, 1), (4, -17), and (5, -71). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-7"><div class="ex-head"><span class="num">Try It #7</span></div><div class="ex-body"><p>Write the first five terms of the sequence defined by the recursive formula.</p>
+<p id="eq26">\[\begin{array}{l}{a}_{1}=2 \\ {a}_{n}=2{a}_{n-1}+1\text{, for }n\ge 2\end{array}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\{2, 5, 11, 23, 47\}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card howto" id="fs-id1165135209976"><span class="chip">How To</span><p><strong>Given a recursive formula with two initial terms, write the first \(n\) terms of a sequence.</strong></p>
+<ul class="tight"><li>Identify the initial term, \({a}_{1},\) which is given as part of the formula.</li><li>Identify the second term, \({a}_{2},\) which is given as part of the formula.</li><li>To find the third term, substitute the initial term and the second term into the formula. Evaluate.</li><li>Repeat until you have evaluated the \(n\text{th}\) term.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Write the first six terms of the sequence defined by the recursive formula.</p>
+<p id="eq27">\[\begin{array}{l}{a}_{1}=1 \\ {a}_{2}=2 \\ {a}_{n}=3{a}_{n-1}+4{a}_{n-2}\text{, for }n\ge 3\end{array}\]</p>
+</div><p class="sol-hint">Start from the given first term(s), then repeatedly apply the recursive rule to generate each next term.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The first two terms are given. For each subsequent term, we replace \({a}_{n-1}\) and \({a}_{n-2}\) with the values of the two preceding terms.</p>
+<p id="eq28">\[\begin{array}{lllllll}n=3 &amp; &amp; &amp; &amp; &amp; &amp; {a}_{3}=3{a}_{2}+4{a}_{1}=3(2)+4(1)=10 \\ n=4 &amp; &amp; &amp; &amp; &amp; &amp; {a}_{4}=3{a}_{3}+4{a}_{2}=3(10)+4(2)=38 \\ n=5 &amp; &amp; &amp; &amp; &amp; &amp; {a}_{5}=3{a}_{4}+4{a}_{3}=3(38)+4(10)=154 \\ n=6 &amp; &amp; &amp; &amp; &amp; &amp; {a}_{6}=3{a}_{5}+4{a}_{4}=3(154)+4(38)=614\end{array}\]</p>
+<p>The first six terms are \(\text{\{1,2,10,38,154,614\}}\text{.}\) See <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_007.jpg" alt="Graph of a scattered plot with labeled points: (1, 1), (2, 2), (3, 10), (4, 38), (5, 154) and (6, 614). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-8"><div class="ex-head"><span class="num">Try It #8</span></div><div class="ex-body"><p>Write the first 8 terms of the sequence defined by the recursive formula.</p>
+<p id="eq29">\[\begin{array}{l}\begin{array}{l} \\ {a}_{1}=0\end{array} \\ {a}_{2}=1 \\ {a}_{3}=1 \\ {a}_{n}=\frac{{a}_{n-1}}{{a}_{n-2}}+{a}_{n-3}\text{, for }n\ge 4\end{array}\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\{0, 1, 1, 1, 2, 3, \frac{5}{2},\,\,\frac{17}{6}\}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="using-factorial-notation">Using Factorial Notation</h2>
+<p>The formulas for some sequences include products of consecutive positive integers. <strong>\(n\) factorial</strong>, written as \(n!,\) is the product of the positive integers from 1 to \(n.\) For example,</p>
+<p id="eq30">\[\begin{array}{l}4!=4\cdot 3\cdot 2\cdot 1=24 \\ 5!=5\cdot 4\cdot 3\cdot 2\cdot 1=120\end{array}\]</p>
+<p>An example of formula containing a <strong>factorial</strong> is \({a}_{n}=(n+1)!.\) The sixth term of the sequence can be found by substituting 6 for \(n.\)</p>
+<p id="eq31">\[{a}_{6}=(6+1)!=7!=7·6·5·4·3·2·1=5040\]</p>
+<p>The factorial of any whole number \(n\) is \(n(n-1)!\) We can therefore also think of \(5!\) as \(5\cdot 4!\text{.}\)</p>
+<div class="card definition" id="fs-id1165137738003"><span class="chip">n Factorial</span><p><strong><strong>n</strong> factorial</strong> is a mathematical operation that can be defined using a recursive formula. The factorial of \(n,\) denoted \(n!,\) is defined for a positive integer \(n\) as:</p>
+<p id="eq32">\[\begin{array}{l}0!=1 \\ 1!=1 \\ n!=n(n-1)(n-2)\cdots (2)(1)\text{, for }n\ge 2\end{array}\]</p>
+<p>The special case \(0!\) is defined as \(0!=1.\)</p>
+</div>
+<div class="card qa" id="fs-id1165135404209"><span class="chip">Q&amp;A</span><p><strong>Can factorials always be found using a calculator?</strong></p>
+<p><strong>No. Factorials get large very quickly—faster than even exponential functions! When the output gets too large for the calculator, it will not be able to calculate the factorial.</strong></p>
+</div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Write the first five terms of the sequence defined by the explicit formula \({a}_{n}=\frac{5n}{(n+2)!}.\)</p>
+</div><p class="sol-hint">Substitute n=1, 2, 3, 4, 5 into the formula, remembering to expand the factorial in the denominator.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Substitute \(n=1,n=2,\) and so on in the formula.</p>
+<p id="eq33">\[\begin{array}{lllll}n=1 &amp; &amp; &amp; &amp; {a}_{1}=\frac{5(1)}{(1+2)!}=\frac{5}{3!}=\frac{5}{3·2·1}=\frac{5}{6} \\ n=2 &amp; &amp; &amp; &amp; {a}_{2}=\frac{5(2)}{(2+2)!}=\frac{10}{4!}=\frac{10}{4·3·2·1}=\frac{5}{12} \\ n=3 &amp; &amp; &amp; &amp; {a}_{3}=\frac{5(3)}{(3+2)!}=\frac{15}{5!}=\frac{15}{5·4·3·2·1}=\frac{1}{8} \\ n=4 &amp; &amp; &amp; &amp; {a}_{4}=\frac{5(4)}{(4+2)!}=\frac{20}{6!}=\frac{20}{6·5·4·3·2·1}=\frac{1}{36} \\ n=5 &amp; &amp; &amp; &amp; {a}_{5}=\frac{5(5)}{(5+2)!}=\frac{25}{7!}=\frac{25}{7·6·5·4·3·2·1}=\frac{5}{1\text{,}008}\end{array}\]</p>
+<p>The first five terms are \(\{\frac{5}{6},\frac{5}{12},\frac{1}{8},\frac{1}{36},\frac{5}{1,008}\}.\)</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p><a href="#fig7">Figure 7</a> shows the graph of the sequence. Notice that, since factorials grow very quickly, the presence of the factorial term in the denominator results in the denominator becoming much larger than the numerator as \(n\) increases. This means the quotient gets smaller and, as the plot of the terms shows, the terms are decreasing and nearing zero.</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_008.jpg" alt="Graph of a scattered plot with labeled points: (1, 5/6), (2, 5/12), (3, 1/8), (4, 1/36),  and (5, 5/1008). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div></div></div></div>
+<div class="tryit" id="tryit-9"><div class="ex-head"><span class="num">Try It #9</span></div><div class="ex-body"><p>Write the first five terms of the sequence defined by the explicit formula \({a}_{n}=\frac{(n+1)!}{2n}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>The first five terms are \(\{1, \frac{3}{2}, 4,\,\,15,\,\,72\}.\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1165135510775"><span class="chip">Media</span><p>Access this online resource for additional instruction and practice with sequences.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/findingterms" target="_blank" rel="noopener">Finding Terms in a Sequence</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab11"><table class="data"><caption>Table 11</caption><tbody><tr><td>Formula for a factorial</td><td>\(\begin{array}{l}0!=1 \\ 1!=1 \\ n!=n(n-1)(n-2)\cdots (2)(1)\text{, for }n\ge 2\end{array}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>A sequence is a list of numbers, called terms, written in a specific order.</li><li>Explicit formulas define each term of a sequence using the position of the term. See <a href="#example1">Example 1</a>, <a href="#example2">Example 2</a>, and <a href="#example3">Example 3</a>.</li><li>An explicit formula for the \(n\text{th}\) term of a sequence can be written by analyzing the pattern of several terms. See <a href="#example4">Example 4</a>.</li><li>Recursive formulas define each term of a sequence using previous terms.</li><li>Recursive formulas must state the initial term, or terms, of a sequence.</li><li>A set of terms can be written by using a recursive formula. See <a href="#example5">Example 5</a> and <a href="#example6">Example 6</a>.</li><li>A factorial is a mathematical operation that can be defined recursively.</li><li>The factorial of \(n\) is the product of all integers from 1 to \(n\) See <a href="#example7">Example 7</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Discuss the meaning of a sequence. If a finite sequence is defined by a formula, what is its domain? What about an infinite sequence?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A sequence is an ordered list of numbers that can be either finite or infinite in number. When a finite sequence is defined by a formula, its domain is a subset of the non-negative integers. When an infinite sequence is defined by a formula, its domain is all positive or all non-negative integers.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Describe three ways that a sequence can be defined.</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Is the ordered set of even numbers an infinite sequence? What about the ordered set of odd numbers? Explain why or why not.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Yes, both sets go on indefinitely, so they are both infinite sequences.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>What happens to the terms \({a}_{n}\) of a sequence when there is a negative factor in the formula that is raised to a power that includes \(n?\) What is the term used to describe this phenomenon?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>What is a factorial, and how is it denoted? Use an example to illustrate how factorial notation can be beneficial.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A factorial is the product of a positive integer and all the positive integers below it. An exclamation point is used to indicate the operation. Answers may vary. An example of the benefit of using factorial notation is when indicating the product It is much easier to write than it is to write out \(\text{13}\cdot \text{12}\cdot \text{11}\cdot \text{10}\cdot \text{9}\cdot \text{8}\cdot \text{7}\cdot \text{6}\cdot \text{5}\cdot \text{4}\cdot \text{3}\cdot \text{2}\cdot \text{1}\text{.}\)</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, write the first four terms of the sequence.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\({a}_{n}={2}^{n}-2\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\({a}_{n}=-\frac{16}{n+1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First four terms: \(-8,\,\,-\frac{16}{3},\,\,-4,\,\,-\frac{16}{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\({a}_{n}=-{(-5)}^{n-1}\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\({a}_{n}=\frac{{2}^{n}}{{n}^{3}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First four terms: \(2,\,\,\frac{1}{2},\,\,\frac{8}{27},\,\,\frac{1}{4}\) .</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\({a}_{n}=\frac{2n+1}{{n}^{3}}\)</p>
+</div></div>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\({a}_{n}=1.25\cdot {(-4)}^{n-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First four terms: \(1.25,\,\,-5,\,\,20,\,\,-80\) .</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\({a}_{n}=-4\cdot {(-6)}^{n-1}\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\({a}_{n}=\frac{{n}^{2}}{2n+1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First four terms: \(\frac{1}{3},\,\,\frac{4}{5},\,\,\frac{9}{7},\,\,\frac{16}{9}\) .</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\({a}_{n}={(-10)}^{n}+1\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\({a}_{n}=-(\frac{4\cdot {(-5)}^{n-1}}{5})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First four terms: \(-\frac{4}{5},\,\,4,\,\,-20,\,\,100\)</p>
+</div></div></div></div>
+<p>For the following exercises, write the first eight terms of the piecewise sequence.</p>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\({a}_{n}=\left\{\begin{array}{ll}{(-2)}^{n}-2 &amp; \text{if }n\,\text{is even} \\ {(3)}^{n-1} &amp; \text{if }n\,\text{is odd}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\({a}_{n}=\left\{\begin{array}{ll}\frac{{n}^{2}}{2n+1} &amp; \text{if }n\,\,\le \text{5} \\ {n}^{2}-5 &amp; \text{if }n\,\text{&gt;5}\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{3},\,\,\frac{4}{5},\,\,\frac{9}{7},\,\,\frac{16}{9},\,\,\frac{25}{11},\,\,31,\,\,44,\,\,59\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\({a}_{n}=\left\{\begin{array}{ll}{(2n+1)}^{2} &amp; \text{if }n\,\text{is divisible by 4} \\ \frac{2}{n} &amp; \text{if }n\,\text{is not divisible by 4}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\({a}_{n}=\left\{\begin{array}{ll}-0.6\cdot {5}^{n-1} &amp; \text{if }n\,\text{is prime or 1} \\ 2.5\cdot {(-2)}^{n-1} &amp; \text{if }n\,\text{is composite}\end{array}\right.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-0.6,-3,-15,-20,-375,-80,-9375,-320\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\({a}_{n}=\left\{\begin{array}{ll}4({n}^{2}-2) &amp; \text{if }n\,\,\le 3\,\text{or }n\,\text{&gt; 6} \\ \frac{{n}^{2}-2}{4} &amp; \text{if }3&lt;n\le 6\end{array}\right.\)</p>
+</div></div>
+<p>For the following exercises, write an explicit formula for each sequence.</p>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(4, 7, 12, 19, 28,…\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{n}={n}^{2}+3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(-4,2,-10,14,-34,…\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(1,1,\frac{4}{3},2,\frac{16}{5},…\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{n}=\frac{{2}^{n}}{2n}\,\text{or }\frac{{2}^{n-1}}{n}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(0,\frac{1-{e}^{1}}{1+{e}^{2}},\frac{1-{e}^{2}}{1+{e}^{3}},\frac{1-{e}^{3}}{1+{e}^{4}},\frac{1-{e}^{4}}{1+{e}^{5}},…\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(1,-\frac{1}{2},\frac{1}{4},-\frac{1}{8},\frac{1}{16},…\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{n}={(-\frac{1}{2})}^{n-1}\)</p>
+</div></div></div></div>
+<p>For the following exercises, write the first five terms of the sequence.</p>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({a}_{1}=9,\,\,{a}_{n}={a}_{n-1}+n\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\({a}_{1}=3,\,\,{a}_{n}=(-3){a}_{n-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First five terms: \(3,\,\,-9,\,\,27,\,\,-81,\,\,243\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\({a}_{1}=-4,\,\,{a}_{n}=\frac{{a}_{n-1}+2n}{{a}_{n-1}-1}\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\({a}_{1}=-1,\,\,{a}_{n}=\frac{{(-3)}^{n-1}}{{a}_{n-1}-2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First five terms: \(-1,\,\,1,\,\,-9,\,\,\frac{27}{11},\,\,\frac{891}{5}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\({a}_{1}=-30,\,\,{a}_{n}=(2+{a}_{n-1}){(\frac{1}{2})}^{n}\)</p>
+</div></div>
+<p>For the following exercises, write the first eight terms of the sequence.</p>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\({a}_{1}=\frac{1}{24},{\,\text{a}}_{2}=1,\,\,{a}_{n}=(2{a}_{n-2})(3{a}_{n-1})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{24},\,\text{1, }\frac{1}{4},\,\,\frac{3}{2},\,\,\frac{9}{4},\,\,\frac{81}{4},\,\,\frac{2187}{8},\,\,\frac{531,441}{16}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\({a}_{1}=-1,{\,\text{a}}_{2}=5,\,\,{a}_{n}={a}_{n-2}(3-{a}_{n-1})\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\({a}_{1}=2,{\,\text{a}}_{2}=10,\,\,{a}_{n}=\frac{2({a}_{n-1}+2)}{{a}_{n-2}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2,\,\,10,\,\,12,\,\,\frac{14}{5},\,\,\frac{4}{5},\,\,2,\,\,10,\,\,12\)</p>
+</div></div></div></div>
+<p>For the following exercises, write a recursive formula for each sequence.</p>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(-2.5,-5,-10,-20,-40,…\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(-8,-6,-3,1,6,…\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{1}=-8,{a}_{n}={a}_{n-1}+n\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(2,\,\,4,\,\,12,\,\,48,\,\,240,\,\,…\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(35,\,\,38,\,\,41,\,\,44,\,\,47,\,\,…\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{1}=35,{a}_{n}={a}_{n-1}+3\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(15,3,\frac{3}{5},\frac{3}{25},\frac{3}{125},\cdots\)</p>
+</div></div>
+<p>For the following exercises, evaluate the factorial.</p>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(6!\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(720\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\((\frac{12}{6})!\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(\frac{12!}{6!}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(665,280\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(\frac{100!}{99!}\)</p>
+</div></div>
+<p>For the following exercises, write the first four terms of the sequence.</p>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\({a}_{n}=\frac{n!}{{n}^{\text{2}}}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First four terms: \(1,\frac{1}{2},\frac{2}{3},\frac{3}{2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\({a}_{n}=\frac{3\cdot n!}{4\cdot n!}\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\({a}_{n}=\frac{n!}{{n}^{2}-n-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First four terms: \(-1,2,\frac{6}{5},\frac{24}{11}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\({a}_{n}=\frac{100\cdot n}{n(n-1)!}\)</p>
+</div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, graph the first five terms of the indicated sequence</p>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\({a}_{n}=\frac{{(-1)}^{n}}{n}+n\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_201.jpg" alt="Graph of a scattered plot with points at (1, 0), (2, 5/2), (3, 8/3), (4, 17/4), and (5, 24/5). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\({a}_{n}=\left\{\begin{array}{ll}\frac{4+n}{2n} &amp; \text{if }n\,\text{is even} \\ 3+n &amp; \text{if }n\,\text{is odd}\end{array}\right.\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\({a}_{1}=2,\,\,{a}_{n}={(-{a}_{n-1}+1)}^{2}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_203.jpg" alt="Graph of a scattered plot with points at (1, 2), (2, 1), (3, 0), (4, 1), and (5, 0). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\({a}_{1}=1,\,\,{a}_{n}={a}_{n-1}+8\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\({a}_{n}=\frac{(n+1)!}{(n-1)!}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_205.jpg" alt="Graph of a scattered plot with labeled points: (1, 2), (2, 6), (3, 12), (4, 20), and (5, 30). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, write an explicit formula for the sequence using the first five points shown on the graph.</p>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_206.jpg" alt="Graph of a scattered plot with labeled points: (1, 5), (2, 7), (3, 9), (4, 11), and (5, 13). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_207.jpg" alt="Graph of a scattered plot with labeled points: (1, 0.5), (2, 1), (3, 2), (4, 4), and (5, 8). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{n}={2}^{n-2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_208.jpg" alt="Graph of a scattered plot with labeled points: (1, 12), (2, 9), (3, 6), (4, 3), and (5, 0). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, write a recursive formula for the sequence using the first five points shown on the graph.</p>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_209.jpg" alt="Graph of a scattered plot with labeled points: (1, 6), (2, 7), (3, 9), (4, 13), and (5, 21). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{1}=6,\,\,{a}_{n}=2{a}_{n-1}-5\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_11_01_210.jpg" alt="Graph of a scattered plot with labeled points: (1, 16), (2, 8), (3, 4), (4, 2), and (5, 1). The x-axis is labeled n and the y-axis is labeled a_n." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<h3 id="technology">Technology</h3>
+<p>Follow these steps to evaluate a sequence defined recursively using a graphing calculator:</p>
+<ul class="tight"><li>On the home screen, key in the value for the initial term \({a}_{1}\) and press <strong>[ENTER]</strong>.</li><li>Enter the recursive formula by keying in all numerical values given in the formula, along with the key strokes <strong>[2ND] ANS</strong> for the previous term \({a}_{n-1}.\) Press <strong>[ENTER]</strong>.</li><li>Continue pressing <strong>[ENTER]</strong> to calculate the values for each successive term.</li></ul>
+<p>For the following exercises, use the steps above to find the indicated term or terms for the sequence.</p>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>Find the first five terms of the sequence \({a}_{1}=\frac{87}{111}\) , \({a}_{n}=\frac{4}{3}{a}_{n-1}+\frac{12}{37}.\) Use the &gt;<strong>Frac</strong> feature to give fractional results.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First five terms: \(\frac{29}{37}\) , \(\frac{152}{111}\) , \(\frac{716}{333}\) , \(\frac{3188}{999}\) , \(\frac{13724}{2997}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>Find the 15<sup>th</sup> term of the sequence \({a}_{1}=625\) , \({a}_{n}=0.8{a}_{n-1}+18.\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>Find the first five terms of the sequence \({a}_{1}=2\) , \({a}_{n}={2}^{[({a}_{n}-1)-1]}+1.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First five terms: 2, 3, 5, 17, 65537</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>Find the first ten terms of the sequence \({a}_{1}=8\) , \({a}_{n}=\frac{({a}_{n-1}+1)!}{{a}_{n-1}!}.\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>Find the tenth term of the sequence \({a}_{1}=2\) , \({a}_{n}=n{a}_{n-1}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{10}=7,257,600\)</p>
+</div></div></div></div>
+<p>Follow these steps to evaluate a finite sequence defined by an explicit formula. Using a TI-84, do the following.</p>
+<ul class="tight"><li>In the home screen, press <strong>[2ND] LIST</strong>.</li><li>Scroll over to <strong>OPS</strong> and choose <strong>“seq(”</strong> from the dropdown list. Press <strong>[ENTER]</strong>.</li><li>In the line headed <strong>“Expr:”</strong> type in the explicit formula, using the \([\text{X,T},θ,n]\) button for \(n\)</li><li>In the line headed <strong>“Variable:”</strong> type in the variable used on the previous step.</li><li>In the line headed <strong>“start:”</strong> key in the value of \(n\) that begins the sequence.</li><li>In the line headed <strong>“end:”</strong> key in the value of \(n\) that ends the sequence.</li><li>Press <strong>[ENTER]</strong> 3 times to return to the home screen. You will see the sequence syntax on the screen. Press <strong>[ENTER]</strong> to see the list of terms for the finite sequence defined. Use the right arrow key to scroll through the list of terms.</li></ul>
+<p>Using a TI-83, do the following.</p>
+<ul class="tight"><li>In the home screen, press <strong>[2ND] LIST</strong>.</li><li>Scroll over to <strong>OPS</strong> and choose <strong>“seq(”</strong> from the dropdown list. Press <strong>[ENTER]</strong>.</li><li>Enter the items in the order <strong>“Expr”</strong>, <strong>“Variable”</strong>, <strong>“start”</strong>, <strong>“end”</strong> separated by commas. See the instructions above for the description of each item.</li><li>Press <strong>[ENTER]</strong> to see the list of terms for the finite sequence defined. Use the right arrow key to scroll through the list of terms.</li></ul>
+<p>For the following exercises, use the steps above to find the indicated terms for the sequence. Round to the nearest thousandth when necessary.</p>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>List the first five terms of the sequence \({a}_{n}=-\frac{28}{9}n+\frac{5}{3}.\)</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>List the first six terms of the sequence \({a}_{n}=\frac{{n}^{3}-3.5{n}^{2}+ 4.1n-1.5}{2.4n}.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First six terms: 0.042, 0.146, 0.875, 2.385, 4.708</p>
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>List the first five terms of the sequence \({a}_{n}=\frac{15n\cdot {(-2)}^{n-1}}{47}\)</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>List the first four terms of the sequence \({a}_{n}={5.7}^{n}+0.275(n-1)!\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>First four terms: 5.975, 2.765, 185.743, 1057.25, 6023.521</p>
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>List the first six terms of the sequence \({a}_{n}=\frac{n!}{n}.\)</p>
+</div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>Consider the sequence defined by \({a}_{n}=-6-8n.\) Is \({a}_{n}=-421\) a term in the sequence? Verify the result.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>If \({a}_{n}=-421\) is a term in the sequence, then solving the equation \(-421=-6-8n\) for \(n\) will yield a non-negative integer. However, if \(-421=-6-8n,\) then \(n=51.875\) so \({a}_{n}=-421\) is not a term in the sequence.</p>
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>What term in the sequence \({a}_{n}=\frac{{n}^{2}+4n+4}{2(n+2)}\) has the value \(41?\) Verify the result.</p>
+</div></div>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>Find a recursive formula for the sequence 1, 0, −1, −1, 0, 1, 1, 0, −1, −1, 0, 1, 1, .... (<strong>Hint</strong>: find a pattern for \({a}_{n}\) based on the first two terms.)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({a}_{1}=1,{a}_{2}=0,{a}_{n}={a}_{n-1}-{a}_{n-2}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>Calculate the first eight terms of the sequences \({a}_{n}=\frac{(n+2)!}{(n-1)!}\) and \({b}_{n}={n}^{3}+3{n}^{2}+2n,\) and then make a conjecture about the relationship between these two sequences.</p>
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><p>Prove the conjecture made in the preceding exercise.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{(n+2)!}{(n-1)!}=\frac{(n+2)·(n+1)·(n)·(n-1)·...·3·2·1}{(n-1)·...·3·2·1}=n(n+1)(n+2)={n}^{3}+3{n}^{2}+2n\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>explicit formula</dt><dd>a formula that defines each term of a sequence in terms of its position in the sequence</dd><dt>finite sequence</dt><dd>a function whose domain consists of a finite subset of the positive integers \(\{1,2,…n\}\) for some positive integer \(n\)</dd><dt>infinite sequence</dt><dd>a function whose domain is the set of positive integers</dd><dt>n factorial</dt><dd>the product of all the positive integers from 1 to \(n\)</dd><dt>nth term of a sequence</dt><dd>a formula for the general term of a sequence</dd><dt>recursive formula</dt><dd>a formula that defines each term of a sequence using previous term(s)</dd><dt>sequence</dt><dd>a function whose domain is a subset of the positive integers</dd><dt>term</dt><dd>a number in a sequence</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

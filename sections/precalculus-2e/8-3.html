@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polar Coordinates · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Polar Coordinates</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 8.3</span>Polar Coordinates</h1>
+<p>Over 12 kilometers from port, a sailboat encounters rough weather and is blown off course by a 16-knot wind (see <a href="#fig1">Figure 1</a>). How can the sailor indicate his location to the Coast Guard? In this section, we will investigate a method of representing location that is different from a standard coordinate grid.</p>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_001.jpg" alt="An illustration of a boat on the polar grid." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1</figcaption></figure>
+<h2 id="plotting-points-using-polar-coordinates">Plotting Points Using Polar Coordinates</h2>
+<p>When we think about plotting points in the plane, we usually think of <strong>rectangular coordinates</strong> \((x,y)\) in the Cartesian coordinate plane. However, there are other ways of writing a coordinate pair and other types of grid systems. In this section, we introduce to <strong>polar coordinates</strong>, which are points labeled \((r,θ)\) and plotted on a polar grid. The polar grid is represented as a series of concentric circles radiating out from the <strong>pole</strong>, or the origin of the coordinate plane.</p>
+<p>The <strong>polar grid</strong> is scaled as the unit circle with the positive <strong>x-</strong>axis now viewed as the <strong>polar axis</strong> and the origin as the pole. The first coordinate \(r\) is the radius or length of the directed line segment from the pole. The angle \(θ,\) measured in radians, indicates the direction of \(r.\) We move counterclockwise from the polar axis by an angle of \(θ,\) and measure a directed line segment the length of \(r\) in the direction of \(θ.\) Even though we measure \(θ\) first and then \(r,\) the polar point is written with the <strong>r</strong>-coordinate first. For example, to plot the point \((2,\frac{\pi }{4}),\) we would move \(\frac{\pi }{4}\) units in the counterclockwise direction and then a length of 2 from the pole. This point is plotted on the grid in <a href="#fig2">Figure 2</a>.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_002.jpg" alt="Polar grid with point (2, pi/4) plotted." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Plot the point \((3,\frac{\pi }{2})\) on the polar grid.</p>
+</div><p class="sol-hint">Rotate to the angle \(\frac{\pi}{2}\) first, then move out 3 units along that ray.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The angle \(\frac{\pi }{2}\) is found by sweeping in a counterclockwise direction 90° from the polar axis. The point is located at a length of 3 units from the pole in the \(\frac{\pi }{2}\) direction, as shown in <a href="#fig3">Figure 3</a>.</p>
+<figure class="plot" id="fig3"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_003.jpg" alt="Polar grid with point (3, pi/2) plotted." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 3</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Plot the point \((2,\,\frac{\pi }{3})\) in the <strong>polar grid</strong>.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_004.jpg" alt="Polar grid with point (2, pi/3) plotted." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Plot the point \((-2,\,\frac{\pi }{6})\) on the polar grid.</p>
+</div><p class="sol-hint">A negative r means you plot the point in the opposite direction from the given angle.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We know that \(\frac{\pi }{6}\) is located in the first quadrant. However, \(r=-2.\) We can approach plotting a point with a negative \(r\) in two ways:</p>
+<ul class="tight"><li>Plot the point \((2,\frac{\pi }{6})\) by moving \(\frac{\pi }{6}\) in the counterclockwise direction and extending a directed line segment 2 units into the first quadrant. Then retrace the directed line segment back through the pole, and continue 2 units into the third quadrant;</li><li>Move \(\frac{\pi }{6}\) in the counterclockwise direction, and draw the directed line segment from the pole 2 units in the negative direction, into the third quadrant.</li></ul>
+<p>See <a href="#fig4">Figure 4</a>(a). Compare this to the graph of the polar coordinate \((2,\frac{\pi }{6})\) shown in <a href="#fig4">Figure 4</a>(b).</p>
+<figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_005.jpg" alt="Two polar grids. Points (2, pi/6) and (-2, pi/6) are plotted. They are reflections across the origin in Q1 and Q3. " style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Plot the points \((3,-\frac{\pi }{6})\) and \((2,\frac{9\pi }{4})\) on the same polar grid.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_006.jpg" alt="Points (2, 9pi/4) and (3, -pi/6) are plotted in the polar grid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="converting-from-polar-coordinates-to-rectangular-coordinates">Converting from Polar Coordinates to Rectangular Coordinates</h2>
+<p>When given a set of <strong>polar coordinates</strong>, we may need to convert them to <strong>rectangular coordinates</strong>. To do so, we can recall the relationships that exist among the variables \(x,\,y,\,r,\) and \(θ.\)</p>
+<p id="eq1">\[\begin{array}{l}\begin{array}{l} \\ cos\,θ=\frac{x}{r}\to x=rcos\,θ\end{array} \\ sin\,θ=\frac{y}{r}\to y=rsin\,θ\end{array}\]</p>
+<p>Dropping a perpendicular from the point in the plane to the <strong>x-</strong>axis forms a right triangle, as illustrated in <a href="#fig5">Figure 5</a>. An easy way to remember the equations above is to think of \(cos\,θ\) as the adjacent side over the hypotenuse and \(sin\,θ\) as the opposite side over the hypotenuse.</p>
+<figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_007.jpg" alt="Comparison between polar coordinates and rectangular coordinates. There is a right triangle plotted on the x,y axis. The sides are a horizontal line on the x-axis of length x, a vertical line extending from thex-axis to some point in quadrant 1, and a hypotenuse r extending from the origin to that same point in quadrant 1. The vertices are at the origin (0,0), some point along the x-axis at (x,0), and that point in quadrant 1. This last point is (x,y) or (r, theta), depending which system of coordinates you use." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5</figcaption></figure>
+<div class="card definition" id="fs-id1165134105991"><span class="chip">Converting from Polar Coordinates to Rectangular Coordinates</span><p>To convert polar coordinates \((r,\,θ)\) to rectangular coordinates \((x,\,y),\) let</p>
+<p id="eq2">\[cos\,θ=\frac{x}{r}\to x=rcos\,θ\]</p>
+<p id="eq3">\[sin\,θ=\frac{y}{r}\to y=rsin\,θ\]</p>
+</div>
+<div class="card howto" id="fs-id1165131880216"><span class="chip">How To</span><p><strong>Given polar coordinates, convert to rectangular coordinates.</strong></p>
+<ul class="tight"><li>Given the polar coordinate \((r,θ),\) write \(x=rcos\,θ\) and \(y=rsin\,θ.\)</li><li>Evaluate \(cos\,θ\) and \(sin\,θ.\)</li><li>Multiply \(cos\,θ\) by \(r\) to find the <strong>x-</strong>coordinate of the rectangular form.</li><li>Multiply \(sin\,θ\) by \(r\) to find the <strong>y-</strong>coordinate of the rectangular form.</li></ul>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Write the polar coordinates \((3,\frac{\pi }{2})\) as rectangular coordinates.</p>
+</div><p class="sol-hint">Substitute r and \(\theta\) into \(x=r\cos\theta\) and \(y=r\sin\theta.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Use the equivalent relationships.</p>
+<p id="eq4">\[\begin{array}{l}x=rcos\,θ \\ x=3cos\,\frac{\pi }{2}=0 \\ y=rsin\,θ \\ y=3sin\,\frac{\pi }{2}=3\end{array}\]</p>
+<p>The rectangular coordinates are \((0,3).\) See <a href="#fig6">Figure 6</a>.</p>
+<figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_008.jpg" alt="Illustration of (3, pi/2) in polar coordinates and (0,3) in rectangular coordinates - they are the same point!" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6</figcaption></figure>
+</div></div></div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Write the polar coordinates \((-2,0)\) as rectangular coordinates.</p>
+</div><p class="sol-hint">Substitute r and \(\theta\) into \(x=r\cos\theta\) and \(y=r\sin\theta,\) watching the sign of r.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>See <a href="#fig7">Figure 7</a>. Writing the polar coordinates as rectangular, we have</p>
+<p id="eq5">\[\begin{array}{l}x=rcos\,θ \\ x=-2cos(0)=-2 \\ \\ y=rsin\,θ \\ y=-2sin(0)=0\end{array}\]</p>
+<p>The rectangular coordinates are also \((-2,0).\)</p>
+<figure class="plot" id="fig7"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_009.jpg" alt="Illustration of (-2, 0) in polar coordinates and (-2,0) in rectangular coordinates - they are the same point!" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 7</figcaption></figure>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Write the polar coordinates \((-1,\frac{2\pi }{3})\) as rectangular coordinates.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\((x,y)=(\frac{1}{2},-\frac{\sqrt{3}}{2})\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="converting-from-rectangular-coordinates-to-polar-coordinates">Converting from Rectangular Coordinates to Polar Coordinates</h2>
+<p>To convert <strong>rectangular coordinates</strong> to <strong>polar coordinates</strong>, we will use two other familiar relationships. With this conversion, however, we need to be aware that a set of rectangular coordinates will yield more than one polar point.</p>
+<div class="card definition" id="fs-id1165135551669"><span class="chip">Converting from Rectangular Coordinates to Polar Coordinates</span><p>Converting from rectangular coordinates to polar coordinates requires the use of one or more of the relationships illustrated in <a href="#fig8">Figure 8</a>.</p>
+<p id="eq6">\[\begin{array}{l}cos\,θ=\frac{x}{r} or x=rcos\,θ \\ sin\,θ=\frac{y}{r}\,\text{ or}\,y=rsin\,θ \\ {r}^{2}={x}^{2}+{y}^{2} \\ tan\,θ=\frac{y}{x}\end{array}\]</p>
+<figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_010new.png" alt="A right triangle in the Cartesian coordinate system shows a point (x, y) also as (r, θ). The triangle has sides x, y, and hypotenuse r, with angle θ from the positive x-axis to r." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8</figcaption></figure>
+</div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Convert the rectangular coordinates \((3,3)\) to polar coordinates.</p>
+</div><p class="sol-hint">Use \(r=\sqrt{{x}^{2}+{y}^{2}}\) and \(\tan\theta=\frac{y}{x}\) to find r and \(\theta.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We see that the original point \((3,3)\) is in the first quadrant. To find \(θ,\) use the formula \(tan\,θ=\frac{y}{x}.\) This gives</p>
+<p id="eq7">\[\begin{array}{l}tan\,θ=\frac{3}{3} \\ tan\,θ=1 \\ θ={tan}^{-1}(1) \\ θ=\frac{\pi }{4}\end{array}\]</p>
+<p>To find \(r,\) we substitute the values for \(x\) and \(y\) into the formula \(r=\sqrt{{x}^{2}+{y}^{2}}.\) We know that \(r\) must be positive, as \(\frac{\pi }{4}\) is in the first quadrant. Thus</p>
+<p id="eq8">\[\begin{array}{l}r=\sqrt{{3}^{2}+{3}^{2}} \\ r=\sqrt{9+9} \\ r=\sqrt{18}=3\sqrt{2}\end{array}\]</p>
+<p>So, \(r=3\sqrt{2}\,\) and \(θ\text{=}\frac{\pi }{4},\) giving us the polar point \((3\sqrt{2},\frac{\pi }{4}).\) See <a href="#fig9">Figure 9</a>.</p>
+<figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_011.jpg" alt="Illustration of (3rad2, pi/4) in polar coordinates and (3,3) in rectangular coordinates - they are the same point!" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9</figcaption></figure>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>There are other sets of polar coordinates that will be the same as our first solution. For example, the points \((-3\sqrt{2},\,\frac{5\pi }{4})\) and \((3\sqrt{2},-\frac{7\pi }{4})\) will coincide with the original solution of \((3\sqrt{2},\,\frac{\pi }{4}).\) The point \((-3\sqrt{2},\,\frac{5\pi }{4})\) indicates a move further counterclockwise by \(\pi ,\) which is directly opposite \(\frac{\pi }{4}.\) The radius is expressed as \(-3\sqrt{2}.\) However, the angle \(\frac{5\pi }{4}\) is located in the third quadrant and, as \(r\) is negative, we extend the directed line segment in the opposite direction, into the first quadrant. This is the same point as \((3\sqrt{2},\,\frac{\pi }{4}).\) The point \((3\sqrt{2},\,-\frac{7\pi }{4})\) is a move further clockwise by \(-\frac{7\pi }{4},\) from \(\frac{\pi }{4}.\) The radius, \(3\sqrt{2},\) is the same.</p>
+</div></div></div></div>
+<h2 id="transforming-equations-between-polar-and-rectangular-forms">Transforming Equations between Polar and Rectangular Forms</h2>
+<p>We can now convert coordinates between polar and rectangular form. Converting equations can be more difficult, but it can be beneficial to be able to convert between the two forms. Since there are a number of polar equations that cannot be expressed clearly in Cartesian form, and vice versa, we can use the same procedures we used to convert points between the coordinate systems. We can then use a graphing calculator to graph either the rectangular form or the polar form of the equation.</p>
+<div class="card howto" id="fs-id1165133356035"><span class="chip">How To</span><p><strong>Given an equation in polar form, graph it using a graphing calculator.</strong></p>
+<ul class="tight"><li>Change the <strong>MODE</strong> to <strong>POL</strong>, representing polar form.</li><li>Press the <strong>Y=</strong>button to bring up a screen allowing the input of six equations: \({r}_{1},\,{r}_{2},\,.\,.\,.\,,\,{r}_{6}.\)</li><li>Enter the polar equation, set equal to \(r.\)</li><li>Press <strong>GRAPH</strong>.</li></ul>
+</div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Write the Cartesian equation \({x}^{2}+{y}^{2}=9\) in polar form.</p>
+</div><p class="sol-hint">Substitute \(x=r\cos\theta\) and \(y=r\sin\theta\) into the equation and simplify.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The goal is to eliminate \(x\) and \(y\) from the equation and introduce \(r\) and \(θ.\) Ideally, we would write the equation \(r\) as a function of \(θ.\) To obtain the polar form, we will use the relationships between \((x,y)\) and \((r,θ).\) Since \(x=rcos\,θ\) and \(y=rsin\,θ,\) we can substitute and solve for \(r.\)</p>
+<p id="eq9">\[\begin{array}{ll}\,{(rcos\,θ)}^{2}+{(rsin\,θ)}^{2}=9 &amp; \\ \,{r}^{2}{cos}^{2}θ+{r}^{2}{sin}^{2}θ=9 &amp; \\ {r}^{2}({cos}^{2}θ+{sin}^{2}θ)=9 &amp; \\ {r}^{2}(1)=9 &amp; {\text{Substitute cos}}^{2}θ+{sin}^{2}θ=1. \\ \,r=\pm 3\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{Use the square root property}.\end{array}\]</p>
+<p>Thus, \({x}^{2}+{y}^{2}=9,r=3,\) and \(r=-3\) should generate the same graph. See <a href="#fig10">Figure 10</a>.</p>
+<figure class="plot" id="fig10"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_016.jpg" alt="Plotting a circle of radius 3 with center at the origin in polar and rectangular coordinates. It is the same in both systems." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 10 — (a) Cartesian form \({x}^{2}+{y}^{2}=9\) (b) Polar form \(r=3\)</figcaption></figure>
+<p>To graph a circle in rectangular form, we must first solve for \(y.\)</p>
+<p id="eq10">\[\begin{array}{l}\begin{array}{l} \\ {x}^{2}+{y}^{2}=9\end{array} \\ \,{y}^{2}=9-{x}^{2} \\ \,y=\pm \sqrt{9-{x}^{2}}\end{array}\]</p>
+<p>Note that this is two separate functions, since a circle fails the vertical line test. Therefore, we need to enter the positive and negative square roots into the calculator separately, as two equations in the form \({Y}_{1}=\sqrt{9-{x}^{2}}\) and \({Y}_{2}=-\sqrt{9-{x}^{2}}.\) Press <strong>GRAPH.</strong></p>
+</div></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Rewrite the <strong>Cartesian equation</strong> \({x}^{2}+{y}^{2}=6y\) as a polar equation.</p>
+</div><p class="sol-hint">Substitute \(x=r\cos\theta\) and \(y=r\sin\theta,\) then simplify and solve for r.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>This equation appears similar to the previous example, but it requires different steps to convert the equation.</p>
+<p>We can still follow the same procedures we have already learned and make the following substitutions:</p>
+<p id="eq11">\[\begin{array}{ll}{r}^{2}=6y &amp; \text{Use }{x}^{2}+{y}^{2}={r}^{2}. \\ {r}^{2}=6rsin\,θ &amp; \text{Substitute}\,y=rsin\,θ. \\ {r}^{2}-6rsin\,θ=0 &amp; \text{Set equal to 0}. \\ r(r-6sin\,θ)=0 &amp; \text{Factor and solve}. \\ r=0 &amp; \text{We reject }r=0,\,\text{as it only represents one point, }(0,0). \\ r=6sin\,θ\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \end{array}\]</p>
+<p>Therefore, the equations \({x}^{2}+{y}^{2}=6y\) and \(r=6sin\,θ\) should give us the same graph. See <a href="#fig11">Figure 11</a>.</p>
+<figure class="plot" id="fig11"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_012.jpg" alt="Plots of the equations stated above - the plots are the same in both rectangular and polar coordinates. They are circles." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 11 — (a) Cartesian form \({x}^{2}+{y}^{2}=6y\) (b) polar form \(r=6sin\,θ\)</figcaption></figure>
+<p>The Cartesian or <strong>rectangular equation</strong> is plotted on the rectangular grid, and the <strong>polar equation</strong> is plotted on the polar grid. Clearly, the graphs are identical.</p>
+</div></div></div>
+<div class="card example" id="example8"><div class="ex-head"><span class="num">Example 8</span><span class="t"></span></div><div class="ex-body"><p>Rewrite the Cartesian equation \(y=3x+2\) as a polar equation.</p>
+</div><p class="sol-hint">Substitute \(x=r\cos\theta\) and \(y=r\sin\theta\) for x and y, then solve for r in terms of \(\theta.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will use the relationships \(x=rcos\,θ\) and \(y=rsin\,θ.\)</p>
+<p id="eq12">\[\begin{array}{ll}\,y=3x+2 &amp; \\ \,rsin\,θ=3rcos\,θ+2 &amp; \\ rsin\,θ-3rcos\,θ=2 &amp; \\ r(sin\,θ-3cos\,θ)=2 &amp; \text{Isolate }r. \\ r=\frac{2}{sin\,θ-3cos\,θ}\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{Solve for }r.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Rewrite the Cartesian equation \({y}^{2}=3-{x}^{2}\) in polar form.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(r=\sqrt{3}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="identify-and-graph-polar-equations-by-converting-to-rectangular-equations">Identify and Graph Polar Equations by Converting to Rectangular Equations</h2>
+<p>We have learned how to convert rectangular coordinates to polar coordinates, and we have seen that the points are indeed the same. We have also transformed polar equations to rectangular equations and vice versa. Now we will demonstrate that their graphs, while drawn on different grids, are identical.</p>
+<div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Covert the polar equation \(r=2sec\,θ\) to a rectangular equation, and draw its corresponding graph.</p>
+</div><p class="sol-hint">Rewrite secant as \(\frac{1}{\cos\theta}\), multiply both sides by \(\cos\theta,\) then substitute \(x=r\cos\theta.\)</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The conversion is</p>
+<p id="eq13">\[\begin{array}{lll}r &amp; = &amp; 2sec\,θ \\ r &amp; = &amp; \frac{2}{cos\,θ} \\ r\,cos\,θ &amp; = &amp; 2 \\ x &amp; = &amp; 2\end{array}\]</p>
+<p>Notice that the equation \(r=2sec\,θ\) drawn on the polar grid is clearly the same as the vertical line \(x=2\) drawn on the rectangular grid (see <a href="#fig12">Figure 12</a>). Just as \(x=c\) is the standard form for a vertical line in rectangular form, \(r=csec\,θ\) is the standard form for a vertical line in polar form.</p>
+<figure class="plot" id="fig12"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_013.jpg" alt="Plots of the equations stated above - the plots are the same in both rectangular and polar coordinates. They are lines." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 12 — (a) Polar grid (b) Rectangular coordinate system</figcaption></figure>
+<p>A similar discussion would demonstrate that the graph of the function \(r=2csc\,θ\) will be the horizontal line \(y=2.\) In fact, \(r=ccsc\,θ\) is the standard form for a horizontal line in polar form, corresponding to the rectangular form \(y=c.\)</p>
+</div></div></div>
+<div class="card example" id="example10"><div class="ex-head"><span class="num">Example 10</span><span class="t"></span></div><div class="ex-body"><p>Rewrite the polar equation \(r=\frac{3}{1-2cos\,θ}\) as a Cartesian equation.</p>
+</div><p class="sol-hint">Multiply both sides by the denominator, substitute \(r\cos\theta=x\) and \(r=\sqrt{{x}^{2}+{y}^{2}},\) then isolate the square root and square both sides.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The goal is to eliminate \(θ\) and \(r,\) and introduce \(x\) and \(y.\) We clear the fraction, and then use substitution. In order to replace \(r\) with \(x\) and \(y,\) we must use the expression \({x}^{2}+{y}^{2}={r}^{2}.\)</p>
+<p id="eq14">\[\begin{array}{llll}r &amp; = &amp; \frac{3}{1-2\,cos\,θ} &amp; \\ r(1-2(\frac{x}{r})) &amp; = &amp; 3 &amp; \\ r-2x &amp; = &amp; 3 &amp; \text{Use}\,cos\,θ=\frac{x}{r}\,to\,\text{eliminate}\,θ \\ r-2x &amp; = &amp; 3 &amp; \\ r &amp; = &amp; 3+2x &amp; \text{Isolate}\,r \\ {r}^{2} &amp; = &amp; {(3+2x)}^{2} &amp; \text{Square}\,\text{both}\,\text{sides} \\ {x}^{2}+{y}^{2} &amp; = &amp; {(3+2x)}^{2} &amp; \text{Use}\,{x}^{2}+{y}^{2}={r}^{2}\end{array}\]</p>
+<p>The Cartesian equation is \({x}^{2}+{y}^{2}={(3+2x)}^{2}.\) However, to graph it, especially using a graphing calculator or computer program, we want to isolate \(y.\)</p>
+<p id="eq15">\[\begin{array}{l}{x}^{2}+{y}^{2}={(3+2x)}^{2} \\ \,{y}^{2}={(3+2x)}^{2}-{x}^{2} \\ \,y=\pm \sqrt{{(3+2x)}^{2}-{x}^{2}}\end{array}\]</p>
+<p>When our entire equation has been changed from \(r\) and \(θ\) to \(x\) and \(y,\) we can stop, unless asked to solve for \(y\) or simplify. See <a href="#fig13">Figure 13</a>.</p>
+<figure class="plot" id="fig13"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_015.jpg" alt="Plots of the equations stated above - the plots are the same in both rectangular and polar coordinates. They are hyperbolas." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 13</figcaption></figure>
+<p>The “hour-glass” shape of the graph is called a <strong>hyperbola</strong>. Hyperbolas have many interesting geometric features and applications, which we will investigate further in Analytic Geometry.</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>In this example, the right side of the equation can be expanded and the equation simplified further, as shown above. However, the equation cannot be written as a single function in Cartesian form. We may wish to write the rectangular equation in the hyperbola’s standard form. To do this, we can start with the initial equation.</p>
+<p id="eq16">\[\begin{array}{llll}{x}^{2}+{y}^{2} &amp; = &amp; {(3+2x)}^{2} &amp; \\ {x}^{2}+{y}^{2}-{(3+2x)}^{2} &amp; = &amp; 0 &amp; \\ {x}^{2}+{y}^{2}-(9+12x+4{x}^{2}) &amp; = &amp; 0 &amp; \\ {x}^{2}+{y}^{2}-9-12x-4{x}^{2} &amp; = &amp; 0 &amp; \\ -3{x}^{2}-12x+{y}^{2} &amp; = &amp; 9 &amp; \text{Multiply}\,\text{through}\,\text{by}\,-1 \\ 3{x}^{2}+12x-{y}^{2} &amp; = &amp; -9 &amp; \\ 3({x}^{2}+4x+)-{y}^{2} &amp; = &amp; -9 &amp; \\ 3({x}^{2}+4x+4)-{y}^{2} &amp; = &amp; -9+12 &amp; Organize\,\text{terms}\,\text{to}\,\text{complete}\,\text{the}\,\text{square}\,\text{for}\,x \\ 3{(x+2)}^{2}-{y}^{2} &amp; = &amp; 3 &amp; \\ {(x+2)}^{2}-\frac{{y}^{2}}{3} &amp; = &amp; 1 &amp; \end{array}\]</p>
+</div></div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Rewrite the polar equation \(r=2sin\,θ\) in Cartesian form.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({x}^{2}+{y}^{2}=2y\) or, in the standard form for a circle, \({x}^{2}+{(y-1)}^{2}=1\) <strong></strong></p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example11"><div class="ex-head"><span class="num">Example 11</span><span class="t"></span></div><div class="ex-body"><p>Rewrite the polar equation \(r=sin(2θ)\) in Cartesian form.</p>
+</div><p class="sol-hint">Expand \(\sin(2\theta)\) with the double-angle identity, then multiply both sides by \({r}^{2}\) so every term becomes x's and y's.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p id="eq17">\[\begin{array}{ll}\,r=sin(2θ) &amp; \text{Use the double angle identity for sine}. \\ \,r=2sin\,θcos\,θ\begin{array}{llll} &amp; &amp; &amp; \end{array} &amp; \text{Use }cos\,θ=\frac{x}{r}\text{ and }sin\,θ=\frac{y}{r}. \\ \,r=2(\frac{x}{r})(\frac{y}{r}) &amp; \text{Simplify}. \\ \,r=\frac{2xy}{{r}^{2}} &amp; \text{ Multiply both sides by }{r}^{2}. \\ \,{r}^{3}=2xy &amp; \\ {(\sqrt{{x}^{2}+{y}^{2}})}^{3}=2xy &amp; \text{As}\,{x}^{2}+{y}^{2}={r}^{2},r=\sqrt{{x}^{2}+{y}^{2}}.\end{array}\]</p>
+<p>This equation can also be written as</p>
+<p id="eq18">\[{({x}^{2}+{y}^{2})}^{\frac{3}{2}}=2xy\,\text{or}\,{x}^{2}+{y}^{2}={(2xy)}^{\frac{2}{3}}\]</p>
+</div></div></div>
+<div class="card callout" id="fs-id1165135664937"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with polar coordinates.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/intropolar" target="_blank" rel="noopener">Introduction to Polar Coordinates</a></li><li><a href="https://openstax.org/l/polarrect" target="_blank" rel="noopener">Comparing Polar and Rectangular Coordinates</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td>Conversion formulas</td><td>\(\begin{array}{ll} &amp; cos\,θ=\frac{x}{r}\to x=rcos\,θ \\ &amp; sin\,θ=\frac{y}{r}\to y=rsin\,θ \\ &amp; {r}^{2}={x}^{2}+{y}^{2} \\ &amp; tan\,θ=\frac{y}{x}\end{array}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>The polar grid is represented as a series of concentric circles radiating out from the pole, or origin.</li><li>To plot a point in the form \((r,θ),\,θ&gt;0,\) move in a counterclockwise direction from the polar axis by an angle of \(θ,\) and then extend a directed line segment from the pole the length of \(r\) in the direction of \(θ.\) If \(θ\) is negative, move in a clockwise direction, and extend a directed line segment the length of \(r\) in the direction of \(θ.\) See <a href="#example1">Example 1</a>.</li><li>If \(r\) is negative, extend the directed line segment in the opposite direction of \(θ.\) See <a href="#example2">Example 2</a>.</li><li>To convert from polar coordinates to rectangular coordinates, use the formulas \(x=rcos\,θ\) and \(y=rsin\,θ.\) See <a href="#example3">Example 3</a> and <a href="#example4">Example 4</a>.</li><li>To convert from rectangular coordinates to polar coordinates, use one or more of the formulas: \(cos\,θ=\frac{x}{r},sin\,θ=\frac{y}{r},tan\,θ=\frac{y}{x},\) and \(r=\sqrt{{x}^{2}+{y}^{2}}.\) See <a href="#example5">Example 5</a>.</li><li>Transforming equations between polar and rectangular forms means making the appropriate substitutions based on the available formulas, together with algebraic manipulations. See <a href="#example6">Example 6</a>, <a href="#example7">Example 7</a>, and <a href="#example8">Example 8</a>.</li><li>Using the appropriate substitutions makes it possible to rewrite a polar equation as a rectangular equation, and then graph it in the rectangular plane. See <a href="#example9">Example 9</a>, <a href="#example10">Example 10</a>, and <a href="#example11">Example 11</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>How are polar coordinates different from rectangular coordinates?</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>For polar coordinates, the point in the plane depends on the angle from the positive <strong>x-</strong>axis and distance from the origin, while in Cartesian coordinates, the point represents the horizontal and vertical distances from the origin. For each point in the coordinate plane, there is one representation, but for each point in the polar plane, there are infinite representations.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>How are the polar axes different from the <strong>x</strong>- and <strong>y</strong>-axes of the Cartesian plane?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Explain how polar coordinates are graphed.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Determine \(θ\) for the point, then move \(r\) units from the pole to plot the point. If \(r\) is negative, move \(r\) units from the pole in the opposite direction but along the same angle. The point is a distance of \(r\) away from the origin at an angle of \(θ\) from the polar axis.</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>How are the points \((3,\frac{\pi }{2})\) and \((-3,\frac{\pi }{2})\) related?</p>
+</div></div>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>Explain why the points \((-3,\frac{\pi }{2})\) and \((3,-\frac{\pi }{2})\) are the same.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>The point \((-3,\frac{\pi }{2})\) has a positive angle but a negative radius and is plotted by moving to an angle of \(\frac{\pi }{2}\) and then moving 3 units in the negative direction. This places the point 3 units down the negative <strong>y</strong>-axis. The point \((3,-\frac{\pi }{2})\) has a negative angle and a positive radius and is plotted by first moving to an angle of \(-\frac{\pi }{2}\) and then moving 3 units down, which is the positive direction for a negative angle. The point is also 3 units down the negative <strong>y</strong>-axis.</p>
+</div></div></div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, convert the given polar coordinates to Cartesian coordinates. Remember to consider the quadrant in which the given point is located when determining \(θ\) for the point.</p>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\((7,\frac{7\pi }{6})\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\((5,\pi )\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-5,0)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\((6,-\frac{\pi }{4})\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\((-3,\frac{\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((-\frac{3\sqrt{3}}{2},-\frac{3}{2})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\((4,\frac{7\pi }{4})\)</p>
+</div></div>
+<p>For the following exercises, convert the given Cartesian coordinates to polar coordinates with \(r&gt;0,\,0\le θ&lt;2\pi .\) Remember to consider the quadrant in which the given point is located.</p>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\((4,2)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((2\sqrt{5},\,0.464)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\((-4,6)\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\((3,-5)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((\sqrt{34},5.253)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\((-10,-13)\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\((8,8)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((8\sqrt{2},\frac{\pi }{4})\)</p>
+</div></div></div></div>
+<p>For the following exercises, convert the given Cartesian equation to a polar equation.</p>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(x=3\)</p>
+</div></div>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(y=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=4cscθ\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(y=4{x}^{2}\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(y=2{x}^{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\sqrt[3]{\frac{sinθ}{2co{s}^{4}θ}}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\({x}^{2}+{y}^{2}=4y\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\({x}^{2}+{y}^{2}=3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=3cosθ\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\({x}^{2}-{y}^{2}=x\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\({x}^{2}-{y}^{2}=3y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{3sinθ}{cos(2θ)}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\({x}^{2}+{y}^{2}=9\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\({x}^{2}=9y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{9sinθ}{{cos}^{2}θ}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\({y}^{2}=9x\)</p>
+</div></div>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(9xy=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\sqrt{\frac{1}{9cosθsinθ}}\)</p>
+</div></div></div></div>
+<p>For the following exercises, convert the given polar equation to a Cartesian equation. Write in the standard form of a conic if possible, and identify the conic section represented.</p>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(r=3sin\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(r=4cos\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{2}+{y}^{2}=4x\) or \(\frac{{(x-2)}^{2}}{4}+\frac{{y}^{2}}{4}=1;\) circle</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(r=\frac{4}{sin\,θ+7cos\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(r=\frac{6}{cos\,θ+3sin\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(3y+x=6;\) line</p>
+</div></div></div></div>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(r=2sec\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(r=3csc\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=3;\) line</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(r=\sqrt{rcos\,θ+2}\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\({r}^{2}=4sec\,θ\,csc\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(xy=4;\) hyperbola</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(r=4\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\({r}^{2}=4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{2}+{y}^{2}=4;\) circle</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(r=\frac{1}{4cos\,θ-3sin\,θ}\)</p>
+</div></div>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(r=\frac{3}{cos\,θ-5sin\,θ}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(x-5y=3;\) line</p>
+</div></div></div></div>
+<h3 id="graphical">Graphical</h3>
+<p>For the following exercises, find the polar coordinates of the point.</p>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_201n.jpg" alt="Polar coordinate system with a point located on the third concentric circle and pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_202n.jpg" alt="Polar coordinate system with a point located on the third concentric circle and midway between pi/2 and pi in the second quadrant. " style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\((3,\frac{3\pi }{4})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_203n.jpg" alt="Polar coordinate system with a point located midway between the first and second concentric circles and a third of the way between pi and 3pi/2 (closer to pi)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_204n.jpg" alt="Polar coordinate system with a point located on the fifth concentric circle and pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+<div class="answer"><button>Show answer</button><div class="a"><p>\((5,\pi )\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_205n.jpg" alt="Polar coordinate system with a point located on the fourth concentric circle and a third of the way between 3pi/2 and 2pi (closer to 3pi/2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div>
+<p>For the following exercises, plot the points.</p>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\((-2,\frac{\pi }{3})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_206.jpg" alt="Polar coordinate system with a point located on the second concentric circle and two-thirds of the way between pi and 3pi/2 (closer to 3pi/2)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\((-1,-\frac{\pi }{2})\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\((3.5,\frac{7\pi }{4})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_208.jpg" alt="Polar coordinate system with a point located midway between the third and fourth concentric circles and midway between 3pi/2 and 2pi." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\((-4,\frac{\pi }{3})\)</p>
+</div></div>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\((5,\frac{\pi }{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_210.jpg" alt="Polar coordinate system with a point located on the fifth concentric circle and pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\((4,\frac{-5\pi }{4})\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\((3,\frac{5\pi }{6})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_212.jpg" alt="Polar coordinate system with a point located on the third concentric circle and 2/3 of the way between pi/2 and pi (closer to pi)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\((-1.5,\frac{7\pi }{6})\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\((-2,\frac{\pi }{4})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_214.jpg" alt="Polar coordinate system with a point located on the second concentric circle and midway between pi and 3pi/2." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\((1,\frac{3\pi }{2})\)</p>
+</div></div>
+<p>For the following exercises, convert the equation from rectangular to polar form and graph on the polar axis.</p>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(5x-y=6\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{6}{5cosθ-sinθ}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_222.jpg" alt="Plot of given line in the polar coordinate grid" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\(2x+7y=-3\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\({x}^{2}+{(y-1)}^{2}=1\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=2sinθ\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_224.jpg" alt="Plot of given circle in the polar coordinate grid" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\({(x+2)}^{2}+{(y+3)}^{2}=13\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>\(x=2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=\frac{2}{cosθ}\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_226.jpg" alt="Plot of given circle in the polar coordinate grid" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\({x}^{2}+{y}^{2}=5y\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>\({x}^{2}+{y}^{2}=3x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(r=3cosθ\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_228.jpg" alt="Plot of given circle in the polar coordinate grid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<p>For the following exercises, convert the equation from polar to rectangular form and graph on the rectangular plane.</p>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>\(r=6\)</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>\(r=-4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{2}+{y}^{2}=16\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_230.jpg" alt="Plot of circle with radius 4 centered at the origin in the rectangular coordinates grid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex64"><div class="n">64</div><div class="body"><p>\(θ=-\frac{2\pi }{3}\)</p>
+</div></div>
+<div class="exercise" id="ex65"><div class="n">65</div><div class="body"><p>\(θ=\frac{\pi }{4}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(y=x\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_232.jpg" alt="Plot of line y=x in the rectangular coordinates grid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex66"><div class="n">66</div><div class="body"><p>\(r=sec\,θ\)</p>
+</div></div>
+<div class="exercise" id="ex67"><div class="n">67</div><div class="body"><p>\(r=-10sin\,θ\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\({x}^{2}+{(y+5)}^{2}=25\)</p>
+<img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_234.jpg" alt="Plot of circle with radius 5 centered at (0,-5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex68"><div class="n">68</div><div class="body"><p>\(r=3cos\,θ\)</p>
+</div></div>
+<h3 id="technology">Technology</h3>
+<div class="exercise" id="ex69"><div class="n">69</div><div class="body"><p>Use a graphing calculator to find the rectangular coordinates of \((2,-\frac{\pi }{5}).\) Round to the nearest thousandth.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((1.618,-1.176)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex70"><div class="n">70</div><div class="body"><p>Use a graphing calculator to find the rectangular coordinates of \((-3,\frac{3\pi }{7}).\) Round to the nearest thousandth.</p>
+</div></div>
+<div class="exercise" id="ex71"><div class="n">71</div><div class="body"><p>Use a graphing calculator to find the polar coordinates of \((-7,8)\) in degrees. Round to the nearest thousandth.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((10.630,131.186°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex72"><div class="n">72</div><div class="body"><p>Use a graphing calculator to find the polar coordinates of \((3,-4)\) in degrees. Round to the nearest hundredth.</p>
+</div></div>
+<div class="exercise" id="ex73"><div class="n">73</div><div class="body"><p>Use a graphing calculator to find the polar coordinates of \((-2,0)\) in radians. Round to the nearest hundredth.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\((2,3.14)or(2,\pi )\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<div class="exercise" id="ex74"><div class="n">74</div><div class="body"><p>Describe the graph of \(r=asec\,θ;a&gt;0.\)</p>
+</div></div>
+<div class="exercise" id="ex75"><div class="n">75</div><div class="body"><p>Describe the graph of \(r=asec\,θ;a&lt;0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A vertical line with \(a\) units left of the <strong>y</strong>-axis.</p>
+</div></div></div></div>
+<div class="exercise" id="ex76"><div class="n">76</div><div class="body"><p>Describe the graph of \(r=acsc\,θ;a&gt;0.\)</p>
+</div></div>
+<div class="exercise" id="ex77"><div class="n">77</div><div class="body"><p>Describe the graph of \(r=acsc\,θ;a&lt;0.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>A horizontal line with \(a\) units below the <strong>x</strong>-axis.</p>
+</div></div></div></div>
+<div class="exercise" id="ex78"><div class="n">78</div><div class="body"><p>What polar equations will give an oblique line?</p>
+</div></div>
+<p>For the following exercise, graph the polar inequality.</p>
+<div class="exercise" id="ex79"><div class="n">79</div><div class="body"><p>\(r&lt;4\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_216.jpg" alt="Graph of shaded circle of radius 4 with the edge not included (dotted line) - polar coordinate grid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex80"><div class="n">80</div><div class="body"><p>\(0\le θ\le \frac{\pi }{4}\)</p>
+</div></div>
+<div class="exercise" id="ex81"><div class="n">81</div><div class="body"><p>\(θ=\frac{\pi }{4},\,r\,\ge \,2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_218.jpg" alt="Graph of ray starting at (2, pi/4) and extending in a positive direction along pi/4 - polar coordinate grid." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex82"><div class="n">82</div><div class="body"><p>\(θ=\frac{\pi }{4},\,r\,\ge -3\)</p>
+</div></div>
+<div class="exercise" id="ex83"><div class="n">83</div><div class="body"><p>\(0\le θ\le \frac{\pi }{3},\,r\,&lt;\,2\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_08_03_220.jpg" alt="Graph of the shaded region 0 to pi/3 from r=0 to 2 with the edge not included (dotted line) - polar coordinate grid" style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
+</div></div></div></div>
+<div class="exercise" id="ex84"><div class="n">84</div><div class="body"><p>\(\frac{-\pi }{6}&lt;θ\le \frac{\pi }{3},-3&lt;r\,&lt;\,2\)</p>
+</div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>polar axis</dt><dd>on the polar grid, the equivalent of the positive <strong>x-</strong>axis on the rectangular grid</dd><dt>polar coordinates</dt><dd>on the polar grid, the coordinates of a point labeled \((r,θ),\) where \(θ\) indicates the angle of rotation from the polar axis and \(r\) represents the radius, or the distance of the point from the pole in the direction of \(θ\)</dd><dt>pole</dt><dd>the origin of the polar grid</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>

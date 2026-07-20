@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sum-to-Product and Product-to-Sum Formulas · MX Precalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="precalculus-2e">
+<header class="topbar">
+  <a class="brand" href="../../books/precalculus-2e/index.html">MX <span>Precalc</span></a>
+  <span class="crumb">Sum-to-Product and Product-to-Sum Formulas</span>
+  <span class="spacer"></span>
+  <span class="crumb" id="tryit-score"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 7.4</span>Sum-to-Product and Product-to-Sum Formulas</h1>
+<figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_07_04_002-5139.jpg" alt="Photo of the UCLA marching band." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — The UCLA marching band (credit: Eric Chan, Flickr).</figcaption></figure>
+<p>A band marches down the field creating an amazing sound that bolsters the crowd. That sound travels as a wave that can be interpreted using trigonometric functions. For example, <a href="#fig2">Figure 2</a> represents a sound wave for the musical note A. In this section, we will investigate trigonometric identities that are the foundation of everyday phenomena such as sound waves.</p>
+<figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/main/media/CNX_Precalc_Figure_07_04_001.jpg" alt="Graph of a sound wave for the musical note A - it is a periodic function much like sin and cos - from 0 to .01" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2</figcaption></figure>
+<h2 id="expressing-products-as-sums">Expressing Products as Sums</h2>
+<p>We have already learned a number of formulas useful for expanding or simplifying trigonometric expressions, but sometimes we may need to express the product of cosine and sine as a sum. We can use the <strong>product-to-sum formulas</strong>, which express products of trigonometric functions as sums. Let’s investigate the cosine identity first and then the sine identity.</p>
+<h3 id="expressing-products-as-sums-for-cosine">Expressing Products as Sums for Cosine</h3>
+<p>We can derive the product-to-sum formula from the sum and difference identities for <strong>cosine</strong>. If we add the two equations, we get:</p>
+<p id="eq1">\[\begin{array}{l}\underset{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}{\begin{array}{l}cos\,α\,cos\,β+sin\,α\,sin\,β=cos(α-β) \\ +cos\,α\,cos\,β-sin\,α\,sin\,β=cos(α+β)\end{array}} \\ 2\,cos\,α\,cos\,β=cos(α-β)+cos(α+β)\end{array}\]</p>
+<p>Then, we divide by \(2\) to isolate the product of cosines:</p>
+<p id="eq2">\[cos\,α\,cos\,β=\frac{1}{2}[cos(α-β)+cos(α+β)]\]</p>
+<div class="card howto" id="fs-id2077607"><span class="chip">How To</span><p><strong>Given a product of cosines, express as a sum.</strong></p>
+<ul class="tight"><li>Write the formula for the product of cosines.</li><li>Substitute the given angles into the formula.</li><li>Simplify.</li></ul>
+</div>
+<div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Write the following product of cosines as a sum: \(2\,cos(\frac{7x}{2})\,cos\,\frac{3x}{2}.\)</p>
+</div><p class="sol-hint">Match the expression to the product-to-sum formula for cosine times cosine, identifying the two angles.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We begin by writing the formula for the product of cosines:</p>
+<p id="eq3">\[cos\,α\,cos\,β=\frac{1}{2}[cos(α-β)+cos(α+β)]\]</p>
+<p>We can then substitute the given angles into the formula and simplify.</p>
+<p id="eq4">\[\begin{array}{l}2\,cos(\frac{7x}{2})cos(\frac{3x}{2})=(2)(\frac{1}{2})[cos(\frac{7x}{2}-\frac{3x}{2})+cos(\frac{7x}{2}+\frac{3x}{2})] \\ \,=[cos(\frac{4x}{2})+cos(\frac{10x}{2})] \\ \,=cos\,2x+cos\,5x\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Use the product-to-sum formula to write the product as a sum or difference: \(cos(2θ)cos(4θ).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{1}{2}(cos6θ+cos2θ)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="expressing-the-product-of-sine-and-cosine-as-a-sum">Expressing the Product of Sine and Cosine as a Sum</h3>
+<p>Next, we will derive the product-to-sum formula for sine and cosine from the sum and difference formulas for <strong>sine</strong>. If we add the sum and difference identities, we get:</p>
+<p id="eq5">\[\begin{array}{l}\underset{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}{\begin{array}{l}\begin{array}{l} \\ sin(α+β)=sin\,α\,cos\,β+cos\,α\,sin\,β\end{array} \\ +\,sin(α-β)=sin\,α\,cos\,β-cos\,α\,sin\,β\end{array}} \\ sin(α+β)+sin(α-β)=2\,sin\,α\,cos\,β\end{array}\]</p>
+<p>Then, we divide by 2 to isolate the product of cosine and sine:</p>
+<p id="eq6">\[sin\,α\,cos\,β=\frac{1}{2}[sin(α+β)+sin(α-β)]\]</p>
+<div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Express the following product as a sum containing only sine or cosine and no products: \(sin(4θ)cos(2θ).\)</p>
+</div><p class="sol-hint">Match the expression to the product-to-sum formula for sine times cosine, identifying the two angles.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Write the formula for the product of sine and cosine. Then substitute the given values into the formula and simplify.</p>
+<p id="eq7">\[\begin{array}{l}sin\,α\,cos\,β=\frac{1}{2}[sin(α+β)+sin(α-β)] \\ sin(4θ)cos(2θ)=\frac{1}{2}[sin(4θ+2θ)+sin(4θ-2θ)] \\ =\frac{1}{2}[sin(6θ)+sin(2θ)]\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-2"><div class="ex-head"><span class="num">Try It #2</span></div><div class="ex-body"><p>Use the product-to-sum formula to write the product as a sum: \(sin(x+y)cos(x-y).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{1}{2}(sin2x+sin2y)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h3 id="expressing-products-of-sines-in-terms-of-cosine">Expressing Products of Sines in Terms of Cosine</h3>
+<p>Expressing the product of sines in terms of <strong>cosine</strong> is also derived from the sum and difference identities for cosine. In this case, we will first subtract the two cosine formulas:</p>
+<p id="eq8">\[\begin{array}{l}\underset{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}{\begin{array}{l}\begin{array}{l} \\ \,cos(α-β)=cos\,α\,cos\,β+sin\,α\,sin\,β\end{array} \\ -\,cos(α+β)=-(cos\,α\,cos\,β-sin\,α\,sin\,β)\end{array}} \\ cos(α-β)-cos(α+β)=2\,sin\,α\,sin\,β\end{array}\]</p>
+<p>Then, we divide by 2 to isolate the product of sines:</p>
+<p id="eq9">\[sin\,α\,sin\,β=\frac{1}{2}[cos(α-β)-cos(α+β)]\]</p>
+<p>Similarly we could express the product of cosines in terms of sine or derive other product-to-sum formulas.</p>
+<div class="card definition" id="fs-id698588"><span class="chip">The Product-to-Sum Formulas</span><p>The <strong>product-to-sum formulas</strong> are as follows:</p>
+<p id="eq10">\[cos\,α\,cos\,β=\frac{1}{2}[cos(α-β)+cos(α+β)]\]</p>
+<p id="eq11">\[sin\,α\,cos\,β=\frac{1}{2}[sin(α+β)+sin(α-β)]\]</p>
+<p id="eq12">\[sin\,α\,sin\,β=\frac{1}{2}[cos(α-β)-cos(α+β)]\]</p>
+<p id="eq13">\[cos\,α\,sin\,β=\frac{1}{2}[sin(α+β)-sin(α-β)]\]</p>
+</div>
+<div class="card example" id="example3"><div class="ex-head"><span class="num">Example 3</span><span class="t"></span></div><div class="ex-body"><p>Write \(cos(3θ)\,cos(5θ)\) as a sum or difference.</p>
+</div><p class="sol-hint">Match the expression to the product-to-sum formula for cosine times cosine, then simplify the resulting sum.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We have the product of cosines, so we begin by writing the related formula. Then we substitute the given angles and simplify.</p>
+<p id="eq14">\[\begin{array}{ll}\,cos\,α\,cos\,β=\frac{1}{2}[cos(α-β)+cos(α+β)] &amp; \\ cos(3θ)cos(5θ)=\frac{1}{2}[cos(3θ-5θ)+cos(3θ+5θ)] &amp; \\ \,=\frac{1}{2}[cos(2θ)+cos(8θ)] &amp; \text{Use even-odd identity}.\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Use the product-to-sum formula to evaluate \(cos\,\frac{11\pi }{12}\,cos\,\frac{\pi }{12}.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{-2-\sqrt{3}}{4}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<h2 id="expressing-sums-as-products">Expressing Sums as Products</h2>
+<p>Some problems require the reverse of the process we just used. The <strong>sum-to-product formulas</strong> allow us to express sums of sine or cosine as products. These formulas can be derived from the product-to-sum identities. For example, with a few substitutions, we can derive the sum-to-product identity for <strong>sine</strong>. Let \(\frac{u+v}{2}=α\) and \(\frac{u-v}{2}=β.\)</p>
+<p>Then,</p>
+<p id="eq15">\[\begin{array}{l}α+β=\frac{u+v}{2}+\frac{u-v}{2} \\ \,=\frac{2u}{2} \\ \,=u \\ \\ α-β=\frac{u+v}{2}-\frac{u-v}{2} \\ \,=\frac{2v}{2} \\ \,=v\end{array}\]</p>
+<p>Thus, replacing \(α\) and \(β\) in the product-to-sum formula with the substitute expressions, we have</p>
+<p id="eq16">\[\begin{array}{lll}\,sin\,α\,cos\,β=\frac{1}{2}[sin(α+β)+sin(α-β)] &amp; &amp; \\ \,sin(\frac{u+v}{2})cos(\frac{u-v}{2})=\frac{1}{2}[sin\,u+sin\,v] &amp; &amp; \text{Substitute for}(α+β)\text{ and }(α-β) \\ 2\,sin(\frac{u+v}{2})cos(\frac{u-v}{2})=sin\,u+sin\,v &amp; &amp; \end{array}\]</p>
+<p>The other sum-to-product identities are derived similarly.</p>
+<div class="card definition" id="fs-id1332136"><span class="chip">Sum-to-Product Formulas</span><p>The <strong>sum-to-product formulas</strong> are as follows:</p>
+<p id="eq17">\[sin\,α+sin\,β=2sin(\frac{α+β}{2})cos(\frac{α-β}{2})\]</p>
+<p id="eq18">\[sin\,α-sin\,β=2sin(\frac{α-β}{2})cos(\frac{α+β}{2})\]</p>
+<p id="eq19">\[cos\,α-cos\,β=-2sin(\frac{α+β}{2})sin(\frac{α-β}{2})\]</p>
+<p id="eq20">\[cos\,α+cos\,β=2cos(\frac{α+β}{2})cos(\frac{α-β}{2})\]</p>
+</div>
+<div class="card example" id="example4"><div class="ex-head"><span class="num">Example 4</span><span class="t"></span></div><div class="ex-body"><p>Write the following difference of sines expression as a product: \(sin(4θ)-sin(2θ).\)</p>
+</div><p class="sol-hint">Match the expression to the sum-to-product formula for a difference of sines, identifying the two angles.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We begin by writing the formula for the difference of sines.</p>
+<p id="eq21">\[sin\,α-sin\,β=2sin(\frac{α-β}{2})cos(\frac{α+β}{2})\]</p>
+<p>Substitute the values into the formula, and simplify.</p>
+<p id="eq22">\[\begin{array}{l}sin(4θ)-sin(2θ)=2sin(\frac{4θ-2θ}{2})\,cos(\frac{4θ+2θ}{2}) \\ \,=2sin(\frac{2θ}{2})\,cos(\frac{6θ}{2}) \\ \,=2\,sin\,θ\,cos(3θ)\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Use the sum-to-product formula to write the sum as a product: \(sin(3θ)+sin(θ).\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(2sin(2θ)cos(θ)\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Evaluate \(cos({15}^{∘})-cos({75}^{∘}).\)</p>
+</div><p class="sol-hint">Match the expression to the sum-to-product formula for a difference of cosines, then evaluate the resulting product exactly.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We begin by writing the formula for the difference of cosines.</p>
+<p id="eq23">\[cos\,α-cos\,β=-2\,sin(\frac{α+β}{2})\,sin(\frac{α-β}{2})\]</p>
+<p>Then we substitute the given angles and simplify.</p>
+<p id="eq24">\[\begin{array}{l}cos({15}^{∘})-cos({75}^{∘})=-2sin(\frac{{15}^{∘}+{75}^{∘}}{2})\,sin(\frac{{15}^{∘}-{75}^{∘}}{2}) \\ \,=-2sin({45}^{∘})\,sin(-{30}^{∘}) \\ \,=-2(\frac{\sqrt{2}}{2})(-\frac{1}{2}) \\ \,=\frac{\sqrt{2}}{2}\end{array}\]</p>
+</div></div></div>
+<div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Prove the identity:</p>
+<p id="eq25">\[\frac{cos(4t)-cos(2t)}{sin(4t)+sin(2t)}=-tan\,t\]</p>
+</div><p class="sol-hint">Rewrite one side using a sum-to-product or product-to-sum formula, then simplify until both sides match.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>We will start with the left side, the more complicated side of the equation, and rewrite the expression until it matches the right side.</p>
+<p id="eq26">\[\begin{array}{l}\frac{cos(4t)-cos(2t)}{sin(4t)+sin(2t)}=\frac{-2\,sin(\frac{4t+2t}{2})\,sin(\frac{4t-2t}{2})}{2\,sin(\frac{4t+2t}{2})\,cos(\frac{4t-2t}{2})} \\ \,=\frac{-2\,sin(3t)sin\,t}{2\,sin(3t)cos\,t} \\ \,=\frac{-2sin(3t)sin\,t}{2sin(3t)cos\,t} \\ \,=-\frac{sin\,t}{cos\,t} \\ \,=-tan\,t\end{array}\]</p>
+<div class="ex-body analysis"><span class="chip">Analysis</span><p>Recall that verifying trigonometric identities has its own set of rules. The procedures for solving an equation are not the same as the procedures for verifying an identity. When we prove an identity, we pick one side to work on and make substitutions until that side is transformed into the other side.</p>
+</div></div></div></div>
+<div class="card example" id="example7"><div class="ex-head"><span class="num">Example 7</span><span class="t"></span></div><div class="ex-body"><p>Verify the identity \({csc}^{2}θ-2=\frac{cos(2θ)}{{sin}^{2}θ}.\)</p>
+</div><p class="sol-hint">Rewrite \({\csc}^{2}\theta\) in terms of \(\sin\theta\), then use the double-angle formula for cosine to combine everything over one denominator.</p><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>For verifying this equation, we are bringing together several of the identities. We will use the double-angle formula and the reciprocal identities. We will work with the right side of the equation and rewrite it until it matches the left side.</p>
+<p id="eq27">\[\begin{array}{l}\frac{cos(2θ)}{{sin}^{2}θ}=\frac{1-2\,{sin}^{2}θ}{{sin}^{2}θ} \\ \,=\frac{1}{{sin}^{2}θ}-\frac{2\,{sin}^{2}θ}{{sin}^{2}θ} \\ \,={csc}^{2}θ-2\end{array}\]</p>
+</div></div></div>
+<div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Verify the identity \(tan\,θ\,cot\,θ-{cos}^{2}θ={sin}^{2}θ.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\begin{array}{l}tan\,θ\,cot\,θ-{cos}^{2}θ=(\frac{sin\,θ}{cos\,θ})(\frac{cos\,θ}{sin\,θ})-{cos}^{2}θ \\ =1-{cos}^{2}θ \\ ={sin}^{2}θ\end{array}\)</p>
+</div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
+<div class="card callout" id="fs-id1357476"><span class="chip">Media</span><p>Access these online resources for additional instruction and practice with the product-to-sum and sum-to-product identities.</p>
+<ul class="tight"><li><a href="https://openstax.org/l/sumtoprod" target="_blank" rel="noopener">Sum to Product Identities</a></li><li><a href="https://openstax.org/l/sumtpptsum" target="_blank" rel="noopener">Sum to Product and Product to Sum Identities</a></li></ul>
+</div>
+<h2 id="key-equations">Key Equations</h2>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Product-to-sum Formulas</strong></td><td>\(\begin{array}{l} \\ cos\,α\,cos\,β=\frac{1}{2}[cos(α-β)+cos(α+β)] \\ sin\,α\,cos\,β=\frac{1}{2}[sin(α+β)+sin(α-β)] \\ sin\,α\,sin\,β=\frac{1}{2}[cos(α-β)-cos(α+β)] \\ cos\,α\,sin\,β=\frac{1}{2}[sin(α+β)-sin(α-β)]\end{array}\)</td></tr><tr><td><strong>Sum-to-product Formulas</strong></td><td>\(\begin{array}{l} \\ sin\,α+sin\,β=2\,sin(\frac{α+β}{2})cos(\frac{α-β}{2}) \\ sin\,α-sin\,β=2\,sin(\frac{α-β}{2})cos(\frac{α+β}{2}) \\ cos\,α-cos\,β=-2\,sin(\frac{α+β}{2})sin(\frac{α-β}{2}) \\ cos\,α+cos\,β=2\,cos(\frac{α+β}{2})cos(\frac{α-β}{2})\end{array}\)</td></tr></tbody></table></div>
+<h2 id="key-concepts">Key Concepts</h2>
+<ul class="tight"><li>From the sum and difference identities, we can derive the product-to-sum formulas and the sum-to-product formulas for sine and cosine.</li><li>We can use the product-to-sum formulas to rewrite products of sines, products of cosines, and products of sine and cosine as sums or differences of sines and cosines. See <a href="#example1">Example 1</a>, <a href="#example2">Example 2</a>, and <a href="#example3">Example 3</a>.</li><li>We can also derive the sum-to-product identities from the product-to-sum identities using substitution.</li><li>We can use the sum-to-product formulas to rewrite sum or difference of sines, cosines, or products sine and cosine as products of sines and cosines. See <a href="#example4">Example 4</a>.</li><li>Trigonometric expressions are often simpler to evaluate using the formulas. See <a href="#example5">Example 5</a>.</li><li>The identities can be verified using other formulas or by converting the expressions to sines and cosines. To verify an identity, we choose the more complicated side of the equals sign and rewrite it until it is transformed into the other side. See <a href="#example6">Example 6</a> and <a href="#example7">Example 7</a>.</li></ul>
+<div id="exercise-panel-content">
+<h2 id="exercises">Section Exercises</h2>
+<h3 id="verbal">Verbal</h3>
+<div class="exercise" id="ex1"><div class="n">1</div><div class="body"><p>Starting with the product to sum formula \(sin\,α\,cos\,β=\frac{1}{2}[sin(α+β)+sin(α-β)],\) explain how to determine the formula for \(cos\,α\,sin\,β.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Substitute \(\,α\,\) into cosine and \(\,β\,\) into sine and evaluate.</p>
+</div></div></div></div>
+<div class="exercise" id="ex2"><div class="n">2</div><div class="body"><p>Explain two different methods of calculating \(cos(195°)cos(105°),\) one of which uses the product to sum. Which method is easier?</p>
+</div></div>
+<div class="exercise" id="ex3"><div class="n">3</div><div class="body"><p>Explain a situation where we would convert an equation from a sum to a product and give an example.</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary. There are some equations that involve a sum of two trig expressions where when converted to a product are easier to solve. For example: \(\frac{sin(3x)+sin\,x}{cos\,x}=1.\,\) When converting the numerator to a product the equation becomes: \(\frac{2\,sin(2x)cos\,x}{cos\,x}=1\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex4"><div class="n">4</div><div class="body"><p>Explain a situation where we would convert an equation from a product to a sum, and give an example.</p>
+</div></div>
+<h3 id="algebraic">Algebraic</h3>
+<p>For the following exercises, rewrite the product as a sum or difference.</p>
+<div class="exercise" id="ex5"><div class="n">5</div><div class="body"><p>\(16\,sin(16x)sin(11x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(8(cos(5x)-cos(27x))\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex6"><div class="n">6</div><div class="body"><p>\(20\,cos(36t)cos(6t)\)</p>
+</div></div>
+<div class="exercise" id="ex7"><div class="n">7</div><div class="body"><p>\(2\,sin(5x)cos(3x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin(2x)+sin(8x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex8"><div class="n">8</div><div class="body"><p>\(10\,cos(5x)sin(10x)\)</p>
+</div></div>
+<div class="exercise" id="ex9"><div class="n">9</div><div class="body"><p>\(sin(-x)sin(5x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}(cos(6x)-cos(4x))\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex10"><div class="n">10</div><div class="body"><p>\(sin(3x)cos(5x)\)</p>
+</div></div>
+<p>For the following exercises, rewrite the sum or difference as a product.</p>
+<div class="exercise" id="ex11"><div class="n">11</div><div class="body"><p>\(cos(6t)+cos(4t)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\,cos(5t)cos\,t\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex12"><div class="n">12</div><div class="body"><p>\(sin(3x)+sin(7x)\)</p>
+</div></div>
+<div class="exercise" id="ex13"><div class="n">13</div><div class="body"><p>\(cos(7x)+cos(-7x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\,cos(7x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex14"><div class="n">14</div><div class="body"><p>\(sin(3x)-sin(-3x)\)</p>
+</div></div>
+<div class="exercise" id="ex15"><div class="n">15</div><div class="body"><p>\(cos(3x)+cos(9x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\,cos(6x)cos(3x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex16"><div class="n">16</div><div class="body"><p>\(sin\,h-sin(3h)\)</p>
+</div></div>
+<p>For the following exercises, evaluate the product for the following using a sum or difference of two functions.</p>
+<div class="exercise" id="ex17"><div class="n">17</div><div class="body"><p>\(cos(45°)cos(15°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{4}(1+\sqrt{3})\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex18"><div class="n">18</div><div class="body"><p>\(cos(45°)sin(15°)\)</p>
+</div></div>
+<div class="exercise" id="ex19"><div class="n">19</div><div class="body"><p>\(sin(-345°)sin(-15°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{4}(\sqrt{3}-2)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex20"><div class="n">20</div><div class="body"><p>\(sin(195°)cos(15°)\)</p>
+</div></div>
+<div class="exercise" id="ex21"><div class="n">21</div><div class="body"><p>\(sin(-45°)sin(-15°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{4}(\sqrt{3}-1)\)</p>
+</div></div></div></div>
+<p>For the following exercises, evaluate the product using a sum or difference of two functions. Leave in terms of sine and cosine.</p>
+<div class="exercise" id="ex22"><div class="n">22</div><div class="body"><p>\(cos(23°)sin(17°)\)</p>
+</div></div>
+<div class="exercise" id="ex23"><div class="n">23</div><div class="body"><p>\(2\,sin(100°)sin(20°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(cos(80°)-cos(120°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex24"><div class="n">24</div><div class="body"><p>\(2\,sin(-100°)sin(-20°)\)</p>
+</div></div>
+<div class="exercise" id="ex25"><div class="n">25</div><div class="body"><p>\(sin(213°)cos(8°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}(sin(221°)+sin(205°))\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex26"><div class="n">26</div><div class="body"><p>\(2\,cos(56°)cos(47°)\)</p>
+</div></div>
+<p>For the following exercises, rewrite the sum as a product of two functions. Leave in terms of sine and cosine.</p>
+<div class="exercise" id="ex27"><div class="n">27</div><div class="body"><p>\(sin(76°)+sin(14°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{2}\,cos(31°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex28"><div class="n">28</div><div class="body"><p>\(cos(58°)-cos(12°)\)</p>
+</div></div>
+<div class="exercise" id="ex29"><div class="n">29</div><div class="body"><p>\(sin(101°)-sin(32°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\,cos(66.5°)sin(34.5°)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex30"><div class="n">30</div><div class="body"><p>\(cos(100°)+cos(200°)\)</p>
+</div></div>
+<div class="exercise" id="ex31"><div class="n">31</div><div class="body"><p>\(sin(-1°)+sin(-2°)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\,sin(-1.5°)cos(0.5°)\)</p>
+</div></div></div></div>
+<p>For the following exercises, prove the identity.</p>
+<div class="exercise" id="ex32"><div class="n">32</div><div class="body"><p>\(\frac{cos(a+b)}{cos(a-b)}=\frac{1-tan\,a\,tan\,b}{1+tan\,a\,tan\,b}\)</p>
+</div></div>
+<div class="exercise" id="ex33"><div class="n">33</div><div class="body"><p>\(4\,sin(3x)cos(4x)=2\,sin(7x)-2\,sinx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}2\,sin(7x)-2\,sinx=2\,sin(4x+3x)-2\,sin(4x-3x)= \\ 2(sin(4x)cos(3x)+sin(3x)cos(4x))-2(sin(4x)cos(3x)-sin(3x)cos(4x))= \\ 2\,sin(4x)cos(3x)+2\,sin(3x)cos(4x))-2\,sin(4x)cos(3x)+2\,sin(3x)cos(4x))= \\ 4\,sin(3x)cos(4x) \\ \end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex34"><div class="n">34</div><div class="body"><p>\(\frac{6\,cos(8x)sin(2x)}{sin(-6x)}=-3\,sin(10x)csc(6x)+3\)</p>
+</div></div>
+<div class="exercise" id="ex35"><div class="n">35</div><div class="body"><p>\(sin\,x+sin(3x)=4\,sin\,x\,{cos}^{2}x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(sin\,x+sin(3x)=2\,sin(\frac{4x}{2})cos(\frac{-2x}{2})=\) <br> \(2\,sin(2x)cos\,x=2(2\,sin\,x\,cos\,x)cos\,x=\) <br> \(4\,sin\,x\,{cos}^{2}\,x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex36"><div class="n">36</div><div class="body"><p>\(2({cos}^{3}x-cos\,x\,{sin}^{2}x)=cos(3x)+cos\,x\)</p>
+</div></div>
+<div class="exercise" id="ex37"><div class="n">37</div><div class="body"><p>\(2tan\,x\,cos(3x)=sec\,x(sin(4x)-sin(2x))\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\,tan\,x\,cos(3x)=\frac{2\,sin\,x\,cos(3x)}{cos\,x}=\frac{2(.5(sin(4x)-sin(2x)))}{cos\,x}\) <br> \(=\frac{1}{cos\,x}(sin(4x)-sin(2x))=sec\,x(sin(4x)-sin(2x))\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex38"><div class="n">38</div><div class="body"><p>\(cos(a+b)+cos(a-b)=2\,cos\,a\,cos\,b\)</p>
+</div></div>
+<h3 id="numeric">Numeric</h3>
+<p>For the following exercises, rewrite the sum as a product of two functions or the product as a sum of two functions. Give your answer in terms of sines and cosines. Then evaluate the final answer numerically, rounded to four decimal places.</p>
+<div class="exercise" id="ex39"><div class="n">39</div><div class="body"><p>\(cos({58}^{∘})+cos({12}^{∘})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\,cos({35}^{∘})cos({23}^{∘}),\text{ 1}\text{.5081}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex40"><div class="n">40</div><div class="body"><p>\(sin({2}^{∘})-sin({3}^{∘})\)</p>
+</div></div>
+<div class="exercise" id="ex41"><div class="n">41</div><div class="body"><p>\(cos({44}^{∘})-cos({22}^{∘})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-2\,sin({33}^{∘})sin({11}^{∘}),\,-0.2078\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex42"><div class="n">42</div><div class="body"><p>\(cos({176}^{∘})sin({9}^{∘})\)</p>
+</div></div>
+<div class="exercise" id="ex43"><div class="n">43</div><div class="body"><p>\(sin(-{14}^{∘})sin({85}^{∘})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{2}(cos({99}^{∘})-cos({71}^{∘})),\,-0.2410\)</p>
+</div></div></div></div>
+<h3 id="technology">Technology</h3>
+<p>For the following exercises, algebraically determine whether each of the given expressions is a true identity. If it is not an identity, replace the right-hand side with an expression equivalent to the left side. Verify the results by graphing both expressions on a calculator.</p>
+<div class="exercise" id="ex44"><div class="n">44</div><div class="body"><p>\(2sin(2x)sin(3x)=cos\,x-cos(5x)\)</p>
+</div></div>
+<div class="exercise" id="ex45"><div class="n">45</div><div class="body"><p>\(\frac{cos(10θ)+cos(6θ)}{cos(6θ)-cos(10θ)}=cot(2θ)cot(8θ)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>It is and identity.</p>
+</div></div></div></div>
+<div class="exercise" id="ex46"><div class="n">46</div><div class="body"><p>\(\frac{sin(3x)-sin(5x)}{cos(3x)+cos(5x)}=tan\,x\)</p>
+</div></div>
+<div class="exercise" id="ex47"><div class="n">47</div><div class="body"><p>\(2cos(2x)cos\,x+sin(2x)sin\,x=2\,sinx\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>It is not an identity, but \(2\,{cos}^{3}x\,\) is.</p>
+</div></div></div></div>
+<div class="exercise" id="ex48"><div class="n">48</div><div class="body"><p>\(\frac{sin(2x)+sin(4x)}{sin(2x)-sin(4x)}=-tan(3x)cot\,x\)</p>
+</div></div>
+<p>For the following exercises, simplify the expression to one term, then graph the original function and your simplified version to verify they are identical.</p>
+<div class="exercise" id="ex49"><div class="n">49</div><div class="body"><p>\(\frac{sin(9t)-sin(3t)}{cos(9t)+cos(3t)}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(tan(3t)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex50"><div class="n">50</div><div class="body"><p>\(2sin(8x)cos(6x)-sin(2x)\)</p>
+</div></div>
+<div class="exercise" id="ex51"><div class="n">51</div><div class="body"><p>\(\frac{sin(3x)-sin\,x}{sin\,x}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(2\,cos(2x)\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex52"><div class="n">52</div><div class="body"><p>\(\frac{cos(5x)+cos(3x)}{sin(5x)+sin(3x)}\)</p>
+</div></div>
+<div class="exercise" id="ex53"><div class="n">53</div><div class="body"><p>\(sin\,x\,cos(15x)-cos\,x\,sin(15x)\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(-sin(14x)\)</p>
+</div></div></div></div>
+<h3 id="extensions">Extensions</h3>
+<p>For the following exercises, prove the following sum-to-product formulas.</p>
+<div class="exercise" id="ex54"><div class="n">54</div><div class="body"><p>\(sin\,x-sin\,y=2\,sin(\frac{x-y}{2})cos(\frac{x+y}{2})\)</p>
+</div></div>
+<div class="exercise" id="ex55"><div class="n">55</div><div class="body"><p>\(cos\,x+cos\,y=2\,cos(\frac{x+y}{2})cos(\frac{x-y}{2})\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>Start with \(cos\,x+cos\,y.\) Make a substitution and let \(x=α+β\) and let \(y=α-β,\) so \(cos\,x+cos\,y\) becomes <br> \(cos(α+β)+cos(α-β)=cosαcosβ-sinαsinβ+cosαcosβ+sinαsinβ=2cos\,αcos\,β\)</p>
+<p>Since \(x=α+β\) and \(y=α-β,\) we can solve for \(α\) and \(β\) in terms of <strong>x</strong> and <strong>y</strong> and substitute in for \(2cosαcosβ\) and get \(2cos(\frac{x+y}{2})cos(\frac{x-y}{2}).\)</p>
+</div></div></div></div>
+<p>For the following exercises, prove the identity.</p>
+<div class="exercise" id="ex56"><div class="n">56</div><div class="body"><p>\(\frac{sin(6x)+sin(4x)}{sin(6x)-sin(4x)}=tan\,(5x)cot\,x\)</p>
+</div></div>
+<div class="exercise" id="ex57"><div class="n">57</div><div class="body"><p>\(\frac{cos(3x)+cos\,x}{cos(3x)-cos\,x}=-cot\,(2x)cot\,x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{cos(3x)+cos\,x}{cos(3x)-cos\,x}=\frac{2\,cos(2x)cos\,x}{-2\,sin(2x)sin\,x}=-cot(2x)cot\,x\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex58"><div class="n">58</div><div class="body"><p>\(\frac{cos(6y)+cos(8y)}{sin(6y)-sin(4y)}=cot\,y\,cos\,(7y)sec\,(5y)\)</p>
+</div></div>
+<div class="exercise" id="ex59"><div class="n">59</div><div class="body"><p>\(\frac{cos(2y)-cos(4y)}{sin(2y)+sin(4y)}=tan\,y\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}\frac{cos(2y)-cos(4y)}{sin(2y)+sin(4y)}=\frac{-2\,sin(3y)sin(-y)}{2\,sin(3y)cos\,y}= \\ \frac{2\,sin(3y)sin(y)}{2\,sin(3y)cos\,y}=tan\,y\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex60"><div class="n">60</div><div class="body"><p>\(\frac{sin(10x)-sin(2x)}{cos(10x)+cos(2x)}=tan(4x)\)</p>
+</div></div>
+<div class="exercise" id="ex61"><div class="n">61</div><div class="body"><p>\(cos\,x-cos(3x)=4\,{sin}^{2}xcos\,x\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\begin{array}{l}cos\,x-cos(3x)=-2\,sin(2x)sin(-x)= \\ 2(2\,sin\,x\,cos\,x)sin\,x=4\,{sin}^{2}\,x\,cos\,x\end{array}\)</p>
+</div></div></div></div>
+<div class="exercise" id="ex62"><div class="n">62</div><div class="body"><p>\({(cos(2x)-cos(4x))}^{2}+{(sin(4x)+sin(2x))}^{2}=4\,{sin}^{2}(3x)\)</p>
+</div></div>
+<div class="exercise" id="ex63"><div class="n">63</div><div class="body"><p>\(tan(\frac{\pi }{4}-t)=\frac{1-tan\,t}{1+tan\,t}\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(tan(\frac{\pi }{4}-t)=\frac{tan(\frac{\pi }{4})-tant}{1+tan(\frac{\pi }{4})tan(t)}=\frac{1-tant}{1+tant}\)</p>
+</div></div></div></div>
+</div>
+<h2 id="glossary">Glossary</h2>
+<dl class="glossary"><dt>product-to-sum formula</dt><dd>a trigonometric identity that allows the writing of a product of trigonometric functions as a sum or difference of trigonometric functions</dd><dt>sum-to-product formula</dt><dd>a trigonometric identity that allows, by using substitution, the writing of a sum of trigonometric functions as a product of trigonometric functions</dd></dl>
+
+<footer class="attribution">
+  Content from <a href="https://openstax.org/books/precalculus-2e">OpenStax Precalculus 2e</a> by Jay Abramson, © OpenStax, licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.
+  OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.
+</footer>
+</main>
+</div>
+</body>
+</html>
