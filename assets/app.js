@@ -642,19 +642,37 @@ function initSearch(root, topbar) {
     return esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(text.slice(i + q.length));
   };
 
-  function render(items, q) {
+  // Renders sections (one per matching book section) each with 1+ matching sub-hits
+  // (headings/objectives/glossary terms). A section with a single sub-hit collapses to one
+  // link; a section with several renders a linked section header plus a nested list of the
+  // specific sub-hits — so e.g. Int Alg 8.5's "one-term" and "two-term" denominator headings
+  // both matching "rational" show as two lines under one 8.5 header, not two separate results
+  // crowding out other books' sections.
+  function render(sections, q) {
     activeIdx = -1;
-    if (!items.length) {
+    if (!sections.length) {
       resultsEl.innerHTML = `<div class="search-empty">No matches for “${esc(q)}”.</div>`;
       resultsEl.hidden = false;
       return;
     }
-    resultsEl.innerHTML = items.map(e => {
-      const href = `${root}/${e.path}#${e.anchor}`;
-      const detail = e.detail ? `<div class="search-detail">${esc(e.detail)}</div>` : "";
-      return `<a class="search-result" href="${href}">` +
-        `<div class="search-eyebrow">${esc(e.bookTitle)} · ${esc(e.sectionTitle)}</div>` +
-        `<div class="search-main">${highlight(e.text, q)}</div>${detail}</a>`;
+    resultsEl.innerHTML = sections.map(hits => {
+      const top = hits[0];
+      const topHref = `${root}/${top.path}#${top.anchor}`;
+      const eyebrow = `<div class="search-eyebrow">${esc(top.bookTitle)} · ${esc(top.sectionTitle)}</div>`;
+      if (hits.length === 1) {
+        const detail = top.detail ? `<div class="search-detail">${esc(top.detail)}</div>` : "";
+        return `<a class="search-hit" href="${topHref}">${eyebrow}` +
+          `<div class="search-main">${highlight(top.text, q)}</div>${detail}</a>`;
+      }
+      const subs = hits.map(e => {
+        const href = `${root}/${e.path}#${e.anchor}`;
+        const detail = e.detail ? `<div class="search-detail">${esc(e.detail)}</div>` : "";
+        return `<a class="search-hit search-subhit" href="${href}">` +
+          `<div class="search-main">${highlight(e.text, q)}</div>${detail}</a>`;
+      }).join("");
+      return `<div class="search-section">` +
+        `<a class="search-hit search-section-head" href="${topHref}">${eyebrow}</a>` +
+        `<div class="search-subhits">${subs}</div></div>`;
     }).join("");
     resultsEl.hidden = false;
   }
@@ -681,8 +699,22 @@ function initSearch(root, topbar) {
         const score = typeWeight * 100 - idx * 0.5 - t.length * 0.02 - (inDetail ? 50 : 0);
         scored.push({ e, score });
       }
-      scored.sort((a, b) => b.score - a.score);
-      render(scored.slice(0, 8).map(s => s.e), q);
+      // Group matches by section (path) so a query that hits several headings/objectives in
+      // one section (e.g. Int Alg 8.5's "...one-term denominator" and "...two-term
+      // denominator") is presented as one section with nested sub-hits, rather than several
+      // flat results that used to crowd the top-N slice and starve other books' sections.
+      const bySection = new Map();
+      for (const s of scored) {
+        let group = bySection.get(s.e.path);
+        if (!group) { group = { score: s.score, hits: [] }; bySection.set(s.e.path, group); }
+        group.hits.push(s);
+        if (s.score > group.score) group.score = s.score;
+      }
+      const sections = [...bySection.values()]
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 8)
+        .map(g => g.hits.sort((a, b) => b.score - a.score).slice(0, 3).map(s => s.e));
+      render(sections, q);
     }, 120);
   });
 
@@ -691,7 +723,7 @@ function initSearch(root, topbar) {
     if (items[activeIdx]) items[activeIdx].scrollIntoView({ block: "nearest" });
   };
   input.addEventListener("keydown", ev => {
-    const items = resultsEl.querySelectorAll(".search-result");
+    const items = resultsEl.querySelectorAll(".search-hit");
     if (ev.key === "Escape") { resultsEl.hidden = true; input.blur(); }
     else if (ev.key === "ArrowDown" && items.length) { ev.preventDefault(); activeIdx = Math.min(activeIdx + 1, items.length - 1); updateActive(items); }
     else if (ev.key === "ArrowUp" && items.length) { ev.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); updateActive(items); }

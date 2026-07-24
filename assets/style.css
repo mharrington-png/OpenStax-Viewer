@@ -104,16 +104,23 @@ body {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   box-shadow: var(--shadow); padding: 6px;
 }
-.search-result {
+.search-hit {
   display: block; padding: 8px 10px; border-radius: 9px; text-decoration: none;
   font-family: var(--sans); color: var(--ink);
 }
-.search-result:hover, .search-result.active { background: var(--surface-2); }
+.search-hit:hover, .search-hit.active { background: var(--surface-2); }
 .search-eyebrow { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); }
 .search-main { font-size: .92rem; color: var(--ink); margin-top: 2px; }
 .search-main mark { background: var(--accent-soft); color: var(--accent-ink); border-radius: 3px; padding: 0 2px; }
 .search-detail { font-size: .8rem; color: var(--ink-soft); margin-top: 2px; }
 .search-empty { padding: 10px; font-family: var(--sans); font-size: .88rem; color: var(--ink-faint); }
+/* section headers with 2+ sub-hits: header keeps only the eyebrow (no repeated main text),
+   sub-hits indent underneath with a rule to read as "nested under this section" */
+.search-section { border-radius: 9px; }
+.search-section-head { padding-bottom: 4px; }
+.search-subhits { margin-left: 10px; padding-left: 8px; border-left: 2px solid var(--line); }
+.search-subhit { padding: 6px 10px; }
+.search-subhit .search-main { font-size: .88rem; }
 @media (max-width: 640px) { .searchbox { display: none; } }
 
 /* ---------- layout ---------- */
