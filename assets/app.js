@@ -642,36 +642,42 @@ function initSearch(root, topbar) {
     return esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(text.slice(i + q.length));
   };
 
-  // Renders sections (one per matching book section) each with 1+ matching sub-hits
-  // (headings/objectives/glossary terms). A section with a single sub-hit collapses to one
-  // link; a section with several renders a linked section header plus a nested list of the
-  // specific sub-hits — so e.g. Int Alg 8.5's "one-term" and "two-term" denominator headings
-  // both matching "rational" show as two lines under one 8.5 header, not two separate results
-  // crowding out other books' sections.
-  function render(sections, q) {
+  // Renders chapters (one per matching book chapter), each with 1+ matching sections as
+  // sub-hits. A chapter with a single matching section collapses to one link (book · section
+  // eyebrow + the matching text); a chapter with several matching sections renders a linked
+  // chapter header plus a nested list of section sub-hits — so e.g. a query that hits
+  // Precalc 3.3, 3.4, and 3.6 (all in "Chapter 3 · Polynomial and Rational Functions") shows
+  // as one chapter with three section lines, not three separate top-level results crowding
+  // out other books' chapters. Sub-hit navigation stops at the section: clicking jumps to
+  // that section's best-matching anchor, and the reader takes it from there via the page's
+  // own outline rather than the search box drilling into individual headings/examples.
+  function render(chapters, q) {
     activeIdx = -1;
-    if (!sections.length) {
+    if (!chapters.length) {
       resultsEl.innerHTML = `<div class="search-empty">No matches for “${esc(q)}”.</div>`;
       resultsEl.hidden = false;
       return;
     }
-    resultsEl.innerHTML = sections.map(hits => {
+    resultsEl.innerHTML = chapters.map(hits => {
       const top = hits[0];
       const topHref = `${root}/${top.path}#${top.anchor}`;
-      const eyebrow = `<div class="search-eyebrow">${esc(top.bookTitle)} · ${esc(top.sectionTitle)}</div>`;
       if (hits.length === 1) {
+        const eyebrow = `<div class="search-eyebrow">${esc(top.bookTitle)} · ${esc(top.sectionTitle)}</div>`;
         const detail = top.detail ? `<div class="search-detail">${esc(top.detail)}</div>` : "";
         return `<a class="search-hit" href="${topHref}">${eyebrow}` +
           `<div class="search-main">${highlight(top.text, q)}</div>${detail}</a>`;
       }
+      const head = `<div class="search-eyebrow">${esc(top.bookTitle)}</div>` +
+        `<div class="search-main">Chapter ${esc(String(top.chapterN))} · ${esc(top.chapterTitle)}</div>`;
       const subs = hits.map(e => {
         const href = `${root}/${e.path}#${e.anchor}`;
         const detail = e.detail ? `<div class="search-detail">${esc(e.detail)}</div>` : "";
         return `<a class="search-hit search-subhit" href="${href}">` +
+          `<div class="search-eyebrow">${esc(e.sectionTitle)}</div>` +
           `<div class="search-main">${highlight(e.text, q)}</div>${detail}</a>`;
       }).join("");
       return `<div class="search-section">` +
-        `<a class="search-hit search-section-head" href="${topHref}">${eyebrow}</a>` +
+        `<a class="search-hit search-section-head" href="${topHref}">${head}</a>` +
         `<div class="search-subhits">${subs}</div></div>`;
     }).join("");
     resultsEl.hidden = false;
@@ -699,22 +705,39 @@ function initSearch(root, topbar) {
         const score = typeWeight * 100 - idx * 0.5 - t.length * 0.02 - (inDetail ? 50 : 0);
         scored.push({ e, score });
       }
-      // Group matches by section (path) so a query that hits several headings/objectives in
-      // one section (e.g. Int Alg 8.5's "...one-term denominator" and "...two-term
-      // denominator") is presented as one section with nested sub-hits, rather than several
-      // flat results that used to crowd the top-N slice and starve other books' sections.
+      // Step 1: collapse to one (best-scoring) hit per section — a query routinely matches
+      // several headings/objectives within the same section (e.g. Int Alg 8.5's "...one-term
+      // denominator" and "...two-term denominator" headings both matching "rational"), and
+      // showing each separately just repeats the same section without adding information.
       const bySection = new Map();
       for (const s of scored) {
-        let group = bySection.get(s.e.path);
-        if (!group) { group = { score: s.score, hits: [] }; bySection.set(s.e.path, group); }
+        const prev = bySection.get(s.e.path);
+        if (!prev || s.score > prev.score) bySection.set(s.e.path, s);
+      }
+      // Step 2: group those section-level hits by chapter (book + chapter number) so a query
+      // that hits several sections in one chapter (e.g. Precalc 3.3/3.4/3.6, all in "Chapter
+      // 3 · Polynomial and Rational Functions") shows as one chapter with those sections
+      // nested underneath, rather than several flat results that used to crowd the top-N
+      // slice and starve other books'/chapters' matches entirely.
+      const byChapter = new Map();
+      for (const s of bySection.values()) {
+        const key = `${s.e.book}::${s.e.chapterN}`;
+        let group = byChapter.get(key);
+        if (!group) { group = { score: s.score, hits: [] }; byChapter.set(key, group); }
         group.hits.push(s);
         if (s.score > group.score) group.score = s.score;
       }
-      const sections = [...bySection.values()]
+      // Within a chapter, pick the 6 most relevant sections by score, but then display them
+      // in section order (3.3, 3.4, 3.5, …) rather than by score — reads like a table of
+      // contents instead of a shuffled relevance list.
+      const sectionNum = title => { const m = /^\d+\.(\d+)/.exec(title); return m ? +m[1] : 0; };
+      const chapters = [...byChapter.values()]
         .sort((a, b) => b.score - a.score)
         .slice(0, 8)
-        .map(g => g.hits.sort((a, b) => b.score - a.score).slice(0, 3).map(s => s.e));
-      render(sections, q);
+        .map(g => g.hits.sort((a, b) => b.score - a.score).slice(0, 6)
+          .sort((a, b) => sectionNum(a.e.sectionTitle) - sectionNum(b.e.sectionTitle))
+          .map(s => s.e));
+      render(chapters, q);
     }, 120);
   });
 

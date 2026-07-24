@@ -66,10 +66,27 @@ for (const [bookId, book] of Object.entries(BOOKS)) {
       try { html = readFileSync(root + diskPath, "utf8"); }
       catch { console.warn(`! missing file, skipped: ${diskPath}`); continue; }
 
-      const common = { book: bookId, bookTitle: book.title, sectionTitle: sec.title, path: diskPath };
+      const common = {
+        book: bookId, bookTitle: book.title, chapterN: chapter.n, chapterTitle: chapter.title,
+        sectionTitle: sec.title, path: diskPath,
+      };
+
+      // Everything from "Key Equations"/"Key Concepts"/"Section Exercises" onward is
+      // backmatter (exercises, Chapter Review Exercises, Chapter Test/Practice Test,
+      // Glossary). Its own h2/h3/h4 sub-headings are never real topic headings for *this*
+      // page -- notably, Chapter Review Exercises groups review problems under h3s that
+      // repeat other sections' titles verbatim (e.g. precalculus-2e/3-9.html's "Power
+      // Functions and Polynomial Functions" h3, copied from section 3.3's own heading),
+      // which used to leak into the index as if 3.9 itself covered that topic.
+      let bodyEnd = html.length;
+      for (const id of ["key-equations", "key-concepts", "exercises"]) {
+        const i = html.indexOf(`id="${id}"`);
+        if (i !== -1 && i < bodyEnd) bodyEnd = i;
+      }
+      const body = html.slice(0, bodyEnd);
 
       // 1. Topic headings (h2/h3/h4 with a meaningful id)
-      for (const m of html.matchAll(/<h([234]) id="([a-z0-9-]+)">(.*?)<\/h\1>/gs)) {
+      for (const m of body.matchAll(/<h([234]) id="([a-z0-9-]+)">(.*?)<\/h\1>/gs)) {
         const [, , id, raw] = m;
         if (SKIP_HEADING_IDS.has(id)) continue;
         const text = stripTags(raw);
