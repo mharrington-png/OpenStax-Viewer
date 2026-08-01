@@ -1,0 +1,28 @@
+{
+  "_comment": "Ledger of OpenStax errata IDs manually resolved in this project, independent of git file-add dates. The yearly review's build-date heuristic (comparing an erratum's corrected_date against a section file's git first-add date) cannot detect fixes applied AFTER a file was first built, since it only sees the original build date. Check this ledger FIRST for every live-section, Approved/corrected erratum before falling back to the build-date heuristic. When you manually apply a fix for an erratum (in this scheduled review or any other session), add an entry here so future runs don't re-flag it as needing action.",
+  "28780": { "resolved_date": "2026-08-01", "file": "sections/calculus-v1/2-1.html", "note": "Standardized phi/varphi (U+03D5 -> U+03C6) across exercises 10-12" },
+  "28825": { "resolved_date": "2026-08-01", "file": "sections/calculus-v1/2-5.html", "note": "Fixed inequality bound: -5<x-3<-1 -> -5<x-3<-3 (duplicate: 29005)" },
+  "28755": { "resolved_date": "2026-08-01", "file": "sections/calculus-v1/3-2.html", "note": "Exercise 80: added \"of f(x)\" for clarity" },
+  "28757": { "resolved_date": "2026-08-01", "file": "sections/calculus-v1/3-2.html", "note": "Exercises 75 & 77 solutions: h->1 changed to h->0" },
+  "28905": { "resolved_date": "2026-08-01", "file": "sections/calculus-v3/3-3.html", "note": "Removed confusing/misreferencing 'minor issue with Equation 25' aside near Eq. 3.16" },
+  "28909": { "resolved_date": "2026-08-01", "file": "sections/calculus-v3/6-4.html", "note": "Example 7 solution: P_x+0=Q_y -> P_x=0=Q_y" },
+  "28924": { "resolved_date": "2026-08-01", "file": "sections/calculus-v3/4-1.html", "note": "Exercise 56: y-axis -> z-axis" },
+  "28956": { "resolved_date": "2026-08-01", "file": "sections/calculus-v3/1-5.html", "note": "Exercise 268: replaced impossible ellipse with (4,0),(-4,0) endpoints / (2,0),(-2,0) foci" },
+  "29037": { "resolved_date": "2026-08-01", "file": "sections/calculus-v3/2-3.html", "note": "Removed stray 'rad' unit label after arccos result" },
+  "29045": { "resolved_date": "2026-08-01", "file": "sections/calculus-v3/4-6.html", "note": "Exercise 291: P(-3,0) -> P(3,0), answer (4/3)i-3j -> (2/3)i+3j" },
+
+  "_not_actionable_confirmed_2026-08-01": {
+    "_comment": "These were investigated and found to require no site action, for reasons unlikely to change — keep excluding them from future reports unless something below changes.",
+    "28684": "Section 5.3 ex. 154 (live numbering) — even-numbered exercise; confirmed via live CNXML fetch that OpenStax's own public module has no <solution> for it (odd-only pattern holds). Answer only exists in Instructor's Solution Manual, not the public repo — nothing on our site to fix.",
+    "28920": "Section 4.2 ex. 94 (live numbering) — same as above: no <solution>/hint rendered on our page for this even exercise, confirmed against the raw CNXML.",
+    "28901": "Section 1.1 figure (arrow direction) — hotlinked <img> from OpenStax's GitHub media repo (CLAUDE.md convention 6); self-resolving whenever OpenStax updates the source image, no local edit possible or needed.",
+    "29001": "Section 3.4 figure (Figure 3.20 car direction) — same hotlinked-image situation as 28901."
+  },
+
+  "_inconclusive_needs_manual_lookup_2026-08-01": {
+    "_comment": "Could not locate the referenced content in our built pages even after direct searching (all example/heading text in the relevant section checked). Re-check next year in case OpenStax's own page changes make the mapping clearer, or do a manual side-by-side against openstax.org.",
+    "29021": "Calc V3 3.2 — a 'reparametrization' Example 3.2 with equations (a)/(b) using r(t)=4cos(2t)i+3sin(2t)j; not found among any of section 3.2's 5 examples in our build.",
+    "28753": "Calc V3 Ch.4 Key Equations table (on 4-8.html) — the reported chain-rule equation (dz/dy * dx/du typo) isn't among our page's 2-entry Key Equations table (only the two Lagrange-multiplier equations are listed there).",
+    "29000": "Calc V3 Answer Key: Chapter 3, review exercise #223 — chapter 3's own chapter-review-exercises section on 3-4.html only goes up to #27; #223 doesn't match chapter-review numbering (which OpenStax restarts at 1 per chapter, unlike Section Exercises) or any single section's own Section-Exercises range."
+  }
+}
