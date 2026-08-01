@@ -65,7 +65,7 @@ const BOOK_DEFAULTS = {
 // first), and let it target a book other than College Algebra 2e. --book also accepts a
 // bare "--book calculus-v1" (space-separated) form for CLI ergonomics, not just "=".
 const rawArgs = process.argv.slice(2);
-let localFile = null, repoOverride = null, bookId = "college-algebra-2e";
+let localFile = null, repoOverride = null, bookId = "college-algebra-2e", startExerciseOverride = null;
 const positional = [];
 for (let i = 0; i < rawArgs.length; i++) {
   const a = rawArgs[i];
@@ -73,6 +73,7 @@ for (let i = 0; i < rawArgs.length; i++) {
   else if (a.startsWith("--repo=")) repoOverride = a.slice(7);
   else if (a.startsWith("--book=")) bookId = a.slice(7);
   else if (a === "--book") { bookId = rawArgs[++i]; }
+  else if (a.startsWith("--start-exercise=")) startExerciseOverride = parseInt(a.slice(17), 10);
   else positional.push(a);
 }
 if (!BOOK_DEFAULTS[bookId]) {
@@ -89,6 +90,62 @@ if (!moduleId || !slug) {
   process.exit(1);
 }
 const title = titleParts.join(" ") || slug;
+
+// OpenStax numbers Section Exercises continuously across a whole chapter, not per section
+// (confirmed against the live site: a chapter's 2nd section picks up where the 1st left
+// off). Auto-detect the right starting offset by reading the BOOK manifest for any
+// already-`ready: true` sections in this same book+chapter with a lower section number,
+// and summing their actual Section-Exercises counts (bounded to the exercise-panel-content
+// region so Chapter Review/Practice Test/warm-up counters — which correctly restart at 1 —
+// don't get counted in). `--start-exercise=N` overrides this when the auto-detected value
+// is wrong or unavailable (e.g. building out of order, or the prior section isn't built yet).
+function detectExerciseOffset(bookId, slug) {
+  const [chapterStr, sectionStr] = slug.split("-");
+  const chapterNum = parseInt(chapterStr, 10);
+  const sectionNum = parseFloat(sectionStr);
+  if (!chapterStr || !sectionStr || Number.isNaN(chapterNum) || Number.isNaN(sectionNum)) return 0;
+  let appJs;
+  try { appJs = readFileSync(new URL("../assets/app.js", import.meta.url), "utf8"); } catch { return 0; }
+  const lines = appJs.split(/\r?\n/);
+  let curBook = null, curChapter = null, inTargetChapter = false;
+  const priorFiles = [];
+  const bookKeyRe = /^\s*"([a-z0-9-]+)":\s*\{/;
+  const chapterRe = /\{\s*n:\s*(\d+),/;
+  const sectionRe = /\{\s*id:\s*"([^"]+)",\s*title:\s*"[^"]+",\s*file:\s*"([^"]+)",\s*ready:\s*(true|false)\s*\}/;
+  for (const line of lines) {
+    let m;
+    if ((m = bookKeyRe.exec(line))) { curBook = m[1]; curChapter = null; inTargetChapter = false; continue; }
+    if (curBook !== bookId) continue;
+    if ((m = chapterRe.exec(line))) { curChapter = parseInt(m[1], 10); inTargetChapter = curChapter === chapterNum; continue; }
+    if (inTargetChapter && (m = sectionRe.exec(line)) && m[3] === "true") {
+      const [idChapterStr, idSectionStr] = m[1].split("-");
+      const idSectionNum = parseFloat(idSectionStr);
+      if (idChapterStr === chapterStr && !Number.isNaN(idSectionNum) && idSectionNum < sectionNum) {
+        priorFiles.push(m[2].split("#")[0]);
+      }
+    }
+  }
+  let offset = 0;
+  for (const file of priorFiles) {
+    let html;
+    try { html = readFileSync(`${bookDef.sectionsDir}/${file}`, "utf8"); } catch { continue; }
+    const start = html.indexOf('id="exercise-panel-content"');
+    if (start === -1) continue;
+    const reviewIdx = html.indexOf('id="chapter-review-exercises"', start);
+    const practiceIdx = html.indexOf('id="practice-test"', start);
+    const candidates = [reviewIdx, practiceIdx].filter(i => i !== -1);
+    const end = candidates.length ? Math.min(...candidates) : html.length;
+    const region = html.slice(start, end);
+    const withId = [...region.matchAll(/<div class="exercise" id="ex\d+"><div class="n">(\d+)<\/div>/g)];
+    const noId = [...region.matchAll(/<div class="exercise"><div class="n">(\d+)<\/div>/g)];
+    offset += withId.length || noId.length;
+  }
+  return offset;
+}
+const exerciseStartOffset = startExerciseOverride ?? detectExerciseOffset(bookId, slug);
+if (exerciseStartOffset > 0) {
+  console.log(`Starting Section Exercises at ${exerciseStartOffset + 1} (${startExerciseOverride !== null ? "explicit --start-exercise" : "auto-detected from prior sections in this chapter"}).`);
+}
 
 const RAW = `https://raw.githubusercontent.com/openstax/${repo}/main/modules/${moduleId}/index.cnxml`;
 const MEDIA = `https://raw.githubusercontent.com/openstax/${repo}/main/media/`;
@@ -460,7 +517,7 @@ function inline(n) { // serialize inline content of a para/entry/item
   }
   return out.replace(/\s+/g, " ").trim();
 }
-let exN = 0, tryN = 0, exampleN = 0, figN = 0, tabN = 0, warmN = 0, warmExN = 0, reviewExN = 0, practiceExN = 0;
+let exN = exerciseStartOffset, tryN = 0, exampleN = 0, figN = 0, tabN = 0, warmN = 0, warmExN = 0, reviewExN = 0, practiceExN = 0, bpN = 0;
 // reviewExN/practiceExN: chapter-end modules (the last section of a chapter) bundle
 // "Chapter Review Exercises" and "Practice Test" content after the section's own Section
 // Exercises. OpenStax always restarts numbering to 1 for each of those, independently of
@@ -580,6 +637,14 @@ function blocks(n, ctx = {}) { // serialize block children
           practiceExN++;
           out += `<div class="exercise" id="practiceex${practiceExN}"><div class="n">${practiceExN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
             (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
+        } else if (ctx.inBePrepared) {
+          // No visible number (matches OpenStax's own class="unnumbered" rendering) and
+          // must NOT touch exN — these questions aren't part of the Section Exercises
+          // sequence at all, they just happen to reuse the same <exercise>/<problem>/
+          // <solution> CNXML tags.
+          bpN++;
+          out += `<div class="exercise unnumbered" id="bp${bpN}"><div class="body">${prob ? blocks(prob, ctx) : ""}` +
+            (sol ? `<div class="answer"><button>Show answer</button><div class="a">${blocks(sol, ctx)}</div></div>` : "") + `</div></div>\n`;
         } else {
           exN++;
           out += `<div class="exercise" id="ex${exN}"><div class="n">${exN}</div><div class="body">${prob ? blocks(prob, ctx) : ""}` +
@@ -603,6 +668,16 @@ function blocks(n, ctx = {}) { // serialize block children
         else if (/how-to/.test(cls)) out += `<div class="card howto"${idAttr}><span class="chip">How To</span>${blocks(c, ctx)}</div>\n`;
         else if (/\bqa\b/.test(cls)) out += `<div class="card qa"${idAttr}><span class="chip">Q&amp;A</span>${blocks(c, ctx)}</div>\n`;
         else if (/media/.test(cls)) out += `<div class="card callout"${idAttr}><span class="chip">Media</span>${blocks(c, ctx)}</div>\n`;
+        // "be-prepared" is Intermediate Algebra 2e's (osbooks-prealgebra-bundle) pre-section
+        // readiness quiz — each question is its own separate <note class="be-prepared">,
+        // always the very first content in the module, before any real topic heading.
+        // OpenStax's own site renders these with class="unnumbered" and no visible number
+        // at all (confirmed against the live m81444/8.1 page) — they must NOT consume exN,
+        // or every real Section Exercise number after them is off by however many readiness
+        // questions preceded it (found: our build was incrementing exN for these, shifting
+        // every real exercise's number and id in 50 of 56 built Intermediate Algebra 2e
+        // sections).
+        else if (/be-prepared/.test(cls)) out += `<div class="card definition"${idAttr}><span class="chip">${t ? inline(t) : "Before You Start"}</span>${blocks(c, { ...ctx, inBePrepared: true })}</div>\n`;
         else out += `<div class="card definition"${idAttr}><span class="chip">${t ? inline(t) : "Definition"}</span>${blocks(c, ctx)}</div>\n`;
         break;
       }
@@ -714,6 +789,9 @@ const outDir = fileURLToPath(new URL(`../${bookDef.sectionsDir}/`, import.meta.u
 mkdirSync(outDir, { recursive: true });
 const outPath = fileURLToPath(new URL(`../${bookDef.sectionsDir}/${slug}.html`, import.meta.url));
 writeFileSync(outPath, page);
-console.log(`Wrote ${bookDef.sectionsDir}/${slug}.html (${page.length.toLocaleString()} chars, ${exN} exercises, ${tryN} try-its, ${exampleN} examples)` +
-  (reviewExN || practiceExN ? ` [+ ${reviewExN} chapter-review exercises, ${practiceExN} practice-test exercises]` : ""));
+console.log(`Wrote ${bookDef.sectionsDir}/${slug}.html (${page.length.toLocaleString()} chars, ${exN - exerciseStartOffset} exercises` +
+  (exerciseStartOffset ? ` numbered ${exerciseStartOffset + 1}-${exN}` : "") +
+  `, ${tryN} try-its, ${exampleN} examples)` +
+  (reviewExN || practiceExN ? ` [+ ${reviewExN} chapter-review exercises, ${practiceExN} practice-test exercises]` : "") +
+  (bpN ? ` [+ ${bpN} readiness-quiz item(s), unnumbered]` : ""));
 console.log(`Now open assets/app.js and set ready: true for "${slug}" in the "${bookId}" entry of the BOOKS manifest.`);

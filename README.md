@@ -1,22 +1,32 @@
-# MX Algebra — a friendlier reader for OpenStax College Algebra 2e
+# Middlesex Math — a friendlier reader for OpenStax textbooks
 
-Same content, same exercises, same numbering as the OpenStax book, presented with:
+Same content, same exercises, same numbering as the OpenStax source books, presented with:
 
 - clean reading typography, dark mode, reading-progress bar
 - collapsible solutions on worked examples ("try before you peek")
 - interactive Try Its with show-answer + self-check tracking (saved in the browser)
 - section exercises with original numbering; odd-numbered answers revealable
-- crisp interactive SVG graphs instead of scanned images
+- OpenStax's original figures, plus interactive Desmos sliders for parameter-family graphs
 - KaTeX-rendered math
+- site-wide search across every book
+
+Four books are built out as far as Middlesex's courses need them: **College Algebra 2e**,
+**Precalculus 2e**, **Intermediate Algebra 2e**, and **Calculus Volume 3**. **Calculus
+Volume 1** is in progress. See `CLAUDE.md`'s "Current build state" section for exact
+chapter-by-chapter coverage — it's kept current there, not duplicated here.
 
 ## Files
 
 ```
-index.html                            book home / table of contents
-sections/college-algebra-2e/6-1.html  Section 6.1 Exponential Functions (complete)
-assets/style.css      design system (light + dark)
-assets/app.js         behavior + the BOOK manifest (sidebar nav)
-tools/build-section.mjs   generate more sections yourself — no AI needed
+index.html                        book home / table of contents
+sections/<book-id>/<slug>.html    one page per section (e.g. sections/college-algebra-2e/6-1.html)
+assets/style.css                  design system (light + dark)
+assets/app.js                     behavior + the BOOK manifest (sidebar nav, search)
+assets/search-index.json          generated site-wide search index
+tools/build-section.mjs           generate more sections yourself — no AI needed
+tools/build-search-index.mjs      regenerate assets/search-index.json after content edits
+tools/resolve-crossrefs.mjs       patch cross-module links build-section.mjs can't resolve alone
+tools/verify-section.mjs          fidelity/completeness checks before marking a section ready
 ```
 
 ## Hosting (GitHub Pages, ~5 minutes)
@@ -34,13 +44,20 @@ Every OpenStax section is a "module" in their public GitHub repo. With Node 18+ 
 
 ```
 node tools/build-section.mjs m49362 6-2 "Graphs of Exponential Functions"
+node tools/build-section.mjs --book calculus-v1 m53483 2-1 "A Preview of Calculus"
 ```
 
-Then open `assets/app.js` and mark that section `ready: true` in the BOOK manifest.
-The script fetches the section source, converts the math, and emits a page with the
-same styling, collapsible solutions, Try It self-checks, and exercise answer reveals.
-(Auto-built pages use the book's original figure images; the hand-built 6.1 uses
-redrawn interactive SVG graphs.)
+`--book` defaults to `college-algebra-2e`; pass it explicitly for any other book (valid
+values are the BOOK manifest's keys in `assets/app.js`: `college-algebra-2e`,
+`precalculus-2e`, `intermediate-algebra-2e`, `calculus-v1`, `calculus-v3` — each has its
+own repo, section directory, brand, and license/attribution baked into
+`build-section.mjs`'s `BOOK_DEFAULTS`). The script fetches the section source, converts
+the math, and emits a page with the standard styling, collapsible solutions, Try It
+self-checks, and exercise answer reveals — but its output is a *draft*: CLAUDE.md's
+"Hand-pass a section" workflow (sol-hints, Key Concepts links, figure choices) is required
+before marking it `ready: true`, and `tools/verify-section.mjs` will hard-fail a build that
+skips it. After any hand-pass edit, also run `node tools/build-search-index.mjs` to keep
+site-wide search in sync.
 
 ### Module IDs — College Algebra 2e
 
@@ -57,6 +74,54 @@ redrawn interactive SVG graphs.)
 | 9 Sequences, Probability, and Counting Theory | m49443 m49444 m49445 m49446 m49447 m49448 m49449 m49450 |
 
 Source repo: https://github.com/openstax/osbooks-college-algebra-bundle
+
+### Module IDs — Precalculus 2e
+
+Same repo as College Algebra 2e (`osbooks-college-algebra-bundle`,
+`collections/precalculus-2e.collection.xml`), but its own distinct set of module IDs —
+don't assume a chapter number lines up with College Algebra 2e's module for the same
+topic. Chapters 2 (Linear Functions) and 9 (Systems of Equations and Inequalities) are
+not built on this site (see CLAUDE.md's "Current build state").
+
+| Chapter | Modules (in section order) |
+|---|---|
+| 1 Functions | m49299 m49301 m49304 m49306 m49308 m49312 m49314 m49320 |
+| 2 Linear Functions | m49321 m49324 m50389 m49326 m49327 |
+| 3 Polynomial and Rational Functions | m49334 m49335 m49337 m49346 m49347 m49348 m49349 m49351 m49352 m49353 |
+| 4 Exponential and Logarithmic Functions | m49356 m49361 m49362 m49363 m49364 m49365 m49366 m49367 m49368 |
+| 5 Trigonometric Functions | m49369 m49371 m49372 m49374 m49384 |
+| 6 Periodic Functions | m49386 m49387 m49389 m49390 |
+| 7 Trigonometric Identities and Equations | m49392 m49393 m49395 m49396 m49397 m49398 m49399 |
+| 8 Further Applications of Trigonometry | m49402 m49404 m49405 m49406 m49407 m49408 m49409 m49411 m49412 |
+| 9 Systems of Equations and Inequalities | m49418 m49420 m49419 m49431 m49432 m49433 m49434 m49435 m49436 |
+| 10 Analytic Geometry | m49437 m49438 m49439 m49440 m49441 m49442 |
+| 11 Sequences, Probability and Counting Theory | m49443 m49444 m49445 m49446 m49447 m49448 m49449 m49450 |
+| 12 Introduction to Calculus | m49451 m49452 m49453 m49454 m49455 |
+
+Note NC-SA license, unlike plain College Algebra 2e's CC BY — see the license note below.
+
+### Module IDs — Algebra and Trigonometry 2e (roadmap, not started)
+
+Same repo again (`collections/algebra-and-trigonometry-2e.collection.xml`). Shares a lot
+of module IDs directly with College Algebra 2e (its Chapter 1 Prerequisites, for
+instance, is byte-for-byte the same module list) — when this book gets picked up, check
+`errata-reports/` for shared-content errata already surfaced against the other book first.
+
+| Chapter | Modules (in section order) |
+|---|---|
+| 1 Prerequisites | m51240 m51239 m51241 m51242 m51246 m51247 m51248 |
+| 2 Equations and Inequalities | m51251 m51252 m51253 m51254 m51255 m51256 m51258 m51259 |
+| 3 Functions | m51260 (intro) m51261 m51262 m51263 m51265 m51266 m51267 m51268 |
+| 4 Linear Functions | m51269 m51270 m51271 m51272 |
+| 5 Polynomial and Rational Functions | m51273 m51274 m51275 m51276 m51277 m51278 m51279 m51280 m51281 |
+| 6 Exponential and Logarithmic Functions | m49356 m49361 m49362 m49363 m49364 m49365 m49366 m49367 m49368 |
+| 7 The Unit Circle: Sine and Cosine Functions | m51282 m51283 m51284 m51285 m51286 |
+| 8 Periodic Functions | m49386 m49387 m49389 m49390 |
+| 9 Trigonometric Identities and Equations | m51287 m51288 m51289 m51290 m51291 m51292 |
+| 10 Further Applications of Trigonometry | m49402 m49404 m49405 m49406 m49407 m49408 m49409 m49411 m49412 |
+| 11 Systems of Equations and Inequalities | m49418 m49420 m49419 m49431 m49432 m49433 m49434 m49435 m49436 |
+| 12 Analytic Geometry | m49437 m49438 m49439 m49440 m49441 m49442 |
+| 13 Sequences, Probability, and Counting Theory | m49443 m49444 m49445 m49446 m49447 m49448 m49449 m49450 |
 
 ### Module IDs — Intermediate Algebra 2e
 
@@ -120,20 +185,19 @@ chapter). Prefaces: m60027 (V1), m60028 (V2), m60029 (V3). Appendices: m54049 m5
 | 6 Vector Calculus | m54017 m53989 m54012 m53987 m53982 m53986 m54004 m54009 m54001 |
 | 7 Second-Order Differential Equations | m54039 m54040 m54047 m54044 m54046 |
 
-**License note for expansion:** the Calculus and Intermediate Algebra collection files
-declare CC BY-NC-SA 4.0 (vs. CC BY 4.0 for College Algebra 2e). Before publishing pages
-from a new book, confirm the license on that book's openstax.org page and match the
-attribution footer to it. NC-SA is fine for a free school site but requires the footer
-to name the correct license.
-
-**Build-script note:** `tools/build-section.mjs` currently fetches only from
-osbooks-college-algebra-bundle. Pulling from these repos requires adding a repo
-parameter (and per-repo media path) — see CLAUDE.md roadmap.
+**License note:** College Algebra 2e is CC BY 4.0; every other book on this site
+(Precalculus 2e, Algebra and Trigonometry 2e, Intermediate Algebra 2e, and all three
+Calculus volumes) declares CC BY-NC-SA 4.0 in its own collection file, even where it
+shares a GitHub repo with College Algebra 2e — license is per-collection, not per-repo.
+`build-section.mjs`'s `BOOK_DEFAULTS` already has the right license/attribution baked in
+per book; if you add a new book, confirm its license on openstax.org first and add a
+matching entry there rather than assuming CC BY.
 
 ## License / attribution
 
-Textbook content © OpenStax (Jay Abramson, *College Algebra 2e*), licensed
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This site is an
-independent presentation and is not affiliated with or endorsed by OpenStax.
-Keep the attribution footer on every page. The original, always-current text is
-free at https://openstax.org/details/books/college-algebra-2e.
+Each page's own footer names its actual source book, author, and license — CC BY 4.0 for
+College Algebra 2e, CC BY-NC-SA 4.0 for everything else (see the license note above).
+This site is an independent presentation and is not affiliated with or endorsed by
+OpenStax. Keep the attribution footer on every page — required by both licenses. The
+original, always-current OpenStax text for any book here is free at
+https://openstax.org/subjects/math.

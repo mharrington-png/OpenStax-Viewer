@@ -5,11 +5,31 @@ Instructions for any Claude session working in this folder. Read this before cha
 ## What this project is
 
 A static website re-presenting OpenStax textbook content (CC BY 4.0) with a cleaner,
-more interactive reading experience for Middlesex School students. Currently College
-Algebra 2e, Sections 6.1–6.2 are complete; the long-term goal is a comprehensive
+more interactive reading experience for Middlesex School students. Four books are built
+out as far as Middlesex's own courses need them — **College Algebra 2e, Precalculus 2e,
+Intermediate Algebra 2e, and Calculus Volume 3** (see "Current build state" below for
+exact chapter coverage; a few chapters in College Algebra 2e and Precalculus 2e are
+intentionally out of scope, not gaps waiting to be filled). **Calculus Volume 1** is the
+one book still actively being built out. The long-term goal is a comprehensive
 "Middlesex Math" book assembled from OpenStax modules across repositories.
 
 Owner: Mike Harrington (mharrington@mxschool.edu), Math Department.
+
+## Current build state
+
+Read `assets/app.js`'s `BOOKS` manifest for the authoritative, always-current list —
+this section is a snapshot (last checked 2026-08-01) and will drift as sections get
+added; don't trust it blindly, re-derive from the manifest if it matters.
+
+| Book | Status | Coverage |
+|---|---|---|
+| College Algebra 2e | **Complete, as needed** | Chapters 2–6, all sections. Chapter 1 (Prerequisites) intentionally not built. |
+| Precalculus 2e | **Complete, as needed** | Chapters 1, 3–8, 10–12, all sections. Chapters 2 (Linear and Quadratic Functions) and 9 (Systems of Equations and Inequalities) intentionally not built. |
+| Intermediate Algebra 2e | **Complete** | Chapters 1–9, all sections. |
+| Calculus Volume 3 | **Complete** | Chapters 1–7, all sections. |
+| Calculus Volume 1 | **In progress** — the only book still being actively built out | Chapter 2 complete. Chapter 3 only §§3.1–3.4 built so far (§§3.5–3.9 remain). Chapter 1 and Chapters 4–6 not yet built. |
+| Algebra and Trigonometry 2e | Not started | Pure roadmap — zero sections, not yet in the BOOK manifest. |
+| Calculus Volume 2 | Not started | Pure roadmap — zero sections, not yet in the BOOK manifest. |
 
 ## Non-negotiable conventions
 
@@ -70,9 +90,17 @@ index.html                        book home; chapter list is hand-maintained her
 sections/<book-id>/<slug>.html    one page per section (e.g. sections/college-algebra-2e/6-1.html)
 assets/style.css                  all styling, light + dark themes
 assets/app.js             BOOK manifest + all behavior (see below)
+assets/search-index.json  generated site-wide search index (see build-search-index.mjs)
 tools/build-section.mjs   Node 18+ script: CNXML → section page (no AI needed)
+tools/build-search-index.mjs  scans every ready section across every book, emits assets/search-index.json
+tools/resolve-crossrefs.mjs   patches cross-module <link> placeholders build-section.mjs can't resolve on its own
+tools/verify-section.mjs  hard-fails a build if sol-hints/Key-Concepts-links/etc. are missing (see Workflows)
 README.md                 hosting guide + module ID tables
 ```
+
+Run `node tools/build-search-index.mjs` after any hand-pass edit that changes headings,
+Key Concepts, or glossary content, and before shipping — it's what powers the site-wide
+search box (`initSearch()` in `assets/app.js`).
 
 `assets/app.js` owns, generically (works on any conforming section page):
 - BOOK manifest → sidebar "Book contents" fold. New section = add entry, set `ready: true`.
@@ -113,9 +141,10 @@ Once the hand-pass is done and verify passes, set `ready: true` in the BOOK mani
 add the link in index.html.
 
 **Chapter-end sections get two extra sidebar rows (standard, not optional).** OpenStax
-bundles "Chapter Review Exercises" and (College Algebra/Precalc only — Calculus doesn't
-have this) "Practice Test" into the *last* section's own page rather than giving them their
-own module/file (see the `reviewExN`/`practiceExN` note above). Left as pure in-page content,
+bundles "Chapter Review Exercises" and (College Algebra 2e, Precalculus 2e, and
+Intermediate Algebra 2e only — the Calculus volumes don't have this) "Practice Test" into
+the *last* section's own page rather than giving them their own module/file (see the
+`reviewExN`/`practiceExN` note above). Left as pure in-page content,
 they're only reachable via that page's own outline — not visible anywhere in the "Book
 contents" sidebar fold that lists the rest of the book. Whenever the section you just built
 is the last one in its chapter and its page has `id="chapter-review-exercises"` and/or
@@ -188,12 +217,19 @@ automates all of this except the CNXML count cross-check):**
 
 ## Roadmap
 
-1. Sections 6.2–6.8 (module IDs in README), auto-build then polish.
-2. "Middlesex Math" combined book: pick modules across OpenStax repos
-   (osbooks-college-algebra-bundle covers College Algebra/Precalc/Trig variants;
-   Intermediate Algebra 2e lives in osbooks-prealgebra-bundle; Calculus 1–3 in
-   osbooks-calculus-bundle — full module maps in README). Requires:
-   repo parameter + per-repo media base in build-section.mjs, custom chapter/section
-   numbering in the BOOK manifest (decouple display number from source module),
-   per-book attribution lines in footers, and a fidelity pass on cross-module links.
-3. Possible: per-student progress export, teacher dashboard.
+1. **Finish Calculus Volume 1** — the only book still being actively built out. Chapter 1,
+   the remainder of Chapter 3 (§§3.5–3.9), and Chapters 4–6 (module IDs in README),
+   auto-build then hand-pass per the Workflows section above.
+2. **Algebra and Trigonometry 2e and Calculus Volume 2** — not started. Whenever picked up,
+   check their errata against the shared-content books first (Algebra and Trigonometry 2e
+   overlaps heavily with College Algebra 2e; Calculus Volume 2's Ch.7 is identical to
+   Calculus Volume 3's Ch.1) — see `errata-reports/` for what's already been surfaced.
+3. **"Middlesex Math" combined book.** Multi-repo build tooling already exists —
+   `build-section.mjs` takes a `--book` flag with per-book repo/sectionsDir/brand/
+   license/attribution defaults (see `BOOK_DEFAULTS` in that file), and every book already
+   lives isolated under its own `sections/<book-id>/` with its own native chapter/section
+   numbers. What's still missing for an actual *combined* book: a unified cross-book
+   chapter/section numbering scheme (today each book keeps its own numbering as a separate
+   entry in the sidebar, not merged into one continuous book), and a fidelity pass on
+   cross-module links between books.
+4. Possible: per-student progress export, teacher dashboard.
