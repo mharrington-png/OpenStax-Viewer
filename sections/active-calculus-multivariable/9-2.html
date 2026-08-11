@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vectors · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Vectors</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 9.2</span>Vectors</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What is a vector?
+            </p></li><li><p>
+              What does it mean for two vectors to be equal?
+            </p></li><li><p>
+              How do we add two vectors together and multiply a vector by a scalar?
+            </p></li><li><p>
+              How do we determine the magnitude of a vector?  What is a unit vector, and how do we find a unit vector in the direction of a given vector?
+            </p></li></ul></div>
+<p>
+      Quantities like length, speed, area, and mass are all measured by numbers (called <em>scalars</em>). Other quantities, like velocity, force, and displacement, have two attributes: magnitude and direction. These quantities are represented by <em>vectors</em> and are the study of this section. For example, we will use vectors to calculate work done by a constant force, calculate torque, determine direction vectors for lines and normal vectors for planes, define curvature, and determine the direction of greatest increase on a surface. For most of these applications, we will be interested in using vectors to measure direction and/or speed.  Vectors will be a major tool for us in determining the behavior of functions of several variables. 
+    </p><p>
+      If we are at a point \(x\) in the domain of a function of one variable,
+      there are only two directions in which we can move: in the positive or
+      negative \(x\)-direction. If, however, we are at a point \((x,y)\) in the domain of a function of two variables, there are many directions in which we can move. Thus, it is important for us to have a means to indicate direction, and we will do so using vectors. This notion of direction in space will be critical for us to find direction vectors for lines, tangent lines to curves, normal vectors to planes, and to determine direction of motion. 
+    </p><div class="card activity preview" id="PA-9-2"><div class="ex-head"><span class="num">Preview Activity 9.2.1</span></div><div class="ex-body"><p>
+        Postscript is a programming language whose primary purpose is to describe the appearance of text or graphics. A simple set of Postscript commands that produces the triangle in the plane with vertices \((0,0)\), \((1,1)\), and \((1,-1)\) is the following:
+
+          <pre class="code">
+(0,0) moveto 
+(1,1) lineto stroke
+(1,-1) lineto stroke
+(0,0) lineto stroke</pre>
+
+        The key idea in these commands is that we start at the origin, then tell Postscript that we want to start at the point \((0,0)\), draw a line from the point \((0,0)\) to the point \((1,1)\) (this is what the lineto and stroke commands do), then draw lines from \((1,1)\) to \((1,-1)\) and \((1,-1)\) back to the origin. Each of these commands encodes two important pieces of information: a direction in which to move and a distance to move. Mathematically, we can capture this information succinctly in a vector. To do so, we record the movement on the map in a pair \(\langle x, y \rangle\) (this pair \(\langle x, y \rangle\) is a <em>vector</em>), where \(x\) is the horizontal displacement and \(y\) the vertical displacement from one point to another. So, for example, the vector from the origin to the point \((1,1)\) is represented by the vector \(\langle 1,1 \rangle\). 
+        <ol type="a"><li><p>
+              What is the vector \(\vv_1 = \langle x , y \rangle\) that describes the displacement from the point \((1,1)\) to the point \((1,-1)\)? How can we use this vector to determine the distance from the point \((1,1)\) to the point \((1,-1)\)? 
+            </p></li><li><p>
+              Suppose we want to draw the triangle with vertices \(A=(2,3)\), \(B=(-3,1)\), and \(C=(4,-2)\). As a shorthand notation, we will denote the vector from the point \(A\) to the point \(B\) as \(\overrightarrow{AB}\)
+              <ol type="a"><li><p> 
+                  Determine the vectors \(\overrightarrow{AB}\), \(\overrightarrow{BC}\), and \(\overrightarrow{AC}\).
+                  </p></li><li><p>
+                  What relationship do you see among the vectors \(\overrightarrow{AB}\), \(\overrightarrow{BC}\), and \(\overrightarrow{AC}\)? Explain why this relationship should hold.
+                  </p></li></ol>
+            </p></li></ol>
+
+          
+      </p></div></div>
+<h2 id="representations-of-vectors">Representations of Vectors</h2>
+<p>
+      <a href="#PA-9-2">Preview Activity 9.2.1</a> shows how we can record the magnitude
+      and direction of a change in position using an ordered pair of numbers
+      \(\langle x,y\rangle\). There are many other quantities, such as force
+      and velocity, that possess the attributes of magnitude and direction,
+      and we will call each such quantity a <em>vector</em>.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          A
+          <em>vector</em> is a quantity that possesses the attributes of magnitude and
+          direction.
+        </p></div><p>
+      We can represent a vector geometrically as a directed line segment,
+      with the magnitude as the length of the segment and an arrowhead
+      indicating direction, as shown at left in <a href="#F-9-2-vectors-single">Figure 9.2.1</a>.
+    </p><figure class="plot" id="F-9-2-vectors-single"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_single.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_multiple.svg" alt=""></div></div><figcaption>Figure 9.2.1 — Left: A vector. Right: Representations of the same vector.</figcaption></figure><p>
+      According to the definition, a vector possesses the attributes of length (magnitude) and direction; the vector's position, however, is not mentioned. Consequently, we regard as equal any two vectors having the same magnitude and direction, as shown at right in <a href="#F-9-2-vectors-single">Figure 9.2.1</a>. In other words, two vectors are <em>equal</em> provided they have the same magnitude and direction.
+    </p><p>
+      This means that the same vector may be drawn in the plane in many different ways. For instance, suppose that we would like to draw the vector \(\langle 3, 4\rangle\), which
+      represents a horizontal change of three units and a vertical change of four units. We may place the <em>tail</em> of the vector (the point from which the vector originates) at the origin and the <em>tip</em> (the terminal point of the vector) at \((3,4)\), as illustrated at left in <a href="#F-9-2-vectors-standard">Figure 9.2.2</a>. A vector with its tail at the origin is said to be in <em>standard position</em>.
+    </p><figure class="plot" id="F-9-2-vectors-standard"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_std_pos.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_btw_pts.svg" alt=""></div></div><figcaption>Figure 9.2.2 — Left: Standard position. Right: A vector between two points.</figcaption></figure><p>
+      Alternatively, we may place the tail of the vector \(\langle 3,4\rangle\) at another point, such as \(Q(1,1)\). After a displacement of three units to the right and four units up, the tip of the vector is at the point \(R(4,5)\) (see the vector at right in 
+      <a href="#F-9-2-vectors-standard">Figure 9.2.2</a>).
+    </p><p>
+      In this example, the vector led to the directed line segment from \(Q\)
+      to \(R\), which we denote as \(\overrightarrow{QR}\). We may also
+      turn the situation around: given the two points \(Q\) and \(R\), we obtain
+      the vector \(\langle 3,4\rangle\) because we move horizontally three
+      units and vertically four units to get from \(Q\) to \(R\). In other
+      words, \(\overrightarrow{QR} = \langle 3,4\rangle\). In general, the
+      vector \(\overrightarrow{QR}\) from the point \(Q = (q_1, q_2)\) to \(R = (r_1,
+      r_2)\) is found by taking the difference of coordinates, so that
+      \[
+        \overrightarrow{QR} = \langle r_1-q_1, r_2-q_2 \rangle.
+      \]
+    </p><p>
+      We will use boldface letters to represent vectors, such
+      as \(\vv = \langle 3, 4 \rangle\), to distinguish them from scalars. The
+      entries of a vector are called its <em>components</em>; in the vector
+      \(\langle 3, 4 \rangle\), the \(x\) component is 3 and the \(y\)
+      component is 4. We use pointed brackets \(\langle \ , \rangle\) and the term
+      <em>components</em> to distinguish a vector from a point \(( \ , )\) and
+      its <em>coordinates</em>. There is, however, a close connection between vectors
+      and points. Given a point \(P\), we will frequently consider the vector
+      \(\overrightarrow{OP}\) from the origin \(O\) to \(P\). For instance, if
+      \(P=(3,4)\), then \(\overrightarrow{OP}=\langle 3,4\rangle\) as in <a href="#F-9-2-vectors4">Figure 9.2.3</a>.
+      In this way, we think of a point \(P\) as defining a vector
+      \(\overrightarrow{OP}\) whose components agree with the coordinates of
+      \(P\). The vector \(\overrightarrow{OP}\) is called the <em>position vector</em> of \(P\). 
+    </p><figure class="plot" id="F-9-2-vectors4"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_pt_def.svg" alt=""><figcaption>Figure 9.2.3 — A point defines a vector</figcaption></figure><p>
+      While we often illustrate vectors in the plane since it is easier
+      to draw pictures, different situations call for the use of vectors
+      in three or more dimensions. For instance, a
+      vector \(\vv\) in \(n\)-dimensional space, \(\R^n\), has \(n\)
+      components and may be represented as
+      \[
+        \vv = \langle v_1, v_2, v_3,  \ldots, v_n \rangle.
+      \]
+    </p><p>
+      The next activity will help us to become accustomed to vectors and
+      operations on vectors in three dimensions.
+    </p><div class="card activity" id="A-9-2-1"><div class="ex-head"><span class="num">Activity 9.2.2</span></div><div class="ex-body"><p>
+        An article by C.Kenneth Tanner of the University of Georgia argues that, due to the concept of social distance, a secondary school classroom for 20 students should have 1344 square feet of floor space. Suppose a classroom is 32 feet by 42 feet by 8 feet. Set the origin \(O\) of the classroom to be its center. In this classroom, a student is sitting on a chair whose seat is at location \(A = (9, -6, -1.5)\), an overhead projector is located at position \(B = (0,1,3)\), and the teacher is standing at point \(C = (-2, 20, -4)\), all distances measured in feet. Determine the components of the indicated vectors and explain in context what each represents. 
+      </p><p>
+        <div class="tablewrap"><table class="data gridlines"><tr><td><p>a. \(\overrightarrow{OA}\)</p></td><td><p>b. \(\overrightarrow{OB}\)</p></td><td><p>c. \(\overrightarrow{OC}\)</p></td><td><p>d. \(\overrightarrow{AB}\)</p></td><td><p>e. \(\overrightarrow{AC}\)</p></td><td><p>f. \(\overrightarrow{BC}\)</p></td></tr></table></div>
+      </p></div></div>
+<h2 id="equality-of-vectors">Equality of Vectors</h2>
+<p>
+      Because location is not mentioned in the
+      definition of a vector, any two vectors that have the same
+      magnitude and direction are equal. It is helpful to have an
+      algebraic way to determine when this occurs. That is, if we know the
+      components of two vectors \(\vu\) and \(\vv\), we will want to be able to determine algebraically when \(\vu\) and \(\vv\) are equal. There is an obvious set of conditions that we use.
+    </p><div class="card callout" id="Vectors-equal"><span class="chip">Equality of Vectors</span><p>
+        Two vectors \(\vu = \langle u_1, u_2 \rangle\) and \(\vv = \langle v_1, v_2 \rangle\) in \(\R^2\) are equal if and only if their corresponding components are equal: \(u_1 = v_1\) and \(u_2 = v_2\). More generally, two vectors \(\vu = \langle u_1, u_2, \ldots, u_n\rangle\) and \(\vv = \langle v_1, v_2, \ldots, v_n \rangle\) in \(\R^n\) are equal if and only if \(u_i = v_i\) for each possible value of \(i\).
+      </p></div>
+<h2 id="operations-on-vectors">Operations on Vectors</h2>
+<p>
+      Vectors are not numbers, but we can now represent them with components
+      that are real numbers. As such, we naturally wonder if it is possible
+      to add two vectors together, multiply two vectors, or combine vectors
+      in any other ways. In this section, we will study two
+      operations on vectors: vector addition and scalar multiplication. To
+      begin, we investigate a natural way to add two vectors together, as
+      well as to multiply a vector by a scalar.
+    </p><div class="card activity" id="A-9-2-3"><div class="ex-head"><span class="num">Activity 9.2.3</span></div><div class="ex-body"><p>
+        Let \(\vu = \langle 2, 3 \rangle\), \(\vv = \langle -1, 4 \rangle\).
+        <ol type="a"><li><p>
+              Using the two specific vectors above, what is the natural way to define the vector sum \(\vu + \vv\)?
+            </p></li><li><p>
+              In general, how do you think the vector sum \(\va + \vb\) of vectors \(\va = \langle a_1, a_2 \rangle\) and \(\vb = \langle b_1, b_2 \rangle\) in \(\R^2\) should be defined? Write a formal definition of a vector sum based on your intuition.
+            </p></li><li><p>
+              In general, how do you think the vector sum \(\va + \vb\) of vectors \(\va = \langle a_1, a_2, a_3 \rangle\) and \(\vb = \langle b_1, b_2, b_3 \rangle\) in \(\R^3\) should be defined? Write a formal definition of a vector sum based on your intuition.
+            </p></li><li><p>
+              Returning to the specific vector \(\vv = \langle -1, 4 \rangle\) given above, what is the natural way to define the scalar multiple \(\frac{1}{2}\vv\)?
+            </p></li><li><p>
+              In general, how do you think a scalar multiple of a vector \(\va = \langle a_1, a_2 \rangle\) in \(\R^2\) by a scalar \(c\) should be defined? how about for a scalar multiple of a vector \(\va = \langle a_1, a_2, a_3 \rangle\) in \(\R^3\) by a scalar \(c\)? Write a formal definition of a scalar multiple of a vector based on your intuition.
+            </p></li></ol>
+      </p></div></div><p>
+      We can now add vectors and multiply vectors by scalars, and thus we
+      can add together scalar multiples of vectors. This allows us to define
+      <em>vector subtraction</em>, \(\vv - \vu\), as
+      the sum of \(\vv\) and \(-1\) times \(\vu\), so that
+      \[
+        \vv - \vu = \vv + (-1)\vu.
+      \]
+    </p><p>
+      Using vector addition and scalar multiplication, we will often
+      represent vectors in terms of the special vectors \(\vi =
+      \langle 1, 0 \rangle\) and \(\vj = \langle 0,1 \rangle\). For instance,
+      we can write
+      the vector \(\langle a, b \rangle\) in \(\R^2\) as
+      \[
+        \langle a, b \rangle = a\langle 1, 0 \rangle + b\langle 0, 1 \rangle = a\vi + b \vj,
+      \]
+      which means that
+      \[
+        \langle 2, -3 \rangle = 2\vi - 3\vj.
+      \]
+    </p><p>
+      In the context of \(\R^3\), we let \(\vi = \langle 1, 0, 0 \rangle\), \(\vj = \langle 0,1,0 \rangle\), and \(\vk = \langle 0,0,1 \rangle\), and we can write the vector \(\langle a, b, c \rangle\) in \(\R^3\) as
+      \[
+        \langle a, b,c \rangle = a\langle 1, 0,0 \rangle + b\langle 0, 1,0 \rangle + c\langle 0,0,1 \rangle = a\vi + b \vj + c\vk.
+      \]
+    </p><p>
+      The vectors \(\vi\), \(\vj\), and \(\vk\) are called the <em>standard unit vectors</em> (as we will learn momentarily, unit vectors have length 1), and are important in the physical sciences.
+    </p>
+<h2 id="properties-of-vector-operations">Properties of Vector Operations</h2>
+<p>
+      We know that the scalar sum \(1+2\) is equal to the scalar sum
+      \(2+1\). This is called the <em>commutative</em> property of scalar
+      addition. Any time we define operations on objects (like addition of
+      vectors) we usually want to know what kinds of properties the
+      operations have. For example, is addition of vectors a commutative
+      operation? To answer this question we take two <em>arbitrary</em>
+      vectors \(\vv\) and \(\vu\) and add them together and see what
+      happens. Let \(\vv = \langle v_1, v_2 \rangle\) and \(\vu = \langle u_1,
+      u_2 \rangle\). Now we use the fact that \(v_1\), \(v_2\), \(u_1\), and \(u_2\)
+      are scalars, and that the addition of scalars is commutative to see
+      that
+      \[\begin{aligned}\vv + \vu  =\mathstrut &amp;  \langle v_1, v_2 \rangle + \langle u_1, u_2 \rangle \\
+ =\mathstrut &amp;  \langle v_1+u_1, v_2 + u_2 \rangle  \\
+ =\mathstrut &amp;  \langle u_1+v_1, u_2+v_2 \rangle  \\
+ =\mathstrut &amp;  \langle u_1, u_2 \rangle + \langle v_1, v_2 \rangle  \\
+=\mathstrut &amp;  \vu + \vv.\end{aligned}\]
+    </p><p>
+      So the vector sum is a commutative operation. Similar arguments can be
+      used to show the following properties of vector addition and scalar
+      multiplication.
+    </p><div class="card callout" id="Vectors-operations"><span class="chip">Properties of vector operations</span><p>
+        Let \(\vv\), \(\vu\), and \(\vw\) be vectors in \(\R^n\) and let \(a\) and \(b\) be scalars. Then
+      <ol><li><p>
+            \(\vv + \vu = \vu + \vv\)
+          </p></li><li><p>
+            \((\vv + \vu) + \vw = \vv + (\vu + \vw)\)
+          </p></li><li><p>
+            The vector \(\vzero = \langle 0, 0, \ldots, 0 \rangle\) has the
+              property that \(\vv + \vzero = \vv\). The vector \(\vzero\) is called
+              the <em>zero vector</em>.
+          </p></li><li><p>
+            \((-1)\vv + \vv = \vzero\). The vector \((-1)\vv = -\vv\) is called
+              the <em>additive inverse</em> of the vector \(\vv\).
+          </p></li><li><p>
+            \((a+b) \vv = a\vv + b\vv\)
+          </p></li><li><p>
+            \(a(\vv + \vu) = a\vv + a\vu\)
+          </p></li><li><p>
+            \((ab) \vv = a(b\vv)\)
+          </p></li><li><p>
+            \(1 \vv = \vv\).
+          </p></li></ol>
+      </p></div><p>
+      We verified the first property for vectors in \(\R^2\); it is
+      straightforward to verify that the rest of the eight properties just
+      noted hold for all
+      vectors in \(\R^n\).
+    </p>
+<h2 id="geometric-interpretation-of-vector-operations">Geometric Interpretation of Vector Operations</h2>
+<p>
+      Next, we explore a geometric interpretation of vector addition and
+      scalar multiplication that allows us to visualize these operations.
+      Let \(\vu = \langle 4, 6 \rangle\) and \(\vv = \langle 3, -2
+      \rangle\). Then \(\vw = \vu + \vv = \langle 7, 4 \rangle\), as shown on the left in
+      <a href="#F-9-2-vector-sum">Figure 9.2.4</a>.
+    </p><figure class="plot" id="F-9-2-vector-sum"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_operations.svg" alt=""><figcaption>Figure 9.2.4 — A vector sum (left), summing displacements (center), the parallelogram law (right).</figcaption></figure><p>
+      If we think of these vectors as displacements in the plane, we
+      find a geometric way to envision vector addition. For instance, the
+      vector \(\vu + \vv\) will represent the displacement obtained by
+      following the displacement \(\vu\) with the displacement \(\vv\). We may
+      picture this by placing the tail of \(\vv\) at the tip of \(\vu\), as seen
+      in the center of <a href="#F-9-2-vector-sum">Figure 9.2.4</a>.
+    </p><p>
+      Of course, vector addition is commutative so we obtain the same sum if we place the tail of \(\vu\) at the tip of \(\vv\). We therefore see that \(\vu+\vv\) appears as the diagonal of the parallelogram determined by \(\vu\) and \(\vv\), as shown at right in <a href="#F-9-2-vector-sum">Figure 9.2.4</a>.
+    </p><p>
+      Vector subtraction has a similar interpretation. At left in <a href="#F-9-2-vector-addition">Figure 9.2.5</a> we see vectors \(\vu\), \(\vv\), and \(\vw =\vu + \vv\). If we rewrite \(\vv = \vw - \vu\), we have the arrangement shown at right in <a href="#F-9-2-vector-addition">Figure 9.2.5</a>. In other words, to form the difference \(\vw-\vu\), we draw a vector from the tip of \(\vu\) to the tip of \(\vw\).
+    </p><figure class="plot" id="F-9-2-vector-addition"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_addition.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_subtraction.svg" alt=""></div></div><figcaption>Figure 9.2.5 — Left: Vector addition. Right: Vector subtraction.</figcaption></figure><p>
+      In a similar way, we may geometrically represent a scalar multiple of a
+      vector. For instance, if \(\vv=\langle 2,3\rangle\), then
+      \(2\vv = \langle 4,6\rangle\). As shown in <a href="#F-9-2-vector-sum7">Figure 9.2.6</a>, multiplying \(\vv\) by 2 leaves the direction
+      unchanged, but stretches \(\vv\) by 2. Also, \(-2\vv = \langle -4,
+      -6\rangle\), which shows that multiplying by a negative scalar gives a
+      vector pointing in the opposite direction of \(\vv\).
+    </p><figure class="plot" id="F-9-2-vector-sum7"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_scalar.svg" alt=""><figcaption>Figure 9.2.6 — Scalar multiplication</figcaption></figure><div class="card activity" id="A-9-2-5"><div class="ex-head"><span class="num">Activity 9.2.4</span></div><div class="ex-body"><figure class="plot" id="F-9-2-vector-activity1a"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig-9-19-activity.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig-9-19-activity.svg" alt=""></div></div><figcaption>Figure 9.2.7 — Left: Sketch sums. Right: Sketch multiples.</figcaption></figure><p>
+        Suppose that \(\vu\) and \(\vv\) are the vectors shown in <a href="#F-9-2-vector-activity1a">Figure 9.2.7</a>.
+        <ol type="a"><li><p>
+              On the axes at left in <a href="#F-9-2-vector-activity1a">Figure 9.2.7</a>, sketch the vectors \(\vu + \vv\), \(\vv - \vu\), \(2\vu\), \(-2\vu\), and \(-3\vv\).
+            </p></li><li><p>
+              What is \(0\vv\)?
+            </p></li><li><p>
+              On the axes at right in <a href="#F-9-2-vector-activity1a">Figure 9.2.7</a>, sketch the vectors \(-3\vv\), \(-2\vv\), \(-1\vv\), \(2\vv\), and \(3\vv\).
+            </p></li><li><p>
+              Give a geometric description of the set of terminal points of the vectors
+                        \(t\vv\) where \(t\) is any scalar.
+            </p></li><li><p>
+              On the set of axes at right in <a href="#F-9-2-vector-activity1a">Figure 9.2.7</a>, sketch the vectors \(\vu-3\vv\), \(\vu-2\vv\), \(\vu-\vv\), \(\vu + \vv\), and \(\vu + 2\vv\).
+            </p></li><li><p>
+              Give a geometric description of the set of terminal points of the vectors
+                        \(\vu + t\vv\) where \(t\) is any scalar.
+            </p></li></ol>
+      </p></div></div>
+<h2 id="the-magnitude-of-a-vector">The Magnitude of a Vector</h2>
+<p>
+      By definition, vectors have both direction and magnitude (or length). We now investigate how to calculate the magnitude of a vector. Since a vector \(\vv\) can be represented
+      by a directed line segment, we can use the distance formula to calculate the length of the segment. This length is the <em>magnitude</em> of the vector \(\vv\) and is denoted \(|\vv|\).
+    </p><div class="card activity" id="A-9-2-7"><div class="ex-head"><span class="num">Activity 9.2.5</span></div><div class="ex-body"><figure class="plot" id="F-9-2-vector-magnitude-a"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig-9-20.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig-9-21.svg" alt=""></div></div><figcaption>Figure 9.2.8 — Left: \(\overrightarrow{AB}\). Right: An arbitrary vector, \(\vv\).</figcaption></figure><ol type="a"><li><p>
+            Let \(A = (2,3)\) and \(B = (4,7)\), as shown at left in <a href="#F-9-2-vector-magnitude-a">Figure 9.2.8</a>. Compute \(|\overrightarrow{AB}|\).
+          </p></li><li><p>
+            Let \(\vv = \langle v_1, v_2 \rangle\) be the vector in \(\R^2\) with components \(v_1\) and \(v_2\) as shown at right in <a href="#F-9-2-vector-magnitude-a">Figure 9.2.8</a>. Use the distance formula to find a general formula for \(|\vv|\).
+          </p></li><li><p>
+            Let \(\vv = \langle v_1, v_2, v_3 \rangle\) be a vector in \(\R^3\). Use the distance formula to find a general formula for \(|\vv|\).
+          </p></li><li><p>
+            Suppose that \(\vu = \langle 2,3\rangle\) and \(\vv =
+                      \langle -1,2\rangle\).  Find \(|\vu|\), \(|\vv|\), and
+                      \(|\vu+\vv|\).  Is it true that \(|\vu + \vv| = |\vu|+|\vv|\)?
+          </p></li><li><p>
+            Under what conditions will \(|\vu+\vv| = |\vu|+|\vv|\)? (Hint: Think about how \(\vu\), \(\vv\), and \(\vu+\vv\) form the sides of a triangle.)
+          </p></li><li><p>
+            With the vector \(\vu = \langle 2,3\rangle\), find the
+                      lengths of \(2\vu\), \(3\vu\), and \(-2\vu\), respectively, and use proper notation to label your results.
+          </p></li><li><p>
+            If \(t\) is any scalar, how is \(|t\vu|\)
+                      related to \(|\vu|\)?
+          </p></li><li><p>
+            A <em>unit vector</em> is a vector whose magnitude is 1. Of the vectors \(\textbf{i}\), \(\textbf{j}\), and \(\textbf{i} + \textbf{            j}\), which are unit vectors?
+          </p></li><li><p>
+            Find a unit vector \(\vv\) whose direction is the same as
+                      \(\vu = \langle 2, 3\rangle\). (Hint: Consider the result of part (g).)
+          </p></li></ol></div></div>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          A vector is an object that possesses the attributes of
+            magnitude and direction. Examples of vector quantities are position,
+            velocity, acceleration, and force.
+        </p></li><li><p>
+          Two vectors are equal if they have the
+            same direction and magnitude. Notice that position is not considered, so a vector is independent of its location.
+        </p></li><li><p>
+          If \(\vu = \langle u_1, u_2, \ldots, u_n \rangle\) and \(\vv =
+            \langle v_1, v_2, \ldots, v_n \rangle\) are two vectors in \(\R^n\),
+            then their vector sum is the vector
+          \[
+            \vu + \vv = \langle u_1+v_1, u_2+v_2, \ldots, u_n+v_n \rangle.
+          \]
+          If \(\vu = \langle u_1, u_2, \ldots, u_n \rangle\) is a vector in \(\R^n\)
+          and \(c\) is a scalar, then the scalar multiple \(c\vu\) is the vector
+          \[
+            c\vu = \langle cu_1, cu_2, \ldots, cu_n \rangle.
+          \]
+        </p></li><li><p>
+          The magnitude of the vector \(\vv = \langle v_1, v_2, \ldots, v_n
+            \rangle\) in \(\R^n\) is the scalar
+          \[
+            |\vv| = \sqrt{v_1^2+v_2^2+ \cdots + v_n^2}.
+          \]
+          A vector \(\vu\) is a
+            unit vector provided that \(|\vu| = 1\). If \(\vv\) is a nonzero vector,
+            then the vector \(\frac{\vv}{|\vv|}\) is a unit vector with the same
+            direction as \(\vv\).
+        </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-2">Exercises</h2><div class="exercise" id="ex-9-2-WW-vector_linear_combinations"><div class="n">1</div><div class="body"><p>For each of the following, perform the indicated computation.</p><p><em>(a)</em>
+\((-8\,\mathit{\vec i}+6\,\mathit{\vec j}-7\,\mathit{\vec k}) - (8\,\mathit{\vec i}+8\,\mathit{\vec j}-2\,\mathit{\vec k}) =\) <span class="blank">_________________________</span></p><p><em>(b)</em>
+\((-\,\mathit{\vec i}+8\,\mathit{\vec j}-7\,\mathit{\vec k}) - 2(3\,\mathit{\vec i}-5\,\mathit{\vec j}-5\,\mathit{\vec k}) =\) <span class="blank">_________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-16\,\mathit{\vec i}-2\,\mathit{\vec j}-5\,\mathit{\vec k}\), \(-7\,\mathit{\vec i}+18\,\mathit{\vec j}+3\,\mathit{\vec k}\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-vector-direction"><div class="n">2</div><div class="body"><p>Find a vector \(\mathbf{a}\) that has the same direction as \(\langle -6, 9, 6 \rangle\) but has length \(3\).</p><p>Answer: \(\mathbf{a} =\) <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\left\langle-1.45521,2.18282,1.45521\right\rangle\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-vector-equation"><div class="n">3</div><div class="body"><p>Let \(\mathbf a = \langle -4,3,-4 \rangle\) and 
+\(\mathbf b = \langle 4,4,-1 \rangle\).</p><p>Show that there are scalars s and t so that
+\(s \mathbf a + t \mathbf b = \langle 32,11,7 \rangle\).</p><p>You might want to sketch the vectors to get some intuition.</p><p>\(s =\)<span class="blank">____________________</span></p><p>\(t =\) <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-3\), \(5\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-resolve"><div class="n">4</div><div class="body"><p>Resolve the following vectors into components:</p><p><em>(a)</em>
+The vector \(\vec v\) in 2-space of length 3 pointing up at
+an angle of \(\pi/6\) measured from the positive \(x\)-axis.</p><p>\(\vec v =\) <span class="blank">__________</span> \(\vec i\) + <span class="blank">__________</span> \(\vec j\)</p><p><em>(b)</em>
+The vector \(\vec w\) in 3-space of length 1 lying in the
+\(yz\)-plane pointing upward at an angle of \(2\pi/3\)
+measured from the positive \(y\)-axis.</p><p>\(\vec v =\) <span class="blank">__________</span> \(\vec i\) +
+    <span class="blank">__________</span> \(\vec j\) +  <span class="blank">__________</span> \(\vec k\)</p><div class="answer"><button>Show answer</button><div class="a"><p>\(3\cdot 0.866025\), \(3\cdot 0.5\), \(0\), \(1\cdot \left(-0.5\right)\), \(1\cdot 0.866025\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-find"><div class="n">5</div><div class="body"><p>Find all vectors \(\vec v\) in 2 dimensions having
+\(||\vec v|| = 5\) where the
+\(\,\mathit{\vec j}\)-component of \(\vec v\) is \(3 \,\mathit{\vec j}\).</p><p>vectors: <span class="blank">___________________________________</span></p><p><em>(If you find more than one vector, enter them in a
+comma-separated list.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(4\,\mathit{\vec i}+3\,\mathit{\vec j}, -4\,\mathit{\vec i}+3\,\mathit{\vec j}\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-vector-car"><div class="n">6</div><div class="body"><p>Which is traveling faster, a car whose velocity vector is
+\(21\vec i + 26\vec j\), or a car whose velocity vector is
+\(30\vec i\), assuming that the units are the same for
+both directions?</p><p><span class="blank">_______________</span> is the faster car.</p><p>At what speed is the faster car traveling?</p><p>speed = <span class="blank">_________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>the first car, \(33.4215\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-vector-calcuation"><div class="n">7</div><div class="body"><p>Let \(\mathbf a = \langle -4, 3, -4 \rangle\) and 
+\(\mathbf b = \langle 4, 4, -1 \rangle\).</p><p>Compute:</p><p>\(\mathbf a + \mathbf b\) =  (<span class="blank">__________</span>,<span class="blank">__________</span>,<span class="blank">__________</span>)</p><p>\(\mathbf a - \mathbf b\) =  (<span class="blank">__________</span>,<span class="blank">__________</span>,<span class="blank">__________</span>)</p><p>\(2\mathbf a\) =  (<span class="blank">__________</span>,<span class="blank">__________</span>,<span class="blank">__________</span>)</p><p>\(3\mathbf a + 4\mathbf b\) =  (<span class="blank">__________</span>,<span class="blank">__________</span>,<span class="blank">__________</span>)</p><p>\(|\mathbf a|\) =  <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(7\), \(-5\), \(-8\), \(-1\), \(-3\), \(-8\), \(6\), \(-8\), \(4\), \(25\), \(-16\), \(6.40312423743285\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-vector-length"><div class="n">8</div><div class="body"><p>Find the length of the vectors</p><p><em>(a)</em>
+\(-4\,\mathit{\vec i}+3\,\mathit{\vec j}-4\,\mathit{\vec k}\): length = <span class="blank">_________________________</span></p><p><em>(b)</em>
+\(2.4\,\mathit{\vec i}+2.4\,\mathit{\vec j}-0.8\,\mathit{\vec k}\): length = <span class="blank">_________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(6.40312\), \(3.48712\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-vector-operations"><div class="n">9</div><div class="body"><p>For each of the following, perform the
+indicated operations on the vectors</p><p>\(\vec a = \,\mathit{\vec j}+4\,\mathit{\vec k}\), \(\vec b = -4\,\mathit{\vec i}+4\,\mathit{\vec j}+4\,\mathit{\vec k}\), \(\vec z = 5\,\mathit{\vec i}+\,\mathit{\vec j}\).</p><p><em>(a)</em>
+\(3 \vec a + 3 \vec b =\) <span class="blank">___________________________________</span></p><p><em>(b)</em>
+\(2 \vec a + 2 \vec b - 4 \vec z =\) <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-12\,\mathit{\vec i}+15\,\mathit{\vec j}+24\,\mathit{\vec k}\), \(-28\,\mathit{\vec i}+6\,\mathit{\vec j}+16\,\mathit{\vec k}\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-vector-equation-parallel"><div class="n">10</div><div class="body"><p>Find the value(s) of \(a\) making
+\(\vec v = 2 a\,\vec i - 3\, \vec j\) parallel to
+\(\vec w = a^2\,\vec i + 9\, \vec j\).</p><p>\(a =\) <span class="blank">___________________________________</span></p><p><em>(If there is more than one value of a, enter
+the values as a comma-separated list.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0, -6\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-unit-vector"><div class="n">11</div><div class="body"><p><em>(a)</em>
+Find a unit vector from the point \(P=(1,3)\) and
+toward the point \(Q=(5,6)\).</p><p>\(\vec u =\) <span class="blank">___________________________________</span></p><p><em>(b)</em>
+Find a vector of length 15 pointing in the same direction.</p><p>\(\vec v =\) <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.8\,\mathit{\vec i}+0.6\,\mathit{\vec j}\), \(12\,\mathit{\vec i}+9\,\mathit{\vec j}\)</p></div></div></div></div><div class="exercise" id="ex-9-2-WW-car-truck"><div class="n">12</div><div class="body"><p>A truck is traveling due north at \(35\) km/hr
+approaching a crossroad. On a perpendicular road a police car is
+traveling west toward the intersection at \(65\) km/hr.
+Both vehicles will reach the crossroad in exactly one hour.  Find the
+vector currently  representing the displacement of the truck with
+respect to the police car.</p><p>displacement \(\vec d  =\) <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-65\,\mathit{\vec i}-35\,\mathit{\vec j}\)</p></div></div></div></div><div class="exercise" id="Ez-9-2-1"><div class="n">13</div><div class="body"><p>
+            Let \(\vv = \langle 1, -2 \rangle\), \(\vu = \langle 0, 4 \rangle\), and \(\vw = \langle -5, 7 \rangle\).
+            <ol type="a"><li><p>
+                  Determine the components of the vector \(\vu - \vv\).
+                </p></li><li><p>
+                  Determine the components of the vector \(2\vv - 3\vu\).
+                </p></li><li><p>
+                  Determine the components of the vector \(\vv + 2\vu - 7 \vw\).
+                </p></li><li><p>
+                  Determine scalars \(a\) and \(b\) such that \(a \vv + b\vu = \vw\). Show all of your work in finding \(a\) and \(b\). 
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez-9-2-2"><div class="n">14</div><div class="body"><p>
+            Let \(\vu = \langle 2, 1 \rangle\) and \(\vv = \langle 1, 2 \rangle\).
+            <ol type="a"><li><p>
+                  Determine the components and draw geometric representations of the vectors \(2\vu\), \(\frac{1}{2}\vu\), \((-1)\vu\), and \((-3)\vu\) on the same set of axes.
+                </p></li><li><p>
+                  Determine the components and draw geometric representations of the vectors \(\vu + \vv\), \(\vu + 2\vv\), and \(\vu + 3\vv\) on the same set of axes.
+                </p></li><li><p>
+                  Determine the components and draw geometric representations of the vectors \(\vu - \vv\), \(\vu - 2\vv\), and \(\vu - 3\vv\) on the same set of axes.
+                </p></li><li><p>
+                  Recall that \(\vu - \vv = \vu + (-1)\vv\).  Sketch the vectors \(\vu\), \(\vv\), \(\vu+\vv\), and \(\vu-\vv\) on the same set of axes. Use the &ldquo;tip to tail&rdquo; perspective for vector addition to explain the geometric relationship between \(\vu\), \(\vv\), and \(\vu - \vv\). 
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez-9-2-3"><div class="n">15</div><div class="body"><p>
+            Recall that given any vector \(\vv\), we can calculate its length, \(|\vv|\). Also, we say that two vectors that are scalar multiples of one another are <em>parallel</em>.
+            <ol type="a"><li><p>
+                  Let \(\vv = \langle 3,4 \rangle\) in \(\R^2\).  Compute \(|\vv|\), and determine the components of the vector \(\vu = \frac{1}{|\vv|} \vv\).  What is the magnitude of the vector \(\vu\)?  How does its direction compare to \(\vv\)?
+                </p></li><li><p>
+                  Let \(\vw = 3\vi - 3\vj\) in \(\R^2\).  Determine a unit vector \(\vu\) in the same direction as \(\vw\).
+                </p></li><li><p>
+                  Let \(\vv = \langle 2, 3, 5 \rangle\) in \(\R^3\).  Compute \(|\vv|\), and determine the components of the vector \(\vu = \frac{1}{|\vv|} \vv\).  What is the magnitude of the vector \(\vu\)?  How does its direction compare to \(\vv\)?
+                </p></li><li><p>
+                  Let \(\vv\) be an arbitrary nonzero vector in \(\R^3\). Write a general formula for a unit vector that is parallel to \(\vv\).
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez-9-2-4"><div class="n">16</div><div class="body"><div class="figrow"><div class="figitem"><p>
+            A force (like gravity) has both a magnitude and a direction. If two forces \(\vu\) and \(\vv\) are applied to an object at the same point, the resultant force on the object is the vector sum of the two forces. When a force is applied by a rope or a cable, we call that force <em>tension</em>. Vectors can be used to determine tension. 
+          </p></div><div class="figitem"><figure class="plot" id="F-9-1-forces"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_2_forces.svg" alt=""><figcaption>Figure 9.2.9 — Forces acting on an object.</figcaption></figure></div></div><p>
+            As an example, suppose a painting weighing 50 pounds is to be hung from wires attached to the frame as illustrated in <a href="#F-9-1-forces">Figure 9.2.9</a>. We need to know how much tension will be on the wires to know what kind of wire to use to hang the picture. Assume the wires are attached to the frame at point \(O\). Let \(\vu\) be the vector emanating from point \(O\) to the left and \(\vv\) the vector emanating from point \(O\) to the right. Assume \(\vu\) makes a \(60^{\circ}\) angle with the horizontal at point \(O\) and \(\vv\) makes a \(45^{\circ}\) angle with the horizontal at point \(O\). Our goal is to determine the vectors \(\vu\) and \(\vv\) in order to calculate their magnitudes. 
+            <ol type="a"><li><p>
+                  Treat point \(O\) as the origin. Use trigonometry to find the components \(u_1\) and \(u_2\) so that \(\vu = u_1 \vi + u_2 \vj\). Since we don't know the magnitude of \(\vu\), your components will be in terms of \(|\vu|\) and the cosine and sine of some angle. Then find the components \(v_1\) and \(v_2\) so that \(\vv = v_1 \vi + v_2 \vj\). Again, your components will be in terms of \(|\vv|\) and the cosine and sine of some angle. 
+                </p></li><li><p>
+                  The total force holding the picture up is given by \(\vu+\vv\). The force acting to pull the picture down is given by the weight of the picture. Find the force vector \(\vw\) acting to pull the picture down. 
+                </p></li><li><p>
+                  The picture will hang in equilibrium when the force acting to hold it up is equal in magnitude and opposite in direction to the force acting to pull it down. Equate these forces to find the components of the vectors \(\vu\) and \(\vv\).
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

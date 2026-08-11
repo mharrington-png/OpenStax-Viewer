@@ -32,6 +32,9 @@ const SKIP_HEADING_IDS = new Set([
   "exercises", "key-concepts", "glossary", "chapter-review-exercises",
   "practice-test", "chapter-practice-test", "practice-makes-perfect", "writing-exercises",
 ]);
+// build-acm-section.mjs numbers its Exercises heading per section (id="exercises-1",
+// "exercises-2", ...) instead of OpenStax's fixed "exercises" -- same backmatter, different id.
+const isBackmatterId = id => SKIP_HEADING_IDS.has(id) || /^exercises-\d+$/.test(id);
 
 // Find the <ul>...</ul> that is the DIRECT child list right after a heading id, walking
 // nested <ul> depth so a multi-level Key Concepts list doesn't get truncated at the first
@@ -79,16 +82,15 @@ for (const [bookId, book] of Object.entries(BOOKS)) {
       // Functions and Polynomial Functions" h3, copied from section 3.3's own heading),
       // which used to leak into the index as if 3.9 itself covered that topic.
       let bodyEnd = html.length;
-      for (const id of ["key-equations", "key-concepts", "exercises"]) {
-        const i = html.indexOf(`id="${id}"`);
-        if (i !== -1 && i < bodyEnd) bodyEnd = i;
+      for (const m of html.matchAll(/id="(key-equations|key-concepts|exercises(?:-\d+)?)"/g)) {
+        if (m.index < bodyEnd) bodyEnd = m.index;
       }
       const body = html.slice(0, bodyEnd);
 
       // 1. Topic headings (h2/h3/h4 with a meaningful id)
       for (const m of body.matchAll(/<h([234]) id="([a-z0-9-]+)">(.*?)<\/h\1>/gs)) {
         const [, , id, raw] = m;
-        if (SKIP_HEADING_IDS.has(id)) continue;
+        if (isBackmatterId(id)) continue;
         const text = stripTags(raw);
         if (text) entries.push({ ...common, type: "heading", anchor: id, text });
       }

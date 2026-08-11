@@ -48,7 +48,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; overscroll-behavior-y: none; }
 body {
   margin: 0;
   background: var(--bg);
@@ -148,7 +148,7 @@ main { padding: 40px clamp(20px, 5vw, 72px) 120px; max-width: 860px; }
 /* ---------- typography ---------- */
 h1, h2, h3 { font-family: var(--sans); letter-spacing: -.015em; line-height: 1.25; }
 h1 { font-size: 2.2rem; font-weight: 800; margin: .4em 0 .3em; }
-h2 { font-size: 1.5rem; font-weight: 800; margin: 2.6em 0 .6em; scroll-margin-top: 84px; }
+h2 { font-size: 1.5rem; font-weight: 800; margin: 2.6em 0 .6em; }
 h2 .kicker, h1 .kicker { display: block; font-size: .78rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 4px; }
 h3 { font-size: 1.15rem; font-weight: 800; margin: 2em 0 .4em; }
 p { margin: 0 0 1.1em; }
@@ -231,6 +231,33 @@ ul.tight li { margin: .35em 0; }
   border: 1px solid var(--line); background: var(--surface); border-radius: 9px;
   padding: 5px 13px; cursor: pointer; font-family: var(--sans); font-weight: 700; font-size: .85rem; color: var(--ink-soft);
 }
+
+/* ---------- activity (Active Calculus's primary content type — no solution reveal,
+   these are meant to be worked by students, not shown a worked answer) ---------- */
+.activity { padding: 0; overflow: hidden; border: 2px solid var(--plum); border-radius: var(--radius); margin: 1.6em 0; background: var(--surface); }
+.activity .ex-head { display: flex; align-items: baseline; gap: 12px; padding: 15px 26px; background: var(--plum-soft); border-bottom: 1px solid color-mix(in srgb, var(--plum) 30%, transparent); font-family: var(--sans); }
+.activity .ex-head .num { font-weight: 800; color: var(--plum); white-space: nowrap; }
+.activity .ex-body { padding: 20px 26px 22px; }
+.activity .ex-body ol, .activity .ex-body ul { padding-left: 1.4em; }
+.activity .ex-body ol li, .activity .ex-body ul li { margin: .5em 0; }
+/* Preview Activity: same shape, softer treatment since it's the section's warm-up, not a
+   main activity — plain surface header instead of the plum-tinted one. */
+.activity.preview { border-color: var(--line); border-style: dashed; }
+.activity.preview .ex-head { background: var(--surface-2); border-bottom-color: var(--line); }
+.activity.preview .ex-head .num { color: var(--ink-soft); }
+
+/* flagged content this converter can't render yet (Sage/WeBWorK interactives) — visible
+   marker so these are easy to find and revisit, not silently dropped. */
+.flag { border-left: 4px solid var(--gold); background: var(--gold-soft); }
+.flag .chip { background: var(--surface); color: var(--gold); }
+.flag code { font-size: .85em; }
+pre.code {
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 14px 18px; margin: 1.2em 0; overflow-x: auto;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .88rem; line-height: 1.5;
+}
+/* WeBWorK answer blanks (<fillin>, rendered as a static page with no live grading) */
+.blank { display: inline-block; border-bottom: 2px solid var(--ink-faint); color: transparent; margin: 0 .2em; }
 .selfcheck button.on-right { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); }
 .selfcheck button.on-wrong { background: var(--gold-soft); border-color: var(--gold); color: var(--gold); }
 
@@ -245,10 +272,35 @@ table.data caption { caption-side: bottom; font-family: var(--sans); font-size: 
 table.data th, table.data td { padding: 10px 16px; border-bottom: 1px solid var(--line); text-align: center; }
 table.data thead th, table.data th.rowhead { background: var(--surface-2); font-family: var(--sans); font-weight: 700; }
 table.data tr:last-child td { border-bottom: none; }
+/* vertical column dividers, for the denser numeric-grid tables in Active Calculus (this
+   book's tables lean on gridlines for readability more than OpenStax's do) */
+table.data.gridlines td, table.data.gridlines th { border-right: 1px solid var(--line); }
+table.data.gridlines tr > :last-child { border-right: none; }
+/* corner cell of a "x\y" style lookup table: row variable at bottom-left, column variable
+   at top-right, with an actual diagonal line between them instead of a backslash glyph. */
+table.data td.diag { position: relative; min-width: 3em; }
+table.data td.diag::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top right, transparent calc(50% - 1px), var(--ink-faint) calc(50% - 1px), var(--ink-faint) calc(50% + 1px), transparent calc(50% + 1px));
+}
+table.data td.diag .colvar, table.data td.diag .rowvar { position: absolute; font-size: .85em; }
+table.data td.diag .colvar { top: 4px; right: 8px; }  /* the gradient below runs top-left to bottom-right */
+table.data td.diag .rowvar { bottom: 4px; left: 8px; }
 
 /* ---------- figures ---------- */
 figure.plot { margin: 1.8em 0; text-align: center; }
 figure.plot > svg { max-width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+/* Hotlinked figures (Active Calculus's Sage-rendered SVGs, etc.) draw dark axes/curves
+   assuming a light page background — fine in light mode, but in dark mode the page behind
+   them goes dark and the artwork nearly disappears. Give them their own fixed light plate
+   (not var(--surface), which itself goes dark in dark mode) so they stay readable either
+   way, matching the plain <svg> plots' card treatment above. */
+figure.plot img, .figitem img { max-width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 6px; }
+[data-theme="dark"] figure.plot img, [data-theme="dark"] .figitem img { background: #f2f0ee; }
+/* Active Calculus's multi-image ("sideby side") figures — without this, .figitem's default
+   block layout stacks them top/bottom, but their own captions describe them as "left"/"right". */
+.figrow { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.figrow .figitem { flex: 1 1 220px; max-width: 100%; }
 figure.plot figcaption { font-family: var(--sans); font-size: .86rem; color: var(--ink-faint); margin-top: 10px; }
 .plot .axis { stroke: var(--ink-faint); stroke-width: 1.2; }
 .plot .grid { stroke: var(--line); stroke-width: 1; }
@@ -380,6 +432,7 @@ details.booknav { border-bottom: 1px solid var(--line); padding-bottom: 8px; mar
 .b-try { background: var(--accent-soft); color: var(--accent-ink); }
 .b-qa  { background: var(--plum-soft);  color: var(--plum); }
 .b-how { background: var(--blue-soft);  color: var(--blue); }
+.b-act { background: var(--plum-soft);  color: var(--plum); }
 .sidebar .outline a.active { background: var(--accent-soft); color: var(--accent-ink); }
 .sidebar .outline a.active .b { background: var(--surface); }
 

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Functions of Several Variables and Three Dimensional Space · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Functions of Several Variables and Three Dimensional Space</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 9.1</span>Functions of Several Variables and Three Dimensional Space</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What is a function of several variables?  What do we mean by the domain of a function of several variables?
+            </p></li><li><p>
+              How do we find the distance between two points in \(\R^3\)? What is the equation of a sphere in \(\R^3\)?
+            </p></li><li><p>
+              What is a trace of a function of two variables? What does a trace tell us about a function?
+            </p></li><li><p>
+              What is a level curve of a function of two variables? What does a level curve tell us about a function?
+            </p></li></ul></div>
+<p>
+      Throughout our mathematical careers we have studied functions of a
+      single variable. We define a function of one variable as a rule that
+      assigns exactly one output to each input. We analyze these functions
+      by looking at their graphs, calculating limits, differentiating,
+      integrating, and more. Functions of several variables will be the main focus of Chapters 10 and 11, where we will analyze these functions by looking at their graphs, calculating limits, differentiating, integrating, and more. We will see that many of the ideas from single variable calculus translate well to functions of several variables, but we will have to make some adjustments as well. In this chapter we introduce functions of several variables and then discuss some of the tools (vectors and vector-valued functions) that will help us understand and analyze functions of several variables. 
+    </p><div class="card activity preview" id="PA-9-1"><div class="ex-head"><span class="num">Preview Activity 9.1.1</span></div><div class="ex-body"><p>
+        Suppose you invest money in an account that pays 5% interest compounded continuously. If you invest \(P\) dollars in the account, the amount \(A\) of money in the account after \(t\) years is given by 
+        \[
+          A = Pe^{0.05t}.
+        \]
+      </p><p>
+        The variables \(P\) and \(t\) are independent of each other, so using functional notation we write
+        \[
+          A(P,t) = Pe^{0.05t}.
+        \]
+        <ol type="a"><li><p>
+              Find the amount of money in the account after 7 years if you originally invest 1000 dollars. 
+            </p></li><li><p>
+              Evaluate \(A(5000,8)\). Explain in words what this calculation represents.
+            </p></li><li><p>
+              Now consider only the situation where the amount invested is fixed at 1000 dollars. Calculate the amount of money in the account after \(t\) years as indicated in <a href="#T-9-1-Fixed-Investment">Table 9.1.1</a>. Round payments to the nearest penny.
+
+              <div class="tablewrap"><table class="data gridlines"><tr><td><p>Duration (in years)</p></td><td><p> &nbsp;&nbsp;2 &nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;3 &nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;4 &nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;5 &nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;6 &nbsp;&nbsp;</p></td></tr><tr><td><p>Amount (dollars)</p></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+
+            </p></li><li><p>
+              Now consider the situation where we want to know the amount of money in the account after 10 years given various initial investments. Calculate the amount of money in the account as indicated in <a href="#T-9-1-Payments-years">Table 9.1.2</a>. Round payments to the nearest penny.
+
+              <div class="tablewrap"><table class="data gridlines"><tr><td><p>Initial investment (dollars)</p></td><td><p>&nbsp;&nbsp; 500 &nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;1000 &nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;5000 &nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;7500 &nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;10000 &nbsp;&nbsp;</p></td></tr><tr><td><p>Amount (dollars)</p></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+
+            </p></li><li><p>
+              Describe as best you can the combinations of initial investments and time that result in an account containing $10,000.
+            </p></li></ol>
+      </p></div></div>
+<h2 id="functions-of-several-variables">Functions of Several Variables</h2>
+<p>
+      Up to this point we have been concerned with functions of a single variable. What defined such a function is that every input in the domain produced a unique output in the range. We saw similar behavior in <a href="#PA-9-1">Preview Activity 9.1.1</a>, where each pair \((P,t)\) of inputs produces a unique output \(A(P,t)\). Additionally, the two variables \(P\) and \(t\) had no real relation to each other. That is, we could choose any value of \(P\) without considering what value \(t\) might have, and we could select any value of \(t\) to use without regard to what value \(P\) might have. For that reason we say that the variables \(t\) and \(P\) are <em>independent</em> of each other. Thus, we call \(A = A(P,t)\) a function of the two independent variables \(P\) and \(t\). This is the key idea in defining a function of two independent variables. 
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          A <em>function \(f\) of two independent variables</em> is a rule that assigns to each ordered pair \((x,y)\) in some set \(D\) exactly one real number \(f(x,y)\).
+        </p></div><p>
+      There is, of course, no reason to restrict ourselves to functions of
+      only two variables&mdash;we can use any number of variables we like. For
+      example,
+      \[
+        f(x,y,z) = x^2 - 2xz + \cos(y)
+      \]
+      defines \(f\) as a function of the
+      three variables \(x\), \(y\), and \(z\). In general, a function of \(n\)
+      independent variables is a rule that assigns to an ordered \(n\)-tuple
+      \((x_1, x_2, \ldots, x_n)\) in some set \(D\) exactly one real number.
+    </p><p>
+      As with functions of a single variable, it is important to understand
+      the set of inputs for which the function is defined.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          The
+          <em>domain</em> of a function \(f\) is the
+          set of all inputs at which the function is
+          defined.
+        </p></div><div class="card activity" id="A-9-1-1"><div class="ex-head"><span class="num">Activity 9.1.2</span></div><div class="ex-body"><p>
+        Identify the domain of each of the following functions. Draw a picture of each domain in the \(xy\)-plane.
+        <ol type="a"><li><p>
+              \(f(x,y) = x^2+y^2\)
+            </p></li><li><p>
+              \(f(x,y) = \sqrt{x^2+y^2}\)
+            </p></li><li><p>
+              \(Q(x,y) = \frac{x+y}{x^2-y^2}\)
+            </p></li><li><p>
+              \(s(x,y) = \frac{1}{\sqrt{1-xy^2}}\)
+            </p></li></ol>
+      </p></div></div>
+<h2 id="representing-functions-of-two-variables">Representing Functions of Two Variables</h2>
+<p>
+      One of the techniques we use to study functions of one
+      variable is to create a table of values. We can do the same for
+      functions of two variables, except that our tables will have to allow
+      us to keep track of both input variables. We can do this with a
+      2-dimensional table, where we list the \(x\)-values down the first column
+      and the \(y\)-values across the first row. 
+
+      As an example, suppose we launch a projectile, using a golf club, a cannon, or some other device, from ground level. Under ideal conditions (ignoring wind resistance, spin, or any other forces except the force of gravity) the
+      horizontal distance the object will travel depends on the initial
+      velocity \(x\) the object is given, and the angle \(y\) at which it is
+      launched. If we let \(f\) represent the horizontal distance the object
+      travels, then \(f\) is a function of the two variables \(x\) and \(y\), and we represent \(f\) in functional notation by
+      \[
+        f(x,y) = \frac{x^2 \sin(2 y)}{g},
+      \]
+      where \(g\) is the acceleration due to gravity. (Note that \(g\) is constant, 32 feet per second squared. We will derive this equation in a later section.)
+      To create a table of values for \(f\), we list the \(x\)-values down the first column and the \(y\)-values across the first row. The value \(f(x,y)\) is then displayed in the location where the \(x\) row intersects the \(y\) column, as shown in <a href="#T-9-1-range">Table 9.1.3</a> (where we measure \(x\) in feet per second and \(y\) in radians).
+    </p><div class="tablewrap"><table class="data gridlines"><tr><td class="diag"><span class="colvar">\(y\)</span><span class="rowvar">\(x\)</span></td><td><p>\(0.2\)</p></td><td><p>\(0.4\)</p></td><td><p>\(0.6\)</p></td><td><p>\(0.8\)</p></td><td><p>\(1.0\)</p></td><td><p>\(1.2\)</p></td><td><p>\(1.4\)</p></td></tr><tr><td><p>
+          25</p></td><td><p>7.6</p></td><td><p>14.0</p></td><td><p>18.2</p></td><td><p>19.5</p></td><td><p>17.8</p></td><td><p>13.2</p></td><td><p>6.5</p></td></tr><tr><td><p>50</p></td><td><p>30.4</p></td><td><p>56.0</p></td><td><p>72.8</p></td><td><p>78.1</p></td><td><p>71.0</p></td><td></td><td><p>26.2</p></td></tr><tr><td><p>75</p></td><td><p>68.4</p></td><td></td><td><p>163.8</p></td><td><p>175.7</p></td><td><p>159.8</p></td><td><p>118.7</p></td><td><p>58.9</p></td></tr><tr><td><p>100</p></td><td><p>121.7</p></td><td><p>224.2</p></td><td><p>291.3</p></td><td><p>312.4</p></td><td><p>284.2</p></td><td><p>211.1</p></td><td><p>104.7</p></td></tr><tr><td><p>125</p></td><td><p>190.1</p></td><td><p>350.3</p></td><td><p>455.1</p></td><td></td><td><p>444.0</p></td><td><p>329.8</p></td><td><p>163.6</p></td></tr><tr><td><p>150</p></td><td><p>273.8</p></td><td><p>504.4</p></td><td><p>655.3</p></td><td><p>702.8</p></td><td><p>639.3</p></td><td><p>474.9</p></td><td><p>235.5</p></td></tr><tr><td><p>175</p></td><td><p>372.7</p></td><td><p>686.5</p></td><td><p>892.0</p></td><td><p>956.6</p></td><td><p>870.2</p></td><td><p>646.4</p></td><td></td></tr><tr><td><p>200</p></td><td><p>486.8</p></td><td><p>896.7</p></td><td><p>1165.0</p></td><td><p>1249.5</p></td><td><p>1136.6</p></td><td><p>844.3</p></td><td><p>418.7</p></td></tr><tr><td><p>225</p></td><td><p>616.2</p></td><td><p>1134.9</p></td><td><p>1474.5</p></td><td><p>1581.4</p></td><td><p>1438.5</p></td><td><p>1068.6</p></td><td><p>530.0</p></td></tr><tr><td><p>250</p></td><td><p>760.6</p></td><td><p>1401.1</p></td><td></td><td><p>1952.3</p></td><td><p>1776.0</p></td><td><p>1319.3</p></td><td><p>654.3</p></td></tr></table></div><div class="card activity" id="A-9-1-2"><div class="ex-head"><span class="num">Activity 9.1.3</span></div><div class="ex-body"><p>
+        Complete <a href="#T-9-1-range">Table 9.1.3</a> by filling in the missing values of the function \(f\). Round entries to the nearest tenth. 
+      </p></div></div><p>
+      If \(f\) is a function of a single variable \(x\), then we define the
+      graph of \(f\) to be the set of points of the form \((x,f(x))\), where \(x\) is in the domain of \(f\). We then plot these points using the coordinate axes in order to visualize the graph. We can do a similar thing with functions of several variables. <a href="#T-9-1-range">Table 9.1.3</a> identifies points of the form \((x,y,f(x,y))\), and we define the graph of \(f\) to be the set of these points.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          The <em>graph</em> of a function \(f = f(x,y)\) is the set of points of the form \((x,y,f(x,y))\), where the point \((x,y)\) is in the domain of \(f\).
+        </p></div><p>
+      We also often refer to the graph of a function \(f\) of two variables as
+      the <em>surface</em> generated by \(f\). Points in
+      the form \((x,y,f(x,y))\) are in three dimensions, so plotting these
+      points takes a bit more work than graphs of functions in two
+      dimensions. To plot these three-dimensional points, we need to set up
+      a coordinate system with three mutually perpendicular axes &mdash; the
+      \(x\)-axis, the \(y\)-axis, and the \(z\)-axis (called the <em>coordinate
+      axes</em>). There are essentially two different ways we could set up a
+      3D coordinate system, as shown in <a href="#F-9-1-left-right-hand">Figure 9.1.4</a>; thus, before we can proceed, we need to establish a convention.
+    </p><figure class="plot" id="F-9-1-left-right-hand"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_left_hand.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_right_hand.svg" alt=""></div></div><figcaption>Figure 9.1.4 — Left: A left hand system. Right: A right hand system</figcaption></figure><p>
+      The distinction between these two figures is subtle, but important. In the coordinate system shown at left in <a href="#F-9-1-left-right-hand">Figure 9.1.4</a>, imagine that you are sitting on the positive \(z\)-axis next to the label &ldquo;\(z\).&rdquo; Looking down at the \(x\)- and \(y\)-axes, you see that the \(y\)-axis is obtained by rotating the \(x\)-axis by 90\(^\circ\) in the <em>clockwise</em> direction. Again sitting on the positive \(z\)-axis in the coordinate system at right in <a href="#F-9-1-left-right-hand">Figure 9.1.4</a>, you see that the \(y\)-axis is obtained by rotating the \(x\)-axis by 90\(^\circ\) in the <em>counterclockwise</em>
+      direction.
+    </p><p>
+      We call the coordinate system at right in <a href="#F-9-1-left-right-hand">Figure 9.1.4</a> a <em>right-hand system</em>; if we point the index finger of our <em>right</em>
+      hand along the positive \(x\)-axis and our middle finger along the
+      positive \(y\)-axis, then our thumb points in the direction of the
+      positive \(z\)-axis. Following mathematical conventions, we choose to
+      use a right-hand system throughout this book.
+    </p><p>
+      Now that we have established a convention for a right-hand system, we can draw a graph of the distance function defined by \(f(x,y) = \frac{x^2 \sin(2y)}{g}\). Note that the function \(f\) is continuous in both variables, so when we plot these points in the right hand coordinate system, we can connect them all to form a surface in 3-space. The graph of the distance function \(f\) is shown in <a href="#F-9-1-range">Figure 9.1.5</a>.
+    </p><figure class="plot" id="F-9-1-range"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_range.svg" alt=""><figcaption>Figure 9.1.5 — The distance surface.</figcaption></figure><p>
+      There are many graphing tools available for drawing three-dimensional surfaces as indicated in the Preface (see Links to interactive graphics in Features of the Text). Since we will be able to visualize graphs of functions of two independent variables, but not functions of more than two variables, we will primarily deal with functions of two variables in this text. It is important to note, however, that the techniques we develop apply to functions of any number of variables.
+    </p><p>
+      <em>Notation:</em> We let \(\R^2\) denote the set of all ordered pairs of real numbers in the plane (two copies of the real number system) and let \(\R^3\) represent the set of all ordered triples of real numbers (which constitutes three-space).
+    </p>
+<h2 id="some-standard-equations-in-three-space">Some Standard Equations in Three-Space</h2>
+<p>
+      In addition to graphing functions, we will also want to understand
+      graphs of some simple equations in three dimensions. For example, in
+      \(\R^2\), the graphs of the equations \(x=a\) and \(y=b\), where \(a\) and \(b\)
+      are constants, are lines parallel to the coordinate axes. In the next
+      activity we consider their three-dimensional analogs.
+    </p><div class="card activity" id="A-9-1-3"><div class="ex-head"><span class="num">Activity 9.1.4</span></div><div class="ex-body"><ol type="a"><li><p>
+            Consider the set of points \((x,y,z)\) that satisfy the equation \(x=2\). Describe this set as best you can.
+          </p></li><li><p>
+            Consider the set of points \((x,y,z)\) that satisfy the equation \(y=-1\). Describe this set as best you can.
+          </p></li><li><p>
+            Consider the set of points \((x,y,z)\) that satisfy the equation \(z=0\). Describe this set as best you can.
+          </p></li></ol></div></div><p>
+      <a href="#A-9-1-3">Activity 9.1.4</a> shows that the equations where one independent
+      variable is constant lead to planes parallel to ones that result from
+      a pair of the coordinate axes. When we make the constant 0, we get the
+      <em>coordinate planes</em>. The \(xy\)-plane
+      satisfies \(z=0\), the \(xz\)-plane satisfies \(y=0\), and the \(yz\)-plane
+      satisfies \(x=0\) (see <a href="#F-9-1-coordinate-planes">Figure 9.1.6</a>).
+    </p><figure class="plot" id="F-9-1-coordinate-planes"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_xy_plane.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_xz_plane.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_yz_plane.svg" alt=""></div></div><figcaption>Figure 9.1.6 — The coordinate planes.</figcaption></figure><p>
+      On a related note, we define a circle in \(\R^2\) as the set of all
+      points equidistant from a fixed point. In \(\R^3\), we call the set of
+      all points equidistant from a fixed point a
+      <em>sphere</em>. To find the equation of a
+      sphere, we need to understand how to calculate the distance between
+      two points in three-space, and we explore this idea in the next
+      activity.
+    </p><div class="card activity" id="A-9-1-4"><div class="ex-head"><span class="num">Activity 9.1.5</span></div><div class="ex-body"><div class="figrow"><div class="figitem"><p>
+        Let \(P=(x_0, y_0, z_0)\) and \(Q=(x_1, y_1, z_1)\) be two points in \(\R^3\). These two points form opposite vertices of a rectangular box whose sides are planes parallel to the coordinate planes as illustrated in <a href="#F-9-1-Distance-3D">Figure 9.1.7</a>, and the distance between \(P\) and \(Q\) is the length of the blue diagonal shown in <a href="#F-9-1-Distance-3D">Figure 9.1.7</a>.
+      </p></div><div class="figitem"><figure class="plot" id="F-9-1-Distance-3D"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_distance.svg" alt=""><figcaption>Figure 9.1.7 — The distance formula in \(\R^3\).</figcaption></figure></div></div><ol type="a"><li><p>
+            Consider the right triangle \(PRS\) in the base of the box whose
+                hypotenuse is shown as the red line in <a href="#F-9-1-Distance-3D">Figure 9.1.7</a>. What are the coordinates of the vertices of this triangle? Since this right triangle lies in a plane, we can use the Pythagorean Theorem to find a formula for the length of the hypotenuse of this triangle. Find such a formula, which will be in terms of \(x_0\), \(y_0\), \(x_1\), and \(y_1\).
+          </p></li><li><p>
+            Now notice that the triangle \(PRQ\) whose hypotenuse is the blue segment
+                connecting the points \(P\) and \(Q\) with a leg as the hypotenuse \(PR\) of the triangle found in part (a) lies entirely in a plane, so we can
+                again use the Pythagorean Theorem to find the length of its hypotenuse. Explain why the length of this hypotenuse, which is the distance between the points \(P\) and \(Q\), is
+            \[
+              \sqrt{(x_1-x_0)^2 + (y_1-y_0)^2 + (z_1-z_0)^2}.
+            \]
+          </p></li></ol></div></div><p>
+      The formula developed in <a href="#A-9-1-4">Activity 9.1.5</a> is important to remember.
+    </p><div class="card callout" id="Distance-formula"><span class="chip">The distance between points</span><p>
+        The distance between points \(P=(x_0, y_0, z_0)\) and \(Q=(x_1, y_1, z_1)\) (denoted as \(|PQ|\)) in \(\R^3\) is given by the formula
+      \[
+        |PQ| = \sqrt{(x_1-x_0)^2 + (y_1-y_0)^2 + (z_1-z_0)^2}.
+      \]
+      </p></div><p>
+      Equation  can be used to derive the formula
+      for a sphere centered at a point \((x_0,y_0,z_0)\)
+      with radius \(r\). Since the distance from any point \((x,y,z)\) on such a
+      sphere to the point \((x_0,y_0,z_0)\) is \(r\), the point \((x,y,z)\) will
+      satisfy the equation
+      \[
+        \sqrt{(x-x_0)^2 + (y-y_0)^2 + (z-z_0)^2} = r
+      \]
+    </p><p>
+      Squaring both sides, we come to the standard equation for a sphere.
+    </p><div class="card callout" id="Sphere"><span class="chip">The equation of a sphere</span><p>
+        The equation of a sphere with center \((x_0,y_0,z_0)\) and radius \(r\) is
+      \[
+        (x-x_0)^2 + (y-y_0)^2 + (z-z_0)^2 = r^2.
+      \]
+      </p></div><p>
+      This makes sense if we compare this equation to its two-dimensional
+      analogue, the equation of a circle of radius \(r\) in the plane centered
+      at \((x_0,y_0)\):
+      \[
+        (x-x_0)^2 + (y-y_0)^2 = r^2.
+      \]
+    </p>
+<h2 id="traces">Traces</h2>
+<p>
+      When we study functions of several variables we are often interested
+      in how each individual variable affects the function in and of
+      itself. In <a href="#PA-9-1">Preview Activity 9.1.1</a>, we saw that the amount of money in an account depends on the amount initially invested and the
+      duration of the investment. However, if we fix the initial investment, the
+      amount of money in the account depends only on the duration of the investment, and if we set the duration of the investment constant, then the amount of money in the account depends only on the initial investment. This idea of keeping one variable constant while we allow the other to change will be an important tool for us when studying functions of several variables.
+    </p><p>
+      As another example, consider again the distance function \(f\) defined by
+      \[
+        f(x,y) = \frac{x^2 \sin(2y)}{g}
+      \]
+      where \(x\) is the initial velocity of an object in feet per second, \(y\) is the launch angle in radians, and \(g\) is the acceleration due to gravity (32 feet per second squared). If we hold the launch angle constant at \(y=0.6\) radians, we can consider \(f\) a function of the initial velocity alone. In this case we have
+      \[
+        f(x) = \frac{x^2}{32}\sin(2\cdot 0.6).
+      \]
+    </p><p>
+      We can plot this curve on the surface by tracing out the points on the
+      surface when \(y = 0.6\), as shown at left in <a href="#F-9-1-trace1">Figure 9.1.8</a>. The formula clearly shows that \(f\) is quadratic in the \(x\)-direction. More descriptively, as we increase the launch velocity while keeping the launch angle constant, the horizontal distance the object travels increases proportional to the square of the initial velocity.
+    </p><p>
+      Similarly, if we fix the initial velocity at 150 feet per second, we
+      can consider the distance as a function of the launch angle only. In this
+      case we have
+      \[
+        f(y) = \frac{150^2 \sin(2y)}{32}.
+      \]
+    </p><p>
+      We can again plot this curve on the surface by tracing out the points on the surface when \(x=150\), as shown at right in <a href="#F-9-1-trace1">Figure 9.1.8</a>. The formula clearly show that \(f\) is sinusoidal in the \(y\)-direction. More descriptively, as we increase the launch angle while keeping the initial velocity constant, the horizontal distance traveled by the object is proportional to the sine of twice the launch
+      angle.
+    </p><figure class="plot" id="F-9-1-trace1"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_y_range.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_x_range.svg" alt=""></div></div><figcaption>Figure 9.1.8 — Left: The trace with \(y = 0.6\). Right: The trace with \(x = 150\). </figcaption></figure><p>
+      The curves we define when we fix one of the independent variables in our two variable function are called <em>traces</em>.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          A <em>trace</em> of a function \(f\) of two independent variables \(x\) and \(y\) in the \(x\) direction is a curve of the form \(z = f(x,c)\), where \(c\) is a constant. Similarly, a <em>trace</em> of a function \(f\) of two independent variables \(x\) and \(y\) in the \(y\) direction is a curve of the form \(z = f(c,y)\), where \(c\) is a constant. 
+        </p></div><p>
+      Understanding trends in the behavior of functions of two variables can
+      be challenging, as can sketching their graphs; traces help us with
+      each of these tasks.
+    </p><div class="card activity" id="A-9-1-6"><div class="ex-head"><span class="num">Activity 9.1.6</span></div><div class="ex-body"><p>
+        In the following questions, we investigate the use of traces to better understand a function through both tables and graphs.
+        <ol type="a"><li><p>
+              Identify the \(y = 0.6\) trace for the distance function \(f\) defined by \(f(x,y) =
+                  \frac{x^2 \sin(2y)}{g}\) by highlighting or circling the
+                  appropriate cells in <a href="#T-9-1-range">Table 9.1.3</a>.  Write a sentence to describe the behavior of the function along this trace.
+            </p></li><li><p>
+              Identify the \(x = 150\) trace for the distance function by
+                  highlighting or circling the appropriate cells in <a href="#T-9-1-range">Table 9.1.3</a>.  Write a sentence to describe the behavior of the function along this trace.
+
+              <figure class="plot" id="F-9-1-traces-activity-1"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_activity_axes.svg" alt=""><figcaption>Figure 9.1.9 — Coordinate axes to sketch traces.</figcaption></figure>
+
+            </p></li><li><p>
+              For the function \(g\) defined by \(g(x,y) = x^2 + y^2 + 1\), explain the type of function that each trace in the \(x\) direction will be (keeping \(y\) constant). Plot the \(y=-4\), \(y=-2\), \(y=0\), \(y=2\), and \(y=4\) traces in 3-dimensional coordinate system provided in <a href="#F-9-1-traces-activity-1">Figure 9.1.9</a>.
+            </p></li><li><p>
+              For the function \(g\) defined by \(g(x,y) = x^2 + y^2 + 1\), explain the type of function that each trace in the \(y\) direction will be (keeping \(x\) constant). Plot the \(x=-4\), \(x=-2\), \(x=0\), \(x=2\), and \(x=4\) traces in 3-dimensional coordinate system in <a href="#F-9-1-traces-activity-1">Figure 9.1.9</a>.
+            </p></li><li><p>
+              Describe the surface generated by the function \(g\).
+            </p></li></ol>
+      </p></div></div>
+<h2 id="contour-maps-and-level-curves">Contour Maps and Level Curves</h2>
+<p>
+      We have all seen topographic maps such as the one of the Porcupine
+      Mountains in the upper peninsula of Michigan shown in <a href="#F-9-1-porcupine">Figure 9.1.10</a>.Map source: Michigan Department of Natural Resources, with permission of the Michigan DNR and Bob Wild. The curves on these maps show the regions of constant altitude. The contours also depict changes in altitude: contours that are close together signify steep ascents or descents, while contours that are far apart indicate only slight changes in elevation. Thus, contour maps tell us a lot about three-dimensional surfaces. Mathematically, if \(f(x,y)\) represents the altitude at the point \((x,y)\), then each contour is the graph of an equation of the form \(f(x,y) = k\), for some constant \(k\).
+    </p><figure class="plot" id="F-9-1-porcupine"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/9_1_porcupine_crop.svg" alt=""><figcaption>Figure 9.1.10 — Contour map of the Porcupine Mountains.</figcaption></figure><div class="card activity" id="A-9-1-8"><div class="ex-head"><span class="num">Activity 9.1.7</span></div><div class="ex-body"><p>
+        On the topographical map of the Porcupine Mountains in <a href="#F-9-1-porcupine">Figure 9.1.10</a>,
+        <ol type="a"><li><p>
+              identify the highest and lowest points you can find;
+            </p></li><li><p>
+              from a point of your choice, determine a path of steepest ascent that leads to the highest point;
+            </p></li><li><p>
+              from that same initial point, determine the least steep path that leads to the highest point.
+            </p></li></ol>
+      </p></div></div><p>
+      Curves on a surface that describe points at the same height or level are called <em>level curves</em>.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          A <em>level curve (or contour)</em> of a function \(f\) of two independent variables \(x\) and \(y\) is a curve of the form \(k = f(x,y)\), where \(k\) is a constant.
+        </p></div><p>
+      Topographical maps can be used to create a three-dimensional surface from the two-dimensional contours or level curves. For example, level curves of the distance function defined by \(f(x,y) = \frac{x^2 \sin(2y)}{32}\) plotted in the \(xy\)-plane are shown at left in <a href="#F-9-1-contours-1">Figure 9.1.11</a>. If we lift these contours and plot them at their respective heights, then we get a picture of the surface itself, as illustrated at right in <a href="#F-9-1-contours-1">Figure 9.1.11</a>.
+    </p><figure class="plot" id="F-9-1-contours-1"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_contour_1.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_contour_2.svg" alt=""></div></div><figcaption>Figure 9.1.11 — Left: Level curves. Right: Level curves at appropriate heights.</figcaption></figure><p>
+      The use of level curves and traces can help us construct the graph of
+      a function of two variables.
+    </p><div class="card activity" id="A-9-1-9"><div class="ex-head"><span class="num">Activity 9.1.8</span></div><div class="ex-body"><figure class="plot" id="F-9-1-contour-activity"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_activity_empty_1.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_1_activity_empty_2.svg" alt=""></div></div><figcaption>Figure 9.1.12 — Left: Level curves for \(f(x,y) = x^2+y^2\). Right: Level curves for \(g(x,y) = \sqrt{x^2+y^2}\).</figcaption></figure><ol type="a"><li><p>
+            Let \(f(x,y) = x^2+y^2\). Draw the level curves \(f(x,y) = k\) for \(k=1\), \(k=2\), \(k=3\), and \(k=4\) on the left set of axes given in <a href="#F-9-1-contour-activity">Figure 9.1.12</a>. (You decide on the scale of the axes.) Explain what the surface defined by \(f\) looks like.
+          </p></li><li><p>
+            Let \(g(x,y) = \sqrt{x^2+y^2}\). Draw the level curves \(g(x,y) = k\) for \(k=1\), \(k=2\), \(k=3\), and \(k=4\) on the right set of axes given in <a href="#F-9-1-contour-activity">Figure 9.1.12</a>. (You decide on the scale of the axes.) Explain what the surface defined by \(g\) looks like.
+          </p></li><li><p>
+            Compare and contrast the graphs of \(f\) and \(g\). How are they alike? How are they different? Use traces for each function to help answer these questions.
+          </p></li></ol></div></div><p>
+      The traces and level curves of a function of two variables are curves
+      in space. In order to understand these traces and level curves better,
+      we will first spend some time learning about vectors and vector-valued
+      functions in the next few sections and return to our study of
+      functions of several variables once we have those more mathematical
+      tools to support their study.
+    </p>
+<h2 id="a-gallery-of-functions">A gallery of functions</h2>
+<p>
+      We end this section by considering a collection of functions and
+      illustrating their graphs and some level curves.
+    </p><figure class="plot"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/zisr2.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/zisr2_contours.svg" alt=""></div></div><figcaption>Figure 9.1.13 — \(z=x^2+y^2\)</figcaption></figure><figure class="plot"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/zis4r2.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/zis4r2_contours.svg" alt=""></div></div><figcaption>Figure 9.1.14 — \(z=4-(x^2+y^2)\)</figcaption></figure><figure class="plot"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/cone.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/cone_contours.svg" alt=""></div></div><figcaption>Figure 9.1.15 — \(z=\sqrt{x^2+y^2}\)</figcaption></figure><figure class="plot"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/saddle.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/saddle_contours.svg" alt=""></div></div><figcaption>Figure 9.1.16 — \(z=x^2-y^2\)</figcaption></figure><figure class="plot"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/sinxy.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/sinxy_contours.svg" alt=""></div></div><figcaption>Figure 9.1.17 — \(z=\sin(x)+\sin(y)\)</figcaption></figure><figure class="plot"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/elliptic.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/elliptic_contours.svg" alt=""></div></div><figcaption>Figure 9.1.18 — \(z=y^2 - x^3 + x\)</figcaption></figure><figure class="plot"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/exp.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/exp_contours.svg" alt=""></div></div><figcaption>Figure 9.1.19 — \(z=xye^{-x^2-y^2}\)</figcaption></figure>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          A function \(f\) of several variables is a rule that assigns a unique number to an ordered collection of independent inputs.  The domain of a function of several variables is the set of all inputs for which the function is defined.
+        </p></li><li><p>
+          In \(\R^3\), the distance between points \(P=(x_0, y_0, z_0)\) and \(Q=(x_1, y_1, z_1)\) (denoted as \(|PQ|\))  is given by the formula
+          \[
+            |PQ| = \sqrt{(x_1-x_0)^2 + (y_1-y_0)^2 + (z_1-z_0)^2}.
+          \]
+          and thus the equation of a sphere with center \((x_0,y_0,z_0)\) and radius \(r\) is
+          \[
+            (x-x_0)^2 + (y-y_0)^2 + (z-z_0)^2 = r^2.
+          \]
+        </p></li><li><p>
+          A trace of a function \(f\) of two independent variables \(x\) and \(y\) is a curve of the form \(z = f(c,y)\) or \(z = f(x,c)\), where \(c\) is a constant. A trace tells us how the function depends on a single independent variable if we treat the other independent variable as a constant.
+        </p></li><li><p>
+          A level curve of a function \(f\) of two independent variables \(x\) and \(y\) is a curve of the form \(k = f(x,y)\), where \(k\) is a constant. A level curve describes the set of inputs that lead to a specific output of the function.
+        </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-1">Exercises</h2><div class="exercise" id="ex-9-1-WW-evaluate"><div class="n">1</div><div class="body"><p>Evaluate the function at the specified points.</p><p>\(f(x,y) = y+xy^{2}, \left(-4,4\right), \left(4,-1\right), \left(4,-3\right)\)</p><p>At \(\left(-4,4\right)\): <span class="blank">____________________</span></p><p>At \(\left(4,-1\right)\): <span class="blank">____________________</span></p><p>At \(\left(4,-3\right)\): <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-60\), \(3\), \(33\)</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-draw-contours"><div class="n">2</div><div class="body"><p>Sketch a contour diagram of each function.  Then, decide whether
+its contours are predominantly lines, parabolas, ellipses, or hyperbolas.</p><p><ol><li><p>\(z = x^2 - 5 y^2\)</p></li><li><p>\(z = x^2 + 2 y^2\)</p></li><li><p>\(z = y - 5 x^2\)</p></li><li><p>\(z = - 2 x^2\)</p></li></ol></p><div class="answer"><button>Show answer</button><div class="a"><p>Hyperbolas, Ellipses, Parabolas, Lines</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-describe-level-curves"><div class="n">3</div><div class="body"><p>Match the surfaces with the verbal description of the level curves by placing
+the letter of the verbal description to the left of the number of the surface.
+<ol><li><p>\(z = 2x + 3y\)</p></li><li><p>\(z = x^2 + y^2\)</p></li><li><p>\(z = \sqrt{(x^2 + y^2)}\)</p></li><li><p>\(z = 2x^2 + 3y^2\)</p></li><li><p>\(z = \frac{1}{x-1}\)</p></li><li><p>\(z = xy\)</p></li><li><p>\(z = \sqrt{(25 - x^2 - y^2)}\)</p></li></ol></p><p><ol type="A"><li><p>a collection of unequally spaced parallel lines</p></li><li><p>two straight lines and a collection of hyperbolas</p></li><li><p>a collection of concentric ellipses</p></li><li><p>a collection of unequally spaced concentric circles</p></li><li><p>a collection of equally spaced parallel lines</p></li><li><p>a collection of equally spaced concentric circles</p></li></ol></p><div class="answer"><button>Show answer</button><div class="a"><p>E) a collection of equally spaced parallel lines, D) a collection of unequally spaced concentric circles, F) a collection of equally spaced concentric circles, C) a collection of concentric ellipses, A) a collection of unequally spaced parallel lines, B) two straight lines and a collection of hyperbolas, D) a collection of unequally spaced concentric circles</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-domain-example"><div class="n">4</div><div class="body"><p>The domain of the function \(f(x,y) = \sqrt x + \sqrt y\) is 
+<span class="blank">____________________</span></p><ol type="A"><li><p>The first quadrant</p></li><li><p>The area inside a parabola</p></li><li><p>The first and third quadrants</p></li><li><p>All of the xy-plane</p></li><li><p>The union of two intervals</p></li></ol><div class="answer"><button>Show answer</button><div class="a"><p>A) The first quadrant</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-sphere-plane"><div class="n">5</div><div class="body"><p>Find the equation of the sphere centered at \((-8, 6, -7)\) with
+radius 10.  Normalize your equations so that the coefficient of
+\(x^2\) is 1.</p><p><span class="blank">____________________________________________________________</span> = 0.</p><p>Give an equation which describes the intersection of this sphere with
+the plane \(z = -6\).</p><p><span class="blank">____________________________________________________________</span> = 0.</p><div class="answer"><button>Show answer</button><div class="a"><p>\(\left(x-\left(-8\right)\right)^{2}+\left(y-6\right)^{2}+\left(z-\left(-7\right)\right)^{2}-100\), \(\left(x-\left(-8\right)\right)^{2}+\left(y-6\right)^{2}+1-100\)</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-plane-equations"><div class="n">6</div><div class="body"><p>(A) If the positive z-axis points upward, an equation for a horizontal plane through the point
+\(\left(-4,3,-4\right)\) is</p><p><span class="blank">________________________________________</span>.</p><p>(B) An equation for the plane perpendicular to the x-axis and passing through the point
+\(\left(-4,3,-4\right)\) is</p><p><span class="blank">________________________________________</span>.</p><p>(C) An equation for the plane parallel to the xz-plane and passing through the point
+\(\left(-4,3,-4\right)\) is</p><p><span class="blank">________________________________________</span>.</p><div class="answer"><button>Show answer</button><div class="a"><p>\(z = -4\), \(x = -4\), \(y = 3\)</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-Car-rental-cost"><div class="n">7</div><div class="body"><p>A car rental company charges a one-time application fee of 20 dollars, 
+55 dollars per day, and 11 cents per mile for its cars.</p><p>(a) Write a formula for the cost, \(C\), of renting a car as a function of the
+number of days, \(d\), and the number of miles driven, \(m\).</p><p>\(C =\) <span class="blank">________________________________________</span></p><p>(b) If \(C = f(d, m)\), then \(f(5, 950) =\) <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(20+55d+\frac{11m}{100}\), \(399.5\)</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-Matching-distances"><div class="n">8</div><div class="body"><p>(a) Describe the set of points whose distance from the x-axis
+equals the distance from the yz-plane.</p><p><ol type="a"><li><p>A cylinder opening along the z-axis</p></li><li><p>A cone opening along the y-axis</p></li><li><p>A cone opening along the z-axis</p></li><li><p>A cylinder opening along the y-axis</p></li><li><p>A cylinder opening along the x-axis</p></li><li><p>A cone opening along the x-axis</p></li></ol></p><p>(b) Find the equation for the set of points whose distance from the x-axis
+equals the distance from the yz-plane.</p><p><ol type="a"><li><p>\(y^2 + z^2 = r^2\)</p></li><li><p>\(x^2 + z^2 = r^2\)</p></li><li><p>\(y^2 = x^2 + z^2\)</p></li><li><p>\(z^2 = x^2 + y^2\)</p></li><li><p>\(x^2 = y^2 + z^2\)</p></li><li><p>\(x^2 + y^2 = r^2\)</p></li></ol></p><div class="answer"><button>Show answer</button><div class="a"><p>A cone opening along the x-axis, \(x^2 = y^2 + z^2\)</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-Describing-surfaces"><div class="n">9</div><div class="body"><p>For each surface, decide whether it could be a bowl, a plate, or neither.
+Consider a plate to be any fairly flat surface and a bowl to be anything 
+that could hold water, assuming the positive z-axis is up.</p><p><ol><li><p>\(x + y + z = 4\)</p></li><li><p>\(z = - \sqrt{ 1 - x^2 - y^2 }\)</p></li><li><p>\(z = 1 - x^2 - y^2\)</p></li><li><p>\(z = x^2 + y^2\)</p></li><li><p>\(z = 1\)</p></li></ol></p><div class="answer"><button>Show answer</button><div class="a"><p>Plate, Bowl, Neither, Bowl, Plate</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-Drug-concentrations"><div class="n">10</div><div class="body"><p>Consider the concentration, C, (in mg/liter) of a drug in the blood 
+as a function of the amount of drug given, x, and the time since
+injection, t.  For \(0 \leq x \leq 4\) mg and \(t \geq 0\) hours,
+we have
+\[C = f(x,t) = 30te^{-\left(4-x\right)t}\]</p><p>\(f(3,2) =\) <span class="blank">________________________________________</span></p><p>Give a practical interpretation of your answer: \(f(3, 2)\) is
+<ol type="a"><li><p>the concentration of a 3 mg dose in the blood 2 hours after injection.</p></li><li><p>the amount of a 2 mg dose in the blood 3 hours after injection.</p></li><li><p>the change in concentration of a 2 mg dose in the blood 3 hours after injection.</p></li><li><p>the amount of a 3 mg dose in the blood 2 hours after injection.</p></li><li><p>the change in concentration of a 3 mg dose in the blood 2 hours after injection.</p></li><li><p>the concentration of a 2 mg dose in the blood 3 hours after injection.</p></li></ol></p><div class="answer"><button>Show answer</button><div class="a"><p>\(8.12012\), the concentration of a 3 mg dose in the blood 2 hours after injection.</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-Aardvark"><div class="n">11</div><div class="body"><p>A manufacturer sells aardvark masks at a price of
+$260 per mask and butterfly masks at a price
+of $430 per mask.  A quantity of <em>a</em> 
+aardvark masks and <em>b</em> butterfly masks is sold
+at a total cost of $300 to the manufacturer.</p><p>(a) Express the manufacturer's profit, <em>P</em>,
+as a function of <em>a</em> and <em>b</em>.</p><p>\(P(a,b) =\) <span class="blank">________________________________________</span> dollars.</p><p>(b) The curves of constant profit in the ab-plane are
+<ol type="a"><li><p>hyperbolas</p></li><li><p>ellipses</p></li><li><p>lines</p></li><li><p>circles</p></li><li><p>parabolas</p></li></ol></p><div class="answer"><button>Show answer</button><div class="a"><p>\(260a+430b-300\), lines</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-Drug-traces"><div class="n">12</div><div class="body"><p>Consider the concentration, \(C\), in mg per liter (L),
+of a drug in the blood as a function of \(x\), the amount, in mg, of the
+drug given and \(t\), the time in hours since the injection.
+For \(0 \leq x \leq 2\) and \(t \geq 0\), we have
+\(C = f(x,t) = t e^{-t(3-x)}\).</p><p>Graph the following two single variable functions on a separate
+page, being sure that you can explain their significance in terms
+of drug concentration.</p><p><em>(a)</em>
+\(f(1,t)\)</p><p><em>(b)</em>
+\(f(x,3.5)\)</p><p>Using your graph in <em>(a)</em>, where is \(f(1,t)\)</p><p>a maximum?  \(t =\) <span class="blank">_______________</span></p><p>a minimum?  \(t =\) <span class="blank">_______________</span></p><p>Using your graph in <em>(b)</em>, where is \(f(x,3.5)\)</p><p>a maximum?  \(x =\) <span class="blank">_______________</span></p><p>a minimum?  \(x =\) <span class="blank">_______________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{3-1}\), \(0\), \(2\), \(0\)</p></div></div></div></div><div class="exercise" id="ex-9-1-WW-traces-contours"><div class="n">13</div><div class="body"><p>By setting one variable constant, find a plane that intersects the
+graph of \(z = 2y^{2}-6x^{2}+5\) in a:</p><p><em>(a)</em>
+Parabola opening upward: the plane <span class="blank">_____</span> = <span class="blank">_____</span></p><p><em>(Give your answer by specifying the variable in the
+first answer blank and a value for it in the second.)</em></p><p><em>(b)</em>
+Parabola opening downward: the plane <span class="blank">_____</span> = <span class="blank">_____</span></p><p><em>(Give your answer by specifying the variable in the
+first answer blank and a value for it in the second.)</em></p><p><em>(c)</em>
+Pair of intersecting straight lines: the plane
+<span class="blank">_____</span> = <span class="blank">____________________</span></p><p><em>(Give your answer by specifying the variable in the
+first answer blank and a value for it in the second.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(x\), \(0\), \(y\), \(0\), \(z\), \(5\)</p></div></div></div></div><div class="exercise" id="Ez-9-1-1"><div class="n">14</div><div class="body"><p>
+            Find the equation of each of the following geometric objects.
+            <ol type="a"><li><p>
+                  The plane parallel to the \(xy\)-plane that passes through the point \((-4,5,-12)\).
+                </p></li><li><p>
+                  The plane parallel to the \(yz\)-plane that passes through the point \((7, -2, -3)\).
+                </p></li><li><p>
+                  The sphere centered at the point \((2,1,3)\) and has the point \((-1,0,-1)\) on its surface.
+                </p></li><li><p>
+                  The sphere whose diameter has endpoints \((-3,1,-5)\) and \((7,9,-1)\).
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez-9-1-2"><div class="n">15</div><div class="body"><p>
+            The Ideal Gas Law, \(PV = RT\), relates the pressure (\(P\), in pascals), temperature (\(T\), in Kelvin), and volume (\(V\), in cubic meters) of 1 mole of a gas (\(R =  8.314 \ \frac{\text{J} }{\text{ mol }  \ \text{K} }\) is the universal gas constant), and describes the behavior of gases that do not liquefy easily, such as oxygen and hydrogen. We can solve the ideal gas law for the volume and hence treat the volume as a function of the pressure and temperature:
+            \[
+              V(P,T) = \frac{8.314T}{P}.
+            \]
+            <ol type="a"><li><p>
+                  Explain in detail what the trace of \(V\) with \(P=1000\) tells us about a key relationship between two quantities.
+                </p></li><li><p>
+                  Explain in detail what the trace of \(V\) with \(T=5\) tells us.
+                </p></li><li><p>
+                  Explain in detail what the level curve \(V = 0.5\) tells us.
+                </p></li><li><p>
+                  Use 2 or three additional traces in each direction to make a rough sketch of the surface over the domain of \(V\) where \(P\) and \(T\) are each nonnegative.  Write at least one sentence that describes the way the surface looks.
+                </p></li><li><p>
+                  Based on all your work above, write a couple of sentences that describe the effects that temperature and pressure have on volume.
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ex-9-1-loans"><div class="n">16</div><div class="body"><p>
+        When people buy a large ticket item like a
+        car or a house, they often take out a loan to make the purchase. The
+        loan is paid back in monthly installments until the entire amount of
+        the loan, plus interest, is paid. The monthly payment that the
+        borrower has to make depends on the amount \(P\) of money borrowed
+        (called the principal), the duration \(t\) of the loan in years, and
+        the interest rate \(r\). For example, if we borrow $18,000 to buy a car, the monthly payment \(M\) that we need to make to pay off the loan is given by the formula
+        \[
+          M(r,t) = \frac{1500r}{1-\frac{1}{\left(1+\frac{r}{12}\right)^{12t}}}.
+        \]
+
+        <ol type="a"><li><p>
+              Find the monthly payments on this loan if the interest rate is 6% and the duration of the loan is 5 years.
+            </p></li><li><p>
+              Create a table of values that illustrates the trace of \(M\) with \(r\) fixed at 5%. Use yearly values of \(t\) from 2 to 6. Round payments to the nearest penny. Explain in detail in words what this trace tells us about \(M\).
+            </p></li><li><p>
+              Create a table of values that illustrates the trace of \(M\) with \(t\) fixed at 3 years. Use rates from 3% to 11% in increments of 2%. Round payments to the nearest penny. Explain in detail what this trace tells us about \(M\).
+
+              
+            </p></li><li><p>
+            Consider the combinations of interest rates and durations of loans that result in a monthly payment of $200. Solve the equation \(M(r,t) = 200\) for \(t\) to write the duration of the loan in terms of the interest rate. Graph this level curve and explain as best you can the relationship between \(t\) and \(r\). 
+            </p></li></ol>
+      </p></div></div><div class="exercise" id="Ez-9-1-3"><div class="n">17</div><div class="body"><p>
+            Consider the function \(h\) defined by \(h(x,y) = 8 - \sqrt{4 - x^2 - y^2}\).
+            <ol type="a"><li><p>
+                  What is the domain of \(h\)?  (Hint:  describe a set of ordered pairs in the plane by explaining their relationship relative to a key circle.)
+                </p></li><li><p>
+                  The <em>range</em> of a function is the set of all outputs the function generates.  Given that the range of the square root function \(g(t) = \sqrt{t}\) is the set of all nonnegative real numbers, what do you think is the range of \(h\)?  Why?
+                </p></li><li><p>
+                  Choose 4 different values from the range of \(h\) and plot the corresponding level curves in the plane.  What is the shape of a typical level curve?
+                </p></li><li><p>
+                  Choose 5 different values of \(x\) (including at least one negative value and zero), and sketch the corresponding traces of the function \(h\).
+                </p></li><li><p>
+                  Choose 5 different values of \(y\) (including at least one negative value and zero), and sketch the corresponding traces of the function \(h\).
+                </p></li><li><p>
+                  Sketch an overall picture of the surface generated by \(h\) and write at least one sentence to describe how the surface appears visually.  Does the surface remind you of a familiar physical structure in nature?
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

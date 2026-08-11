@@ -424,6 +424,67 @@ const BOOKS = {
       ]},
     ],
   },
+  // 1st edition specifically (Middlesex is deliberately not moving to the 2nd edition this
+  // year) — source is StevenSchlicker/AC3PreTeXt (ch. 9-11, dormant since Oct 2021 — matches
+  // the live activecalculus.org/multi1e/ "2022 DRAFT" colophon exactly) plus the
+  // active-calculus-vector repo's "first-edition" branch (ch. 12) — NOT its main branch,
+  // which switched to the 2nd edition in Aug 2026. Not OpenStax, so publisher/homepage are
+  // set explicitly rather than relying on the OpenStax-only defaults.
+  "active-calculus-multivariable": {
+    title: "Active Calculus — Multivariable",
+    license: { name: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0", url: "https://creativecommons.org/licenses/by-nc-sa/4.0/" },
+    source: { name: "Active Calculus - Multivariable (1st ed.)", url: "https://activecalculus.org/multi1e/frontmatter.html", author: "Steven Schlicker, Mitchel T. Keller, Nicholas Long" },
+    publisher: "the authors",
+    homepage: { url: "https://activecalculus.org/multi1e/frontmatter.html", label: "activecalculus.org/multi1e" },
+    sectionsDir: "sections/active-calculus-multivariable",
+    chapters: [
+      { n: 9, title: "Multivariable and Vector Functions", sections: [
+        { id: "9-1", title: "9.1 Functions of Several Variables and Three Dimensional Space", file: "9-1.html", ready: true },
+        { id: "9-2", title: "9.2 Vectors", file: "9-2.html", ready: true },
+        { id: "9-3", title: "9.3 The Dot Product", file: "9-3.html", ready: true },
+        { id: "9-4", title: "9.4 The Cross Product", file: "9-4.html", ready: true },
+        { id: "9-5", title: "9.5 Lines and Planes in Space", file: "9-5.html", ready: true },
+        { id: "9-6", title: "9.6 Vector-Valued Functions", file: "9-6.html", ready: true },
+        { id: "9-7", title: "9.7 Derivatives and Integrals of Vector-Valued Functions", file: "9-7.html", ready: true },
+        { id: "9-8", title: "9.8 Arc Length and Curvature", file: "9-8.html", ready: true },
+      ]},
+      { n: 10, title: "Derivatives of Multivariable Functions", sections: [
+        { id: "10-1", title: "10.1 Limits", file: "10-1.html", ready: false },
+        { id: "10-2", title: "10.2 First-Order Partial Derivatives", file: "10-2.html", ready: false },
+        { id: "10-3", title: "10.3 Second-Order Partial Derivatives", file: "10-3.html", ready: false },
+        { id: "10-4", title: "10.4 Linearization: Tangent Planes and Differentials", file: "10-4.html", ready: false },
+        { id: "10-5", title: "10.5 The Chain Rule", file: "10-5.html", ready: false },
+        { id: "10-6", title: "10.6 Directional Derivatives and the Gradient", file: "10-6.html", ready: false },
+        { id: "10-7", title: "10.7 Optimization", file: "10-7.html", ready: false },
+        { id: "10-8", title: "10.8 Constrained Optimization: Lagrange Multipliers", file: "10-8.html", ready: false },
+      ]},
+      { n: 11, title: "Multiple Integrals", sections: [
+        { id: "11-1", title: "11.1 Double Riemann Sums and Double Integrals over Rectangles", file: "11-1.html", ready: false },
+        { id: "11-2", title: "11.2 Iterated Integrals", file: "11-2.html", ready: false },
+        { id: "11-3", title: "11.3 Double Integrals over General Regions", file: "11-3.html", ready: false },
+        { id: "11-4", title: "11.4 Applications of Double Integrals", file: "11-4.html", ready: false },
+        { id: "11-5", title: "11.5 Double Integrals in Polar Coordinates", file: "11-5.html", ready: false },
+        { id: "11-6", title: "11.6 Surfaces Defined Parametrically and Surface Area", file: "11-6.html", ready: false },
+        { id: "11-7", title: "11.7 Triple Integrals", file: "11-7.html", ready: false },
+        { id: "11-8", title: "11.8 Triple Integrals in Cylindrical and Spherical Coordinates", file: "11-8.html", ready: false },
+        { id: "11-9", title: "11.9 Change of Variables", file: "11-9.html", ready: false },
+      ]},
+      { n: 12, title: "Vector Calculus", sections: [
+        { id: "12-1", title: "12.1 Vector Fields", file: "12-1.html", ready: false },
+        { id: "12-2", title: "12.2 The Idea of a Line Integral", file: "12-2.html", ready: false },
+        { id: "12-3", title: "12.3 Using Parametrizations to Calculate Line Integrals", file: "12-3.html", ready: false },
+        { id: "12-4", title: "12.4 Path-Independent Vector Fields and the Fundamental Theorem of Calculus for Line Integrals", file: "12-4.html", ready: false },
+        { id: "12-5", title: "12.5 Line Integrals of Scalar Functions", file: "12-5.html", ready: false },
+        { id: "12-6", title: "12.6 The Divergence of a Vector Field", file: "12-6.html", ready: false },
+        { id: "12-7", title: "12.7 The Curl of a Vector Field", file: "12-7.html", ready: false },
+        { id: "12-8", title: "12.8 Green's Theorem", file: "12-8.html", ready: false },
+        { id: "12-9", title: "12.9 Flux Integrals", file: "12-9.html", ready: false },
+        { id: "12-10", title: "12.10 Surface Integrals of Scalar Valued Functions", file: "12-10.html", ready: false },
+        { id: "12-11", title: "12.11 Stokes' Theorem", file: "12-11.html", ready: false },
+        { id: "12-12", title: "12.12 The Divergence Theorem", file: "12-12.html", ready: false },
+      ]},
+    ],
+  },
 };
 const DEFAULT_BOOK = "college-algebra-2e";
 
@@ -584,10 +645,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // footer text untouched.
   const footer = document.body.dataset.book ? document.querySelector("footer.attribution") : null;
   if (footer) {
+    // publisher/homepage default to OpenStax for backward compat — every book before
+    // Active Calculus was OpenStax and never set these fields explicitly.
+    const publisher = BOOK.publisher || "OpenStax";
+    const home = BOOK.homepage || { url: "https://openstax.org", label: "openstax.org" };
     footer.innerHTML =
-      `Content from <a href="${BOOK.source.url}">${BOOK.source.name}</a> by ${BOOK.source.author}, © OpenStax, licensed under ` +
+      `Content from <a href="${BOOK.source.url}">${BOOK.source.name}</a> by ${BOOK.source.author}, © ${publisher}, licensed under ` +
       `<a href="${BOOK.license.url}">${BOOK.license.name}</a>. ` +
-      `OpenStax is not affiliated with this site and does not endorse it. Access the original free at <a href="https://openstax.org">openstax.org</a>.`;
+      `This site is not affiliated with ${publisher} and is not endorsed by them. Access the original free at <a href="${home.url}">${home.label}</a>.`;
   }
 
   // math
@@ -598,6 +663,21 @@ document.addEventListener("DOMContentLoaded", () => {
         { left: "\\[", right: "\\]", display: true },
       ],
       throwOnError: false,
+      // Active Calculus - Multivariable's own LaTeX preamble (docinfo/macros in merge.mbx)
+      // defines these bold-vector shorthands -- without them KaTeX has no idea what \vu/\vv/
+      // etc. mean and just prints the raw macro name as literal text. Harmless to declare
+      // globally: none of these short names collide with anything in the OpenStax books.
+      macros: {
+        "\\R": "\\mathbb{R}",
+        "\\va": "\\mathbf{a}", "\\vb": "\\mathbf{b}", "\\vc": "\\mathbf{c}", "\\vC": "\\mathbf{C}",
+        "\\vd": "\\mathbf{d}", "\\ve": "\\mathbf{e}", "\\vi": "\\mathbf{i}", "\\vj": "\\mathbf{j}",
+        "\\vk": "\\mathbf{k}", "\\vn": "\\mathbf{n}", "\\vm": "\\mathbf{m}", "\\vr": "\\mathbf{r}",
+        "\\vs": "\\mathbf{s}", "\\vu": "\\mathbf{u}", "\\vv": "\\mathbf{v}", "\\vw": "\\mathbf{w}",
+        "\\vx": "\\mathbf{x}", "\\vy": "\\mathbf{y}", "\\vz": "\\mathbf{z}", "\\vzero": "\\mathbf{0}",
+        "\\vF": "\\mathbf{F}", "\\vR": "\\mathbf{R}", "\\vT": "\\mathbf{T}", "\\vN": "\\mathbf{N}",
+        "\\vL": "\\mathbf{L}", "\\vB": "\\mathbf{B}",
+        "\\proj": "\\text{proj}", "\\comp": "\\text{comp}",
+      },
     });
   }
 
@@ -760,7 +840,7 @@ function initSearch(root, topbar) {
 function buildOutline(container) {
   const main = document.querySelector("main");
   if (!main || !container) return;
-  const nodes = main.querySelectorAll("h2[id], .example, .tryit, .card.qa, .card.howto");
+  const nodes = main.querySelectorAll("h2[id], .example, .tryit, .card.qa, .card.howto, .card.activity");
   const norm = s => (s || "").replace(/\s+/g, " ").trim();
   const short = (s, n = 36) => {
     s = norm(s);
@@ -779,13 +859,17 @@ function buildOutline(container) {
     return cut + "…";
   };
   const groups = []; let cur = null;
-  const counters = { ex: 0, qa: 0, how: 0 };
+  const counters = { ex: 0, qa: 0, how: 0, act: 0 };
   nodes.forEach(el => {
     if (el.closest("details.bigfold")) return;           // skip optional warm-up content
     if (el.tagName === "H2") { cur = { id: el.id, title: norm(el.textContent), items: [] }; groups.push(cur); return; }
     if (!cur) return;
     let id, badge, cls, label;
-    if (el.classList.contains("example")) {
+    if (el.classList.contains("activity")) {
+      id = el.id || (el.id = "activity-" + (++counters.act));
+      badge = el.classList.contains("preview") ? "PA" : "Act"; cls = "b-act";
+      label = short(el.querySelector(".ex-head .num")?.textContent || "Activity");
+    } else if (el.classList.contains("example")) {
       id = el.id || (el.id = "example-" + (++counters.ex)); badge = "Ex"; cls = "b-ex";
       const num = el.querySelector(".ex-head .num")?.textContent || "Example";
       const t = el.querySelector(".ex-head .t")?.textContent || "";

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derivatives and Integrals of Vector-Valued Functions · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Derivatives and Integrals of Vector-Valued Functions</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 9.7</span>Derivatives and Integrals of Vector-Valued Functions</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What do we mean by the derivative of a vector-valued function
+              and how do we calculate it?
+            </p></li><li><p>
+              What does the derivative of a vector-valued function measure?
+            </p></li><li><p>
+              What do we mean by the integral of a vector-valued function and
+              how do we compute it?
+            </p></li><li><p>
+              How do we describe the motion of a projectile if the only force
+              acting on the object is acceleration due to gravity?
+            </p></li></ul></div>
+<p>
+      A vector-valued function \(\vr\) determines a curve in space as the
+      collection of terminal points of the vectors \(\vr(t)\). If the curve is
+      smooth, it is natural to ask whether \(\vr(t)\) has a derivative. In
+      the same way, our experiences with integrals in single-variable
+      calculus prompt us to wonder what the integral of a vector-valued
+      function might be and what it might tell us. We
+      explore both of these questions in detail in this section.
+    </p><p>
+      For now, let's recall some important ideas from calculus I. Given a
+      function \(s\) that measures the position of an object moving along
+      an axis, its derivative, \(s'\), is defined by
+      \[
+        s'(t) = \lim_{h \to 0} \frac{s(t+h) - s(t)}{h},
+      \]
+      and measures the instantaneous rate of change of \(s\) with respect to
+      time. In particular, for a fixed value \(t = a\), \(s'(a)\) measures the
+      velocity of the moving object, as well as the slope of the tangent
+      line to the curve \(y = s(t)\) at the point \((a,s(a))\).
+    </p><p>
+      As we work with vector-valued functions, we will strive to update
+      these ideas and perspectives into the context of curves in space and
+      outputs that are vectors.
+    </p><div class="card activity preview" id="PA_9_7"><div class="ex-head"><span class="num">Preview Activity 9.7.1</span></div><div class="ex-body"><p>
+        Let \(\vr(t) = \cos(t) \vi + \sin(2t) \vj\) describe the path traveled by an object at time \(t\).
+        <ol type="a"><li><p>
+              Use appropriate technology to help you sketch the graph of the vector-valued function \(\vr\), and then locate and label the point on the graph when \(t=\pi\).
+            </p></li><li><p>
+              Recall that for functions of a single variable, the derivative of a sum is the sum of the derivatives; that is, \(\frac{d}{dx}[f(x) + g(x)] = f'(x) + g'(x)\). With this idea in mind and viewing \(\vi\) and \(\vj\) as constant vectors, what do you expect the derivative of \(\vr\) to be?  Write a proposed formula for \(\vr'(t)\).
+            </p></li><li><p>
+              Use your result from part (b) to compute \(\vr'(\pi)\). Sketch this vector \(\vr'(\pi)\) as emanating from the point on the graph of \(\vr\) when \(t=\pi\) , and explain what you think \(\vr'(\pi)\) tells us about the object's motion.
+            </p></li></ol>
+      </p></div></div>
+<h2 id="the-derivative">The Derivative</h2>
+<p>
+      In single variable calculus, we define the derivative, \(f'\), of a
+      given function \(f\) by
+      \[
+        f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h},
+      \]
+      provided the limit exists. At a given value of \(a\), \(f'(a)\) measures
+      the instantaneous rate of change of \(f\), and also tells us the slope
+      of the tangent line to the curve \(y = f(x)\) at the point \((a, f(a))\).
+      The definition of the derivative extends naturally to vector-valued
+      functions and curves in space.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          The
+          <em>derivative</em> of a
+          vector-valued function \(\vr\) is defined to be
+          \[
+            \vr'(t) = \lim_{h \to 0} \frac{\vr(t+h)-\vr(t)}{h}
+          \]
+          for those values of \(t\) at which the limit exists. We also use the
+          notation \(\frac{d\vr}{dt}\) and \(\frac{d}{dt}[\vr(t)]\) for
+          \(\vr'(t)\).
+        </p></div><div class="card activity" id="A_9_7_1"><div class="ex-head"><span class="num">Activity 9.7.2</span></div><div class="ex-body"><p>
+        Let's investigate how we can interpret the derivative \(\vr'(t)\). Let \(\vr\) be the vector-valued function whose graph is shown in <a href="#F_9_7_VVF_tan_vector">Figure 9.7.1</a>, and let \(h\) be a scalar that represents a small change in time. The vector \(\vr(t)\) is the blue vector in <a href="#F_9_7_VVF_tan_vector">Figure 9.7.1</a> and \(\vr(t+h)\) is the green vector.
+      </p><figure class="plot" id="F_9_7_VVF_tan_vector"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_curve_1.svg" alt=""><figcaption>Figure 9.7.1 — A single difference quotient.</figcaption></figure><ol type="a"><li><p>
+            Is the quantity \(\vr(t+h)-\vr(t)\) a vector or a scalar? Identify this object in <a href="#F_9_7_VVF_tan_vector">Figure 9.7.1</a>.
+          </p></li><li><p>
+            Is \(\frac{\vr(t+h)-\vr(t)}{h}\) a vector or a scalar? Sketch a representative vector \(\frac{\vr(t+h)-\vr(t)}{h}\) with \(h \lt  1\) in <a href="#F_9_7_VVF_tan_vector">Figure 9.7.1</a>.
+          </p></li><li><p>
+            Think of \(\vr(t)\) as providing the position of an object moving along the curve these vectors trace out.  What do you think that the vector \(\frac{\vr(t+h)-\vr(t)}{h}\) measures? Why?  (Hint: You might think analogously about difference quotients such as \(\frac{f(x+h) - f(x)}{h}\) or \(\frac{s(t+h) - s(t)}{h}\) from calculus I.)
+          </p></li><li><p>
+            <a href="#F_9_7_VVF_tan_vector_quotients">Figure 9.7.2</a> presents three snapshots of the vectors \(\frac{\vr(t+h)-\vr(t)}{h}\) as we let \(h \to 0\). Write 2-3 sentences to describe key attributes of the vector
+            \[
+              \lim_{h \to 0} \frac{\vr(t+h)-\vr(t)}{h}.
+            \]
+            (Hint: Compare to limits such as \(\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\) or \(\lim_{h \to 0} \frac{s(t+h) - s(t)}{h}\) from calculus I, keeping in mind that in three dimensions there is no general concept of slope.)
+          </p></li></ol><figure class="plot" id="F_9_7_VVF_tan_vector_quotients"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_animate_02.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_animate_04.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_animate_06.svg" alt=""></div></div><figcaption>Figure 9.7.2 — Snapshots of several difference quotients.</figcaption></figure></div></div><p>
+      As <a href="#A_9_7_1">Activity 9.7.2</a> indicates, if \(\vr(t)\) determines the
+      position of an object at time \(t\), then \(\frac{\vr(t+h)-\vr(t)}{h}\)
+      represents the average rate of change in the position of the object over the
+      interval \([t,t+h]\), which is also the average velocity of the object
+      on this interval. Thus, the derivative
+      \[
+        \vr'(t) = \lim_{h \to 0} \frac{\vr(t+h)-\vr(t)}{h}
+      \]
+      is the
+      instantaneous rate of change of \(\vr(t)\) at time \(t\) (for those values
+      of \(t\) for which the limit exists), so \(\vr'(t) = \vv(t)\) is the
+      instantaneous velocity of the object at time \(t\). Furthermore, we can
+      interpret the derivative \(\vr'(t)\) as the direction vector of the line
+      tangent to the graph of \(\vr\) at the value \(t\).
+    </p><p>
+      Similarly,
+      \[
+        \vv'(t) = \vr''(t) = \lim_{h \to 0} \frac{\vv(t+h)-\vv(t)}{h}
+      \]
+      is
+      the instantaneous rate of change of the velocity of the object at time
+      \(t\), for those values of \(t\) for which the limits exists, and thus
+      \(\vv'(t) = \va(t)\) is the acceleration of the moving object.
+    </p><p>
+      <em>Note well:</em> Both the velocity and acceleration are <em>vector
+      quantities</em>: they have magnitude and direction. By contrast, the
+      magnitude of the velocity vector, \(| \vv(t) |\), which is the <em>speed</em> of
+      the object at time \(t\), is a scalar quantity.
+    </p>
+<h2 id="computing-derivatives">Computing Derivatives</h2>
+<p>
+      As we learned in single variable calculus, computing derivatives from
+      the definition is often difficult. Fortunately, properties of the
+      limit make it straightforward to calculate the derivative of a
+      vector-valued function similar to how we developed
+      shortcut differentiation rules in calculus I. To see why, recall that
+      the limit of a sum is the sum of the limits, and that we can remove
+      constant factors from limits. Thus, as we observed in a particular
+      example in <a href="#PA_9_7">Preview Activity 9.7.1</a>, if \(\vr(t) = x(t) \vi + y(t)
+      \vj + z(t) \vk\), it follows that
+      \[\begin{aligned}\vr'(t) = \mathstrut &amp;  \lim_{h \to 0} \frac{\vr(t+h)-\vr(t)}{h} \\
+ = \mathstrut &amp; \lim_{h \to 0} \frac{[x(t+h)-x(t)] \vi + [y(t+h)-y(t)] \vj +
+        [z(t+h)-z(t)] \vk}{h} \\
+ = \mathstrut &amp; \left(\lim_{h \to 0} \frac{x(t+h)-x(t)}{h}
+        \right) \vi + \left( \lim_{h \to 0} \frac{y(t+h)-y(t)}{h} \right) \vj \\
+ \mathstrut &amp;  + \left( \lim_{h \to 0} \frac{z(t+h)-z(t)}{h} \right)\vk \\
+\mathstrut &amp; = x'(t)\vi + y'(t) \vj + z'(t) \vk.\end{aligned}\]
+    </p><p>
+      Thus, we can calculate the derivative of a vector-valued function by
+      simply differentiating its components.
+    </p><div class="card callout" id="Vector-valued-function-derivative"><span class="chip">The derivative of a vector-valued function</span><p>
+      If \(\vr(t) = x(t) \vi + y(t) \vj + z(t) \vk\), then
+      \[
+        \frac{d}{dt} \vr(t) = x'(t) \vi + y'(t) \vj + z'(t) \vk
+      \]
+      for those
+      values of \(t\) at which \(x\), \(y\), and \(z\) are differentiable.
+    </p></div><div class="card activity" id="A_9_7_2"><div class="ex-head"><span class="num">Activity 9.7.3</span></div><div class="ex-body"><p>
+        For each of the following vector-valued functions, find \(\vr'(t)\).
+        <ol type="a"><li><p>
+              \(\vr(t) = \langle \cos(t), t\sin(t), \ln(t) \rangle\).
+            </p></li><li><p>
+              \(\vr(t) = \langle t^2 + 3t, e^{-2t}, \frac{t}{t^2 + 1} \rangle\).
+            </p></li><li><p>
+              \(\vr(t) = \langle \tan(t), \cos(t^2), te^{-t} \rangle\).
+            </p></li><li><p>
+              \(\vr(t) = \langle \sqrt{t^4 + 4}, \sin(3t), \cos(4t) \rangle\).
+            </p></li></ol>
+      </p></div></div><p>
+      In first-semester calculus, we developed several important
+      differentiation rules, including the constant multiple, product,
+      quotient, and chain rules. For instance, recall that we formally
+      state the product rule as
+      \[
+        \frac{d}{dx}[f(x) \cdot g(x)] = f(x)\cdot g'(x) + g(x)\cdot f'(x).
+      \]
+    </p><p>
+      There are several analogous rules for vector-valued functions,
+      including a product rule for scalar functions and vector-valued
+      functions. These rules, which are easily verified, are summarized as
+      follows.
+    </p><div class="card callout" id="Vector-valued-functions-derivative-propoerties"><span class="chip">Properties of derivatives of vector-valued functions</span><p>
+      Let \(f\) be a differentiable
+      real-valued function of a real variable \(t\) and let \(\vr\) and \(\vs\) be
+      differentiable vector-valued functions of the real variable \(t\). Then
+      <ol><li><p>
+            \(\frac{d}{dt} \left[\vr(t) + \vs(t) \right] = \vr'(t) +
+            \vs'(t)\)
+          </p></li><li><p>
+            \(\frac{d}{dt} [f(t) \vr(t)] = f(t) \vr'(t) + f'(t) \vr(t)\)
+          </p></li><li><p>
+            \(\frac{d}{dt} \left[\vr(t) \cdot \vs(t) \right] = \vr'(t)
+            \cdot \vs(t) + \vr(t) \cdot \vs'(t)\)
+          </p></li><li><p>
+            \(\frac{d}{dt} \left[\vr(t) \times \vs(t) \right] = \vr'(t)
+            \times \vs(t) + \vr(t) \times \vs'(t)\)
+          </p></li><li><p>
+            \(\frac{d}{dt} \left[\vr(f(t))\right] = f'(t) \vr'(f(t))\).
+          </p></li></ol>
+    </p></div><p>
+      <em>Note well.</em> When applying these properties, use care to
+      interpret the quantities involved as either scalars or vectors.
+      For example, \(\vr(t) \cdot \vs(t)\) defines a scalar function
+      because we have taken the dot product of two vector-valued functions.
+      However, \(\vr(t) \times \vs(t)\) defines a vector-valued function since we
+      have taken the cross product of two vector-valued functions.
+    </p><div class="card activity" id="A_9_7_8"><div class="ex-head"><span class="num">Activity 9.7.4</span></div><div class="ex-body"><p>
+        The left side of <a href="#F_9_7_space_curve">Figure 9.7.3</a> shows the curve described by the
+        vector-valued function \(\vr\) defined by
+        \[
+          \vr(t) = \left\langle 2t-\frac12 t^2 + 1,
+                  t-1\right\rangle.
+        \]
+      </p><figure class="plot" id="F_9_7_space_curve"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_space_curve.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_speed_graph.svg" alt=""></div></div><figcaption>Figure 9.7.3 — The curve \(\vr(t) = \left\langle 2t-\frac12 t^2 + 1,
+                t-1\right\rangle\) and its speed.</figcaption></figure><ol type="a"><li><p>
+            Find the object's velocity \(\vv(t)\).
+          </p></li><li><p>
+            Find the object's acceleration \(\va(t)\).
+          </p></li><li><p>
+            Indicate on the left of <a href="#F_9_7_space_curve">Figure 9.7.3</a> the object's
+              position, velocity and acceleration at the times \(t=0, 2, 4\).  Draw
+              the velocity and acceleration vectors with their tails placed at the
+              object's position.
+          </p></li><li><p>
+            Recall that the speed is \(|\vv| = \sqrt{\vv\cdot\vv}\). Find the object's speed and graph it as a function of time \(t\) on the right of <a href="#F_9_7_space_curve">Figure 9.7.3</a>.  When is the
+              object's speed the slowest?  When is the speed increasing?  When is
+              it decreasing?
+          </p></li><li><p>
+            What seems to be true about the angle between \(\vv\) and \(\va\) when the speed
+              is at a minimum?  What is the angle between \(\vv\) and \(\va\)
+              when the speed is increasing?  when the speed is decreasing?
+          </p></li><li><p>
+            Since the square root is an increasing function, we see that the speed
+              increases precisely when \(\vv\cdot\vv\) is increasing.  Use the
+              product rule for the dot product to express
+              \(\frac{d}{dt}(\vv\cdot\vv)\) in terms of the velocity \(\vv\) and
+              acceleration \(\va\).  Use this to explain why the speed is increasing
+              when \(\vv\cdot\va &gt; 0\) and decreasing when
+              \(\vv\cdot\va \lt  0\). Compare this to part (d).
+          </p></li><li><p>
+            Show that the speed's rate of change is
+            \[
+              \frac{d}{dt}|\vv(t)| = \comp_{\vv} \va.
+            \]
+          </p></li></ol></div></div>
+<h2 id="tangent-lines">Tangent Lines</h2>
+<p>
+      One of the most important ideas in first-semester calculus is that a
+      differentiable function is <em>locally linear</em>: that is, when viewed
+      up close, the curve generated by a differentiable function looks very
+      much like a line. Indeed, when we zoom in sufficiently far on a
+      particular point, the curve looks indistinguishable from its tangent
+      line.
+    </p><p>
+      In the same way, we expect that a smooth curve in 3-space will be
+      locally linear. In the following activity, we investigate how to find
+      the tangent line to such a curve. Recall from our work in
+      <a href="9-5.html#the-parametric-equations-of-a-line">Section 9.5</a> that the vector equation of a line that
+      passes through the point at the tip of the vector \(\vL_0 = \langle
+      x_0, y_0, z_0 \rangle\) in the direction of the vector \(\vu = \langle
+      a, b, c \rangle\) can be written as
+      \[
+        \vL(t) = \vL_0 + t \vu.
+      \]
+    </p><p>
+      In parametric form, the line \(\vL\) is given by
+      \[
+        x(t) = x_0 + at, \ \ y(t) = y_0 + bt, \ \ z(t) = z_0 + ct.
+      \]
+    </p><div class="card activity" id="A_9_7_4"><div class="ex-head"><span class="num">Activity 9.7.5</span></div><div class="ex-body"><p>
+        Let
+        \[
+          \vr(t) = \cos(t) \vi - \sin(t) \vj + t \vk.
+        \]
+        Sketch the curve using some appropriate tool. 
+        <ol type="a"><li><p>
+              Determine the coordinates of the point on the curve traced out by \(\vr(t)\) when \(t = \pi\).
+            </p></li><li><p>
+              Find a direction vector for the line tangent to the graph of \(\vr\) at the point where \(t=\pi\).
+            </p></li><li><p>
+              Find the parametric equations of the line tangent to the graph of \(\vr\) when \(t=\pi\).
+            </p></li><li><p>
+              Sketch a plot of the curve \(\vr(t)\) and its tangent line near the point where \(t = \pi\).  In addition, include a sketch of \(\vr'(\pi)\).  What is the important role of \(\vr'(\pi)\) in this activity?
+            </p></li></ol>
+      </p></div></div><p>
+      We see that our work in <a href="#A_9_7_4">Activity 9.7.5</a> can be generalized.
+      Given a differentiable vector-valued function \(\vr\), the tangent
+      line to the curve at the input value \(a\) is given by
+      <span id="E_TanLineVecFxn">\[
+        \vL(t) = \vr(a) + t \vr'(a).
+      \tag{9.7.1}\]</span>
+    </p><p>
+      Here we see that because the tangent line is determined
+      entirely by a given point and direction, the point is provided by the
+      function \(\vr\), evaluated at \(t = a\), while the direction is
+      provided by the derivative, \(\vr'\), again evaluated at \(t = a\).
+      Note how analogous the formula for \(\vL(t)\) is to the tangent line
+      approximation from single-variable calculus: in that context, for a
+      given function \(y = f(x)\) at a value \(x = a\), we found that the
+      tangent line can be expressed by the linear function \(y = L(x)\) whose
+      formula is
+      \[
+        L(x) = f(a) + f'(a)(x-a).
+      \]
+    </p><p>
+      Equation&nbsp;<a href="#E_TanLineVecFxn">(9.7.1)</a> for the tangent line \(\vL(t)\) to the vector-valued function \(\vr(t)\) is nearly identical. Indeed, because there are multiple parameterizations for a single line, it is even possible to write the parameterization
+      as
+      <span id="E_TanLineVecFxn2">\[
+        \vL(t) = \vr(a) + (t-a)
+        \vr'(a).
+      \tag{9.7.2}\]</span>
+      (For example, in Equation&nbsp;<a href="#E_TanLineVecFxn">(9.7.1)</a>, \(\vL(0) = \vr(a)\), so the line's parameterization &ldquo;starts&rdquo; at \(t = 0\).  When we write the parameterization in the form of
+      Equation&nbsp;<a href="#E_TanLineVecFxn2">(9.7.2)</a>, \(\vL(a) = \vr(a)\), so the line's parameterization &ldquo;starts&rdquo; at \(t = a\).)
+    </p><p>
+      As we will learn more in Chapter 10, a smooth surface in 3-space is
+      also locally linear. That means that the surface will look like a
+      plane, which we call its <em>tangent plane</em>, as we zoom in on the
+      graph. It is possible to use tangent lines to traces of the surface
+      to generate a formula for the tangent plane; see
+      <a href="#Ez_9_7_3">Exercise 15</a> at the end of this section for more details.
+    </p>
+<h2 id="integrating-a-vector-valued-function">Integrating a Vector-Valued Function</h2>
+<p>
+      Recall from single variable calculus that an antiderivative of a
+      function \(f\) of the independent variable \(x\) is a function \(F\) that
+      satisfies \(F'(x) = f(x)\). We then defined the indefinite integral
+      \(\int f(x) \ dx\) to be the general antiderivative of \(f\). Recall that
+      the general antiderivative includes an added constant \(C\) in order to
+      indicate that the general antiderivative is in fact an entire family
+      of functions. We can do the similar work with vector-valued functions.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          An
+          <em>antiderivative</em>
+          of a vector-valued function \(\vr\) is a vector-valued function \(\vR\)
+          such that
+          \[
+            \vR'(t) = \vr(t).
+          \]
+        </p><p>
+          The <em>indefinite integral</em> \(\int \vr(t) \ dt\) of a vector-valued
+          function \(\vr\) is the general antiderivative of \(\vr\) and represents the
+          collection of all antiderivatives of \(\vr\).
+        </p></div><p>
+      The same reasoning that allows us to differentiate a vector-valued
+      function componentwise applies to integrating as well. Recall that the
+      integral of a sum is the sum of the integrals and also that we can
+      remove constant factors from integrals. So, given \({\vr(t) = x(t) \vi
+      + y(t) \vj + z(t) \vk}\), it follows that we can integrate
+      componentwise. Expressed more formally,
+    </p><div class="card callout" id="Vector-valued-function-integral"><span class="chip">Integrating a vector-valued function</span><p>
+      If \(\vr(t) = x(t) \vi + y(t) \vj + z(t) \vk\), then
+      \[
+        \int \vr(t) \ dt = \left(\int x(t) \ dt\right) \vi + \left( \int
+        y(t) \ dt \right) \vj + \left(\int z(t) \ dt\right) \vk.
+      \]
+    </p></div><p>
+      In light of being able to integrate and differentiate componentwise
+      with vector-valued functions, we can solve many problems that are
+      analogous to those we encountered in single-variable calculus. For
+      instance, recall problems where we were given an object moving along
+      an axis with velocity function \(v\) and an initial position \(s(0)\).
+      In that context, we were able to differentiate \(v\) in order to find
+      acceleration, and integrate \(v\) and use the initial condition in order
+      to find the position function \(s\). In the following activity, we
+      explore similar ideas with vector-valued functions.
+    </p><div class="card activity" id="A_9_7_7"><div class="ex-head"><span class="num">Activity 9.7.6</span></div><div class="ex-body"><p>
+        Suppose a moving object in space has its velocity given by
+        \[
+          \vv(t) = (-2\sin(2t)) \vi + (2 \cos(t)) \vj + \left(1 - \frac{1}{1+t}\right) \vk.
+        \]
+      </p><p>
+        A graph of the position of the object for times \(t\) in \([-0.5,3]\) is shown in <a href="#F_9_7_VVD_Example">Figure 9.7.4</a>. Suppose further that the object is at the point \((1.5,-1,0)\) at time \(t=0\).
+        <ol type="a"><li><p>
+              Determine \(\va(t)\), the acceleration of the object at time \(t\).
+            </p></li><li><p>
+              Determine \(\vr(t)\), position of the object at time \(t\).
+            </p></li><li><p>
+              Compute and sketch the position, velocity, and acceleration vectors of the object at time \(t=1\), using <a href="#F_9_7_VVD_Example">Figure 9.7.4</a>.
+            </p></li><li><p>
+              Finally, determine the vector equation for the tangent line, \(\vL(t)\), that is tangent to the position curve at \(t = 1\).
+            </p></li></ol>
+      </p><figure class="plot" id="F_9_7_VVD_Example"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_activity.svg" alt=""><figcaption>Figure 9.7.4 — The position graph for the function in <a href="#A_9_7_7">Activity 9.7.6</a>.</figcaption></figure></div></div>
+<h2 id="projectile-motion">Projectile Motion</h2>
+<p>
+      Any time that an object is launched into the air with a given velocity
+      and launch angle, the path the object travels is determined almost
+      exclusively by the force of gravity. Whether in sports such as
+      archery or shotput, in military applications with artillery, or in
+      important fields like firefighting, it is important to be able to know
+      when and where a launched projectile will land. We can use our
+      knowledge of vector-valued functions in order to completely determine
+      the path traveled by an object that is launched from a given position
+      at a given angle from the horizontal with a given initial velocity.
+    </p><figure class="plot" id="F_9_7_Motion"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_projectile.svg" alt=""><figcaption>Figure 9.7.5 — Projectile motion.</figcaption></figure><p>
+      Assume we fire a projectile from a launcher and the only force acting
+      on the fired object is the force of gravity pulling down on the
+      object. That is, we assume no effect due to spin, wind, or air
+      resistance. With these assumptions, the motion of the object will be
+      planar, so we can also assume that the motion occurs in
+      two-dimensional space. Suppose we launch the object from an initial
+      position \((x_0, y_0)\) at an angle \(\theta\) with the positive \(x\)-axis
+      as illustrated in <a href="#F_9_7_Motion">Figure 9.7.5</a>, and that we fire the
+      object with an initial speed of \(v_0 = |\vv(0)|\), where \(\vv(t)\) is
+      the velocity vector of the object at time \(t\). Assume \(g\) is the
+      positive constant acceleration force due to gravity, which acts to
+      pull the fired object toward the ground (in the negative \(y\)
+      direction). Note particularly that there is no external force acting
+      on the object to move it in the \(x\) direction.
+    </p><p>
+      We first observe that since gravity only acts in the downward
+      direction and that the acceleration due to gravity is constant,
+      the acceleration vector is \(\langle 0, -g
+      \rangle\). That is, \(\va(t) = \langle 0, -g \rangle\). We may use this
+      fact about acceleration, together with the initial position and
+      initial velocity in order to fully determine the position \(\vr(t)\) of the object at time \(t\). In <a href="#Ez_9_7_5">Exercise 17</a>, you
+      can work through the details to show that the following general
+      formula holds.
+    </p><div class="card callout" id="Projectile-motion"><span class="chip">The motion of a projectile</span><p>
+      If an object is launched from a point \((x_0,y_0)\)
+      with initial velocity \(v_0\) at an angle \(\theta\) with the horizontal,
+      then the position of the object at time \(t\) is given by
+      \[
+        \vr(t) = \left\langle v_0 \cos(\theta)t + x_0, -\frac{g}{2}t^2 + v_0
+        \sin(\theta)t + y_0 \right\rangle.
+      \]
+    </p></div><p>
+      This assumes that the only force
+      acting on the object is the acceleration \(g\) due to
+      gravity.
+    </p>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          If \(\vr\) is a vector-valued function, then the derivative of
+          \(\vr\) is defined by
+          \[
+            \vr'(t) = \lim_{h \to 0} \frac{\vr(t+h)-\vr(t)}{h}
+          \]
+          for those
+          values of \(t\) at which the limit exists, and is computed componentwise
+          by the formula
+          \[
+            \vr'(t) = x'(t) \vi + y'(t) \vj + z'(t) \vk
+          \]
+          for those values of
+          \(t\) at which \(x\), \(y\), and \(z\) are differentiable, where \(\vr(t) =
+          x(t) \vi + y(t) \vj + z(t) \vk\).
+        </p></li><li><p>
+          The derivative \(\vr'(t)\) of the vector-valued function \(\vr\)
+          tells us the instantaneous rate of change of \(\vr\) with respect to
+          time, \(t\), which can be interpreted as a direction vector for the line
+          tangent to the graph of \(\vr\) at the point \(\vr(t)\), or also as the
+          instantaneous velocity of an object traveling along the graph defined
+          by \(\vr(t)\) at time \(t\).
+        </p></li><li><p>
+          An antiderivative of \(\vr\) is a vector-valued function \(\vR\)
+          such that \(\vR'(t) = \vr(t)\).  The indefinite integral \(\int \vr(t) \
+          dt\) of a vector-valued function \(\vr\) is the general antiderivative of
+          \(\vr\) (which is a collection of all of the antiderivatives of \(\vr\),
+          with any two antiderivatives differing by at most a constant vector).
+          Moreover, if \(\vr(t) = x(t) \vi + y(t) \vj + z(t) \vk\), then
+          \[
+            \int \vr(t) \ dt = \left(\int x(t) \ dt\right) \vi + \left( \int
+            y(t) \ dt \right) \vj + \left(\int z(t) \ dt\right) \vk.
+          \]
+        </p></li><li><p>
+          If an object is launched from a point \((x_0,y_0)\) with initial
+          velocity \(v_0\) at an angle \(\theta\) with the horizontal, then the
+          position of the object at time \(t\) is given by
+          \[
+            \vr(t) = \left\langle v_0 \cos(\theta)t + x_0, -\frac{g}{2}t^2 + v_0
+            \sin(\theta)t + y_0 \right\rangle,
+          \]
+          provided that that the only force
+          acting on the object is the acceleration \(g\) due to gravity.
+        </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-7">Exercises</h2><p>
+        The WeBWorK problems are written by many different authors. Some authors use parentheses when writing vectors, e.g., \((x(t),y(t),z(t))\) instead of angle brackets \(\langle x(t),y(t),z(t) \rangle\). Please keep this in mind when working WeBWorK exercises. 
+      </p><div class="exercise" id="ex-9-7-WW-velocity-acceleration"><div class="n">1</div><div class="body"><p>If \(\mathbf{r} (t) = \cos (-8 t) \mathbf{i} + \sin (-8 t) \mathbf{j} + 6 t \mathbf{k}\),
+compute:</p><p>A. The velocity vector \(\mathbf{v} (t) =\) <span class="blank">_______________</span> \(\mathbf{i} +\) <span class="blank">_______________</span> \(\mathbf{j} +\) <span class="blank">_______________</span> \(\mathbf{k}\)</p><p>B. The acceleration vector \(\mathbf{a} (t) =\) <span class="blank">_______________</span> \(\mathbf{i} +\)
+<span class="blank">_______________</span> \(\mathbf{j} +\) <span class="blank">_______________</span> \(\mathbf{k}\)</p><p><em> Note:</em> the coefficients in your answers must be entered in 
+the form of expressions in the variable
+\(t\); e.g. &ldquo;5 cos(2t)&rdquo;</p><div class="answer"><button>Show answer</button><div class="a"><p>\(8\sin\mathopen{}\left(-8t\right)\), \(-8\cos\mathopen{}\left(-8t\right)\), \(6\), \(-64\cos\mathopen{}\left(-8t\right)\), \(-64\sin\mathopen{}\left(-8t\right)\), \(0\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-velocity-position"><div class="n">2</div><div class="body"><p>Given that the acceleration vector is \(\mathbf{a} \left( t \right) = \left(
+-16 \cos \left( -4 t \right) \right) \mathbf{i} + \left( -16 \sin
+\left( -4 t \right) \right) \mathbf{j} + \left( 3 t \right) \mathbf{k}\), the
+initial velocity is \(\mathbf{v} \left( 0 \right) = \mathbf{i + k}\),
+and the initial position vector is \(\mathbf{r} \left( 0 \right) = \mathbf{i +
+j + k}\), compute:</p><p>A. The velocity vector \(\mathbf{v} \left( t \right) =\) <span class="blank">_______________</span> \(\mathbf{i} +\) <span class="blank">_______________</span> \(\mathbf{j} +\) <span class="blank">_______________</span> \(\mathbf{k}\)</p><p>B. The position vector \(\mathbf{r} \left( t \right) =\) <span class="blank">_______________</span> \(\mathbf{i} +\) <span class="blank">_______________</span> \(\mathbf{j} +\) <span class="blank">_______________</span> \(\mathbf{k}\)</p><p>Note: the coefficients in your answers must be entered in the form of expressions in the variable
+\(t\); e.g. &ldquo;5 cos(2t)&rdquo;</p><div class="answer"><button>Show answer</button><div class="a"><p>\(4\sin\mathopen{}\left(-4t\right)+1\), \(-4\cos\mathopen{}\left(-4t\right)-\left(-4\right)\), \(\frac{3t^{2}}{2}+1\), \(\cos\mathopen{}\left(-4t\right)+t\), \(\sin\mathopen{}\left(-4t\right)-\left(-4\right)t+1\), \(\frac{3t^{3}}{6}+t+1\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-integral"><div class="n">3</div><div class="body"><p>Evaluate</p><p>\(\int_{0}^{2}(t\mathbf{i}+ t^2\mathbf{j}+t^3\mathbf{k})dt\) =
+  <span class="blank">__________</span> \(\mathbf{i}+\) <span class="blank">__________</span>\(\mathbf{j}+\)
+  <span class="blank">__________</span>\(\mathbf{k}\).</p><div class="answer"><button>Show answer</button><div class="a"><p>\(2\), \(2.66666666666667\), \(4\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-tangent-line"><div class="n">4</div><div class="body"><p>Find parametric equations for line that is tangent to the curve \(x=\cos t,\  y=\sin t, \ z=t\) at the point</p><p>\((\cos(\frac{-4\pi}{6}) ,\sin(\frac{-4\pi}{6}) ,\frac{-4\pi}{6} )\) 
+  .</p><p>Parametrize the line so that it passes through the given point at t=0.  All three answers are required for credit.</p><p>\(x(t)\) = <span class="blank">________________________________________</span></p><p>\(y(t)\) = <span class="blank">________________________________________</span></p><p>\(z(t)\) = <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\cos\mathopen{}\left(\frac{-4\pi }{6}\right)+-\sin\mathopen{}\left(\frac{-4\pi }{6}\right)t\), \(\sin\mathopen{}\left(\frac{-4\pi }{6}\right)+\cos\mathopen{}\left(\frac{-4\pi }{6}\right)t\), \(\frac{-4\pi }{6}+t\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-derivative-integeral"><div class="n">5</div><div class="body"><p>If 
+ \(\mathbf{r}(t)= \cos(-4t)\mathbf{i}+\sin( -4t)\mathbf{j}+6t
+ \mathbf{k}\)</p><p>compute \(\mathbf{r}'(t)\)= <span class="blank">_______________</span> \(\mathbf{i}+\)
+ <span class="blank">_______________</span>\(\mathbf{j}+\) <span class="blank">_______________</span> \({\mathbf{k}}\)</p><p>and \(\int{\mathbf{r}}(t)\, dt\)= <span class="blank">_______________</span> \(\mathbf{i}+\)
+ <span class="blank">_______________</span>\(\mathbf{j}+\) <span class="blank">_______________</span> \(\mathbf{k}
++ \mathbf{C}\)</p><p>with \(\mathbf{C}\) a constant vector.</p><div class="answer"><button>Show answer</button><div class="a"><p>\(-\left(-4\right)\sin\mathopen{}\left(-4t\right)\), \(-4\cos\mathopen{}\left(-4t\right)\), \(2\cdot 3\), \(\frac{1}{-4}\sin\mathopen{}\left(-4t\right)\), \(\frac{-1}{-4}\cos\mathopen{}\left(-4t\right)\), \(3t^{2}\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-tangent-velocity"><div class="n">6</div><div class="body"><p>For the given position vectors \(\mathbf{r}(t)\),</p><p>compute the (tangent) velocity 
+vector \(\mathbf{r}'(t)\) for the given value of \(t\) .</p><p>A) \(\displaystyle \textrm{Let } \mathbf{r}(t)= (\cos t,\, \sin t )\).</p><p>Then \(\mathbf{r}'(\frac{\pi}{4})\)= ( <span class="blank">_______________</span> ,
+ <span class="blank">_______________</span> )?</p><p>B) \(\displaystyle \textrm{Let }  {\mathbf{r}}(t)= (t^2,t^3)\).</p><p>Then \({\mathbf{r}}'(4)\)= ( <span class="blank">_______________</span> , <span class="blank">_______________</span> )?</p><p>C) \(\displaystyle \textrm{Let }  \mathbf{r}(t)= e^{t}\mathbf{i}+ e^{-4t}\mathbf{j}+
+  t\mathbf{k}\).</p><p>Then \(\mathbf{r}'(-4)\)=
+  <span class="blank">__________</span> \(\mathbf{i}+\) <span class="blank">__________</span>\(\mathbf{j}+\)
+  <span class="blank">__________</span> \(\mathbf{k}\) ?</p><div class="answer"><button>Show answer</button><div class="a"><p>\(-0.707106781186547\), \(0.707106781186548\), \(8\), \(48\), \(0.0183156388887342\), \(-35544442.0820315\), \(1\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-motion-velocity-acceleration"><div class="n">7</div><div class="body"><p>Suppose \(\vec{r}(t) = \cos\mathopen{}\left(\pi t\right)\boldsymbol{i}+\sin\mathopen{}\left(\pi t\right)\boldsymbol{j}+2t\boldsymbol{k}\) represents
+the position of a particle on a helix, where \(z\)
+is the height of the particle.</p><p>(a) What is \(t\) when the particle has height \(10\)?</p><p>\(t =\) <span class="blank">____________________</span></p><p>(b) What is the velocity of the particle when 
+its height is \(10\)?</p><p>\(\vec{v} =\) <span class="blank">________________________________________</span></p><p>(c) When the particle has height \(10\), it leaves
+the helix and moves along the tangent line at the constant
+velocity found in part (b).  Find a vector 
+parametric equation for the position of the particle
+(in terms of the original parameter \(t\)) as it moves 
+along this tangent line.</p><p>\(L(t) =\) <span class="blank">__________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(5\), \(-3.14159\boldsymbol{j}+2\boldsymbol{k}\), \(-\boldsymbol{i}+10\boldsymbol{k}+(t-5)(-3.14159\boldsymbol{j}+2\boldsymbol{k})\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-speed-stationary"><div class="n">8</div><div class="body"><p>Suppose the displacement of a particle in motion at time
+\(t\) is given by the parametric equations</p><p>\(x(t) = \left(2t-1\right)^{2}, \quad y(t) = 7, \quad z(t) = 48t^{4}-32t^{3}.\)</p><p>(a) Find the speed of the particle when \(t = 3\).</p><p>Speed = <span class="blank">________________________________________</span></p><p>(b) Find \(t\) when the particle is stationary.</p><p>\(t\) = <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(4320.05\), \(0.5\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-derivative-cross"><div class="n">9</div><div class="body"><p>Find the derivative of the vector function</p><p>\(\mathbf r(t) = t\mathbf a \times (\mathbf b + t\mathbf c)\),
+where</p><p>\(\mathbf a = \langle -4, 3, -4\rangle\),
+\(\mathbf b = \langle 4, 4, -1\rangle\), and
+\(\mathbf c = \langle 4, -3, 2\rangle\).</p><p>\(\mathbf r'(t) = \langle\)
+<span class="blank">_________________________</span>,
+<span class="blank">_________________________</span>,
+<span class="blank">_________________________</span> \(\rangle\)</p><div class="answer"><button>Show answer</button><div class="a"><p>\(13+2t\mathopen{}\left(-6\right)\), \(-20+2t\mathopen{}\left(-8\right)\), \(-28+2t\cdot 0\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-derivative-dot-cross"><div class="n">10</div><div class="body"><p>Let \(\mathbf{c}_1(t) = (e^{-4t}, \sin(3t), -4t^3)\), and
+\(\mathbf{c}_2(t) = (e^{4t}, \cos(4t), -t^3)\)</p><p>\(\displaystyle \frac{d}{dt}\left[ \mathbf{c}_1(t) \cdot  \mathbf{c}_2(t)\right]  =\)<span class="blank">____________________________________________________________</span></p><p>\(\displaystyle \frac{d}{dt}\left[ \mathbf{c}_1(t) \times  \mathbf{c}_2(t)\right]  =\)
+    <span class="blank">____________________________________________________________</span>\(\mathbf{i}\ +\)</p><p>\(\hspace{1.15in}\)    <span class="blank">____________________________________________________________</span>\(\mathbf{j}\ +\)</p><p>\(\hspace{1.15in}\)  <span class="blank">____________________________________________________________</span>\(\mathbf{k}\)</p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\exp\mathopen{}\left(0t\right)+3\cos\mathopen{}\left(3t\right)\cos\mathopen{}\left(4t\right)-4\sin\mathopen{}\left(3t\right)\sin\mathopen{}\left(4t\right)+24t^{5}\), \(-3t^{2}\sin\mathopen{}\left(3t\right)+\left(-3\right)t^{3}\cos\mathopen{}\left(3t\right)+\left(-16\right)t^{3}\sin\mathopen{}\left(4t\right)-\left(-12\right)t^{2}\cos\mathopen{}\left(4t\right)\), \(-12t^{2}\exp\mathopen{}\left(4t\right)+\left(-16\right)t^{3}\exp\mathopen{}\left(4t\right)-4t^{3}\exp\mathopen{}\left(-4t\right)-\left(-3\right)t^{2}\exp\mathopen{}\left(-4t\right)\), \(-4\exp\mathopen{}\left(-4t\right)\sin\mathopen{}\left(4t\right)+\left(-4\right)\exp\mathopen{}\left(-4t\right)\cos\mathopen{}\left(4t\right)-3\exp\mathopen{}\left(4t\right)\cos\mathopen{}\left(3t\right)-4\exp\mathopen{}\left(4t\right)\sin\mathopen{}\left(3t\right)\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-projectile"><div class="n">11</div><div class="body"><p>A gun has a muzzle speed of 50 meters per second. What angle
+of elevation should
+be used to hit an object 190 meters away? 
+Neglect air resistance and use \(g
+= 9.8\, \textrm{m}/\textrm{sec}^{2}\) as the acceleration of gravity.</p><p>Answer: <span class="blank">__________________________________________________</span> radians</p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.420\)</p></div></div></div></div><div class="exercise" id="ex-9-7-WW-tower"><div class="n">12</div><div class="body"><p>A child wanders slowly down a circular
+staircase from the top of a tower.  With
+\(x,y,z\) in feet and the origin at the base of the tower,
+her position \(t\)
+minutes from the start is given by
+\[x=10\cos t,\quad y = 10 \sin t, \quad z = 110 - 5 t.\]</p><p><em>(a)</em>
+How tall is the tower?</p><p>height = <span class="blank">___________________________________</span> ft</p><p><em>(b)</em>
+When does the child reach the bottom?</p><p>time = <span class="blank">___________________________________</span> minutes</p><p><em>(c)</em>
+What is her speed at time  \(t\)?</p><p>speed = <span class="blank">___________________________________</span> ft/min</p><p><em>(d)</em>
+What is her acceleration at time \(t\)?</p><p>acceleration = <span class="blank">_____________________________________________</span> ft/min\({}^2\)</p><div class="answer"><button>Show answer</button><div class="a"><p>\(110\), \(\frac{110}{5}\), \(11.1803\), \(-10\cos\mathopen{}\left(t\right)\,\mathit{\vec i}-10\sin\mathopen{}\left(t\right)\,\mathit{\vec j}+0\,\mathit{\vec k}\)</p></div></div></div></div><div class="exercise" id="Ez_9_7_1"><div class="n">13</div><div class="body"><p>
+            Compute the derivative of each of the following functions in two different ways: (1) use the rules provided in the theorem stated just after <a href="#A_9_7_2">Activity 9.7.3</a>, and (2) rewrite each given function so that it is stated as a single function (either a scalar function or a vector-valued function with three components), and differentiate component-wise. Compare your answers to ensure that they are the same.
+            <ol type="a"><li><p>
+                  \(\vr(t) = \sin(t) \langle 2t, t^2, \arctan(t) \rangle\)
+                </p></li><li><p>
+                  \(\vs(t) = \vr(2^t)\), where \(\vr(t) = \langle t+2, \ln(t), 1 \rangle\).
+                </p></li><li><p>
+                  \(\vr(t) = \langle \cos(t), \sin(t), t \rangle \cdot \langle -\sin(t), \cos(t), 1 \rangle\)
+                </p></li><li><p>
+                  \(\vr(t) = \langle \cos(t), \sin(t), t \rangle \times \langle -\sin(t), \cos(t), 1 \rangle\)
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_9_7_2"><div class="n">14</div><div class="body"><p>
+            Consider the two vector-valued functions given by
+            \[
+              \vr(t) = \left\langle t + 1, \cos\left(\frac{\pi}{2} t\right), \frac{1}{1+t} \right\rangle
+            \]
+            and
+            \[
+              \vw(s) = \left\langle s^2, \sin\left(\frac{\pi}{2}s\right), s \right\rangle.
+            \]
+            <ol type="a"><li><p>
+                  Determine the point of intersection of the curves generated by \(\vr(t)\) and \(\vw(s)\).  To do so, you will have to find values of \(a\) and \(b\) that result in \(\vr(a)\) and \(\vw(b)\) being the same vector.
+                </p></li><li><p>
+                  Use the value of \(a\) you determined in (a) to find a vector form of the tangent line to \(\vr(t)\) at the point where \(t = a\).
+                </p></li><li><p>
+                  Use the value of \(b\) you determined in (a) to find a vector form of the tangent line to \(\vw(s)\) at the point where \(s = b\).
+                </p></li><li><p>
+                  Suppose that \(z = f(x,y)\) is a function that generates a surface in three-dimensional space, and that the curves generated by \(\vr(t)\) and \(\vw(s)\) both lie on this surface.  Note particularly that the point of intersection you found in (a) lies on this surface.  In addition, observe that the two tangent lines found in (b) and (c) both lie in the tangent plane to the surface at the point of intersection.  Use your preceding work to determine the equation of this tangent plane.
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_9_7_3"><div class="n">15</div><div class="body"><p>
+            In this exercise, we determine the equation of a plane tangent to the surface defined by \(f(x,y) = \sqrt{x^2+y^2}\) at the point \((3,4,5)\).
+            <ol type="a"><li><p>
+                  Find a parameterization for the \(x=3\) trace of \(f\). What is a direction vector for the line tangent to this trace at the point \((3,4,5)\)?
+                </p></li><li><p>
+                  Find a parameterization for the \(y=4\) trace of \(f\). What is a direction vector for the line tangent to this trace at the point \((3,4,5)\)?
+                </p></li><li><p>
+                  The direction vectors in parts (a) and (b) form a plane containing the point \((3,4,5)\). What is a normal vector for this plane?
+                </p></li><li><p>
+                  Use your work in parts (a), (b), and (c) to determine an equation for the tangent plane.  Then, use appropriate technology to draw the graph of \(f\) and the plane you determined on the same set of axes. What do you observe? (We will discuss tangent planes in more detail in Chapter 10.)
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_9_7_4"><div class="n">16</div><div class="body"><p>
+            For each given function \(\vr\), determine \(\int \vr(t) \ dt\). In addition, recalling the Fundamental Theorem of Calculus for functions of a single variable, also evaluate \(\int_0^1 \vr(t) \ dt\) for each given function \(\vr\). Is the resulting quantity a scalar or a vector? What does it measure?
+            <ol type="a"><li><p>
+                  \(\vr(t) = \left\langle \cos(t), \frac{1}{t+1}, te^t \right\rangle\)
+                </p></li><li><p>
+                  \(\vr(t) = \left\langle \cos(3t), \sin(2t), t \right\rangle\)
+                </p></li><li><p>
+                  \(\vr(t) = \left\langle \frac{t}{1+t^2}, te^{t^2}, \frac{1}{1+t^2} \right\rangle\)
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_9_7_5"><div class="n">17</div><div class="body"><p>
+            In this exercise, we develop the formula for the position function of a projectile that has been launched at an initial speed of \(|\vv_0|\) and a launch angle of \(\theta.\) Recall that \(\va(t) = \langle 0, -g \rangle\) is the constant acceleration of the projectile at any time \(t\).
+            <ol type="a"><li><p>
+                  Find all velocity vectors for the given acceleration vector \(\va\).  When you anti-differentiate, remember that there is an arbitrary constant that arises in each component.
+                </p></li><li><p>
+                  Use the given information about initial speed and launch angle to find \(\vv_0\), the initial velocity of the projectile.  You will want to write the vector in terms of its components, which will involve \(\sin(\theta)\) and \(\cos(\theta)\).
+                </p></li><li><p>
+                  Next, find the specific velocity vector function \(\vv\) for the projectile. That is, combine your work in (a) and (b) in order to determine expressions in terms of \(|\vv_0|\) and \(\theta\) for the constants that arose when integrating.
+                </p></li><li><p>
+                  Find all possible position vectors for the velocity vector \(\vv(t)\) you determined in (c).
+                </p></li><li><p>
+                  Let \(\vr(t)\) denote the position vector function for the given projectile. Use the fact that the object is fired from the position \((x_0, y_0)\) to show it follows that
+                  \[
+                    \vr(t) = \left\langle |\vv_0| \cos(\theta)t + x_0, -\frac{g}{2}t^2 + |\vv_0| \sin(\theta)t + y_0 \right\rangle.
+                  \]
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_9_7_6"><div class="n">18</div><div class="body"><p>
+            A <em>central force</em> is one that
+            acts on an object so that the force \(\vF\) is parallel to the
+            object's position \(\vr\). Since Newton's Second Law says that an
+            object's acceleration is proportional to the force exerted on it,
+            the acceleration \(\va\) of an object moving under a central force
+            will be parallel to its position \(\vr\). For instance, the Earth's
+            acceleration due to the
+            gravitational force that the sun exerts on the Earth is parallel to
+            the Earth's position vector as shown in <a href="#F_9_7_sun">Figure 9.7.6</a>.
+          </p><figure class="plot" id="F_9_7_sun"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_9_7_sun.svg" alt=""><figcaption>Figure 9.7.6 — A central force.</figcaption></figure><ol type="a"><li><p>
+                If an object of mass \(m\) is moving under a central force, 
+                  the angular momentum vector is defined to be \(\vL=m\vr\times\vv\).
+                  Assuming the mass is constant, show that the angular momentum is
+                  constant by showing that
+                \[
+                  \frac{d\vL}{dt} = \vzero.
+                \]
+              </p></li><li><p>
+                Explain why \(\vL\cdot\vr = 0\).
+              </p></li><li><p>
+                Explain why we may conclude that the object is constrained to
+                  lie in the plane passing through the origin and perpendicular to
+                  \(\vL\).
+              </p></li></ol></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>
