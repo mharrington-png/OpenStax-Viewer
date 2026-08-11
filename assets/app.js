@@ -449,8 +449,8 @@ const BOOKS = {
         { id: "9-8", title: "9.8 Arc Length and Curvature", file: "9-8.html", ready: true },
       ]},
       { n: 10, title: "Derivatives of Multivariable Functions", sections: [
-        { id: "10-1", title: "10.1 Limits", file: "10-1.html", ready: false },
-        { id: "10-2", title: "10.2 First-Order Partial Derivatives", file: "10-2.html", ready: false },
+        { id: "10-1", title: "10.1 Limits", file: "10-1.html", ready: true },
+        { id: "10-2", title: "10.2 First-Order Partial Derivatives", file: "10-2.html", ready: true },
         { id: "10-3", title: "10.3 Second-Order Partial Derivatives", file: "10-3.html", ready: false },
         { id: "10-4", title: "10.4 Linearization: Tangent Planes and Differentials", file: "10-4.html", ready: false },
         { id: "10-5", title: "10.5 The Chain Rule", file: "10-5.html", ready: false },

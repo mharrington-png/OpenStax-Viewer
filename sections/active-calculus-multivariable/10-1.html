@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limits · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Limits</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 10.1</span>Limits</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What do we mean by the limit of a function \(f\) of two
+                  variables at a point \((a,b)\)?
+            </p></li><li><p>
+              What techniques can we use to show that a function of two
+                  variables does not have a limit at a point \((a,b)\)?
+            </p></li><li><p>
+              What does it mean for a function \(f\) of two variables to be
+                  continuous at a point \((a,b)\)?
+            </p></li></ul></div>
+<p>
+      In this section, we will study limits of
+      functions of several variables, with a focus on limits of functions
+      of two variables. In single variable calculus, we studied the notion of limit, which turned out to be a critical
+      concept that formed the basis for the derivative and the definite
+      integral. In this section we will begin to understand how the concept
+      of limit for functions of two variables is similar to what we
+      encountered for functions of a single variable.
+      The limit will again be the fundamental
+      idea in multivariable calculus, and we will use this notion of the limit
+      of a function of several variables to define the important concept of
+      differentiability later in this chapter. We have already seen its use in the derivatives of vector-valued functions in <a href="9-7.html#the-derivative">Section 9.7</a>.
+    </p><p>
+      Let's begin by reviewing what we mean by the
+      limit of a function of one variable. We say that a function \(f\) has a limit \(L\) as
+      \(x\) approaches \(a\) provided that we can make the values \(f(x)\) as close to \(L\) as we like
+      by taking \(x\) sufficiently close (but not equal) to \(a\). We denote this behavior by writing
+      \[
+        \lim_{x\to a}f(x) = L.
+      \]
+    </p><div class="card activity preview" id="PA_10_1"><div class="ex-head"><span class="num">Preview Activity 10.1.1</span></div><div class="ex-body"><p>
+        We investigate the limits of several different functions by working with tables and graphs.
+        <ol type="a"><li><p>
+              Consider the function \(f\) defined by
+              \[
+                f(x) = 3-x.
+              \]
+              Complete <a href="#T-10-1-PA1_a">Table 10.1.1</a>. 
+              <div class="tablewrap"><table class="data gridlines"><tr><td><p>\( x\)</p></td><td><p>&nbsp; \(-0.2\) &nbsp;</p></td><td><p>&nbsp; \(-0.1\) &nbsp;</p></td><td><p>&nbsp; \(0.0\) &nbsp;</p></td><td><p>&nbsp; \(0.1\) &nbsp;</p></td><td><p>&nbsp; \(0.2\) &nbsp;</p></td></tr><tr><td><p>\(f(x)\)</p></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+            
+
+            
+
+              What does the table suggest regarding \(\lim_{x\to 0}f(x)\)?
+            </p></li><li><p>
+              Explain how your results in (a) are reflected in <a href="#F_10_1_activity_1">Figure 10.1.2</a>.
+
+              <figure class="plot" id="F_10_1_activity_1"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_activity_3.svg" alt=""><figcaption>Figure 10.1.2 — The graph of \(f(x) = 3-x\).</figcaption></figure>
+
+            </p></li><li><p>
+              Next, consider
+              \[
+                g(x) = \frac{x}{|x|}.
+              \]
+              Complete <a href="#T-10-1-PA1_b">Table 10.1.3</a> with values near \(x = 0\), the point at which \(g\) is not defined.
+              <div class="tablewrap"><table class="data gridlines"><tr><td><p>\( x\)</p></td><td><p>&nbsp; \(-0.1\) &nbsp;</p></td><td><p>&nbsp; \(-0.01\) &nbsp;</p></td><td><p>&nbsp; \(-0.001\) &nbsp;</p></td><td><p>&nbsp; \(0.001\) &nbsp;</p></td><td><p>&nbsp; \(0.01\) &nbsp;</p></td><td><p>&nbsp; \(0.1\) &nbsp;</p></td></tr><tr><td><p>\(g(x)\)</p></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+            
+
+            
+              What does this suggest about \(\lim_{x\to 0}g(x)\)?
+            </p></li><li><p>
+              Explain how your results in (c) are reflected in <a href="#F_10_1_activity_2">Figure 10.1.4</a>.
+
+              <figure class="plot" id="F_10_1_activity_2"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_activity_2.svg" alt=""><figcaption>Figure 10.1.4 — The graph of \(g(x) = \frac{x}{|x|}\).</figcaption></figure>
+
+            </p></li><li><p>
+              Now, let's examine a function of two variables.  Let
+              \[
+                f(x,y) = 3 - x - 2y.
+              \]
+              Complete <a href="#T-10-1-PA1_c">Table 10.1.5</a>.
+              <div class="tablewrap"><table class="data gridlines"><tr><td class="diag"><span class="colvar">\(y\)</span><span class="rowvar">\(x\)</span></td><td><p>&nbsp;&nbsp;&nbsp;\(-1.0\)&nbsp;&nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;&nbsp;\(-0.1\)&nbsp;&nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;&nbsp;&nbsp;\(0.0\)&nbsp;&nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;&nbsp;&nbsp;\(0.1\)&nbsp;&nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;&nbsp;&nbsp;\(1.0\)&nbsp;&nbsp;&nbsp;</p></td></tr><tr><td><p>\(-1.0\)  </p></td><td></td><td><p>&nbsp;&nbsp;\(4.2\)</p></td><td></td><td></td><td></td></tr><tr><td><p> \(-0.1\) </p></td><td></td><td></td><td></td><td></td><td><p>&nbsp;\(1.1\)</p></td></tr><tr><td><p>\(0.0\)  </p></td><td></td><td></td><td></td><td><p>\(2.8\)</p></td><td></td></tr><tr><td><p>\(0.1\) </p></td><td><p>&nbsp;&nbsp;\(4.9\)</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>\(1.0\) </p></td><td></td><td></td><td><p>&nbsp;\(2.0\)</p></td><td></td><td></td></tr></table></div>
+
+            
+
+            
+              What does the table suggest about \(\lim_{(x,y)\to(0,0)} f(x,y)\)?
+            </p></li><li><p>
+              Explain how your results in (e) are reflected in <a href="#F_10_1_activity_4">Figure 10.1.6</a>. Compare this limit to the limit in part (a). How are the limits similar and how are they different?
+
+              <figure class="plot" id="F_10_1_activity_4"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_limit_contin.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_cont_contour.svg" alt=""></div></div><figcaption>Figure 10.1.6 — Left: The graph of \(f(x,y) = 3 - x - 2y\). Right: A contour plot.</figcaption></figure>
+
+            </p></li><li><p>
+              Finally,
+                consider
+              \[
+                g(x,y) = \frac{2xy}{x^2+y^2},
+              \]
+              which is not defined at \((0,0)\). Complete <a href="#T-10-1-PA1_d">Table 10.1.7</a>. Round to three decimal places.
+              <div class="tablewrap"><table class="data gridlines"><tr><td class="diag"><span class="colvar">\(y\)</span><span class="rowvar">\(x\)</span></td><td><p>&nbsp;&nbsp;&nbsp;\(-1.0\)&nbsp;&nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;&nbsp;\(-0.1\)&nbsp;&nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;&nbsp;&nbsp;\(0.0\)&nbsp;&nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;&nbsp;&nbsp;\(0.1\)&nbsp;&nbsp;&nbsp;</p></td><td><p>&nbsp;&nbsp;&nbsp;&nbsp;\(1.0\)&nbsp;&nbsp;&nbsp;</p></td></tr><tr><td><p>\(-1.0\)  </p></td><td></td><td><p>\(0.198\)</p></td><td></td><td></td><td></td></tr><tr><td><p> \(-0.1\) </p></td><td></td><td></td><td></td><td></td><td><p>\(-0.198\)</p></td></tr><tr><td><p>\(0.0\)  </p></td><td></td><td></td><td></td><td><p>\(0.000\)</p></td><td></td></tr><tr><td><p>\(0.1\) </p></td><td><p>\(-0.198\)</p></td><td></td><td></td><td></td><td></td></tr><tr><td><p>\(1.0\) </p></td><td></td><td></td><td><p>\(0.000\)</p></td><td></td><td></td></tr></table></div>
+
+            
+
+            
+              What does this suggest about \(\lim_{(x,y)\to(0,0)} g(x,y)\)?
+            </p></li><li><p>
+              Explain how your results are reflected in <a href="#F_10_1_activity_5">Figure 10.1.8</a>. Compare this limit to the limit in part (c). How are the results similar and how are they different?
+
+              <figure class="plot" id="F_10_1_activity_5"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_limit_disc.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_limit_contour.svg" alt=""></div></div><figcaption>Figure 10.1.8 — Left: The graph of \(g(x,y) = \frac{2xy}{x^2+y^2}\). Right: A contour plot.</figcaption></figure>
+
+            </p></li></ol>
+      </p></div></div>
+<h2 id="limits-of-functions-of-two-variables">Limits of Functions of Two Variables</h2>
+<p>
+      In <a href="#PA_10_1">Preview Activity 10.1.1</a>, we recalled the notion of limit
+      from single variable calculus and saw that a similar concept applies
+      to functions of two variables.
+      Though we will focus on functions of two variables, for the sake of
+      discussion, all the ideas we establish here are valid for functions of
+      any number of variables. In a natural followup to our work in <a href="#PA_10_1">Preview Activity 10.1.1</a>,
+      we now formally define what it means for a function of two variables to have a
+      limit at a point.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          Given a function \(f = f(x,y)\), we say that \(f\)
+          <em>has limit \(L\) as \((x,y)\) approaches \((a,b)\)</em> provided that we can make
+          \(f(x,y)\) as close to \(L\) as we like by taking \((x,y)\)
+          sufficiently close (but not equal) to \((a,b)\). We write
+          \[
+            \lim_{(x,y)\to(a,b)} f(x,y) = L.
+          \]
+        </p></div><p>
+      To investigate the limit of a single variable function, \(\lim_{x\to
+        a}f(x)\), we often consider the behavior of \(f\) as \(x\) approaches
+      \(a\) from the right and from the left. Similarly, we may investigate
+      limits of two-variable functions, \(\lim_{(x,y)\to(a,b)} f(x,y)\) by
+      considering the behavior of \(f\) as \((x,y)\) approaches \((a,b)\) from
+      various directions. This situation is more complicated because there
+      are infinitely many ways in which \((x,y)\) may approach \((a,b)\). In the next activity, we
+      see how it is important to consider a variety of those paths in investigating whether or not a limit exists.
+    </p><div class="card activity" id="A_10_1_1"><div class="ex-head"><span class="num">Activity 10.1.2</span></div><div class="ex-body"><p>
+        Consider the function \(f\), defined by
+        \[
+          f(x,y) = \frac{y}{\sqrt{x^2+y^2}},
+        \]
+        whose graph is shown below in
+        <a href="#F_10_1_disc_2">Figure 10.1.9</a>
+      </p><figure class="plot" id="F_10_1_disc_2"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_disc_2.svg" alt=""><figcaption>Figure 10.1.9 — The graph of \(f(x,y) = \frac{y}{\sqrt{x^2+y^2}}\).</figcaption></figure><ol type="a"><li><p>
+            Is \(f\) defined at the point \((0,0)\)?  What, if anything, does
+              this say about whether \(f\) has a limit at the point \((0,0)\)?
+          </p></li><li><p>
+            Values of \(f\) (to three decimal places) at several points close to
+              \((0,0)\) are shown in <a href="#T-10-1-data">Table 10.1.10</a>.
+              <div class="tablewrap"><table class="data gridlines"><tr><td class="diag"><span class="colvar">\(y\)</span><span class="rowvar">\(x\)</span></td><td><p>\(-1.000\)</p></td><td><p>\(-0.100\)</p></td><td><p>&nbsp;\(0.000\)</p></td><td><p>&nbsp;\(0.100\)</p></td><td><p>&nbsp;\(1.000\)</p></td></tr><tr><td><p>\(-1.000\)</p></td><td><p>\(-0.707\)</p></td><td></td><td><p>&nbsp;\(0.000\)</p></td><td></td><td><p>&nbsp;\(0.707\)</p></td></tr><tr><td><p>\(-0.100\)</p></td><td></td><td><p>\(-0.707\)</p></td><td><p>&nbsp;\(0.000\)</p></td><td><p>&nbsp;\(0.707\)</p></td><td></td></tr><tr><td><p>\(0.000\)</p></td><td><p>\(-1.000\)</p></td><td><p>\(-1.000\)</p></td><td></td><td><p>&nbsp;\(1.000\)</p></td><td><p>&nbsp;\(1.000\)</p></td></tr><tr><td><p>\(0.100\)</p></td><td></td><td><p>\(-0.707\)</p></td><td><p>\(0.000\)</p></td><td><p>\(0.707\)</p></td><td></td></tr><tr><td><p>\(1.000\)</p></td><td><p>\(-0.707\)</p></td><td></td><td><p>\(0.000\)</p></td><td></td><td><p>\(0.707\)</p></td></tr></table></div>
+
+            
+
+            
+
+            Based on these calculations, state whether \(f\) has a limit at
+              \((0,0)\) and give an argument supporting your statement. (Hint: The blank spaces in the table are there to help you see the patterns.)
+          </p></li><li><p>
+            Now we formalize the conjecture from the previous part by considering what happens if we restrict our attention to different paths. First, we look at \(f\) for points in the domain along the \(x\)-axis;  that is, we consider what happens when \(y = 0\). What is the behavior of \(f(x,0)\) as \(x \to 0\)?  If we approach \((0,0)\) by moving along the \(x\)-axis, what value do we find as the limit?
+          </p></li><li><p>
+            What is the behavior of \(f\) along the line \(y=x\) when \(x \gt 0\);  that is, what is the value of \(f(x,x)\) when \(x&gt;0\)?  If we approach \((0,0)\) by moving along the line \(y=x\) in the first quadrant (thus considering \(f(x,x)\) as \(x \to 0^+\)), what value do we find as the limit?
+          </p></li><li><p>
+            In general, if \(\lim_{(x,y)\to(0,0)}f(x,y) = L\), then \(f(x,y)\) approaches
+              \(L\) as \((x,y)\) approaches \((0,0)\), regardless of the path we take in letting \((x,y) \to (0,0)\).   Explain what the last two parts
+              of this activity imply about the existence of \(\lim_{(x,y)\to(0,0)} f(x,y)\).
+          </p></li><li><p>
+            Shown below in <a href="#F_10_1_limit_contour_2">Figure 10.1.11</a> is a set of
+              contour lines of the function \(f\).  What is the behavior of
+              \(f(x,y)\) as \((x,y)\) approaches \((0,0)\) along any straight line?  
+              How does this observation reinforce your conclusion about the
+              existence of \(\lim_{(x,y)\to(0,0)}f(x,y)\) from the previous part of
+              this activity? (Hint: Use the fact that a non-vertical line has equation \(y=mx\) for some constant \(m\).)
+
+            <figure class="plot" id="F_10_1_limit_contour_2"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_limit_contour_2.svg" alt=""><figcaption>Figure 10.1.11 — Contour lines of \(f(x,y) = \frac{y}{\sqrt{x^2+y^2}}\).</figcaption></figure>
+
+          </p></li></ol></div></div><p>
+      As we have seen in <a href="#A_10_1_1">Activity 10.1.2</a>, if \((x,y)\) approaches \((a,b)\) along two different paths and we find that \(f(x,y)\) has two different limits, we can conclude that \(\lim_{(x,y)\to(a,b)}f(x,y)\) does not exist. This is similar
+      to the one-variable example \(g(x)=x/|x|\) as shown in <a href="#F_10_1_one_variable">Figure 10.1.12</a>;
+      \(\lim_{x\to0}g(x)\) does not exist because we see different limits as \(x\) approaches 0 from the left and the right.
+    </p><figure class="plot" id="F_10_1_one_variable"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_1_activity_2.svg" alt=""><figcaption>Figure 10.1.12 — The graph of \(g(x) = \frac{x}{|x|}\).</figcaption></figure><p>
+      As a general rule, we have
+    </p><div class="card callout" id="Limits-paths"><span class="chip">Limits along different paths</span><p>
+      If \(f(x,y)\) has two different limits as \((x,y)\) approaches \((a,b)\) along two different paths, then \(\lim_{(x,y)\to(a,b)}f(x,y)\) does not exist.
+    </p></div><p>
+      As the next activity shows, studying the limit of a two-variable function
+      \(f\) by considering the behavior of \(f\) along various paths can require subtle insights.
+    </p><div class="card activity" id="A_10_1_2"><div class="ex-head"><span class="num">Activity 10.1.3</span></div><div class="ex-body"><p>
+        Let's consider the function \(g\) defined by
+        \[
+          g(x,y) = \frac{x^2y}{x^4 + y^2}
+        \]
+        and investigate the limit \(\lim_{(x,y)\to(0,0)}g(x,y)\).
+        <ol type="a"><li><p>
+              What is the behavior of \(g\) on the \(x\)-axis?  That is, what is
+                \(g(x,0)\) and what is the limit of \(g\) as \((x,y)\) approaches \((0,0)\)
+                along the \(x\)-axis?
+            </p></li><li><p>
+              What is the behavior of \(g\) on the \(y\)-axis?  That is, what is
+                \(g(0,y)\) and what is the limit of \(g\) as \((x,y)\) approaches \((0,0)\)
+                along the \(y\)-axis?
+            </p></li><li><p>
+              What is the behavior of \(g\) on the line \(y=mx\)?  That is, what
+                is \(g(x,mx)\) and what is the limit of \(g\) as \((x,y)\) approaches \((0,0)\)
+                along the line \(y=mx\)?
+            </p></li><li><p>
+              Based on what you have seen so far, do you think
+                \(\lim_{(x,y)\to(0,0)}g(x,y)\) exists?  If so, what do you think its
+                  value is?
+            </p></li><li><p>
+              Now consider the behavior of \(g\) on the parabola \(y=x^2\)?  What
+                is \(g(x,x^2)\) and what is the limit of \(g\) as \((x,y)\) approaches
+                \((0,0)\) along this parabola?
+            </p></li><li><p>
+              State whether the limit \(\lim_{(x,y)\to(0,0)} g(x,y)\) exists or
+                not and provide a justification of your statement.
+            </p></li></ol>
+      </p></div></div><p>
+      This activity shows that we need to be careful when studying the limit of a two-variable functions by considering its behavior along different paths. If we find two different paths that result in two different limits, then we may conclude that the limit does not exist. However, we can never conclude that the limit of a function exists only by considering its behavior along different paths.
+    </p><p>
+      Generally speaking, concluding that a limit
+      \(\lim_{(x,y)\to(a,b)}f(x,y)\) exists requires a more careful argument. 
+    </p><div class="card example" id="A_10_1_Limit_exists"><div class="ex-head"><span class="num">Example 10.1.1</span></div><div class="ex-body"><p>
+      Consider the function \(f\) defined by
+      \[
+        f(x,y) = \frac{x^2y^2}{x^2+y^2}.
+      \]
+      We want to know  whether \(\lim_{(x,y)\to(0,0)}f(x,y)\) exists.
+    </p><p>
+      Note that if either \(x\) or \(y\) is 0, then \(f(x,y) = 0\). Therefore, if
+      \(f\) has a limit at \((0,0)\), it must be 0. We will therefore argue
+      that
+      \[
+        \lim_{(x,y)\to(0,0)}f(x,y) = 0,
+      \]
+      by showing that we can make \(f(x,y)\) as close to \(0\) as we wish by taking \((x,y)\) sufficiently close (but not equal) to \((0,0)\). In what follows, we view \(x\) and \(y\) as being real numbers that are close, but not equal, to 0.
+    </p><p>
+      Since \(0 \leq x^2\), we have
+      \[
+        y^2 \leq x^2+y^2,
+      \]
+      which implies that
+      \[
+        \frac{y^2}{x^2+y^2} \leq 1.
+      \]
+    </p><p>
+      Multiplying both sides by \(x^2\) and observing that \(f(x,y) \ge 0\) for all \((x,y)\) gives
+      \[
+        0\leq f(x,y) = \frac{x^2y^2}{x^2+y^2} =
+        x^2\left(\frac{y^2}{x^2+y^2}\right) \leq x^2.
+      \]
+    </p><p>
+      Thus, \( 0 \leq f(x,y) \leq x^2\). Since \(x^2 \to 0\) as \(x \to 0\), we can make \(f(x,y)\) as close to \(0\) as we like by taking \(x\) sufficiently close to \(0\) (for this example, it turns out that we don't even need to worry about making \(y\) close to 0). Therefore,
+      \[
+        \lim_{(x,y) \to (0,0)} \frac{x^2y^2}{x^2+y^2} = 0.
+      \]
+    </p></div></div><p>
+      In spite of the fact that these two most recent examples
+      illustrate some of the complications that arise when studying limits of two-variable functions, many of the properties that are familiar from our study of single variable functions hold in precisely the same way.
+    </p><div class="card callout" id="Limit-properties"><span class="chip">Properties of Limits</span><p>
+      Let \(f=f(x,y)\) and \(g=g(x,y)\) be
+      functions so that \(\lim_{(x,y) \to
+          (a,b)} f(x,y)\) and \(\lim_{(x,y) \to (a,b)} g(x,y)\) both
+      exist. Then
+      <ol><li><p>
+            \(\displaystyle \lim_{(x,y)\to(a,b)} x = a\)  &nbsp; and  &nbsp; \(\displaystyle \lim_{(x,y)\to(a,b)}
+                y = b\)
+          </p></li><li><p>
+            \(\displaystyle \lim_{(x,y) \to (a,b)} cf(x,y) = c\left(\lim_{(x,y) \to (a,b)}
+              f(x,y)\right)\) for any scalar \(c\)
+          </p></li><li><p>
+            \( \displaystyle \lim_{(x,y) \to (a,b)} [f(x,y) \pm g(x,y)] = \lim_{(x,y) \to (a,b)} f(x,y) \pm \lim_{(x,y) \to (a,b)} g(x,y) \)
+          </p></li><li><p>
+            \( \displaystyle \lim_{(x,y) \to (a,b)} [f(x,y) g(x,y)] = \left(\lim_{(x,y) \to
+                (a,b)} f(x,y)\right) \left(  \lim_{(x,y) \to (a,b)} g(x,y)\right) \)
+          </p></li><li><p>
+            \( \displaystyle \lim_{(x,y) \to (a,b)} \frac{f(x,y)}{g(x,y)} =
+              \frac{\displaystyle \lim_{(x,y) \to (a,b)} f(x,y)}{\displaystyle \lim_{(x,y) \to (a,b)} g(x,y)}\) &nbsp; if &nbsp; \(\displaystyle \lim_{(x,y) \to (a,b)} g(x,y) \neq 0\).
+          </p></li></ol>
+    </p></div><p>
+      We can use these properties and results from single variable calculus to verify that many limits exist. For example, these properties show that the function \(f\)
+      defined by
+      \[
+        f(x,y) = 3x^2y^3 + 2xy^2 - 3x + 1
+      \]
+      has a limit at every point \((a,b)\) and, moreover,
+      \[
+        \lim_{(x,y)\to(a,b)} f(x,y) = f(a,b).
+      \]
+    </p><p>
+      The reason for this is that polynomial functions of a single variable have limits at every point.
+    </p>
+<h2 id="continuity">Continuity</h2>
+<p>
+      Recall that a function \(f\) of a single variable \(x\) is said to be
+      continuous at
+      \(x=a\) provided that the following three conditions are satisfied:
+      <ol><li><p>
+            \(f(a)\) exists,
+          </p></li><li><p>
+            \(\lim_{x\to a}f(x)\) exists, and
+          </p></li><li><p>
+            \(\lim_{x\to a}f(x)=f(a)\).
+          </p></li></ol>
+    </p><p>
+      Using our understanding of limits of multivariable functions, we can
+      define continuity in the same way.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          A function \(f=f(x,y)\)
+          is <em>continuous</em> at the point \((a,
+              b)\) provided that
+          <ol><li><p>
+                \(f\) is defined at the point \((a, b)\),
+              </p></li><li><p>
+                \(\lim_{(x,y) \to (a,b)} f(x,y)\) exists, and
+              </p></li><li><p>
+                \(\lim_{(x,y) \to (a,b)} f(x,y) = f(a,b)\).
+              </p></li></ol>
+        </p></div><p>
+      For instance, we have seen that the function \(f\) defined by \(f(x,y) = 3x^2y^3 + 2xy^2
+      - 3x + 1\) is continous at every point. And just as with single variable functions, continuity has certain
+      properties that are based on the properties of limits.
+    </p><div class="card callout" id="Continuity-properties"><span class="chip">Properties of continuity</span><p>
+      Let \(f\) and \(g\) be functions of two variables that are continuous at the point \((a,b)\). Then
+      <ol><li><p>
+            \(cf\) is continuous at \((a,b)\) for any scalar \(c\)
+          </p></li><li><p>
+            \(f+g\) is continuous at \((a,b)\)
+          </p></li><li><p>
+            \(f-g\) is continuous at \((a,b)\)
+          </p></li><li><p>
+            \(fg\) is continuous at \((a,b)\)
+          </p></li><li><p>
+            \(\frac{f}{g}\) is continuous at \((a,b)\) if \(g(a,b) \neq 0\)
+          </p></li></ol>
+    </p></div><p>
+      Using these properties, we can apply results from single variable calculus
+      to decide about continuity of multivariable functions. For example, the coordinate functions \(f\) and \(g\) defined by \(f(x,y) = x\) and \(g(x,y) = y\) are continuous at every point. We can then use properties of continuity listed to conclude that every polynomial function in \(x\) and \(y\) is continuous at every point. For example, \(g(x,y)=x^2\) and \(h(x,y)=y^3\) are continuous functions, so their product \(f(x,y) = x^2y^3\) is a continuous multivariable function.
+    </p>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          A function \(f = f(x,y)\) has a limit \(L\) at a point \((a,b)\) provided that we
+            can make \(f(x,y)\) as close to \(L\) as we like by taking \((x,y)\)
+            sufficiently close (but not equal) to \((a,b)\).
+        </p></li><li><p>
+          If \((x,y)\) has two different limits as \((x,y)\) approaches
+            \((a,b)\) along two different paths, we can conclude that
+            \(\lim_{(x,y)\to(a,b)}f(x,y)\) does not exist.
+        </p></li><li><p>
+          Properties similar to those for one-variable functions allow us
+            to conclude that many limits exist and to evaluate them.
+        </p></li><li><p>
+          A function \(f = f(x,y)\) is continuous at a point \((a,b)\) in its
+            domain if \(f\) has a limit at \((a,b)\) and
+          \[
+            f(a,b) = \lim_{(x,y) \to (a,b)} f(x,y).
+          \]
+        </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-1">Exercises</h2><div class="exercise" id="ex-10-1-WW-limit_paths"><div class="n">1</div><div class="body"><p>Find the limits, if they exist, or type <em> DNE</em>  for any which 
+do not exist.</p><p>\[\displaystyle \lim_{(x, y) \rightarrow (0, 0)} 
+\frac{1 x^2}{ 4 x^2+ y^2}\]</p><p>1) Along the \(x\)-axis:    <span class="blank">____________________</span></p><p>2) Along the \(y\)-axis:    <span class="blank">____________________</span></p><p>3) Along the line \(y=mx\) :    <span class="blank">________________________________________</span></p><p>4) The limit is:    <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.25\), \(0\), \(\frac{1}{4+1m^{2}}\), \(dne\)</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-limit-ex-0"><div class="n">2</div><div class="body"><p>In this problem we show that the function
+\[f(x,y) = \frac{8x^{2}-y}{x^{2}+y}\]
+does not have a limit as \((x,y)\to (0,0)\).</p><p><em>(a)</em>
+Suppose that we consider \((x,y)\to (0,0)\) along the curve
+\(y = 4 x^2\).  Find the limit in this case:</p><p>\(\lim\limits_{(x,4 x^2)\to(0,0)} \frac{8x^{2}-y}{x^{2}+y} =\)
+<span class="blank">___________________________________</span></p><p><em>(b)</em>
+Now consider \((x,y)\to (0,0)\) along the curve
+\(y = 5 x^2\).  Find the limit in this case:</p><p>\(\lim\limits_{(x,5 x^2)\to(0,0)} \frac{8x^{2}-y}{x^{2}+y} =\)
+<span class="blank">___________________________________</span></p><p><em>(c)</em>
+Note that the results from <em>(a)</em> and <em>(b)</em>
+indicate that \(f\) has no limit as \((x,y)\to (0,0)\) <em>(be
+sure you can explain why!)</em>.</p><p>To show this more generally, consider \((x,y)\to (0,0)\) along
+the curve \(y = m x^2\), for arbitrary \(m\).  Find the limit
+in this case:</p><p>\(\lim\limits_{(x,m x^2)\to(0,0)} \frac{8x^{2}-y}{x^{2}+y} =\)
+<span class="blank">___________________________________</span></p><p><em>(Be sure that you can explain how this result also indicates
+that \(f\) has no limit as \((x,y)\to(0,0)\).</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{8-4^{1}}{1+4^{1}}\), \(\frac{8-5^{1}}{1+5^{1}}\), \(\frac{8-m}{1+m}\)</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-limit_directions"><div class="n">3</div><div class="body"><p>Show that the function
+\[f(x,y) = \frac{x^{2}y}{x^{4}+y^{2}}.\]
+does not have a limit at \((0,0)\) by examining the following limits.</p><p><em>(a)</em>
+Find the limit of \(f\) as \((x,y) \to (0,0)\) along the line \(y = x\).</p><p>\(\lim\limits_{{}^{(x,y)\to(0,0)}_{y=x}} f(x,y) =\)
+<span class="blank">___________________________________</span></p><p><em>(b)</em>
+Find the limit of \(f\) as \((x,y)\to(0,0)\) along the curve \(y = x^2\).</p><p>\(\lim\limits_{{}^{(x,y)\to(0,0)}_{y=x^2}} f(x,y) =\)
+<span class="blank">___________________________________</span></p><p><em>(Be sure that you are able to explain why the results in
+<em>(a)</em> and <em>(b)</em> indicate that \(f\) does not
+have a limit at (0,0)!</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(\frac{1}{2}\)</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-limit_ex_1"><div class="n">4</div><div class="body"><p>Find the limit, if it exists, or type N if it does not exist.</p><p>\(\displaystyle \lim_{(x, y) \rightarrow (0, 0)} \frac{1 x^2}{ 4 x^2 + 1 y^2} =\) <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>N</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-limit_ex_2"><div class="n">5</div><div class="body"><p>Find the limit, if it exists, or type N if it does not exist.</p><p>\(\displaystyle \lim_{(x, y) \rightarrow (0, 0)} \frac{(x + 3y)^2}{x^2 + {3}^2y^2} =\) <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>N</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-limit_ex_3"><div class="n">6</div><div class="body"><p>Find the limit, if it exists, or type 'DNE' if it does not exist.</p><p>\(\displaystyle \lim_{(x, y) \rightarrow (-4, 3)} e^{\sqrt{1x^2 + 5y^2}} =\) <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(2465.74599580414\)</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-limit_ex_4"><div class="n">7</div><div class="body"><p>Find the limit, if it exists, or type N if it does not exist.</p><p>\(\displaystyle \lim_{(x, y, z) \rightarrow (0, 0, 0)} \frac{xy+ 4 yz+ xz
+}{x^2+ 16 y^2+ z^2} =\) <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>N</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-limit_ex_4-b"><div class="n">8</div><div class="body"><p>Find the limit, if it exists, or type N if it does not exist.</p><p>\(\displaystyle \lim_{(x, y, z) \rightarrow (1, 4, 1)} \frac{5 z e^{x^2+y^2}}{x^2+ 4 y^2+ z^2} =\) <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(1829920.66314964\)</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-limit_ex_5"><div class="n">9</div><div class="body"><p>Find the limit (enter 'DNE' if the limit does not exist)</p><p>Hint: rationalize the denominator.
+\[\lim_{(x,y) \to (0, 0)}
+\frac{(2 x^2 + 3 y^2)}{\sqrt{(2 x^2 + 3 y^2 +1)} -1}\]
+    <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(2\)</p></div></div></div></div><div class="exercise" id="ex-10-1-WW-continuity"><div class="n">10</div><div class="body"><p>The largest set on which the function \(f(x,y) = 1/(4 - x^2 - y^2)\)
+is continuous is <span class="blank">____________________</span></p><p><ol type="A"><li><p>The exterior of the circle \(x^2 + y^2 = 4\)</p></li><li><p>All of the xy-plane except the circle \(x^2 + y^2 = 4\)</p></li><li><p>The interior of the circle \(x^2 + y^2 = 4\), plus the circle</p></li><li><p>The interior of the circle \(x^2 + y^2 = 4\)</p></li><li><p>All of the xy-plane</p></li></ol></p><div class="answer"><button>Show answer</button><div class="a"><p>B) All of the xy-plane except the circle \(x^2 + y^2 = 4\)</p></div></div></div></div><div class="exercise" id="Ez_10_1_1"><div class="n">11</div><div class="body"><p>
+            Consider the function \(f\) defined by \(f(x,y) = \frac{xy}{x^2 + y^2 + 1}.\)
+            <ol type="a"><li><p>
+                  What is the domain of \(f\)?
+                </p></li><li><p>
+                  Evaluate limit of \(f\) at \((0,0)\) along the following paths:  \(x = 0\), \(y = 0\), \(y = x\), and \(y = x^2\).
+                </p></li><li><p>
+                  What do you conjecture is the value of \(\lim_{(x,y) \to (0,0)} f(x,y)\)?
+                </p></li><li><p>
+                  Is \(f\) continuous at \((0,0)\)?  Why or why not?
+                </p></li><li><p>
+                  Use appropriate technology to sketch both surface and contour plots of \(f\) near \((0,0)\).  Write several sentences to say how your plots affirm your findings in (a) - (d).
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_10_1_2"><div class="n">12</div><div class="body"><p>
+            Consider the function \(g\) defined by \(g(x,y) = \frac{xy}{x^2 + y^2}.\)
+            <ol type="a"><li><p>
+                  What is the domain of \(g\)?
+                </p></li><li><p>
+                  Evaluate limit of \(g\) at \((0,0)\) along the following paths:  \(x = 0\), \(y = x\), and \(y = 2x\).
+                </p></li><li><p>
+                  What can you now say about the value of \(\lim_{(x,y) \to (0,0)} g(x,y)\)?
+                </p></li><li><p>
+                  Is \(g\) continuous at \((0,0)\)?  Why or why not?
+                </p></li><li><p>
+                  Use appropriate technology to sketch both surface and contour plots of \(g\) near \((0,0)\).  Write several sentences to say how your plots affirm your findings in (a) - (d).
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_10_1_3"><div class="n">13</div><div class="body"><p>
+            Consider the function \(h\) defined by \(h(x,y) = \frac{2x^2y}{x^4 + y^2}.\)
+            <ol type="a"><li><p>
+                  What is the domain of \(h\)?
+                </p></li><li><p>
+                  Evaluate the limit of \(h\) at \((0,0)\) along all linear paths the contain the origin. What does this tell us about \(\lim_{(x,y) \to (0,0)} h(x,y)\)? (Hint: A non-vertical line throught the origin has the form \( y = mx \) for some constant \(m\).)
+                </p></li><li><p>
+                  Does \(\lim_{(x,y) \to (0,0)} h(x,y)\) exist? Verify your answer. Check by using appropriate technology to sketch both surface and contour plots of \(h\) near \((0,0)\).  Write several sentences to say how your plots affirm your findings about \(\lim_{(x,y) \to (0,0)} h(x,y)\).
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_10_1_4"><div class="n">14</div><div class="body"><p>
+            For each of the following prompts, provide an example of a function of two variables with the desired properties (with justification), or explain why such a function does not exist.
+            <ol type="a"><li><p>
+                  A function \(p\) that is defined at \((0,0)\), but \(\lim_{(x,y) \to (0,0)} p(x,y)\) does not exist.
+                </p></li><li><p>
+                  A function \(q\) that does not have a limit at \((0,0)\), but that has the same limiting value along any line \(y = mx\) as \(x \to 0\).
+                </p></li><li><p>
+                  A function \(r\) that is continuous at \((0,0)\), but \(\lim_{(x,y) \to (0,0)} r(x,y)\) does not exist.
+                </p></li><li><p>
+                  A function \(s\) such that
+                  \[
+                    \lim_{(x,x) \to (0,0)} s(x,x) = 3 \ \ \ \text{and}  \ \ \ \lim_{(x,2x) \to (0,0)} s(x,2x) = 6,
+                  \]
+                  for which  \(\lim_{(x,y) \to (0,0)} s(x,y)\) exists.
+                </p></li><li><p>
+                  A function \(t\) that is not defined at \((1,1)\) but \(\lim_{(x,y) \to (1,1)} t(x,y)\) does exist.
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_10_1_5"><div class="n">15</div><div class="body"><p>
+            Use the properties of continuity to determine the set of points at which each of the following functions is continuous. Justify your answers. 
+            <ol type="a"><li><p>
+                  The function \(f\) defined by \(f(x,y) = \frac{x+2y}{x-y}\)
+                </p></li><li><p>
+                  The function \(g\) defined by \(g(x,y) = \frac{\sin(x)}{1+e^y}\)
+                </p></li><li><p>
+                  The function \(h\) defined by 
+                  \[h(x,y) = \begin{cases} \frac{xy}{x^2+y^2} &amp; \text{ if } (x,y) \neq (0,0)  \\ 0 &amp; \text{ if } (x,y) = (0,0) \end{cases}\]
+                </p></li><li><p>
+                  The function \(k\) defined by 
+                  \[k(x,y) = \begin{cases} \frac{x^2y^4}{x^2+y^2} &amp; \text{ if } (x,y) \neq (0,0)  \\ 0 &amp; \text{ if } (x,y) = (0,0) \end{cases}\]
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

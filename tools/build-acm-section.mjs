@@ -328,6 +328,18 @@ function findAllWebworkNodes(node, out = []) {
   for (const c of node.children || []) findAllWebworkNodes(c, out);
   return out;
 }
+// A pop-up-list's choice key is an <ol label="A."> -- but WHERE it sits under <webwork>
+// varies by problem author (direct sibling of <statement>, or nested inside a second
+// <statement> sibling), so search the whole node rather than assuming one shape. The
+// `label` attribute is the signal (a plain content list never has one).
+function findPopupList(node) {
+  if (node.tag === "ol" && node.attrs.label) return node;
+  for (const c of node.children || []) {
+    const found = findPopupList(c);
+    if (found) return found;
+  }
+  return null;
+}
 function isWebworkBlank(x) {
   return x.tag === "fillin" || x.tag === "var" || (x.tag === "ul" && x.attrs.form === "popup");
 }
@@ -362,18 +374,23 @@ async function resolveWebworkProblems(sectionNode) {
       else if (MANUAL_WEBWORK_IMAGES[n.attrs.source]) img.attrs.source = MANUAL_WEBWORK_IMAGES[n.attrs.source];
     }));
     webworkCache.set(n, ww);
-    // A pop-up-list problem's choices come back as an <ol label="A."> sibling of <statement>
-    // (not nested inside it) -- render_rpc's <answerhashes> then gives just the bare winning
-    // letter (correct_ans="A"), meaningless on its own once printed on a static page with no
-    // dropdown to reference. Resolve it against the same list students would have seen.
-    const popupList = qd(ww, "ol");
+    // A pop-up-list problem's choices come back as an <ol label="A."> somewhere under
+    // <webwork> -- sometimes a direct sibling of the (single) <statement>, sometimes nested
+    // inside a SECOND <statement> sibling of its own (a different problem author's markup for
+    // the same idea) -- render_rpc's <answerhashes> then gives just the bare winning letter
+    // (correct_ans="A"), meaningless on its own once printed on a static page with no dropdown
+    // to reference. Resolve it against the same list students would have seen, wherever it is.
+    const popupList = findPopupList(ww);
     const popupItems = popupList ? qda(popupList, "li") : [];
     const hashes = qd(ww, "answerhashes");
     let answers = hashes ? (hashes.children || []).flatMap(a => {
       const raw = a.attrs.correct_ans;
       if (popupItems.length && raw && /^[A-Za-z]$/.test(raw)) {
         const item = popupItems[raw.toUpperCase().charCodeAt(0) - 65];
-        if (item) return [`${raw.toUpperCase()}) ${esc(textOf(item).trim())}`];
+        // inline(), not esc(textOf(...)) -- a choice can contain real math (e.g. "the circle
+        // <m>x^2+y^2=4</m>"), and textOf() strips the <m> tag along with its \(...\)
+        // delimiters, leaving unrendered bare LaTeX source as the visible answer text.
+        if (item) return [`${raw.toUpperCase()}) ${item.children.map(inline).join("").trim()}`];
       }
       // Value (PopUp)/Value (String) answers are already plain text (e.g. "the first car")
       // -- wrapping them in \(...\) math mode is wrong (and correct_ans_latex_string for
@@ -438,9 +455,14 @@ const deAmp = tex => tex.replace(/\\amp\b/g, "&");
 // thin-space between columns; the plain r/c/l alignment (and KaTeX's own default column gap)
 // still renders a readable aligned system.
 const stripArrayColSep = tex => tex.replace(/@\{[^}]*\}/g, "");
+// \mbox{...} (plain TeX's box-of-text primitive, e.g. "... \mbox{and} ...") isn't one of
+// KaTeX's supported commands either -- a ParseError rendered as a literal red "\mbox" token,
+// not a warning. \text{...} is KaTeX's own equivalent and takes the same {argument} syntax,
+// so a straight rename is a safe, lossless fix.
+const mboxToText = tex => tex.replace(/\\mbox\{/g, "\\text{");
 function displayMath(n) {
-  const rows = qda(n, "mrow").map(r => stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(r)))));
-  const body = rows.length ? rows.join(" \\\\\n") : stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(n))));
+  const rows = qda(n, "mrow").map(r => mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(r))))));
+  const body = rows.length ? rows.join(" \\\\\n") : mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(n)))));
   const core = rows.length ? `\\begin{aligned}${body}\\end{aligned}` : body;
   // <men>/<mdn> (numbered equations, see indexAndNumber) get a right-margin number via
   // KaTeX's native \tag{} -- and need their own anchor so an <xref> elsewhere on the page can
@@ -455,7 +477,7 @@ function inline(n) {
   if (n.tag === "#text") return esc(n.text);
   const kids = () => (n.children || []).map(inline).join("");
   switch (n.tag) {
-    case "m": return `\\(${esc(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(n)))))}\\)`;
+    case "m": return `\\(${esc(mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(n))))))}\\)`;
     case "me": case "men": case "md": case "mdn": return displayMath(n);
     case "term": case "em": case "alert": return `<em>${kids()}</em>`;
     case "q": return `&ldquo;${kids()}&rdquo;`;
@@ -629,9 +651,10 @@ function block(n) {
       // not one -- qd() only grabbed the first, silently dropping every later part (and its
       // blank) from the page entirely, not just from the answer.
       const stmtHtml = qda(ww, "statement").map(s => renderMixed(s.children)).join("");
-      // A pop-up-list problem's choice key renders as an <ol label="A."> sibling of
-      // <statement> (see resolveWebworkProblems) -- without showing it, a fill-in blank like
-      // "The domain ... is ___" gives the student nothing to choose from.
+      // Only the direct-sibling-of-<statement> popup-list shape needs rendering separately
+      // here -- if it's nested inside one of the <statement>s instead (see findPopupList),
+      // stmtHtml above already rendered it as ordinary content, and doing it again here
+      // would show the choice list twice.
       const popupList = qd(ww, "ol");
       const popupHtml = popupList ? block(popupList) : "";
       // Precomputed in resolveWebworkProblems: from <answerhashes> when render_rpc actually
