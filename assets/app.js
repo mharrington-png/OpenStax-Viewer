@@ -451,12 +451,12 @@ const BOOKS = {
       { n: 10, title: "Derivatives of Multivariable Functions", sections: [
         { id: "10-1", title: "10.1 Limits", file: "10-1.html", ready: true },
         { id: "10-2", title: "10.2 First-Order Partial Derivatives", file: "10-2.html", ready: true },
-        { id: "10-3", title: "10.3 Second-Order Partial Derivatives", file: "10-3.html", ready: false },
-        { id: "10-4", title: "10.4 Linearization: Tangent Planes and Differentials", file: "10-4.html", ready: false },
-        { id: "10-5", title: "10.5 The Chain Rule", file: "10-5.html", ready: false },
-        { id: "10-6", title: "10.6 Directional Derivatives and the Gradient", file: "10-6.html", ready: false },
-        { id: "10-7", title: "10.7 Optimization", file: "10-7.html", ready: false },
-        { id: "10-8", title: "10.8 Constrained Optimization: Lagrange Multipliers", file: "10-8.html", ready: false },
+        { id: "10-3", title: "10.3 Second-Order Partial Derivatives", file: "10-3.html", ready: true },
+        { id: "10-4", title: "10.4 Linearization: Tangent Planes and Differentials", file: "10-4.html", ready: true },
+        { id: "10-5", title: "10.5 The Chain Rule", file: "10-5.html", ready: true },
+        { id: "10-6", title: "10.6 Directional Derivatives and the Gradient", file: "10-6.html", ready: true },
+        { id: "10-7", title: "10.7 Optimization", file: "10-7.html", ready: true },
+        { id: "10-8", title: "10.8 Constrained Optimization: Lagrange Multipliers", file: "10-8.html", ready: true },
       ]},
       { n: 11, title: "Multiple Integrals", sections: [
         { id: "11-1", title: "11.1 Double Riemann Sums and Double Integrals over Rectangles", file: "11-1.html", ready: false },

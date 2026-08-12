@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constrained Optimization: Lagrange Multipliers · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Constrained Optimization: Lagrange Multipliers</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 10.8</span>Constrained Optimization: Lagrange Multipliers</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What geometric condition enables us to optimize a function \(f=f(x,y)\) subject to a constraint given by \(g(x,y) = k\), where \(k\) is a constant?
+            </p></li><li><p>
+              How can we exploit this geometric condition to find the extreme values of a function subject to a constraint?
+            </p></li></ul></div>
+<p>
+      We previously considered how to find the extreme values of functions on both unrestricted domains and on closed, bounded domains. Other types of optimization problems involve maximizing or minimizing a quantity subject to an external constraint. In these cases the extreme values frequently won't occur at the points where the gradient is zero, but rather at other points that satisfy an important geometric condition. These problems are often called <em>constrained optimization</em> problems and can be solved with the method of Lagrange Multipliers, which we study in this section.
+    </p><div class="card activity preview" id="PA_10_8"><div class="ex-head"><span class="num">Preview Activity 10.8.1</span></div><div class="ex-body"><p>
+        According to U.S.&nbsp;postal regulations, the girth plus the length of a parcel sent by mail may not exceed 108 inches, where by &ldquo;girth&rdquo; we mean the perimeter of the smallest end. Our goal is to find the largest possible volume of a rectangular parcel with a square end that can be sent by mail. (We solved this applied optimization problem in single variable <em>Active Calculus</em>, so it may look familiar. We take a different approach in this section, and this approach allows us to view most applied optimization problems from single variable calculus as constrained optimization problems, as well as provide us tools to solve a greater variety of optimization problems.) If we let \(x\) be the length of the side of one square end of the package and \(y\) the length of the package, then we want to maximize the volume \(f(x,y) = x^2y\) of the box subject to the constraint that the girth (\(4x\)) plus the length (\(y\)) is as large as possible, or \(4x+y = 108\). The equation \(4x + y = 108\) is thus an external constraint on the variables.
+      </p><ol type="a"><li><p>
+          The constraint equation involves the function \(g\) that is given by
+          \[
+            g(x,y) = 4x+y.
+          \]
+          Explain why the constraint is a contour of \(g\), and is therefore a two-dimensional curve.
+
+          <figure class="plot" id="F_10_8_preview"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_8_postal.svg" alt=""><figcaption>Figure 10.8.1 — Contours of \(f\) and the constraint equation \(g(x,y) = 108\).</figcaption></figure>
+
+        </p></li><li><p>
+          <a href="#F_10_8_preview">Figure 10.8.1</a> shows the graph of the constraint equation \(g(x,y) = 108\) along with a few contours of the volume function \(f\).  Since our goal is to find the maximum value of \(f\) subject to the constraint \(g(x,y) = 108\), we want to find the point on our constraint curve that intersects the contours of \(f\) at which \(f\) has its largest value.
+        </p><ol type="a"><li><p>
+              Points \(A\) and \(B\) in <a href="#F_10_8_preview">Figure 10.8.1</a> lie on a contour of \(f\) and on the constraint equation \(g(x,y) = 108\). Explain why neither \(A\) nor \(B\) provides a maximum value of \(f\) that satisfies the constraint.
+            </p></li><li><p>
+              Points \(C\) and \(D\) in <a href="#F_10_8_preview">Figure 10.8.1</a> lie on a contour of \(f\) and on the constraint equation \(g(x,y) = 108\). Explain why neither \(C\) nor \(D\) provides a maximum value of \(f\) that satisfies the constraint.
+            </p></li><li><p>
+              Based on your responses to parts i. and ii., draw the contour of \(f\) on which you believe \(f\) will achieve a maximum value subject to the constraint \(g(x,y) = 108\). Explain why you drew the contour you did.
+            </p></li></ol></li><li><p>
+          Recall that \(g(x,y) = 108\) is a contour of the function \(g\), and that the gradient of a function is always orthogonal to its contours. With this in mind, how should \(\nabla f\) and \(\nabla g\) be related at the optimal point? Explain.
+        </p></li></ol></div></div>
+<h2 id="constrained-optimization-and-lagrange-multipliers">Constrained Optimization and Lagrange Multipliers</h2>
+<p>
+      In <a href="#PA_10_8">Preview Activity 10.8.1</a>, we considered an optimization problem where there is an external constraint on the variables, namely that the girth plus the length of the package cannot exceed 108 inches. We saw that we can create a function \(g\) from the constraint, specifically \(g(x,y) = 4x+y\). The constraint equation is then just a contour of \(g\), \(g(x, y) = c\), where \(c\) is a constant (in our case 108). <a href="#F_10_8_Lagrange1">Figure 10.8.2</a> illustrates that the volume function \(f\) is maximized, subject to the constraint \(g(x, y) = c\), when the graph of \(g(x, y) = c\) is tangent to a contour of \(f\). Moreover, the value of \(f\) on this contour is the sought maximum value.
+    </p><figure class="plot" id="F_10_8_Lagrange1"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_8_postal_solution.svg" alt=""><figcaption>Figure 10.8.2 — Contours of \(f\) and the constraint contour.</figcaption></figure><p>
+      To find this point where the graph of the constraint is tangent to a contour of \(f\), recall that \(\nabla f\) is perpendicular to the contours of \(f\) and \(\nabla g\) is perpendicular to the contour of \(g\). At such a point, the vectors \(\nabla g\) and \(\nabla f\) are parallel, and thus we need to determine the points where this occurs. Recall that two vectors are parallel if one is a nonzero scalar multiple of the other, so we therefore look for values of a parameter \(\lambda\) that make
+      <span id="eq_10_8_Lagrange_ex1">\[
+        \nabla f = \lambda \nabla g.
+      \tag{10.8.1}\]</span>
+    </p><p>
+      The constant \(\lambda\) is called a <em>Lagrange multiplier</em>.
+    </p><p>
+      To find the values of \(\lambda\) that satisfy <a href="#eq_10_8_Lagrange_ex1">(10.8.1)</a> for the volume function in <a href="#PA_10_8">Preview Activity 10.8.1</a>, we calculate both \(\nabla f\) and \(\nabla g\). Observe that
+      \[
+        \nabla f = 2xy \vi + x^2 \vj \ \ \ \ \text{ and }  \ \ \ \ \nabla g = 4\vi + \vj,
+      \]
+      and thus we need a value of \(\lambda\) so that
+      \[
+        2xy \vi + x^2 \vj = \lambda(4\vi + \vj).
+      \]
+    </p><p>
+      Equating components in the most recent equation and incorporating the original constraint, we have three equations
+      <span id="eq-10-8-2">\[\begin{aligned}
+         2xy &amp; = \lambda (4) 
+       \\
+
+         x^2 &amp; = \lambda (1) 
+       \\
+
+         4x+y &amp; = 108 
+      \end{aligned}\tag{10.8.2}\]</span>
+      in the three unknowns \(x\), \(y\), and \(\lambda\). First, note that if \(\lambda = 0\), then equation <a href="#eq-10-8-2">(10.8.2)</a> shows that \(x=0\). From this, Equation&nbsp;<a href="#eq-10-8-2">(10.8.2)</a> tells us that \(y = 108\). So the point \((0,108)\) is a point we need to consider. Next, provided that \(\lambda \neq 0\) (from which it follows that \(x \neq 0\) by Equation <a href="#eq-10-8-2">(10.8.2)</a>), we may divide both sides of Equation&nbsp;<a href="#eq-10-8-2">(10.8.2)</a> by the corresponding sides of <a href="#eq-10-8-2">(10.8.2)</a> to eliminate \(\lambda\), and thus find that
+      \[\begin{aligned}\frac{2y}{x} &amp; = 4, \ \text{so} \\
+y &amp; = 2x.\end{aligned}\]
+    </p><p>
+      Substituting into Equation&nbsp;<a href="#eq-10-8-2">(10.8.2)</a> gives us
+      \[
+        4x+2x = 108
+      \]
+      or
+      \[
+        x = 18.
+      \]
+    </p><p>
+      Thus we have \(y = 2x = 36\) and \(\lambda = x^2 = 324\) as another point to consider. So the points at which the gradients of \(f\) and \(g\) are parallel, and thus at which \(f\) may have a maximum or minimum subject to the constraint, are \((0,108)\) and \((18,36)\). By evaluating the function \(f\) at these points, we see that we maximize the volume when the length of the square end of the box is 18 inches and the length is 36 inches, for a maximum volume of \(f(18,36) = 11664\) cubic inches. Since \(f(0,108) = 0\), we obtain a minimum value at this point.
+    </p><p>
+      We summarize the process of Lagrange multipliers as follows.
+    </p><div class="card callout" id="Lagrange-multipliers"><span class="chip">The method of Lagrange multipliers</span><p>
+      The general technique for optimizing a function \(f = f(x,y)\) subject to a constraint \(g(x,y)=c\) is to solve the system \(\nabla f = \lambda \nabla g\) and \(g(x,y)=c\) for \(x\), \(y\), and \(\lambda\). We then evaluate the function \(f\) at each point \((x,y)\) that results from a solution to the system in order to find the optimum values of \(f\) subject to the constraint.
+    </p></div><div class="card activity" id="A_10_8_1"><div class="ex-head"><span class="num">Activity 10.8.2</span></div><div class="ex-body"><p>
+        A cylindrical soda can holds about 355 cc of liquid. In this activity, we want to find the dimensions of such a can that will minimize the surface area. For the sake of simplicity, assume the can is a perfect cylinder. 
+        <ol type="a"><li><p>
+              What are the variables in this problem? Based on the context, what restriction(s), if any, are there on these variables?
+            </p></li><li><p>
+              What quantity do we want to optimize in this problem? What equation describes the constraint? (You need to decide which of these functions plays the role of \(f\) and which plays the role of \(g\) in our discussion of Lagrange multipliers.)
+            </p></li><li><p>
+              Find \(\lambda\) and the values of your variables that satisfy Equation <a href="#eq_10_8_Lagrange_ex1">(10.8.1)</a> in the context of this problem.
+            </p></li><li><p>
+              Determine the dimensions of the pop can that give the desired solution to this constrained optimization problem.
+            </p></li></ol>
+      </p></div></div><p>
+      The method of Lagrange multipliers also works for functions of more than two variables.
+    </p><div class="card activity" id="A_10_8_2"><div class="ex-head"><span class="num">Activity 10.8.3</span></div><div class="ex-body"><p>
+        Use the method of Lagrange
+        multipliers to find the dimensions of the least
+        expensive packing crate with a volume of 240 cubic feet when the
+        material for the top costs $2 per square foot, the bottom is $3
+        per square foot and the sides are $1.50 per square foot.
+      </p></div></div><p> 
+      The method of Lagrange multipliers also works for functions of three variables. That is, if we have a function \(f = f(x,y,z)\) that we want to optimize subject to a constraint \(g(x,y,z) = k\), the optimal point \((x,y,z)\) lies on the level surface \(S\) defined by the constraint \(g(x,y,z) = k\). As we did in <a href="#PA_10_8">Preview Activity 10.8.1</a>, we can argue that the optimal value occurs at the level surface \(f(x,y,z) = c\) that is tangent to \(S\). Thus, the gradients of \(f\) and \(g\) are parallel at this optimal point. So, just as in the two variable case, we can optimize \(f = f(x,y,z)\) subject to the constraint \(g(x,y,z) = k\) by finding all points \((x,y,z)\) that satisfy \(\nabla f = \lambda \nabla g\) and \(g(x,y,z) = k\). 
+    </p>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          The extrema of a function \(f=f(x,y)\) subject to a constraint
+            \(g(x,y) = c\) occur at points for which the contour of \(f\) is tangent to the curve that represents the constraint equation. This occurs when
+          \[
+            \nabla f = \lambda \nabla g.
+          \]
+        </p></li><li><p>
+          We use the condition  \(\nabla f = \lambda \nabla g\) to generate a system of equations, together
+            with the constraint \(g(x,y) = c\), that may be
+            solved for \(x\), \(y\), and \(\lambda\).  Once we have all the solutions, we evaluate \(f\)
+            at each of the \((x,y)\) points to determine the extrema.
+        </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-8">Exercises</h2><div class="exercise" id="ex-10-8-WW-plane"><div class="n">1</div><div class="body"><p>Use Lagrange multipliers to find the maximum and minimum values of
+\(f(x,y) =  x - 4 y\) subject to the constraint
+\(x^2 +  y^2 = 17\), if such values exist.</p><p>maximum = <span class="blank">___________________________________</span></p><p>minimum = <span class="blank">___________________________________</span></p><p><em>(For either value, enter <em>DNE</em> if there is
+no such value.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(1\cdot 1\cdot 1+4\cdot 4\), \(-1\cdot 1\cdot 1-4\cdot 4\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-cubic"><div class="n">2</div><div class="body"><p>Use Lagrange multipliers to find the maximum and minimum values of
+\(f(x,y) = x^2 y + 3 y^2 - y\), subject to the constraint
+\(x^2 + y^2 \leq 10\)</p><p>maximum = <span class="blank">___________________________________</span></p><p>minimum = <span class="blank">___________________________________</span></p><p><em>(For either value, enter <em>DNE</em> if there is
+no such value.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(33.1623\), \(-5\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-square-sum"><div class="n">3</div><div class="body"><p>Find the absolute maximum and minimum of the function \(f(x,y) = x^2 + y^2\) subject to the constraint \(x^4 + y^4 = 16\).</p><p>As usual, ignore unneeded answer blanks, and list points in
+lexicographic order.</p><p>Absolute minimum value: <span class="blank">____________________</span></p><p>attained at (<span class="blank">__________</span>, <span class="blank">__________</span>), 
+(<span class="blank">__________</span>, <span class="blank">__________</span>),</p><p>(<span class="blank">__________</span>, <span class="blank">__________</span>),
+(<span class="blank">__________</span>, <span class="blank">__________</span>).</p><p>Absolute maximum value: <span class="blank">____________________</span></p><p>attained at (<span class="blank">__________</span>, <span class="blank">__________</span>),
+  (<span class="blank">__________</span>, <span class="blank">__________</span>),</p><p>(<span class="blank">__________</span>, <span class="blank">__________</span>),
+(<span class="blank">__________</span>, <span class="blank">__________</span>).</p><div class="answer"><button>Show answer</button><div class="a"><p>\(4\), \(-2\), \(0\), \(0\), \(-2\), \(0\), \(2\), \(2\), \(0\), \(5.65685424949238\), \(-1.68179283050743\), \(-1.68179283050743\), \(-1.68179283050743\), \(1.68179283050743\), \(1.68179283050743\), \(-1.68179283050743\), \(1.68179283050743\), \(1.68179283050743\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-hyperbola"><div class="n">4</div><div class="body"><p>Find the absolute maximum and minimum of the function \(f(x,y) = x^2 - y^2\) subject to the constraint \(x^2 + y^2 = 9\).</p><p>As usual, ignore unneeded answer blanks, and list points in
+lexicographic order.</p><p>Absolute minimum value: <span class="blank">____________________</span></p><p>attained at (<span class="blank">__________</span>, <span class="blank">__________</span>) and  (<span class="blank">__________</span>, <span class="blank">__________</span>).</p><p>Absolute maximum value: <span class="blank">____________________</span></p><p>attained at (<span class="blank">__________</span>, <span class="blank">__________</span>) and  (<span class="blank">__________</span>, <span class="blank">__________</span>).</p><div class="answer"><button>Show answer</button><div class="a"><p>\(-9\), \(0\), \(-3\), \(0\), \(3\), \(9\), \(-3\), \(0\), \(3\), \(0\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-distance"><div class="n">5</div><div class="body"><p>Find the minimum distance from the point \((1,1,14)\)
+to the paraboloid given by the equation \(z=x^2+y^2\).</p><p>Minimum distance = <span class="blank">___________________________________</span></p><p><em> Note:</em> 
+If you need to find
+roots of a polynomial of degree \(\geq 3\),
+you may want to use a calculator of computer to do so numerically.
+Also be sure that you can give a geometric
+justification for your answer.</p><div class="answer"><button>Show answer</button><div class="a"><p>\(\sqrt{5.32092}\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-two-ways"><div class="n">6</div><div class="body"><p>For each value of \(\lambda\) the function
+\(h(x,y) = x^2 + y^2 - \lambda(2 x + 8 y - 16)\)
+has a minimum value \(m(\lambda)\).</p><p><em>(a)</em>
+Find \(m(\lambda)\)</p><p>\(m(\lambda) =\) <span class="blank">_____________________________________________</span></p><p><em>(Use the letter <em>L</em> for \(\lambda\) in
+your expression.)</em></p><p><em>(b)</em>
+For which value of \(\lambda\) is \(m(\lambda)\) the largest,
+and what is that maximum value?</p><p>\(\lambda =\) <span class="blank">_________________________</span></p><p>maximum \(m(\lambda) =\) <span class="blank">_________________________</span></p><p><em>(c)</em>
+Find the minimum value of  \(f(x,y)=x^2+y^2\) subject to the
+constraint \(2 x + 8 y = 16\) using the method of Lagrange
+multipliers and evaluate \(\lambda\).</p><p>minimum \(f\) = <span class="blank">_________________________</span></p><p>\(\lambda =\) <span class="blank">_________________________</span></p><p><em>(How are these results related to your result in part
+(b)?)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(16L-\frac{\left(2\cdot 2+8\cdot 8\right)L^{2}}{4}\), \(\frac{2\cdot 16}{2\cdot 2+8\cdot 8}\), \(\frac{16\cdot 16}{2\cdot 2+8\cdot 8}\), \(\frac{16\cdot 16}{2\cdot 2+8\cdot 8}\), \(\frac{2\cdot 16}{2\cdot 2+8\cdot 8}\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-plane-ellipse"><div class="n">7</div><div class="body"><p>The plane \(x + y + 2z = 4\) intersects the paraboloid \(z = x^2 +
+y^2\) in an ellipse.  Find the points on this ellipse that are
+nearest to and farthest from the origin.</p><p>Point farthest away occurs at</p><p>(<span class="blank">_________________________</span>, <span class="blank">_________________________</span>,<span class="blank">_________________________</span>).</p><p>Point nearest occurs at</p><p>(<span class="blank">_________________________</span>, <span class="blank">_________________________</span>,<span class="blank">_________________________</span>).</p><div class="answer"><button>Show answer</button><div class="a"><p>\(-1.28077640640442\), \(-1.28077640640442\), \(3.28077640640442\), \(0.780776406404415\), \(0.780776406404415\), \(1.21922359359558\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-3-variable"><div class="n">8</div><div class="body"><p>Find the maximum and minimum values of the function \(f(x,y,z) = x^2 y^2 z^2\) subject to the constraint \(x^2 + y^2 + z^2 = 9\).</p><p>Maximum value is <span class="blank">____________________</span>, occurring at <span class="blank">____________________</span> points (positive integer or "infinitely many").</p><p>Minimum value is <span class="blank">____________________</span>, occurring at <span class="blank">____________________</span> points (positive integer or "infinitely many").</p><div class="answer"><button>Show answer</button><div class="a"><p>\(27\), \(8\), \(0\), infinitely many</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-4-variable"><div class="n">9</div><div class="body"><p>Find the maximum and minimum values of the function \(f(x,y,z,t) = x+y+z+t\) subject to the constraint \(x^2 + y^2 + z^2 + t^2 = 9\).</p><p>Maximum value is <span class="blank">____________________</span>, occurring at <span class="blank">____________________</span> points (positive integer or "infinitely many").</p><p>Minimum value is <span class="blank">____________________</span>, occurring at <span class="blank">____________________</span> points (positive integer or "infinitely many").</p><div class="answer"><button>Show answer</button><div class="a"><p>\(6\), \(1\), \(-6\), \(1\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-volume"><div class="n">10</div><div class="body"><p>Find the maximum and minimum volumes of a rectangular box whose
+surface area equals 2000 square cm and whose edge length (sum of
+lengths of all edges) is 240 cm.</p><p>Hint: It can be deduced that the box is not a cube, so if x, y, and z
+are the lengths of the sides, you may want to let x represent a side
+with \(x \ne y\) and \(x \ne z\).</p><p>Maximum value is <span class="blank">____________________________________________________________</span>,</p><p>occurring at
+(<span class="blank">_________________________</span>, <span class="blank">_________________________</span>,<span class="blank">_________________________</span>).</p><p>Minimum value is <span class="blank">____________________________________________________________</span>,</p><p>occurring at
+(<span class="blank">_________________________</span>, <span class="blank">_________________________</span>,<span class="blank">_________________________</span>).</p><div class="answer"><button>Show answer</button><div class="a"><p>\(5088.66210790363\), \(36.3299316185545\), \(11.8350341907227\), \(11.8350341907227\), \(2911.33789209637\), \(3.67006838144548\), \(28.1649658092773\), \(28.1649658092773\)</p></div></div></div></div><div class="exercise" id="ex-10-8-WW-squares"><div class="n">11</div><div class="body"><p><em>(a)</em>
+If \(\sum_{i=1}^3 x_i = 1\), find the values of
+\(x_1, x_2, x_3\) making \(\sum_{i=1}^3 {x_i}^2\) minimum.</p><p>\(x_1, x_2, x_3 =\) <span class="blank">_____________________________________________</span></p><p><em>(Give your values as a comma separated list.)</em></p><p><em>(b)</em>
+Generalize the result of part (a) to find the minimum value of
+\(\sum_{i=1}^n{x_i}^2\) subject to \(\sum_{i=1}^n x_i=1\).</p><p>minimum value = <span class="blank">_____________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.333333, 0.333333, 0.333333\), \(\frac{1\cdot 1}{n}\)</p></div></div></div></div><div class="exercise"><div class="n">12</div><div class="body"><p>
+            The Cobb-Douglas production function is used in economics to model production levels based on labor and equipment. Suppose we have a specific Cobb-Douglas function of the form
+            \[
+              f(x, y) = 50 x^{0.4}y^{0.6},
+            \]
+            where \(x\) is the dollar amount spent on labor and \(y\) the dollar amount spent on equipment. Use the method of Lagrange multipliers to determine how much should be spent on labor and how much on equipment to maximize productivity if we have a total of 1.5 million dollars to invest in labor and equipment.
+          </p></div></div><div class="exercise"><div class="n">13</div><div class="body"><p>
+            Use the method of Lagrange multipliers to find the point on the line
+            \(x-2y=5\) that is closest to the point \((1,3)\). To do so, respond to the following prompts.
+            <ol type="a"><li><p>
+                  Write the function \(f=f(x,y)\) that measures the <em>square</em> of
+                      the distance from \((x,y)\) to \((1,3)\).  (The extrema of this
+                      function are the same as the extrema of the distance function, but
+                      \(f(x,y)\) is simpler to work with.)
+                </p></li><li><p>
+                  What is the constraint \(g(x,y) = c\)?
+                </p></li><li><p>
+                  Write the equations resulting from \(\nabla f = \lambda \nabla
+                      g\) and the constraint.  Find all the points
+                      \((x,y)\) satisfying these equations.
+                </p></li><li><p>
+                  Test all the points you found to determine the extrema.
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">14</div><div class="body"><p>
+            Apply the Method of Lagrange Multipliers solve each of the following constrained optimization problems.
+            <ol type="a"><li><p>
+                  Determine the absolute maximum and absolute minimum values of \(f(x,y) = (x-1)^2 + (y-2)^2\) subject to the constraint that \(x^2 + y^2 = 16\).
+                </p></li><li><p>
+                  Determine the points on the sphere \(x^2 + y^2 + z^2 = 4\) that are closest to and farthest from the point \((3,1,-1)\).  (As in the preceding exercise, you may find it simpler to work with the square of the distance formula, rather than the distance formula itself.)
+                </p></li><li><p>
+                  Find the absolute maximum and minimum of \(f(x,y,z) = x^2 + y^2 + z^2\) subject to the constraint that \((x-3)^2 + (y+2)^2 + (z-5)^2 \le 16\).  (Hint: here the constraint is a closed, bounded region.  Use the boundary of that region for applying Lagrange Multipliers, but don't forget to also test any critical values of the function that lie in the interior of the region.)
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">15</div><div class="body"><p>
+            In this exercise we consider how to apply the Method of Lagrange Multipliers to optimize functions of three variable subject to two constraints. Suppose we want to optimize \(f = f(x,y,z)\) subject to the constraints \(g(x,y,z) = c\) and \(h(x,y,z) = k\). Also suppose that the two level surfaces \(g(x,y,z) = c\) and \(h(x,y,z) = k\) intersect at a curve \(C\). The optimum point \(P = (x_0,y_0,z_0)\) will then lie on \(C\).  
+            <ol type="a"><li><p>
+                  Assume that \(C\) can be represented parametrically by a vector-valued function \(\vr = \vr(t)\). Let \(\overrightarrow{OP} = \vr(t_0)\). Use the Chain Rule applied to \(f(\vr(t))\), \(g(\vr(t))\), and \(h(\vr(t))\), to explain why 
+                  \[\begin{aligned} \nabla f(x_0,y_0,z_0) \cdot \vr'(t_0) &amp; =  0,  \\
+ \nabla g(x_0,y_0,z_0) \cdot \vr'(t_0) &amp; = 0, \text{ and }  \\
+ \nabla h(x_0,y_0,z_0) \cdot \vr'(t_0) &amp; = 0. \end{aligned}\]
+                  Explain how this shows that \(\nabla f(x_0,y_0,z_0)\), \(\nabla g(x_0,y_0,z_0)\), and \(\nabla h(x_0,y_0,z_0)\) are all orthogonal to \(C\) at \(P\). This shows that \(\nabla f(x_0,y_0,z_0)\), \(\nabla g(x_0,y_0,z_0)\), and \(\nabla h(x_0,y_0,z_0)\) all lie in the same plane.
+                </p></li><li><p>
+                  Assuming that \(\nabla g(x_0,y_0,z_0)\) and \(\nabla h(x_0,y_0,z_0)\) are nonzero and not parallel, explain why every point in the plane determined by \(\nabla g(x_0,y_0,z_0)\) and \(\nabla h(x_0,y_0,z_0)\) has the form \(s\nabla g(x_0,y_0,z_0)+t\nabla h(x_0,y_0,z_0)\) for some scalars \(s\) and \(t\).  
+                </p></li><li><p>
+                  Parts (a.) and (b.) show that there must exist scalars \(\lambda\) and \(\mu\) such that 
+                  \[ \nabla f(x_0,y_0,z_0) = \lambda \nabla g(x_0,y_0,z_0)+ \mu \nabla h(x_0,y_0,z_0).
+                  \]
+                  So to optimize \(f = f(x,y,z)\) subject to the constraints \(g(x,y,z) = c\) and \(h(x,y,z) = k\) we must solve the system of equations
+                  \[\begin{aligned} \nabla f(x,y,z) &amp; = \lambda \nabla g(x,y,z)+ \mu \nabla h(x,y,z),  \\
+g(x,y,z) &amp; = c, \text{ and }  \\
+ h(x,y,z) &amp; = k. \end{aligned}\]
+                  for \(x\), \(y\), \(z\), \(\lambda\), and \(\mu\). 
+                </p><p>
+                  Use this idea to find the maximum and minium values of \(f(x,y,z) = x+2y\) subject to the constraints \(y^2+z^2=8\) and \(x+y+z = 10\).
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="ex-10-8-multiplier"><div class="n">16</div><div class="body"><p>
+            There is a useful interpretation of the Lagrange multiplier \(\lambda\). Assume that we want to optimize a function \(f\) with constraint \(g(x,y)=c\). Recall that an optimal solution occurs at a point \((x_0, y_0)\) where \(\nabla f = \lambda \nabla g\). As the constraint changes, so does the point at which the optimal solution occurs. So we can think of the optimal point as a function of the parameter \(c\), that is \(x_0 = x_0(c)\) and \(y_0=y_0(c)\). The optimal value of \(f\) subject to the constraint can then be considered as a function of \(c\) defined by \(f(x_0(c), y_0(c))\). The Chain Rule shows that
+            \[
+              \frac{df}{dc} = \frac{\partial f}{\partial x_0} \frac{dx_0}{dc} + \frac{\partial f}{\partial y_0} \frac{dy_0}{dc}.
+            \]
+            <ol type="a"><li><p>
+                  Use the fact that \(\nabla f = \lambda \nabla g\) at \((x_0,y_0)\) to explain why
+                  \[
+                    \frac{df}{dc} = \lambda \frac{dg}{dc}.
+                  \]
+                </p></li><li><p>
+                  Use the fact that \(g(x,y) = c\) to show that
+                  \[
+                    \frac{df}{dc} = \lambda.
+                  \]
+                  Conclude that \(\lambda\) tells us the rate of change of the function \(f\) as the parameter \(c\) increases (or by approximately how much the optimal value of the function \(f\) will change if we increase the value of \(c\) by 1 unit).
+                </p></li><li><p>
+                  Suppose that \(\lambda = 324\) at the point where the package described in <a href="#PA_10_8">Preview Activity 10.8.1</a> has its maximum volume. Explain in context what the value \(324\) tells us about the package.
+                </p></li><li><p>
+                  Suppose that the maximum value of a function \(f = f(x,y)\) subject to a constraint \(g(x,y) = 100\) is \(236\). When using the method of Lagrange multipliers and solving \(\nabla f = \lambda \nabla g\),  we obtain a value of \(\lambda = 15\) at this maximum. Find an approximation to the maximum value of \(f\) subject to the constraint \(g(x,y) = 98\).  
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

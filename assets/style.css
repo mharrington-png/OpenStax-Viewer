@@ -258,6 +258,12 @@ pre.code {
 }
 /* WeBWorK answer blanks (<fillin>, rendered as a static page with no live grading) */
 .blank { display: inline-block; border-bottom: 2px solid var(--ink-faint); color: transparent; margin: 0 .2em; }
+/* Footnotes (<fn> in the source) -- a superscript reference marker inline, and a numbered
+   list at the end of the section's narrative with a back-arrow link to where it was cited. */
+sup a { text-decoration: none; color: var(--accent); }
+ol.footnotes { font-size: .92rem; color: var(--ink-faint); padding-left: 1.4em; }
+ol.footnotes li { margin: .4em 0; }
+ol.footnotes a { color: var(--accent); }
 .selfcheck button.on-right { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); }
 .selfcheck button.on-wrong { background: var(--gold-soft); border-color: var(--gold); color: var(--gold); }
 

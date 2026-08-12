@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linearization: Tangent Planes and Differentials · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Linearization: Tangent Planes and Differentials</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 10.4</span>Linearization: Tangent Planes and Differentials</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What does it mean for a function of two variables to be
+                  locally linear at a point?
+            </p></li><li><p>
+              How do we find the equation of the plane tangent to a locally
+                  linear function at a point?
+            </p></li><li><p>
+              What is the differential of a multivariable function of two
+                  variables and what are its uses?
+            </p></li></ul></div>
+<p>
+      One of the central concepts in single variable calculus is that the
+      graph of a differentiable function, when viewed on a very small scale, looks like a
+      line. We call this line the tangent line and measure its slope with
+      the derivative. In this section, we will extend this concept to
+      functions of several variables.
+    </p><p>
+      Let's see what happens when we look
+      at the graph of a two-variable function on a small scale. To begin, let's consider the function \(f\) defined by
+      \[
+        f(x,y) = 6 - \frac{x^2}2 - y^2,
+      \]
+      whose graph is shown in <a href="#F_10_4_tangent_1">Figure 10.4.1</a>.
+    </p><figure class="plot" id="F_10_4_tangent_1"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_1.svg" alt=""><figcaption>Figure 10.4.1 — The graph of \(f(x,y)=6-x^2/2 - y^2\).</figcaption></figure><p>
+      We choose to study the behavior of this function near the point \((x_0,
+      y_0) = (1,1)\). In particular, we wish to view the graph on an
+      increasingly small scale around this point, as shown in the two plots in <a href="#F_10_4_tangent_2">Figure 10.4.2</a>
+    </p><figure class="plot" id="F_10_4_tangent_2"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_2.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_3.svg" alt=""></div></div><figcaption>Figure 10.4.2 — The graph of \(f(x,y)=6-x^2/2 - y^2\).</figcaption></figure><p>
+      Just as the graph of a differentiable single-variable function looks like a line
+      when viewed on a small scale, we see that the graph of this particular two-variable
+      function looks like a plane, as seen in <a href="#F_10_4_tangent_4">Figure 10.4.3</a>.
+      In the following preview activity, we explore how to find the equation of this plane.
+    </p><figure class="plot" id="F_10_4_tangent_4"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_4.svg" alt=""><figcaption>Figure 10.4.3 — The graph of \(f(x,y)=6-x^2/2 - y^2\).</figcaption></figure><p>
+      In what follows, we will also use the important fact<sup id="fnref-1"><a href="#fn-1">1</a></sup> that the plane passing through \((x_0, y_0, z_0)\) may be expressed in the form
+      \(z = z_0 + a(x-x_0) + b(y-y_0)\), where \(a\) and \(b\) are constants.
+    </p><div class="card activity preview" id="PA_10_4"><div class="ex-head"><span class="num">Preview Activity 10.4.1</span></div><div class="ex-body"><p>
+        Let \(f(x,y) = 6 - \frac{x^2}2 - y^2\), and let \((x_0,y_0)
+          = (1,1)\).
+        <ol type="a"><li><p>
+              Evaluate \(f(x,y) = 6 - \frac{x^2}2 - y^2\) and its partial derivatives at \((x_0,y_0)\);  that is, find \(f(1,1)\), \(f_x(1,1)\), and \(f_y(1,1)\).
+            </p></li><li><p>
+              We know one point on the tangent plane;  namely, the \(z\)-value of the tangent
+                plane agrees with the \(z\)-value on the graph of \(f(x,y) = 6 - \frac{x^2}2 - y^2\) at the point \((x_0,
+                y_0)\).  In other words, both the tangent plane and the graph of the function \(f\) contain the point \((x_0, y_0, z_0)\). Use this observation to determine \(z_0\) in the expression
+                \(z = z_0 + a(x-x_0) + b(y-y_0)\).
+            </p></li><li><p>
+              Sketch the traces of \(f(x,y) = 6 - \frac{x^2}2 - y^2\) for \(y=y_0=1\) and \(x=x_0=1\)
+                below in <a href="#F_10_4_traces">Figure 10.4.4</a>.
+
+              <figure class="plot" id="F_10_4_traces"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_trace_y.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_trace_x.svg" alt=""></div></div><figcaption>Figure 10.4.4 — The traces of \(f(x,y)\) with \(y=y_0=1\) and \(x=x_0=1\).</figcaption></figure>
+
+            </p></li><li><p>
+              Determine the equation of the tangent line of the trace that you sketched in the previous part with \(y=1\) (in the \(x\) direction) at the point \(x_0=1\).
+
+              <figure class="plot" id="F_10_4_tangent_traces"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_5.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_6.svg" alt=""></div></div><figcaption>Figure 10.4.5 — The traces of \(f(x,y)\) and the tangent plane.</figcaption></figure>
+
+            </p></li><li><p>
+              <a href="#F_10_4_tangent_traces">Figure 10.4.5</a> shows the traces of the function and the traces of the tangent plane.  Explain how the tangent line of the trace of \(f\), whose equation you found in the last part of this activity, is related to the tangent plane.  How does this observation help you determine the constant \(a\) in the equation for the tangent plane \(z = z_0+a(x-x_0) + b(y-y_0)\)?  (Hint: How do you think \(f_x(x_0,y_0)\) should be related to \(z_x(x_0,y_0)\)?)
+            </p></li><li><p>
+              In a similar way to what you did in (d), determine the equation of the tangent line of the trace with \(x=1\) at the point \(y_0=1\).  Explain how this tangent line is related to the tangent plane, and use this observation to determine the constant \(b\) in the equation for the tangent plane \(z=z_0+a(x-x_0) + b(y-y_0)\). (Hint: How do you think \(f_y(x_0,y_0)\) should be related to \(z_y(x_0,y_0)\)?)
+            </p></li><li><p>
+              Finally, write the equation \(z=z_0 + a(x-x_0) + b(y-y_0)\) of the tangent
+                plane to the graph of \(f(x,y)=6-x^2/2 - y^2\) at the point
+                \((x_0,y_0)=(1,1)\).
+            </p></li></ol>
+      </p></div></div>
+<h2 id="the-tangent-plane">The Tangent Plane</h2>
+<p>
+      Before stating the formula for the equation of the tangent plane at a point for a general function \(f=f(x,y)\), we need to discuss a technical
+      condition. As we have noted, when we look at the graph of a single-variable
+      function on a small scale near a point \(x_0\), we expect to see a line;
+      in this case, we say that <em>\(f\) is locally linear near \(x_0\)</em> since the graph looks like a linear function locally around \(x_0\). Of course, there are functions, such as the absolute value function given by \(f(x)=|x|\), that are not locally linear at every point. In single-variable calculus, we learn that if the derivative of a function exists at a point, then the function is guaranteed to be locally linear there.
+    </p><p>
+      In a similar way, we say that a two-variable function <em>\(f\) is locally linear near \((x_0,y_0)\)</em> provided that the graph of \(f\) looks like a plane (its <em>tangent plane</em>) when viewed on a small scale near \((x_0,y_0)\). How can we tell when a function of two variables is locally linear at a point?
+    </p><p>
+      It is not unreasonable to expect that if \(f_x(a,b)\) and \(f_y(a,b)\) exist for some function \(f\) at a point \((a,b)\), then \(f\) is locally linear at \((a,b)\). This is not sufficient, however. As an example, consider the function \(f\) defined by \(f(x,y) = x^{1/3} y^{1/3}\). In <a href="#Ez_10_4_0">Exercise 11</a> you are asked to show that \(f_x(0,0)\) and \(f_y(0,0)\) both exist, but that \(f\) is not locally linear at \((0,0)\) (see <a href="#F_10_4_Not_diff">Figure 10.4.11</a>). So the existence of the two first order partial derivatives at a point does not guarantee local linearity at that point. 
+    </p><p>
+      It would take us too far afield to provide a rigorous dicussion of differentiability of functions of more than one variable (see <a href="#Ez_10_4_4">Exercise 15</a> for a little more detail), so we will be content to define stronger, but more easily verified, conditions that ensure local linearity. 
+    </p><div class="card callout" id="Differentiablity"><span class="chip">Differentiablity</span><p>
+      If \(f\) is a function of the independent variables \(x\) and \(y\) and both \(f_x\) and \(f_y\) exist and are continuous in an open disk containing the point \((x_0,y_0)\), then \(f\) is <em>continuously differentiable</em> at \((x_0,y_0)\).
+    </p></div><p>
+      As a consequence, whenever a function \(z = f(x,y)\) is continuously differentiable at a point \((x_0,y_0)\), it follows that the function has a tangent plane at \((x_0,y_0)\). Viewed up close, the tangent plane and the function are then virtually indistinguishable. (We won't formally define differentiability of multivariable functions here, and for our purposes continuous differentiability is the only condition we will ever need to use. It is important to note that continuous differentiability is a stronger condition than differentiability. All of the results we encounter will apply to differentiable functions, and so also apply to continuously differentiable functions.)  In addition, as in <a href="#PA_10_4">Preview Activity 10.4.1</a>, we find the following general formula for the tangent plane. 
+    </p><div class="card callout" id="Tangent-plane"><span class="chip">The tangent plane</span><p>
+      If \(f(x,y)\) has continuous first-order partial derivatives, then the equation of the plane tangent to the graph of \(f\) at the point \((x_0,y_0,f(x_0,y_0))\) is
+      <span id="eq_10_4_tan_plane">\[
+        z = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0).
+      \tag{10.4.1}\]</span>
+    </p></div><p>
+        <em>Important Note:</em> As can be seen in <a href="#Ez_10_4_0">Exercise 11</a>, it is possible that \(f_x(x_0,y_0)\) and \(f_y(x_0,y_0)\) can exist for a function \(f\), and so the plane \(z = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)\) exists even though \(f\) is not locally linear at \((x_0,y_0)\) (because the graph of \(f\) does not look linear when we zoom in around the point \((x_0,y_0)\)). In such a case this plane is not tangent to the graph. Differentiability for a function of two variables implies the existence of a tangent plane, but the existence of the two first order partial derivatives of a function at a point does not imply differentiaility. This is quite different than what happens in single variable calculus. 
+    </p><p>
+      Finally, one important note about the form of the equation for the tangent plane, \(z = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)\). Say, for example, that we have the particular tangent plane \(z = 7 - 2(x-3) + 4(y+1)\). Observe that we can immediately read from this form that \(f_x(3,-1) = -2\) and \(f_y(3,-1) = 4\); furthermore, \(f_x(3,-1)=-2\) is the slope of the trace to both \(f\) and the tangent plane in the \(x\)-direction at \((3,-1)\). In the same way, \(f_y(3,-1) = 4\) is the slope of the trace of both \(f\) and the tangent plane in the \(y\)-direction at \((3,-1)\).
+    </p><div class="card activity" id="A_10_4_1"><div class="ex-head"><span class="num">Activity 10.4.2</span></div><div class="ex-body"><ol type="a"><li><p>
+              Find the equation of the tangent plane to \(f(x,y) = 2 + 4x - 3y\) at the point \((1,2)\). Simplify as much as possible. Does the result surprise you? Explain.  
+          </p></li><li><p>
+            Find the equation of the tangent plane to \(f(x,y) = x^2y\) at the point \((1,2)\).
+          </p></li></ol></div></div>
+<h2 id="linearization">Linearization</h2>
+<p>
+      In single variable calculus, an important use of the tangent line is
+      to approximate the value of a differentiable function. Near the point \(x_0\), the
+      tangent line to the graph of \(f\) at \(x_0\) is close to the
+      graph of \(f\) near \(x_0\), as shown in <a href="#F_10_4_2d_linear">Figure 10.4.6</a>.
+    </p><figure class="plot" id="F_10_4_2d_linear"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_2d_linear.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_2d_linear_gray.svg" alt=""></div></div><figcaption>Figure 10.4.6 — The linearization of the single-variable function \(f(x)\).</figcaption></figure><p>
+      In this single-variable setting, we let \(L\) denote the function whose graph is the tangent line, and thus
+      \[
+        L(x) = f(x_0) + f'(x_0)(x-x_0)
+      \]
+    </p><p>
+      Furthermore, observe that \(f(x) \approx L(x)\) near \(x_0\). We call \(L\) the
+      <em>linearization</em> of \(f\).
+    </p><p>
+      In the same way, the tangent plane to the graph of a differentiable function \(z = f(x,y)\) at a point
+      \((x_0,y_0)\) provides a good approximation of \(f(x,y)\) near \((x_0,
+      y_0)\). Here, we define the linearization, \(L\), to be the two-variable function whose
+      graph is the tangent plane, and thus
+      \[
+        L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) +
+        f_y(x_0,y_0)(y-y_0).
+      \]
+    </p><p>
+      Finally, note that \(f(x,y)\approx L(x,y)\) for points near \((x_0,
+      y_0)\). This is illustrated in <a href="#F_10_4_tangent_9">Figure 10.4.7</a>.
+    </p><figure class="plot" id="F_10_4_tangent_9"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_9.svg" alt=""><figcaption>Figure 10.4.7 — The linearization of \(f(x,y)\).</figcaption></figure><div class="card activity" id="A_10_4_11"><div class="ex-head"><span class="num">Activity 10.4.3</span></div><div class="ex-body"><p>
+        In what follows, we find the linearization of several different functions that are given in algebraic, tabular, or graphical form.
+        <ol type="a"><li><p>
+              Find the linearization \(L(x,y)\) for the function \(g\) defined by
+              \[
+                g(x,y) = \frac{x}{x^2+y^2}
+              \]
+              at the point \((1,2)\).  Then use the linearization to estimate the value of
+               \(g(0.8, 2.3)\).
+            </p></li><li><p>
+              <a href="#T_10_4_wind_chill">Table 10.4.8</a> provides a collection of values of the wind chill \(w(v,T)\), in degrees Fahrenheit, as a function of  wind speed, in miles per hour, and temperature, also in degrees Fahrenheit.
+
+              <div class="tablewrap"><table class="data gridlines"><tr><td class="diag"><span class="colvar">\(T\)</span><span class="rowvar">\(v\)</span></td><td><p>\(-30\)</p></td><td><p>\(-25\)</p></td><td><p>\(-20\)</p></td><td><p>\(-15\)</p></td><td><p>\(-10\)</p></td><td><p>\(-5\)</p></td><td><p>\(0\)</p></td><td><p>\(5\)</p></td><td><p>\(10\)</p></td><td><p>\(15\)</p></td><td><p>\(20\)</p></td></tr><tr><td><p>\(5\)</p></td><td><p>\(-46\)</p></td><td><p>\(-40\)</p></td><td><p>\(-34\)</p></td><td><p>\(-28\)</p></td><td><p>\(-22\)</p></td><td><p>\(-16\)</p></td><td><p>\(-11\)</p></td><td><p>\(-5\)</p></td><td><p>\(1\)</p></td><td><p>\(7\)</p></td><td><p>\(13\)</p></td></tr><tr><td><p>\(10\)</p></td><td><p>\(-53\)</p></td><td><p>\(-47\)</p></td><td><p>\(-41\)</p></td><td><p>\(-35\)</p></td><td><p>\(-28\)</p></td><td><p>\(-22\)</p></td><td><p>\(-16\)</p></td><td><p>\(-10\)</p></td><td><p>\(-4\)</p></td><td><p>\(3\)</p></td><td><p>\(9\)</p></td></tr><tr><td><p>\(15\)</p></td><td><p>\(-58\)</p></td><td><p>\(-51\)</p></td><td><p>\(-45\)</p></td><td><p>\(-39\)</p></td><td><p>\(-32\)</p></td><td><p>\(-26\)</p></td><td><p>\(-19\)</p></td><td><p>\(-13\)</p></td><td><p>\(-7\)</p></td><td><p>\(0\)</p></td><td><p>\(6\)</p></td></tr><tr><td><p>\(20\)</p></td><td><p>\(-61\)</p></td><td><p>\(-55\)</p></td><td><p>\(-48\)</p></td><td><p>\(-42\)</p></td><td><p>\(-35\)</p></td><td><p>\(-29\)</p></td><td><p>\(-22\)</p></td><td><p>\(-15\)</p></td><td><p>\(-9\)</p></td><td><p>\(-2\)</p></td><td><p>\(4\)</p></td></tr><tr><td><p>\(25\)</p></td><td><p>\(-64\)</p></td><td><p>\(-58\)</p></td><td><p>\(-51\)</p></td><td><p>\(-44\)</p></td><td><p>\(-37\)</p></td><td><p>\(-31\)</p></td><td><p>\(-24\)</p></td><td><p>\(-17\)</p></td><td><p>\(-11\)</p></td><td><p>\(-4\)</p></td><td><p>\(3\)</p></td></tr><tr><td><p>\(30\)</p></td><td><p>\(-67\)</p></td><td><p>\(-60\)</p></td><td><p>\(-53\)</p></td><td><p>\(-46\)</p></td><td><p>\(-39\)</p></td><td><p>\(-33\)</p></td><td><p>\(-26\)</p></td><td><p>\(-19\)</p></td><td><p>\(-12\)</p></td><td><p>\(-5\)</p></td><td><p>\(1\)</p></td></tr><tr><td><p>\(35\)</p></td><td><p>\(-69\)</p></td><td><p>\(-62\)</p></td><td><p>\(-55\)</p></td><td><p>\(-48\)</p></td><td><p>\(-41\)</p></td><td><p>\(-34\)</p></td><td><p>\(-27\)</p></td><td><p>\(-21\)</p></td><td><p>\(-14\)</p></td><td><p>\(-7\)</p></td><td><p>\(0\)</p></td></tr><tr><td><p>\(40\)</p></td><td><p>\(-71\)</p></td><td><p>\(-64\)</p></td><td><p>\(-57\)</p></td><td><p>\(-50\)</p></td><td><p>\(-43\)</p></td><td><p>\(-36\)</p></td><td><p>\(-29\)</p></td><td><p>\(-22\)</p></td><td><p>\(-15\)</p></td><td><p>\(-8\)</p></td><td><p>\(-1\)</p></td></tr></table></div>
+
+              Use the data to first estimate the appropriate partial derivatives, and then find the linearization \(L(v,T)\) at the point \((20,-10)\).  Finally, use the linearization to estimate \(w(10,-10)\), \(w(20,-12)\), and \(w(18,-12)\). Compare your results to what you obtained in <a href="10-2.html#A_10_2_12">Activity 10.2.5</a>
+            </p></li><li><p>
+              <a href="#F_10_4_activity_contour">Figure 10.4.9</a> gives a contour
+                plot of a continuously differentiable function \(f\).
+
+              <figure class="plot" id="F_10_4_activity_contour"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_3_activity_contour.svg" alt=""><figcaption>Figure 10.4.9 — A contour plot of \(f(x,y)\).</figcaption></figure>
+
+              After estimating appropriate partial derivatives, determine the linearization \(L(x,y)\) at the point \((2,1)\), and use it to
+                estimate \(f(2.2, 1)\), \(f(2, 0.8)\), and \(f(2.2, 0.8)\).
+            </p></li></ol>
+      </p></div></div>
+<h2 id="differentials">Differentials</h2>
+<p>
+      As we have seen, the linearization \(L(x,y)\) enables us to estimate the value of \(f(x,y)\) for points \((x,y)\) near the base point
+      \((x_0, y_0)\).
+      Sometimes, however, we are more interested in the <em>change</em> in \(f\) as we move from the base point \((x_0,y_0)\) to another
+      point \((x,y)\).
+    </p><figure class="plot" id="F_10_4_differential"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_tangent_10.svg" alt=""><figcaption>Figure 10.4.10 — The differential \(df\) approximates the change in
+          \(f(x,y)\).</figcaption></figure><p>
+      <a href="#F_10_4_differential">Figure 10.4.10</a> illustrates this situation. Suppose
+      we are at the point \((x_0,y_0)\), and we know the value \(f(x_0,y_0)\) of \(f\) at \((x_0,y_0)\). If we consider the displacement \(\langle \Delta x, \Delta
+      y\rangle\) to a new point \((x,y) = (x_0+\Delta x, y_0
+      + \Delta y)\), we would like to know how much the function has changed.
+      We denote this change by \(\Delta f\), where
+      \[
+        \Delta f = f(x,y) - f(x_0, y_0).
+      \]
+    </p><p>
+      A simple way to estimate the change \(\Delta f\) is to approximate it by
+      \(df\), which represents the change in the linearization \(L(x,y)\) as we move from
+      \((x_0,y_0)\) to \((x,y)\). This gives
+      \[\begin{aligned}\Delta f \approx df &amp; = L(x,y)-f(x_0, y_0) \\
+&amp; = [f(x_0,y_0)+ f_x(x_0,y_0)(x-x_0) +
+          f_y(x_0,y_0)(y-y_0)] - f(x_0, y_0) \\
+&amp; = f_x(x_0,y_0)\Delta x + f_y(x_0, y_0)\Delta y.\end{aligned}\]
+    </p><p>
+      For consistency, we will denote the
+      change in the independent variables as \(dx = \Delta x\) and \(dy =
+      \Delta y\), and thus
+      <span id="E_10_4_differential">\[
+        \Delta f \approx df = f_x(x_0,y_0)~dx + f_y(x_0,y_0)~dy.
+      \tag{10.4.2}\]</span>
+    </p><p>
+      Expressed equivalently in Leibniz notation, we have
+      <span id="E_10_4_differential_leib">\[
+        df = \frac{\partial f}{\partial x}~dx + \frac{\partial f}{\partial
+            y}~dy.
+      \tag{10.4.3}\]</span>
+    </p><p>
+      We call the quantities \(dx\), \(dy\), and \(df\) <em>differentials</em>, and we think of them as measuring small changes in the quantities \(x\), \(y\), and \(f\). Equations <a href="#E_10_4_differential">(10.4.2)</a>
+      and <a href="#E_10_4_differential_leib">(10.4.3)</a> express the
+      relationship between these changes. Equation
+      <a href="#E_10_4_differential_leib">(10.4.3)</a> resembles an important idea
+      from single-variable calculus: when \(y\) depends on \(x\),
+      it follows in the notation of differentials that
+      \[
+        dy = y'~dx = \frac{dy}{dx}~dx.
+      \]
+    </p><p>
+      We will illustrate the use of differentials with an
+      example. 
+    </p><div class="card example"><div class="ex-head"><span class="num">Example 10.4.1</span></div><div class="ex-body"><p>
+      Suppose we have a machine that manufactures rectangles of
+      width \(x=20\) cm and height \(y=10\) cm. However, the machine isn't perfect, and therefore the width could be off by \(dx = \Delta x = 0.2\) cm and the height could be off by \(dy = \Delta y = 0.4\) cm.
+    </p><p>
+      The area of the rectangle is
+      \[
+        A(x,y) = xy,
+      \]
+      so that the area of a perfectly manufactured rectangle is \(A(20, 10) =
+      200\) square centimeters. Since the machine isn't perfect, we would
+      like to know how much the area of a given manufactured rectangle could differ from the
+      perfect rectangle. We will estimate the uncertainty in the area using
+      <a href="#E_10_4_differential">(10.4.2)</a>, and find that
+      \[
+        \Delta A \approx dA = A_x(20, 10)~dx + A_y(20,10)~dy.
+      \]
+    </p><p>
+      Since \(A_x = y\) and \(A_y = x\), we have
+      \[
+        \Delta A \approx dA = 10~dx + 20~dy = 10\cdot0.2 + 20\cdot0.4 = 10.
+      \]
+    </p><p>
+      That is, we estimate that the area in our rectangles could be off by
+      as much as 10 square centimeters.
+    </p></div></div><div class="card activity" id="A_10_4_12"><div class="ex-head"><span class="num">Activity 10.4.4</span></div><div class="ex-body"><p>
+        The questions in this activity explore the differential in several different contexts.
+        <ol type="a"><li><p>
+              Suppose that the elevation of a landscape is given by the
+                function \(h\), where we additionally know that \(h(3,1) = 4.35\), \(h_x(3,1) = 0.27\), and \(h_y(3,1) = -0.19\).  Assume that \(x\) and \(y\) are measured in miles in the easterly and northerly directions, respectively, from some base point \((0,0)\).
+
+                Your GPS device says that you are currently at the point \((3,1)\).
+                However, you know that the coordinates are only accurate to within
+                \(0.2\) units; that is, \(dx = \Delta x = 0.2\) and \(dy= \Delta y =
+                0.2\).  Estimate the uncertainty in your elevation using differentials.
+            </p></li><li><p>
+              The pressure, volume, and temperature of an ideal gas are
+                related by the equation
+              \[
+                P= P(T,V) = 8.31 T/V,
+              \]
+              where \(P\) is measured in kilopascals, \(V\) in liters, and \(T\) in
+                kelvin.  Find the pressure when the volume is 12 liters and the
+                temperature is 310 K.  Use differentials to estimate the change
+                in the pressure when the volume increases to 12.3 liters and the
+                temperature decreases to 305 K.
+            </p></li><li><p>
+              Refer to <a href="#T_10_4_wind_chill">Table 10.4.8</a>, the table of
+                values of the wind chill \(w(v,T)\), in degrees Fahrenheit, as a
+                function of temperature, also in degrees Fahrenheit, and 
+                wind speed, in miles per hour.  
+  
+                Suppose your anemometer says the wind is blowing at \(25\) miles per hour and your thermometer shows a reading of \(-15^\circ\) degrees.
+                However, you know your thermometer is only accurate to within
+                \(2^\circ\) degrees and your anemometer is only accurate to within \(3\)
+                miles per hour.  What is the wind chill based on your measurements?
+                Estimate the uncertainty in your measurement of the wind chill.
+            </p></li></ol>
+      </p></div></div>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          A function \(f\) of two independent variables is locally linear at
+            a point \((x_0,y_0)\) if the graph of \(f\) looks like a plane 
+            as we zoom in on the graph around the point \((x_0,y_0)\).  In this
+            case, the equation of the tangent plane is given by
+          \[
+            z = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0).
+          \]
+        </p></li><li><p>
+          The tangent plane \(L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)\), when considered as a function, is
+            called the linearization of a differentiable function \(f\) at \((x_0,y_0)\) and may be used
+            to estimate values of \(f(x,y)\);  that is, \(f(x,y) \approx L(x,y)\)
+            for points \((x,y)\) near \((x_0,y_0)\).
+        </p></li><li><p>
+          A function \(f\) of two independent variables is differentiable at \((x_0,y_0)\) provided that both \(f_x\) and \(f_y\) exist and are continuous in an open disk containing 
+          the point \((x_0,y_0)\).
+        </p></li><li><p>
+          The differential \(df\) of a function \(f= f(x,y)\) is related to the
+            differentials \(dx\) and \(dy\) by
+          \[
+            df = f_x(x_0,y_0) dx + f_y(x_0,y_0)dy.
+          \]
+          We can use this relationship to
+            approximate small changes in \(f\) that result from small changes in
+            \(x\) and \(y\).
+        </p></li></ul>
+<h2 id="footnotes">Footnotes</h2><ol class="footnotes"><li id="fn-1">As we saw in <a href="9-5.html#planes-in-space">Section 9.5</a>, the equation
+        of a plane passing through the point \((x_0, y_0, z_0)\) may be written
+        in the form \(A(x-x_0) + B(y-y_0) + C(z-z_0) = 0\).  If the
+        plane is not vertical, then \(C\neq 0\), and we can
+        rearrange this and hence write
+      \(C(z-z_0) = -A(x-x_0) - B(y-y_0)\)
+      and thus
+      \[\begin{aligned}z &amp;  = z_0-\frac AC(x-x_0) - \frac BC(y-y_0) \\
+&amp;  = z_0 + a(x-x_0) + b(y-y_0)\end{aligned}\]
+      where \(a=-A/C\) and \(b=-B/C\), respectively. <a href="#fnref-1">&#8617;</a></li></ol>
+<div id="exercise-panel-content"><h2 id="exercises-4">Exercises</h2><div class="exercise" id="ex-10-4-WW-linearization_radical"><div class="n">1</div><div class="body"><p>Find the linearization \(L \left( x, y \right)\) of the function \(f\left( x,
+y \right) = \sqrt{ 273 - 1 x^{2} - 16 y^{2} }\) at \(\left( 4, 4 \right)\).</p><p>\(L \left( x, y \right) =\) <span class="blank">______________________________</span></p><p>Note: Your answer should be an expression in x and y; e.g. &ldquo;3x - 5y + 9&rdquo;</p><div class="answer"><button>Show answer</button><div class="a"><p>\(-4\mathopen{}\left(x-4\right)+\left(-64\right)\mathopen{}\left(y-4\right)+1\)</p></div></div></div></div><div class="exercise" id="ex-10-4-WW-linearization_exponential"><div class="n">2</div><div class="body"><p>Find the equation of the tangent plane to the surface \(z = e^{-4 x/17} \ln \left(
+4 y \right)\) at the point \((-3,4,   5.616)\).</p><p>z = <span class="blank">______________________________________________________________________</span></p><p>Note: Your answer should be an expression of x and y; e.g. &ldquo;5x + 2y - 3&rdquo;</p><div class="answer"><button>Show answer</button><div class="a"><p>\(-1.32147x+0.506408y+\left(-0.373796\right)\)</p></div></div></div></div><div class="exercise" id="ex-10-4-WW-linearization_mistake"><div class="n">3</div><div class="body"><p>A student was asked to find an equation for the plane that is tangent
+plane to the surface</p><p>\(\displaystyle{ z = {x^{2}-y^{3}} }\)</p><p>at the point \(\displaystyle{ (x,y) = (4,1) }\).  The student&rsquo;s answer was</p><p>\(\displaystyle{ z = {15+2x\mathopen{}\left(x-4\right)-3y^{2}\mathopen{}\left(y-1\right)}}\).</p><p><ol type="a"><li><p>At a glance, how do you know this is wrong?  What mistakes did the student make?  Select all that apply.
+<ul><li><p>The (x - 4) and (y - 1) should be x and y.</p></li><li><p>The 15 should not be in the answer.</p></li><li><p>The partial derivatives were not evaluated at the point.</p></li><li><p>The answer is not a linear function.</p></li><li><p>All of the above</p></li></ul></p></li><li><p>Find a correct equation for the tangent plane.</p></li></ol>
+\(\displaystyle{ z = }\)<span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>The partial derivatives were not evaluated at the point, and the answer is not a linear function., \(z=15+8(x-4)-3(y-1)\)</p></div></div></div></div><div class="exercise" id="ex-10-4-WW-linearization_local_linearity"><div class="n">4</div><div class="body"><p><em>(a)</em>
+Check the local linearity of \(f(x,y) = e^{x}\sin\mathopen{}\left(y\right)\) near \(x=-1,\ y=2.5\)
+by filling in the following table of values of \(f\) for
+\(x=-1.1,\ -1,\ -0.9\) and \(y=2.4,\ 2.5,\ 2.6\).
+Express values of \(f\) with 4 digits after the decimal point.</p><div class="tablewrap"><table class="data gridlines"><tr><td><p>\(x =\)</p></td><td><p>-1.1</p></td><td><p>-1</p></td><td><p>-0.9</p></td></tr><tr><td><p>\(y = 2.4\)</p></td><td></td><td></td><td></td></tr><tr><td><p>\(y = 2.5\)</p></td><td></td><td></td><td></td></tr><tr><td><p>\(y = 2.6\)</p></td><td></td><td></td><td></td></tr></table></div><p><em>(b)</em>
+Next, fill in the table for the values \(x=-1.01,\ -1,\ -0.99\) and
+\(y = 2.49,\ 2.5,\ 2.51,\) again showing 4 digits after
+the decimal point.</p><div class="tablewrap"><table class="data gridlines"><tr><td><p>\(x =\)</p></td><td><p>-1.01</p></td><td><p>-1</p></td><td><p>-0.99</p></td></tr><tr><td><p>\(y = 2.49\)</p></td><td></td><td></td><td></td></tr><tr><td><p>\(y = 2.5\)</p></td><td></td><td></td><td></td></tr><tr><td><p>\(y = 2.51\)</p></td><td></td><td></td><td></td></tr></table></div><p>Notice if the two tables look nearly linear, and whether the second
+looks more linear than the first (in particular, think about how you
+would decide if they were linear, or if the one were more closely
+linear than the other).</p><p><em>(c)</em>
+Give the local linearization of \(f(x,y) = e^{x}\sin\mathopen{}\left(y\right)\) at \((-1,2.5)\):</p><p>Using the second of your tables:</p><p>\(f(x,y) \approx\) <span class="blank">_______________________________________________________</span></p><p>Using the fact that
+\(f_x(x,y) = e^{x}\sin\mathopen{}\left(y\right)\) and \(f_y(x,y) = e^{x}\cos\mathopen{}\left(y\right)\):</p><p>\(f(x,y) \approx\) <span class="blank">_______________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.2248\), \(0.2485\), \(0.2746\), \(0.1992\), \(0.2202\), \(0.2433\), \(0.1716\), \(0.1896\), \(0.2096\), \(0.2209\), \(0.2231\), \(0.2253\), \(0.218\), \(0.2202\), \(0.2224\), \(0.215\), \(0.2172\), \(0.2194\), \(0.2202+\frac{\left(0.2224-0.218\right)\mathopen{}\left(x--1\right)}{0.02}+\frac{\left(0.2172-0.2231\right)\mathopen{}\left(y-2.5\right)}{0.02}\), \(0.220166+0.220166\mathopen{}\left(x--1\right)+-0.294724\mathopen{}\left(y-2.5\right)\)</p></div></div></div></div><div class="exercise" id="ex-10-4-WW-linearization_using_linearity"><div class="n">5</div><div class="body"><p>Suppose that \(z\) is a linear function of \(x\) and \(y\) with slope
+-4 in the \(x\) direction and  slope 3 in the \(y\) direction.</p><p><em>(a)</em>
+A change of \(-0.4\) in \(x\) and \(0.4\) in \(y\) produces what
+change in \(z\)?</p><p>change in \(z =\) <span class="blank">_________________________</span></p><p><em>(b)</em>
+If \(z=5\) when \(x=8\) and \(y=4\), what
+is the value of \(z\) when \(x=8.2\) and \(y=3.8\)?</p><p>\(z =\) <span class="blank">_________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-4\cdot \left(-0.4\right)+3\cdot 0.4\), \(5+-4\cdot \left(8.2-8\right)+3\cdot \left(3.8-4\right)\)</p></div></div></div></div><div class="exercise" id="ex-10-4-WW-linearization_3var_differential"><div class="n">6</div><div class="body"><p>Find the differential of the function
+    \(w = x^{2} \sin(y^{6} z^{2})\)</p><p>\(dw =\)<span class="blank">____________________</span>\(dx +\) <span class="blank">____________________</span>\(dy +\) <span class="blank">____________________</span>\(dz\)</p><div class="answer"><button>Show answer</button><div class="a"><p>\(2x^{1}\sin\mathopen{}\left(y^{6}z^{2}\right)\), \(6x^{2}y^{5}z^{2}\cos\mathopen{}\left(y^{6}z^{2}\right)\), \(2x^{2}y^{6}z^{1}\cos\mathopen{}\left(y^{6}z^{2}\right)\)</p></div></div></div></div><div class="exercise" id="ex-10-4-WW-linearization_differential_surface_area"><div class="n">7</div><div class="body"><p>The dimensions of a closed rectangular box are measured as 50 centimeters,
+90 centimeters, and 60 centimeters, respectively, with the error in each
+measurement at most .2 centimeters. Use differentials to estimate the maximum
+error in calculating the surface area of the box.</p><p><span class="blank">_______________</span> square centimeters</p><div class="answer"><button>Show answer</button><div class="a"><p>\(160\)</p></div></div></div></div><div class="exercise" id="ex-10-4-WW-linearization_differential_energy"><div class="n">8</div><div class="body"><p>One mole of ammonia gas is contained in a vessel which is
+capable of changing its volume (a compartment sealed by a 
+piston, for example).  The total energy \(U\) (in Joules)
+of the ammonia is a function of the volume \(V\) (in
+cubic meters) of the container, and the temperature \(T\)  
+(in degrees Kelvin) of the gas.  The differential \(dU\)
+is given by \(dU = 840 dV + 27.32 dT\).</p><p>(a) 
+How does the energy change if the volume is held constant 
+and the temperature is decreased slightly?</p><p><ol type="a"><li><p>it does not change</p></li><li><p>it decreases slightly</p></li><li><p>it increases slightly</p></li></ol></p><p>(b) 
+How does the energy change if the temperature is held constant 
+and the volume is increased slightly?</p><p><ol type="a"><li><p>it does not change</p></li><li><p>it decreases slightly</p></li><li><p>it increases slightly</p></li></ol></p><p>(c) Find the approximate change in energy if the gas is
+compressed by 500 cubic centimeters and heated by
+6 degrees Kelvin.</p><p>Change in energy = <span class="blank">________________________________________</span>.  Please include units in your answer.</p><div class="answer"><button>Show answer</button><div class="a"><p>it decreases slightly, it increases slightly, \(163.5\text{ J}\)</p></div></div></div></div><div class="exercise" id="ex-10-4-WW-linearization_differential_temperature"><div class="n">9</div><div class="body"><p>An unevenly heated metal plate has temperature \(T(x,y)\)
+in degrees Celsius at a point \((x,y)\).  If 
+\(T(2,1) = 109\), \(T_x \, (2,1) = 19\),
+and \(T_y \, (2,1) = -8\), estimate the temperature
+at the point \((2.02,0.95)\).</p><p>\(T(2.02,0.95) \approx\) <span class="blank">________________________________________</span>.  
+Please include units in your answer.</p><div class="answer"><button>Show answer</button><div class="a"><p>\(109.78\ {\rm degC}\)</p></div></div></div></div><div class="exercise" id="Ez_10_4_-1"><div class="n">10</div><div class="body"><p>
+            Let \(f\) be the function defined by \(f(x,y) = 2x^2+3y^3\). 
+          </p><ol type="a"><li><p>
+                Find the equation of the tangent plane to \(f\) at the point \((1,2)\). 
+              </p></li><li><p>
+                Use the linearization to approximate the values of \(f\) at the points \((1.1, 2.05)\) and \((1.3,2.2)\). 
+              </p></li><li><p>
+                Compare the approximations form part (b) to the exact values of \(f(1.1, 2.05)\) and \(f(1.3, 2.2)\). Which approximation is more accurate. Explain why this should be expected. 
+              </p></li></ol></div></div><div class="exercise" id="Ez_10_4_0"><div class="n">11</div><div class="body"><p>
+            Let \(f\) be the function defined by \(f(x,y) = x^{1/3}y^{1/3}\), whose graph is shown in <a href="#F_10_4_Not_diff">Figure 10.4.11</a>.
+          </p><figure class="plot" id="F_10_4_Not_diff"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_10_4_not_diff.svg" alt=""><figcaption>Figure 10.4.11 — The surface for \(f(x,y) = x^{1/3}y^{1/3}\).</figcaption></figure><ol type="a"><li><p>
+                Determine
+                \[
+                  \lim_{h \to 0} \frac{f(0+h,0)-f(0,0)}{h}.
+                \]
+                What does this limit tell us about \(f_x(0,0)\)?
+              </p></li><li><p>
+                Note that \(f(x,y)=f(y,x)\), and this symmetry implies that \(f_x(0,0) = f_y(0,0)\). So both partial derivatives of \(f\) exist at \((0,0)\). A picture of the surface defined by \(f\) near \((0,0)\) is shown in <a href="#F_10_4_Not_diff">Figure 10.4.11</a>. Based on this picture, do you think \(f\) is locally linear at \((0,0)\)? Why?
+              </p></li><li><p>
+                Show that the curve where \(x=y\) on the surface defined by \(f\) is not differentiable at 0. What does this tell us about the local linearity of \(f\) at \((0,0)\)?
+              </p></li><li><p>
+                Is the function \(f\) defined by \(f(x,y) = \frac{x^2}{y^2+1}\) locally linear at \((0,0)\)? Why or why not?
+              </p></li></ol></div></div><div class="exercise" id="Ez_10_4_1"><div class="n">12</div><div class="body"><p>
+            Let \(g\) be a function that is differentiable at \((-2,5)\) and suppose that its tangent plane at this point is given by \(z = -7 + 4(x+2) - 3(y-5)\).
+            <ol type="a"><li><p>
+                  Determine the values of \(g(-2,5)\), \(g_x(-2,5)\), and \(g_y(-2,5)\).  Write one sentence to explain your thinking.
+                </p></li><li><p>
+                  Estimate the value of \(g(-1.8, 4.7)\).  Clearly show your work and thinking.
+                </p></li><li><p>
+                  Given changes of \(dx = -0.34\) and \(dy = 0.21\), estimate the corresponding change in \(g\) that is given by its differential, \(dg\).
+                </p></li><li><p>
+                  Suppose that another function \(h\) is also differentiable at \((-2,5)\), but that its tangent plane at \((-2,5)\) is given by \(3x + 2y - 4z = 9.\)  Determine the values of \(h(-2,5)\), \(h_x(-2,5)\), and \(h_y(-2,5)\), and then estimate the value of \(h(-1.8, 4.7)\).  Clearly show your work and thinking.
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_10_4_2"><div class="n">13</div><div class="body"><p>
+            In the following questions, we determine and apply the linearization for several different functions.
+            <ol type="a"><li><p>
+                  Find the linearization \(L(x,y)\) for the function \(f\) defined by \(f(x,y) = \cos(x)(2e^{2y}+e^{-2y})\)
+                  at the point \((x_0,y_0) = (0,0)\).  Use the linearization to estimate
+                  the value of \(f(0.1, 0.2)\).  Compare your estimate to the actual value of \(f(0.1, 0.2)\).
+                </p></li><li><p>
+                  The Heat Index, \(I\), (measured in apparent degrees F) is a function of the actual temperature \(T\) outside (in degrees F) and the relative humidity \(H\) (measured as a percentage).  A portion of the table which gives values for this function, \(I=I(T,H)\), is provided in <a href="#T_10_4_heat_index">Table 10.4.12</a>.
+
+              <div class="tablewrap"><table class="data gridlines"><tr><td><p><em>T</em> \(\downarrow \backslash\) <em>H</em> \(\rightarrow\)</p></td><td><p>\(70\)</p></td><td><p>\(75\)</p></td><td><p>\(80\)</p></td><td><p>\(85\)</p></td></tr><tr><td><p>\(90\)</p></td><td><p>\(106\)</p></td><td><p>\(109\)</p></td><td><p>\(112\)</p></td><td><p>\(115\)</p></td></tr><tr><td><p>\(92\)</p></td><td><p>\(112\)</p></td><td><p>\(115\)</p></td><td><p>\(119\)</p></td><td><p>\(123\)</p></td></tr><tr><td><p>\(94\)</p></td><td><p>\(118\)</p></td><td><p>\(122\)</p></td><td><p>\(127\)</p></td><td><p>\(132\)</p></td></tr><tr><td><p>\(96\)</p></td><td><p>\(125\)</p></td><td><p>\(130\)</p></td><td><p>\(135\)</p></td><td><p>\(141\)</p></td></tr></table></div>
+                  Suppose you are given that \(I_T(94,75) = 3.75\) and \(I_H(94,75) = 0.9\).  Use this given information and one other value from the table to estimate the value of \(I(93.1,77)\) using the linearization at \((94,75)\).  Using proper terminology and notation, explain your work and thinking.
+                </p></li><li><p>
+                  Just as we can find a local linearization for a differentiable function of two variables, we can do so for functions of three or more variables.  By extending the concept of the local linearization from two to three variables, find the linearization of the function \(h(x,y,z) =
+                    e^{2x}(y+z^2)\) at the point \((x_0,y_0,z_0) = (0, 1, -2)\).  Then, use the
+                    linearization to estimate the value of \(h(-0.1, 0.9, -1.8)\).
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_10_4_3"><div class="n">14</div><div class="body"><p>
+            In the following questions, we investigate two different applied settings using the differential.
+            <ol type="a"><li><p>
+                  Let \(f\) represent the vertical displacement in centimeters from the rest position of a string (like a guitar string) as a function of the distance \(x\) in centimeters from the fixed left end of the string and \(y\) the time in seconds after the string has been plucked. (An interesting video of this can be seen at <a href="https://www.youtube.com/watch?v=TKF6nFzpHBUA">https://www.youtube.com/watch?v=TKF6nFzpHBUA</a>.) A simple model for \(f\) could be
+                  \[
+                    f(x,y) = \cos(x)\sin(2y).
+                  \]
+                  Use the differential to approximate how much more this vibrating string is vertically displaced from its position at \((a,b) = \left(\frac{\pi}{4}, \frac{\pi}{3} \right)\) if we decrease \(a\) by \(0.01\) cm and increase the time by \(0.1\) seconds. Compare to the value of \(f\) at the point \(\left(\frac{\pi}{4}-0.01, \frac{\pi}{3}+0.1\right)\).
+                </p></li><li><p>
+                  Resistors used in electrical circuits have colored bands painted
+                    on them to indicate the amount of resistance and the possible error
+                    in the resistance.  When three resistors, whose resistances are
+                    \(R_1\), \(R_2\), and \(R_3\), are connected in parallel, the total
+                    resistance \(R\) is given by
+                  \[
+                    \frac1R = \frac1{R_1} + \frac1{R_2} + \frac1{R_3}.
+                  \]
+                  Suppose that the resistances are \(R_1=25\Omega\), \(R_2=40\Omega\), and
+                    \(R_3=50\Omega\).  Find the total resistance \(R\).
+
+                    If you know each of \(R_1\), \(R_2\), and \(R_3\) with a possible error of
+                    \(0.5\)%, estimate the maximum error in your calculation of \(R\).
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_10_4_4"><div class="n">15</div><div class="body"><p>
+            In this section we argued that if \(f = f(x,y)\) is a function of two variables and if \(f_x\) and \(f_y\) both exist and are continuous in an open disk containing the point \((x_0,y_0)\), then \(f\) is differentiable at \((x_0,y_0)\). This condition ensures that \(f\) is differentiable at \((x_0,y_0)\), but it does not define what it means for \(f\) to be differentiable at \((x_0,y_0)\). In this exercise we explore the definition of differentiability of a function of two variables in more detail. Throughout, let \(g\) be the function defined by \(g(x,y)=  \sqrt{|xy|}\).  
+            <ol type="a"><li><p>
+                  Use appropriate technology to plot the graph of \(g\) on the domain \([-1,1] \times [-1,1]\). Explain why \(g\) is not locally linear at \((0,0)\). 
+                </p></li><li><p>
+                  Show that both \(g_x(0,0)\) and \(g_y(0,0)\) exist. If \(g\) is locally linear at \((0,0)\), what must be the equation of the tangent plane \(L\) to \(g\) at \((0,0)\)?
+                </p></li><li><p>
+                  Recall that if a function \(f = f(x)\) of a single variable is differentiable at \(x=x_0\), then 
+                  \[f'(x_0) = \lim_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h}\]
+                  exists. We saw in single variable calculus that the existence of \(f'(x_0)\) means that the graph of \(f\) is locally linear at \(x=x_0\). In other words, the graph of \(f\) looks like its linearization \(L(x) = f(x_0)+f'(x_0)(x-x_0)\) for \(x\) close to \(x_0\). That is, the values of \(f(x)\) can be closely approximated by \(L(x)\) as long as \(x\) is close to \(x_0\). We can measure how good the approximation of \(L(x)\) is to \(f(x)\) with the error function 
+                  \[E(x) = L(x) - f(x) = f(x_0)+f'(x_0)(x-x_0) - f(x).\]
+                  As \(x\) approaches \(x_0\), \(E(x)\) approaches \(f(x_0)+f'(x_0)(0) - f(x_0) = 0\), and so \(L(x)\) provides increasingly better approximations to \(f(x)\) as \(x\) gets closer to \(x_0\). 
+
+                  Show that, even though \(g(x,y) = \sqrt{|xy|}\) is not locally linear at \((0,0)\), its error term
+                  \[E(x,y) = L(x,y) - g(x,y)\]
+                  at \((0,0)\) has a limit of \(0\) as \((x,y)\) approaches \((0,0)\). (Use the linearization you found in part (b).) This shows that just because an error term goes to \(0\) as \((x,y)\) approaches \((x_0,y_0)\), we cannot conclude that a function is locally linear at \((x_0,y_0)\).
+                </p></li><li><p>
+                  As the previous part illustrates, having the error term go to \(0\) does not ensure that a function of two variables is locally linear. Instead, we need a notation of a relative error. To see how this works, let us return to the single variable case for a moment and consider \(f = f(x)\) as a function of one variable. If we let \(x = x_0+h\), where \(|h|\) is the distance from \(x\) to \(x_0\), then the relative error in approximating \(f(x_0+h)\) with \(L(x_0+h)\) is  
+                  \[\frac{E(x_0+h)}{h}.\]
+                  Show that, for a function \(f = f(x)\) of a single variable, the limit of the relative error is \(0\) as \(h\) approaches \(0\).  
+
+                </p></li><li><p>
+                  Even though the error term for a function of two variables might have a limit of \(0\) at a point, our example shows that the function may not be locally linear at that point. So we use the concept of relative error to define differentiability of a function of two variables. When we consider differentiability of a function \(f = f(x,y)\) at a point \((x_0,y_0)\), then if \(x = x_0+h\) and \(y = y_0+k\), the distance from \((x,y)\) to \((x_0,y_0)\) is \(\sqrt{h^2+k^2}\).
+                </p><p>
+              </p><div class="card definition" id="Def_10_4_differentiability"><span class="chip">Definition</span><p>
+                    A function \(f = f(x,y)\) is <em>differentiable at a point \((x_0,y_0)\)</em> if there is a linear function \(L = L(x,y) = f(x_0,y_0) + m(x-x_0) + n(y-y_0)\) such that the relative error 
+                      \[
+                        \frac{E(x_0+h,y_0+k)}{\sqrt{h^2+k^2}}, 
+                      \] 
+                      has at limit of \(0\) at \((h,k) = (0,0)\), where \(E(x,y) = f(x,y) - L(x,y)\), \(h=x-x_0\), and \(k = y-y_0\). 
+                  </p></div><p>
+                  A function \(f\) is differentiable if it is differentiable at every point in its domain. The function \(L\) in the definition is the linearization of \(f\) at \((x_0,y_0)\).
+
+                  Verify that \(g(x,y) = \sqrt{|xy|}\) is not differentiable at \((0,0)\) by showing that the relative error at \((0,0)\) does not have a limit at \((0,0)\). Conclude that the existence of partial derivatives at a point is not enough to ensure differentiability at that point. (Hint: Consider the limit along different paths.) 
+                </p></li></ol>
+          </p></div></div><div class="exercise" id="Ez_10_4_5"><div class="n">16</div><div class="body"><p>
+             
+              Suppose that a function \(f = f(x,y)\) is differentiable at a point \((x_0,y_0)\). Let \(L = L(x,y) = f(x_0,y_0) + m(x-x_0) + n(y-y_0)\) as in the conditions of <a href="#Def_10_4_differentiability">Definition</a>. Show that \(m = f_x(x_0,y_0)\) and \(n = f_y(x_0,y_0)\). (Hint: Calculate the limits of the relative errors when \(h = 0\) and \(k = 0\).)
+
+          </p></div></div><div class="exercise" id="Ez_10_4_6"><div class="n">17</div><div class="body"><p>
+            We know that if a function of a single variable is differentiable at a point, then that function is also continuous at that point. In this exercise we determine that the same property holds for functions of two variables. 
+
+            A function \(f\) of the two variables \(x\) and \(y\) is continuous at a point \((x_0,y_0)\) in its domain if 
+            \[\lim_{(x,y) \to (x_0,y_0)} f(x,y) = f(x_0,y_0)\]
+            or (letting \(x=x_0+h\) and \(y = y_0 + k\), 
+            \[\lim_{(h,k) \to (0,0)} f(x_0+h,y+k) = f(x_0,y_0).\]
+
+            Show that if \(f\) is differentiable at \((x_0,y_0)\), then \(f\) is continuous at \((x_0,y_0)\). (Hint: Multiply both sides of the equality that comes from differentiability by \(\lim_{(h,k) \to (0,0)} \sqrt{h^2+k^2}\).) 
+
+
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

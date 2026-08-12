@@ -110,7 +110,15 @@ const esc = s => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(
 // only convert a \lt that has an actual matching \gt/> closing it later in the same string --
 // a real comparison never has that pairing, and KaTeX already renders bare \lt/\gt correctly
 // as "<"/">" on its own, so leaving them untouched is exactly right.
-const normalizeAngleBrackets = tex => (tex || "")
+// Some WeBWorK PG source embeds raw HTML tags (e.g. <B><I>u</I></B> for a bold-italic
+// variable name) but escapes the angle brackets as \lt/&gt; instead of writing them
+// literally -- "\lt B&gt;\lt I&gt;u\lt /B&gt;\lt /I&gt;" for what should just be "u". Left
+// alone, the vector-bracket normalization below (correctly) treats \lt...&gt; as an opening/
+// closing pair and "resolves" it into nonsense \langle-wrapped soup. A real vector's \lt...>
+// always holds a number/expression list; a bare short word (optionally "/"-prefixed) between
+// them never is one, so it's safe to recognize and drop these as broken tags instead.
+const stripBrokenHtmlTags = tex => tex.replace(/\\lt\s*\/?[A-Za-z]+\s*(?:&gt;|>)/g, "");
+const normalizeAngleBrackets = tex => stripBrokenHtmlTags(tex || "")
   .replace(/\\left\s*(?:\\lt|<)([^<>]*)\\right\s*(?:\\gt|>)/g, "\\left\\langle$1\\right\\rangle")
   .replace(/\\lt\s*([^<>]*?)\s*(?:\\gt|>)/g, "\\langle $1 \\rangle");
 const qd = (n, tag) => (n.children || []).find(c => c.tag === tag);
@@ -134,7 +142,19 @@ const idIndex = new Map();
 const activityLabels = new Map(); // node -> "Activity 9.1.4" / "Preview Activity 9.1.1"
 const figureLabels = new Map();   // node -> "Figure 9.1.7" / "Table 9.1.1"
 const equationLabels = new Map(); // node -> "9.4.1" (bare number -- see displayMath/xref)
+// node -> the anchor id actually rendered in the HTML for this equation (its own xml:id, or a
+// synthetic fallback derived from the label if it has none -- see indexAndNumber). A row
+// within a multi-row block maps to the PARENT block's anchor, since only the parent gets a
+// rendered <span id>; using the row's own (never-rendered) id here would be a dead link.
+const equationAnchors = new Map();
 const exerciseLabels = new Map(); // node -> N (bare number, matches the rendered .n counter)
+// <fn> (footnote) content used to get spliced directly into the middle of the surrounding
+// sentence via inline()'s default kids() fallback -- e.g. "important fact<fn>As we saw in
+// ...</fn> that the plane..." rendered as one garbled run-on sentence with the footnote body
+// injected mid-clause. Collected here in encounter order and rendered as a real numbered
+// footnote (superscript marker + a Footnotes list at the end of the section, same convention
+// as a printed textbook) instead.
+const footnotes = [];
 const exampleLabels = new Map();  // node -> "Example 9.8.1" (a narrative worked example, own counter)
 // Exercises get a plain sequential number (1, 2, 3, ...), shared between WeBWorK and plain
 // exercises in document order — a different scheme than activities/figures, confirmed
@@ -162,7 +182,17 @@ function indexAndNumber(node, counters = { act: 0, fig: 0, eq: 0, exn: 0, ex: 0 
   // only these get a number, matching which equations the source actually labels/cross-refers.
   if (node.tag === "men" || node.tag === "mdn") {
     counters.eq++;
-    equationLabels.set(node, `${CHAPTER}.${SECTION}.${counters.eq}`);
+    const eqLabel = `${CHAPTER}.${SECTION}.${counters.eq}`;
+    const anchor = anchorId(node) || `eq-${eqLabel.replace(/\./g, "-")}`;
+    equationLabels.set(node, eqLabel);
+    equationAnchors.set(node, anchor);
+    // A multi-row <mdn> only gets ONE shared \tag{} (and one rendered <span id>) for the whole
+    // block, but its individual <mrow> children often carry their own xml:id for a same-page
+    // <xref> to point at just that row (e.g. "using Equations <xref ref="row1"/> and <xref
+    // ref="row2"/>"). Without this, such an xref finds no equationLabels entry for the row
+    // itself and falls through to an empty, unlabeled link -- give each row the parent
+    // block's label AND its actual rendered anchor (the row's own id is never rendered).
+    for (const row of qda(node, "mrow")) { equationLabels.set(row, eqLabel); equationAnchors.set(row, anchor); }
   }
   if (node.tag === "exercise") {
     counters.exn++;
@@ -273,6 +303,71 @@ const MANUAL_WEBWORK_ANSWERS = {
   // 190*9.8/50^2 = 0.7448, giving theta = arcsin(0.7448)/2 ≈ 0.420 rad (the low-trajectory
   // solution; 1.151 rad also hits the target but is the conventional "high arc" alternative).
   "Library/maCalcDB/setVecFunction3Motion/ur_vc_4_8.pg": ["\\(0.420\\)"],
+  // Embedded answer key ($mca->qa(..., "z_{yy} = 0")) -- also matches the math: z = f(x) +
+  // y*g(x), so z_y = g(x) (f(x) and y*g(x) don't depend on y beyond that factor), and
+  // z_yy = d/dy[g(x)] = 0 since g(x) doesn't depend on y at all.
+  "Library/FortLewis/Calc3/14-7-Second-order-partials/HGM4-14-7-34-Second-order-partials.pg":
+    ["\\(z_{yy} = 0\\)"],
+  // z = x^2-y^3 at (4,1): z(4,1)=15, z_x(4,1)=2(4)=8, z_y(4,1)=-3(1)^2=-3, so the correct
+  // tangent plane is z=15+8(x-4)-3(y-1) (matches AnSwEr0002, kept verbatim). The student's
+  // answer z=15+2x(x-4)-3y^2(y-1) used the UNevaluated partials (2x, -3y^2) as coefficients
+  // instead of their values at the point, which is also why the result is quadratic, not
+  // linear -- checkbox correct_choices ["B2","B3"] match those same two listed mistakes (the
+  // hash's own text is truncated with "..." so quoted here in full instead).
+  "Library/FortLewis/Calc3/14-3-Local-linearity/HGM4-14-3-14-Local-linearity-differential.pg": [
+    "The partial derivatives were not evaluated at the point, and the answer is not a linear function.",
+    "\\(z=15+8(x-4)-3(y-1)\\)",
+  ],
+  // Only part (a)'s answer came back with a real hash (correct_ans="B" = "it decreases
+  // slightly", matching AnSwEr0001's type="checkbox_cmp"); parts (b) and (c) have their own
+  // <var>/<fillin> widgets but no hash at all. dU = 840 dV + 27.32 dT:
+  // (a) dV=0, dT<0 (slight cooling) -> dU=27.32*dT<0 -- "it decreases slightly".
+  // (b) dT=0, dV>0 (slight increase) -> dU=840*dV>0 -- "it increases slightly".
+  // (c) dV=-500 cm^3=-0.0005 m^3 (compressed), dT=+6 K ->
+  //     dU = 840*(-0.0005) + 27.32*6 = -0.42 + 163.92 = 163.5 J.
+  "Library/FortLewis/Calc3/14-3-Local-linearity/HGM4-14-3-24-Local-linearity-differential.pg": [
+    "it decreases slightly", "it increases slightly", "\\(163.5\\text{ J}\\)",
+  ],
+  // T(x,y) = 110/(x^2+y^2+4). render_rpc's own hashes here are shifted/incomplete: the var-
+  // buttons choice DOES get a hash (unusual -- type="str_cmp", correct_ans="D"), but the very
+  // last blank (minimum rate of change) has no hash at all, so the 6 hashes present cover only
+  // 6 of the 7 blanks (this is what the answer-count check actually caught). Verified directly:
+  // level curves x^2+y^2+4=k (k>4) are circles -- (D). Max at (0,0): T(0,0)=110/4=27.5.
+  // grad T = (-220x, -220y)/(x^2+y^2+4)^2; at (3,3), x^2+y^2+4=22, so grad T =
+  // (-660/484, -660/484) = <-1.36364, -1.36364> (direction of steepest increase), matching
+  // AnSwEr0004 (kept verbatim). |grad T| = 1.36364*sqrt(2) = 1.92847 = the maximum rate of
+  // increase (AnSwEr0005, verbatim). Steepest decrease direction is -grad T = <1.36364,
+  // 1.36364> (AnSwEr0006, verbatim), and its rate is simply -|grad T| = -1.92847 (the missing
+  // 7th answer, derived here, not guessed).
+  "Library/FortLewis/Calc3/14-4-Gradients-in-plane/HGM4-14-4-66-Gradients-etc.pg": [
+    "D) circles",
+    "\\(\\left(0,0\\right)\\)",
+    "\\(27.5\\)",
+    "\\(\\left\\langle-1.36364,-1.36364\\right\\rangle\\)",
+    "\\(1.92847\\)",
+    "\\(\\left\\langle1.36364,1.36364\\right\\rangle\\)",
+    "\\(-1.92847\\)",
+  ],
+  // Another bare true/false list with no per-item widget (<answerhashes /> empty). Worked out
+  // directly:
+  // (1) The gradient is PERPENDICULAR to the contour, not tangent to it (this section's own
+  //     "Direction of the Gradient" result) -- FALSE.
+  // (2) D_u f(a,b) = grad f . u. If grad f = 0, this is 0 for every direction; if grad f != 0,
+  //     it's 0 for the direction(s) perpendicular to grad f -- a zero-rate direction always
+  //     exists either way -- TRUE.
+  // (3) Zero partials at one point says nothing about other points, e.g. f=x^2+y^2 has
+  //     f_x=f_y=0 only at the origin -- FALSE.
+  // (4) f_u(a,b) is a scalar; it can equal 0 but never equals the vector <0,0> -- FALSE.
+  // (5) f_u(a,b) = grad f . u = |grad f| cos(theta) equals |grad f| only when u points along
+  //     the gradient, not for an arbitrary u -- FALSE.
+  // (6) grad f for f(x,y) has exactly 2 components (one per independent variable), not 3 --
+  //     FALSE.
+  // (7) f_u(a,b) is always a scalar, regardless of u being a unit vector -- FALSE.
+  // (8) f_u(a,b) is a scalar; "parallel to a vector" isn't a meaningful relation for a scalar
+  //     -- FALSE.
+  "Library/FortLewis/Calc3/14-5-Gradients-in-space/HGM4-14-CYU-01-Gradients-etc.pg": [
+    "False", "True", "False", "False", "False", "False", "False", "False",
+  ],
 };
 
 // Some WeBWorK problems' generated graphs come back from render_rpc as something we can't
@@ -341,7 +436,9 @@ function findPopupList(node) {
   return null;
 }
 function isWebworkBlank(x) {
-  return x.tag === "fillin" || x.tag === "var" || (x.tag === "ul" && x.attrs.form === "popup");
+  // <ul form="popup"> is an inline dropdown; <ul form="checkboxes"> is a "select all that
+  // apply" list -- both are single answerable widgets, same as <fillin>/<var>.
+  return x.tag === "fillin" || x.tag === "var" || (x.tag === "ul" && (x.attrs.form === "popup" || x.attrs.form === "checkboxes"));
 }
 // Every <fillin>, every <var> (a WeBWorK multiple-choice/matching button group), and every
 // inline <ul form="popup"> (a WeBWorK dropdown, a different markup for the same idea) is one
@@ -392,10 +489,12 @@ async function resolveWebworkProblems(sectionNode) {
         // delimiters, leaving unrendered bare LaTeX source as the visible answer text.
         if (item) return [`${raw.toUpperCase()}) ${item.children.map(inline).join("").trim()}`];
       }
-      // Value (PopUp)/Value (String) answers are already plain text (e.g. "the first car")
-      // -- wrapping them in \(...\) math mode is wrong (and correct_ans_latex_string for
-      // these comes through as literal "\text{...}" source, not real LaTeX to render).
-      if (/PopUp|String/.test(a.attrs.type || "")) return raw ? [esc(raw)] : [];
+      // Value (PopUp)/Value (String)/str_cmp answers are already plain text (e.g. "the first
+      // car", "Local Maximum") -- wrapping them in \(...\) math mode is wrong (KaTeX would
+      // render "Local Maximum" as italicized math variables with the space collapsed, and
+      // correct_ans_latex_string for these comes through as literal "\text{...}" source
+      // anyway, not real LaTeX to render).
+      if (/PopUp|String|str_cmp/i.test(a.attrs.type || "")) return raw ? [esc(raw)] : [];
       // MultiAnswer grades several blanks (e.g. x(t), y(t), z(t) of one parametrization)
       // together as a SINGLE <answerhashes> entry, with the parts joined by ";\," in both
       // correct_ans and its LaTeX string -- split back into one answer per blank instead of
@@ -466,10 +565,12 @@ function displayMath(n) {
   const core = rows.length ? `\\begin{aligned}${body}\\end{aligned}` : body;
   // <men>/<mdn> (numbered equations, see indexAndNumber) get a right-margin number via
   // KaTeX's native \tag{} -- and need their own anchor so an <xref> elsewhere on the page can
-  // actually jump to them (a bare \[...\] string has nowhere for an id to attach).
+  // actually jump to them (a bare \[...\] string has nowhere for an id to attach). The anchor
+  // itself was already resolved once in indexAndNumber (same value <xref> resolution uses via
+  // equationAnchors) so there's exactly one source of truth for it.
   const label = equationLabels.get(n);
   const html = `\\[${esc(label ? `${core}\\tag{${label}}` : core)}\\]`;
-  return label ? `<span id="${anchorId(n)}">${html}</span>` : html;
+  return label ? `<span id="${equationAnchors.get(n)}">${html}</span>` : html;
 }
 
 function inline(n) {
@@ -486,16 +587,26 @@ function inline(n) {
     // through to kids() and vanished silently, dropping the quote marks around the quoted text.
     case "lq": return "&ldquo;";
     case "rq": return "&rdquo;";
+    // <lsq/>/<rsq/> are the single-quote counterparts -- <rsq/> in particular shows up as a
+    // plain apostrophe (e.g. "The student<rsq/>s answer" = "The student's answer"), not just
+    // in quoted speech.
+    case "lsq": return "&lsquo;";
+    case "rsq": return "&rsquo;";
     case "mdash": return "&mdash;";
     case "nbsp": return "&nbsp;";
     case "idx": return ""; // invisible index entries
+    case "fn": {
+      const num = footnotes.length + 1;
+      footnotes.push(kids());
+      return `<sup id="fnref-${num}"><a href="#fn-${num}">${num}</a></sup>`;
+    }
     case "xref": {
       const target = n.attrs.ref && idIndex.get(n.attrs.ref);
       // Equation xrefs are usually self-closing (<xref ref="..." />, no inner text at all) --
       // the surrounding prose already supplies the word "Equation"/"the formula", so the
       // resolved text is just the bare parenthesized number, not another "Equation 9.4.1".
       const eqLabel = target && equationLabels.get(target);
-      if (eqLabel) return `<a href="#${anchorId(target)}">(${eqLabel})</a>`;
+      if (eqLabel) return `<a href="#${equationAnchors.get(target)}">(${eqLabel})</a>`;
       // Exercise xrefs (e.g. "see <xref>Exercise</xref> at the end of this section") carry
       // "Exercise" as their own inner text, same convention as Activity/Figure -- resolve to
       // the exercise's actual sequential number instead of leaving the number off entirely.
@@ -503,7 +614,12 @@ function inline(n) {
       if (exLabel != null) return `<a href="#${anchorId(target)}">Exercise ${exLabel}</a>`;
       const label = target && (activityLabels.get(target) || figureLabels.get(target) || exampleLabels.get(target));
       if (label && target.attrs.id) return `<a href="#${anchorId(target)}">${label}</a>`;
-      return kids(); // no numbering resolvable — fall back to whatever link text the source gave
+      // This book never numbers <definition>/<assemblage>/<callout> boxes (confirmed: every
+      // one rendered so far shows an unnumbered chip, by design) -- so there's no label to
+      // substitute, but the target still has a real anchor on this same page. A bare "see
+      // Definition" with no link is worse than the unnumbered word linked to where it lives.
+      if (target && target.attrs.id) return `<a href="#${anchorId(target)}">${kids()}</a>`;
+      return kids(); // truly unresolvable (e.g. no ref, or target not on this page) — bare text
     }
     case "url": return `<a href="${esc(n.attrs.href || "")}">${kids() || esc(n.attrs.href || "")}</a>`;
     // WeBWorK render_rpc's PTX output represents each answer blank as <fillin> — this is a
@@ -775,6 +891,10 @@ for (const c of sectionNode.children || []) {
   const rest = (c.children || []).filter(n => n.tag !== "title" && n !== subIntro);
   if (subIntro && !isInstructorOnly(subIntro)) bodyParts.push(renderMixed(subIntro.children));
   bodyParts.push(rest.map(block).join(""));
+}
+if (footnotes.length) {
+  const items = footnotes.map((f, i) => `<li id="fn-${i + 1}">${f} <a href="#fnref-${i + 1}">&#8617;</a></li>`).join("");
+  bodyParts.push(`<h2 id="footnotes">Footnotes</h2><ol class="footnotes">${items}</ol>`);
 }
 // exercises can sit directly under <section> (not nested in a subsection)
 const exercisesNode = qd(sectionNode, "exercises");
