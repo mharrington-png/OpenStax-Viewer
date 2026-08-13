@@ -45,7 +45,12 @@ const IMAGE_BASE = {
   // image on the page 404'd silently (existsSync against the local clone's own "src" dir
   // matched fine, so this only broke the deployed URL, not the build).
   ac3: "https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/",
-  vector: "https://raw.githubusercontent.com/active-calculus/active-calculus-vector/first-edition/source/",
+  // Images actually live under the repo's top-level "assets/" folder (a sibling of "source/",
+  // matching IMAGE_LOCAL_DIR below), NOT "source/" itself -- confirmed directly: a "source/"
+  // URL 404s, an "assets/" one 200s (found via 12.1's fig_Vector_VectorFields_FluidVelocity,
+  // whose <image source="/12_1_PIVlab_multipass.jpg"> silently failed to resolve because of
+  // this, not because the image is genuinely missing).
+  vector: "https://raw.githubusercontent.com/active-calculus/active-calculus-vector/first-edition/assets/",
 }[args.repo];
 if (!IMAGE_BASE) { console.error(`Unknown --repo "${args.repo}", expected "ac3" or "vector"`); process.exit(1); }
 // vector repo's images live under assets/images/ (a sibling of source/), not source/images/
@@ -102,6 +107,38 @@ function parseXML(s) {
   return { tag: "#root", attrs: {}, children: walk() };
 }
 
+// The vector-calculus repo (chapter 12) splits content across files via <xi:include> --
+// parseXML() already strips the "xi:" namespace prefix generically, so these arrive as plain
+// <include href="..." parse="..."/> nodes. Two flavors appear: parse="text" (raw Sage source
+// for a <slate>, e.g. interacts/CCA-DD1.txt -- must NOT be XML-parsed, it can contain bare <
+// and & that would corrupt the tree) and the default/xml mode (a whole exercises file,
+// spliced in as if its top-level children had been written inline). Resolved as a tree walk
+// BEFORE indexAndNumber/rendering, mutating children arrays in place via splice.
+function resolveIncludes(node, dir) {
+  if (!node.children) return;
+  for (let i = 0; i < node.children.length; i++) {
+    const c = node.children[i];
+    if (c.tag === "include" && c.attrs.href) {
+      const filePath = join(dir, c.attrs.href);
+      if (!existsSync(filePath)) {
+        console.warn(`xi:include not found: ${filePath}`);
+        node.children.splice(i, 1); i--; continue;
+      }
+      const raw = readFileSync(filePath, "utf8");
+      if (c.attrs.parse === "text") {
+        node.children.splice(i, 1, { tag: "#text", text: raw });
+      } else {
+        const includedRoot = parseXML(raw);
+        resolveIncludes(includedRoot, join(filePath, ".."));
+        node.children.splice(i, 1, ...includedRoot.children);
+        i += includedRoot.children.length - 1;
+      }
+      continue;
+    }
+    resolveIncludes(c, dir);
+  }
+}
+
 const esc = s => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 // WeBWorK's own PG problems write vector angle brackets as \left<...\right> or bare
 // \lt...> (plain less/greater-than) instead of this book's own \langle/\rangle convention --
@@ -118,13 +155,23 @@ const esc = s => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(
 // always holds a number/expression list; a bare short word (optionally "/"-prefixed) between
 // them never is one, so it's safe to recognize and drop these as broken tags instead.
 const stripBrokenHtmlTags = tex => tex.replace(/\\lt\s*\/?[A-Za-z]+\s*(?:&gt;|>)/g, "");
+// The replacement string needs a space (or some non-letter) right after "\langle" -- without
+// one, content starting with a letter (e.g. "t-(4+4s),...") merges directly onto the command
+// name, producing an invalid "\left\langlet-..." that TeX parses as the undefined control
+// sequence "\langlet" (found in 11.6's plane-parameterization answer).
 const normalizeAngleBrackets = tex => stripBrokenHtmlTags(tex || "")
-  .replace(/\\left\s*(?:\\lt|<)([^<>]*)\\right\s*(?:\\gt|>)/g, "\\left\\langle$1\\right\\rangle")
+  .replace(/\\left\s*(?:\\lt|<)([^<>]*)\\right\s*(?:\\gt|>)/g, "\\left\\langle $1\\right\\rangle")
   .replace(/\\lt\s*([^<>]*?)\s*(?:\\gt|>)/g, "\\langle $1 \\rangle");
 const qd = (n, tag) => (n.children || []).find(c => c.tag === tag);
 const qda = (n, tag) => (n.children || []).filter(c => c.tag === tag);
+// <idx> (index entry) is invisible printed-index metadata that can appear nested inside a
+// <title> (e.g. "Change of Variables in a Double Integral<idx><h>change of variable</h>
+// <h>double integral</h></idx>") -- textOf() recurses through every tag indiscriminately, so
+// without this it leaked the index terms' own text directly into visible titles (11.9's
+// "Change of Variables in a Double Integralchange of variabledouble integral" callout).
 function textOf(n) {
   if (n.tag === "#text") return n.text;
+  if (n.tag === "idx") return "";
   return (n.children || []).map(textOf).join("");
 }
 function titleOf(n) {
@@ -368,6 +415,41 @@ const MANUAL_WEBWORK_ANSWERS = {
   "Library/FortLewis/Calc3/14-5-Gradients-in-space/HGM4-14-CYU-01-Gradients-etc.pg": [
     "False", "True", "False", "False", "False", "False", "False", "False",
   ],
+  // Earth-pile problem (problemSeed=1: height 9m, cross-section x^2+y^2=9-z, 0<=z<=9) -- a
+  // solid disk of radius^2=9-z, area A(z)=pi(9-z). <answerhashes> only returns 4 of the 6
+  // blanks (the two multiple-choice equation parts (a)/(c), correct_ans "D"/"A" -- confirmed
+  // against the exercise's own listed choices: (a) x^2+y^2=9 is choice D, (c) at z=7,
+  // x^2+y^2=9-7=2 is choice A -- and the two numeric area parts (b)/(d): pi*9=28.2743 and
+  // pi*(9-7)=2*pi, both kept verbatim). Parts (e) and (f) -- the general formula A(z) and the
+  // total volume -- have no hash at all, so derived directly: A(z)=pi(9-z), and Volume =
+  // integral from 0 to 9 of pi(9-z) dz = pi[9z-z^2/2] from 0 to 9 = pi(81-40.5) = 40.5*pi.
+  "Library/FortLewis/Calc3/16-1-Double-integrals/HGM4-16-1-32-Double-integrals.pg": [
+    "D", "\\(28.2743\\)", "A", "\\(2\\pi\\)", "\\(\\pi(9-z)\\)", "\\(40.5\\pi\\)",
+  ],
+  // Bare multiple-choice with no <answerhashes> at all. r=3/cos(theta) means r*cos(theta)=3,
+  // i.e. x=3 (a vertical line, in Cartesian); theta ranges from 0 (y=0) to pi/4 (y=x). So the
+  // region is bounded by y=0, y=x, and x=3 -- matches choice B exactly.
+  "Library/FortLewis/Calc3/16-4-Polar-integrals/HGM5-16-4-14-Double-integrals-polar.pg": ["B"],
+  // MultiAnswer type: ONE answerhash entry (AnSwEr0001) bundles all 9 table cells' values as a
+  // single HTML table in correct_ans_latex_string, but countWebworkBlanks() sees 9 individual
+  // <fillin>s (AnSwEr0001 + 8 MuLtIaNsWeR_AnSwEr0001_N). Unpacked here in the hash's own given
+  // row-major order (kept verbatim, not independently recomputed) -- also verified directly:
+  // F(x,y)=<-2y,2x>, e.g. F(-1,1)=<-2,-2> (row y=1, col x=-1), matches the first entry exactly.
+  "Library/Hope/Multi2/12-01-Vector-fields/Vector-fields-01a.pg": [
+    "\\(\\langle-2,-2\\rangle\\)", "\\(\\langle-2,0\\rangle\\)", "\\(\\langle-2,2\\rangle\\)",
+    "\\(\\langle0,-2\\rangle\\)", "\\(\\langle0,0\\rangle\\)", "\\(\\langle0,2\\rangle\\)",
+    "\\(\\langle2,-2\\rangle\\)", "\\(\\langle2,0\\rangle\\)", "\\(\\langle2,2\\rangle\\)",
+  ],
+  // "Match the plot" multiple-choice with <answerhashes /> empty -- the 4 candidate plots are
+  // only ephemeral generated images (no way to bake a fixed answer key from the XML alone), so
+  // downloaded and visually inspected all 4 directly. F=<9(x+1),y> has positive divergence
+  // (9+1=10>0, points AWAY from x=-1) and zero curl (no rotation). Plot 1 and Plot 2 both show
+  // clear rotational/spiral patterns (nonzero curl) -- wrong. Plot 3 shows pure INWARD
+  // convergence (negative divergence) -- wrong sign. Plot 4 is the only one showing pure
+  // outward radiation with no rotation, matching this field's actual divergence/curl exactly.
+  // Keyed by the RAW source path (this repo's own long prefix), not the normalized one --
+  // MANUAL_WEBWORK_ANSWERS is looked up by n.attrs.source verbatim, before normalization.
+  "webwork-open-problem-library/OpenProblemLibrary/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/16_Line_and_Surface_Integrals/16.1_Vector_Fields/16.1.15.pg": ["Plot 4"],
 };
 
 // Some WeBWorK problems' generated graphs come back from render_rpc as something we can't
@@ -383,7 +465,22 @@ const MANUAL_WEBWORK_IMAGES = {
     "https://activecalculus.org/multi1e/generated/webwork/images/webwork-59-image-1.png",
 };
 
-async function fetchWebworkProblem(sourcePath) {
+// A bare <sageplot> with no enclosing <image xml:id="..."> (case "image"'s own hotlink rule
+// needs that id to build the URL) -- rare: only one in all of 12.1. No id to derive a URL
+// from, so found by hand instead: loaded the live page and read its actual <img src>. Keyed
+// by the enclosing <figure>'s own xml:id.
+const MANUAL_SAGEPLOT_IMAGES = {
+  "fig_Vector_VectorFields_circle": "https://activecalculus.com/multi1e/generated/sageplot/fig_12_1_circle.svg",
+};
+
+// The vector-calculus repo (chapter 12) writes WeBWorK source paths with a
+// "webwork-open-problem-library/OpenProblemLibrary/" prefix instead of the older repos' bare
+// "Library/" -- webwork-ptx.aimath.org's render_rpc only recognizes the "Library/" root
+// (confirmed directly: the same path with this prefix returns "ERROR caught by Translator",
+// stripped down to "Library/..." it renders fine), so normalize before ever querying it.
+const normalizeWebworkPath = p => p.replace(/^webwork-open-problem-library\/OpenProblemLibrary\//, "Library/");
+async function fetchWebworkProblem(rawSourcePath) {
+  const sourcePath = normalizeWebworkPath(rawSourcePath);
   const params = new URLSearchParams({
     // showSolutions/showHints deliberately omitted -- we only use <answerhashes> (the graded
     // answer value), not the authored solution narrative.
@@ -529,8 +626,19 @@ async function resolveWebworkProblems(sectionNode) {
 /* copies into this repo.                                                                     */
 /* ------------------------------------------------------------------ */
 function resolveImageUrl(source) {
+  // The old ac3 repo's <image source="..."> is always a bare filename with no extension (the
+  // extension gets guessed below) -- the vector repo (chapter 12) is inconsistent: some are
+  // bare ("/Curl_-yx_field"), some already include a real extension ("/12_1_PIVlab_multipass.
+  // jpg"). Try the source verbatim first when it already looks like an image filename, instead
+  // of only ever appending an extension (which produced "...jpg.svg" and never matched).
+  // The vector repo's own <image source="..."> values are consistently written with a leading
+  // "/" (e.g. "/12_1_PIVlab_multipass.jpg") even though IMAGE_BASE already ends in "/" -- left
+  // alone this produced a working-but-sloppy double slash (redirects fine on GitHub's raw CDN,
+  // no reason to depend on that).
+  const rel = source.replace(/^\/+/, "");
+  if (/\.(svg|png|jpe?g)$/i.test(rel) && existsSync(join(IMAGE_LOCAL_DIR, rel))) return IMAGE_BASE + rel;
   for (const ext of [".svg", ".png", ".jpg", ".jpeg"]) {
-    if (existsSync(join(IMAGE_LOCAL_DIR, source + ext))) return IMAGE_BASE + source + ext;
+    if (existsSync(join(IMAGE_LOCAL_DIR, rel + ext))) return IMAGE_BASE + rel + ext;
   }
   return null; // no static file at all -- e.g. a pure Sage/interactive-only figure
 }
@@ -538,6 +646,11 @@ function findLeafImages(node, out = []) {
   if (node.tag === "image") out.push(node);
   for (const c of node.children || []) findLeafImages(c, out);
   return out;
+}
+function findFirstTag(node, tags) {
+  if (tags.includes(node.tag)) return node;
+  for (const c of node.children || []) { const f = findFirstTag(c, tags); if (f) return f; }
+  return null;
 }
 
 /* ------------------------------------------------------------------ */
@@ -595,6 +708,24 @@ function inline(n) {
     case "mdash": return "&mdash;";
     case "nbsp": return "&nbsp;";
     case "idx": return ""; // invisible index entries
+    // A physical <quantity> (e.g. "10 km/hr") -- new to this book's chapter 12 source, never
+    // seen in chapters 9-11, and always sits inline within a sentence (not its own block), so
+    // this belongs in inline(), not block() -- a first attempt placed it in block() by mistake
+    // and it silently rendered as just the bare number with no unit at all (kids()'s default
+    // fallback recursed into <mag> fine but <unit>/<per> are self-closing with no text
+    // children, so kids() on those returned ""). <mag> is the number; <unit>/<per> carry a
+    // "base" name (e.g. "meter", "hour") and an optional SI "prefix" (e.g. "kilo"). Spelled out
+    // in full rather than abbreviated (no dedicated symbol table maintained here) -- unambiguous.
+    case "quantity": {
+      const mag = qd(n, "mag");
+      const unit = qd(n, "unit");
+      const per = qd(n, "per");
+      const unitName = u => u ? `${u.attrs.prefix ? u.attrs.prefix + "-" : ""}${u.attrs.base || ""}` : "";
+      const magText = mag ? textOf(mag).trim() : "";
+      const unitText = unitName(unit);
+      const perText = unitName(per);
+      return esc(`${magText} ${unitText}${perText ? "/" + perText : ""}`.trim());
+    }
     case "fn": {
       const num = footnotes.length + 1;
       footnotes.push(kids());
@@ -667,17 +798,57 @@ function renderMixed(children) {
 function anchorId(n) { return (n.attrs.id || "").replace(/[^\w-]/g, "-"); }
 function idAttr(n) { const id = anchorId(n); return id ? ` id="${id}"` : ""; }
 
+// Shared by case "image" and renderFigureImages() below -- previously each had its OWN
+// separate (and inconsistent) URL-resolution logic, so the sageplot-hotlink fallback added to
+// one didn't apply to the other, and an <image xml:id><sageplot> nested inside a <figure>
+// resolved via findLeafImages() never got a chance to use it at all.
+function resolveImageSrc(n) {
+  let src = n.attrs.source && /^(data|https?):/.test(n.attrs.source) ? n.attrs.source : n.attrs.source && resolveImageUrl(n.attrs.source);
+  if (!src && n.attrs.id && qd(n, "sageplot")) src = `https://activecalculus.com/multi1e/generated/sageplot/${n.attrs.id}.svg`;
+  return src;
+}
 function renderFigureImages(n) {
   const imgs = findLeafImages(n).map(img => {
-    const url = img.attrs.source && resolveImageUrl(img.attrs.source);
+    const url = resolveImageSrc(img);
     return url ? `<img src="${url}" alt="">` : null;
   }).filter(Boolean);
-  if (!imgs.length) {
-    return `<div class="card flag"><span class="chip">Figure not available statically — Sage-only, needs its own integration</span></div>`;
+  if (imgs.length) {
+    return imgs.length > 1
+      ? `<div class="figrow">${imgs.map(i => `<div class="figitem">${i}</div>`).join("")}</div>`
+      : imgs[0];
   }
-  return imgs.length > 1
-    ? `<div class="figrow">${imgs.map(i => `<div class="figitem">${i}</div>`).join("")}</div>`
-    : imgs[0];
+  // A bare <sageplot> with no enclosing <image xml:id> at all (no id to derive a hotlink URL
+  // from) -- check the hand-curated lookup, keyed by this figure's own id, before giving up.
+  if (n.attrs.id && MANUAL_SAGEPLOT_IMAGES[n.attrs.id]) return `<img src="${MANUAL_SAGEPLOT_IMAGES[n.attrs.id]}" alt="">`;
+  // No plain <image> leaves -- chapter 12's figures are sometimes a live <interactive> or a
+  // <sageplot> (pre-rendered-only, not embeddable here) instead. Render whichever is present
+  // through its own case in block() rather than always assuming "not available"; genuinely
+  // image-less figures (no image, no interactive, no sageplot) still fall through to the flag.
+  const sageChild = findFirstTag(n, ["interactive", "sageplot"]);
+  if (sageChild) return block(sageChild);
+  return `<div class="card flag"><span class="chip">Figure not available statically — Sage-only, needs its own integration</span></div>`;
+}
+
+// Shared by activities AND plain (non-WeBWorK) exercises built from <task> sub-parts --
+// chapter 12 uses this structure in both places. Each task gets its own lettered part and,
+// if present, a "Show answer" reveal (same convention as WeBWorK's own answer box).
+function renderTaskParts(tasks) {
+  return tasks.map((task, i) => {
+    const tIntro = qd(task, "introduction");
+    const tIntroHtml = tIntro ? renderMixed(tIntro.children) : "";
+    const stmt = qd(task, "statement");
+    const stmtHtml = stmt ? renderMixed(stmt.children) : "";
+    const lbl = tasks.length > 1 ? `<span class="part-label">${String.fromCharCode(97 + i)})</span> ` : "";
+    // Prefer <solution> over <answer> when a task has both (seen in 12.1's exercise 4): in
+    // practice they're near-duplicate text, but <answer> had a genuine copy-paste typo ("As x
+    // increases" repeated, never mentioning y) that <solution> gets right.
+    const reveal = qd(task, "solution") || qd(task, "answer");
+    const ansHtml = reveal ? `<div class="answer"><button>Show answer</button><div class="a">${renderMixed(reveal.children)}</div></div>` : "";
+    // idAttr(task) -- a task's own xml:id was never reaching the HTML, so any same-page
+    // <xref> pointing at one specific part (e.g. "see part <a href="#task_...">part</a>")
+    // dangled even though the target existed on the page (found via 12.1's own id/href diff).
+    return `<div class="part"${idAttr(task)}>${lbl}${tIntroHtml}${stmtHtml}${ansHtml}</div>`;
+  }).join("");
 }
 
 function renderActivity(n) {
@@ -688,14 +859,7 @@ function renderActivity(n) {
   const introHtml = intro ? renderMixed(intro.children) : "";
   let body;
   if (tasks.length) {
-    body = tasks.map((task, i) => {
-      const tIntro = qd(task, "introduction");
-      const tIntroHtml = tIntro ? renderMixed(tIntro.children) : "";
-      const stmt = qd(task, "statement");
-      const stmtHtml = stmt ? renderMixed(stmt.children) : "";
-      const lbl = tasks.length > 1 ? `<span class="part-label">${String.fromCharCode(97 + i)})</span> ` : "";
-      return `<div class="part">${lbl}${tIntroHtml}${stmtHtml}</div>`;
-    }).join("");
+    body = renderTaskParts(tasks);
   } else {
     const stmt = qd(n, "statement");
     body = stmt ? renderMixed(stmt.children)
@@ -748,16 +912,71 @@ function block(n) {
       return `<figure class="plot"${idAttr(n)}>${renderFigureImages(n)}` +
         `<figcaption>${figureLabels.get(n) || ""}${capHtml}</figcaption></figure>`;
     }
+    // A WeBWorK image was already resolved to a data: URI or an external https: URL
+    // (MANUAL_WEBWORK_IMAGES) by resolveWebworkProblems — use as-is; everything else resolves
+    // against the source repo's local clone (or, for chapter 12's <image xml:id><sageplot>
+    // figures with no local file at all, a hotlink to the published book's own pre-rendered
+    // SVG at a predictable URL keyed by the image's own xml:id — see resolveImageSrc()).
     case "image": {
-      // A WeBWorK image was already resolved to a data: URI or an external https: URL
-      // (MANUAL_WEBWORK_IMAGES) by resolveWebworkProblems — use as-is; everything else
-      // resolves against the source repo's local clone the normal way.
-      const src = n.attrs.source && /^(data|https?):/.test(n.attrs.source) ? n.attrs.source : n.attrs.source && resolveImageUrl(n.attrs.source);
+      const src = resolveImageSrc(n);
       return src ? `<img src="${src}" alt="">`
         : `<div class="card flag"><span class="chip">Image not available statically</span></div>`;
     }
-    case "interactive": return `<div class="card flag"><span class="chip">Sage interactive — not yet integrated</span>` +
-      `<p>Flagged for follow-up (id: <code>${esc(n.attrs.label || n.attrs.id || "")}</code>).</p></div>`;
+    // Chapter 12 (vector calculus, active-calculus-vector repo) only. A live Sage Cell Server
+    // embed (sagecell.sagemath.org) -- see the ".sage-embed" scan + makeSagecell() call in
+    // app.js's DOMContentLoaded handler, which converts the <script type="text/x-sage"> block
+    // below into an interactive "Evaluate" cell client-side. n's own <slate surface="sage">
+    // child holds the raw Sage source verbatim (already resolved from its xi:include, if any,
+    // by resolveIncludes() before this ever runs) -- must NOT go through esc()'s HTML-escaping
+    // twice; textOf() -> a literal <script> body is exactly what Sage Cell's own embed
+    // convention expects. The <description> is this book's own accessibility alt-text for the
+    // plot (screen-reader-facing in the original), shown here as a visible caption instead,
+    // since the plot itself doesn't render until a student clicks "Run interactive".
+    // Deliberately NOT self-wrapped in its own <figure> -- this almost always sits inside the
+    // source's own <figure> (see case "figure" / renderFigureImages' sageChild fallback below),
+    // which already supplies the real figcaption/numbering via figureLabels; wrapping here too
+    // would nest a <figure> inside a <figure>.
+    case "interactive": {
+      const slate = qd(n, "slate");
+      // The source's own XML pretty-printing indents every line of a <slate> to match its
+      // nesting depth -- meaningless to Sage but NOT to Python, whose indentation IS syntax.
+      // Left in place, this produced a real "IndentationError: unexpected indent" the moment
+      // a student actually ran the cell (caught by clicking "Run interactive" against the
+      // real Sage Cell backend, not just a build-time check). Strip the common leading
+      // whitespace shared by every non-blank line first, same idea as Python's textwrap.dedent.
+      const dedent = text => {
+        const lines = text.split("\n");
+        const indents = lines.filter(l => l.trim()).map(l => l.match(/^[ \t]*/)[0].length);
+        const min = indents.length ? Math.min(...indents) : 0;
+        return lines.map(l => l.slice(min)).join("\n");
+      };
+      const code = slate ? dedent(textOf(slate)).trim() : "";
+      if (!code) return `<div class="card flag"><span class="chip">Sage interactive — no code found</span>` +
+        `<p>Flagged for follow-up (id: <code>${esc(n.attrs.label || n.attrs.id || "")}</code>).</p></div>`;
+      // The wrapper's class must NOT be literally "sagecell" -- collides with the library's
+      // own internal namespace (same name as the global `sagecell` object) and makeSagecell()
+      // silently matches zero elements when given that selector, with no error at all. Confirmed
+      // by isolated testing: identical markup with class="sage-embed" instead works immediately.
+      return `<div class="sage-interactive"${idAttr(n)}><div class="sage-embed"><script type="text/x-sage">${code}</script></div></div>`;
+    }
+    // <sageplot> is inline Sage source meant to be PRE-RENDERED to a static image by the
+    // official Sage-based PreTeXt build -- we don't run Sage at build time (no local install,
+    // and these render at authoring time, not per-request like WeBWorK), so there's no way to
+    // produce the actual image here. Flagged the same way an unavailable WeBWorK image is,
+    // rather than silently dropped, so it's easy to find and revisit (e.g. hotlinking the
+    // published book's own rendered image, once matched up by hand per plot).
+    case "sageplot": {
+      // Most of these have no label/id at all (confirmed: none in 12.1) -- an empty
+      // <code></code> reads worse than just omitting the follow-up line entirely.
+      const flagId = n.attrs.label || n.attrs.id || "";
+      return `<div class="card flag"><span class="chip">Sage plot — not yet integrated</span>` +
+        (flagId ? `<p>Flagged for follow-up (id: <code>${esc(flagId)}</code>).</p>` : "") + `</div>`;
+    }
+    // <outcomes> is this book's own name for what chapters 9-11 (a different source repo)
+    // call the "Summary" -- same role (a bulleted takeaways list at the end of a section), new
+    // tag name only. Reuses the exact "Summary" h2 id/text convention the rest of this site's
+    // sections and its outline/scrollspy (assets/app.js) already expect.
+    case "outcomes": return `<h2 id="summary">Summary</h2>${(n.children || []).map(block).join("")}`;
     case "webwork": {
       const ww = webworkCache.get(n);
       if (!ww) return `<div class="card flag"><span class="chip">WeBWorK exercise — could not render</span>` +
@@ -792,7 +1011,18 @@ function block(n) {
       // layout instead — a stray narrow column next to the real content.
       exerciseCounter++;
       const stmt = qd(n, "statement");
-      const body = stmt ? renderMixed(stmt.children) : (qd(n, "webwork") ? block(qd(n, "webwork")) : "");
+      // A plain (non-WeBWorK) exercise built from <task> sub-parts instead of a <statement>
+      // (chapter 12's own conceptual, non-WeBWorK exercises use this shape) previously matched
+      // neither branch here and silently vanished -- returned "" and got skipped entirely, no
+      // trace in the output (found: 12.1 was missing its 4th exercise this way).
+      const tasks = qda(n, "task");
+      let body;
+      if (stmt) body = renderMixed(stmt.children);
+      else if (qd(n, "webwork")) body = block(qd(n, "webwork"));
+      else if (tasks.length) {
+        const intro = qd(n, "introduction");
+        body = (intro ? renderMixed(intro.children) : "") + renderTaskParts(tasks);
+      } else body = "";
       if (!body) return "";
       return `<div class="exercise"${idAttr(n)}><div class="n">${exerciseCounter}</div><div class="body">${body}</div></div>`;
     }
@@ -828,7 +1058,17 @@ function block(n) {
       const rows = qda(n, "row").map(row => `<tr>${qda(row, "cell").map(renderCell).join("")}</tr>`).join("");
       return `<div class="tablewrap"><table class="data gridlines">${rows}</table></div>`;
     }
-    case "table": return (n.children || []).map(block).join("");
+    // A <table> can carry its own xml:id (targeted by same-page <xref>s resolving via
+    // figureLabels, since tables and figures share one numbering counter) and a <title> —
+    // previously neither was rendered: the id never reached the HTML (dangling xref links)
+    // and the title was silently dropped (case "title" => "") instead of shown as a caption.
+    case "table": {
+      const cap = qd(n, "title");
+      const label = figureLabels.get(n) || "";
+      const capHtml = cap ? cap.children.map(inline).join("") : "";
+      const caption = label || capHtml ? `<p class="tablecap">${label}${label && capHtml ? " — " : ""}${capHtml}</p>` : "";
+      return `<div class="tablewrap-outer"${idAttr(n)}>${(n.children || []).filter(c => c.tag !== "title").map(block).join("")}${caption}</div>`;
+    }
     case "definition": {
       const stmt = qd(n, "statement");
       return `<div class="card definition"${idAttr(n)}><span class="chip">Definition</span>${stmt ? renderMixed(stmt.children) : ""}</div>`;
@@ -860,24 +1100,25 @@ function block(n) {
 const srcPath = join(args.srcdir, args.src);
 const sectionNode = parseXML(readFileSync(srcPath, "utf8")).children.find(n => n.tag === "section");
 if (!sectionNode) { console.error(`No <section> found in ${srcPath}`); process.exit(1); }
+resolveIncludes(sectionNode, args.srcdir);
 indexAndNumber(sectionNode);
 await resolveWebworkProblems(sectionNode);
 
 const sectionTitle = titleOf(sectionNode);
 const topObjectives = qd(sectionNode, "objectives");
 const topIntro = qd(sectionNode, "introduction");
-let sageFlags = 0;
-(function countFlags(n) {
-  if (n.tag === "interactive") sageFlags++;
-  for (const c of n.children || []) countFlags(c);
-})(sectionNode);
-
 const bodyParts = [];
 if (topObjectives) bodyParts.push(block(topObjectives));
 if (topIntro && !isInstructorOnly(topIntro)) bodyParts.push(renderMixed(topIntro.children));
 
 for (const c of sectionNode.children || []) {
   if (c.tag !== "subsection") continue;
+  // A whole <subsection component="instructor"> (e.g. chapter 12's "Notes to the Instructor")
+  // must never reach the student page -- block()'s own isInstructorOnly() guard is why every
+  // OTHER instructor-only node already gets dropped, but this loop renders each subsection's
+  // heading/children directly instead of calling block() on the subsection itself, bypassing
+  // that guard entirely (found in 12.1: a whole instructor-notes subsection leaked through).
+  if (isInstructorOnly(c)) continue;
   const subTitle = titleOf(c);
   // titleOf() is plain textOf() -- fine for the id-slug fallback below, but a subsection
   // title CAN contain inline math (e.g. "The Length of <m>\vu\times\vv</m>"), and textOf()
@@ -900,6 +1141,11 @@ if (footnotes.length) {
 const exercisesNode = qd(sectionNode, "exercises");
 if (exercisesNode) bodyParts.push(block(exercisesNode));
 
+// Only load the Sage Cell embed script on pages that actually have a live interactive --
+// same conditional-CDN-script convention as the Desmos API key script (see CLAUDE.md
+// convention 8), so every other section pays zero cost for this.
+const needsSageCell = bodyParts.some(p => p.includes('class="sage-embed"'));
+
 const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -911,7 +1157,7 @@ const html = `<!DOCTYPE html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="../../assets/style.css">
+${needsSageCell ? `<script defer src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>\n` : ""}<link rel="stylesheet" href="../../assets/style.css">
 <script defer src="../../assets/app.js"></script>
 </head>
 <body data-book="active-calculus-multivariable">
@@ -934,5 +1180,15 @@ ${bodyParts.join("\n")}
 </html>
 `;
 
-writeFileSync(args.out, html, "utf8");
+// A recurring WeBWorK PG source bug (seen so far in 11.6, 11.7, and 11.8's answer notes): a
+// broken template interpolation leaves the instruction as literally "(Include .)" instead of
+// "(Include units.)" -- the answer itself always does have units (NumberWithUnits type), so
+// this is always the same fix, not a per-problem judgment call.
+const fixedHtml = html.replace(/\(Include \.\)/g, "(Include units.)");
+
+writeFileSync(args.out, fixedHtml, "utf8");
+// Counted from the final HTML, not a pre-render tree walk -- most <sageplot>/<interactive>
+// nodes now resolve to a real hotlinked image or live embed (see resolveImageSrc() and case
+// "interactive"), so a raw tag count would overstate how many are actually still unresolved.
+const sageFlags = (fixedHtml.match(/Sage (plot|interactive) — (not yet integrated|no code found)/g) || []).length;
 console.log(`Wrote ${args.out}. Flagged: ${sageFlags} Sage interactive(s) still unintegrated.`);

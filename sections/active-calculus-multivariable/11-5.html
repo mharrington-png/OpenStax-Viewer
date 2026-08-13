@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double Integrals in Polar Coordinates · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Double Integrals in Polar Coordinates</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 11.5</span>Double Integrals in Polar Coordinates</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What are the polar coordinates of a point in two-space?
+            </p></li><li><p>
+              How do we convert between polar coordinates and rectangular coordinates?
+            </p></li><li><p>
+              What is the area element in polar coordinates?
+            </p></li><li><p>
+              How do we convert a double integral in rectangular coordinates to a double integral in polar coordinates?
+            </p></li></ul></div>
+<p>
+      While we have naturally defined double integrals in the rectangular coordinate system, starting with domains that are rectangular regions, there are many of these integrals that are difficult, if not impossible, to evaluate. For example, consider the domain \(D\) that is the unit circle and \(f(x,y) = e^{-x^2 - y^2}\). To integrate \(f\) over \(D\), we would use the iterated integral
+      \[
+        \iint_D f(x,y) \, dA = \int_{x = -1}^{x = 1} \int_{y = -\sqrt{1-x^2}}^{y = \sqrt{1-x^2}} e^{-x^2 - y^2} \, dy \, dx.
+      \]
+    </p><p>
+      For this particular integral, regardless of the order of integration, we are unable to find an antiderivative of the integrand; in addition, even if we were able to find an antiderivative, the inner limits of integration involve relatively complicated functions.
+    </p><p>
+      It is useful, therefore, to be able to translate to other coordinate systems where the limits of integration and evaluation of the involved integrals is simpler. In this section we provide a quick discussion of one such system &mdash; polar coordinates &mdash; and then introduce and investigate their ramifications for double integrals. The rectangular coordinate system allows us to consider domains and graphs relative to a rectangular grid. The polar coordinate system is an alternate coordinate system that allows us to consider domains less suited to rectangular coordinates, such as circles.
+    </p><div class="card activity preview" id="PA_11_5"><div class="ex-head"><span class="num">Preview Activity 11.5.1</span></div><div class="ex-body"><p>
+        The coordinates of a point determine its location. In particular, the rectangular coordinates of a point \(P\) are given by an ordered pair \((x,y)\), where \(x\) is the (signed) distance the point lies from the \(y\)-axis to \(P\) and \(y\) is the (signed) distance the point lies from the \(x\)-axis to \(P\). In polar coordinates, we locate the point by considering the distance the point lies from the origin, \(O = (0,0)\), and the angle the line segment from the origin to \(P\) forms with the positive \(x\)-axis.
+      </p><ol type="a"><li><p>
+          Determine the rectangular coordinates of the following points:
+        </p><ol><li><p>
+              The point \(P\) that lies 1 unit from the origin on the positive \(x\)-axis.
+            </p></li><li><p>
+              The point \(Q\) that lies 2 units from the origin and such that \(\overline{OQ}\) makes an angle of \(\frac{\pi}{2}\) with the positive \(x\)-axis.
+            </p></li><li><p>
+              The point \(R\) that lies 3 units from the origin such that \(\overline{OR}\) makes an angle of \(\frac{2\pi}{3}\) with the positive \(x\)-axis.
+            </p></li></ol></li><li><p>
+          Part (a) indicates that the two pieces of information completely determine the location of a point:  either the traditional \((x,y)\) coordinates, or alternately, the distance \(r\) from the point to the origin along with the angle \(\theta\) that the line through the origin and the point makes with the positive \(x\)-axis. We write &ldquo;\((r, \theta)\)&rdquo; to denote the point's location in its polar coordinate representation. Find polar coordinates for the points with the given rectangular coordinates.
+          <ol type="a"><li><p>
+                \((0,-1)\)   ii.  \((-2,0)\)   iii.  \((-1,1)\)
+              </p></li></ol>
+        </p></li><li><p>
+          For each of the following points whose coordinates are given in polar form, determine the rectangular coordinates of the point.
+          <ol type="a"><li><p>
+                \((5, \frac{\pi}{4})\)          ii. \((2, \frac{5\pi}{6})\)    iii. \((\sqrt{3}, \frac{5\pi}{3})\)
+              </p></li></ol>
+        </p></li></ol></div></div>
+<h2 id="polar-coordinates">Polar Coordinates</h2>
+<p>
+      The rectangular coordinate system is best suited for graphs and regions that are naturally considered over a rectangular grid. The polar coordinate system is an alternative that offers good options for functions and domains that have more circular characteristics. A point \(P\) in rectangular coordinates that is described by an ordered pair \((x,y)\), where \(x\) is the displacement from \(P\) to the \(y\)-axis and \(y\) is the displacement from \(P\) to the \(x\)-axis, as seen in <a href="#PA_11_5">Preview Activity 11.5.1</a>, can also be described with polar coordinates \((r,\theta)\), where \(r\) is the distance from \(P\) to the origin and \(\theta\) is the angle formed by the line segment \(\overline{OP}\) and the positive \(x\)-axis, as shown at left in <a href="#F_11_5_Polar_coords">Figure 11.5.1</a>.
+    </p><figure class="plot" id="F_11_5_Polar_coords"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_5_polar_def.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_5_polar_grid.svg" alt=""></div></div><figcaption>Figure 11.5.1 — The polar coordinates of a point and the polar coordinate grid.</figcaption></figure><p>
+      Trigonometry and the Pythagorean Theorem allow for straightforward conversion from rectangular to polar, and vice versa.
+    </p><div class="card callout" id="Polar-coordinates"><span class="chip">Converting between rectangular and polar coordinates</span><p>
+      <ul><li><p>
+            If we are given the rectangular coordinates \((x,y)\) of a point \(P\), then the polar coordinates \((r,\theta)\) of \(P\) satisfy
+            \[
+              r = \sqrt{x^2+y^2} \ \ \ \ \ \text{ and }  \ \ \ \ \ \tan(\theta) = \frac{y}{x}, \text{ assuming }  x \neq 0.
+            \]
+          </p></li><li><p>
+            If we are given the polar coordinates \((r,\theta)\) of a point \(P\), then the rectangular coordinates \((x,y)\) of \(P\) satisfy
+            \[
+              x = r\cos(\theta)  \ \ \ \ \ \text{ and }  \ \ \ \ \ y = r\sin(\theta).
+            \]
+          </p></li></ul>
+    </p></div><p> 
+      <em>Note:</em> The angle \(\theta\) in the polar coordinates of a point is not unique. We could replace \(\theta\) with \(\theta  + 2 \pi\) and still be at the same terminal point. In addition, the sign of \(\tan(\theta)\) does not uniquely determine the quadrant in which \(\theta\) lies, so we have to determine the value of \(\theta\) from the location of the point. In other words, more care has to be paid when using polar coordinates than rectangular coordinates. 
+    </p><p>
+      We can draw graphs of curves in polar coordinates in a similar way to how we do in rectangular coordinates. However, when plotting in polar coordinates, we use a grid that considers changes in angles and changes in distance from the origin. In particular, the angles \(\theta\) and distances \(r\) partition the plane into small wedges as shown at right in <a href="#F_11_5_Polar_coords">Figure 11.5.1</a>.
+    </p><div class="card activity" id="A_11_5_2"><div class="ex-head"><span class="num">Activity 11.5.2</span></div><div class="ex-body"><p>
+        Most polar graphing devices can plot curves in polar coordinates of the form \(r = f(\theta)\). Use such a device to complete this activity.
+        <ol type="a"><li><p>
+              Before plotting the polar curve \(r=1\) (where \(\theta\) can have any value), think about what shape it should have, in light of how \(r\) is connected to \(x\) and \(y\). Then use appropriate technology to draw the graph and test your intuition.
+            </p></li><li><p>
+              The equation \(\theta = 1\) does not define \(r\) as a function of \(\theta\), so we can't graph this equation on many polar plotters. What do you think the graph of the polar curve \(\theta = 1\) looks like? Why?
+            </p></li><li><p>
+              Before plotting the polar curve \(r = \theta\), what do you think the graph looks like? Why? Use technology to plot the curve and compare your intuition.
+            </p></li><li><p>
+              What does the region defined by \(1 \leq r \leq 3\) (where \(\theta\) can have any value) look like? (Hint: Compare to your response from part (a).)
+            </p></li><li><p>
+              What does the region defined by \(1 \leq r \leq 3\) and \( \pi/4 \leq \theta \leq \pi/2\) look like? 
+            </p></li><li><p>
+              Consider the curve \(r = \sin(\theta)\). For some values of \(\theta\) we will have \(r \lt 0\). In these situations, we plot the point \((r,\theta)\) as \((|r|, \theta+\pi)\) (in other words, when \(r \lt 0\), we reflect the point through the origin). With that in mind, what do you think the graph of \(r = \sin(\theta)\) looks like? Plot this curve using technology and compare to your intuition. 
+            </p></li></ol>
+      </p></div></div>
+<h2 id="integrating-in-polar-coordinates">Integrating in Polar Coordinates</h2>
+<p>
+      Consider the double integral
+      \[
+        \iint_D e^{x^2+y^2} \, dA,
+      \]
+      where \(D\) is the unit disk. While we cannot directly evaluate this integral in rectangular coordinates, a change to polar coordinates will convert it to one we can easily evaluate.
+    </p><p>
+      We have seen how to evaluate a double integral \(\displaystyle \iint_D f(x,y) \, dA\) as an iterated integral of the form
+      \[
+        \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) \, dy \, dx
+      \]
+      in rectangular coordinates, because we know that \(dA = dy \, dx\) in rectangular coordinates. To make the change to polar coordinates, we not only need to represent the variables \(x\) and \(y\) in polar coordinates, but we also must understand how to write the area element, \(dA\), in polar coordinates. That is, we must determine how the area element \(dA\) can be written in terms of \(dr\) and \(d\theta\) in the context of polar coordinates. We address this question in the following activity.
+    </p><figure class="plot" id="F_11_5_Polar_area_a"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_5_polar_rect.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_5_annulus.svg" alt=""></div></div><figcaption>Figure 11.5.2 — Left: A polar rectangle. Right: An annulus.</figcaption></figure><div class="card activity" id="A_11_5_3"><div class="ex-head"><span class="num">Activity 11.5.3</span></div><div class="ex-body"><p>
+        Consider a polar rectangle \(R\), with \(r\) between \(r_i\) and \(r_{i+1}\) and \(\theta\) between \(\theta_j\) and \(\theta_{j+1}\) as shown at left in <a href="#F_11_5_Polar_area_a">Figure 11.5.2</a>. Let \(\Delta r = r_{i+1}-r_i\) and \(\Delta \theta = \theta_{j+1}-\theta_j\). Let \(\Delta A\) be the area of this region.
+      </p><ol type="a"><li><p>
+          Explain why the area \(\Delta A\) in polar coordinates is not \(\Delta r \, \Delta \theta\).
+        </p></li><li><p>
+          Now find \(\Delta A\) by the following steps:
+        </p><ol type="a"><li><p>
+              Find the area of the annulus (the washer-like region) between \(r_i\) and \(r_{i+1}\), as shown at right in <a href="#F_11_5_Polar_area_a">Figure 11.5.2</a>. This area will be in terms of \(r_i\) and \(r_{i+1}\).
+            </p></li><li><p>
+              Observe that the region \(R\) is only a portion of the annulus, so the area \(\Delta A\) of \(R\) is only a fraction of the area of the annulus.  For instance, if \(\theta_{i+1} - \theta_i\) were \(\frac{\pi}{4}\), then the resulting wedge would be
+              \[
+                \frac{ \frac{\pi}{4} }{2\pi} = \frac{1}{8}
+              \]
+              of the entire annulus.  In this more general context, using the wedge between the two noted angles, what fraction of the area of the annulus is the area \(\Delta A\)?
+            </p></li><li><p>
+              Write an expression for \(\Delta A\) in terms of \(r_i\), \(r_{i+1}\), \(\theta_j\), and \(\theta_{j+1}\).
+            </p></li><li><p>
+              Finally, write the area \(\Delta A\) in terms of \(r_i\), \(r_{i+1}\), \(\Delta r\), and \(\Delta \theta\), where each quantity appears only once in the expression. (Hint: Think about how to factor a difference of squares.)
+            </p></li></ol></li><li><p>
+          As we take the limit as \(\Delta r\) and \(\Delta \theta\) go to 0, \(\Delta r\) becomes \(dr\), \(\Delta \theta\) becomes \(d \theta\), and \(\Delta A\) becomes \(dA\), the area element. Using your work in (iv), write \(dA\) in terms of \(r\), \(dr\), and \(d \theta\).
+        </p></li></ol></div></div><p>
+      From the result of <a href="#A_11_5_3">Activity 11.5.3</a>, we see when we convert an integral from rectangular coordinates to polar coordinates, we must not only convert \(x\) and \(y\) to being in terms of \(r\) and \(\theta\), but we also have to change the area element to \(dA = r \, dr \, d\theta\) in polar coordinates. As we saw in <a href="#A_11_5_3">Activity 11.5.3</a>, the reason the additional factor of \(r\) in the polar area element is due to the fact that in polar coordinates, the cross sectional area element increases as \(r\) increases, while the cross sectional area element in rectangular coordinates is constant. So, given a double integral \(\iint_D f(x,y) \, dA\) in rectangular coordinates, to write a corresponding iterated integral in polar coordinates, we replace \(x\) with \(r \cos(\theta)\), \(y\) with \(r \sin(\theta)\) and \(dA\) with \(r \, dr \, d\theta\). Of course, we need to describe the region \(D\) in polar coordinates as well. To summarize:
+    </p><div class="card callout" id="Double-integral-polar"><span class="chip">Double integrals in polar coordinates</span><p>
+      The double integral \(\iint_D f(x,y) \, dA\) in rectangular coordinates can be converted to a double integral in polar coordinates as \(\iint_D f(r\cos(\theta), r\sin(\theta)) \, r \, dr \, d\theta\).
+    </p></div><div class="card example"><div class="ex-head"><span class="num">Example 11.5.1</span></div><div class="ex-body"><p>
+          Let \(f(x,y) = e^{x^2+y^2}\) on the disk \(D = \{(x,y) : x^2 + y^2 \leq 1\}\). We will evaluate \(\iint_D f(x,y) \, dA\).
+        </p><p>
+          In rectangular coordinates the double integral \(\iint_D f(x,y) \, dA\) can be written as the iterated integral
+          \[
+            \iint_D f(x,y) \, dA = \int_{x=-1}^{x=1} \int_{y=-\sqrt{1-x^2}}^{y=\sqrt{1-x^2}} e^{x^2+y^2} \, dy \, dx.
+          \]
+        </p><p>
+          We cannot evaluate this iterated integral, because \(e^{x^2 + y^2}\) does not have an elementary antiderivative with respect to either \(x\) or \(y\). However, since \(r^2=x^2+y^2\) and the region \(D\) is circular, it is natural to wonder whether converting to polar coordinates will allow us to evaluate the new integral. To do so, we replace \(x\) with \(r \cos(\theta)\), \(y\) with \(r \sin(\theta)\), and \(dy \, dx\) with \(r \, dr \, d\theta\) to obtain
+          \[
+            \iint_D f(x,y) \, dA = \iint_D e^{r^2} \, r \, dr \, d\theta.
+          \]
+        </p><p>
+          The disc \(D\) is described in polar coordinates by the constraints \(0 \leq r \leq 1\) and \(0 \leq \theta \leq 2\pi\). Therefore, it follows that
+          \[
+            \iint_D e^{r^2} \, r \, dr \, d\theta = \int_{\theta=0}^{\theta = 2\pi} \int_{r=0}^{r=1} e^{r^2} \, r \, dr \, d\theta.
+          \]
+        </p><p>
+          We can evaluate the resulting iterated polar integral as follows:
+          \[\begin{aligned}\int_{\theta=0}^{\theta = 2\pi} \int_{r=0}^{r=1} e^{r^2} \, r \, dr \, d\theta &amp; = \int_{\theta=0}^{2\pi}  \left( \frac{1}{2}e^{r^2}\biggm|_{r=0}^{r=1} \right) \, d\theta \\
+&amp; = \frac{1}{2} \int_{\theta=0}^{\theta = 2\pi} \left( e-1 \right) \, d\theta \\
+&amp; = \frac{1}{2}(e-1) \int_{\theta=0}^{\theta = 2\pi} \, d\theta \\
+&amp; = \frac{1}{2}(e-1)\left[\theta\right]\biggm|_{\theta=0}^{\theta = 2\pi} \\
+&amp; = \pi(e-1).\end{aligned}\]
+        </p></div></div><p>
+      While there is no firm rule for when polar coordinates can or should be used, they are a natural alternative anytime the domain of integration may be expressed simply in polar form, and/or when the integrand involves expressions such as \(\sqrt{x^2 + y^2}.\)
+    </p><div class="card activity" id="A_11_5_4"><div class="ex-head"><span class="num">Activity 11.5.4</span></div><div class="ex-body"><p>
+        Let \(f(x,y) = x+y\) and \(D = \{(x,y) : x^2 + y^2 \leq 4\}\).
+        <ol type="a"><li><p>
+              Sketch the region \(D\) and then write the double integral of \(f\) over \(D\) as an iterated integral in rectangular coordinates. 
+            </p></li><li><p>
+              Write the double integral of \(f\) over \(D\) as an iterated integral in polar coordinates.
+            </p></li><li><p>
+              Evaluate one of the iterated integrals. Why is the final value you found not surprising?
+            </p></li></ol>
+      </p></div></div><div class="card activity" id="A_11_5_5"><div class="ex-head"><span class="num">Activity 11.5.5</span></div><div class="ex-body"><p>
+        Consider the circle given by \(x^2 + (y-1)^2 = 1\) as shown in <a href="#F_11_5_Polar_exercise">Figure 11.5.3</a>.
+          <figure class="plot" id="F_11_5_Polar_exercise"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_5_polar_region.svg" alt=""><figcaption>Figure 11.5.3 — The graphs of \(y=x\) and \(x^2 + (y-1)^2 = 1\), for use in <a href="#A_11_5_5">Activity 11.5.5</a>.</figcaption></figure>
+        <ol type="a"><li><p>
+              Determine a polar curve in the form \(r = f(\theta)\) that traces out the circle \(x^2 + (y-1)^2 = 1\). (Hint: Recall that a circle centered at the origin of radius \(r\) can be described by the equations \(x = r \cos(\theta)\) and \(y = r \sin(\theta)\).)
+            </p></li><li><p>
+              Find the exact average value of \(g(x,y) = \sqrt{x^2 + y^2}\) over the interior of the circle \(x^2 + (y-1)^2 = 1\).
+            </p></li><li><p>
+              Find the volume under the surface \(h(x,y) = x\) over the region \(D\), where \(D\) is the region bounded above by the line \(y=x\) and below by the circle (this is the shaded region in <a href="#F_11_5_Polar_exercise">Figure 11.5.3</a>).
+            </p></li><li><p>
+              Explain why in both (b) and (c) it is advantageous to use polar coordinates.
+            </p></li></ol>
+      </p></div></div>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          The polar representation of a point \(P\) is the ordered pair \((r,\theta)\) where \(r\) is the distance from the origin to \(P\) and \(\theta\) is the angle the ray through the origin and \(P\) makes with the positive \(x\)-axis.
+        </p></li><li><p>
+          The polar coordinates \(r\) and \(\theta\) of a point \((x,y)\) in rectangular coordinates satisfy
+          \[
+            r = \sqrt{x^2+y^2} \ \ \ \ \ \text{ and }  \ \ \ \ \ \tan(\theta) = \frac{y}{x};
+          \]
+          the rectangular coordinates \(x\) and \(y\) of a point \((r,\theta)\) in polar coordinates satisfy
+          \[
+            x = r\cos(\theta)  \ \ \ \ \ \text{ and }  \ \ \ \ \ y = r\sin(\theta).
+          \]
+        </p></li><li><p>
+          The area element \(dA\) in polar coordinates is determined by the area of a slice of an annulus and is given by
+          \[
+            dA = r \, dr \, d\theta.
+          \]
+        </p></li><li><p>
+          To convert the double integral \({\iint_D f(x,y) \, dA}\) to an iterated integral in polar coordinates, we substitute \(r \cos(\theta)\) for \(x\), \(r \sin(\theta)\) for \(y\), and \(r \, dr \, d\theta\) for \(dA\) to obtain the iterated integral
+          \[
+            {\iint_D f(r\cos(\theta), r\sin(\theta)) \, r \, dr \, d\theta}.
+          \]
+        </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-5">Exercises</h2><div class="exercise" id="ex-11-5-WW-matching"><div class="n">1</div><div class="body"><p>For each set of Polar coordinates, match the equivalent Cartesian coordinates.</p><ol type="A"><li><p> \(( -2.5 , 3.2 )\)</p></li><li><p> \(( 8.5 , 6.8 )\)</p></li><li><p> \(( 5.5 , 9 )\)</p></li><li><p> \(( -8 , 4.8 )\)</p></li><li><p> \(( 8 , 3.4 )\)</p></li><li><p> \(( -6.5 , 2.6 )\)</p></li></ol></div></div><div class="exercise" id="ex-11-5-WW-finding-polar"><div class="n">2</div><div class="body"><p>(a) The Cartesian coordinates of a point are \((-1,-\sqrt{3}).\)</p><p>(i) Find polar coordinates \((r,\theta)\) of the point, where \(r&gt;0\) and \(0 \le \theta \lt  2\pi.\)</p><p>\(r =\) <span class="blank">______________________________</span></p><p>\(\theta =\) <span class="blank">______________________________</span></p><p>(ii) Find polar coordinates \((r,\theta)\) of the point, where \(r\lt 0\) and \(0 \le \theta \lt  2\pi.\)</p><p>\(r =\) <span class="blank">______________________________</span></p><p>\(\theta =\) <span class="blank">______________________________</span></p><p>(b) The Cartesian coordinates of a point are \((-2,3).\)</p><p>(i) Find polar coordinates \((r,\theta)\) of the point, where \(r&gt;0\) and \(0 \le \theta \lt  2\pi.\)</p><p>\(r =\) <span class="blank">______________________________</span></p><p>\(\theta =\) <span class="blank">______________________________</span></p><p>(ii) Find polar coordinates \((r,\theta)\) of the point, where \(r\lt 0\) and \(0 \le \theta \lt  2\pi.\)</p><p>\(r =\) <span class="blank">______________________________</span></p><p>\(\theta =\) <span class="blank">______________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(2\), \(4.18879020478639\), \(-2\), \(1.0471975511966\), \(3.60555127546399\), \(2.15879893034246\), \(-3.60555127546399\), \(5.30039158393226\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-multiple"><div class="n">3</div><div class="body"><p>(a) You are given the point \((1,\pi/2)\) in polar coordinates.</p><p>(i) Find another pair of polar coordinates for this point such that \(r &gt; 0\) and \(2\pi \le \theta \lt  4\pi.\)</p><p>\(r =\)  <span class="blank">_______________</span></p><p>\(\theta =\)  <span class="blank">_______________</span></p><p>(ii) Find another pair of polar coordinates for this point such that \(r \lt  0\) and \(0 \le \theta \lt  2\pi.\)</p><p>\(r =\)  <span class="blank">_______________</span></p><p>\(\theta =\)  <span class="blank">_______________</span></p><p>(b) You are given the point \((-2,\pi/4)\) in polar coordinates.</p><p>(i) Find another pair of polar coordinates for this point such that \(r &gt; 0\) and \(2\pi \le \theta \lt  4\pi.\)</p><p>\(r =\)  <span class="blank">_______________</span></p><p>\(\theta =\)  <span class="blank">_______________</span></p><p>(ii) Find another pair of polar coordinates for this point such that \(r \lt  0\) and \(-2\pi \le \theta \lt  0.\)</p><p>\(r =\)  <span class="blank">_______________</span></p><p>\(\theta =\)  <span class="blank">_______________</span></p><p>(c) You are given the point \((3,2)\) in polar coordinates.</p><p>(i) Find another pair of polar coordinates for this point such that \(r &gt; 0\) and \(2\pi \le \theta \lt  4\pi.\)</p><p>\(r =\)  <span class="blank">_______________</span></p><p>\(\theta =\)  <span class="blank">_______________</span></p><p>(ii) Find another pair of polar coordinates for this point such that \(r \lt  0\) and \(0 \le \theta \lt  2\pi.\)</p><p>\(r =\)  <span class="blank">_______________</span></p><p>\(\theta =\)  <span class="blank">_______________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(1\), \(7.85398163397448\), \(-1\), \(4.71238898038469\), \(2\), \(10.2101761241668\), \(-2\), \(-5.49778714378214\), \(3\), \(8.28318530717959\), \(-3\), \(5.14159265358979\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-comparing-points"><div class="n">4</div><div class="body"><p>Decide if the points given in polar coordinates are the same. If they are the same, enter <em> T </em> . If they are different, enter <em> F </em> .</p><p><span class="blank">_</span> a.) \((2, \frac{\pi}{3}), (-2, \frac{-\pi}{3})\)</p><p><span class="blank">_</span> b.) \((2, \frac{67 \pi}{4}), (2,- \frac{67 \pi}{4})\)</p><p><span class="blank">_</span> c.) \((0, 2 \pi), (0, \frac{8 \pi}{4})\)</p><p><span class="blank">_</span> d.) \((1, \frac{45 \pi}{4}), (-1, \frac{\pi}{4})\)</p><p><span class="blank">_</span> e.) \((16, \frac{86 \pi}{3}), (-16, \frac{- \pi}{3})\)</p><p><span class="blank">_</span> f.)\((2,14 \pi), (-2, 14 \pi)\)</p><div class="answer"><button>Show answer</button><div class="a"><p>F, F, T, T, T, F</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-convert-equation"><div class="n">5</div><div class="body"><p>A curve with polar equation</p><p>\[r=\frac{10 }{3 \sin \theta+22 \cos \theta}\]</p><p>represents a line.  Write this line in the given Cartesian form.</p><p>\(y =\) <span class="blank">_______________</span></p><p><em> Note: </em> Your answer should be a function of \(x\) .</p><div class="answer"><button>Show answer</button><div class="a"><p>\(3.33333-7.33333x\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-convert-equation-2"><div class="n">6</div><div class="body"><p>Find a polar equation of the form \(r=f(\theta)\) for the curve represented by the Cartesian equation \(x=-y^2.\)</p><p>Note: Since \(\theta\) is not a symbol on your keyboard, use \(t\) in place of \(\theta\) in your answer.</p><p>\(r =\)  <span class="blank">______________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\frac{-1\cos\mathopen{}\left(t\right)}{\sin\mathopen{}\left(t\right)}}{\sin\mathopen{}\left(t\right)}\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-convert-to-polar"><div class="n">7</div><div class="body"><p>By changing to polar coordinates, evaluate the integral
+    \[\iint_D (x^2 + y^2)^{7/2}\, dx dy\]
+ where 
+\(D\) is the disk \(x^2 + y^2 \le 4\).</p><p>Answer = <span class="blank">______________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(357.443430808439\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-convert-to-polar-2"><div class="n">8</div><div class="body"><p>Convert the integral
+\[\int_0^{\sqrt{2}}\int_{-x}^x\,dy\,dx\]
+to polar coordinates and
+evaluate it (use \(t\) for \(\theta\)):</p><p>With
+\(a =\) <span class="blank">__________</span>, \(b =\) <span class="blank">__________</span>,
+\(c =\) <span class="blank">__________</span> and \(d =\) <span class="blank">__________</span>,</p><p>\(\int_0^{\sqrt{2}}\int_{-x}^x\,dy\,dx =
+   \int_{a}^{b}\int_{c}^{d}\) <span class="blank">_____</span>\(dr\,dt\)</p><p>\(= \int_{a}^{b}\) <span class="blank">_________________________</span> \(\,dt\)</p><p>\(=\) <span class="blank">_________________________</span>\(\bigg|_{a}^{b}\)</p><p>\(=\) <span class="blank">_________________________</span>.</p><div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{-\pi }{4}\), \(\frac{\pi }{4}\), \(0\), \(\frac{\sqrt{2}}{\cos\mathopen{}\left(t\right)}\), \(r\), \(\frac{1}{\cos^{2}\mathopen{}\left(t\right)}\), \(1\tan\mathopen{}\left(t\right)\), \(2\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-choosing"><div class="n">9</div><div class="body"><p>For each of the following, set up the integral of an arbitrary
+function \(f(x,y)\) over the region in whichever of rectangular
+or polar coordinates is most appropriate.  (Use \(t\) for
+\(\theta\) in your expressions.)</p><p><em>(a)</em>
+The region</p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6BAMAAAENxXeYAAAAJFBMVEX///8AAAD///8AAAD/AAAA/wAAAP///wD/ZAC0tLT+/v7W5vTJhtVGAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD7ElEQVR4nO1dDYqrMBAWAguylwkEFh5eplAolHeZglCQXuKBUChe7hm3dY0TTcxM1Gznk7rZNF++mYw/MVGbqREymYnMgMyy5Rkfpx6HLuOz6fHvDTMEfaWWyBkQYZEbYSQCvg/Eydw+sqwxnXuzDFHTV+qKHE0odS3CVcBZwwoFBnvPEFzgVxYQn2pzG7AFnpu1VLZNWsiVdpz5MuOTkPqjV+Ur4aofIteryyvxFvxBX+l0OuvVVSf67/9aN5K7/fuHXt10gvnMZ/72fJm4/bvmg/PP6JroefoSaqqPOj69pXf+MD0DfLHsJDzie1wk5NOJAV961GRBz5r2wk8/EGT+sz5K/8N6DPg5YpiJRfy5QxPrsz7rsz7rsz7rB+hX34usGlVUjedyf7LafmjffS/s43l795/1d6VfF01TFAH6g//HVzKz/V8lZydH5tFdvjqn3Kb1FbR/KfbS/99Yf+4a2kc/eCOwj68biRn8eN8bYDNyEhb+Igz4QRVY+KH2vyK4lf9UfKz97D+OvwjsPxnfmB8zEhAHC3+6twAxx/dBTD7WfvYfx8faj+Wz/zj72X8cH2s/ls/+4+xn/3F8rP1YPvuPs5/9x/Gx9mP57D/OfvYfx8faj+Vv4r/IRF1Pl5/hX3K9lHlZl4+b73L+ZrUL1A+yX0nVKAT/3ePP/rP/RPZj+Wn73x7EPA6kA77HJM+S+R+R5a+ZFN/xXznktwfS2bkwA0Lo2UuDvwhCAf1F49da/zXxEzT+bZs/WwQe/yfnv6f/Amk/jq9k2PStTT+MHxw/MP8PDYEVwZxLSI7lAWxB9wS1C3b1lcSt6vqZRQOrtrzcVB2woiEB9W1bnuO+lTrHPQISUOe4R0AC6hFbvrpkufEpT+fq6vhUIK9ycnSZsRb0/bhkeGAJ7gfo++7V4dAKzLm5c+4+e9ze1InAcU9MnQgc98TUicBxT0ydCBz3PanDXmXzqG4xPvdzgr3KXxv33bf8tuocdzQ47ompE4Hjnpg6ETjuiakTwdbyu+9VctzR4P09MXUicNwTUycCxz0xdSJw3Herru/vatXV5IvCMHC1vPhWrwv9hqnV1Z++18pUX7PlFfB9za0uSsw7dVfLa/D+vh91InDcE1MnAsc9MXUicNwTUydCQMs/ezkU/Uw/9eGrzY7HL/3qs+OX/jv61SADV48cn5Y37+rUPb1cv47XKEd6P61RNVRXlic5CKBUpy5m1Lti5MKdjv7NTf1rJQ71OPfTtu2pXC2/grqZC1jR8N73Ue9ePRoSUOe4R0AC6qu1fHvo3Ui9exDWph4NoOU3VVfK8otkEVve42UR8IXiMKcMyvkPQzqW8JCG0lQAAAAASUVORK5CYII=" alt=""><p>With
+\(a =\) <span class="blank">_____</span>,
+\(b =\) <span class="blank">_____</span>,</p><p>\(c =\) <span class="blank">_____</span>, and
+\(d =\) <span class="blank">_____</span>,</p><p>integral = \(\int_a^b \int_c^d\) <span class="blank">_______________</span>
+\(d\)<span class="blank">_____</span> \(d\)<span class="blank">_____</span></p><p><em>(b)</em>
+The region</p><img src="data:image/png;base64,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" alt=""><p>With
+\(a =\) <span class="blank">_____</span>,
+\(b =\) <span class="blank">_____</span>,</p><p>\(c =\) <span class="blank">_____</span>, and
+\(d =\) <span class="blank">_____</span>,</p><p>integral = \(\int_a^b \int_c^d\) <span class="blank">_______________</span>
+\(d\)<span class="blank">_____</span> \(d\)<span class="blank">_____</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(5\), \(0\), \(4\), \(f\mathopen{}\left(x,y\right)\), \(y\), \(x\), \(1.0472\), \(1.5708\), \(0\), \(2\), \(rf\mathopen{}\left(r\cos\mathopen{}\left(t\right),r\sin\mathopen{}\left(t\right)\right)\), \(r\), \(t\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-converting"><div class="n">10</div><div class="body"><p>A Cartesian equation for the polar equation \(r=2\) can be written as:</p><p>\(x^2+y^2 =\) <span class="blank">__________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(4\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-area"><div class="n">11</div><div class="body"><p>Using polar coordinates, evaluate the integral which gives the area which lies
+in the first quadrant between the circles \(x^2 + y^2 = 16\) and \(x^2 - 4x + y^2 = 0\).</p><p><span class="blank">__________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(6.28318530717959\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-set-up"><div class="n">12</div><div class="body"><p><em>(a)</em>
+Graph \(r=1/(2\cos\theta)\) for \(-\pi/2\le\theta\le\pi/2\) and
+\(r=1\).  Then write an iterated integral in polar coordinates
+representing the area inside the curve \(r=1\) and to the right of
+\(r=1/(2\cos\theta)\).  (Use \(t\) for \(\theta\) in your work.)</p><p>With
+\(a =\)<span class="blank">__________</span>, \(b =\)<span class="blank">__________</span>,</p><p>\(c =\)<span class="blank">__________</span>, and \(d =\)<span class="blank">__________</span>,</p><p>area = \(\int_a^b\int_c^d\,\)<span class="blank">__________</span>\(d\)<span class="blank">_____</span>
+\(d\)<span class="blank">_____</span></p><p><em>(b)</em>
+Evaluate your integral to find the area.</p><p>area = <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-\cos^{-1}\mathopen{}\left(\frac{1}{2}\right)\), \(\cos^{-1}\mathopen{}\left(\frac{1}{2}\right)\), \(\frac{1}{2\cos\mathopen{}\left(t\right)}\), \(1\), \(r\), \(r\), \(t\), \(\cos^{-1}\mathopen{}\left(\frac{1}{2}\right)-\frac{\tan\mathopen{}\left(\cos^{-1}\mathopen{}\left(\frac{1}{2}\right)\right)}{2^{2}}\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-evaluate-polar"><div class="n">13</div><div class="body"><p>Using polar coordinates, evaluate the integral \(\displaystyle \int \!\! \int_{R} \sin (x^2+y^2) dA\) where R is the region \(1 \leq x^2 + y^2 \leq 64\).</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.466353958459456\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-region-of-integration"><div class="n">14</div><div class="body"><p>Sketch the region of integration for the following integral.</p><p>\(\displaystyle \int_{0}^{\pi/4} \int_{0}^{3 / \cos(\theta)} f(r,\theta) \, r \, dr \, d\theta\)</p><p>The region of integration is bounded by</p><p><ol type="a"><li><p>\(y = 0, y = x, \text{ and } y = 3\)</p></li><li><p>\(y = 0, y = x, \text{ and } x = 3\)</p></li><li><p>\(y = 0, x = \sqrt{9 - y^2}, \text{ and } y = 3\)</p></li><li><p>\(y = 0, y = \sqrt{9 - x^2}, \text{ and } x = 3\)</p></li><li><p>None of the above</p></li></ol></p><div class="answer"><button>Show answer</button><div class="a"><p>B</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-sphere"><div class="n">15</div><div class="body"><p>Use the polar coordinates to find the volume of a sphere of radius 2.</p><p><span class="blank">______________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(33.5103216382911\)</p></div></div></div></div><div class="exercise" id="ex-11-5-WW-solid-volume"><div class="n">16</div><div class="body"><p>Consider the solid under the graph of \(z = e^{-x^2-y^2}\) 
+above the disk \(x^2 + y^2 \leq a^2\), where \(a &gt; 0\).</p><p>(a) Set up the integral to find the volume of the solid.</p><p><em>Instructions:</em>
+Please enter the integrand in the first answer box,
+typing <em>theta</em> for \(\theta\). 
+Depending on the order of integration you choose,  
+enter <em>dr</em> and <em>dtheta</em> 
+in either order into the second and third answer boxes 
+with only one <em>dr</em> or 
+<em>dtheta</em> in each box.  Then, enter the limits of 
+integration.</p><p>\(\displaystyle \int_A^B \int_C^D\) 
+<span class="blank">________________________________________</span>
+<span class="blank">_____</span>
+<span class="blank">_____</span></p><p>A = <span class="blank">____________________</span></p><p>B = <span class="blank">____________________</span></p><p>C = <span class="blank">____________________</span></p><p>D = <span class="blank">____________________</span></p><p>(b) Evaluate the integral and find the volume.  
+Your answer will be in terms of \(a\).</p><p>Volume V = <span class="blank">________________________________________</span></p><p>(c) What does the volume approach as \(a \to \infty\)?</p><p>\(\displaystyle \lim_{a \to \infty} V =\)
+<span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(e^{-r^{2}}r\), \(dr\), \(dtheta\), \(0\), \(2\pi\), \(0\), \(a\), \(\pi \mathopen{}\left(1-e^{-a^{2}}\right)\), \(3.14159\)</p></div></div></div></div><div class="exercise"><div class="n">17</div><div class="body"><p>
+            Consider the iterated integral \(I = \int_{-3}^{0} \int_{-\sqrt{9-y^2}}^{0} \frac{y}{x^2 + y^2+1} \, dx \, dy.\)
+            <ol type="a"><li><p>
+                  Sketch (and label) the region of integration.
+                </p></li><li><p>
+                  Convert the given iterated integral to one in polar coordinates.
+                </p></li><li><p>
+                  Evaluate the iterated integral in (b).
+                </p></li><li><p>
+                  State one possible interpretation of the value you found in (c).
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">18</div><div class="body"><p>
+            Let \(D\) be the region that lies inside the unit circle in the plane.
+            <ol type="a"><li><p>
+                  Set up and evaluate an iterated integral in polar coordinates whose value is the area of \(D\).
+                </p></li><li><p>
+                  Determine the exact average value of \(f(x,y) = y\) over the upper half of \(D\).
+                </p></li><li><p>
+                  Find the exact center of mass of the lamina over the portion of \(D\) that lies in the first quadrant and has its mass density distribution given by \(\delta(x,y) = 1\). (Before making any calculations, where do you expect the center of mass to lie? Why?)
+                </p></li><li><p>
+                  Find the exact volume of the solid that lies under the surface \(z = 8-x^2-y^2\) and over the unit disk, \(D\).
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">19</div><div class="body"><p>
+            For each of the following iterated integrals, 
+            <ul><li><p>sketch and label the region of integration, 
+                </p></li><li><p> convert the integral to the other coordinate system (if given in polar, to rectangular; if given in rectangular, to polar), and 
+                </p></li><li><p>
+                choose one of the two iterated integrals to evaluate exactly.
+                </p></li></ul>
+            <ol type="a"><li><p>
+                  \(\int_{\pi}^{3\pi/2} \int_{0}^{3}  r^3 \, dr \, d\theta\)
+                </p></li><li><p>
+                  \(\int_{0}^{2} \int_{-\sqrt{1-(x-1)^2}}^{\sqrt{1-(x-1)^2}} \sqrt{x^2 + y^2} \, dy \, dx\)
+                </p></li><li><p>
+                  \(\int_0^{\pi/2} \int_0^{\sin(\theta)} r \sqrt{1-r^2} \, dr \, d\theta.\)
+                </p></li><li><p>
+                  \(\int_0^{\sqrt{2}/2} \int_y^{\sqrt{1-y^2}} \cos(x^2 + y^2) \, dx \, dy.\)
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

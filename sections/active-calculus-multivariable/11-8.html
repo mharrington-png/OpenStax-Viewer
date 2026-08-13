@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triple Integrals in Cylindrical and Spherical Coordinates · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Triple Integrals in Cylindrical and Spherical Coordinates</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 11.8</span>Triple Integrals in Cylindrical and Spherical Coordinates</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What are the cylindrical coordinates of a point, and how are they related to Cartesian coordinates?
+            </p></li><li><p>
+              What is the volume element in cylindrical coordinates? How does this inform us about evaluating a triple integral as an iterated integral in cylindrical coordinates?
+            </p></li><li><p>
+              What are the spherical coordinates of a point, and how are they related to Cartesian coordinates?
+            </p></li><li><p>
+              What is the volume element in spherical coordinates? How does this inform us about evaluating a triple integral as an iterated integral in spherical coordinates?
+            </p></li></ul></div>
+<p>
+      We have encountered two different coordinate systems in \(\R^2\) &mdash; the rectangular and polar coordinates systems &mdash; and seen how in certain situations, polar coordinates form a convenient alternative. In a similar way, there are two additional natural coordinate systems in \(\R^3\). Given that we are already familiar with the Cartesian coordinate system for \(\R^3\), we next investigate the cylindrical and spherical coordinate systems (each of which builds upon polar coordinates in \(\R^2\)). In what follows, we will see how to convert among the different coordinate systems, how to evaluate triple integrals using them, and some situations in which these other coordinate systems prove advantageous.
+    </p><div class="card activity preview" id="PA_11_8"><div class="ex-head"><span class="num">Preview Activity 11.8.1</span></div><div class="ex-body"><p>
+        In the following questions, we investigate the two new coordinate systems that are the subject of this section: cylindrical and spherical coordinates. Our goal is to consider some examples of how to convert from rectangular coordinates to each of these systems, and vice versa. Triangles and trigonometry prove to be particularly important.
+      </p><figure class="plot" id="F_11_8_Cylindrical_coords"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_cylindrical.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_spherical.svg" alt=""></div></div><figcaption>Figure 11.8.1 — The cylindrical (left) and spherical (right) coordinates of a point.</figcaption></figure><ol type="a"><li><p>
+          The cylindrical coordinates of a point in \(\R^3\) are given by \((r,\theta,z)\) where \(r\) and \(\theta\) are the polar coordinates of the point \((x, y)\) and \(z\) is the same \(z\) coordinate as in Cartesian coordinates. An illustration is given at left in <a href="#F_11_8_Cylindrical_coords">Figure 11.8.1</a>.
+          </p><ol type="a"><li><p>
+                Find cylindrical coordinates for the point whose Cartesian coordinates are \((-1, \sqrt{3}, 3)\). Draw a labeled picture illustrating all of the coordinates.
+                </p></li><li><p>
+                Find the Cartesian coordinates of the point whose cylindrical coordinates are \(\left(2, \frac{5\pi}{4}, 1\right)\). Draw a labeled picture illustrating all of the coordinates.
+                </p></li></ol></li><li><p>
+          The spherical coordinates of a point in \(\R^3\) are \(\rho\) (rho), \(\theta\), and \(\phi\) (phi), where \(\rho\) is the distance from the point to the origin, \(\theta\) has the same interpretation it does in polar coordinates, and \(\phi\) is the angle between the positive \(z\) axis and the vector from the origin to the point, as illustrated at right in <a href="#F_11_8_Cylindrical_coords">Figure 11.8.1</a>. You should convince yourself that any point in \(\R^3\) can be represented in spherical coordinates with \(\rho \geq 0\), \(0 \leq \theta \lt 2 \pi\), and \(0 \leq \phi \leq \pi\). 
+          </p><p> 
+          For the following questions, consider the point \(P\) whose Cartesian coordinates are \((-2,2,\sqrt{8})\).
+          </p><ol type="a"><li><p>
+                What is the distance from \(P\) to the origin?  Your result is the value of \(\rho\) in the spherical coordinates of \(P\).
+                </p></li><li><p>
+                Determine the point that is the projection of \(P\) onto the \(xy\)-plane.  Then, use this projection to find the value of \(\theta\) in the polar coordinates of the projection of \(P\) that lies in the plane.  Your result is also the value of \(\theta\) for the spherical coordinates of the point.
+                </p></li><li><p>
+                Based on the illustration in <a href="#F_11_8_Cylindrical_coords">Figure 11.8.1</a>, how is the angle \(\phi\) determined by \(\rho\) and the \(z\) coordinate of \(P\)? Use a well-chosen right triangle to find the value of \(\phi\), which is the final component in the spherical coordinates of \(P\). Draw a carefully labeled picture that clearly illustrates the values of \(\rho\), \(\theta\), and \(\phi\) in this example, along with the original rectangular coordinates of \(P\).
+                </p></li><li><p>
+                Based on your responses to i., ii., and iii., if we are given the Cartesian coordinates \((x,y,z)\) of a point \(Q\), how are the values of \(\rho\), \(\theta\), and \(\phi\) in the spherical coordinates of \(Q\) determined by \(x\), \(y\), and \(z\)?
+                </p></li></ol></li></ol></div></div>
+<h2 id="cylindrical-coordinates">Cylindrical Coordinates</h2>
+<p>
+      As we stated in <a href="#PA_11_8">Preview Activity 11.8.1</a>, the cylindrical coordinates of a point are \((r,\theta,z)\), where \(r\) and \(\theta\) are the polar coordinates of the point \((x, y)\), and \(z\) is the same \(z\) coordinate as in Cartesian coordinates. The general situation is illustrated <a href="#F_11_8_Cylindrical_coords">Figure 11.8.1</a>.
+    </p><p>
+      Since we already know how to convert between rectangular and polar coordinates in the plane, and the \(z\) coordinate is identical in both Cartesian and cylindrical coordinates, the conversion equations between the two systems in \(\R^3\) are essentially those we found for polar coordinates.
+    </p><div class="card callout" id="Cartesian-cylindrical"><span class="chip">Converting between Cartesian and cylindrical coordinates</span><p>
+      <ul><li><p>
+            If we are given the Cartesian coordinates \((x,y,z)\) of a point \(P\), then the cylindrical coordinates \((r,\theta,z)\) of \(P\) satisfy
+            \[
+            x = r \cos(\theta) \ \ \ \ \ y = r \sin(\theta) \ \ \ \ \ \text{ and } \ \ \ \ \ z = z.
+            \]
+          </p></li><li><p>
+            If we are given the cylindrical coordinates \((r,\theta,z)\) of a point \(P\), then the Cartesian coordinates \((x,y,z)\) of \(P\) satisfy
+            \[
+            r^2  = x^2  + y^2 \ \ \ \ \ \tan(\theta) = \frac{y}{x} \ \ \ \ \ \text{ and } \ \ \ \ \ z = z,
+            \]
+            assuming \( x \neq 0\).
+          </p></li></ul>
+    </p></div><p>
+      Just as with rectangular coordinates, where we usually write \(z\) as a function of \(x\) and \(y\) to plot the resulting surface, in cylindrical coordinates, we often express \(z\) as a function of \(r\) and \(\theta\). In the following activity, we explore several basic equations in cylindrical coordinates and the corresponding surface each generates.
+    </p><div class="card activity" id="A_11_8_1"><div class="ex-head"><span class="num">Activity 11.8.2</span></div><div class="ex-body"><p>
+        In this activity, we graph some surfaces using cylindrical coordinates. To improve your intuition and test your understanding, you should first think about what each graph should look like before you plot it using appropriate technology.
+        <ol type="a"><li><p>
+              What familiar surface is described by the points in cylindrical coordinates with \(r=2\), \(0 \leq \theta \leq 2\pi\), and \(0 \leq z \leq 2\)?  How does this example suggest that we call these coordinates <em>cylindrical coordinates</em>? How does your answer change if we restrict \(\theta\) to \( 0 \leq \theta \leq \pi\)? 
+            </p></li><li><p>
+              What familiar surface is described by the points in cylindrical coordinates with \(\theta=2\), \(0 \leq r \leq 2\), and \(0 \leq z \leq 2\)? 
+            </p></li><li><p>
+              What familiar surface is described by the points in cylindrical coordinates with \(z=2\), \(0 \leq \theta \leq 2\pi\), and \(0 \leq r \leq 2\)? 
+            </p></li><li><p>
+              Plot the graph of the cylindrical equation \(z=r\), where \(0 \leq \theta \leq 2\pi\) and \(0 \leq r \leq 2\). What familiar surface results?
+            </p></li><li><p>
+              Plot the graph of the cylindrical equation \(z= \theta\) for \(0 \leq \theta \leq 4 \pi\). What does this surface look like?
+            </p></li></ol>
+      </p></div></div><p>
+      As the name and <a href="#A_11_8_1">Activity 11.8.2</a> suggests, cylindrical coordinates are useful for describing surfaces that are cylindrical in nature.
+    </p>
+<h2 id="triple-integrals-in-cylindrical-coordinates">Triple Integrals in Cylindrical Coordinates</h2>
+<p>
+      To evaluate a triple integral \(\iiint_S f(x,y,z) \, dV\) as an iterated integral in Cartesian coordinates, we use the fact that the volume element \(dV\) is equal to \(dz \, dy \, dx\) (which corresponds to the volume of a small box). To evaluate a triple integral in cylindrical coordinates, we similarly must understand the volume element \(dV\) in cylindrical coordinates.
+    </p><div class="card activity" id="A_11_8_2"><div class="ex-head"><span class="num">Activity 11.8.3</span></div><div class="ex-body"><p>
+        A picture of a cylindrical box,
+        \(B = \{(r,\theta,z) : r_1 \leq r \leq r_2, \theta_1 \leq \theta \leq \theta_2, z_1 \leq z \leq z_2\},\)
+        is shown in <a href="#F_11_8_Cylindrical_Vol_Element">Figure 11.8.2</a>. Let \(\Delta r = r_2-r_1\), \(\Delta \theta = \theta_2 - \theta_1\), and \(\Delta z = z_2-z_1\). We want to determine the volume \(\Delta V\) of \(B\) in terms of \(\Delta r\), \(\Delta \theta\), \(\Delta z\), \(r\), \(\theta\), and \(z\).
+      </p><figure class="plot" id="F_11_8_Cylindrical_Vol_Element"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_cylindrical_box.svg" alt=""><figcaption>Figure 11.8.2 — A cylindrical box.</figcaption></figure><ol type="a"><li><p>
+            Appropriately label \(\Delta r\), \(\Delta \theta\), and \(\Delta z\) in <a href="#F_11_8_Cylindrical_Vol_Element">Figure 11.8.2</a>.
+          </p></li><li><p>
+            Let \(\Delta A\) be the area of the projection of the box, \(B\), onto the \(xy\)-plane, which is shaded blue in <a href="#F_11_8_Cylindrical_Vol_Element">Figure 11.8.2</a>.  Recall that we previously determined the area \(\Delta A\) in polar coordinates in terms of \(r\), \(\Delta r\), and \(\Delta \theta\). In light of the fact that we know \(\Delta A\) and that \(z\) is the standard \(z\) coordinate from Cartesian coordinates, what is the volume \(\Delta V\) in cylindrical coordinates?
+          </p></li></ol></div></div><p>
+      <a href="#A_11_8_2">Activity 11.8.3</a> demonstrates that the volume element \(dV\) in cylindrical coordinates is given by \(dV = r \, dz \, dr \, d\theta\), and hence the following rule holds in general.
+    </p><div class="card callout" id="Triple-integral-cylidrical"><span class="chip">Triple integrals in cylindrical coordinates</span><p>
+      Given a continuous function \(f = f(x,y,z)\) over a region \(S\) in \(\R^3\),
+      \[
+        \iiint_S f(x,y,z) \, dV = \iiint_S f(r\cos(\theta), r\sin(\theta), z) \, r \, dz \, dr \, d\theta.
+      \]
+    </p><p>
+      The latter expression is an <em>iterated integral in cylindrical coordinates</em>.
+    </p></div><p>
+      Of course, to complete the task of writing an iterated integral in cylindrical coordinates, we need to determine the limits on the three integrals: \(\theta\), \(r\), and \(z\). In the following activity, we explore how to do this in several situations where cylindrical coordinates are natural and advantageous.
+    </p><div class="card activity" id="A_11_8_3"><div class="ex-head"><span class="num">Activity 11.8.4</span></div><div class="ex-body"><p>
+        In this activity we work with triple integrals in cylindrical coordinates. 
+        <ol type="a"><li><p>
+              Let \(S\) be the solid bounded above by the graph of \(z = x^2+y^2\) and below by \(z=0\) on the unit disk in the \(xy\)-plane. 
+                <ol type="a"><li><p>
+                      The projection of the solid \(S\) onto the \(xy\)-plane is a disk. Describe this disk using polar coordinates.
+                    </p></li><li><p>
+                      Now describe the surfaces bounding the solid \(S\) using cylindrical coordinates. 
+                    </p></li><li><p>
+                      Determine an iterated triple integral expression in cylindrical coordinates that gives the volume of \(S\). You do not need to evaluate this integral. 
+                    </p></li></ol>
+            </p></li><li><p>
+              Suppose the density of the cone defined by \(r = 1 - z\), with \(z \geq 0\), is given by \(\delta(r, \theta, z) = z\). A picture of the cone is shown at left in <a href="#F_11_8_Cylindrical_ex">Figure 11.8.3</a>, and the projection of the cone onto the \(xy\)-plane in given at right in <a href="#F_11_8_Cylindrical_ex">Figure 11.8.3</a>. Set up an iterated integral in cylindrical coordinates that gives the mass of the cone. You do not need to evaluate this integral.
+
+              
+              <figure class="plot" id="F_11_8_Cylindrical_ex"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_cone.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_cone_project.svg" alt=""></div></div><figcaption>Figure 11.8.3 — The cylindrical cone \(r = 1-z\) and its projection onto the \(xy\)-plane.</figcaption></figure>
+              
+
+            </p></li><li><p>
+              Determine an iterated integral expression in cylindrical coordinates whose value is the volume of the solid bounded below by the cone \(z = \sqrt{x^2+y^2}\) and above by the cone \(z = 4 - \sqrt{x^2+y^2}\). A picture is shown in <a href="#F_11_8_Cylindrical_ex2">Figure 11.8.4</a>. You do not need to evaluate this integral.
+
+              <figure class="plot" id="F_11_8_Cylindrical_ex2"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_two_cones.svg" alt=""><figcaption>Figure 11.8.4 — A solid bounded by the cones \(z = \sqrt{x^2+y^2}\)  and \(z = 4 - \sqrt{x^2+y^2}\).</figcaption></figure>
+
+            </p></li></ol>
+      </p></div></div>
+<h2 id="spherical-coordinates">Spherical Coordinates</h2>
+<p>
+      As we saw in <a href="#PA_11_8">Preview Activity 11.8.1</a>, the spherical coordinates of a point in 3-space have the form \((\rho, \theta, \phi)\), where \(\rho\) is the distance from the point to the origin, \(\theta\) has the same meaning as in polar coordinates, and \(\phi\) is the angle between the positive \(z\) axis and the vector from the origin to the point. The overall situation is illustrated at right in <a href="#F_11_8_Cylindrical_coords">Figure 11.8.1</a>.
+    </p><figure class="plot" id="F_11_8_Spherical_to_Cartesian"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_spherical_explain.svg" alt=""><figcaption>Figure 11.8.5 — Converting from spherical to Cartesian coordinates.</figcaption></figure><p>
+      The example in <a href="#PA_11_8">Preview Activity 11.8.1</a> and <a href="#F_11_8_Spherical_to_Cartesian">Figure 11.8.5</a> suggest how to convert between Cartesian and spherical coordinates. 
+    </p><div class="card callout" id="Spherical-cylindrical"><span class="chip">Converting between Cartesian and spherical coordinates</span><p>
+      <ul><li><p>
+            If we are given the Cartesian coordinates \((x,y,z)\) of a point \(P\), then the spherical coordinates \((\rho,\theta,\phi)\) of \(P\) satisfy
+            \[
+            \rho  = \sqrt{x^2  + y^2 + z^2} \ \ \ \ \  \tan(\theta) = \frac{y}{x} \ \ \ \ \ \text{ and } \ \ \ \ \  \cos(\phi) = \frac{z}{\rho},
+            \]
+            where in the latter two equations, we require \(x \ne 0\) and \(\rho \ne 0\).
+          </p></li><li><p>
+            If we are given the spherical coordinates \((\rho,\theta,\phi)\) of a point \(P\), then the Cartesian coordinates \((x,y,z)\) of \(P\) satisfy
+            \[
+            x = \rho \sin(\phi) \cos(\theta) \ \ \ \ \ y = \rho \sin(\phi) \sin(\theta) \ \ \ \ \ \text{ and } \ \ \ \ \ z = \rho \cos(\phi).
+            \]
+          </p></li></ul>
+    </p></div><p>
+      When it comes to thinking about particular surfaces in spherical coordinates, similar to our work with cylindrical and Cartesian coordinates, we usually write \(\rho\) as a function of \(\theta\) and \(\phi\); this is a natural analog to polar coordinates, where we often think of our distance from the origin in the plane as being a function of \(\theta\). In spherical coordinates, we likewise often view \(\rho\) as a function of \(\theta\) and \(\phi\), thus viewing distance from the origin as a function of two key angles.
+    </p><p>
+      In the following activity, we explore several basic equations in spherical coordinates and the surfaces they generate.
+    </p><div class="card activity" id="A_11_8_7"><div class="ex-head"><span class="num">Activity 11.8.5</span></div><div class="ex-body"><p>
+        In this activity, we graph some surfaces using spherical coordinates. To improve your intuition and test your understanding, you should first think about what each graph should look like before you plot it using appropriate technology.
+        <ol type="a"><li><p>
+              What familiar surface is described by the points in spherical coordinates with \(\rho = 1\), \(0 \leq \theta \leq 2\pi\), and \(0 \leq \phi \leq \pi\)? How does this particular example demonstrate the reason for the name of this coordinate system? What if we restrict \(\phi\) to \(0 \leq \phi \leq \frac{\pi}{2}\)?
+            </p></li><li><p>
+              What familiar surface is described by the points in spherical coordinates with \(\phi = \frac{\pi}{3}\), \(0 \leq \rho \leq 1\), and \(0 \leq \theta \leq 2\pi\)? 
+            </p></li><li><p>
+              What familiar shape is described by the points in spherical coordinates with \(\theta = \frac{\pi}{6}\), \(0 \leq \rho \leq 1\), and \(0 \leq \phi \leq \pi\)? 
+            </p></li><li><p>
+              Plot the graph of \(\rho = \theta\), for \(0 \leq \phi \leq \pi\) and \(0 \leq \theta \leq 2 \pi\). How does the resulting surface appear?
+            </p></li></ol>
+      </p></div></div><p>
+      As the name and <a href="#A_11_8_7">Activity 11.8.5</a> indicate, spherical coordinates are particularly useful for describing surfaces that are spherical in nature; they are also convenient for working with certain conical surfaces.
+    </p>
+<h2 id="triple-integrals-in-spherical-coordinates">Triple Integrals in Spherical Coordinates</h2>
+<p>
+      As with rectangular and cylindrical coordinates, a triple integral \(\iiint_S f(x,y,z) \, dV\) in spherical coordinates can be evaluated as an iterated integral once we understand the volume element \(dV\).
+    </p><div class="card activity" id="A_11_8_8"><div class="ex-head"><span class="num">Activity 11.8.6</span></div><div class="ex-body"><p>
+        To find the volume element \(dV\) in spherical coordinates, we need to understand how to determine the volume of a spherical box of the form \(\rho_1 \leq \rho \leq \rho_2\) (with \(\Delta \rho = \rho_2-\rho_1)\), \(\phi_1 \leq \phi \leq \phi_2\) (with \(\Delta \phi = \phi_2-\phi_1\)), and \(\theta_1 \leq \theta \leq \theta_2\) (with \(\Delta \theta = \theta_2-\theta_1\)). An illustration of such a box is given at left in <a href="#F_11_8_Spherical_Vol_Element">Figure 11.8.6</a>. This spherical box is a bit more complicated than the cylindrical box we encountered earlier. In this situation, it is easier to approximate the volume \(\Delta V\) than to compute it directly. Here we can approximate the volume \(\Delta V\) of this spherical box with the volume of a Cartesian box whose sides have the lengths of the sides of this spherical box. In other words,
+        \[
+          \Delta V \approx |PS| \ |\overset{\frown}{PR}| \ |\overset{\frown}{PQ}|,
+        \]
+        where \(|\overset{\frown}{PR}|\) denotes the length of the circular arc from \(P\) to \(R\).
+      </p><figure class="plot" id="F_11_8_Spherical_Vol_Element"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_spherical_box.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_spherical_volume.svg" alt=""></div></div><figcaption>Figure 11.8.6 — Left: A spherical box. Right: A spherical volume element.</figcaption></figure><ol type="a"><li><p>
+            What is the length \(|PS|\) in terms of \(\rho\)?
+          </p></li><li><p>
+            What is the length of the arc \(\overset{\frown}{PR}\)? (Hint: The arc \(\overset{\frown}{PR}\) is an arc of a circle of radius \(\rho_2\), and arc length along a circle is the product of the angle measure (in radians) and the circle's radius.)
+          </p></li><li><p>
+            What is the length of the arc \(\overset{\frown}{PQ}\)? (Hint: The arc \(\overset{\frown}{PQ}\) lies on a horizontal circle as illustrated at right in <a href="#F_11_8_Spherical_Vol_Element">Figure 11.8.6</a>. What is the radius of this circle?)
+          </p></li><li><p>
+            Use your work in (a), (b), and (c) to determine an approximation for \(\Delta V\) in spherical coordinates.
+          </p></li></ol></div></div><p>
+      Letting \(\Delta \rho\), \(\Delta \theta\), and \(\Delta \phi\) go to 0, it follows from the final result in <a href="#A_11_8_8">Activity 11.8.6</a> that \(dV = \rho^2 \, \sin(\phi) \, d\rho \, d\theta \, d\phi \) in spherical coordinates, and thus allows us to state the following general rule.
+    </p><div class="card callout" id="Triple-integral-spherical"><span class="chip">Triple integrals in spherical coordinates</span><p>
+      Given a continuous function \(f = f(x,y,z)\) over a region \(S\) in \(\R^3\), the triple integral \(\iiint_S f(x,y,z) \, dV\) is converted to the integral 
+      \[
+        \iiint_S f(\rho\sin(\phi)\cos(\theta), \rho \sin(\phi) \sin(\theta), \rho \cos(\phi)) \, \rho^2 \sin(\phi) \, d\rho \, d\theta \, d\phi 
+      \]
+      in spherical coordinates. 
+    </p><p>
+      The latter expression is an <em>iterated integral in spherical coordinates</em>.
+    </p></div><p>
+      Finally, in order to actually evaluate an iterated integral in spherical coordinates, we must of course determine the limits of integration in \(\phi\), \(\theta\), and \(\rho\). The process is similar to our earlier work in the other two coordinate systems.
+    </p><div class="card activity" id="A_11_8_10"><div class="ex-head"><span class="num">Activity 11.8.7</span></div><div class="ex-body"><p>
+        We can use spherical coordinates to help us more easily understand some natural geometric objects.
+        <ol type="a"><li><p>
+              Recall that the sphere of radius \(a\) has spherical equation \(\rho = a\).  Set up and evaluate an iterated integral in spherical coordinates to determine the volume of a sphere of radius \(a\).
+            </p></li><li><p>
+              Set up, but do not evaluate, an iterated integral expression in spherical coordinates whose value is the mass of the solid obtained by removing the cone \(\phi=\frac{\pi}{4}\) from the sphere \(\rho = 2\) if the density \(\delta\) at the point \((x,y,z)\) is \(\delta(x,y,z) = \sqrt{x^2+y^2+z^2}\).  An illustration of the solid is shown in <a href="#F_11_8_Spherical_ex2">Figure 11.8.7</a>.
+
+              <figure class="plot" id="F_11_8_Spherical_ex2"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_8_sphere_cone.svg" alt=""><figcaption>Figure 11.8.7 — The solid cut from the sphere \(\rho = 2\) by the cone \(\phi=\frac{\pi}{4}\).</figcaption></figure>
+
+            </p></li></ol>
+      </p></div></div>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          The cylindrical coordinates of a point \(P\) are \((r,\theta,z)\) where \(r\) is the distance from the origin to the projection of \(P\) onto the \(xy\)-plane, \(\theta\) is the angle that the projection of \(P\) onto the \(xy\)-plane makes with the positive \(x\)-axis, and \(z\) is the vertical distance from \(P\) to the projection of \(P\) onto the \(xy\)-plane.  When \(P\) has rectangular coordinates \((x,y,z)\), it follows that  its cylindrical coordinates are given by
+          \[
+            r^2  = x^2  + y^2, \ \ \ \ \ \tan(\theta) = \frac{y}{x}, \ \ \ \ \  z = z.
+          \]
+          When \(P\) has given cylindrical coordinates \((r,\theta,z)\), its rectangular coordinates are
+          \[
+            x = r \cos(\theta), \ \ \ \ \ y = r \sin(\theta), \ \ \ \ \ z = z.
+          \]
+        </p></li><li><p>
+          The volume element \(dV\) in cylindrical coordinates is \(dV = r \, dz \, dr \, d\theta\). Hence, a triple integral \(\iiint_S f(x,y,z) \, dA\) can be evaluated as the iterated integral
+          \[
+            \iiint_S f(r\cos(\theta), r\sin(\theta), z) \, r \, dz \, dr \, d\theta.
+          \]
+        </p></li><li><p>
+          The spherical coordinates of a point \(P\) in 3-space are \(\rho\) (rho), \(\theta\), and \(\phi\) (phi), where \(\rho\) is the distance from \(P\) to the origin, \(\theta\) is the angle that the projection of \(P\) onto the \(xy\)-plane makes with the positive \(x\)-axis, and \(\phi\) is the angle between the positive \(z\) axis and the vector from the origin to \(P\).  When \(P\) has Cartesian coordinates \((x,y,z)\), the spherical coordinates are given by
+          \[
+            \rho^2  = x^2  + y^2 + z^2, \ \ \ \ \ \tan(\theta) = \frac{y}{x}, \ \ \ \ \ \cos(\phi) = \frac{z}{\rho}.
+          \]
+          Given the point \(P\) in spherical coordinates \((\rho, \phi, \theta)\), its rectangular coordinates are
+          \[
+            x = \rho \sin(\phi) \cos(\theta), \ \ \ \ \  y = \rho \sin(\phi) \sin(\theta), \ \ \ \ \ z = \rho \cos(\phi).
+          \]
+        </p></li><li><p>
+          The volume element \(dV\) in spherical coordinates is \(dV = \rho^2 \sin(\phi) \, d\rho \, d\theta \, d\phi\). Thus, a triple integral \(\iiint_S f(x,y,z) \, dA\) can be evaluated as the iterated integral
+          \[
+            \iiint_S f(\rho\sin(\phi)\cos(\theta), \rho \sin(\phi) \sin(\theta), \rho \cos(\phi)) \, \rho^2 \sin(\phi) \, d\rho \, d\theta \, d\phi.
+          \]
+        </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-8">Exercises</h2><div class="exercise" id="ex-11-8-WW-cylindrical-to-rectangular"><div class="n">1</div><div class="body"><p>What are the rectangular coordinates of the point whose cylindrical coordinates
+ are</p><p>\((r= 2 ,\  \theta = \frac{2 \pi}{9}  ,\ z= 6 )\) ?</p><p>x= <span class="blank">____________________</span></p><p>y= <span class="blank">____________________</span></p><p>z= <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(1.53208888623796\), \(1.28557521937308\), \(6\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-spherical-to-rectangular"><div class="n">2</div><div class="body"><p>What are the rectangular coordinates of the point whose spherical coordinates
+ are</p><p>\(\left( 1 , {\frac{1}{3}} \pi, -{\frac{1}{2}} \pi \right)\) ?</p><p>\(x =\) <span class="blank">________________________________________</span></p><p>\(y =\)<span class="blank">________________________________________</span></p><p>\(z =\)<span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(1\cos\mathopen{}\left(\frac{1}{3}\pi \right)\sin\mathopen{}\left(\frac{-1}{2}\pi \right)\), \(1\sin\mathopen{}\left(\frac{1}{3}\pi \right)\sin\mathopen{}\left(\frac{-1}{2}\pi \right)\), \(1\cos\mathopen{}\left(\frac{-1}{2}\pi \right)\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-spherical-to-cylindrical"><div class="n">3</div><div class="body"><p>What are the cylindrical coordinates of the point whose spherical coordinates
+ are</p><p>\((1 ,\   3  ,\ \frac{1 \pi}{6} )\) ?</p><p>\(r\) = <span class="blank">________________________________________</span></p><p>\(\theta\) = <span class="blank">________________________________________</span></p><p>\(z\)= <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.5\), \(3\), \(0.866025403784439\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-paraboloid-spherical"><div class="n">4</div><div class="body"><p>Find an equation for the paraboloid \(z = x^{2}+y^{2}\) in spherical
+coordinates.  (Enter rho, phi and theta for \(\rho\), \(\phi\)
+and \(\theta\), respectively.)</p><p>equation: <span class="blank">_______________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(rho = \frac{\cos\mathopen{}\left(phi\right)}{\sin^{2}\mathopen{}\left(phi\right)}\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-match-equations"><div class="n">5</div><div class="body"><p>Match the given equation with the verbal description of the surface:
+<ol type="A"><li><p>Half plane</p></li><li><p>Sphere</p></li><li><p>Elliptic or Circular Paraboloid</p></li><li><p>Cone</p></li><li><p>Circular Cylinder</p></li><li><p>Plane</p></li></ol>
+<ol><li><p>\(\theta = \frac{\pi}{3}\)</p></li><li><p>\(\phi = \frac{\pi}{3}\)</p></li><li><p>\(r = 2\cos(\theta )\)</p></li><li><p>\(r^2 + z^2 =16\)</p></li><li><p>\(z = r^2\)</p></li><li><p>\(r =4\)</p></li><li><p>\(\rho \cos(\phi )= 4\)</p></li><li><p>\(\rho = 4\)</p></li><li><p>\(\rho = 2\cos(\phi )\)</p></li></ol></p></div></div><div class="exercise" id="ex-11-8-WW-match"><div class="n">6</div><div class="body"><p>Match the integrals with the type of coordinates which make them the easiest to do.
+Put the letter of the coordinate system to the left of the number of the integral.</p><p><ol><li><p>\(\displaystyle \int \!\! \int \!\! \int_E \ dV\) where E is: \(x^2+y^2+z^2 \leq 4, \ \ x \geq 0, \ \ y
+\geq 0, \ \ z \geq 0\)</p></li><li><p>\(\displaystyle \int \!\! \int \!\! \int_E \ z \ dV\) where E is: \(1 \leq x \leq 2, \ \ 3 \leq y \leq
+4, \ \ 5 \leq z \leq 6\)</p></li><li><p>\(\displaystyle \int \!\! \int \!\! \int_E \ z^2 \ dV\) where E is: \(-2 \leq z \leq 2, \ \ 1 \leq
+x^2+y^2 \leq 2\)</p></li><li><p>\(\displaystyle \int_{0}^{1} \! \int^{y^2}_{0} \ \frac{1}{x} \ dx \ dy\)</p></li><li><p>\(\displaystyle \int \!\! \int_D \ \frac{1}{x^2+y^2} \ dA\) where D is: \(x^2+y^2 \leq 4\)</p></li></ol></p><p><ol type="A"><li><p>cylindrical coordinates</p></li><li><p>polar coordinates</p></li><li><p>cartesian coordinates</p></li><li><p>spherical coordinates</p></li></ol></p></div></div><div class="exercise" id="ex-11-8-WW-convert-integral"><div class="n">7</div><div class="body"><p>Evaluate the integral.</p><p>\(\displaystyle
+\int_{0}^{3} \int_{-\sqrt{9-x^2}}^{\sqrt{9-x^2}} \int_{-\sqrt{9-x^2-z^2}}^{\sqrt{9-x^2-z^2}} \frac{1}{(x^2+y^2+z^2)^{1/2}} \, dy \, dz \, dx\)
+= <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(9\pi \)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-cylinder-evaluate"><div class="n">8</div><div class="body"><p>Use cylindrical coordinates to evaluate the triple integral \(\displaystyle \int \!\! \int \!\!
+\int_{\mathbf{E}} \, \sqrt{x^{2} + y^{2}} \, dV\), where <em> E </em> is the solid
+bounded by the circular paraboloid \(z = 16 - 1 \left( x^{2} + y^{2}
+\right)\) and the \(xy\) -plane.</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(857.864233940253\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-spherical-evaluate"><div class="n">9</div><div class="body"><p>Use spherical coordinates to evaluate the triple integral \(\displaystyle \int \!\! \int \!\!
+\int_{\mathbf{E}} \, x^{2} + y^{2} + z^{2} \, dV\), where <em> E </em> is the ball:
+\(x^{2} + y^{2} + z^{2} \leq 4\).</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(80.4247719318987\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-volume-between"><div class="n">10</div><div class="body"><p>Find the volume of the solid enclosed by the paraboloids \(z = 1 \left(
+x^{2} + y^{2} \right)\) and \(z = 32 - 1 \left( x^{2} + y^{2}
+\right)\).</p><p><span class="blank">__________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(804.247719318987\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-ellipsoid-volume"><div class="n">11</div><div class="body"><p>FInd the volume of the ellipsoid 
+\(x^2 + y^2 + 4 z^2 = 81\).</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(1526.81402964464\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-cylinder-mass"><div class="n">12</div><div class="body"><p>The density, \(\delta\), of the cylinder
+\(x^2+y^2\le 1\), \(0\le z\le 5\)
+varies with the distance, \(r\), from the \(z\)-axis:
+\[\delta = 1 + r\text{ g}/\text{cm}^3.\]
+Find the mass of the cylinder, assuming  \(x,y,z\) are in cm.</p><p>mass = <span class="blank">___________________________________</span></p><p><em>(Include units.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(26.1799\ {\rm g}\)</p></div></div></div></div><div class="exercise" id="ex-11-8-WW-limits-spherical"><div class="n">13</div><div class="body"><p>Suppose \(\displaystyle f(x,y,z) = \frac{1}{\sqrt{x^2+y^2+z^2}}\) 
+and  \(W\) is the bottom half of a sphere of radius \(2\).  
+Enter \(\rho\) as <em>rho,</em> \(\phi\) as 
+<em>phi,</em> and \(\theta\) as 
+<em>theta.</em></p><p>(a) As an iterated integral,</p><p>\(\displaystyle 
+\iiint\limits_{W} f \, dV 
+=
+\int_A^B \!\! \int_C^D \!\! \int_E^F\)
+<span class="blank">____________________</span>
+\(d\rho \, d\phi \, d\theta\)</p><p>with limits of integration</p><p>A = <span class="blank">____________________</span></p><p>B = <span class="blank">____________________</span></p><p>C = <span class="blank">____________________</span></p><p>D = <span class="blank">____________________</span></p><p>E = <span class="blank">____________________</span></p><p>F = <span class="blank">____________________</span></p><p>(b) Evaluate the integral.
+<span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(rho\sin\mathopen{}\left(phi\right)\), \(0\), \(2\pi \), \(\frac{\pi }{2}\), \(\pi \), \(0\), \(2\), \(\pi \cdot 2^{2}\)</p></div></div></div></div><div class="exercise"><div class="n">14</div><div class="body"><p>
+            In each of the following questions, set up an iterated integral expression whose value determines the desired result. Then, evaluate the integral first by hand, and then using appropriate technology.
+            <ol type="a"><li><p>
+                  Find the volume of the &ldquo;cap&rdquo; cut from the solid sphere \(x^2 + y^2 + z^2 = 4\) by the plane \(z=1\), as well as the \(z\)-coordinate of its centroid.
+                </p></li><li><p>
+                  Find the \(x\)-coordinate of the center of mass of the portion of the unit sphere that lies in the first octant (i.e., where \(x\), \(y\), and \(z\) are all nonnegative).  Assume that the density of the solid given by \(\delta(x,y,z) = \frac{1}{1+x^2+y^2+z^2}\).
+                </p></li><li><p>
+                  Find the volume of the solid bounded below by the \(xy\)-plane, on the sides by the sphere \(\rho=2\), and above by the cone \(\phi = \pi/3\).
+                </p></li><li><p>
+                  Find the \(z\) coordinate of the center of mass of the region that is bounded above by the surface \(z = \sqrt{\sqrt{x^2 + y^2}}\), on the sides by the cylinder \(x^2 + y^2 = 4\), and below by the \(xy\)-plane.   Assume that the density of the solid is uniform and constant.
+                </p></li><li><p>
+                  Find the volume of the solid that lies outside the sphere \(x^2 + y^2 + z^2 = 1\) and inside the sphere \(x^2 + y^2 + z^2 = 2z\).
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">15</div><div class="body"><p>
+            For each of the following questions, 
+            <ul><li><p> sketch the region of integration, 
+                </p></li><li><p> change the coordinate system in which the iterated integral is written to one of the remaining two, 
+                </p></li><li><p> evaluate the iterated integral you deem easiest to evaluate by hand.
+                </p></li></ul>
+            
+            <ol type="a"><li><p>
+                  \(\int_{0}^{1} \int_{0}^{\sqrt{1-x^2}} \int_{\sqrt{x^2 + y^2}}^{\sqrt{2-x^2-y^2}} xy\, dz \, dy \, dx\)
+                </p></li><li><p>
+                  \(\int_{0}^{\pi/2} \int_{0}^{\pi} \int_{0}^{1} \rho^2 \sin(\phi) \, d\rho \, d\phi \, d\theta\)
+                </p></li><li><p>
+                  \(\int_{0}^{2\pi} \int_{0}^{1} \int_{r}^{1} r^2 \cos(\theta) \, dz \, dr \, d\theta\)
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">16</div><div class="body"><p>
+            Consider the solid region \(S\) bounded above by the paraboloid \(z = 16 - x^2 - y^2\) and below by the paraboloid \(z = 3x^2 + 3y^2\).
+            <ol type="a"><li><p>
+                  Describe parametrically the curve in \(\R^3\) in which these two surfaces intersect.
+                </p></li><li><p>
+                  In terms of \(x\) and \(y\), write an equation to describe the projection of the curve onto the \(xy\)-plane.
+                </p></li><li><p>
+                  What coordinate system do you think is most natural for an iterated integral that gives the volume of the solid?
+                </p></li><li><p>
+                  Set up, but do not evaluate, an iterated integral expression whose value is average \(z\)-value of points in the solid region \(S\).
+                </p></li><li><p>
+                  Use technology to plot the two surfaces and evaluate the integral in (c).  Write at least one sentence to discuss how your computations align with your intuition about where the average \(z\)-value of the solid should fall.
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

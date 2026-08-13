@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double Integrals over General Regions · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Double Integrals over General Regions</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 11.3</span>Double Integrals over General Regions</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              How do we define a double integral over a non-rectangular region?
+            </p></li><li><p>
+              What general form does an iterated integral over a non-rectangular region have?
+            </p></li></ul></div>
+<p>
+      Recall that we defined the double integral of a continuous function \(f = f(x,y)\) over a rectangle \(R = [a,b] \times [c,d]\) as
+      \[
+        \iint_R f(x,y) \, dA = \lim_{m,n \to \infty} \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \cdot \Delta A,
+      \]
+      where the notation is as described in <a href="11-1.html">Section 11.1</a>. Furthermore, we have seen that we can evaluate a double integral \(\iint_R f(x,y) \, dA\) over \(R\) as an iterated integral of either of the forms
+      \[
+        \int_a^b \int_c^d f(x,y) \, dy \, dx \ \ \ \ \ \text{ or }  \ \ \ \ \ \int_c^d \int_a^b f(x,y) \, dx \, dy.
+      \]
+    </p><p>
+      It is natural to wonder how we might define and evaluate a double integral over a non-rectangular region; we explore one such example in the following preview activity.
+    </p><div class="card activity preview" id="PA_11_3"><div class="ex-head"><span class="num">Preview Activity 11.3.1</span></div><div class="ex-body"><p>
+        A tetrahedron is a three-dimensional figure with four faces, each of which is a triangle. A picture of the tetrahedron \(T\) with vertices \((0,0,0)\), \((1,0,0)\), \((0,1,0)\), and \((0,0,1)\) is shown at left in <a href="#F_11_3_Tetrahedron_PA">Figure 11.3.1</a>. If we place one vertex at the origin and let vectors \(\va\), \(\vb\), and \(\vc\) be determined by the edges of the tetrahedron that have one end at the origin, then a formula that tells us the volume \(V\) of the tetrahedron is
+        <span id="eq_11_3_tetrahedron_volume">\[
+          V = \frac{1}{6} \lvert \va \cdot (\vb \times \vc) \rvert.
+        \tag{11.3.1}\]</span>
+      </p><figure class="plot" id="F_11_3_Tetrahedron_PA"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_3_tetrahedron.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_3_tetra_project.svg" alt=""></div></div><figcaption>Figure 11.3.1 — Left: The tetrahedron \(T\). Right: Projecting \(T\) onto the \(xy\)-plane.</figcaption></figure><ol type="a"><li><p>
+            Use the formula <a href="#eq_11_3_tetrahedron_volume">(11.3.1)</a> to find the volume of the tetrahedron \(T\).
+          </p></li><li><p>
+            Instead of memorizing or looking up the formula for the volume of a tetrahedron, we can use a double integral to calculate the volume of the tetrahedron \(T\). To see how, notice that the top face of the tetrahedron \(T\) is the plane whose equation is
+            \[
+              z = 1-(x+y).
+            \]
+            Provided that we can use an iterated integral on a non-rectangular region, the volume of the tetrahedron will be given by an iterated integral of the form
+            \[
+              \int_{x=?}^{x=?} \int_{y=?}^{y=?} 1-(x+y) \, dy \, dx.
+            \]
+            The issue that is new here is how we find the limits on the integrals; note that the outer integral's limits are in \(x\), while the inner ones are in \(y\), since we have chosen \(dA = dy \, dx\). To see the domain over which we need to integrate, think of standing way above the tetrahedron looking straight down on it, which means we are projecting the entire tetrahedron onto the \(xy\)-plane. The resulting domain is the triangular region shown at right in <a href="#F_11_3_Tetrahedron_PA">Figure 11.3.1</a>. 
+
+
+            Explain why we can represent the triangular region with the inequalities
+            \[
+              0 \leq y \leq 1-x \ \ \ \text{ and }  \ \ \ 0 \leq x \leq 1.
+            \]
+            (Hint: Consider the cross sectional slice shown at right in <a href="#F_11_3_Tetrahedron_PA">Figure 11.3.1</a>.)
+          </p></li><li><p>
+            Explain why it makes sense to now write
+            the volume integral in the form
+            \[
+              \int_{x=?}^{x=?} \int_{y=?}^{y=?} 1-(x+y) \, dy \, dx = \int_{x=0}^{x=1} \int_{y=0}^{y=1-x} 1-(x+y) \, dy \, dx.
+            \]
+          </p></li><li><p>
+            Use the Fundamental Theorem of Calculus to evaluate the iterated integral
+            \[
+              \int_{x=0}^{x=1} \int_{y=0}^{y=1-x} 1-(x+y) \, dy \, dx
+            \]
+            and compare to your result from part (a).  (As with iterated integrals over rectangular regions, start with the inner integral.)
+          </p></li></ol></div></div>
+<h2 id="double-integrals-over-general-regions">Double Integrals over General Regions</h2>
+<p>
+      So far, we have learned that a double integral over a rectangular region may be interpreted in one of two ways:
+      <ul><li><p>
+            \(\iint_R f(x,y) \, dA\) tells us the volume of the solids the graph of \(f\) bounds above the \(xy\)-plane over the rectangle \(R\) minus the volume of the solids the graph of \(f\) bounds below the \(xy\)-plane under the rectangle \(R\);
+          </p></li><li><p>
+            \(\frac{1}{A(R)} \iint_R f(x,y) \, dA\), where \(A(R)\) is the area of \(R\) tells us the average value of the function \(f\) on \(R\). If \(f(x, y) \geq  0\) on \(R\), we can interpret this average value of \(f\) on \(R\) as the height of the box with base \(R\) that has the same volume as the volume of the surface defined by \(f\) over \(R\).
+          </p></li></ul>
+    </p><p>
+      As we saw in <a href="11-1.html#PA_11_1">Preview Activity 11.1.1</a>, a function \(f = f(x,y)\) may be considered over regions other than rectangular ones, and thus we want to understand how to set up and evaluate double integrals over non-rectangular regions. Note that if we can, then the two interpretations of the double integral noted above will naturally extend to solid regions with non-rectangular bases.
+    </p><p>
+      So, suppose \(f\) is a continuous function on a closed, bounded domain \(D\). For example, consider \(D\) as the circular domain shown at left in <a href="#F_11_3_nonrect_domain_1">Figure 11.3.2</a>.
+    </p><figure class="plot" id="F_11_3_nonrect_domain_1"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_3_circular.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_3_circular_rect.svg" alt=""></div></div><figcaption>Figure 11.3.2 — Left: A non-rectangular domain. Right: Enclosing this domain in a rectangle.</figcaption></figure><p>
+      We can enclose \(D\) in a rectangular domain \(R\) as shown at right in <a href="#F_11_3_nonrect_domain_1">Figure 11.3.2</a> and extend the function \(f\) to be defined over \(R\) in order to be able to use the definition of the double integral over a rectangle. We extend \(f\) in such a way that its values at the points in \(R\) that are not in \(D\) contribute 0 to the value of the integral. In other words, define a function \(F = F(x, y)\) on \(R\) as
+      \[
+        F(x,y) = \begin{cases}f(x,y), &amp; \text{ if }  (x,y) \in D, \\ 0, &amp; \text{ if }  (x,y) \not\in D
+        \end{cases} .
+      \]
+    </p><p>
+      We then say that the double integral of \(f\) over \(D\) is the same as the double integral of \(F\) over \(R\), and thus
+      \[
+        \iint_D f(x,y) \, dA = \iint_R F(x,y) \, dA.
+      \]
+    </p><p>
+      In practice, we just ignore everything that is in \(R\) but not in \(D\), since these regions contribute 0 to the value of the integral.
+    </p><p>
+      Just as with double integrals over rectangles, a double integral over a domain \(D\) can be evaluated as an iterated integral. If the region \(D\) can be described by the inequalities \(g_1(x) \leq y \leq g_2(x)\) and \(a \leq x \leq b\), where \(g_1=g_1(x)\) and \(g_2=g_2(x)\) are functions of only \(x\), then
+      \[
+        \iint_D f(x,y) \, dA = \int_{x=a}^{x=b} \int_{y=g_1(x)}^{y=g_2(x)} f(x,y) \, dy \, dx.
+      \]
+    </p><p>
+      Alternatively, if the region \(D\) is described by the inequalities \(h_1(y) \leq x \leq h_2(y)\) and \(c \leq y \leq d\), where \(h_1=h_1(y)\) and \(h_2=h_2(y)\) are functions of only \(y\), we have
+      \[
+        \iint_D f(x,y) \, dA = \int_{y=c}^{y=d} \int_{x=h_1(y)}^{x=h_2(y)} f(x,y) \, dx \, dy.
+      \]
+    </p><p>
+      The structure of an iterated integral is of particular note:
+    </p><p>
+      In an iterated double integral:
+      <ul><li><p>
+            the limits on the outer integral must be constants;
+          </p></li><li><p>
+            the limits on the inner integral must be constants or in terms of only the remaining variable &mdash; that is, if the inner integral is with respect to \(y\), then its limits may only involve \(x\) and constants, and vice versa.
+          </p></li></ul>
+    </p><p>
+      We next consider a detailed example.
+    </p><div class="card example"><div class="ex-head"><span class="num">Example 11.3.1</span></div><div class="ex-body"><p>
+          Let \(f(x,y) = x^2y\) be defined on the triangle \(D\) with vertices \((0,0)\), \((2,0)\), and \((2,3)\) as shown at left in <a href="#F_11_3_DI_1">Figure 11.3.3</a>.
+        </p><figure class="plot" id="F_11_3_DI_1"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_3_triangular.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_3_triangular_v.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_3_triangular_h.svg" alt=""></div></div><figcaption>Figure 11.3.3 — A triangular domain and slices in the \(y\) and \(x\) directions. </figcaption></figure><p>
+          To evaluate \(\iint_D f(x,y) \, dA\), we must first describe the region \(D\) in terms of the variables \(x\) and \(y\). We take two approaches.
+          
+            
+              
+              
+                In this case we choose to evaluate the double integral as an iterated integral in the form
+                \[
+                  \iint_D x^2y \, dA = \int_{x=a}^{x=b} \int_{y=g_1(x)}^{y=g_2(x)} x^2y \, dy \, dx,
+                \]
+                and therefore we need to describe \(D\) in terms of inequalities
+                \[
+                  g_1(x) \leq y \leq g_2(x) \ \ \ \ \ \text{ and }  \ \ \ \ \ a \leq x \leq b.
+                \]
+                Since we are integrating with respect to \(y\) first, the iterated integral has the form
+                \[
+                  \iint_D x^2y \, dA =\int_{x=a}^{x=b} A(x) \, dx,
+                \]
+                where \(A(x)\) is a cross sectional area in the \(y\) direction. So we are slicing the domain perpendicular to the \(x\)-axis and want to understand what a cross sectional area of the overall solid will look like. Several slices of the domain are shown in the middle image in <a href="#F_11_3_DI_1">Figure 11.3.3</a>. On a slice with fixed \(x\) value, the \(y\) values are bounded below by 0 and above by the \(y\) coordinate on the hypotenuse of the right triangle. Thus, \(g_1(x) = 0\);  to find \(y = g_2(x)\), we need to write the hypotenuse as a function of \(x\). The hypotenuse connects the points (0,0) and (2,3) and hence has equation \(y = \frac{3}{2}x\). This gives the upper bound on \(y\) as \(g_2(x) = \frac{3}{2}x\). The leftmost vertical cross section is at \(x=0\) and the rightmost one is at \(x=2\), so we have \(a=0\) and \(b=2\). Therefore,
+                \[
+                  \iint_D x^2y \, dA = \int_{x=0}^{x=2} \int_{y=0}^{y = \frac32 x} x^2y \, dy \, dx.
+                \]
+                We evaluate the iterated integral by applying the Fundamental Theorem of Calculus first to the inner integral, and then to the outer one, and find that
+                \[\begin{aligned}\int_{x=0}^{x=2} \int_{y=0}^{y=\frac32 x} x^2y \, dy \, dx &amp; = \int_{x=0}^{x=2} \left[x^2 \cdot \frac{y^2}{2}\right]\biggm|_{y=0}^{y=\frac32 x} \, dx \\
+&amp; = \int_{x=0}^{x=2} \frac{9}{8}x^4\, dx \\
+&amp; = \frac{9}{8}\frac{x^5}{5}\biggm|_{x=0}^{x=2} \\
+&amp; = \left(\frac{9}{8}\right) \left(\frac{32}{5}\right) \\
+&amp; = \frac{36}{5}.\end{aligned}\]
+              
+            
+
+            
+              
+              
+                In this case, we choose to evaluate the double integral as an iterated integral in the form
+                \[
+                  \iint_D x^2y \, dA = \int_{y=c}^{y=d} \int_{x=h_1(y)}^{x=h_2(y)} x^2y \, dx \, dy
+                \]
+                and thus need to describe \(D\) in terms of inequalities
+                \[
+                  h_1(y) \leq x \leq h_2(y) \ \ \ \ \ \text{ and }   \ \ \ \ \  c \leq y \leq d.
+                \]
+                Since we are integrating with respect to \(x\) first, the iterated integral has the form
+                \[
+                  \iint_D x^2y \, dA = \int_c^d A(y) \, dy,
+                \]
+                where \(A(y)\) is a cross sectional area of the solid in the \(x\) direction.  Several slices of the domain &mdash; perpendicular to the \(y\)-axis &mdash; are shown at right in <a href="#F_11_3_DI_1">Figure 11.3.3</a>.
+
+                On a slice with fixed \(y\) value, the \(x\) values are bounded below by the \(x\) coordinate on the hypotenuse of the right triangle and above by 2. So \(h_2(y) = 2\); to find \(h_1(y)\), we need to write the hypotenuse as a function of \(y\). Solving the earlier equation we have for the hypotenuse (\(y = \frac32 x\)) for \(x\) gives us \(x = \frac{2}{3}y\). This makes \(h_1(y) = \frac{2}{3}y\). The lowest horizontal cross section is at \(y=0\) and the uppermost one is at \(y=3\), so we have \(c=0\) and \(d=3\). Therefore,
+                \[
+                  \iint_D x^2y \, dA = \int_{y=0}^{y=3} \int_{x=(2/3)y}^{x=2} x^2y \, dx \, dy.
+                \]
+                We evaluate the resulting iterated integral as before by twice applying the Fundamental Theorem of Calculus, and find that
+                \[\begin{aligned}\int_{y=0}^{y=3} \int_{x=\frac{2}{3}y}^{2} x^2y \, dx \, dy &amp; = \int_{y=0}^{y=3} \left[\frac{x^3}{3}\right]\biggm|_{x=\frac{2}{3}y}^{x=2}y \, dx \\
+&amp; = \int_{y=0}^{y=3} \left[\frac{8}{3}y - \frac{8}{81}y^4 \right] \, dy \\
+&amp; = \left[\frac{8}{3}\frac{y^2}{2} - \frac{8}{81}\frac{y^5}{5}\right]\biggm|_{y=0}^{y=3} \\
+&amp; = \left(\frac{8}{3}\right) \left(\frac{9}{2}\right) - \left(\frac{8}{81}\right) \left(\frac{243}{5}\right) \\
+&amp; = 12 - \frac{24}{5} \\
+&amp; = \frac{36}{5}.\end{aligned}\]
+              
+            
+          
+        </p><p>
+          We see, of course, that in the situation where \(D\) can be described in two different ways, the order in which we choose to set up and evaluate the double integral doesn't matter, and the same value results in either case.
+        </p></div></div><p>
+      The meaning of a double integral over a non-rectangular region, \(D\), parallels the meaning over a rectangular region. In particular,
+      <ul><li><p>
+            \(\iint_D f(x,y) \, dA\) tells us the volume of the solids the graph of \(f\) bounds above the \(xy\)-plane over the closed, bounded region \(D\) minus the volume of the solids the graph of \(f\) bounds below the \(xy\)-plane under the region \(D\);
+          </p></li><li><p>
+            \(\frac{1}{A(D)} \iint_R f(x,y) \, dA\), where \(A(D)\) is the area of \(D\) tells us the average value of the function \(f\) on \(D\). If \(f(x, y) \geq  0\) on \(D\), we can interpret this average value of \(f\) on \(D\) as the height of the solid with base \(D\) and constant cross-sectional area \(D\) that has the same volume as the volume of the surface defined by \(f\) over \(D\).
+          </p></li></ul>
+    </p><div class="card activity" id="A_11_3_1"><div class="ex-head"><span class="num">Activity 11.3.2</span></div><div class="ex-body"><p>
+        Consider the double integral \(\iint_D (4-x-2y) \, dA\), where \(D\) is the triangular region with vertices (0,0), (4,0), and (0,2).
+        <ol type="a"><li><p>
+              Write the given integral as an iterated integral of the form \(\iint_D (4-x-2y) \, dy \, dx\). Draw a labeled picture of \(D\) with relevant cross sections.
+            </p></li><li><p>
+              Write the given integral as an iterated integral of the form \(\iint_D (4-x-2y) \, dx \, dy\). Draw a labeled picture of \(D\) with relevant cross sections.
+            </p></li><li><p>
+              Evaluate the two iterated integrals from (a) and (b), and verify that they produce the same value. Give at least one interpretation of the meaning of your result.
+            </p></li></ol>
+      </p></div></div><div class="card activity" id="A_11_3_2"><div class="ex-head"><span class="num">Activity 11.3.3</span></div><div class="ex-body"><p>
+        Consider the iterated integral \(\int_{x=0}^{x=1} \int_{y=x}^{y=\sqrt{x}} (4x+10y) \, dy \, dx\).
+        <ol type="a"><li><p>
+              Sketch the region of integration, \(D\), for which
+              \[
+                \iint_D (4x + 10y) \, dA = \int_{x=0}^{x=1} \int_{y=x}^{y=\sqrt{x}} (4x+10y) \, dy \, dx.
+              \]
+            </p></li><li><p>
+              Determine the equivalent iterated integral that results from integrating in the opposite order (\(dx \, dy\), instead of \(dy \, dx\)).  That is, determine the limits of integration for which
+              \[
+                \iint_D (4x + 10y) \, dA = \int_{y=?}^{y=?}  \int_{x=?}^{x=?} (4x+10y) \, dx \, dy.
+              \]
+            </p></li><li><p>
+              Evaluate one of the two iterated integrals above. Explain what the value you obtained tells you.
+            </p></li><li><p>
+              Set up and evaluate a single definite integral to determine the exact area of \(D\), \(A(D)\).
+            </p></li><li><p>
+              Determine the exact average value of \(f(x,y) = 4x  + 10y\) over \(D\).
+            </p></li></ol>
+      </p></div></div><div class="card activity" id="A_11_3_3"><div class="ex-head"><span class="num">Activity 11.3.4</span></div><div class="ex-body"><p>
+        Consider the iterated integral \(\int_{x=0}^{x=4} \int_{y=x/2}^{y=2} e^{y^2} \, dy \, dx\).
+        <ol type="a"><li><p>
+              Explain why we cannot find a simple antiderivative for \(e^{y^2}\) with respect to \(y\), and thus are unable to evaluate \(\int_{x=0}^{x=4} \int_{y=x/2}^{y=2} e^{y^2} \, dy \, dx\) in the indicated order using the Fundamental Theorem of Calculus.
+            </p></li><li><p>
+              Given that \(\iint_D e^{y^2} \, dA = \int_{x=0}^{x=4} \int_{y=x/2}^{y=2} e^{y^2} \, dy \, dx\), sketch the region of integration, \(D\).
+            </p></li><li><p>
+              Rewrite the given iterated integral in the opposite order, using \(dA = dx \, dy\). (Hint: You may need more than one integral.)
+            </p></li><li><p>
+              Use the Fundamental Theorem of Calculus to evaluate the iterated integral you developed in (c).  Write one sentence to explain the meaning of the value you found.
+            </p></li><li><p>
+              What is the important lesson this activity offers regarding the order in which we set up an iterated integral?
+            </p></li></ol>
+      </p></div></div>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+          For a double integral \(\iint_D f(x,y) \, dA\) over a non-rectangular region \(D\), we enclose \(D\) in a rectangle \(R\) and then extend integrand \(f\) to a function \(F\) so that \(F(x,y) = 0\) at all points in \(R\) outside of \(D\) and \(F(x,y) = f(x,y)\) for all points in \(D\). We then define \(\iint_D f(x,y) \, dA\) to be equal to \(\iint_R F(x,y) \, dA\).
+        </p></li><li><p>
+          In an iterated double integral, the limits on the outer integral must be constants while the limits on the inner integral must be constants or in terms of only the remaining variable. In other words, an iterated double integral has one of the following forms (which result in the same value):
+          \[
+            \int_{x=a}^{x=b} \int_{y=g_1(x)}^{y=g_2(x)} f(x,y) \, dy \, dx,
+          \]
+          where \(g_1=g_1(x)\) and \(g_2=g_2(x)\) are functions of \(x\) only and the region \(D\) is described by the inequalities \(g_1(x) \leq y \leq g_2(x)\) and \(a \leq x \leq b\) or
+          \[
+            \int_{y=c}^{y=d} \int_{x=h_1(y)}^{x=h_2(y)} f(x,y) \, dx \, dy,
+          \]
+          where \(h_1=h_1(y)\) and \(h_2=h_2(y)\) are functions of \(y\) only and the region \(D\) is described by the inequalities \(h_1(y) \leq x \leq h_2(y)\) and \(c \leq y \leq d\).
+        </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-3">Exercises</h2><div class="exercise" id="ex-11-3-WW-triangle"><div class="n">1</div><div class="body"><p>Evaluate the double integral 
+\(\displaystyle I = \int\!\!\int_{\mathbf{D}} xy \: d\!A\)
+where \(\mathbf{D}\) is the triangular region with vertices 
+\((0, 0), (1, 0), (0, 5)\).</p><p><span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(1.04166666666667\)</p></div></div></div></div><div class="exercise" id="ex-11-3-WW-triangle-2"><div class="n">2</div><div class="body"><p>Evaluate the double integral 
+\(\displaystyle I = \int\!\!\int_{\mathbf{D}} xy \: d\!A\)
+where \(\mathbf{D}\) is the triangular region with vertices 
+\((0, 0), (1, 0), (0, 5)\).</p><p><span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(1.04166666666667\)</p></div></div></div></div><div class="exercise" id="ex-11-3-WW-reverse"><div class="n">3</div><div class="body"><p>Evaluate the integral by reversing the order of integration.</p><p>\(\int_{0}^{1}\!\!\int_{2y}^{2} e^{x^{2}} \, dx dy =\)
+<span class="blank">__________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(13.3995375082861\)</p></div></div></div></div><div class="exercise" id="ex-11-3-WW-pos-neg"><div class="n">4</div><div class="body"><p>Decide, without calculation, if each of the integrals
+below are positive, negative, or zero.  Let D be the 
+region inside the unit circle centered at the origin.
+Let T, B, R, and L denote the regions enclosed by the 
+top half, the bottom half, the right half, and the 
+left half of unit circle, respectively.</p><p><ol><li><p>\(\displaystyle \iint\limits_L (y^3 + y^5) \, dA\)</p></li><li><p>\(\displaystyle \iint\limits_B (y^3 + y^5) \, dA\)</p></li><li><p>\(\displaystyle \iint\limits_R (y^3 + y^5) \, dA\)</p></li><li><p>\(\displaystyle \iint\limits_D (y^3 + y^5) \, dA\)</p></li><li><p>\(\displaystyle \iint\limits_T (y^3 + y^5) \, dA\)</p></li></ol></p></div></div><div class="exercise" id="ex-11-3-WW-disk"><div class="n">5</div><div class="body"><p>The region \(W\) lies below the surface
+\(f(x,y) = 3 e^{-(x-1)^2-y^2}\) and
+above the disk \(x^2+y^2\le 4\) in the \(xy\)-plane.</p><p><em>(a)</em>
+Think about what the contours of \(f\) look like.  You may want to
+using \(f(x,y)=1\) as an example.  Sketch a rough contour diagram on
+a separate sheet of paper.</p><p><em>(b)</em>
+Write an integral giving the area of the cross-section of \(W\) in the
+plane \(x=1\).</p><p>Area = \(\int_a^b\) <span class="blank">___________________________________</span> \(d\)<span class="blank">_____</span>,</p><p>where \(a =\) <span class="blank">_____</span> and \(b =\)<span class="blank">_____</span></p><p><em>(c)</em>
+Use your work from (b) to write an iterated double integral giving the
+volume of \(W\), using the work from (b) to inform the construction
+of the inside integral.</p><p>Volume = \(\int_a^b\int_c^d\) <span class="blank">___________________________________</span> \(d\)<span class="blank">_____</span>
+\(d\)<span class="blank">_____</span>,</p><p>where \(a =\) <span class="blank">_____</span>, \(b =\)<span class="blank">_____</span>
+\(c =\) <span class="blank">__________</span> and \(d =\)<span class="blank">__________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(3e^{-y^{2}}\), \(y\), \(-1.73205\), \(1.73205\), \(3e^{-\left(x-1\right)^{2}-y^{2}}\), \(y\), \(x\), \(-2\), \(2\), \(-\sqrt{4-x^{2}}\), \(\sqrt{4-x^{2}}\)</p></div></div></div></div><div class="exercise" id="ex-11-3-WW-paraboloid"><div class="n">6</div><div class="body"><p>Set up a double integral in rectangular coordinates
+for calculating the volume 
+of the solid under the graph of the function 
+\(f(x,y) = 16-x^{2}-y^{2}\) and above the plane \(z = 7\).</p><p><em>Instructions:</em>
+Please enter the integrand in the first answer box. 
+Depending on the order of integration you choose,  
+enter <em>dx</em> and <em>dy</em> 
+in either order into the second and third answer boxes 
+with only one <em>dx</em> or 
+<em>dy</em> in each box.  Then, enter the limits of 
+integration.</p><p>\(\displaystyle \int_A^B \int_C^D\) 
+<span class="blank">________________________________________</span>
+<span class="blank">_____</span>
+<span class="blank">_____</span></p><p>A = <span class="blank">____________________</span></p><p>B = <span class="blank">____________________</span></p><p>C = <span class="blank">____________________</span></p><p>D = <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(9-x^{2}-y^{2}\), \(dx\), \(dy\), \(-3\), \(3\), \(-\sqrt{9-y^{2}}\), \(\sqrt{9-y^{2}}\)</p></div></div></div></div><div class="exercise" id="ex-11-3-WW-plane"><div class="n">7</div><div class="body"><p>Find the volume of the solid bounded by the planes 
+x = 0, y = 0, z = 0, and x + y + z = 1.</p><p><span class="blank">__________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.166666666666667\)</p></div></div></div></div><div class="exercise" id="ex-11-3-WW-change-order"><div class="n">8</div><div class="body"><p>Consider the integral
+\(\displaystyle \int_0^2 \int_0^{\sqrt{4-y}}  f(x,y) dx dy\). 
+If we change the order of integration we obtain the sum
+of two integrals:</p><p>\(\displaystyle \int_a^b
+\int_{g_1(x)}^{g_2(x)} f(x,y)  dy dx + \displaystyle \int_c^d
+\int_{g_3(x)}^{g_4(x)} f(x,y)  dy dx\)</p><p>\(a =\) <span class="blank">____________________</span>   \(b =\) <span class="blank">____________________</span></p><p>\(g_1(x) =\) <span class="blank">____________________</span>   \(g_2(x) =\) <span class="blank">____________________</span></p><p>\(c =\) <span class="blank">____________________</span>   \(d =\) <span class="blank">____________________</span></p><p>\(g_3(x) =\) <span class="blank">____________________</span>   \(g_4(x) =\) <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(1.4142135623731\), \(0\), \(2\), \(1.4142135623731\), \(2\), \(0\), \(4-x^{2}\)</p></div></div></div></div><div class="exercise" id="ex-11-3-WW-dirt-pile"><div class="n">9</div><div class="body"><p>A pile of earth standing on flat ground has height 9 meters.
+The ground is the xy-plane.  The origin is directly below the
+top of the pile and the z-axis is upward.  The cross-section 
+at height z is given by \(x^2 + y^2 = 9 - z\) for 
+\(0 \leq z \leq 9\), with \(x, y,\) and \(z\) in meters.</p><p>(a) 
+What equation gives the edge of the base of the pile?
+<ol type="a"><li><p>\(x + y = 3\)</p></li><li><p>\(x^2 + y^2 = 3\)</p></li><li><p>\(x + y = 9\)</p></li><li><p>\(x^2 + y^2 = 9\)</p></li><li><p>None of the above</p></li></ol></p><p>(b) What is the area of the base of the pile?</p><p><span class="blank">________________________________________</span></p><p>(c) 
+What equation gives the cross-section of the pile with the plane \(z = 7\)?
+<ol type="a"><li><p>\(x^2 + y^2 = 2\)</p></li><li><p>\(x^2 + y^2 = \sqrt{2}\)</p></li><li><p>\(x^2 + y^2 = 49\)</p></li><li><p>\(x^2 + y^2 = 7\)</p></li><li><p>None of the above</p></li></ol></p><p>(d) What is the area of the cross-section \(z = 7\) of the pile?</p><p><span class="blank">________________________________________</span></p><p>(e) What is \(A(z)\), the area of a horizontal cross-section 
+at height \(z\)?</p><p>\(A(z) =\) <span class="blank">________________________________________</span> square meters</p><p>(f) Use your answer in part (e) to find the volume of the pile.</p><p>Volume = <span class="blank">________________________________________</span> cubic meters</p><div class="answer"><button>Show answer</button><div class="a"><p>D, \(28.2743\), A, \(2\pi\), \(\pi(9-z)\), \(40.5\pi\)</p></div></div></div></div><div class="exercise" id="ex-11-3-WW-matching"><div class="n">10</div><div class="body"><p>Match the following integrals with the verbal descriptions of the solids whose
+volumes they give.  Put the letter of the verbal description to the left of the
+corresponding integral.</p><p><ol><li><p>\(\displaystyle \int_{0}^{\frac{1}{\sqrt{3}}}\!\!\int_{0}^{\frac{1}{2}\sqrt{1-3y^{2}}} 
+	 \sqrt{1 -4x^{2} - 3y^{2}} \: dx dy\)</p></li><li><p>\(\displaystyle \int_{-1}^{1}\!\!\int_{-\sqrt{1-x^{2}}}^{\sqrt{1-x^{2}}} 
+	 1 - x^{2} - y^{2}\: dy dx\)</p></li><li><p>\(\displaystyle \int_{0}^{2}\!\!\int_{-2}^{2} \sqrt{4 - y^{2}} \: dy dx\)</p></li><li><p>\(\displaystyle \int_{0}^{1}\!\!\int_{y^{2}}^{\sqrt{y}} 
+	 4x^{2} + 3y^{2} \: dx dy\)</p></li><li><p>\(\displaystyle \int_{-2}^{2}\!\!\int_{4}^{4 + \sqrt{4-x^{2}}} 
+	 4x + 3y \: dy dx\)</p></li></ol></p><p><ol type="A"><li><p>One half of a cylindrical rod.</p></li><li><p>Solid bounded by a circular paraboloid and a plane.</p></li><li><p>Solid under a plane and over one half of a circular disk.</p></li><li><p>Solid under an elliptic paraboloid and over a planar region bounded by
+	 two parabolas.</p></li><li><p>One eighth of an ellipsoid.</p></li></ol></p></div></div><div class="exercise"><div class="n">11</div><div class="body"><p>
+            For each of the following iterated integrals, 
+            <ul><li><p>
+                sketch the region of integration, 
+                </p></li><li><p>
+                write an equivalent iterated integral expression in the opposite order of integration,
+                </p></li><li><p>
+                choose one of the two orders and evaluate the integral.
+                </p></li></ul>
+                
+            <ol type="a"><li><p>
+                  \(\int_{x=0}^{x=1}  \int_{y=x^2}^{y=x} xy \, dy  \, dx\)
+                </p></li><li><p>
+                  \(\int_{y=0}^{y=2}  \int_{x=-\sqrt{4-y^2}}^{x=0} xy \, dx  \, dy\)
+                </p></li><li><p>
+                  \(\int_{x=0}^{x=1}  \int_{y=x^4}^{y=x^{1/4}} x+y \, dy  \, dx\)
+                </p></li><li><p>
+                  \(\int_{y=0}^{y=2}  \int_{x=y/2}^{x=2y} x+y \, dx  \, dy\)
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">12</div><div class="body"><p>
+            The temperature at any point on a metal plate in the \(xy\)-plane is given by \(T(x,y) = 100-4x^2 - y^2\), where \(x\) and \(y\) are measured in inches and \(T\) in degrees Celsius. Consider the portion of the plate that lies on the region \(D\) that is the finite region that lies between the parabolas \(x = y^2\) and \(x = 3 - 2y^2\).
+            <ol type="a"><li><p>
+                  Construct a labeled sketch of the region \(D\).
+                </p></li><li><p>
+                  Set up an iterated integral whose value is \(\iint_D T(x,y) \, dA\), using \(dA = dx dy\). (Hint: It is possible that more than one integral is needed.)
+                </p></li><li><p>
+                  Set up an integrated integral whose value is \(\iint_D T(x,y) \, dA\), using \(dA = dy dx\). (Hint: It is possible that more than one integral is needed.)
+                </p></li><li><p>
+                  Use the Fundamental Theorem of Calculus to evaluate the integrals you determined in (b) and (c).
+                </p></li><li><p>
+                  Determine the exact average temperature, \(T_{\operatorname{AVG}(D)}\), over the region \(D\).
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">13</div><div class="body"><p>
+            Consider the solid that is given by the following description: the base is the given region \(D\), while the top is given by the surface \(z = p(x,y)\). In each setting below, set up, but do not evaluate, an iterated integral whose value is the exact volume of the solid. Include a labeled sketch of \(D\) in each case.
+            <ol type="a"><li><p>
+                  \(D\) is the interior of the quarter circle of radius 2, centered at the origin, that lies in the second quadrant of the plane; \(p(x,y) = 16-x^2-y^2\).
+                </p></li><li><p>
+                  \(D\) is the finite region between the line \(y = x + 1\) and the parabola \(y = x^2\); 
+                   \(p(x,y) = 10-x-2y\).
+                </p></li><li><p>
+                  \(D\) is the triangular region with vertices \((1,1)\), \((2,2)\), and \((2,3)\); \(p(x,y) = e^{-xy}\).
+                </p></li><li><p>
+                  \(D\) is the region bounded by the \(y\)-axis, \(y = 4\) and \(x = \sqrt{y}\); \(p(x,y) = \sqrt{1 + x^2 + y^2}\).
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">14</div><div class="body"><p>
+            Consider the iterated integral \(\displaystyle I = \int_{x=0}^{x=4} \int_{y=\sqrt{x}}^{y=2} \cos(y^3) \, dy \, dx\).
+            <ol type="a"><li><p>
+                  Sketch the region of integration.
+                </p></li><li><p>
+                  Write an equivalent iterated integral with the order of integration reversed.
+                </p></li><li><p>
+                  Choose one of the two orders of integration and evaluate the iterated integral you chose by hand.  Explain the reasoning behind your choice.
+                </p></li><li><p>
+                  Determine the exact average value of \(\cos(y^3)\) over the region \(D\) that is determined by the iterated integral \(I\).
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

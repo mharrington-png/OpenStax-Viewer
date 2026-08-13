@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iterated Integrals · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Iterated Integrals</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 11.2</span>Iterated Integrals</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              How do we evaluate a double integral over a rectangle as an iterated integral, and why does this process work?
+            </p></li></ul></div>
+<p>
+      Recall that we defined the double integral of a continuous function \(f = f(x,y)\) over a rectangle \(R = [a,b] \times [c,d]\) as
+      \[
+        \iint_R f(x,y) \, dA = \lim_{m,n \to \infty} \sum_{j=1}^n \sum_{i=1}^m f\left(x_{ij}^*, y_{ij}^*\right) \cdot \Delta A,
+      \]
+      where the different variables and notation are as described in <a href="11-1.html">Section 11.1</a>. Thus \(\iint_R f(x,y) \, dA\) is a limit of double Riemann sums, but while this definition tells us exactly what a double integral is, it is not very helpful for determining the value of a double integral. Fortunately, there is a way to view a double integral as an <em>iterated integral</em>, which will make computations feasible in many cases.
+    </p><p>
+      The viewpoint of an iterated integral is closely connected to an important idea from single-variable calculus. When we studied solids of revolution, such as the one shown in <a href="#F_6_2_Ex1">Figure 11.2.1</a>, we saw that in some circumstances we could slice the solid perpendicular to an axis and have each slice be approximately a circular disk. From there, we were able to find the volume of each disk, and then use an integral to add the volumes of the slices. In what follows, we are able to use single integrals to generalize this approach to handle even more general geometric shapes.
+    </p><figure class="plot" id="F_6_2_Ex1"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_2_volume_revolve.svg" alt=""><figcaption>Figure 11.2.1 — A solid of revolution.</figcaption></figure><div class="card activity preview" id="PA_11_2"><div class="ex-head"><span class="num">Preview Activity 11.2.1</span></div><div class="ex-body"><p>
+        Let \(f(x,y) = 25-x^2-y^2\) on the rectangular domain \(R = [-3,3] \times [-4,4]\).
+      </p><p>
+        As with partial derivatives, we may treat one of the variables in \(f\) as constant and think of the resulting function as a function of a single variable. Now we investigate what happens if we integrate instead of differentiate.
+        <ol type="a"><li><p>
+              Choose a fixed value of \(x\) in the interior of \([-3,3]\). Let
+              \[
+                A(x) = \int_{-4}^4 f(x,y) \, dy.
+              \]
+              What is the geometric meaning of the value of \(A(x)\) relative to the surface defined by \(f\). (Hint: Think about the trace determined by the fixed value of \(x\), and consider how \(A(x)\) is related to the image at left in <a href="#F_11_2_Cross_section_PA_y">Figure 11.2.2</a>.)
+
+              <figure class="plot" id="F_11_2_Cross_section_PA_y"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_2_preview_slice.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_2_preview_thick.svg" alt=""></div></div><figcaption>Figure 11.2.2 — Left: A cross section with fixed \(x\). Right: A cross section with fixed \(x\) and \(\Delta x\).</figcaption></figure>
+              
+
+            </p></li><li><p>
+              For a fixed value of \(x\), say \(x_i^*\), what is the geometric meaning of \(A(x_i^*) \ \Delta x\)?  (Hint: Consider how \(A(x_i^*) \Delta x\) is related to the image at right in <a href="#F_11_2_Cross_section_PA_y">Figure 11.2.2</a>.)
+            </p></li><li><p>
+              Since \(f\) is continuous on \(R\), we can define the function \(A = A(x)\) at every value of \(x\) in \([-3,3]\). Now think about subdividing the \(x\)-interval \([-3,3]\) into \(m\) subintervals, and choosing a value \(x_i^*\) in each of those subintervals.  What will be the meaning of the sum \(\sum_{i=1}^m A(x_i^*) \ \Delta x\)?
+            </p></li><li><p>
+              Explain why \(\int_{-3}^3 A(x) \, dx\) will determine the exact value of the volume under the surface \(z = f(x,y)\) over the rectangle \(R\).
+            </p></li></ol>
+      </p></div></div>
+<h2 id="iterated-integrals">Iterated Integrals</h2>
+<p>
+      The ideas that we explored in <a href="#PA_11_2">Preview Activity 11.2.1</a> work more generally and lead to the idea of an iterated integral. Let \(f\) be a continuous function on a rectangular domain \(R = [a,b] \times [c,d]\), and let
+      \[
+        A(x) = \int_c^d f(x,y) \, dy.
+      \]
+    </p><p>
+      The function \(A = A(x)\) determines the value of the cross sectional area (by area we mean &ldquo;signed&rdquo; area) in the \(y\) direction for the fixed value of \(x\) of the solid bounded between the surface defined by \(f\) and the \(xy\)-plane.
+    </p><figure class="plot" id="F_11_2_Cross_section_y_slab_sum"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_2_preview_animate_0.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_2_preview_animate_2.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_2_preview_animate_5.svg" alt=""></div></div><figcaption>Figure 11.2.3 — Summing volumes of cross section slices.</figcaption></figure><p>
+      The value of this cross sectional area is determined by the input \(x\) in \(A\). Since \(A\) is a function of \(x\), it follows that we can integrate \(A\) with respect to \(x\). In doing so, we use a partition of \([a, b]\) and make an approximation to the integral given by
+      \[
+        \int_a^b A(x) \, dx  \approx \sum_{i=1}^m A(x_i^*) \Delta x,
+      \]
+      where \(x_i^*\) is any number in the subinterval \([x_{i-1},x_i]\). Each term \(A(x_i^*) \Delta x\) in the sum represents an approximation of a fixed cross sectional slice of the surface in the \(y\) direction with a fixed width of \(\Delta x\) as illustrated in <a href="#F_11_2_Cross_section_y_slab_sum">Figure 11.2.3</a>. We add the signed volumes of these slices as shown in the frames in <a href="#F_11_2_Cross_section_y_slab_sum">Figure 11.2.3</a> to obtain an approximation of the total signed volume.
+    </p><p>
+      As we let the number of subintervals in the \(x\) direction approach infinity, we can see that the Riemann sum \(\sum_{i=1}^m A(x_i^*) \Delta x\)
+      approaches a limit and that limit is the sum of signed volumes bounded by the function \(f\) on \(R\). Therefore, since \(A(x)\) is itself determined by an integral, we have
+      \[
+        \iint_R f(x,y) \, dA = \lim_{m \to \infty} \sum_{i=1}^m A(x_i^*) \Delta x = \int_a^b A(x) \, dx = \int_a^b \left( \int_c^d f(x,y) \, dy \right) \, dx.
+      \]
+    </p><p>
+      Hence, we can compute the double integral of \(f\) over \(R\) by first integrating \(f\) with respect to \(y\) on \([c, d]\), then integrating the resulting function of \(x\) with respect to \(x\) on \([a, b]\). The nested integral
+      \[
+        \int_a^b \left( \int_c^d f(x,y) \, dy \right) \, dx = \int_a^b \int_c^d f(x,y) \, dy \, dx
+      \]
+      is called an <em>iterated integral</em>, and we see that each double integral may be represented by two single integrals.
+    </p><p>
+      We made a choice to integrate first with respect to \(y\). The same argument shows that we can also find the double integral as an iterated integral integrating with respect to \(x\) first, or
+      \[
+        \iint_R f(x,y) \, dA = \int_c^d \left( \int_a^b f(x,y) \, dx \right) \, dy = \int_c^d  \int_a^b f(x,y) \, dx  \, dy.
+      \]
+    </p><p>
+      The fact that integrating in either order results in the same value is known as Fubini's Theorem.
+    </p><div class="card callout" id="Fubini-theorem"><span class="chip">Fubini's Theorem</span><p>
+      If \(f = f(x,y)\) is a continuous function on a rectangle \(R = [a,b] \times [c,d]\), then
+      \[
+        \iint_R f(x,y) \, dA = \int_c^d \int_a^b f(x,y) \, dx \, dy = \int_a^b \int_c^d f(x,y) \, dy \, dx.
+      \]
+    </p></div><p>
+      Fubini's theorem enables us to evaluate iterated integrals without resorting to the limit definition. Instead, working with one integral at a time, we can use the Fundamental Theorem of Calculus from single-variable calculus to find the exact value of each integral, starting with the inner integral.
+    </p><div class="card activity" id="A_11_2_1"><div class="ex-head"><span class="num">Activity 11.2.2</span></div><div class="ex-body"><p>
+        Let \(f(x,y) = 25-x^2-y^2\) on the rectangular domain \(R = [-3,3] \times [-4,4]\).
+        <ol type="a"><li><p>
+              Viewing \(x\) as a fixed constant, use the Fundamental Theorem of Calculus to evaluate the integral
+              \[
+                A(x) = \int_{-4}^4 f(x,y) \, dy.
+              \]
+              Note that you will be integrating with respect to \(y\), and holding \(x\) constant.  Your result should be a function of \(x\) only.
+            </p></li><li><p>
+              Next, use your result from (a) along with the Fundamental Theorem of Calculus to determine the value of \(\int_{-3}^3 A(x) \, dx\).
+            </p></li><li><p>
+              What is the value of \(\iint_R f(x,y) \, dA\)? What are two different ways we may interpret the meaning of this value?
+            </p></li></ol>
+      </p></div></div><div class="card activity" id="A_11_2_2"><div class="ex-head"><span class="num">Activity 11.2.3</span></div><div class="ex-body"><p>
+        Let \(f(x,y) = x+y^2\) on the rectangle \(R = [0,2] \times [0,3]\).
+        <ol type="a"><li><p>
+              Evaluate \(\iint_R f(x,y) \, dA\) using an iterated integral.  Choose an order for integration by deciding whether you want to integrate first with respect to \(x\) or \(y\).
+            </p></li><li><p>
+              Evaluate \(\iint_R f(x,y) \, dA\) using the iterated integral whose order of integration is the opposite of the order you chose in (a).
+            </p></li></ol>
+      </p></div></div>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+        We can evaluate the double integral \(\iint_R f(x,y) \, dA\) over a rectangle \(R = [a,b] \times [c,d]\) as an iterated integral in one of two ways:
+        <ul><li><p>
+              \(\int_a^b \left( \int_c^d f(x,y) \, dy \right) \, dx\), or
+            </p></li><li><p>
+              \(\int_c^d \left( \int_a^b f(x,y) \, dx \right) \, dy\).
+            </p></li></ul>
+      
+
+      This process works because each inner integral represents a cross-sectional (signed) area and the outer integral then sums all of the cross-sectional (signed) areas.  Fubini's Theorem guarantees that the resulting value is the same, regardless of the order in which we integrate.
+      </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-2">Exercises</h2><div class="exercise" id="ex-11-2-WW-polynomial"><div class="n">1</div><div class="body"><p>Evaluate the iterated integral 
+\(\int_{0}^{1} \int_{0}^{4} 12x^2y^3 \, dx dy\)</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(64\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-rational"><div class="n">2</div><div class="body"><p>Evaluate the iterated integral 
+\(\int_{1}^{2} \int_{4}^{5} (x + y)^{-2} \: dy dx\)</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.0281708769666964\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-log"><div class="n">3</div><div class="body"><p>Find \(\int_{0}^{5} \int_{2}^{8}( x + \ln y) \,dydx\)</p><p><span class="blank">____________________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(121.246189861594\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-exp"><div class="n">4</div><div class="body"><p>Find \(\int_{0}^{5} \int_{1}^{7} xy e^{x+y} \,dydx\)</p><p><span class="blank">____________________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(3912694.79300666\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-double"><div class="n">5</div><div class="body"><p>Calculate the double integral 
+\(\int \int_{\mathbf{R}} (2x + 8y + 16 )\: dA\) 
+where \(\mathbf{R}\) is the region: 
+\(0 \leq x \leq 4, 0 \leq y \leq 1\).</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(96\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-double-2"><div class="n">6</div><div class="body"><p>Calculate the double integral 
+\(\int \int_{\mathbf{R}} x \cos(x + y) \: dA\) 
+where \(\bf{R}\) is the region:
+\(0 \leq x \leq \frac{\pi}{3}, 0 \leq y \leq \frac{\pi}{4}\)</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.187427087150782\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-estimate"><div class="n">7</div><div class="body"><p>Consider the solid that lies above the square (in the xy-plane)
+\(R = [0, 2] \times [0, 2]\),</p><p>and below the elliptic paraboloid 
+\(z = 25 - x^{2} - 4y^2\).</p><p>(A) Estimate the volume by dividing R into 4 equal squares and choosing the
+sample points to lie in the lower left hand corners.</p><p><span class="blank">____________________</span></p><p>(B) Estimate the volume by dividing R into 4 equal squares and choosing the   
+sample points to lie in the upper right hand corners..</p><p><span class="blank">________________________________________</span></p><p>(C) What is the average of the two answers from (A) and (B)?</p><p><span class="blank">____________________</span></p><p>(D) Using iterated integrals, compute the exact value of the volume.</p><p><span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(90\), \(50\), \(70\), \(73.3333333333333\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-cross-sections"><div class="n">8</div><div class="body"><p>If \(\displaystyle \int_{-4}^{0} f(x) \: dx = 4\) and
+\(\displaystyle \int_{-4}^{0} g(x) \: dx = -1\), what is the value of 
+\(\displaystyle \int\!\!\int_{D} f(x)\!g(y) \: dA\) where \(D\) 
+is the rectangle: \(-4 \leq x \leq 0, \ \ -4 \leq y \leq 0\)?</p><p><span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-4\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-average-value"><div class="n">9</div><div class="body"><p>Find the average value of \(f(x,y) = 2 x^6 y^2\) over the
+rectangle R with vertices \((-6,0), (-6,6), (6,0), (6,6)\).</p><p>Average value =  <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(159963.428571429\)</p></div></div></div></div><div class="exercise" id="ex-11-2-WW-average-value-2"><div class="n">10</div><div class="body"><p>Find the average value of \(f(x,y) = 2 e^{ y} \sqrt{x+e^{ y}}\) over the
+rectangle   \(R = [0,2] \times [0,7]\).</p><p>Average value =  <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(6926.14728685334\)</p></div></div></div></div><div class="exercise"><div class="n">11</div><div class="body"><p>
+            Evaluate each of the following double or iterated integrals exactly.
+            <ol type="a"><li><p>
+                  \(\int_1^3 \left( \int_2^5 xy \, dy \right) \, dx\)
+                </p></li><li><p>
+                  \(\int_0^{\pi/4} \left( \int_0^{\pi/3} \sin(x) \cos(y) \, dx \right) \, dy\)
+                </p></li><li><p>
+                  \(\int_0^1 \left( \int_0^1 e^{-2x - 3y} \, dy \right) \, dx\)
+                </p></li><li><p>
+                  \(\iint_R \sqrt{2x + 5y} \, dA\), where \(R = [0,2]\times[0,3]\).
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">12</div><div class="body"><p>
+            The temperature at any point on a metal plate in the \(xy\) plane is given by \(T(x,y) = 100-4x^2 - y^2\), where \(x\) and \(y\) are measured in inches and \(T\) in degrees Celsius. Consider the portion of the plate that lies on the rectangular region \(R = [1,5] \times [3,6]\).
+            <ol type="a"><li><p>
+                  Write an iterated integral whose value represents the volume under the surface \(T\) over the rectangle \(R\).
+                </p></li><li><p>
+                  Evaluate the iterated integral you determined in (a).
+                </p></li><li><p>
+                  Find the area of the rectangle, \(R\).
+                </p></li><li><p>
+                  Determine the exact average temperature, \(T_{\operatorname{AVG}(R)}\), over the region \(R\).
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">13</div><div class="body"><p>
+            Consider the box with a sloped top that is given by the following description: the base is the rectangle \(R = [1,4] \times [2,5]\), while the top is given by the plane \(z = p(x,y) = 30 - x - 2y\).
+            <ol type="a"><li><p>
+                  Write an iterated integral whose value represents the volume under \(p\) over the rectangle \(R\).
+                </p></li><li><p>
+                  Evaluate the iterated integral you determined in (a).
+                </p></li><li><p>
+                  What is the exact average value of \(p\) over \(R\)?
+                </p></li><li><p>
+                  If you wanted to build a rectangular box (with an identical base) that has the same volume as the box with the sloped top described here, how tall would the rectangular box have to be?
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

@@ -459,18 +459,18 @@ const BOOKS = {
         { id: "10-8", title: "10.8 Constrained Optimization: Lagrange Multipliers", file: "10-8.html", ready: true },
       ]},
       { n: 11, title: "Multiple Integrals", sections: [
-        { id: "11-1", title: "11.1 Double Riemann Sums and Double Integrals over Rectangles", file: "11-1.html", ready: false },
-        { id: "11-2", title: "11.2 Iterated Integrals", file: "11-2.html", ready: false },
-        { id: "11-3", title: "11.3 Double Integrals over General Regions", file: "11-3.html", ready: false },
-        { id: "11-4", title: "11.4 Applications of Double Integrals", file: "11-4.html", ready: false },
-        { id: "11-5", title: "11.5 Double Integrals in Polar Coordinates", file: "11-5.html", ready: false },
-        { id: "11-6", title: "11.6 Surfaces Defined Parametrically and Surface Area", file: "11-6.html", ready: false },
-        { id: "11-7", title: "11.7 Triple Integrals", file: "11-7.html", ready: false },
-        { id: "11-8", title: "11.8 Triple Integrals in Cylindrical and Spherical Coordinates", file: "11-8.html", ready: false },
-        { id: "11-9", title: "11.9 Change of Variables", file: "11-9.html", ready: false },
+        { id: "11-1", title: "11.1 Double Riemann Sums and Double Integrals over Rectangles", file: "11-1.html", ready: true },
+        { id: "11-2", title: "11.2 Iterated Integrals", file: "11-2.html", ready: true },
+        { id: "11-3", title: "11.3 Double Integrals over General Regions", file: "11-3.html", ready: true },
+        { id: "11-4", title: "11.4 Applications of Double Integrals", file: "11-4.html", ready: true },
+        { id: "11-5", title: "11.5 Double Integrals in Polar Coordinates", file: "11-5.html", ready: true },
+        { id: "11-6", title: "11.6 Surfaces Defined Parametrically and Surface Area", file: "11-6.html", ready: true },
+        { id: "11-7", title: "11.7 Triple Integrals", file: "11-7.html", ready: true },
+        { id: "11-8", title: "11.8 Triple Integrals in Cylindrical and Spherical Coordinates", file: "11-8.html", ready: true },
+        { id: "11-9", title: "11.9 Change of Variables", file: "11-9.html", ready: true },
       ]},
       { n: 12, title: "Vector Calculus", sections: [
-        { id: "12-1", title: "12.1 Vector Fields", file: "12-1.html", ready: false },
+        { id: "12-1", title: "12.1 Vector Fields", file: "12-1.html", ready: true },
         { id: "12-2", title: "12.2 The Idea of a Line Integral", file: "12-2.html", ready: false },
         { id: "12-3", title: "12.3 Using Parametrizations to Calculate Line Integrals", file: "12-3.html", ready: false },
         { id: "12-4", title: "12.4 Path-Independent Vector Fields and the Fundamental Theorem of Calculus for Line Integrals", file: "12-4.html", ready: false },
@@ -597,8 +597,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // exercise answer buttons
-  document.querySelectorAll(".exercise .answer > button").forEach(btn => {
+  // exercise/activity-task answer buttons (chapter 12's <task><answer> reveals reuse this
+  // same show/hide pattern, so the selector isn't scoped to .exercise alone)
+  document.querySelectorAll(".answer > button").forEach(btn => {
     btn.addEventListener("click", () => {
       const a = btn.parentElement;
       a.classList.toggle("open");
@@ -677,6 +678,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "\\vF": "\\mathbf{F}", "\\vR": "\\mathbf{R}", "\\vT": "\\mathbf{T}", "\\vN": "\\mathbf{N}",
         "\\vL": "\\mathbf{L}", "\\vB": "\\mathbf{B}",
         "\\proj": "\\text{proj}", "\\comp": "\\text{comp}",
+        // Chapter 12 (vector calculus, active-calculus-vector repo)'s own docinfo-core.ptx adds
+        // a few more of these bold-vector shorthands plus a magnitude/gradient notation, none
+        // of which chapters 9-11's own preamble (above) ever needed.
+        "\\vG": "\\mathbf{G}", "\\vH": "\\mathbf{H}", "\\vS": "\\mathbf{S}",
+        "\\vecmag": "|#1|", "\\grad": "\\nabla", "\\nin": "",
       },
     });
   }
@@ -684,6 +690,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // plots
   document.querySelectorAll("[data-plot]").forEach(drawPlot);
   document.querySelectorAll("[data-desmos]").forEach(drawDesmos);
+
+  // Sage Cell interactives (Chapter 12 vector calculus) -- window.sagecell is loaded via a
+  // per-page <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"> that
+  // build-acm-section.mjs only adds to pages that actually contain a live interactive, same
+  // conditional-CDN-script convention as drawDesmos() above. makeSagecell() scans the DOM once
+  // for ".sage-embed" wrappers and turns their embedded <script type="text/x-sage"> code into a
+  // Sage-computed figure. autoeval runs it immediately on page load (matching the published
+  // book's own behavior, where these read as plain figures, not something a student has to
+  // trigger), so the eval button itself is hidden too -- nothing left to click. Evaluation
+  // still happens on Sage's shared public server, not locally. The wrapper class deliberately
+  // isn't "sagecell" itself -- that collides with the library's own internal namespace and
+  // silently matches nothing.
+  if (window.sagecell && document.querySelector(".sage-embed")) {
+    window.sagecell.makeSagecell({
+      inputLocation: ".sage-embed",
+      autoeval: true,
+      hide: ["editor", "permalink", "files", "fullScreen", "language", "evalButton"],
+    });
+  }
 });
 
 /* ---------- site-wide search ----------

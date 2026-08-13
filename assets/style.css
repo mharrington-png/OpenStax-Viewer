@@ -245,6 +245,15 @@ ul.tight li { margin: .35em 0; }
 .activity.preview { border-color: var(--line); border-style: dashed; }
 .activity.preview .ex-head { background: var(--surface-2); border-bottom-color: var(--line); }
 .activity.preview .ex-head .num { color: var(--ink-soft); }
+/* Chapter 12 (vector calculus) activities are built from <task> sub-parts instead of a plain
+   <ol type="a">, each with its own optional self-check answer reveal. */
+.activity .part { margin: 1em 0; }
+.activity .part .part-label { font-weight: 700; color: var(--plum); margin-right: .3em; }
+.activity .part .answer { margin-top: .5em; }
+/* Live Sage Cell embeds (Chapter 12) -- sagecell.sagemath.org's own widget CSS handles the
+   evaluate button/output styling; this just keeps the wrapper consistent with other figures
+   until a student clicks "Run interactive" (the description below doubles as a placeholder). */
+figure.plot.sage-interactive { border: 1px dashed var(--line); border-radius: 10px; padding: 14px; }
 
 /* flagged content this converter can't render yet (Sage/WeBWorK interactives) — visible
    marker so these are easy to find and revisit, not silently dropped. */
@@ -269,6 +278,7 @@ ol.footnotes a { color: var(--accent); }
 
 /* ---------- tables ---------- */
 .tablewrap { overflow-x: auto; margin: 1.6em 0; }
+.tablecap { font-family: var(--sans); font-size: .86rem; color: var(--ink-faint); margin: 6px 0 1.6em; }
 table.data {
   border-collapse: collapse; width: 100%; background: var(--surface);
   border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
@@ -336,17 +346,21 @@ figure.plot figcaption { font-family: var(--sans); font-size: .86rem; color: var
   display: flex; align-items: center; justify-content: center; font-size: .9rem;
 }
 .exercise .body p:last-child { margin-bottom: 0; }
-.exercise .answer { margin-top: 10px; }
-.exercise .answer > button {
+/* Not scoped to .exercise alone -- chapter 12's <task><answer> self-checks (rendered inside
+   .activity .part) reuse this exact same reveal pattern and need the same hide-by-default
+   behavior (found leaking "always visible" in 12.1's preview activity: the old .exercise-only
+   selectors never matched a task's answer, so it had no display:none to begin with). */
+.answer { margin-top: 10px; }
+.answer > button {
   border: 1px solid var(--line); background: var(--surface); border-radius: 9px;
   padding: 5px 13px; cursor: pointer; font-family: var(--sans); font-weight: 700; font-size: .82rem; color: var(--accent-ink);
 }
-.exercise .answer > button:hover { border-color: var(--accent); background: var(--accent-soft); }
-.exercise .answer .a {
+.answer > button:hover { border-color: var(--accent); background: var(--accent-soft); }
+.answer .a {
   display: none; margin-top: 10px; padding: 12px 16px;
   background: var(--accent-soft); border-radius: 10px; font-size: .98rem;
 }
-.exercise .answer.open .a { display: block; }
+.answer.open .a { display: block; }
 .groupnote { font-family: var(--sans); font-size: .95rem; color: var(--ink-soft); background: var(--surface-2); padding: 12px 18px; border-radius: 10px; margin: 1.6em 0 .6em; }
 
 /* ---------- glossary / key equations ---------- */
@@ -393,8 +407,8 @@ footer.attribution {
   .exercise { grid-template-columns: 36px 1fr; }
 }
 @media print {
-  .topbar, .sidebar, .selfcheck, .sol-toggle, .exercise .answer > button { display: none !important; }
-  .solution > .sol-body, .exercise .answer .a { display: block !important; }
+  .topbar, .sidebar, .selfcheck, .sol-toggle, .answer > button { display: none !important; }
+  .solution > .sol-body, .answer .a { display: block !important; }
 }
 
 /* ---------- sidebar: book contents fold + page outline ---------- */

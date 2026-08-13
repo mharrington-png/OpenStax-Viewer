@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double Riemann Sums and Double Integrals over Rectangles · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Double Riemann Sums and Double Integrals over Rectangles</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 11.1</span>Double Riemann Sums and Double Integrals over Rectangles</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+              What is a double Riemann sum?
+            </p></li><li><p>
+              How is the double integral of a continuous function \(f = f(x,y)\) defined?
+            </p></li><li><p>
+              What are two things the double integral of a function can tell us?
+            </p></li></ul></div>
+<p>
+      In single-variable calculus, recall that we approximated the area under the graph of a positive function \(f\) on an interval \([a,b]\) by adding areas of rectangles whose heights are determined by the curve. The general process involved subdividing the interval \([a,b]\) into smaller subintervals, constructing rectangles on each of these smaller intervals to approximate the region under the curve on that subinterval, then summing the areas of these rectangles to approximate the area under the curve. We will extend this process in this section to its three-dimensional analogs, double Riemann sums and double integrals over rectangles.
+    </p><div class="card activity preview" id="PA_11_1"><div class="ex-head"><span class="num">Preview Activity 11.1.1</span></div><div class="ex-body"><p>
+        In this activity we introduce the concept of a double Riemann sum.
+      </p><ol type="a"><li><p>
+          Review the concept of the Riemann sum from single-variable calculus. Then, explain how we define the definite integral \(\int_a^b f(x) \ dx\) of a continuous function of a single variable \(x\) on an interval \([a,b]\). Include a sketch of a continuous function on an interval \([a,b]\) with appropriate labeling in order to illustrate your definition.
+        </p></li><li><p>
+          In our upcoming study of integral calculus for multivariable functions, we will first extend the idea of the single-variable definite integral to functions of two variables over rectangular domains. To do so, we will need to understand how to partition a rectangle into subrectangles. Let \(R\) be rectangular domain \(R = \{(x,y) : 0 \leq x \leq 6, 2 \leq y \leq 4\}\) (we can also represent this domain with the notation \([0,6] \times [2,4]\)), as pictured in <a href="#F_11_1_Domain">Figure 11.1.1</a>.
+
+          <figure class="plot" id="F_11_1_Domain"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_rect_domain.svg" alt=""><figcaption>Figure 11.1.1 — Rectangular domain \(R\) with subrectangles.</figcaption></figure>
+
+          
+
+          
+
+          To form a partition of the full rectangular region, \(R\), we will partition both intervals \([0,6]\) and \([2,4]\); in particular, we choose to partition the interval \([0,6]\) into three uniformly sized subintervals and the interval \([2,4]\) into two evenly sized subintervals as shown in <a href="#F_11_1_Domain">Figure 11.1.1</a>. In the following questions, we discuss how to identify the endpoints of each subinterval and the resulting subrectangles.
+        </p><ol type="a"><li><p>
+              Let \(0=x_0 \lt  x_1 \lt  x_2 \lt  x_3=6\) be the endpoints of the subintervals of \([0,6]\) after partitioning. What is the length \(\Delta x\) of each subinterval \([x_{i-1},x_i]\) for \(i\) from 1 to 3?
+            </p></li><li><p>
+              Explicitly identify \(x_0\), \(x_1\), \(x_2\), and \(x_3\). On <a href="#F_11_1_Domain">Figure 11.1.1</a> or your own version of the diagram, label these endpoints.
+            </p></li><li><p>
+              Let \(2=y_0 \lt  y_1 \lt  y_2=4\) be the endpoints of the subintervals of \([2,4]\) after partitioning. What is the length \(\Delta y\) of each subinterval \([y_{j-1},y_j]\) for \(j\) from 1 to 2? Identify \(y_0\), \(y_1\), and \(y_2\) and label these endpoints on <a href="#F_11_1_Domain">Figure 11.1.1</a>.
+            </p></li><li><p>
+              Let \(R_{ij}\) denote the subrectangle \([x_{i-1},x_i] \times [y_{j-1},y_j]\).  Appropriately label each subrectangle in your drawing of <a href="#F_11_1_Domain">Figure 11.1.1</a>.  How does the total number of subrectangles depend on the partitions of the intervals \([0,6]\) and \([2,4]\)?
+            </p></li><li><p>
+              What is area \(\Delta A\) of each subrectangle?
+            </p></li></ol></li></ol></div></div>
+<h2 id="double-riemann-sums-over-rectangles">Double Riemann Sums over Rectangles</h2>
+<p>
+      For the definite integral in single-variable calculus, we considered a continuous function over a closed, bounded interval \([a,b]\). In multivariable calculus, we will eventually develop the idea of a definite integral over a closed, bounded region (such as the interior of a circle). We begin with a simpler situation by thinking only about rectangular domains, and will address more complicated domains in <a href="11-3.html">Section 11.3</a>.
+    </p><p>
+      Let \(f = f(x,y)\) be a continuous function defined on a rectangular domain \(R = \{(x,y) : a \leq x \leq b, c \leq y \leq d\}\). As we saw in <a href="#PA_11_1">Preview Activity 11.1.1</a>, the domain is a rectangle \(R\) and we want to partition \(R\) into subrectangles. We do this by partitioning each of the intervals \([a,b]\) and \([c,d]\) into subintervals and using those subintervals to create a partition of \(R\) into subrectangles. In the first activity, we address the quantities and notations we will use in order to define double Riemann sums and double integrals.
+    </p><div class="card activity" id="A_11_1_1"><div class="ex-head"><span class="num">Activity 11.1.2</span></div><div class="ex-body"><p>
+        Let \(f(x,y) = 100 - x^2-y^2\) be defined on the rectangular domain \(R = [a,b] \times [c,d]\). Partition the interval \([a,b]\) into four uniformly sized subintervals and the interval \([c,d]\) into three evenly sized subintervals as shown in <a href="#F_11_1_Domain2">Figure 11.1.2</a>. As we did in <a href="#PA_11_1">Preview Activity 11.1.1</a>, we will need a method for identifying the endpoints of each subinterval and the resulting subrectangles.
+      </p><figure class="plot" id="F_11_1_Domain2"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_rect_general.svg" alt=""><figcaption>Figure 11.1.2 — Rectangular domain with subrectangles.</figcaption></figure><ol type="a"><li><p>
+            Let \(a=x_0 \lt  x_1 \lt  x_2 \lt  x_3 \lt  x_4 =b\) be the endpoints of the subintervals of \([a,b]\) after partitioning. Label these endpoints in <a href="#F_11_1_Domain2">Figure 11.1.2</a>.
+          </p></li><li><p>
+            What is the length \(\Delta x\) of each subinterval \([x_{i-1},x_i]\)? Your answer should be in terms of \(a\) and \(b\).
+          </p></li><li><p>
+            Let \(c=y_0 \lt  y_1 \lt  y_2 \lt  y_3 =d\) be the endpoints of the subintervals of \([c,d]\) after partitioning. Label these endpoints in <a href="#F_11_1_Domain2">Figure 11.1.2</a>.
+          </p></li><li><p>
+            What is the length \(\Delta y\) of each subinterval \([y_{j-1},y_j]\)? Your answer should be in terms of \(c\) and \(d\).
+          </p></li><li><p>
+            The partitions of the intervals \([a,b]\) and \([c,d]\) partition the rectangle \(R\) into subrectangles. How many subrectangles are there?
+          </p></li><li><p>
+            Let \(R_{ij}\) denote the subrectangle \([x_{i-1},x_i] \times [y_{j-1},y_j]\). Label each subrectangle in <a href="#F_11_1_Domain2">Figure 11.1.2</a>.
+          </p></li><li><p>
+            What is area \(\Delta A\) of each subrectangle?
+          </p></li><li><p>
+            Now let \([a,b] = [0,8]\) and \([c,d] = [2,6]\).  Let \((x_{11}^*,y_{11}^*)\) be the point in the upper right corner of the subrectangle \(R_{11}\). Identify and correctly label this point in <a href="#F_11_1_Domain2">Figure 11.1.2</a>. Calculate the product
+            \[
+              f(x_{11}^*,y_{11}^*) \Delta A.
+            \]
+            Explain, geometrically, what this product represents.
+          </p></li><li><p>
+            For each \(i\) and \(j\), choose a point \((x_{ij}^*,y_{ij}^*)\) in the subrectangle \(R_{i,j}\). Identify and correctly label these points in <a href="#F_11_1_Domain2">Figure 11.1.2</a>. Explain what the product
+            \[
+              f(x_{ij}^*,y_{ij}^*) \Delta A
+            \]
+            represents.
+          </p></li><li><p>
+          If we were to add all the values \(f(x_{ij}^*,y_{ij}^*) \Delta A\) for each \(i\) and \(j\), what does the resulting number approximate about the surface defined by \(f\) on the domain \(R\)? (You don't actually need to add these values.)
+        </p></li><li><p>
+            Write a double sum using summation notation that expresses the arbitrary sum from part (\(j\)).
+          </p></li></ol></div></div>
+<h2 id="double-riemann-sums-and-double-integrals">Double Riemann Sums and Double Integrals</h2>
+<p>
+      Now we use the process from the most recent activity to formally define double Riemann sums and double integrals.
+    </p><div class="card definition"><span class="chip">Definition</span><p>
+          Let \(f\) be a continuous function on a rectangle \(R = \{(x,y) : a \leq x \leq b, c \leq y \leq d\}\). A <em>double Riemann sum for \(f\) over \(R\)</em> is created as follows.
+          <ul><li><p>
+                Partition the interval \([a, b]\) into \(m\) subintervals of equal length \(\Delta x = \frac{b-a}{m}\). Let \(x_0\), \(x_1\), \(\ldots\), \(x_m\) be the endpoints of these subintervals, where \(a = x_0\lt x_1\lt x_2 \lt  \cdots \lt  x_m = b\).
+              </p></li><li><p>
+                Partition the interval \([c, d]\) into \(n\) subintervals of equal length \(\Delta y = \frac{d-c}{n}\). Let \(y_0\), \(y_1\), \(\ldots\), \(y_n\) be the endpoints of these subintervals, where \(c = y_0\lt y_1\lt y_2 \lt  \cdots \lt  y_n = d\).
+              </p></li><li><p>
+                These two partitions create a partition of the rectangle \(R\) into \(mn\) subrectangles \(R_{ij}\) with opposite vertices \((x_{i-1},y_{j-1})\) and \((x_i, y_j)\) for \(i\) between \(1\) and \(m\) and \(j\) between \(1\) and \(n\). These rectangles all have equal area \(\Delta A = \Delta x \cdot \Delta y\).
+              </p></li><li><p>
+                Choose a point \((x_{ij}^*, y_{ij}^*)\) in each rectangle \(R_{ij}\). Then, a double Riemann sum for \(f\) over \(R\) is given by
+                \[
+                  \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \cdot \Delta A.
+                \]
+              </p></li></ul>
+        </p></div><p>
+      If \(f(x,y) \geq 0\) on the rectangle \(R\), we may ask to find the volume
+      of the solid bounded above by \(f\) over
+      \(R\), as illustrated on the left of <a href="#F_11_1_volume">Figure 11.1.3</a>.
+      This volume is approximated by a
+      Riemann sum, which sums the volumes of the rectangular
+      boxes shown on the right of <a href="#F_11_1_volume">Figure 11.1.3</a>.
+    </p><figure class="plot" id="F_11_1_volume"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_volume.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_riemann_3_2.svg" alt=""></div></div><figcaption>Figure 11.1.3 — The volume under a graph approximated by a Riemann Sum.</figcaption></figure><p>
+      As we let the number of
+      subrectangles increase without bound (in other words, as both \(m\) and
+      \(n\) in a double Riemann sum go to infinity), as illustrated in
+      <a href="#F_11_1_rs">Figure 11.1.4</a>, the sum of the volumes of the rectangular boxes
+      approaches the volume of the solid bounded above by \(f\) over
+      \(R\). The value of this limit, provided it exists, is the double integral.
+    </p><figure class="plot" id="F_11_1_rs"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_riemann_4_4.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_riemann_8_8.svg" alt=""></div></div><figcaption>Figure 11.1.4 — Finding better approximations by using smaller subrectangles.</figcaption></figure><div class="card definition"><span class="chip">Definition</span><p>
+          Let \(R\) be a rectangular region in the \(xy\)-plane and \(f\) a continuous function over \(R\). With terms defined as in a double Riemann sum, the <em>double integral of \(f\) over \(R\)</em> is
+          \[
+            \iint_R f(x,y) \, dA = \lim_{m,n \to \infty} \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \cdot \Delta A.
+          \]
+        </p></div><p>
+    Some textbooks use the notation \(\int_R f(x,y) \, dA\) for a double integral. You will see this in some of the WeBWorK problems. 
+    </p>
+<h2 id="interpretation-of-double-riemann-sums-and-double-integrals-">Interpretation of Double Riemann Sums and Double integrals.</h2>
+<p>
+      At the moment, there are two ways we can interpret the value of the double integral.
+      <ul><li><p>
+            Suppose that \(f(x,y)\) assumes both positive and negatives
+              values on the rectangle \(R\), as shown on the left of <a href="#F_11_1_signed">Figure 11.1.5</a>.  When constructing a Riemann sum, for each \(i\) and \(j\), the product \(f(x_{ij}^*, y_{ij}^*) \cdot \Delta A\)
+            can be interpreted as a &ldquo;signed&rdquo; volume of a box with base area \(\Delta A\) and &ldquo;signed&rdquo; height \(f(x_{ij}^*, y_{ij}^*)\). Since \(f\) can have negative values, this &ldquo;height&rdquo; could be negative. The sum
+            \[
+              \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \cdot \Delta A
+            \]
+            can then be interpreted as a sum of &ldquo;signed&rdquo; volumes of boxes, with a
+            negative sign attached to those boxes whose heights are below the
+            \(xy\)-plane.
+
+            <figure class="plot" id="F_11_1_signed"><div class="figrow"><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_signed_graph.svg" alt=""></div><div class="figitem"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_signed_volume.svg" alt=""></div></div><figcaption>Figure 11.1.5 — The integral measures signed volume.</figcaption></figure>
+
+            We can then realize the double integral \(\iint_R
+            f(x,y) \, dA\) as a difference in volumes: \(\iint_R f(x,y) \, dA\) tells us
+            the volume of the solids the graph of \(f\) bounds above the \(xy\)-plane
+            over the rectangle \(R\) minus the volume of the solids the graph of \(f\)
+            bounds below the \(xy\)-plane under the rectangle \(R\).  This is shown on
+            the right of <a href="#F_11_1_signed">Figure 11.1.5</a>.
+          </p></li><li><p>
+            The average of the finitely many \(mn\) values \(f(x_{ij}^*, y_{ij}^*)\) that we take in a double Riemann sum is given by
+            \[
+              \text{Avg} _{mn} = \frac{1}{mn} \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*).
+            \]
+            If we take the limit as \(m\) and \(n\) go to infinity, we obtain what we define as the average value of \(f\) over the region \(R\), which is connected to the value of the double integral. First, to view \(\text{ Avg } _{mn}\) as a double Riemann sum, note that
+            \[
+              \Delta x = \frac{b-a}{m} \ \ \ \ \ \text{ and }  \ \ \ \ \ \Delta y = \frac{d-c}{n}.
+            \]
+            Thus,
+            \[
+              \frac{1}{mn} = \frac{\Delta x \cdot \Delta y}{(b-a)(d-c)} = \frac{\Delta A}{A(R)},
+            \]
+            where \(A(R)\) denotes the area of the rectangle \(R\). Then, the average value of the function \(f\) over \(R\), \(f_{\operatorname{AVG}(R)}\), is given by
+            \[\begin{aligned}f_{\operatorname{AVG}(R)} &amp;  = \lim_{m,n \to \infty} \frac{1}{mn} \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \\
+&amp;  = \lim_{m,n \to \infty} \frac{1}{A(R)} \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \cdot \Delta A \\
+&amp;  = \frac{1}{A(R)} \iint_R f(x,y) \, dA.\end{aligned}\]
+            Therefore, the double integral of \(f\) over \(R\) divided by the area of \(R\) gives us the average value of the function \(f\) on \(R\). Finally, if \(f(x, y) \geq  0\) on \(R\), we can interpret this average value of \(f\) on \(R\) as the height of the box with base \(R\) that has the same volume as the volume of the surface defined by \(f\) over \(R\).
+          </p></li></ul>
+    </p><div class="card activity" id="A_11_1_2"><div class="ex-head"><span class="num">Activity 11.1.3</span></div><div class="ex-body"><p>
+        Let \(f(x,y) = x+2y\) and let \(R = [0,2] \times [1,3]\).
+        <ol type="a"><li><p>
+              Draw a picture of \(R\). Partition \([0,2]\) into 2 subintervals of equal length and the interval \([1,3]\) into two subintervals of equal length. Draw these partitions on your picture of \(R\) and label the resulting subrectangles using the labeling scheme we established in the definition of a double Riemann sum.
+            </p></li><li><p>
+              For each \(i\) and \(j\), let \((x_{ij}^*, y_{ij}^*)\) be the midpoint of the rectangle \(R_{ij}\). Identify the coordinates of each \((x_{ij}^*, y_{ij}^*)\). Draw these points on your picture of \(R\).
+            </p></li><li><p>
+              Calculate the Riemann sum
+              \[
+                \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \cdot \Delta A
+              \]
+              using the partitions we have described. If we let \((x_{ij}^*, y_{ij}^*)\) be the midpoint of the rectangle \(R_{ij}\) for each \(i\) and \(j\), then the resulting Riemann sum is called a <em>midpoint sum</em>.
+            </p></li><li><p>
+              Give two interpretations for the meaning of the sum you just calculated.
+            </p></li></ol>
+      </p></div></div><div class="card activity" id="A_11_1_3"><div class="ex-head"><span class="num">Activity 11.1.4</span></div><div class="ex-body"><p>
+        Let \(f(x,y) = \sqrt{4-y^2}\) on the rectangular domain \(R = [1,7] \times [-2,2]\). Partition \([1,7]\) into 3 equal length subintervals and \([-2,2]\) into 2 equal length subintervals. A table of values of \(f\) at some points in \(R\) is given in <a href="#DI_11_1_TOV">Table 11.1.6</a>, and a graph of \(f\) with the indicated partitions is shown in <a href="#F_11_1_DI_example">Figure 11.1.7</a>.
+      </p><div class="figrow"><div class="figitem"><div class="tablewrap-outer" id="DI_11_1_TOV"><div class="tablewrap"><table class="data gridlines"><tr><td></td><td><p>\(-2\)</p></td><td><p>\(-1\)</p></td><td><p>\(0\)</p></td><td><p>\(1\)</p></td><td><p>\(2\)</p></td></tr><tr><td><p>
+              \(1\)</p></td><td><p>\(0\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(2\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(0\)</p></td></tr><tr><td><p>\(2\)</p></td><td><p>\(0\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(2\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(0\)</p></td></tr><tr><td><p>\(3\)</p></td><td><p>\(0\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(2\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(0\)</p></td></tr><tr><td><p>\(4\)</p></td><td><p>\(0\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(2\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(0\)</p></td></tr><tr><td><p>\(5\)</p></td><td><p>\(0\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(2\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(0\)</p></td></tr><tr><td><p>\(6\)</p></td><td><p>\(0\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(2\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(0\)</p></td></tr><tr><td><p>\(7\)</p></td><td><p>\(0\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(2\)</p></td><td><p>\(\sqrt{3}\)</p></td><td><p>\(0\)</p></td></tr></table></div><p class="tablecap">Table 11.1.6 — Table of values of \(f(x,y) =  \sqrt{4-y^2}\).</p></div></div><div class="figitem"><figure class="plot" id="F_11_1_DI_example"><img src="https://raw.githubusercontent.com/StevenSchlicker/AC3PreTeXt/master/src/images/fig_11_1_cylinder.svg" alt=""><figcaption>Figure 11.1.7 — Graph of \(f(x,y) =  \sqrt{4-y^2}\) on \(R\).</figcaption></figure></div></div><ol type="a"><li><p>
+            Sketch the region \(R\) in the plane using the values in <a href="#DI_11_1_TOV">Table 11.1.6</a> as the partitions. 
+          </p></li><li><p>
+            Calculate the double Riemann sum using the given partition of \(R\) and the values of \(f\) in the upper right corner of each subrectangle.
+          </p></li><li><p>
+            Use geometry to calculate the exact value of \(\iint_R f(x,y) \, dA\) and compare it to your approximation. Describe one way we could obtain a better approximation using the given data.  
+          </p></li></ol></div></div><p>
+      We conclude this section with a list of properties of double integrals. Since similar properties are satisfied by single-variable integrals and the arguments for double integrals are essentially the same, we omit their justification.
+    </p><div class="card callout" id="Double-integral-properties"><span class="chip">Properties of Double Integrals</span><p>
+      Let \(f\) and \(g\) be continuous functions on a rectangle \(R = \{(x,y) : a \leq x \leq b, c \leq y \leq d\}\), and let \(k\) be a constant. Then
+      <ol><li><p>
+            \(\iint_R (f(x,y) + g(x,y)) \, dA = \iint_R f(x,y) \, dA + \iint_R g(x,y) \, dA\).
+          </p></li><li><p>
+            \(\iint_R kf(x,y) \, dA = k \iint_R f(x,y) \, dA\).
+          </p></li><li><p>
+            If \(f(x,y) \geq g(x,y)\) on \(R\), then \(\iint_R f(x,y) \, dA \geq \iint_R g(x,y) \, dA\).
+          </p></li></ol>
+    </p></div>
+<h2 id="summary">Summary</h2>
+<ul><li><p>
+        Let \(f\) be a continuous function on a rectangle \(R = \{(x,y) : a \leq x \leq b, c \leq y \leq d\}\). The double Riemann sum for \(f\) over \(R\) is created as follows.
+        <ul><li><p>
+              Partition the interval \([a, b]\) into \(m\) subintervals of equal length \(\Delta x = \frac{b-a}{m}\). Let \(x_0\), \(x_1\), \(\ldots\), \(x_m\) be the endpoints of these subintervals, where \(a = x_0\lt x_1\lt x_2 \lt  \cdots \lt  x_m = b\).
+            </p></li><li><p>
+              Partition the interval \([c, d]\) into \(n\) subintervals of equal length \(\Delta y = \frac{d-c}{n}\). Let \(y_0\), \(y_1\), \(\ldots\), \(y_n\) be the endpoints of these subintervals, where \(c = y_0\lt y_1\lt y_2 \lt  \cdots \lt  y_n = d\).
+            </p></li><li><p>
+              These two partitions create a partition of the rectangle \(R\) into \(mn\) subrectangles \(R_{ij}\) with opposite vertices \((x_{i-1},y_{j-1})\) and \((x_i, y_j)\) for \(i\) between \(1\) and \(m\) and \(j\) between \(1\) and \(n\). These rectangles all have equal area \(\Delta A = \Delta x \cdot \Delta y\).
+            </p></li><li><p>
+              Choose a point \((x_{ij}^*, y_{ij}^*)\) in each rectangle \(R_{ij}\). Then a double Riemann sum for \(f\) over \(R\) is given by
+              \[
+                \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \cdot \Delta A.
+              \]
+            </p></li></ul>
+      </p></li><li><p>
+        With terms defined as in the Double Riemann Sum, the double integral of \(f\) over \(R\) is
+        \[
+          \iint_R f(x,y) \, dA = \lim_{m,n \to \infty} \sum_{j=1}^n \sum_{i=1}^m f(x_{ij}^*, y_{ij}^*) \cdot \Delta A.
+        \]
+      </p></li><li><p>
+        Two interpretations of the double integral \(\iint_R f(x,y) \, dA\) are:
+        <ul><li><p>
+              The volume of the solids the graph of \(f\) bounds above the \(xy\)-plane over the rectangle \(R\) minus the volume of the solids the graph of \(f\) bounds below the \(xy\)-plane under the rectangle \(R\);
+            </p></li><li><p>
+              Dividing the double integral of \(f\) over \(R\) by the area of \(R\) gives us the average value of the function \(f\) on \(R\). If \(f(x, y) \geq  0\) on \(R\), we can interpret this average value of \(f\) on \(R\) as the height of the box with base \(R\) that has the same volume as the volume of the surface defined by \(f\) over \(R\).
+            </p></li></ul>
+      </p></li></ul>
+<div id="exercise-panel-content"><h2 id="exercises-1">Exercises</h2><div class="exercise" id="ex-11-1-WW-polynoimial"><div class="n">1</div><div class="body"><p>Suppose \(f(x,y) = 1-x^{2}-y^{2}\) and \(R\) is the rectangle
+with vertices (0,0), (6,0), (6,4), (0,4).  In each part,
+estimate \(\displaystyle \iint\limits_R f(x,y) \, dA\)
+using Riemann sums.  For underestimates or overestimates, 
+consistently use either the lower left-hand corner or the upper
+right-hand corner of each rectangle in a subdivision, as 
+appropriate.</p><p>(a) Without subdividing \(R\),</p><p>Underestimate = <span class="blank">________________________________________</span></p><p>Overestimate = <span class="blank">________________________________________</span></p><p>(b) By partitioning \(R\) into four equal-sized rectangles.</p><p>Underestimate = <span class="blank">________________________________________</span></p><p>Overestimate = <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-1224\), \(24\), \(-756\), \(-132\)</p></div></div></div></div><div class="exercise" id="ex-11-1-WW-9-squares"><div class="n">2</div><div class="body"><p>Consider the solid that lies above the square (in the \(xy\)-plane)
+\(R = [0, 1] \times [0, 1]\),
+ and below the elliptic paraboloid 
+\(z = 25 - x^2+ xy - 4 y^2\).</p><p>Estimate the volume by dividing \(R\) into 9 equal squares and choosing the
+sample points to lie in the midpoints of each square.</p><p><span class="blank">__________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(23.6296296296296\)</p></div></div></div></div><div class="exercise" id="ex-11-1-WW-radical"><div class="n">3</div><div class="body"><p>Let \(R\) be the rectangle with vertices
+\((0,0)\), \((2,0)\), \((2,2)\), and
+\((0,2)\) and let \(f(x,y) = \sqrt{3xy}\).</p><p><em>(a)</em>
+Find reasonable upper and lower bounds for \(\int_{R}f\,dA\)
+without subdividing \(R\).</p><p>upper bound = <span class="blank">_______________</span></p><p>lower bound = <span class="blank">_______________</span></p><p><em>(b)</em>
+Estimate \(\int_{R}f\,dA\) three ways: by partitioning \(R\) into
+four subrectangles and evaluating \(f\) at its maximum and minimum
+values on each subrectangle, and then by considering the average of
+these (over and under) estimates.</p><p>overestimate: \(\int_{R}f\,dA \approx\) <span class="blank">_______________________________________________________</span></p><p>underestimate: \(\int_{R}f\,dA \approx\) <span class="blank">_______________________________________________________</span></p><p>average: \(\int_{R}f\,dA \approx\) <span class="blank">_______________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(4\sqrt{3\cdot 2\cdot 2}\), \(0\), \(\frac{4}{4}\mathopen{}\left(\sqrt{\frac{3\cdot 4}{4}}+2\sqrt{\frac{3\cdot 4}{2}}+\sqrt{3\cdot 4}\right)\), \(\frac{4}{4}\sqrt{\frac{3\cdot 4}{4}}\), \(\frac{4}{8}\mathopen{}\left(2\sqrt{\frac{3\cdot 4}{4}}+2\sqrt{\frac{3\cdot 4}{2}}+\sqrt{3\cdot 4}\right)\)</p></div></div></div></div><div class="exercise" id="ex-11-1-WW-bounds-2"><div class="n">4</div><div class="body"><p>Using Riemann sums with four subdivisions in each direction,
+find upper and lower bounds
+for the volume under the graph of
+\(f(x,y) = 2+3xy\) above the rectangle \(R\)
+with \(0\le x\le 1,\quad 0\le y \le 5\).</p><p>upper bound = <span class="blank">_______________________________________________________</span></p><p>lower bound = <span class="blank">_______________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0.25\cdot 1.25\cdot 125.75\), \(0.25\cdot 1.25\cdot 65.75\)</p></div></div></div></div><div class="exercise" id="ex-11-1-WW-average"><div class="n">5</div><div class="body"><p>Consider the solid that lies above the square (in the xy-plane)
+\(R = [0, 2] \times [0, 2]\),</p><p>and below the elliptic paraboloid 
+\(z = 25 - x^{2} - 4y^2\).</p><p>(A) Estimate the volume by dividing R into 4 equal squares and choosing the
+sample points to lie in the lower left hand corners.</p><p><span class="blank">________________________________________</span></p><p>(B) Estimate the volume by dividing R into 4 equal squares and choosing the   
+sample points to lie in the upper right hand corners..</p><p><span class="blank">________________________________________</span></p><p>(C) What is the average of the two answers from (A) and (B)?</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(90\), \(50\), \(70\)</p></div></div></div></div><div class="exercise" id="ex-11-1-WW-contour"><div class="n">6</div><div class="body"><p>The figure below shows contours of \(g(x,y)\) on the region
+\(R\), with \(3 \le x\le 9\) and \(6 \le y\le 12\).</p><img src="data:image/png;base64,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" alt=""><p>Using \(\Delta x = \Delta y =2\), find an overestimate and an
+underestimate for \(\int_R g(x,y)\, dA\).</p><p>Overestimate = <span class="blank">_______________________________________________________</span></p><p>Underestimate = <span class="blank">_______________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\left(2+3+4+3+4+5+4+5+6\right)\cdot 2\cdot 2\), \(\left(0+0+0+0+2+2+0+2+4\right)\cdot 2\cdot 2\)</p></div></div></div></div><div class="exercise" id="ex-11-1-WW-temperature"><div class="n">7</div><div class="body"><p>The figure below shows the distribution of temperature, in
+degrees C, in a 5 meter by 5 meter heated room.</p><img src="data:image/png;base64,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" alt=""><p>Using Riemann sums, estimate the average temperature in the room.</p><p>average temperature = <span class="blank">_______________________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{592+546}{50}\)</p></div></div></div></div><div class="exercise" id="ex-11-1-WW-table"><div class="n">8</div><div class="body"><p>Values of \(f(x,y)\) are given in the table below.  Let \(R\) be the rectangle \(1 \leq x \leq 1.6, 2 \leq y \leq 3.2\). Find a Riemann sum which is a reasonable estimate for \(\int_R f(x,y) \, da\) with \(\Delta x = 0.2\) and \(\Delta y = 0.4\).  Note that the values given in the table correspond to midpoints.</p><p>\[\begin{array}{|c || c|c|c|}
+\hline
+y \backslash x &amp;  1.1 &amp;  1.3 &amp;  1.5 \\ \hline \hline
+2.2 &amp;  -4 &amp;  7 &amp;  -3 \\ \hline
+2.6 &amp;  9 &amp;  9 &amp;  1 \\ \hline
+3.0 &amp;  2 &amp;  9 &amp;  -3 \\ \hline
+\end{array}\]</p><p>\(\int_R f(x,y) \, da \approx\) <span class="blank">______________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(2.16\)</p></div></div></div></div><div class="exercise" id="ex-11-1-WW-table-over-under"><div class="n">9</div><div class="body"><p>Values of \(f(x,y)\) are shown in the table below.</p><div class="tablewrap"><table class="data gridlines"><tr><td></td><td><p>\(x = 1\)</p></td><td><p>\(x = 1.1\)</p></td><td><p>\(x = 1.2\)</p></td></tr><tr><td><p>\(y = 3\)</p></td><td><p>10</p></td><td><p>11</p></td><td><p>13</p></td></tr><tr><td><p>\(y = 3.3\)</p></td><td><p>11</p></td><td><p>12</p></td><td><p>15</p></td></tr><tr><td><p>\(y = 3.6\)</p></td><td><p>12</p></td><td><p>13</p></td><td><p>9</p></td></tr></table></div><p>Let \(R\) be the
+rectangle  \(1 \leq x \leq 1.2\),
+\(3 \leq y \leq 3.6\).  Find the values of Riemann
+sums which are reasonable over- and under-estimates for
+\(\int_R f(x,y) \,dA\) with \(\Delta x=0.1\) and \(\Delta y=0.3\).</p><p>over-estimate: <span class="blank">_________________________</span></p><p>under-estimate: <span class="blank">_________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(55\cdot 0.1\cdot 0.3\), \(41\cdot 0.1\cdot 0.3\)</p></div></div></div></div><div class="exercise"><div class="n">10</div><div class="body"><p>
+            The temperature at any point on a metal plate in the \(xy\) plane is given by \(T(x,y) = 100-4x^2 - y^2\), where \(x\) and \(y\) are measured in inches and \(T\) in degrees Celsius. Consider the portion of the plate that lies on the rectangular region \(R = [1,5] \times [3,6]\).
+            <ol type="a"><li><p>
+                  Estimate the value of \(\iint_R T(x,y) \, dA\) by using a double Riemann sum with two subintervals in each direction and choosing \((x_i^*, y_j^*)\) to be the point that lies in the upper right corner of each subrectangle.
+                </p></li><li><p>
+                  Determine the area of the rectangle \(R\).
+                </p></li><li><p>
+                  Estimate the average temperature, \(T_{\operatorname{AVG}(R)}\), over the region \(R\).
+                </p></li><li><p>
+                  Do you think your estimate in (c) is an over- or under-estimate of the true temperature?  Why?
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">11</div><div class="body"><p>
+            Let \(f\) be a function of independent variables \(x\) and \(y\) that is increasing in both the positive \(x\) and \(y\) directions on a rectangular domain \(R\). For each of the following situations, determine if the double Riemann sum of \(f\) over \(R\) is an overestimate or underestimate of the double integral \(\iint_R f(x,y) \, dA\), or if it impossible to determine definitively. Provide justification for your responses. 
+            <ol type="a"><li><p>
+                  The double Riemann sum of \(f\) over \(R\) where \(f\) is evaluated at the lower left point of each subrectangle.
+                </p></li><li><p>
+                  The double Riemann sum of \(f\) over \(R\) where \(f\) is evaluated at the upper right point of each subrectangle.
+                </p></li><li><p>
+                  The double Riemann sum of \(f\) over \(R\) where \(f\) is evaluated at the midpoint of each subrectangle.
+                </p></li><li><p>
+                  The double Riemann sum of \(f\) over \(R\) where \(f\) is evaluated at the lower right point of each subrectangle.
+                </p></li></ol>
+          </p></div></div><div class="exercise"><div class="n">12</div><div class="body"><p>
+            The wind chill, as frequently reported, is a measure of how cold it feels outside when the wind is blowing. In <a href="#T_11_1_Ex_wind_chill">Table 11.1.8</a>, the wind chill \(w=w(v,T)\), measured in degrees Fahrenheit, is a function of the wind speed \(v\), measured in miles per hour, and the ambient air temperature \(T\), also measured in degrees Fahrenheit. Approximate the average wind chill on the rectangle \([5,35] \times [-20,20]\) using 3 subintervals in the \(v\) direction, 4 subintervals in the \(T\) direction, and the point in the lower left corner in each subrectangle.
+          </p><div class="tablewrap-outer" id="T_11_1_Ex_wind_chill"><div class="tablewrap"><table class="data gridlines"><tr><td class="diag"><span class="colvar">\(T\)</span><span class="rowvar">\(v\)</span></td><td><p>\(-20\)</p></td><td><p>\(-15\)</p></td><td><p>\(-10\)</p></td><td><p>\(-5\)</p></td><td><p>\(0\)</p></td><td><p>\(5\)</p></td><td><p>\(10\)</p></td><td><p>\(15\)</p></td><td><p>\(20\)</p></td></tr><tr><td><p>\(5\)</p></td><td><p>\(-34\)</p></td><td><p>\(-28\)</p></td><td><p>\(-22\)</p></td><td><p>\(-16\)</p></td><td><p>\(-11\)</p></td><td><p>\(-5\)</p></td><td><p>\(1\)</p></td><td><p>\(7\)</p></td><td><p>\(13\)</p></td></tr><tr><td><p>\(10\)</p></td><td><p>\(-41\)</p></td><td><p>\(-35\)</p></td><td><p>\(-28\)</p></td><td><p>\(-22\)</p></td><td><p>\(-16\)</p></td><td><p>\(-10\)</p></td><td><p>\(-4\)</p></td><td><p>\(3\)</p></td><td><p>\(9\)</p></td></tr><tr><td><p>\(15\)</p></td><td><p>\(-45\)</p></td><td><p>\(-39\)</p></td><td><p>\(-32\)</p></td><td><p>\(-26\)</p></td><td><p>\(-19\)</p></td><td><p>\(-13\)</p></td><td><p>\(-7\)</p></td><td><p>\(0\)</p></td><td><p>\(6\)</p></td></tr><tr><td><p>\(20\)</p></td><td><p>\(-48\)</p></td><td><p>\(-42\)</p></td><td><p>\(-35\)</p></td><td><p>\(-29\)</p></td><td><p>\(-22\)</p></td><td><p>\(-15\)</p></td><td><p>\(-9\)</p></td><td><p>\(-2\)</p></td><td><p>\(4\)</p></td></tr><tr><td><p>\(25\)</p></td><td><p>\(-51\)</p></td><td><p>\(-44\)</p></td><td><p>\(-37\)</p></td><td><p>\(-31\)</p></td><td><p>\(-24\)</p></td><td><p>\(-17\)</p></td><td><p>\(-11\)</p></td><td><p>\(-4\)</p></td><td><p>\(3\)</p></td></tr><tr><td><p>\(30\)</p></td><td><p>\(-53\)</p></td><td><p>\(-46\)</p></td><td><p>\(-39\)</p></td><td><p>\(-33\)</p></td><td><p>\(-26\)</p></td><td><p>\(-19\)</p></td><td><p>\(-12\)</p></td><td><p>\(-5\)</p></td><td><p>\(1\)</p></td></tr><tr><td><p>\(35\)</p></td><td><p>\(-55\)</p></td><td><p>\(-48\)</p></td><td><p>\(-41\)</p></td><td><p>\(-34\)</p></td><td><p>\(-27\)</p></td><td><p>\(-21\)</p></td><td><p>\(-14\)</p></td><td><p>\(-7\)</p></td><td><p>\(0\)</p></td></tr></table></div><p class="tablecap">Table 11.1.8 — Wind chill as a function of wind speed and temperature.</p></div></div></div><div class="exercise"><div class="n">13</div><div class="body"><p>
+            Consider the box with a sloped top that is given by the following description: the base is the rectangle \(R = [0,4] \times [0,3]\), while the top is given by the plane \(z = p(x,y) = 20 - 2x - 3y\).
+            <ol type="a"><li><p>
+                  Estimate the value of \(\iint_R p(x,y) \, dA\) by using a double Riemann sum with four subintervals in the \(x\) direction and three subintervals in the \(y\) direction, and choosing \((x_i^*, y_j^*)\) to be the point that is the midpoint of each subrectangle.
+                </p></li><li><p>
+                  What important quantity does your double Riemann sum in (a) estimate?
+                </p></li><li><p>
+                  Suppose it can be determined that \(\iint_R p(x,y) \, dA = 138\).  What is the exact average value of \(p\) over \(R\)?
+                </p></li><li><p>
+                  If you wanted to build a rectangular box (with the same base) that has the same volume as the box with the sloped top described here, how tall would the rectangular box have to be?
+                </p></li></ol>
+          </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>
