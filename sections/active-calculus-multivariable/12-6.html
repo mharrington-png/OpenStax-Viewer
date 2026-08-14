@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Divergence of a Vector Field · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">The Divergence of a Vector Field</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.6</span>The Divergence of a Vector Field</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>How can you measure where a vector field's strength is increasing or decreasing?
+      </p></li><li><p>
+       What does the divergence of a vector field measure and how can you visually estimate whether the divergence of a vector field is positive or negative?
+      </p></li></ul></div>
+<p>
+    As we saw in <a href="12-1.html">Section 12.1</a>, there are many physical and theoretical representations for vector fields. A natural question is &ldquo;Where exactly is the vector field created?&rdquo; With the vector field in <a href="#fig_Vector_Div_vf1">Figure 12.6.1</a>, imagine sketching a curve that follows the direction of the vector field by treating the vectors in the vector field as tangent vectors to your curve. No matter where you start, you should observe that the vector field decreases in strength as you move along the flow. We wish to understand (as a function of position), how much of the vector field is created (or destroyed) at a given location.
+  </p><figure class="plot" id="fig_Vector_Div_vf1"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Vector_Div_vf1.svg" alt=""><figcaption>Figure 12.6.1 — A vector field with changing strength</figcaption></figure><div class="card activity preview" id="PA_Vector_Div"><div class="ex-head"><span class="num">Preview Activity 12.6.1</span></div><div class="ex-body"><p>
+        In this preview activity, we will look at several two-dimensional vector fields and try to assess when the vector field has increased or decreased in strength over a given region. We begin with graphs of the three vector fields, \(\vF\), \(\vG\), and \(\vH\). Parts <a href="#task_PA_Vector_Div_InOut">here</a>, <a href="#task_PA_Vector_Div_CreateDestroy">here</a>, and <a href="#task_PA_Vector_Div_Smaller">here</a> ask you to answer the same three questions about the vector field and square illustrated in each of the figures. <a href="#task_PA_Vector_Div_P4P5P6">Part</a> asks you to think further about the third vector field.
+      </p><figure class="plot" id="fig_Vector_Div_PA_vf1"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_PA_div_xy_field.svg" alt=""><figcaption>Figure 12.6.2 — Vector Field \(\vF\)</figcaption></figure><figure class="plot" id="fig_Vector_Div_PA_vf2"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_PA_div_xy_field2.svg" alt=""><figcaption>Figure 12.6.3 — Vector Field \(\vG\)</figcaption></figure><figure class="plot" id="fig_Vector_Div_PA_vf3"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_PA_div_-yx_field.svg" alt=""><figcaption>Figure 12.6.4 — Vector Field \(\vH\)</figcaption></figure><div class="part" id="task_PA_Vector_Div_InOut"><span class="part-label">a)</span> <p>
+          For each of the vector fields \(\vF\), \(\vG\), and \(\vH\) and the square centered on \(P_1\), \(P_2\), and \(P_3\) (respectively), which statement do you think best applies?
+          <ol><li><p>More of the vector field is going into the square than going out. </p></li><li><p>Less of the vector field is going into the square than going out. </p></li><li><p>The same amount of the vector field is going into the square as is going out. </p></li></ol>
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          There is less of \(\vF\) going into the region around \(P_1\) than is going out. There is more of \(\vG\) going into the region around \(P_2\) than is going out. There is the same amount of \(\vH\) going into the region around \(P_3\) than is going out.
+        </p></div></div></div><div class="part" id="task_PA_Vector_Div_CreateDestroy"><span class="part-label">b)</span> <p>
+          For each of the vector fields \(\vF\), \(\vG\), and \(\vH\) (and corresponding square), does your answer to <a href="#task_PA_Vector_Div_InOut">part</a> suggest that the vector field is being created, destroyed, or is unchanging in strength inside the square? Write a sentence to explain your thinking for each vector field.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          Because there is less of \(\vF\) going into the region around \(P_1\) than is going out, this suggests that \(vF\) is being destroyed around \(P_1\). Because there is more of \(\vG\) going into the region around \(P_2\) than is going out, this suggests that \(vG\) is being created around \(P_2\). Because there is the same amount of \(\vH\) going into the region around \(P_3\) than is going out, this suggests that \(vH\) is not changing stength around \(P_3\). 
+        </p></div></div></div><div class="part" id="task_PA_Vector_Div_Smaller"><span class="part-label">c)</span> <p>
+          Would the answer to parts <a href="#task_PA_Vector_Div_InOut">here</a> or <a href="#task_PA_Vector_Div_CreateDestroy">here</a> change if you used a smaller square centered on \(P_1\), \(P_2\), and \(P_3\) for the corresponding vector fields? Write a sentence to explain your thinking for each vector field.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          A smaller square would not change the argument to any of these questions. The vector field \(\vF\) will be larger on the top and right of \(P_1\) than on the bottom and left. The vector field \(\vG\) will be larger on the top, bottom, and left of \(P_2\) than on the right (which is the only boundary piece where \(\vG\) is flowing out of the region). The vector field \(\vH\) will have the same amount flowing in on the bottom and right as is flowing out on the top and left (regardless of size of the square).
+        </p></div></div></div><div class="part" id="task_PA_Vector_Div_P4P5P6"><span class="part-label">d)</span> <p>
+          Thinking now only about the vector field \(\vH\), would your answers to parts <a href="#task_PA_Vector_Div_InOut">here</a>, <a href="#task_PA_Vector_Div_CreateDestroy">here</a>, or <a href="#task_PA_Vector_Div_Smaller">here</a> change if you considered squares around points \(P_4\), \(P_5\), or \(P_6\)? Write a couple of sentences to explain your thinking.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          For all points shown and regardless of size of the square used, the vector field \(\vH\) will have the same amount flowing in and out of the square. This is because \(\vH\) has a purely rotational aspect, so the amount rotation into a given square will be exactly matched by an amount rotation out on the opposite side.
+        </p></div></div></div></div></div>
+<h2 id="SS_Vector_Div_Defn">Definition of the Divergence of a Vector Field</h2>
+<p>
+    We begin this subsection by stating a definition that captures analytically the ideas you reasoned aboug geometrically in <a href="#PA_Vector_Div">Preview Activity 12.6.1</a>. After the statement of the definition, we discuss what it means.
+  </p><div class="card definition" id="defn_Div"><span class="chip">Definition</span><p>
+      The <em>divergence of a vector field</em>
+      \[\vF(x,y)=\langle F_1(x,y),F_2(x,y), F_3(x,y)\rangle\]
+      is given by
+      \[
+        \divg(\vF)=\frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z}
+      \].
+      In two dimensions, the definition is analogous by omiting the third term.
+    </p></div><div class="card callout"><span class="chip">Alternative Notation for Divergence</span><p>
+    In other sources you may see the divergence written using a dot product as \(\divg(\vF) = \nabla\cdot \vF\).
+    
+    This notation is very compact and works well with the understanding that the del operator \(\nabla = \langle
+    \frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\rangle\) is a function that operates on other functions. However, this notation can also be confusing because of its emphasis on computation rather than conceptual understanding. In this text, we will not generally write the divergence using the del operator.
+  </p></div><div class="card example"><div class="ex-head"><span class="num">Example 12.6.1</span></div><div class="ex-body"><p>
+    Let \(\vF=\langle x, y \rangle\). Then \[\divg(\vF)= \dfrac{\partial}{\partial x} (x)+ \dfrac{\partial}{\partial y} (y) = 1+1=2\]. From our conceptual description above, \(\divg(\vF)\) being positive means that our vector field is increasing in strength. Since the divergence of \(\vF\) does not have a dependence on the input point, that means the vector field is increasing in strength, regardless of which point we consider. In the interactive element below, you can change the point you would like plotted and the size of the region around the point. You should see that regardless of what point you select or how small you make the region around the point, there will be more of the vector field flowing out of the region than in.
+  </p><figure class="plot" id="fig_div_ex1"><div class="sage-interactive" id="sage_div_interact1"><div class="sage-embed"><script type="text/x-sage">var('t,x,y')
+F=(x,y)
+@interact
+def _(a=input_box(default=1,label="x-coordinate",width=30),b=input_box(default=-1,label="y-coordinate",width=30),r=input_box(default=0.5,label="radius of region",width=30)):
+  plot1=plot_vector_field(F,(x,a-3*r,a+3*r),(y,b-3*r,b+3*r),color='blue')
+  plot1+=point((a,b),color='black',size=30)+parametric_plot((a+r*cos(t),b+r*sin(t)),(t,0,2*pi), color='black',thickness=2)
+  show(plot1)</script></div></div><figcaption>Figure 12.6.5 — An interactive plot of \(\vF=\langle x,y\rangle\) with point \((a,b)\) and region plotted</figcaption></figure></div></div><div class="card example"><div class="ex-head"><span class="num">Example 12.6.2</span></div><div class="ex-body"><p>
+    Let \(\vG=\langle y,-x \rangle\). We can compute that \[\divg(\vG)= \dfrac{\partial}{\partial x} (y)+ \dfrac{\partial}{\partial y} (-x) = 0\]. From our conceptual description of divergence, \(\divg(\vG)\) being zero means that our vector field is not changing in strength. Since the divergence of \(\vG\) does not have a dependence on the input point, that means the vector field is not changing in strength, regardless of which point we consider.
+    </p><p>In the interactive element below, you can change the point you would like plotted and the size of the region around the point. You should see that regardless of what point you select or how small you make the region around the point, there will be exactly as much of the vector field flowing into the region as is flowing out (on the other side).
+  </p><figure class="plot" id="fig_div_ex2"><div class="sage-interactive" id="sage_div_interact2"><div class="sage-embed"><script type="text/x-sage">var('t,x,y')
+F=(y,-x)
+@interact
+def _(a=input_box(default=1,label="x-coordinate",width=30),b=input_box(default=-1,label="y-coordinate",width=30),r=input_box(default=0.5,label="radius of region",width=30)):
+  plot1=plot_vector_field(F,(x,a-3*r,a+3*r),(y,b-3*r,b+3*r),color='blue')
+  plot1+=point((a,b),color='black',size=30)+parametric_plot((a+r*cos(t),b+r*sin(t)),(t,0,2*pi), color='black',thickness=2)
+  show(plot1)</script></div></div><figcaption>Figure 12.6.6 — An interactive plot of \(\vG=\langle y,-x \rangle\) with point \((a,b)\) and region plotted</figcaption></figure></div></div><div class="card example"><div class="ex-head"><span class="num">Example 12.6.3</span></div><div class="ex-body"><p>
+    Let \(\vH=\langle x^2-y,y^2-x \rangle\), which means that \[\divg(\vH)= \dfrac{\partial}{\partial x} (x^2-y)+ \dfrac{\partial}{\partial y} (y^2-x) = 2x+2y\]. In constrast to the previous examples, you can see that the value of divergence of \(\vH\) will depend on the input point choosen. For instance, \(\divg(\vH)\) will be \(4\) at the point \((1,1)\). This means that for a small region around \((1,1)\) there should be more of the vector field flowing out of the region than into it. Use the interactive element below to verify this.
+  </p><figure class="plot" id="fig_div_ex3"><div class="sage-interactive" id="sage_div_interact3"><div class="sage-embed"><script type="text/x-sage">var('t,x,y')
+F=(x^2-y,y^2-x)
+@interact
+def _(a=input_box(default=1.5,label="x-coordinate",width=30),b=input_box(default=-1.5,label="y-coordinate",width=30),r=input_box(default=0.5,label="radius of region",width=30)):
+  plot1=plot_vector_field(F,(x,a-3*r,a+3*r),(y,b-3*r,b+3*r),color='blue')
+  plot1+=point((a,b),color='black',size=30)+parametric_plot((a+r*cos(t),b+r*sin(t)),(t,0,2*pi), color='black',thickness=2)
+  show(plot1)</script></div></div><figcaption>Figure 12.6.7 — An interactive plot of \(\vH=\langle x^2-y,y^2-x\rangle\) with point \((a,b)\) and region plotted</figcaption></figure><p>
+    The divergence of \(\vH\) at the point \((-1,1)\) will be zero. If you look at this point in <a href="#fig_div_ex3">Figure 12.6.7</a>, you will see that there is exactly as much of the vector field flowing into the region around \((-1,1)\) as is flowing out.
+  </p><p>
+    The divergence of \(\vH\) at the point \((-2,0)\) is \(-4\). This should mean that there is more of the vector field flowing into the region around \((-2,0)\) than is flowing out. You should be able to see how difference regions of the \(xy\)-plane will have different values for \(\divg(\vH)\).
+  </p></div></div><p>
+    Another way to &ldquo;see&rdquo; divergence on a vector field plot is to look at what happens to the magnitude of vectors as you move along the flow of the vector field. If the vector field is increasing in magnitude as you move along the flow of a vector field, then the divergence is positive. If the vector field is decreasing in magnitude as you move along the flow of a vector field, then the divergence is negative. If the vector field does
+      not change in magnitude as you move along the flow of the vector field, then the divergence is zero. Also, remember that the divergence of a vector field is often a variable quantity and will change depending on location. The next activity asks you to graphically examine the divergence of three vector fields.
+  </p><div class="card activity" id="act_Vector_Div_Graphical"><div class="ex-head"><span class="num">Activity 12.6.2</span></div><div class="ex-body"><div class="part" id="task_act_Vector_Div_Graphical_-x-y"><span class="part-label">a)</span> <p>
+          For this part of the activity, consider the vector field \(\vF\) shown in <a href="#fig_Vector_Div_GraphicalAct_vf1">Figure 12.6.8</a>.
+        </p><figure class="plot" id="fig_Vector_Div_GraphicalAct_vf1"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Div_activity_-x-y.svg" alt=""><figcaption>Figure 12.6.8 — Vector field \(\vF\)</figcaption></figure><div class="part"><span class="part-label">i)</span> <p>
+            Draw a circle in the first quadrant of the vector field \(\vF\) depicted in <a href="#fig_Vector_Div_GraphicalAct_vf1">Figure 12.6.8</a>. Based on the flow of the vector field into or out of the circle, do you think the vector field is increasing in strength, decreasing in strength, or not changing in overall strength in the first quadrant?
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            Putting a circle in the first quadrant, you will see that longer vectors are entering the circle from the top and right than are leaving the circle from the left and bottom. This is true regardless of where you put the circle. Thus, there is more of the vector field entering than leaving the circle and we can conclude the vector field is decreasing in strength in the first quadrant.
+          </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>
+            As you move along the flow of the vector field in the first quadrant of <a href="#fig_Vector_Div_GraphicalAct_vf1">Figure 12.6.8</a>, does your vector field increase in magnitude, decrease in magnitude, or have constant magnitude?
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            The lengths of the vectors in \(\vF\) are decreasing as you move toward the origin (which corresponds to the direction of flow).
+          </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>
+            Draw a circle in each of quadrants II, III, and IV. Based on the flow of the vector field into or out of your circles, do you think the vector field is increasing in strength, decreasing in strength, or not changing in overall strength in quadrants II, III, and IV?
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            The same argument as from part (i) applies since more of \(\vF\) enters on the sides opposite of the origin than leaves on the side towards the origin. 
+          </p></div></div></div><div class="part"><span class="part-label">iv)</span> <p>
+            As you move along the flow of the vector field in the third quadrant of <a href="#fig_Vector_Div_GraphicalAct_vf1">Figure 12.6.8</a>, does your vector field increase in magnitude, decrease in magnitude, or have constant magnitude.
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            The lengths of the vectors in \(\vF\) are decreasing as you move toward the origin (which corresponds to the direction of flow).
+          </p></div></div></div><div class="part"><span class="part-label">v)</span> <p>
+            Based on your arguments above, describe why the divergence of \(\vF\) is negative for all points in the \(xy\)-plane.
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            At all points in the plane, there is more of \(\vF\) entering the neighborhood of the point than is leaving the neighborhood. Therefore, the divergence of \(\vF\) is negative for all points in the plane.
+          </p></div></div></div></div><div class="part" id="task_act_Vector_Div_Graphical_yx"><span class="part-label">b)</span> <p>
+          Look at the plot of the vector field \(\vG\) in <a href="#fig_Vector_Div_GraphicalAct_vf2">Figure 12.6.9</a> and state
+          whether you think the vector field is increasing in strength, decreasing in strength, or not changing in overall strength in each of the four quadrants. You can make your argument in terms of the change in magnitude along the flow of the vector field or in terms of the net flow into or out of a small region on the plane. You may need to make separate arguments for each of the four quadrants.
+        </p><figure class="plot" id="fig_Vector_Div_GraphicalAct_vf2"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Div_activity_yx.svg" alt=""><figcaption>Figure 12.6.9 — Vector field \(\vG\)</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+          If you look at the figure below, you can see that a careful examination of the amount of the vector field entering and leaving a circle is balanced, regardless of where you put your circle. This is a bit subtle but you have to look at the total amount of vector field entering the region and not just the length of the vectors. A small amount entering over a larger length of boundary can cancel out a set of longer vectors leaving the region through a short segment of the boundary.
+        </p><div class="card flag"><span class="chip">Image not available statically</span></div></div></div></div><div class="part" id="task_act_Vector_Div_Graphical_xy1x"><span class="part-label">c)</span> <p>
+          Look at the plot of the vector field \(\vH\) in <a href="#fig_Vector_Div_GraphicalAct_vf3">Figure 12.6.10</a> below and state whether you think the vector field is increasing in strength, decreasing in strength, or not changing in overall strength in each of the four quadrants. You can make your argument in terms of the change in magnitude along the flow of the vector field or in terms of the net flow into or out of a small region on the plane. You may need to make separate arguments for each of the four quadrants.
+        </p><figure class="plot" id="fig_Vector_Div_GraphicalAct_vf3"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Div_activity_xy1x.svg" alt=""><figcaption>Figure 12.6.10 — Vector field \(\vH\) </figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+          In the first quadrant, you will see that vectors are getting longer as you move along the flow of the vector field. Thus the vector field is increasing in strength in QI. Similiarly, you can see that the lengths of vectors decreasing as you move along the flow of the vector field in QIII and QIV and increasing in length along the flow in QII. Thus, the vector field is increasing in strength in QII and decreasing in strength in QIII and QIV. 
+        </p></div></div></div></div></div><p>
+  The next activity of this section asks you to do some algebraic calculations of divergence using <a href="#defn_Div">Definition</a>.
+</p><div class="card activity" id="act_Vector_Div_Algebraic"><div class="ex-head"><span class="num">Activity 12.6.3</span></div><div class="ex-body"><div class="part" id="task_act_Vector_Div_Algebraic_Calculate"><span class="part-label">a)</span> <p>Calculate the divergence of the vector fields given below.
+      <ul><li><p> \(\vF(x,y)=\langle -x,-y\rangle\)</p></li><li><p> \(\vG(x,y)=\langle y,x \rangle\)</p></li><li><p> \(\vH(x,y)=\langle xy,1-x\rangle\)</p></li></ul>
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          <ul><li><p> \(\divg(\vF(x,y))= -1+(-1)=-2\)</p></li><li><p> \(\divg(\vG(x,y))= 0+0=0 \)</p></li><li><p> \(\divg(\vH(x,y))= y+0=y\)</p></li></ul>
+        </p></div></div></div><div class="part" id="task_act_Vector_Div_Algebraic_ConnectGraphical"><span class="part-label">b)</span> <p>
+        Explain how your answers to the questions in <a href="#act_Vector_Div_Graphical">Activity 12.6.2</a> can be explained by using your results from <a href="#task_act_Vector_Div_Algebraic_Calculate">part</a> of this activity.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        <ul><li><p> As you saw in part (a) of <a href="#act_Vector_Div_Graphical">Activity 12.6.2</a>, we had a divergence that was negative for every point in plane and we have a calculated value of \(\divg(\vF(x,y))= -2\).</p></li><li><p> \(\divg(\vG(x,y))= 0 \)</p></li><li><p> As you saw in part (c) of <a href="#act_Vector_Div_Graphical">Activity 12.6.2</a>, we had a divergence that was negative for points in quadrants III and IV and positive divergenge for quadrants I and II. A careful examination of the change in the strength of the vector field in part (c) of <a href="#act_Vector_Div_Graphical">Activity 12.6.2</a>, shows that the divergence gets large as you move vertically on the graph. This lines up exactly with \(\divg(\vH(x,y))= y\).</p></li></ul>
+      </p></div></div></div></div></div>
+<h2 id="SS_Vector_Div_Development"> Measuring the Change in Strength of a Vector Field</h2>
+<p>
+      In this subsection, we examine the details of how to measure the density of the &ldquo;creation&rdquo; or &ldquo;destruction&rdquo; of the vector field in a classic calculus fashion. Specifically, we will measure how the strength of the vector field changes in a region around a point. Next, using a limit, we examine what happens to our measurement as we shrink the region. Because vector fields change in a continuous fashion, the vector fields don't actually change <em>at a single point</em>. Rather, we will measure the density for the change in strength of the vector field.
+  </p><p>
+      We will develop all of our measurements in a two dimensional setting for now. However, our arguments can be applied to three (or more) dimensions. We start in the same fashion as in <a href="#PA_Vector_Div">Preview Activity 12.6.1</a>. Namely, we will look at how much of the vector field is going into or out of a square centered at a point \((a,b)\). For this development, we will consider a two-dimensional vector field given by \(\vF(x,y)=\langle{F_1(x,y),F_2(x,y)}\rangle\).
+  </p><figure class="plot" id="fig_S_Vector_Div_box"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Div_box.svg" alt=""><figcaption>Figure 12.6.11 — A square around the point \((a,b)\)</figcaption></figure><p>
+    We can parametrize the top edge of the box by \(\vr_{\text{top}}(t) = \langle a+t,b+h\rangle\) with \( -h\leq t\leq h\). Similarly, the bottom, right, and left can be parametrized by
+    \[\begin{aligned}\vr_{\text{bottom}}(t) &amp; = \langle a+t,b-h\rangle \\
+\vr_{\text{right}}(t) &amp; = \langle a+h,b+t\rangle \\
+\vr_{\text{left}}(t) &amp; = \langle a-h,b+t\rangle\end{aligned}\]
+    all of which use parameter values in \( -h\leq t\leq h\).
+  </p><p>
+    The amount of the vector field \(\vF\) that is created inside the square around the point \((a,b)\) can be measured by the net amount of the vector field coming into or going out of the square. The amount of vector flow that goes through each of the boundary segments can be measured by looking at just the orthogonal component of the vector field on each particular segment. For instance, on the top segment, the vertical component \(F_2\) determines how much of the vector field goes in or out of the square. Integrating just the vertical component \(F_2\) of the vector field \(\vF\) over the points on the top segment of our square will therefore measure how much of the vector field goes through the top of the square.
+  </p><p>
+    The same argument applies to the bottom edge of our square. Similarly, if we want to measure how much of \(\vF\) goes through either the left or right side of the square, we need to integrate the horizontal component \(F_1\). Hence, the net flow \(N\) of the vector field into or out of the square will be given by
+    \[\begin{aligned}N=\int_{-h}^{h} &amp; F_2(a+t,b+h) dt - \int_{-h}^{h} F_2(a+t,b-h) dt  \\
+&amp; + \int_{-h}^{h} F_1(a+h,b+t) dt -\int_{-h}^{h} F_1(a-h,b+t) dt\end{aligned}\].
+    Notice that the integrals corresponding to the left and bottom segments are subtracted because we need to pay attention to the orientation of the vector field relative to the square. A positive vertical component of the vector field (\(F_2\)) will correspond to flow out on the top of the square but will correspond to the vector field flowing into the square on the bottom. In the integrals above, we are counting the flow out of the square as positive and the flow in as negative.
+  </p><p>
+    We are measuring the net flow through the square as a scalar quantity. By decreasing \(h\), we can look at what happens to our amount of flow out of the square as we shrink to the point \((a,b)\). In order for this to make sense across different size of squares, we will change what we are measuring to be a density argument by calculating flow in (or out) per unit area. This will allow us to compare our net flow calculations across squares with different areas. In other words, we want to consider what happens to
+    \[\begin{aligned}\frac{1}{(2h)^2}&amp;\left(\int_{-h}^{h} F_2(a+t,b+h) dt - \int_{-h}^{h} F_2(a+t,b-h) dt \right. \\
+&amp;\left. +\int_{-h}^{h} F_1(a+h,b+t) dt -\int_{-h}^{h} F_1(a-h,b+t) dt \right)\end{aligned}\]
+    as \(h\) goes to zero.
+  </p><p>
+    Before we compute our limit, we will take a moment to simplify our integrals in order to make the limit easier to evaluate. Recall that in single-variable calculus, we defined the <a href="https://activecalculus.org/single/sec-4-3-definite-integral.html#XCM">average value of a function</a> \(f\) on an interval \([a,b]\) to be
+    \[
+      f_{\text{AVG}[a,b]} = \frac{1}{b-a}\cdot \int_a^b f(t)\, dt
+    \]. It turns out that we can say something stronger: there will be a value \(t^*\) in the interval \([a,b]\) so that
+    \[
+      f(t^*)(b-a) = \int_a^b f(t)\, dt
+    \]
+    when \(f\) is continuous on \([a,b]\). (You can think of the left-hand side as being the area of a rectangle with the interval \([a,b]\) as its base.) We use this fact, sometimes called the Mean Value Theorem for Integrals, to simplify here. Applying the Mean Value Theorem for Integrals to the first integral gives
+    \[ 
+      \int_{-h}^{h} F_2(a+t,b+h) dt = (2h) \enspace F_2(t^*_1,b+h)
+    \],
+    where \(t^*_1\) is some value in the interval \((a-h,a+h)\). Applying the Mean Value Theorem for Integrals to each of the
+    other integrals allows us to simplify the expression above for the net flow \(N\) to be
+    \[
+      (2h) \left(F_2(t^*_1,b+h)-F_2(t^*_2,b-h)+F_1(a+h,t^*_3)-F_1(a-h,t^*_1)\right)
+    \], 
+    where \(t^*_1\) and \(t^*_2\) are values in \((a-h,a+h)\) and \(t^*_3\) and \(t^*_4\) are values in \((b-h,b+h)\). Thus our flow density can be measured by looking at the limit as \(h\to 0\) of the net flow (in or out) over the square divided by the area of the square.
+    \[\begin{aligned}&amp;\text{Flow Density}(a,b)=\lim_{h\rightarrow 0} \frac{\text{net flow}}{\text{area}}  \\
+&amp; = \lim_{h\rightarrow 0} \frac{(2h) \left(F_2(t^*_1,b+h)-F_2(t^*_2,b-h)+F_1(a+h,t^*_3)-F_1(a-h,t^*_1)\right)}{4h^2}\end{aligned}\].
+  </p><p>
+    To simplify the limit further, we will reorganize our limit expression. Specifically, we collect the \(F_2\) and \(F_1\) terms separately. This gives
+    \[\begin{aligned}&amp;\text{Flow Density}(a,b) =  \\
+&amp;\lim_{h\rightarrow 0}\left[ \frac{F_1(a+h,t^*_3)-F_1(a-h,t^*_1)}{2h}+\frac{F_2(t^*_1,b+h)-F_2(t^*_2,b-h)}{2h}\right]\end{aligned}\].
+    Recall the central difference method of estimating derivatives from <a href="https://activecalculus.org/single/sec-1-5-units.html#VjW">Section 1.5.2</a> and as \(h\to 0\), the numbers \(t^*_1,t^*_2\) must go to \(a\) and \(t^*_3,t^*_4\) must go to \(b\). Therefore, after evaluating our limit, the flow density is
+    \[ 
+      \text{Flow Density}(a,b)= \frac{\partial F_1}{\partial x} (a,b)+\frac{\partial F_2}{\partial y} (a,b)
+    \].
+  </p><p>
+    While this simplification may seem a bit amazing and magical, our conceptual steps should help us make sense of the result. If we are looking at how the strength of the vector field is changing in a small neighborhood of the point \((a,b)\) then we only need to look how fast the horizontal component is changing horizontally and how the vertical component is changing vertically. How the horizontal component changes over small steps in the vertical direction will give us information about how the direction of the vector field changes but not how the
+    strength of the vector field is changing.
+  </p><p>
+    The arguments we made about measuring how much of the vector field flows into or out of a square has straightforward generalization to three (or more) dimensions. However, doing so requires a method for measuring how much of a vector field flows through a surface. This will be the subject of <a href="12-9.html">Section 12.9</a>.
+  </p>
+<h2 id="summary">Summary</h2>
+<p>
+    <ul><li><p>
+          The divergence of a vector field \(\vF(x,y)=\langle F_1(x,y),F_2(x,y)\rangle\) is computed as
+          \[
+            \divg(\vF)=\frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y}
+          \]
+          In three dimensions, the divergence of the vector field
+          \(\vG(x,y)=\langle{G_1(x,y,z),G_2(x,y,z),G_3(x,y,z)}\rangle\) is computed as
+          \[ 
+            \divg(\vG)=\frac{\partial G_1}{\partial x}+\frac{\partial G_2}{\partial y}+\frac{\partial G_3}{\partial z}
+          \]
+        </p></li><li><p>
+          The divergence of a vector field measures the density of change in the strength of the vector field. In other words, the divergence measures the instantaneous rate of change in the strength of the vector field along the direction of flow.
+        </p></li><li><p>
+          The accumulation of the divergence over a region of space will measure the net amount of the vector field that exits (versus enters) the region.
+        </p></li><li><p>The key ideas when interpreting divergence are:
+        <ul><li><p>A positive divergence means that the vector field is growing in strength.</p></li><li><p>A negative divergence means that the vector field is decreasing in strength.</p></li><li><p>A zero divergence means that the vector field is not changing in strength.</p></li></ul>
+	</p></li></ul>
+  </p>
+<div id="exercise-panel-content"><h2 id="exercises-6">Exercises</h2><div class="exercise"><div class="n">1</div><div class="body"><p>Find the divergence of each of the following vector fields at all points where they are defined.</p><p>(a) \(\displaystyle \mathrm{div} \left( \, \frac{x}{\left(x^{2}+y^{2}+z^{2}\right)^{1.5}}\boldsymbol{i}+\frac{y}{\left(x^{2}+y^{2}+z^{2}\right)^{1.5}}\boldsymbol{j}+\frac{z}{\left(x^{2}+y^{2}+z^{2}\right)^{1.5}}\boldsymbol{k} \, \right) =\) <span class="blank">________________________________________</span></p><p>(b) \(\displaystyle \mathrm{div} \left( \, \left(2x^{2}-\sin\mathopen{}\left(xz\right)\right)\boldsymbol{i}+5\boldsymbol{j}-\sin\mathopen{}\left(xz\right)\boldsymbol{k} \, \right) =\) <span class="blank">________________________________________</span></p><p>(c) \(\displaystyle \mathrm{div} \left( \, 2e^{xy}\boldsymbol{i}+5\cos\mathopen{}\left(xy\right)\boldsymbol{j}+5e^{\ln\mathopen{}\left(x^{2}+y^{2}+3\right)}\boldsymbol{k} \, \right) =\) <span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(4x-z\cos\mathopen{}\left(xz\right)-x\cos\mathopen{}\left(xz\right)\), \(2e^{xy}y-5\sin\mathopen{}\left(xy\right)x\)</p></div></div></div></div><div class="exercise"><div class="n">2</div><div class="body"><p>Consider \(\displaystyle \text{div}\,\left(\frac{y\vec i - x\vec j}{(x^2 + y^2)}\right)\).</p><p><em>(a)</em>
+Is this a vector or a scalar?  <span class="blank">_______________</span></p><p><em>(b)</em>
+Calculate it:</p><p>\(\text{div}\,\left(\frac{y\vec i - x\vec j}{(x^2 + y^2)}\right) =\) <span class="blank">____________________</span> + <span class="blank">____________________</span> = <span class="blank">_______________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>scalar, \(\frac{-2\cdot 1xy}{\left(x^{2}+y^{2}\right)^{1+1}}\), \(\frac{2\cdot 1xy}{\left(x^{2}+y^{2}\right)^{1+1}}\), \(0\)</p></div></div></div></div><div class="exercise"><div class="n">3</div><div class="body"><p>Let \(f(x,y) = a x y + a x^2 y + y^3.\)</p><p>(a) \(\mathrm{div} ( \mathrm{grad} ( f ) ) =\)
+<span class="blank">______________________________</span></p><p>(b) Find \(a\) so that \(\mathrm{div} 
+( \mathrm{grad} ( f ) ) = 0\) for all \(x, y.\)</p><p>\(a =\) <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(2ay+6y\), \(-3\)</p></div></div></div></div><div class="exercise"><div class="n">4</div><div class="body"><p>
+                <ol><li><p>
+                        Let \(\vF=\langle{F_1,F_2,F_3}\rangle\) and let
+                    \[
+                        \vG = (\frac{\partial F_3}{\partial y}-\frac{\partial F_2}{\partial z})\vi- (\frac{\partial F_3}{\partial x}-\frac{\partial F_1}{\partial z})\vj + (\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y})\vk
+                    \]
+                    Show that \(\divg(\vG)=\vec{0}\). 
+                    </p></li><li><p>Vector fields
+                          with a zero divergence everywhere in their domain are called <em>divergence-free</em> vector fields. Which of the following vector fields are divergence-free?
+                        <ol><li><p>\(\vF=\langle{-y,z,x}\rangle\)</p></li><li><p>\(\vF=\langle{\cos(yz),3xe^{z-x},6(x+y+z)^3}\rangle\)</p></li><li><p>\(\vF=\langle{4xyz,y^2z,yz^2}\rangle\)</p></li><li><p>\(\vF=\nabla f\) where \(f\) is a scalar function of \(x\), \(y\), and \(z\)</p></li></ol>
+			</p></li><li><p>
+                        Let \(\vF_1=\langle{3(x-z)^2,2\cos(x)+3yz+y,-(z-1)^2+e^{xy}}\rangle\). Calculate the divergence of \(\vF_1\) and give a point where \(\divg(\vF_1)=0\).
+                    </p></li><li><p>
+                        Is \(\vF_1\) a divergence free vector field?
+                    </p></li></ol>
+            </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

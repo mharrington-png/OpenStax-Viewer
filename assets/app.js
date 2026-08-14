@@ -471,17 +471,17 @@ const BOOKS = {
       ]},
       { n: 12, title: "Vector Calculus", sections: [
         { id: "12-1", title: "12.1 Vector Fields", file: "12-1.html", ready: true },
-        { id: "12-2", title: "12.2 The Idea of a Line Integral", file: "12-2.html", ready: false },
-        { id: "12-3", title: "12.3 Using Parametrizations to Calculate Line Integrals", file: "12-3.html", ready: false },
-        { id: "12-4", title: "12.4 Path-Independent Vector Fields and the Fundamental Theorem of Calculus for Line Integrals", file: "12-4.html", ready: false },
-        { id: "12-5", title: "12.5 Line Integrals of Scalar Functions", file: "12-5.html", ready: false },
-        { id: "12-6", title: "12.6 The Divergence of a Vector Field", file: "12-6.html", ready: false },
-        { id: "12-7", title: "12.7 The Curl of a Vector Field", file: "12-7.html", ready: false },
-        { id: "12-8", title: "12.8 Green's Theorem", file: "12-8.html", ready: false },
-        { id: "12-9", title: "12.9 Flux Integrals", file: "12-9.html", ready: false },
-        { id: "12-10", title: "12.10 Surface Integrals of Scalar Valued Functions", file: "12-10.html", ready: false },
-        { id: "12-11", title: "12.11 Stokes' Theorem", file: "12-11.html", ready: false },
-        { id: "12-12", title: "12.12 The Divergence Theorem", file: "12-12.html", ready: false },
+        { id: "12-2", title: "12.2 The Idea of a Line Integral", file: "12-2.html", ready: true },
+        { id: "12-3", title: "12.3 Using Parametrizations to Calculate Line Integrals", file: "12-3.html", ready: true },
+        { id: "12-4", title: "12.4 Path-Independent Vector Fields and the Fundamental Theorem of Calculus for Line Integrals", file: "12-4.html", ready: true },
+        { id: "12-5", title: "12.5 Line Integrals of Scalar Functions", file: "12-5.html", ready: true },
+        { id: "12-6", title: "12.6 The Divergence of a Vector Field", file: "12-6.html", ready: true },
+        { id: "12-7", title: "12.7 The Curl of a Vector Field", file: "12-7.html", ready: true },
+        { id: "12-8", title: "12.8 Green's Theorem", file: "12-8.html", ready: true },
+        { id: "12-9", title: "12.9 Flux Integrals", file: "12-9.html", ready: true },
+        { id: "12-10", title: "12.10 Surface Integrals of Scalar Valued Functions", file: "12-10.html", ready: true },
+        { id: "12-11", title: "12.11 Stokes' Theorem", file: "12-11.html", ready: true },
+        { id: "12-12", title: "12.12 The Divergence Theorem", file: "12-12.html", ready: true },
       ]},
     ],
   },
@@ -683,6 +683,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // of which chapters 9-11's own preamble (above) ever needed.
         "\\vG": "\\mathbf{G}", "\\vH": "\\mathbf{H}", "\\vS": "\\mathbf{S}",
         "\\vecmag": "|#1|", "\\grad": "\\nabla", "\\nin": "",
+        // \DeclareMathOperator (not \newcommand, but same idea) in the same docinfo-core.ptx --
+        // upright-roman operator names, not bold vectors. \divg missing entirely produced a
+        // literal "\divg" in the rendered text everywhere it appeared (found: all of 12.6,
+        // which is built entirely around this notation). \curl is the same declaration, ahead
+        // of 12.7 needing it.
+        "\\divg": "\\operatorname{div}", "\\curl": "\\operatorname{curl}",
       },
     });
   }

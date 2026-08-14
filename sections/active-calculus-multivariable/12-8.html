@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green's Theorem · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Green's Theorem</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.8</span>Green's Theorem</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+        	How can we calculate the circulation of a two-dimensional vector field \(\vF\) around a closed curve when \(\vF\) is not path-independent?
+        </p></li><li><p>
+        	What is the meaning of the double integral of the circulation density of a smooth two-dimensional vector field on a region \(R\) bounded by a closed curve that does not intersect itself?
+        </p></li></ul></div>
+<p>
+      We know from <a href="12-4.html">Section 12.4</a> that a vector field is path-independent if and only if the circulation around every closed curve in its domain is \(0\). It is probably not surprising that, given the multitude of names we have for path-independent vector fields, they are important vector fields that arise frequently. However, not every vector field is path-independent, and many times we will want to calculate the circulation around a closed curve in a vector field that is not path-independent. This section explores a connection between line integrals and double integrals that you may find surprising. It will be the first of three major theorems that connect types of integrals that seem very different on the surface.
+    </p><div class="card activity preview" id="PA_Vector_GreensTheorem"><div class="ex-head"><span class="num">Preview Activity 12.8.1</span></div><div class="ex-body"><p>
+        	We will consider the vector field \(\vF = \langle 2y,3x^2 y\rangle\), which is defined on the entire \(xy\)-plane. Suppose that we want to calculate the circulation of \(\vF\) around the circle \(C\) of radius \(2\), centered at \((0,0)\), and oriented counterclockwise.
+        </p><div class="part" id="task_PA_Vector_GreensTheorem_Circ"><span class="part-label">a)</span> <p>
+          	Verify that \(\vF\) is not path-independent by calculating the circulation of \(\vF\) around the circle \(C\). The SageMath cell below is set up to assist you with this, but you will need to supply a parametrization of \(C\) on line 4.
+          </p><p>
+					var('r,t,x,y')
+					F = vector([2*y,3*x^2*y])
+					#Supply a parametrization of C on the next line inside the [ ]
+					C = vector([ , ])
+					integral(F(x=C[0],y=C[1]).dot_product(derivative(C,t)),t,0,2*pi)
+				</p><div class="answer"><button>Show answer</button><div class="a"><p>
+				If we parametrize \(C\) as \(\vr(t) = \langle 2\cos(t),2\sin(t)\rangle\), then \(\oint_C \vF\cdot d\vr = -8\pi\). To use the SageMath cell to do this, make line 3 read C = vector([2*cos(t),2*sin(t)]) and execute. Because the circulation around \(C\) is not \(0\), we know that \(\vF\) is not path-independent. 
+	  		</p></div></div></div><div class="part" id="task_PA_Vector_GreensTheorem_Integrand"><span class="part-label">b)</span> <p>
+			Recall from <a href="12-7.html">Section 12.7</a> that if \(\vF = \langle F_1(x,y),F_2(x,y)\rangle\) is a vector field, then the circulation density (in 2D) is given by
+				\[ 
+					\text{Circulation Density at the point }(a,b)= \frac{\partial F_2}{\partial x} (a,b)-\frac{\partial F_1}{\partial y} (a,b)
+			  	\]
+			What is the circulation density of \(\vF = \langle 2y,3x^2 y\rangle\)? 
+
+	    
+	  </p><div class="answer"><button>Show answer</button><div class="a"><p> Here we
+	  have that \(\partial F_2/\partial x =6xy\) and
+	  \(\partial F_1/\partial y = 2\), so we have that
+	  \(\partial F_2/\partial x - \partial F_1/\partial y=
+	  6xy-2\).
+	  </p></div></div></div><div class="part" id="task_PA_Vector_GreensTheorem_Region"><span class="part-label">c)</span> <p>
+			Sketch the curve \(C\) and shade the region it bounds. Describe the region bounded by \(C\) in both rectangular and polar coordinates.
+	    </p><div class="answer"><button>Show answer</button><div class="a"><p>
+			Since we know the radius of \(C\) is \(2\), the region the circle bounds is covered by all values of \(r\) with \(0\leq r\leq 2\). For \(\theta\), since we have the full disk, the bounds are \(0\leq \theta\leq 2\pi\). In rectangular coordinates, the circle is \(x^2+y^2=4\). The range for \(x\) is \(-2\leq x\leq 2\), and solving the equation of the circle for \(y\) gives us \(-\sqrt{4-x^2}\leq y\leq \sqrt{4-x^2}\) as the bounds for \(y\).
+	    </p></div></div></div><div class="part" id="task_PA_Vector_GreensTheorem_Double"><span class="part-label">d)</span> <p>
+	    		Calculate the double integral of \(\displaystyle \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}\) over the region inside the circle \(C\). This integral is not the most fun to do by hand, so a SageMath cell has been provided to assist you.
+    		</p><p>
+				integral(integral( FUNCTION HERE , var1, start, stop), var2, start, stop)	      
+				</p><div class="answer"><button>Show answer</button><div class="a"><p>
+			Denote by \(D\) the region inside the circle \(C\). We can describe \(D\) readily in polar coordinates with the inequalities \(0\leq r \leq 2\) and \(0\leq \theta\leq 2\pi\). Thus, we need to calculate
+			\[\begin{aligned}\iint_D \left(\frac{\partial F_2}{\partial x} -
+			\frac{\partial F_1}{\partial y}\right)\, dA &amp;= \iint_D
+			(6xy-2)\, dA \\
+&amp;= \int_0^2 \int_0^{2\pi}
+			(6r^2\cos(\theta)\sin(\theta) - 2)r\, d\theta\, dr\end{aligned}\].
+			Using SageMath to calculate this, we obtain \(-8\pi\).
+		</p></div></div></div><div class="part"><span class="part-label">e)</span> <p>
+				What do you notice about your results to parts (a) and (d)? Do you think this will happen in general? Write a sentence or two about what you think is happening here.
+			</p></div></div></div><p>
+	A natural question after completing the Preview Activity is if there is something special about the vector field \(\vF\) or the curve \(C\) that led to the results you obtained, and investigating this will be our principal task in this section.
+</p>
+<h2 id="SS_Vector_GreensTheorem_Circulation">Circulation</h2>
+<p>
+      In <a href="#PA_Vector_GreensTheorem">Preview Activity 12.8.1</a>, you integrated the circulation density of a smooth vector field over a disk and found the result was equal to the circulation of the vector field along the region's circular boundary. This relationship is the theme of this section. To see why this would make sense, consider the region \(R\) bounded by the curve \(C\) shown in <a href="#fig_Vector_GreensTheorem_circ_cartoon">Figure 12.8.1</a>. We have placed a square grid inside \(R\) to suggest the idea of breaking \(R\) up into many smaller regions, most of which are square. This idea should make you think of the methods we have already seen of breaking up a region into smaller and smaller regions for Riemann sums.
+    </p><figure class="plot" id="fig_Vector_GreensTheorem_circ_cartoon"><div class="card flag"><span class="chip">Figure not available statically — Sage-only, needs its own integration</span></div><figcaption>Figure 12.8.1 — A region bounded by a curve</figcaption></figure><p>
+      The critical idea here is that if we integrate the circulation <em>density</em> over each of the small regions and add those up, this is the same as integrating the circulation density over the entirety of the region \(R\) because of the fundamental properties of integrals. Also, integrating circulation <em>per
+      unit area</em> over a two-dimensional region should be related to the total circulation on that region. Now look at <a href="#fig_Vector_GreensTheorem_circ_squares2">Figure 12.8.2</a> and think of these two square regions as being two of the square regions inside \(R\) in <a href="#fig_Vector_GreensTheorem_circ_cartoon">Figure 12.8.1</a>.
+    </p><figure class="plot" id="fig_Vector_GreensTheorem_circ_squares2"><div class="card flag"><span class="chip">Figure not available statically — Sage-only, needs its own integration</span></div><figcaption>Figure 12.8.2 — A square region divided into two smaller squares</figcaption></figure><p>
+      We orient the boundary \(C_i\) of square region \(R_i\) in the manner suggested by the circular arrows. This means that the vertical boundary in common between \(R_1\) and \(R_2\) is oriented <em>up</em> when we calculate the line integral \(\oint_{C_1}\vF\cdot d\vr\) and oriented <em>down</em> when
+      we evaluate \(\oint_{C_2}\vF\cdot d\vr\). Thus, this line segment does not contribute to the sum
+      \(\oint_{C_1}\vF\cdot d\vr + \oint_{C_2}\vF\cdot d\vr\). Therefore, \[\oint_{C_1}\vF\cdot d\vr + \oint_{C_2}\vF\cdot d\vr \]
+      is equal to the line integral of \(\vF\) along the boundary of the large rectangle.
+    </p><p>
+      Returning to <a href="#fig_Vector_GreensTheorem_circ_cartoon">Figure 12.8.1</a>, if we find the circulation along the boundary of each of the smaller regions, the line integrals
+      along the boundaries that lie inside the region \(R\) will all offset. Thus the value should equal \(\oint_C\vF\cdot d\vr\). If we make our grid fine enough, all of the smaller regions into which \(R\) is divided will be very close to rectangular. 
+    </p><p>
+		The calculation of circulation around a nice closed curve will be the sum of the circulation over pieces that enclose the same area, regardless of the size or number of the pieces used. In other words, 
+		\[\oint_C \vF \cdot d\vr = \sum_{R_i} \oint_{C_i} \vF\cdot d\vr\]
+		where \(C_i\) is a bounding curve for subregion \(R_i\). We defined our circulation density as the ratio of circulation to area, so we can also subsititute the circulation around a region for the circulation density times the area of that region. Additionally, we can take the limit as our regions get smaller, since size and the number of regions does not affect the sum. Letting \(\Delta R_i\) represent the area of region \(R_i\) with boundary curve \(C_i\), we have
+		\[\begin{aligned}\oint_C \vF \cdot d\vr &amp; = \lim_{\Delta R_i \rightarrow 0} \sum_{R_i} \oint_{C_i} \vF\cdot d\vr  \\
+ &amp; = \lim_{\Delta R_i \rightarrow 0} \sum_{R_i} \left(\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y}\right) \Delta R_i\end{aligned}\].
+		This expression should look familiar as the Reimann sum definition for the double integral of \(\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y}\) over the region \(R\). For &ldquo;nice&rdquo; closed curves we can equate the circulation around the boundary (computed as a line integral) with a double integral of the circulation density over the region enclosed (computed with a double integral). 
+	</p>
+<h2 id="green-s-theorem">Green's Theorem</h2>
+<p>
+		So far in this section, we have restricted ourselves to relatively nice closed curves when thinking about circulation. While the main theorem of this section will not allow us to consider arbitrary closed curves, it does cover more varied curves than we have discussed so far. A <em>simple closed curve</em> is a closed curve that does not cross itself, and these are the curves to which our next theorem applies.
+	</p><div class="card callout"><span class="chip">A closed curve that is not simple</span><p>
+			The restriction that the curve in <a href="#thm_Green">Green's Theorem</a> prohibits curves such as the one below, which crosses itself.
+		</p><img src="https://activecalculus.org/multi1e/generated/sageplot/image_Vector_GreensTheorem_FigureEight.svg" alt=""></div><div class="card definition" id="thm_Green"><span class="chip">Theorem</span><p>
+			Let \(C\) be a simple closed curve in the plane that	bounds a region \(R\) with \(C\) oriented in such a way that when walking along \(C\) in the direction of its orientation, the region \(R\) is on our left. Suppose that \(\vF=\langle F_1,F_2\rangle\) is vector field with continuous partial derivatives on the region \(R\) and its boundary \(C\). The circulation of \(\vF\) along \(C\) may be calculated as
+				\[\oint_C \vF\cdot d\vr = \iint_R \left(\frac{\partial F_2}{\partial x} -	\frac{\partial F_1}{\partial y}\right)\, dA\].
+			</p></div><p>
+      At first glance, it may seem that <a href="#thm_Green">Green's Theorem</a> is of purely intellectual interest. However, we have already encountered situations where parameterizing a curve can be complicated. This is particularly true when the curve has &ldquo;corners&rdquo; that require us to give separate parametrizations for several pieces of the curve, such as with the rectangular curve pictured in <a href="#fig_Vector_GreensTheorem_Rectangle">Figure 12.8.3</a>. However, as with this rectangle, it is often the case that a curve that is difficult to parametrize bounds a region that is not too complex to describe using rectangular or polar coordinates. For instance, the rectangular region in <a href="#fig_Vector_GreensTheorem_Rectangle">Figure 12.8.3</a> can be described as \(1\leq x\leq 4\) and \(2\leq y\leq 4\), which is a simpler description than needing to parameterize each of the four sides of the rectangle separately. Additionally, the integrand of the double integral in <a href="#thm_Green">Green's Theorem</a> involves partial derivatives that can sometimes result in an integrand that is easy to work with. The purpose of <a href="#thm_Green">Green's Theorem</a> is, at its core, to allow you to exchange one type of integration problem (a line integral) for another type of integration problem (a double integral). This will be a
+      recurring theme as this chapter continues.
+    </p><figure class="plot" id="fig_Vector_GreensTheorem_Rectangle"><img src="https://activecalculus.org/multi1e/generated/sageplot/image_Vector_GreensTheorem_rectangle.svg" alt=""><figcaption>Figure 12.8.3 — A rectangular curve</figcaption></figure><div class="card example"><div class="ex-head"><span class="num">Example 12.8.1</span></div><div class="ex-body"><p>
+			We will verify Green's Theorem by computing both sides of the equation separately when \(\vF =\langle x^2-xy,y^2-2x \rangle \) and \(C\) is the bounding curve given in <a href="#fig_Vector_GreensTheorem_Rectangle">Figure 12.8.3</a>.
+		</p><p>
+			First, we calculate the double integral (the right hand side of the equation in Green's Theorem). The circulation density of \(\vF = \langle x^2-xy,y^2-2x \rangle \) will be \(-2+x\), which is continuous everywhere in the region \(R\). Our iterated integral becomes
+			\[\begin{aligned}\iint_R \left(\frac{\partial F_2}{\partial x} -	\frac{\partial F_1}{\partial y}\right)\, dA &amp; = \int_2^4 \int_1^4 (-2+x) \, dx \, dy  \\
+ &amp; = \int_2^4    \left[-2x+x^2/2\right]_{x=1}^{x=4} \, dy  \\
+ &amp; = \int_2^4 \frac{3}{2} \, dy  \\
+ &amp; = 3 \end{aligned}\]
+			Note how easy it is to set up and evaluate this double integral.
+		</p><p>
+			We will need to compute the line integral of \(\vF\) over the four segements of the bounding rectangle. We will use the following parameterizations:
+			\[\begin{aligned}\vr_{\text{bottom}}(t) &amp; = \langle 1+3t,2 \rangle  \\
+\vr_{\text{right}}(t) &amp; = \langle 4,2+2t \rangle  \\
+\vr_{\text{top}}(t) &amp; = \langle 4-3t,4 \rangle  \\
+\vr_{\text{left}}(t) &amp; = \langle 1,4-2t \rangle \end{aligned}\]
+			where each parameterization uses \(0\leq t\leq 1\). These parameterizations will yield the following line integrals:
+			\[\begin{aligned}\int_{\text{bottom}} \vF \cdot d\vr &amp; = \int_0^1 ( (1+3t)^2 -(1+3t)(2) ) 3 \, dt = 6  \\
+\int_{\text{right}} \vF \cdot d\vr &amp; = \int_0^1 ( (2+2t)^2 -(2)(4) ) 2 \, dt = 8/3   \\
+\int_{\text{top}} \vF \cdot d\vr &amp; = \int_0^1 ( (4-3t)^2 -(4-3t)(4) ) (-3) \, dt = 9  \\
+\int_{\text{left}} \vF \cdot d\vr &amp; = \int_0^1 ( (4-2t)^2 -(2)(1) ) (-2) \, dt = -44/3  \end{aligned}\]
+			Note that the sum of these line integrals is 3, and thus Green's Theorem is verified for our case since 
+			\[\oint_C \vF\cdot d\vr = 3 = \iint_R \left(\frac{\partial F_2}{\partial x} -	\frac{\partial F_1}{\partial y}\right)\, dA\]
+		</p></div></div><div class="card activity" id="act_Vector_GreensTheorem_verify"><div class="ex-head"><span class="num">Activity 12.8.2</span></div><div class="ex-body"><p>
+			For each of the curves described below, find the circulation of the given vector field around the curve. Do this both by calculating the line integral directly as well as by calculating the double integral from <a href="#thm_Green">Green's Theorem</a>.
+		</p><div class="part"><span class="part-label">a)</span> <p>
+			The curve \(C_1\) is the circle of radius \(3\) centered at the point \((2,1)\) (oriented counterclockwise) and the vector field is \(\vF = \langle
+			y^2, 5x+2xy\rangle\).
+		</p><div class="answer"><button>Show answer</button><div class="a"><p>Here we find that \[\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} = (5+2y)-2y = 5\]. Therefore, the integrand in <a href="#thm_Green">Green's Theorem</a> is the constant \(5\). Thus, the circulation of \(\vF\) around \(C\) is \(5\) times the area of the region inside \(C\). That area is \(\pi\cdot 3^2 = 9\pi\), which means that the circulation is \(45\pi\).</p></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+			The curve \(C_2\) is the triangle with vertices \((0,0)\), \((3,0)\), and \((3,3)\) (oriented counterclockwise) and the vector field is \(\vG = \langle y^2, 3xy\rangle\).
+		</p><div class="answer"><button>Show answer</button><div class="a"><p>
+				Here we find that \[\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} = 3y-2y = y\]. The region inside \(C_2\) can be described by \(0\leq x\leq 3\) and \(0\leq y\leq x\). Therefore, by <a href="#thm_Green">Green's Theorem</a>, we have \[\oint_{C_2} \vG\cdot d\vr  = \int_0^3\!\int_0^x y\, dy\,	dx = \int_0^3 \frac{y^2}{2}\mid_{y=0}^{y=x}\, dx = \int_0^3 \frac{x^2}{2}\, dx = \frac{x^3}{6} \mid_{x=0}^{x=3} = \frac{27}{6}\].
+			</p></div></div></div></div></div><p>
+      Generally, <a href="#thm_Green">Green's Theorem</a> is useful for allowing us to calculate line integrals by instead calculating a double integral. Going the other direction is harder, since finding a vector field \(\langle F_1,F_2\rangle\) so that \(\partial F_2/\partial x - \partial F_1/\partial y\) is equal to the integrand in the double integral can be difficult. However, the exercises will explore some situations where calculating a suitable line integral is a viable
+      alternative to the double integral.
+    </p>
+<h2 id="what-happens-when-vector-fields-are-not-smooth-">What happens when vector fields are not smooth?</h2>
+<p>
+      Notice that the assumptions in <a href="#thm_Green">Green's Theorem</a> require that the region \(R\) be bounded by a
+      simple closed curve \(C\) and that the vector field have continuous
+      partial derivatives on \(R\) and \(C\). In <a href="#ez_Vector_GreensTheorem_region_hole">Exercise 7</a>, we will explore what happens when the region \(R\) 
+      cannot be bounded by a simple closed
+      curve, as sometimes multiple applications of <a href="#thm_Green">Green's Theorem</a> can be used in those circumstances. Now,
+      however, we will take a look at what happens in some cases where the vector
+      field \(\vF\) is not smooth.
+    </p><div class="card activity" id="act_Vector_GreensTheorem_not_smooth"><div class="ex-head"><span class="num">Activity 12.8.3</span></div><div class="ex-body"><p>Consider the vector field \(\vF =
+	\displaystyle\frac{-y}{{x^2+y^2}}\vi +
+	\frac{x}{{x^2+y^2}}\vj\). Notice that \(\vF\) is smooth
+	everywhere in the plane other than at the point
+	\((0,0)\). This vector field is plotted in <a href="#fig_Vector_GreensTheorem_ccw_field">Figure 12.8.4</a>,
+	but we have not plotted the vectors close to the origin as
+	their magnitudes get so large that they make it hard to
+	interpret the figure. Here <a href="#thm_Green">Green's Theorem</a> applies to any simple closed curve \(C\) that
+	    neither passes through \((0,0)\) nor bounds a region
+	    containing \((0,0)\). </p><figure class="plot" id="fig_Vector_GreensTheorem_ccw_field"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Vector_GreensTheorem_ccw_field.svg" alt=""><figcaption>Figure 12.8.4 — The vector field \(\vF\)</figcaption></figure><div class="part"><span class="part-label">a)</span> <p>
+	    Find the circulation density of
+	    \(\vF\) (i.e., the integrand of the double
+	    integral in <a href="#thm_Green">Green's Theorem</a>).
+	  </p><div class="answer"><button>Show answer</button><div class="a"><p>For \((x,y)\neq (0,0)\), we have
+	  \[\begin{aligned}\frac{\partial F_2}{\partial x} &amp; =
+	    -\frac{2x^{2}}{{\left(x^{2} + y^{2}\right)}^{2}}
+	    + \frac{1}{{x^{2} + y^{2}}} = \frac{y^2-x^2}{{\left(x^{2} + y^{2}\right)}^{2}} \\
+\frac{\partial F_1}{\partial y} &amp; =
+	    \frac{2y^{2}}{{\left(x^{2} + y^{2}\right)}^{2}} -
+	    \frac{1}{{x^{2} + y^{2}}} = \frac{y^2-x^2}{{\left(x^{2} + y^{2}\right)}^{2}}\end{aligned}\]. Thus,
+	  \[\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} = 0\].</p></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+	    Suppose that \(C\) is the unit circle centered at the
+	    origin. Without doing any calculations, what can you say
+	    about \(\oint_C \vF\cdot d \vr\)? what does this
+	    tell you about if \(\vF\) is path-independent?
+	  </p><div class="answer"><button>Show answer</button><div class="a"><p>Notice that \(\vF\) is tangent to \(C\). Thus,
+	  \(\oint_C \vF\cdot d \vr\) must be positive. (In fact,
+	  the circulation of \(\vF\) along \(C\) is the length
+	  of \(C\) or \(2\pi\) because \(\vF\) consists of
+	  unit vectors and the vector field is tangent to
+	  \(C\).) Since there is a closed curve with nonzero
+	  circulation, \(\vF\) is not path independent.</p></div></div></div><div class="part"><span class="part-label">c)</span> <p>What would you get if you integrated the circulation
+	  density of \(\vF\) over the region bounded by \(C\)?</p><div class="answer"><button>Show answer</button><div class="a"><p>The circulation density is \(0\) everywhere inside
+	  \(C\) except at the origin, where it is undefined. That
+	  single point does not impact the value of the double
+	  integral of the circulation density, which is thus \(0\).
+	  </p></div></div></div><div class="part"><span class="part-label">d)</span> <p>Do the previous two parts contradict <a href="#thm_Green">Green's Theorem</a>? Explain your reasoning.</p><div class="answer"><button>Show answer</button><div class="a"><p>There is no contradiction because <a href="#thm_Green">Green's Theorem</a> does not apply here. The region
+	  \(R\) inside the curve \(C\) includes the point
+	  \((0,0)\), and \(\vF\) is not defined at that
+	  point. Green's Theorem requires that the vector field be
+	  smooth at every point of \(R\).</p></div></div></div><div class="part"><span class="part-label">e)</span> <p>Is the vector field \(\vG =
+	  \displaystyle\frac{x}{x^2+y^2}\vi +\frac{y}{x^2+y^2}\vj\),
+	  which is shown in <a href="#fig_Vector_GreensTheorem_outward_field">Figure 12.8.5</a>, 
+	  path-independent? Why or why not?</p><figure class="plot" id="fig_Vector_GreensTheorem_outward_field"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Vector_GreensTheorem_outward_field.svg" alt=""><figcaption>Figure 12.8.5 — 
+	      The vector field \(\vG\)
+	    </figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>Let \(g(x,y) = \frac{1}{2}\ln(x^2+y^2)\). Note that
+	  \(\grad g = \vG\), and the domain of \(g\) is the same
+	  as the domain of \(\vG\) (all of \(\R^2\) except
+	  \((0,0)\)). Thus, \(\vG\) is a gradient vector
+	  field and is therefore path-independent.</p></div></div></div><div class="part"><span class="part-label">f)</span> <p> Suppose that \(C\) is the unit circle centered at the
+	  origin. Find \(\oint_C \vG\cdot d \vr\). Can you do this
+	  using <a href="#thm_Green">Green's Theorem</a>?
+	  </p><div class="answer"><button>Show answer</button><div class="a"><p>We have already shown that \(\vG\) is
+	  path-independent, and therefore \(\oint_C \vG\cdot d\vr =
+	  0\) since \(C\) is a closed curve. Because \(\vG\)
+	  is not defined at the origin, <a href="#thm_Green">Green's Theorem</a> does not apply to this line integral.</p></div></div></div></div></div><p>We can now see that <a href="#thm_Green">Green's Theorem</a> is a
+    powerful tool. However it cannot be used for all line
+    integrals. In particular, the restriction that the vector field be
+    smooth on the entire region bounded by a simple closed curve
+    \(C\) creates limitations. This can occur even in cases where
+    holes in the vector field's domain or points where the vector
+    field is not continuously differentiable lie away from \(C\).
+    </p>
+<h2 id="summary">Summary</h2>
+<p>
+      <ul><li><p>
+            <a href="#thm_Green">Green's Theorem</a> tells us that we can
+            calculate the circulation of a smooth vector field along a
+            simple closed curve that bounds a region in the plane on
+            which the vector field is also smooth by calculating the
+            double integral of the circulation density instead of the
+            line integral.
+          </p></li><li><p>
+	  Integrating the circulation density of a smooth vector field
+	  on a region bounded by a simple closed curve gives the same
+	  value as calculating the circulation of the vector field
+	  around the boundary of the region with suitable
+	  orientation.</p></li></ul>
+    </p>
+<div id="exercise-panel-content"><h2 id="exercises-8">Exercises</h2><div class="exercise"><div class="n">1</div><div class="body"><p>Calculate \(\int_C \left(2 (x^2-y)\vec i + 7(y^2+x)\vec j\right) \cdot d\vec
+r\) if:</p><p><em>(a)</em>
+\(C\) is the circle \((x-2)^2+(y-8)^2=25\) oriented
+counterclockwise.</p><p>\(\int_C \left(2 (x^2-y)\vec i + 7(y^2+x)\vec j\right) \cdot d\vec r =\)
+<span class="blank">___________________________________</span></p><p><em>(b)</em>
+\(C\) is the circle \((x-a)^2+(y-b)^2=R^2\) in the \(xy\)-plane oriented
+counterclockwise.</p><p>\(\int_C \left(2 (x^2-y)\vec i + 7(y^2+x)\vec j\right) \cdot d\vec r =\)
+<span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\left(7+2\right)\pi \cdot 25\), \(\left(7+2\right)\pi R^{2}\)</p></div></div></div></div><div class="exercise"><div class="n">2</div><div class="body"><p>Let \(\vec F = 14 x e^{y}\,\vec i + 7 x^2 e^{y}\,\vec j\) and
+\(\vec G = 14(x - y)\,\vec i + 7(x + y)\,\vec j\).
+Let \(C\) be the path consisting of lines
+from \((0,0)\) to \((3,0)\) to \((3,4)\) to \((0,0)\).
+Find each of the following integrals exactly:</p><p><em>(a)</em>
+\(\int_{C}\vec F\cdot d\vec r =\) <span class="blank">_____________________________________________</span></p><p><em>(b)</em>
+\(\int_{C}\vec G\cdot d\vec r =\) <span class="blank">_____________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(\frac{21\cdot 3\cdot 4}{2}\)</p></div></div></div></div><div class="exercise"><div class="n">3</div><div class="body"><div class="tablewrap"><table class="data gridlines"><tr><td><p>Suppose \[\vec{F}(x,y) = (2 x - 4 y) \vec{i} + 2 x \vec{j}\] and \(C\) is the 
+counter-clockwise oriented sector of a circle centered
+at the origin with radius \(4\) and central angle
+\(\pi / 3\).
+Use Green's theorem to calculate the 
+circulation of \(\vec{F}\) around \(C\).
+Circulation = </p></td><td><img src="data:image/png;base64,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" alt=""><p>(Click on graph to enlarge)</p></td></tr></table></div><div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\left(4+2\right)\pi \cdot 16}{6}\)</p></div></div></div></div><div class="exercise"><div class="n">4</div><div class="body"><p>Let \(\vec F = (9 x^2 y + 3 y^3 + 3 e^x)\,\vec i + (8 e^{y^2} + 81 x)\,\vec j\). Consider
+the line integral of \(\vec F\) around the circle of
+radius \(a\), centered at the origin and traversed
+counterclockwise.</p><p><em>(a)</em>
+Find the line integral for \(a=1\).</p><p>line integral = <span class="blank">___________________________________</span></p><p><em>(b)</em>
+For which value of \(a\) is the line integral a maximum?</p><p>\(a =\) <span class="blank">_______________</span></p><p><em>(Be sure you can explain why your answer gives the
+correct maximum.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(2\pi \mathopen{}\left(\frac{81}{2}-\frac{9}{4}\right)\), \(3\)</p></div></div></div></div><div class="exercise"><div class="n">5</div><div class="body"><p><em>(a)</em>
+Show that each of the vector fields
+\(\vec F = y\,\vec i + x\,\vec j\),
+\(\vec G = \frac{4 y}{x^2 + y^2}\,\vec i + \frac{-4 x}{x^2 + y^2}\,\vec j\), and
+\(\vec H = \frac{ x}{\sqrt{x^2 + y^2}}\,\vec i + \frac{ y}{\sqrt{x^2 + y^2}}\,\vec j\) are gradient vector
+fields on some domain (not necessarily the whole plane) by
+finding a potential function for each.</p><p>For \(\vec F\), a potential function is
+\(f(x,y) =\) <span class="blank">_________________________</span></p><p>For \(\vec G\), a potential function is
+\(g(x,y) =\) <span class="blank">_________________________</span></p><p>For \(\vec H\), a potential function is
+\(h(x,y) =\) <span class="blank">_________________________</span></p><p><em>(b)</em>
+Find the line integrals of \(\vec F,\vec G,\vec H\) around the
+curve \(C\) given to be the unit
+circle in the \(xy\)-plane, centered at the origin, and traversed
+counterclockwise.</p><p>\(\int_C\vec F\cdot d\vec r =\) <span class="blank">_________________________</span></p><p>\(\int_C\vec G\cdot d\vec r =\) <span class="blank">_________________________</span></p><p>\(\int_C\vec H\cdot d\vec r =\) <span class="blank">_________________________</span></p><p><em>(c)</em>
+For which of the three vector fields can Green's Theorem be used to
+calculate the line integral in part (b)?</p><p>It may be used for <span class="blank">_______________</span></p><p><em>(Be sure that you are able to explain why or why not.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>\(xy\), \(4\tan^{-1}\mathopen{}\left(\frac{x}{y}\right)\), \(\sqrt{x^{2}+y^{2}}\), \(0\), \(-2\cdot 4\pi \), \(0\), only F</p></div></div></div></div><div class="exercise" id="ez_Vector_GreensTheorem_AreaViaLineInt"><div class="n">6</div><div class="body"><p>Sometimes, the value in <a href="#thm_Green">Green's Theorem</a> is in converting a double integral into a line
+	integral. Recall that the area of a region \(R\) in the
+	plane can be found by calculating \(\iint_R 1\, dA\).</p><div class="part" id="task_ez_Vector_GreensTheorem_AreaViaLineInt_FindVF"><span class="part-label">a)</span> <p>Find a smooth vector field \(\vF\) such that the
+	  circulation density of \(\vF\) is \(1\)
+	  everywhere.</p><div class="answer"><button>Show answer</button><div class="a"><p>
+				\( \vF =\langle 0,x \rangle \) is one possible example, but any vector field that satisfies \(\partial F_2/\partial x -
+					\partial F_1/\partial y = 1\) will work.
+			</p></div></div></div><div class="part"><span class="part-label">b)</span> <p>Write out both integrals in <a href="#thm_Green">Green's Theorem</a> for the vector field you selected in <a href="#task_ez_Vector_GreensTheorem_AreaViaLineInt_FindVF">part</a>.
+	  </p><div class="answer"><button>Show answer</button><div class="a"><p>
+			\(\oint_C \langle 0,x \rangle \cdot d\vr = \iint_D 1 \, dA\)
+		</p></div></div></div><div class="part" id="task_ez_Vector_GreensTheorem_AreaViaLineInt_Ellipse"><span class="part-label">c)</span> <p>For positive real numbers \(a,b\), the ellipse
+	  \(x^2/a^2 + y^2/b^2 = 1\) can be parametrized as
+	  \(\vr(t) = \langle a\cos(t),b\sin(t)\rangle\) with
+	  \(0\leq t\leq 2\pi\). Find the area of this ellipse by
+	  calculating a line integral.</p><div class="answer"><button>Show answer</button><div class="a"><p>
+			\(\oint_0^{2\pi} \langle 0,a \cos(t) \rangle \cdot \langle -a\sin(t),b \cos(t) \rangle \, dt = ab \int_0^{2\pi} \cos(t)^2 \, dt = ab \pi\)
+		</p></div></div></div><div class="part"><span class="part-label">d)</span> <p>Find another vector field \(\vG\) (different from the
+	  one you found in <a href="#task_ez_Vector_GreensTheorem_AreaViaLineInt_FindVF">part</a>) that has circulation density
+	  \(1\) everywhere, and calculate the area of the ellipse
+	  in <a href="#task_ez_Vector_GreensTheorem_AreaViaLineInt_Ellipse">part</a> by calculating the circulation of
+	  \(\vG\) along the ellipse.
+	  </p><div class="answer"><button>Show answer</button><div class="a"><p>
+			We will use the vector field \( \langle -y,0\rangle\) in this part. Thus we get the line integral \(\oint_0^{2\pi} \langle -b \sin(t),0 \rangle \cdot \langle -a\sin(t),b \cos(t) \rangle \, dt = ab \int_0^{2\pi} \sin(t)^2 \, dt = ab \pi\)
+		</p></div></div></div><div class="part"><span class="part-label">e)</span> <p>How many possible vector fields are there with circulation density \(1\) everywhere? Why?</p><div class="answer"><button>Show answer</button><div class="a"><p>
+			Any vector field that satisfies \(\partial F_2/\partial x - \partial F_1/\partial y = 1\) will work.
+		</p></div></div></div></div></div><div class="exercise" id="ez_Vector_GreensTheorem_region_hole"><div class="n">7</div><div class="body"><p>
+	  The types of regions in \(\R^2\) to which <a href="#thm_Green">Green's Theorem</a> applies are formally called
+	  <em>simply connected regions</em>. To be precise, a
+	  simply connected region \(D\) in \(\R^2\) is a set so
+	  that there is a path between every pair of points in
+	  \(D\) that stays inside \(D\) and any simple closed
+	  curve in \(D\) can be shrunk to a point while remaining
+	  inside \(D\). We can think of a simply connected region
+	  as being a region that does not have any &ldquo;holes&rdquo;. There
+	  are many instances where we can find a way to apply <a href="#thm_Green">Green's Theorem</a> multiple times to work with
+	  regions that are not simply connected, however.
+	</p><div class="figrow"><div class="figitem"><figure class="plot" id="fig_Vector_GreensTheorem_region_hole"><div class="card flag"><span class="chip">Figure not available statically — Sage-only, needs its own integration</span></div><figcaption>Figure 12.8.6 — A region that is not simply connected</figcaption></figure></div><div class="figitem"><figure class="plot" id="fig_Vector_GreensTheorem_region_hole_split"><div class="card flag"><span class="chip">Figure not available statically — Sage-only, needs its own integration</span></div><figcaption>Figure 12.8.7 — Breaking up a region</figcaption></figure></div></div><ol><li><p>Explain why the region \(R\) in <a href="#fig_Vector_GreensTheorem_region_hole">Figure 12.8.6</a> is not simply connected.
+	    </p></li><li><p>If we let \(C = C_1 + C_2\), then the orientation of
+	    \(C\) is as required by <a href="#thm_Green">Green's Theorem</a>&mdash;when walking along the pieces of
+	    \(C\), the region \(R\) is always on the left-hand
+	    side. Assume that \(\vF\) is a vector field that is
+	    smooth on \(R\) and \(C\). Using <a href="#fig_Vector_GreensTheorem_region_hole_split">Figure 12.8.7</a> as a guide, write \(
+	    \oint_C \vF\cdot d\vr\) as a sum of double integrals,
+	    one over \(R_1\) and the other over \(R_2\).
+	    </p></li><li id="ez_Vector_GreensTheorem_hole_winding"><p>
+	      In <a href="#act_Vector_GreensTheorem_not_smooth">Activity 12.8.3</a>, we considered the vector field \(\vF =
+	\displaystyle\frac{-y}{{x^2+y^2}}\vi +
+	\frac{x}{{x^2+y^2}}\vj\) and found that the circulation of
+	\(\vF\) around the unit circle centered at the origin
+	(oriented counterclockwise) was \(2\pi\). Show that for
+	every simple closed curve \(C\) in the plane that bounds a
+	region containing the origin, \(\oint_C\vF\cdot d\vr = 2\pi\).
+	    </p></li></ol></div></div><div class="exercise" id="ez_Vector_GreensTheorem_centroid"><div class="n">8</div><div class="body"><p>This exercise presents another occasion where <a href="#thm_Green">Green's Theorem</a> can be used to convert a
+	double integral into a line integral.
+	  <ol><li><p>
+	      Recall from <a href="11-4.html">Section 11.4</a>
+	      that the centroid of a lamina \(D\) of area \(A\) is given by
+	      \[\overline{x} = \frac{1}{A}\iint_D x\, dA \qquad \text{and}\qquad
+	      \overline{y} = \frac{1}{A}\iint_D y\, dA\]. Find vector fields
+	      \(\vF\) and \(\vG\) so that
+	      \[\overline{x} = \oint_{C} \vF\cdot d\vr \qquad \text{and}\qquad
+	      \overline{y} = \oint_C \vG\cdot d\vr\],
+	      where \(C\) is the boundary of the lamina \(D\).
+	      </p></li><li><p>
+		Find the centroid of the triangle with vertices
+		\((0,0)\), \((a,0)\), and \((0,b)\) for real
+		numbers \(a,b&gt;0\).
+	      </p></li></ol>
+	</p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

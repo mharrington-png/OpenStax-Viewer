@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flux Integrals · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Flux Integrals</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.9</span>Flux Integrals</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+        How can we measure how much of a vector field flows through a surface in space?
+      </p></li><li><p>
+        How can we calculate the amount of a vector field that flows through common surfaces, such as the graph of a function \(z=f(x,y)\)?
+      </p></li></ul></div>
+<p>
+     <a href="11-6.html">Section 11.6</a> showed how we can use vector valued functions of two variables to give a parameterization of a surface in space. For instance, the function \(\vr(s,t)=\langle 2\cos(t)\sin(s), 2\sin(t)\sin(s),2\cos(s)\rangle\) with domain \(0\leq t\leq 2 \pi\) and \(0\leq s\leq \pi\) parameterizes a sphere of radius \(2\) centered at the origin. <a href="11-6.html">Section 11.6</a> also gives examples of how to write parameterizations based on other geometric relationships like when one coordinate can be written as a function of the other two. In <a href="11-6.html#SS-11-6-2-Surface-Area-Parametrically-Defined-Surfaces">The Surface Area of Parametrically Defined Surfaces</a>, we set up a Riemann sum based on a parameterization that would measure the surface area of our curved surfaces in space.
+  </p><p>
+    In <a href="#fig_Vector_FluxInt_ParaPic">Figure 12.9.1</a>, we plot a surface using a parametrization \(\vr(s,t)=\langle{f(s,t),g(s,t),h(s,t)}\rangle\). The magenta curves represent curves where \(s\) varies and \(t\) is held constant, while the yellow curves represent curves where \(t\) varies and \(s\) is held constant. The vector in magenta is
+    \(\vr_s=\frac{\partial \vr}{\partial s}=\langle{f_s,g_s,h_s}\rangle\) which measures the direction and magnitude of change in the coordinates of the surface when only \(s\) is varied. Similarly, the vector in yellow is \(\vr_t=\frac{\partial \vr}{\partial t}=\langle{f_t,g_t,h_t}\rangle\) which measures the direction and magnitude of change in the coordinates of the surface when only \(t\) is varied. We also plot the parallelogram that is formed by \(\vr_s\) and \(\vr_t\), which is tangent to the surface. The area of this parallelogram offers an approximation for the surface area of a patch of the surface.
+  </p><figure class="plot" id="fig_Vector_FluxInt_ParaPic"><div class="sage-interactive" id="sage_para_pic"><div class="sage-embed"><script type="text/x-sage">var('t,s,u,v,z,y,z')
+f=-x^2/2-3*y^3/3
+@interact
+def _(a=slider(-1,1,.5,0,label="s value"),b=slider(-1,1,.5,.5,label="t value")):
+  plot1=plot3d(f,(x,-1,1),(y,-1,1),frame=False,opacity=.3)+sphere((a,b,f(x=a,y=b)),size=.05,color="black")
+  for i in range(0,5):
+    plot1+=parametric_plot3d((s,-1+i/2,f(x=s,y=-1+i/2)),(s,-1,1),color="#D81B60")
+    plot1+=parametric_plot3d((-1+i/2,s,f(y=s,x=-1+i/2)),(s,-1,1),color="#FFC107")
+  f_val=f(x=a,y=b)
+  pos=(a,b,f_val)
+  fx=diff(f,x)(x=a,y=b)
+  fy=diff(f,y)(x=a,y=b)
+  vt=(1/2+a,b,1/2*fx+f_val)
+  vs=(a,b+1/2,1/2*fy+f_val)
+  cr=(a-fx/2,b-fy/2,1/2+f_val)
+  vectt=arrow3d(pos,vt,color="#D81B60")
+  vects=arrow3d(pos,vs,color="#FFC107")
+  plot1+=vectt+vects
+  plot1+=parametric_plot3d((a+t/2,b+s/2,f_val+t/2*fx+s/2*fy),(t,0,1),(s,0,1),color="orange",opacity=.6)
+  plot1+=arrow3d(pos,cr,color="#004D40")
+  show(plot1)</script></div></div><figcaption>Figure 12.9.1 — A three-dimensional plot of </figcaption></figure><p>
+    From <a href="9-4.html">Section 9.4</a>, we also know that
+    \(\vr_s\times \vr_t\) (plotted in green) will be orthogonal to both \(\vr_s\) and \(\vr_t\) and its magnitude will be given by the area of the parallelogram.
+  </p><div class="card activity preview" id="PA_Vector_FluxInt"><div class="ex-head"><span class="num">Preview Activity 12.9.1</span></div><div class="ex-body"><p>
+        In this preview activity, we will explore the parameterizations of a few familiar surfaces and confirm some of the geometric properties described in the introduction above.
+      </p><div class="part" id="task_PA_Vector_FluxInt_Param"><span class="part-label">a)</span> <p>
+          Use the ideas from <a href="11-6.html">Section 11.6</a> to give a parameterization \(\vr(s,t)\) of the following surface. Be sure to specify the bounds on each of your parameters.
+	      </p><p>
+          \(S_1\): the right circular cylinder centered on the \(x\)-axis of radius 2 when \(0\leq x\leq 5\)
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\vr(s,t)=\langle s, 2\cos(t),2\sin(t) \rangle\) for \( t \in [0,2\pi], s \in [0,5]\)
+        </p></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+          Draw a graph of \(S_1\) from the previous part. Label the points that correspond to \((s,t)\) points of \((0,0)\), \((0,1)\), \((1,0)\), and \((2,3)\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The four points correspond to \((0,2,0)\), \((1,2,0)\), \((0,2\cos(1),0)\), and \((2,2\cos(3),2\sin(3))\). 
+        </p><div class="sage-interactive" id="exercise-testing9"><div class="sage-embed"><script type="text/x-sage">var('s,t')
+param(s,t)=(s,2*cos(t),2*sin(t))
+b=[0,5,0,2*pi]
+plot22=parametric_plot3d(param,(s,b[0],b[1]),(t,b[2],b[3]),color='blue',opacity=.85)
+plot22+=point3d(param(s=0,t=0),color='black',size=10)
+plot22+=point3d(param(s=1,t=0),color='black',size=10)
+plot22+=point3d(param(s=0,t=1),color='black',size=10)
+plot22+=point3d(param(s=2,t=3),color='black',size=10)
+show(plot22)</script></div></div><pre class="code">var('s,t')
+param(s,t)=(s,2*cos(t),2*sin(t))
+b=[0,5,0,2*pi]
+plot22=parametric_plot3d(param,(s,b[0],b[1]),(t,b[2],b[3]),color='blue',opacity=.85)
+plot22+=point3d(param(s=0,t=0),color='black',size=10)
+plot22+=point3d(param(s=1,t=0),color='black',size=10)
+plot22+=point3d(param(s=0,t=1),color='black',size=10)
+plot22+=point3d(param(s=2,t=3),color='black',size=10)
+show(plot22)</pre></div></div></div><div class="part" id="task_PA_Vector_FluxInt_Tangents"><span class="part-label">c)</span> <p>
+          For the parameterization from <a href="#task_PA_Vector_FluxInt_Param">part</a>, calculate \(\vr_s\), \(\vr_t\), and \(\vr_s \times \vr_t\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \[\begin{aligned}\vr_s &amp; = \langle 1,0,0 \rangle  \\
+\vr_t &amp; = \langle 0,-2 \sin(t) , 2 \cos(t) \rangle  \\
+\vr_s \times \vr_t &amp; = \langle 0,-2 \cos(t) , -2 \sin(t) \rangle \end{aligned}\] 
+        </p></div></div></div><div class="part" id="task_PA_Vector_FluxInt_partd"><span class="part-label">d)</span> <p>
+          For the parameterization from <a href="#task_PA_Vector_FluxInt_Param">part</a>, find the value for \(\vr_s\),\(\vr_t\), and \(\vr_s \times \vr_t\) at the \((s,t)\) points of \((0,0)\), \((0,1)\), \((1,0)\), and \((2,3)\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \[\begin{aligned}\vr_s (0,0) &amp; = \langle 1,0,0 \rangle  \\
+\vr_t (0,0) &amp; = \langle 0,0 ,2 \rangle  \\
+\vr_s \times \vr_t (0,0) &amp; = \langle 0,-2 , 0 \rangle  \\
+\vr_s (1,0) &amp; = \langle 1,0,0 \rangle  \\
+\vr_t (1,0) &amp; = \langle 0,0,2 \rangle  \\
+\vr_s \times \vr_t (1,0) &amp; = \langle 0,-2  , 0 \rangle  \\
+\vr_s (0,1) &amp; = \langle 1,0,0 \rangle  \\
+\vr_t (0,1) &amp; = \langle 0,-2\sin(1) ,2\cos(1) \rangle  \\
+\vr_s \times \vr_t (0,1) &amp; = \langle 0,-2\cos(1),-2\sin(1) \rangle  \\
+\vr_s (2,3) &amp; = \langle 1,0,0 \rangle  \\
+\vr_t (2,3) &amp; = \langle 0,-2\sin(3),2\cos(3) \rangle  \\
+\vr_s \times \vr_t (2,3) &amp; = \langle 0,-2 \cos(3), -2\sin(3) \rangle \end{aligned}\] 
+        </p></div></div></div><div class="part"><span class="part-label">e)</span> <p>
+          Draw your vector results from <a href="#task_PA_Vector_FluxInt_partd">here</a> on your graph and confirm the geometric properties described in the introduction to this section. Namely, \(\vr_s\) and \(\vr_t\) should be tangent to the surface, while \(\vr_s \times \vr_t\) should be orthogonal to the surface (in addition to \(\vr_s\) and \(\vr_t\)).
+        </p><div class="answer"><button>Show answer</button><div class="a"><div class="sage-interactive" id="exercise-testing10"><div class="sage-embed"><script type="text/x-sage">var('s,t')
+param(s,t)=(s,2*cos(t),2*sin(t))
+b=[0,5,0,2*pi]
+rt(s,t)=(0,-2*sin(t),2*cos(t))
+rs(s,t)=(1,0,0)
+rst(s,t)=(0,-2*cos(t),-2*sin(t))
+plot22=parametric_plot3d(param,(s,b[0],b[1]),(t,b[2],b[3]),color='blue',opacity=.55)
+points=[(0,0),(1,0),(0,1),(2,3)]
+for (a,b) in points:
+	p=param(s=a,t=b)
+	plot22+=point3d(p,color='black',size=10)
+	plot22+=arrow3d(p,p+rs(s=a,t=b),color="red")
+	plot22+=arrow3d(p,p+rt(s=a,t=b),color="green")
+	plot22+=arrow3d(p,p+rst(s=a,t=b),color="orange")
+show(plot22)</script></div></div><pre class="code">var('s,t')
+param(s,t)=(s,2*cos(t),2*sin(t))
+b=[0,5,0,2*pi]
+rt(s,t)=(0,-2*sin(t),2*cos(t))
+rs(s,t)=(1,0,0)
+rst(s,t)=(0,-2*cos(t),-2*sin(t))
+plot22=parametric_plot3d(param,(s,b[0],b[1]),(t,b[2],b[3]),color='blue',opacity=.55)
+points=[(0,0),(1,0),(0,1),(2,3)]
+for (a,b) in points:
+	p=param(s=a,t=b)
+	plot22+=point3d(p,color='black',size=10)
+	plot22+=arrow3d(p,p+rs(s=a,t=b),color="red")
+	plot22+=arrow3d(p,p+rt(s=a,t=b),color="green")
+	plot22+=arrow3d(p,p+rst(s=a,t=b),color="orange")
+show(plot22)</pre></div></div></div><div class="part"><span class="part-label">f)</span> <p>
+          Repeat steps (a) through (e) for the following two surfaces:
+        </p><div class="part"><span class="part-label">i)</span> <p>\(S_2\): the sphere centered at the origin of radius 3</p><div class="answer"><button>Show answer</button><div class="a"><p>
+            \(\vr(s,t)=\langle 3 \cos(t) \sin(s), 3 \sin(t) \sin(s), 3 \cos(s) \rangle\) for \( t \in [0,2\pi], s \in [0,\pi]\)
+          </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>\(S_3\): the first octant portion of the plane \(x+2y+3z=6\)</p><div class="answer"><button>Show answer</button><div class="a"><p>
+            \(\vr(s,t)=\langle s, t, (6-s-2t)/3 \rangle\) for \( s \in [0,6], t \in [0,-1/2s+3]\)
+          </p></div></div></div></div></div></div><p>
+    As we saw in <a href="11-6.html">Section 11.6</a>, we can set up a Riemann sum of the areas for the parallelograms in <a href="#fig_Vector_FluxInt_ParaPic">Figure 12.9.1</a> to approximate the surface area of the region plotted by our parametrization. <a href="11-6.html#E_surface_area">Equation (11.6.2)</a> shows that we can compute the exact surface area by taking a limit of a Riemann sum which will correspond to integrating the magnitude of \(\vr_s \times \vr_t\) over the appropriate parameter bounds. What if we wanted to measure a quantity other than the surface area? Our focus in this section we will be the exploration of a specific case of this question: How can we measure the amount of a three dimensional vector field that flows through a particular section of a surface? The geometric tools we have reviewed in this section, especially the vector \(\vr_s \times \vr_t\), will be valuable.
+  </p>
+<h2 id="SS_Vector_FluxInt_Idea">The Idea of the Flux of a Vector Field through a Surface</h2>
+<p>
+    In this section we will look at how to measure the amount of a vector field that flows through a surface in space.  <a href="#fig_Vector_FluxInt_FieldSurface1">Figure 12.9.2</a> illustrates a plot that demonstrates this idea. Our definition of divergence in <a href="12-6.html">Section 12.6</a> looked at measuring the amount of vector field flowing out of a small region on a 2D plane. In this subsection, we will set up a precise measurement of this same measurement but over a region of a curved surface in 3D.
+  </p><figure class="plot" id="fig_Vector_FluxInt_FieldSurface1"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('t,s,u,v,z,y,z')
+f=-x^2/5-3*y^3/8
+Fx=x^2
+Fy=y
+Fz=(x+y+z)/3+1
+plot1=plot3d(f,(x,-1,1),(y,-1,1),frame=False,opacity=.3,aspect_ratio=1)
+for i in range(0,5):
+  plot1+=parametric_plot3d((s,-1+i/2,f(x=s,y=-1+i/2)),(s,-1,1),color="gray")
+  plot1+=parametric_plot3d((-1+i/2,s,f(y=s,x=-1+i/2)),(s,-1,1),color="gray")
+plot1+=plot_vector_field3d((Fx,Fy,Fz),(x,-1,1),(y,-1,1),(z,-1,1))
+show(plot1)</script></div></div><figcaption>Figure 12.9.2 — A three-dimensional vector field and a surface</figcaption></figure><p>
+    As with understanding line integrals of vector-valued functions in <a href="12-2.html">Section 12.2</a>, we don't care about the output of the vector field at points away from the surface. We would really like to examine the output vectors for the points on our surface. To do this, we will look at <a href="#fig_Vector_FluxInt_FieldSurface2">Figure 12.9.3</a>, which plots the output of our vector field at an array of points on our surface.
+  </p><figure class="plot" id="fig_Vector_FluxInt_FieldSurface2"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('t,s,u,v,z,y,z')
+a=1
+b=1/2
+f=-x^2/5-3*y^3/8
+Fx=x^2
+Fy=y
+Fz=(x+y+z)/3+1
+plot1=plot3d(f,(x,-1,1),(y,-1,1),frame=False,opacity=.3,aspect_ratio=1)
+for i in range(0,5):
+  plot1+=parametric_plot3d((s,-1+i/2,f(x=s,y=-1+i/2)),(s,-1,1),color="gray")
+  plot1+=parametric_plot3d((-1+i/2,s,f(y=s,x=-1+i/2)),(s,-1,1),color="gray")
+f_val=f(x=a,y=b)
+pos=(a,b,f_val)
+fx=diff(f,x)(x=a,y=b)
+fy=diff(f,y)(x=a,y=b)
+vt=(1/2+a,b,1/2*fx+f_val)
+vs=(a,b+1/2,1/2*fy+f_val)
+cr=(a-fx/2,b-fy/2,1/2+f_val)
+for i in range(0,5):
+  for j in range (0,5):
+    plot1+=arrow3d((-1+i/2,-1+j/2,f(x=-1+i/2,y=-1+j/2)),(-1+i/2+Fx(x=-1+i/2,y=-1+j/2), -1+j/2+Fy(x=-1+i/2,y=-1+j/2),f(x=-1+i/2,y=-1+j/2)+Fz(x=-1+i/2,y=-1+j/2,z=f(x=-1+i/2,y=-1+j/2))),color="blue")
+show(plot1)</script></div></div><figcaption>Figure 12.9.3 — A three-dimensional vector field evaluated along a surface</figcaption></figure><p>
+    The central question we would like to consider is &ldquo;How can we measure the amount of a three dimensional vector field that flows through a particular section of a curved surface?&rdquo;, so we only need to consider the amount of the vector field that flows <em>through</em> the surface. Any portion of our vector field that flows along (or tangent) to the surface will not contribute to the amount that goes through the surface. In <a href="#fig_Vector_FluxInt_FieldSurface3">Figure 12.9.4</a>, we have split the vector field for points on our surface into two components. One component, plotted in green, is orthogonal to the surface. The component that is tangent to the surface is plotted in magenta.
+  </p><figure class="plot" id="fig_Vector_FluxInt_FieldSurface3"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('t,s,u,v,z,y,z')
+f=-x^2/5-3*y^3/8
+Fx=x^2
+Fy=y
+Fz=(x+y+z)/3+1
+plot1=plot3d(f,(x,-1,1),(y,-1,1),frame=False,opacity=.3,aspect_ratio=1)
+for i in range(0,5):
+  plot1+=parametric_plot3d((s,-1+i/2,f(x=s,y=-1+i/2)),(s,-1,1),color="gray")
+  plot1+=parametric_plot3d((-1+i/2,s,f(y=s,x=-1+i/2)),(s,-1,1),color="gray")
+for i in range(0,5):
+  for j in range (0,5):
+    posx=-1+i/2
+    posy=-1+j/2
+    posz=f(x=posx,y=posy)
+    F1=Fx(x=posx,y=posy)
+    F2=Fy(x=posx,y=posy)
+    F3=Fz(x=posx,y=posy,z=posz)
+    plot1+=arrow3d((posx,posy,posz),(posx+Fx(x=posx,y=posy),posy+Fy(x=posx,y=posy), posz+Fz(x=posx,y=posy,z=posz)),color="#1E88E5")
+    N=(-diff(f,x)(x=posx,y=posy)/2,-diff(f,y)(x=posx,y=posy)/2,1/2)
+    Nfrac=(F1*N[0]+F2*N[1]+F3*N[2])/(N[0]^2+N[1]^2+N[2]^2)
+    FNx=Nfrac*N[0]
+    FNy=Nfrac*N[1]
+    FNz=Nfrac*N[2]
+    plot1+=arrow3d((posx,posy,posz),(posx+FNx,posy+FNy,posz+FNz),color="#004D40")
+    plot1+=arrow3d((posx,posy,posz),(posx+F1-FNx,posy+F2-FNy,posz+F3-FNz),color="#D81B60")
+    plot1+=arrow3d((.25,.25,-.2),(.3,.2,.3),color="#FFC107")
+show(plot1)</script></div></div><figcaption>Figure 12.9.4 — The decomposition of three-dimensional vector field
+    evaluated along a surface into normal and tangent components</figcaption></figure><p>
+    In order to measure the amount of the vector field that moves through the plotted section of the surface, we must find the accumulation of the lengths of the green vectors in <a href="#fig_Vector_FluxInt_FieldSurface3">Figure 12.9.4</a>. Notice that some of the green vectors are moving through the surface in a direction opposite of others. In other words, we will need to pay attention to the direction in which these vectors move through our surface and not just the magnitude of the green vectors.
+  </p><p>
+    If we have a parameterization of the surface, then the vector \(\vr_s \times \vr_t\) varies smoothly across our surface and gives a consistent way to describe which direction we choose as &ldquo;through&rdquo; the surface. If we define a positive flow through our surface as being consistent with the yellow vector in <a href="#fig_Vector_FluxInt_FieldSurface3">Figure 12.9.4</a>, then there is more positive flow (in terms of both magnitude and area) than negative flow through the surface. Thus, the <em>net</em> flow of the vector field through this surface is positive.
+  </p><div class="card activity"><div class="ex-head"><span class="num">Activity 12.9.2</span></div><div class="ex-body"><p>
+        In this activity, you will compare the net flow of different vector fields through our sample surface. In <a href="#fig_Vector_FluxInt_FieldPicker">Figure 12.9.5</a> you can select between five different vector fields. Once you select a vector field, the vector field for a set of points on the surface will be plotted in blue. Each blue vector will also be split into its normal component (in green) and its tangential component (in magenta). The yellow vector defines the direction for positive flow through the surface.
+      </p><p>
+        Look at each vector field and order the vector fields from greatest net flow through the surface to least net flow through the surface. Remember that a negative net flow through the surface should be lower in your rankings than any positive net flow.
+      </p><figure class="plot" id="fig_Vector_FluxInt_FieldPicker"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('t,s,u,v,z,y,z')
+f=-x^2/5-3*y^3/8
+@interact
+def _(sb=selector(['Vector Field 1','Vector Field 2','Vector Field 3','Vector Field 4','Vector Field 5'],label="Vector Field:")):
+  plot1=plot3d(f,(x,-1,1),(y,-1,1),frame=False,opacity=.3,aspect_ratio=1)
+  for i in range(0,5):
+    plot1+=parametric_plot3d((s,-1+i/2,f(x=s,y=-1+i/2)),(s,-1,1),color="gray")
+    plot1+=parametric_plot3d((-1+i/2,s,f(y=s,x=-1+i/2)),(s,-1,1),color="gray")
+  if sb=='Vector Field 1':
+      Fx=x
+      Fy=y
+      Fz=z-x
+  if sb=='Vector Field 2':
+      Fx=(y-z)*x
+      Fy=sin(x*z)
+      Fz=-abs(y)+x*z+.2
+  if sb=='Vector Field 3':
+      Fx=x
+      Fy=y+x*z
+      Fz=-y-(x*z)/2
+  if sb=='Vector Field 4':
+      Fx=cos(z)
+      Fy=sin(x*y)
+      Fz=-cos(y+x)
+  if sb=='Vector Field 5':
+      Fx=abs(x)-x*y
+      Fy=x-y
+      Fz=1.5-x*z
+  for i in range(0,5):
+    for j in range (0,5):
+      posx=-1+i/2
+      posy=-1+j/2
+      posz=f(x=posx,y=posy)
+      F1=Fx(x=posx,y=posy,z=posz)
+      F2=Fy(x=posx,y=posy,z=posz)
+      F3=Fz(x=posx,y=posy,z=posz)
+      plot1+=arrow3d((posx,posy,posz),(posx+F1,posy+F2, posz+F3),color="#1E88E5")
+      N=(-diff(f,x)(x=posx,y=posy)/2,-diff(f,y)(x=posx,y=posy)/2,1/2)
+      Nfrac=(F1*N[0]+F2*N[1]+F3*N[2])/(N[0]^2+N[1]^2+N[2]^2)
+      FNx=Nfrac*N[0]
+      FNy=Nfrac*N[1]
+      FNz=Nfrac*N[2]
+      plot1+=arrow3d((posx,posy,posz),(posx+FNx,posy+FNy,posz+FNz),color="#004D40")
+      plot1+=arrow3d((posx+FNx,posy+FNy,posz+FNz),(posx+F1,posy+F2,posz+F3),color="#D81B60")
+      plot1+=arrow3d((.25,.25,-.2),(.3,.2,.3),color="#FFC107")
+  show(plot1)</script></div></div><figcaption>Figure 12.9.5 — Five vector fields flowing through a surface, with decomposition into normal and tangential components</figcaption></figure></div></div>
+<h2 id="the-details-of-measuring-the-flux-of-a-vector-field-through-a-surface">The Details of Measuring the Flux of a Vector Field through a Surface</h2>
+<p>
+    Now that we have developed a conceptual understanding of what we are trying to measure, we can set up the corresponding Riemann sum to measure the flux of a vector field through a section of a surface. Let \(Q\) be the section of our surface and suppose that \(Q\) is parameterized by \(\vr(s,t)\) with \(a\leq s\leq b\) and \(c \leq t \leq d\). The domain of \(\vr\) is a region of the \(st\)-plane, which we call \(D\), and the range of \(\vr\) is \(Q\).
+  </p><p>
+    As with most problems in integral calculus, we slice our region of interest into smaller pieces. Specifically, we slice \(a\leq s\leq b\) into \(n\) equally-sized subintervals with endpoints \(s_0,s_1,\ldots,s_n\) and \(c \leq t \leq d\) into \(m\) equally-sized subintervals with endpoints \(t_0,t_1,\ldots,t_n\). This divides \(D\) into \(nm\)
+    rectangles of size \(\Delta{s}=\frac{b-a}{n}\) by \(\Delta{t}=\frac{d-c}{m}\). We index these rectangles as
+    \(D_{i,j}\). Every \(D_{i,j}\) has area (in the \(st\)-plane) \(\Delta{s}\Delta{t}\). The partition of \(D\) into the rectangles \(D_{i,j}\) also partitions \(Q\) into \(nm\) corresponding pieces which we call \(Q_{i,j}=\vr(D_{i,j})\). From  (specifically ) the surface area of \(Q_{i,j}\) is approximated by \(S_{i,j}=\vecmag{(\vr_s \times \vr_t)(s_i,t_j)}\Delta{s}\Delta{t}\).
+  </p><figure class="plot" id="fig_Vector_FluxInt_SurfaceSections"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('t,s,u,v,z,y,z')
+f=-x^2/2-3*y^3/3
+@interact
+def _(n=slider(3,10,1,4,label="Number of Sections in Grid")):
+  plot1=plot3d(f,(x,-1,1),(y,-1,1),frame=False,opacity=.3)
+  stepsize=2/(n)
+  for i in range(0,n):
+    a=-1+i*stepsize
+    plot1+=parametric_plot3d((s,a,f(x=s,y=a)),(s,-1,1),color="gray")
+    plot1+=parametric_plot3d((a,s,f(y=s,x=a)),(s,-1,1),color="gray")
+    for j in range(0,n):
+      b=-1+j*stepsize
+      f_val=f(x=a,y=b)
+      pos=(a,b,f_val)
+      fx=diff(f,x)(x=a,y=b)
+      fy=diff(f,y)(x=a,y=b)
+      vt=(stepsize+a,b,stepsize*fx+f_val)
+      vs=(a,b+stepsize,stepsize*fy+f_val)
+      cr=(a-fx*stepsize,b-fy*stepsize,stepsize+f_val)
+      plot1+=parametric_plot3d((a+t*stepsize,b+s*stepsize,f_val+t*stepsize*fx+s*stepsize*fy),(t,0,1),(s,0,1),color="orange",opacity=.6)
+      plot1+=arrow3d(pos,cr,color="#004D40")
+  show(plot1)</script></div></div><figcaption>Figure 12.9.6 — Pieces of the tangent planes that approximate a surface</figcaption></figure><p>
+    We want to measure the total flow of the vector field \(\vF\) through \(Q\), which we will approximate on each \(Q_{i,j}\) and then sum to obtain the total flow. In other words, the flux of \(\vF\) through \(Q\) is
+    \[
+      \text{Flux}=\sum_{i=1}^n\sum_{j=1}^m\vecmag{\vF_{\perp Q_{i,j}}}\cdot S_{i,j}
+    \],
+    where \(\vecmag{\vF_{\perp Q_{i,j}}}\) is the length of the component of \(\vF\) orthogonal to \(Q_{i,j}\).
+  </p><p>
+    For each \(Q_{i,j}\), we approximate the surface \(Q\) by the tangent plane to \(Q\) at a corner of that partition element. This corresponds to using the planar elements in <a href="#fig_Vector_FluxInt_SurfaceSections">Figure 12.9.6</a>, which have surface area \(S_{i,j}\). The vector \(\vw_{i,j}=(\vr_s \times \vr_t)(s_i,t_j)\) can be used to measure the orthogonal direction (and thus define which direction we mean by positive flow through \(Q\)) on the \(i,j\) partition element. This means that
+    \[
+      \vF_{\perp Q_{i,j}} =\vecmag{\proj_{\vw_{i,j}}\vF(s_i,t_j)}
+      = \frac{\vF(s_i,t_j)\cdot \vw_{i,j}}{\vecmag{\vw_{i,j}}}
+    \]
+  </p><p>
+    Combining these pieces, we find that the flux through \(Q_{i,j}\) is approximated by
+    \[\begin{aligned}\text{Flux through } Q_{i,j} &amp;= \vecmag{\vF_{\perp
+      Q_{i,j}}}\cdot S_{i,j} 
+      = \left(\frac{\vF_{i,j}\cdot \vw_{i,j}}{\vecmag{\vw_{i,j}}} \right)
+      \left(\vecmag{\vw_{i,j}}\Delta{s}\Delta{t}\right)
+       \\
+
+       &amp; = \left(\vF_{i,j} \cdot (\vr_s \times \vr_t)\right)
+       \left(\Delta{s}\Delta{t}\right)
+      \end{aligned}\], where \(\vF_{i,j} = \vF(s_i,t_j)\).
+    Therefore we may approximate the total flux by
+    \[
+      \text{Total Flux}=\sum_{i=1}^n\sum_{j=1}^m \left(\vF_{i,j}\cdot \vw_{i,j}\right) \left(\Delta{s}\Delta{t}\right)
+    \].
+    Taking the limit as \(n,m\rightarrow\infty\) gives the following result.
+  </p><p>
+    Conceptually, the above limit shows how the argument in <a href="11-6.html#SS-11-6-2-Surface-Area-Parametrically-Defined-Surfaces">The Surface Area of Parametrically Defined Surfaces</a> generalizes when measuring the flux of a vector field through a surface rather than just the surface area. The key difference between the Riemann sum above and Riemann sum used to set up <a href="11-6.html#Surface-area">Surface Area</a> is that we are using the dot product of the vector field with the normal vector to the surface (given by \(\vw_{i,j}=(\vr_s \times \vr_t)(s_i,t_j)\)) as the scalar value in our sum. This realization gives the following theorem, which states that the flux through a curved surface in space can be computed using a parameterization of the surface and a double integral over a flat region in the plane of parameter values. 
+  </p><div class="card definition" id="thm_flux_int_calc"><span class="chip">Theorem</span><p>
+        Let a smooth surface \(Q\) be parametrized by \(\vr(s,t)\) over a domain \(D\). The total flux of a smooth vector field \(\vF\) through \(Q\) is given by
+        \[
+          \iint_D \vF \cdot (\vr_s \times \vr_t)\, dA
+        \].
+      </p></div><p>
+    In <a href="#fig_Vector_FluxInt_SurfaceSections">Figure 12.9.6</a>, you can change the number of sections in the partition and see the geometric result of refining the partition. In the next example, we will look at how <a href="#thm_flux_int_calc">Theorem</a> is used on a part of a cone and make sense of the vector \(\vw(t,s)=\vr_s \times \vr_t\) and the scalar \(\vF \cdot (\vr_s \times \vr_t)\).
+  </p><p>
+      In some Webwork exercises and other sources, you will see flux integrals specified with the following notations:
+      \[
+        \iint_{S_1} \vF \cdot (\vr_s \times \vr_t)\, dA = \iint_{S_1} \vF \cdot  d\vec{A} = \iint_{S_1} \vF \cdot  d\vec{S}
+      \]
+      While we will use the notation specified in <a href="#thm_flux_int_calc">Theorem</a> primarily, the other notations come from combining the normal vector (calculated from the parameterization of the surface) and the area element into a single vector valued area element. In other words, \((\vr_s \times \vr_t)\, dA =  d\vec{A} =  d\vec{s}\).
+    </p><div class="card example" id="flux_int_example1"><div class="ex-head"><span class="num">Example 12.9.1</span></div><div class="ex-body"><p>
+      In this example we will compute the flux of the vector field \(\vF= \langle xz-2, y+x, 1 \rangle \) through the surface of the cone given by \(x^2+y^2=z^2\) with \(1\leq z \leq 3\). So that we can use <a href="#thm_flux_int_calc">Theorem</a>, we first parameterize our surface and calculate \(\vw(t,s)=\vr_s \times \vr_t\) based on that parameterization. 
+    </p><p>
+      In cylindrical coordinates, our cone is described by \(r=z\) which suggests that we can use \(r\) and \(\theta\) as \(s\) and \(t\). Consider the parameterization \(\vr(s,t)=\langle s \cos(t), s \sin(t), s \rangle \) with bounds \(1\leq s \leq 3\) and \(0 \leq t \lt 2 \pi\). Notice that \(s\) is acting as both \(r\) and \(z\). Calculating the partial derivatives of \(\vr\) gives the following:
+      \[\begin{aligned}\vr_s &amp; = \langle \cos(t), \sin(t), 1 \rangle  \\
+\vr_t &amp; = \langle -s \sin(t), s \cos(t), 0 \rangle \end{aligned}\]
+      Taking the cross product of \(\vr_s\) and \(\vr_t\), we obtain the vector-valued function \(\vw\):
+      \[\vw= \vr_s \times \vr_t = \langle -s \cos(t), -s \sin(t), s (\cos(t)^2 +\sin(t)^2) \rangle \].
+      We may simplify this to 
+      \[\vw=\langle-s \cos(t), -s \sin(t), s \rangle \].
+      Notice that \(\vw\) is very close to \(\vr\). If we think of \(\vr\) as giving \(\langle x,y,z\rangle \), then \(\vw = \langle -x, -y, z \rangle \). The figure below shows the relationship between vectors \(\vr\) and \(\vw\) for a point on the surface.
+    </p><figure class="plot" id="fig_Vector_FluxInt_Cone1"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('x,y,z,s,t')
+@interact
+def conepiece(a=slider(1,3,1/2,2,label="s value"),b=slider(0,2*pi,pi/6,pi/2,label="t value")):
+  plot2=parametric_plot3d((s*cos(t),s*sin(t),s),(s,1,3),(t,0, 2*pi),color='gray', opacity=.50)
+  plot2+=arrow3d((a*cos(b),a*sin(b),a),(0,0,2*a),color='#D81B60',thickness=3)
+  plot2+=arrow3d((0,0,0),(a*cos(b),a*sin(b),a),color='#004D40')
+  show(plot2,aspect_ratio=1)</script></div></div><figcaption>Figure 12.9.7 — A plot of our surface with the parameterization vector in green and the normal vector \(\vw\) in magenta</figcaption></figure><p>
+      In <a href="#fig_Vector_FluxInt_Cone1">Figure 12.9.7</a>, the normal vector (as calculated from the parameterization) points inside the cone. This is the direction of positive flow when measuring the flux of the vector field. Our parameterization will also transform our vector field into a function of \(s\) and \(t\). Specifically,
+      \[\vF(s,t)= \langle (s \cos(t))(s) -2, s \sin(t) + s \cos(t) , 1\rangle\]
+      Applying <a href="#thm_flux_int_calc">Theorem</a> to our parameterization and vector field allows us to compute \(I = \iint_D \vF \cdot (\vr_s \times \vr_t)\, dA\) as an interated integral
+      \[\begin{aligned} I &amp; = \int_0^{2\pi}\int_1^3 \langle (s \cos(t))(s) -2, s \sin(t) + s \cos(t) , 1\rangle \cdot \langle -s \cos(t), -s \sin(t), s \rangle \, ds \, dt  \\
+ &amp; =\int_0^{2\pi}\int_1^3 ((s \cos(t))(s) -2)  (-s \cos(t)) +(-s \sin(t)) (s \sin(t) + s \cos(t)) +s  \\
+ &amp; = -\frac{62}{3}\pi \end{aligned}\].
+      Note that the result of this flux integral is negative, which means more of the vector field is going out of the cone than is coming into the cone. 
+    </p><figure class="plot" id="fig_Vector_FluxInt_Cone2"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('x,y,z,s,t')
+N=10
+M=5
+k=5
+plot3=parametric_plot3d((s*cos(t),s*sin(t),s),(s,1,3),(t,0, 2*pi),color='gray', opacity=.50)
+for i in range(0,N):
+  for j in range(0,M):
+    a=1+j/M*2
+    b=0+i/N*2*pi 
+    #(a,b)
+    plot3+=arrow3d((a*cos(b),a*sin(b),a),(a*cos(b)+1/k*((a*cos(b))*(a)-2), a*sin(b)+1/k*(a*sin(b) + a*cos(b)), 1/k+a),color='#1E88E5')
+show(plot3,aspect_ratio=1)</script></div></div><figcaption>Figure 12.9.8 — A plot of the surface with the vector field \(\vF\) for an array of points on the surface. The vector field has been scaled down by a factor of 5 in this plot.</figcaption></figure><p>
+      In <a href="#fig_Vector_FluxInt_Cone2">Figure 12.9.8</a> you can see much more of the vector field is flowing outside of the cone than inside, which matches with our result of calculating the flux as negative. 
+    </p></div></div><p>
+    The next activity asks you to carefully go through the process of calculating the flux of some vector fields through a cylindrical surface.
+  </p><div class="card activity"><div class="ex-head"><span class="num">Activity 12.9.3</span></div><div class="ex-body"><div class="part"><span class="part-label">a)</span> <p>
+        <a href="#fig_Vector_FluxInt_yzsine">Figure 12.9.9</a> shows a plot of the vector field \(\vF=\langle{y,z,2+\sin(x)}\rangle\) and a	right circular cylinder of radius \(2\) and height \(3\) (with open top and bottom). Consider the vector field going into the cylinder (toward the \(z\)-axis) as corresponding to positive flux.
+      </p><figure class="plot" id="fig_Vector_FluxInt_yzsine"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('s,t,x,y,z')
+plot1=parametric_plot3d((2*cos(t),2*sin(t),s),(t,0,2*pi),(s,0,3),opacity=.3,color="gray",frame=False,aspect_ratio=1)
+plot1+=plot_vector_field3d((y,z,2+sin(z)),(x,-3,3),(y,-3,3),(z,-1,4),plot_points=7)
+show(plot1)</script></div></div><figcaption>Figure 12.9.9 — The vector field \(\vF=\langle{y,z,2+\sin(x)}\rangle\) and a right circular cylinder</figcaption></figure><div class="part"><span class="part-label">i)</span> <p>Reasoning graphically, do you think the flux of \(\vF\) through the cylinder will be positive, negative, or zero? Write a few sentences justifying your answer.</p><div class="answer"><button>Show answer</button><div class="a"><p>
+            This is difficult to visualize when the whole vector field is present. There is a lot of visual clutter. The flux should be near zero because on each horizontal slice, you can see about as much of the vector field flowing into the circular slice as is flowing out of it on another side. 
+          </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>
+        Parameterize the right circular cylinder of radius \(2\), centered on the \(z\)-axis, for \(0\leq z \leq 3\). Be sure to give bounds on your parameters.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\vr(t) = \langle 2 \cos(t),2\sin(t), s \rangle \) with \(t \in [0,2\pi)\) and \(s \in [0,3]\)
+        </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>
+        Based on your parameterization, compute \(\vr_s\), \(\vr_t\), and \(\vr_s \times \vr_t\). Confirm that these vectors are either orthogonal or tangent to the right circular cylinder. Is your orthogonal vector pointing in the direction of positive flux or negative flux?
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \[\begin{aligned}\vr_s &amp; = \langle 0,0,1 \rangle  \\
+\vr_t &amp; = \langle -2 \sin(t) , 2 \cos(t),0 \rangle  \\
+\vr_s \times \vr_t &amp; = \langle -2 \cos(t) , -2 \sin(t),0 \rangle \end{aligned}\] 
+        </p></div></div></div><div class="part"><span class="part-label">iv)</span> <p>
+        Use your parametrization to write \(\vF\) as a function of \(s\) and \(t\).
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          Since \(\vF=\langle y,z, 2+\sin(x)\rangle \) and \(\vr = \langle x(s,t),y(s,t),z(s,t) \rangle = \langle 2 \cos(t),2\sin(t), s \rangle \), \(\vF(s,t)=\langle 2 \sin(t), s, 2 + \sin(2 \cos(t)) \rangle \).
+        </p></div></div></div><div class="part"><span class="part-label">v)</span> <p>
+        Compute the flux of \(\vF\) through the parameterized portion of the right circular cylinder. 
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \[\begin{aligned}\iint_S \vF \cdot (\vr_s \times \vr_t) dA  &amp; = \int_0^3 \int_0^{2\pi} \langle 2 \sin(t), s, 2 + \sin(2 \cos(t)) \rangle \cdot \langle -2 \cos(t) , -2 \sin(t),0 \rangle \, dt \, ds  \\
+ &amp; = \int_0^3 \int_0^{2\pi} 2\sin(t)\cos(t)+2s\sin(t) \, dt \, ds  =0 \end{aligned}\]
+        </p></div></div></div><div class="part"><span class="part-label">vi)</span> <p>
+        Does your computed value for the flux match your prediction	from earlier?
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          Yes, this calculation matches the estimate from the first part. 
+        </p></div></div></div><div class="part"><span class="part-label">vii)</span> <p>
+        Use <a href="#fig_Vector_FluxInt_yzsine_sliders">Figure 12.9.10</a> to make an argument about why the flux of \(\vF=\langle{y,z,2+\sin(x)}\rangle\) through the right circular cylinder is zero.
+      </p><figure class="plot" id="fig_Vector_FluxInt_yzsine_sliders"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('t,s,u,v,z,y,z')
+Fx=y
+Fy=z
+Fz=2+sin(x)
+@interact
+def _(n=slider(8,20,2,10,label="Angular Partitions="),m=slider(4,8,1,5,label="Height Partitions=")):
+    plot1=parametric_plot3d((2*cos(t),2*sin(t),s),(t,0,2*pi),(s,0,3),opacity=.3,color="gray",frame=False,aspect_ratio=1)
+    for i in range(0,m):
+        plot1+=parametric_plot3d((2*cos(t),2*sin(t),i*3/m),(t,0,2*pi),color="black",frame=False,aspect_ratio=1)
+    for i in range(0,n):
+        plot1+=parametric_plot3d((2*cos(2*pi*i/n),2*sin(2*pi*i/n),s),(s,0,3),color="black",frame=False,aspect_ratio=1)
+    for i in range(0,n):
+        posx=2*cos(2*pi*i/n)
+        posy=2*sin(2*pi*i/n)
+        for j in range (0,m):
+            posz=j*3/m
+            F1=Fx(x=posx,y=posy,z=posz)
+            F2=Fy(x=posx,y=posy,z=posz)
+            F3=Fz(x=posx,y=posy,z=posz)
+            plot1+=arrow3d((posx,posy,posz),(posx+F1,posy+F2, posz+F3),color="#1E88E5")
+            N=(-posx,-posy,0)
+            Nfrac=(F1*N[0]+F2*N[1]+F3*N[2])/(N[0]^2+N[1]^2+N[2]^2)
+            FNx=Nfrac*N[0]
+            FNy=Nfrac*N[1]
+            FNz=Nfrac*N[2]
+            plot1+=arrow3d((posx,posy,posz),(posx+FNx,posy+FNy,posz+FNz),color="#004D40")
+            plot1+=arrow3d((posx+FNx,posy+FNy,posz+FNz),(posx+F1,posy+F2,posz+F3),color="#D81B60")
+    show(plot1)</script></div></div><figcaption>Figure 12.9.10 — The vector field \(\vF=\langle{y,z,2+\sin(x)}\rangle\) with normal and tangential components plotted on a right circular cylinder</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+          The flux should be zero because on each horizontal slice, you can see as much of the vector field flowing into the circular slice as is flowing out of it on another side. 
+        </p></div></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+        Write a couple of sentences to explain how the results of the flux calculations would be different if we used the vector field \(\vF=\left\langle{y,z,\cos(xy)+\frac{9}{z^2+6.2}}\right\rangle\) and the same right circular cylinder.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The flux of this new vector field will still be zero because the only change to the components of the vector field are in the last component. With the right circular cylinder surface, the last component of the vector field will NOT contribute anything to the flux. In other words, changing the z-component of the vector field does not change the flux because the z-component will correspond to flow along this surface (and not through this surface).
+        </p></div></div></div><div class="part"><span class="part-label">c)</span> <p>
+        write a couple of sentences to explain how the results of the flux calculations would be different if we used the vector field \(\vF=\langle{y,-x,3}\rangle\) and the same right circular cylinder.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The result of the flux integral would be zero, but this is because the flow of the vector field would only be along the surface. The vector field \(\vF=\langle{y,-x,3}\rangle\) would not change with respect to height (z-coordinate) and would correspond to only rotation around the z-axis, which would be tangent to the surface. When setting up the flux integral, the dot product of \(\vF\) and \(\vr_s \times \vr_t\) would be zero. 
+        </p></div></div></div></div></div><p>
+    In the exercises for this section, we will look at some computational ideas to help us more efficiently compute the value of a flux integral. In many
+    cases, the surface we are looking at the flux through can be written with one coordinate as a function of the others. For simplicity, we consider \(z=f(x,y)\). Additionally, there will be exercises that guide you through common surfaces like spheres and cylinder surfaces. 
+  </p><p>
+      Note that throughout this section, we have implicitly assumed that we can parametrize the surface \(S\) in such a way that \(\vr_s\times \vr_t\) gives a well-defined normal vector. Technically, this means that the surface be <em>orientable</em>. Most &ldquo;reasonable&rdquo; surfaces are orientable. However, there are surfaces that are not orientable. Perhaps the most famous is formed by taking a long, narrow piece of paper, giving one end a half twist, and then gluing the ends together. Try doing this yourself, but before you twist and glue (or tape), poke a tiny hole through the paper on the line halfway between the long edges of your strip of paper and circle your hole. After gluing, place a pencil with its eraser end on your dot and the tip pointing away. Think of this as a potential normal vector. Keep the eraser on the paper, and follow the middle of your surface around until the first time the eraser is again on the dot. Is your pencil still pointing the same direction relative to the surface that it was before?
+    </p>
+<h2 id="summary">Summary</h2>
+<p>
+    <ul><li><p>
+          A flux integral of a vector field, \(\vF\), on a surface in space, \(S\), measures how much of \(\vF\) goes through \(S_1\). 
+        </p></li><li><p>
+          Let the smooth surface, \(S\), be parametrized by \(\vr(s,t)\) over a domain \(D\). The total flux of a smooth vector field \(\vF\) through \(S\) is given by
+        \[
+          \iint_D \vF \cdot (\vr_s \times \vr_t)\, dA
+        \].
+        </p></li><li><p>
+          If \(S_1\) is of the form \(z=f(x,y)\) over a domain \(D\), then the total flux of a smooth vector field \(\vF\) through \(S_1\) is given by
+        \[
+          \iint_D \vF(x,y,f(x,y)) \cdot \left\langle
+	  -\frac{\partial{f}}{\partial{x}},-\frac{\partial{f}}{\partial{y}},1
+	  \right\rangle\,  dA
+        \].
+        </p></li></ul>
+  </p>
+<div id="exercise-panel-content"><h2 id="exercises-9">Exercises</h2><div class="exercise"><div class="n">1</div><div class="body"><p>Compute the flux of the vector field \(\vec{v}= -4\,\mathit{\vec i}+3\,\mathit{\vec j}-4\,\mathit{\vec k}\)
+through the rectangular region shown below,
+assuming it is oriented as shown and that \(a = 2\) and
+\(b = 4\).</p><img src="data:image/png;base64,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" alt=""><p>flux = <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(2\cdot \left(-4\cdot 4+-4\cdot 2\right)\)</p></div></div></div></div><div class="exercise"><div class="n">2</div><div class="body"><p>Calculate the flux of the vector field
+\(\vec{F}(x,y,z) = 2 y \vec{j}\) 
+through a square of side length \(8\)
+in the plane \(y = 3\).  The square 
+is centered on the y-axis, has sides 
+parallel to the axes, and is oriented 
+in the positive y-direction.</p><p>Flux = <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(384\)</p></div></div></div></div><div class="exercise"><div class="n">3</div><div class="body"><p>(a) Set up a double integral for calculating
+the flux of the vector field
+\(\vec{F}(x,y,z) = z^2 \vec{k}\) 
+through the upper hemisphere of the sphere  
+\(x^2+y^2+z^2 = 4\), oriented away from the 
+origin.  If necessary, enter 
+\(\rho\) as <em>rho,</em>
+\(\theta\) as <em>theta,</em> and
+\(\phi\) as <em>phi.</em></p><p>Flux = \(\displaystyle \int_{A}^{B} \!\! \int_{C}^{D}\)
+<span class="blank">________________________________________</span>
+\(d\phi \, d\theta\)</p><p>A = <span class="blank">__________</span></p><p>B = <span class="blank">__________</span></p><p>C = <span class="blank">__________</span></p><p>D = <span class="blank">__________</span></p><p>(b) Evaluate the integral.</p><p>Flux = 
+\(\displaystyle \iint\limits_S \vec{F} \cdot d\vec{A}\) =
+<span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(2^{4}\cos^{3}\mathopen{}\left(phi\right)\sin\mathopen{}\left(phi\right)\), \(0\), \(2\pi \), \(0\), \(\frac{\pi }{2}\), \(\frac{\pi \cdot 2^{4}}{2}\)</p></div></div></div></div><div class="exercise"><div class="n">4</div><div class="body"><p>Compute the flux of the vector field \(\vec F = 2 x^2y^2z\vec k\)
+through the surface \(S\) which is
+the cone \(\sqrt{x^2+y^2}=z\), with
+\(0\le z\le R\), oriented downward.</p><p><em>(a)</em>
+Parameterize the cone using cylindrical coordinates (write \(\theta\)
+as <em>theta</em>).</p><p>\(x(r,\theta) =\) <span class="blank">_________________________</span></p><p>\(y(r,\theta) =\) <span class="blank">_________________________</span></p><p>\(z(r,\theta) =\) <span class="blank">_________________________</span></p><p>with <span class="blank">__________</span> \(\le r\le\) <span class="blank">__________</span></p><p>and  <span class="blank">__________</span> \(\le \theta \le\) <span class="blank">__________</span></p><p><em>(b)</em>
+With this parameterization, what is \(d\vec A\)?</p><p>\(d\vec A\) = <span class="blank">___________________________________</span></p><p><em>(c)</em>
+Find the flux of \(\vec F\) through \(S\).</p><p>flux = <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(r\cos\mathopen{}\left(theta\right)\), \(r\sin\mathopen{}\left(theta\right)\), \(r\), \(0\), \(R\), \(0\), \(2\pi \), \((r\cos\mathopen{}\left(theta\right)\,\mathit{\vec i}+r\sin\mathopen{}\left(theta\right)\,\mathit{\vec j}-r\,\mathit{\vec k})drdtheta\), \(\frac{-2\pi R^{7}}{28}\)</p></div></div></div></div><div class="exercise"><div class="n">5</div><div class="body"><p>Compute the flux of the vector field \(\vec F = z\vec i + 2 x\vec k\)
+through the parameterized surface \(S\) oriented upward and given,
+for \(0\le s\le 4, \ \ 2\le t\le 4\), by
+\[x=s^2, \quad y=2s+t^2, \quad z=6 t.\]</p><p>flux = <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(36\cdot \left(16-4\right)\cdot 4+1\cdot \left(16-4\right)\cdot 4^{4}\)</p></div></div></div></div><div class="exercise"><div class="n">6</div><div class="body"><p>Are the following statements true or false?</p><p><ol><li><p>If \(S\) is the unit sphere centered 
+at the origin, oriented outward and the 
+flux integral 
+\(\displaystyle \iint_S \vec{F} \cdot d\vec{A}\)
+is zero, then \(\vec{F} = \vec{0}\).</p></li><li><p>If \(S\) is the unit sphere centered 
+at the origin, oriented outward and 
+\(\vec{F} = x \vec{i} + y \vec{j} + z\vec{k} = \vec{r}\),
+then the  
+flux integral 
+\(\displaystyle \iint_S \vec{F} \cdot d\vec{A}\)
+is positive.</p></li><li><p>The area vector of a flat, oriented surface 
+is parallel to the surface.</p></li><li><p>If \(S\) is an open-ended circular cylinder centered about the 
+z-axis, oriented away from the z-axis, and 
+\(\vec{F} = \langle 3,-2,6 \rangle\), then the flux of 
+\(\vec{F}\) through \(S\) is zero.</p></li><li><p>If \(S\) is the unit sphere centered 
+at the origin, oriented outward and the 
+flux integral 
+\(\displaystyle \iint_S \vec{F} \cdot d\vec{A}\)
+is zero, then \(\vec{F}(x,y,z)\) is perpendicular
+to \(\vec{r} = \langle x,y,z \rangle\) at every 
+point of \(S\).</p></li><li><p>If \(S\) is the cube bounded by the six planes 
+\(x = \pm 3\), \(y = \pm 3\), \(z = \pm 3\),
+oriented outward, and \(\vec{F} = 2 \vec{i} - \vec{k}\),
+then the flux of \(\vec{F}\) through \(S\) is zero.</p></li><li><p>If \(S\) is an open-ended circular cylinder centered about the 
+z-axis, oriented away from the z-axis, and 
+\(\vec{F} = \langle x,y,0 \rangle\), then the flux of 
+\(\vec{F}\) through \(S\) is positive.</p></li><li><p>If \(S_1\) is a rectangle with area 1 and \(S_2\)
+is a rectangle with area 2, then 
+\(\displaystyle 2 \iint_{S_1} \vec{F} \cdot d\vec{A} 
+= \iint_{S_2} \vec{F} \cdot d\vec{A}\)</p></li></ol></p></div></div><div class="exercise"><div class="n">7</div><div class="body"><p>Let \(\mathcal{S}\) be the square in the \(xy\)-plane shown in the figure below, oriented with the normal pointing in the
+positive \(z\)-direction.  Estimate
+\[\iint_{\mathcal{S}} \mathbf{F} \cdot \,d\mathbf{S}\]
+where \(\mathbf{F}\) is a vector
+field whose values at the labeled points are
+\[\begin{array}{llll} \mathbf{F}(A) &amp; = \left\langle  -7,5,-6\right\rangle,&amp; \qquad \mathbf{F}(B) &amp; = \left\langle  8,7,-2\right\rangle\\
+                    \mathbf{F}(C) &amp; = \left\langle  7,-6,3\right\rangle,&amp; \qquad \mathbf{F}(D) &amp; = \left\langle  -4,-5,-7\right\rangle\end{array}\]</p><img src="data:image/png;base64,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" alt=""><p>\(\iint_{\mathcal{S}} \mathbf{F} \cdot \,d\mathbf{S} \approx\) <span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-3\)</p></div></div></div></div><div class="exercise"><div class="n">8</div><div class="body"><p>F = \(x\boldsymbol{i}+y\boldsymbol{j}+5z\boldsymbol{k}\) and \(\sigma\) is the portion of the cone \(z = \sqrt{x^2+y^2}\) between the planes \(z = 1\) and \(z = 8\) oriented with normal vectors pointing upwards. Find the flux of the flow field F across \(\sigma\):  
+<span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(4280.94\)</p></div></div></div></div><div class="exercise" id="act_Vector_FluxInt_Function"><div class="n">9</div><div class="body"><p>
+        In this exercise, we will look at how to use a parametrization of a surface that can be described as \(z=f(x,y)\) to efficiently calculate flux integrals.
+      </p><div class="part"><span class="part-label">a)</span> <p>
+          Suppose that \(S\) is a surface given by \(z=f(x,y)\). Find a parametrization \(\vr(s,t)\) of \(S\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\vr(s,t)=\langle s,t,f(s,t)\rangle \)
+        </p></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+          Show that the vector orthogonal to the surface \(S\) has the form
+            \[
+              \vr_s \times \vr_t=\left\langle -\frac{\partial{f}}{\partial{x}},-\frac{\partial{f}}{\partial{y}},1 \right\rangle
+            \].
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \[\begin{aligned}\vr_s &amp; = \langle 1,0,\frac{\partial{f}}{\partial{x}} \rangle  \\
+\vr_t &amp; = \langle 0,1, \frac{\partial{f}}{\partial{y}}\rangle  \\
+\vr_s \times \vr_t &amp; = \langle -\frac{\partial{f}}{\partial{x}},-\frac{\partial{f}}{\partial{y}},1 \rangle \end{aligned}\]
+        </p></div></div></div><div class="part" id="task_act_Vector_FluxInt_Function_Normals"><span class="part-label">c)</span> <p>
+              For each of the three surfaces given below, compute \(\vr_s \times \vr_t\), graph the surface, and compute \(\vr_s \times \vr_t\) for four different points of your choosing. You should make sure your vectors \(\vr_s \times \vr_t\) are orthogonal to your surface.
+        </p><div class="part"><span class="part-label">i)</span> <p>\(z=x^2+y^2\)
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            \(\vr_s \times \vr_t =\langle -2s,-2t,1 \rangle\)
+          </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>\(x+2y+z=-4\)
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            \(\vr_s \times \vr_t =\langle 1,2,1 \rangle\)
+          </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>\(z=x^2-y^2\)
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            \(\vr_s \times \vr_t =\langle -2s,2t,1 \rangle\)
+          </p></div></div></div></div><div class="part"><span class="part-label">d)</span> <p>
+          For each of the three surfaces in <a href="#task_act_Vector_FluxInt_Function_Normals">part</a>, use your calculations and <a href="#thm_flux_int_calc">Theorem</a> to compute the flux of each of the following vector fields through the part of the surface corresponding to the region \(D\) in the \(xy\)-plane.
+      	</p><div class="part"><span class="part-label">i)</span> <p>\(\vF=\langle{x,y,z}\rangle\) with \(D\) given by \(0\leq x,y\leq 2\)</p><div class="answer"><button>Show answer</button><div class="a"><p>
+            <ol><li><p>
+                  For \(\vF = \langle{x,y,z}\rangle\) with \(D\) given by \(0\leq x,y\leq 2\) over the surface given by \(z=x^2+y^2\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^2 \int_0^2 \langle s,t,s^2+t^2 \rangle \cdot \langle -2s,-2t,1 \rangle \,ds \, dt  \\
+ &amp; = \int_0^2 \int_0^2 -s^2-t^2 \, ds \, dt =-\frac{32}{3} \end{aligned}\]
+                </p></li><li><p>
+                  For \(\vF = \langle{x,y,z}\rangle\) with \(D\) given by \(0\leq x,y\leq 2\) over the surface given by \(z=-4-x-2y\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^2 \int_0^2 \langle s,t,-4-s-2t \rangle \cdot \langle 1,2,1 \rangle \,ds \, dt  \\
+ &amp; = \int_0^2 \int_0^2 -4 \, ds \, dt =-16 \end{aligned}\]
+                </p></li><li><p>
+                  For \(\vF = \langle{x,y,z}\rangle\) with \(D\) given by \(0\leq x,y\leq 2\) over the surface given by \(z=x^2-y^2\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^2 \int_0^2 \langle s,t,s^2-t^2 \rangle \cdot \langle -2s,2t,1 \rangle \,ds \, dt  \\
+ &amp; = \int_0^2 \int_0^2 t^2-s^2 \, ds \, dt =0 \end{aligned}\]
+                </p></li></ol>
+          </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>
+            \(\vF=\langle{-y,x,1}\rangle\) with \(D\) as the triangular region of the \(xy\)-plane with vertices \((0,0)\), \((1,0)\), and \((1,1)\)
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            <ol><li><p>
+                  For \(\vF = \langle{-y,x,1}\rangle\) with \(D\) as the triangular region of the \(xy\)-plane with vertices \((0,0)\), \((1,0)\), and \((1,1)\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^1 \int_0^s \langle -t,s,1 \rangle \cdot \langle -2s,-2t,1 \rangle \,dt \, ds  \\
+ &amp; = \int_0^1 \int_0^s (1) \, dt \, ds =\frac{1}{2} \end{aligned}\]
+                </p></li><li><p>
+                  For \(\vF = \langle{-y,x,1}\rangle\) with \(D\) as the triangular region of the \(xy\)-plane with vertices \((0,0)\), \((1,0)\), and \((1,1)\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^1 \int_0^s \langle -t,s,1 \rangle \cdot \langle 1,2,1 \rangle \,dt \, ds  \\
+ &amp; = \int_0^1 \int_0^s (1-t-2s) \, dt \, ds =-\frac{7}{6} \end{aligned}\]
+                </p></li><li><p>
+                  For \(\vF = \langle{-y,x,1}\rangle\) with \(D\) as the triangular region of the \(xy\)-plane with vertices \((0,0)\), \((1,0)\), and \((1,1)\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^1 \int_0^s \langle -t,s,1 \rangle \cdot \langle -2s,2t,1 \rangle \,ds \, dt  \\
+ &amp; = \int_0^1 \int_0^s  (1-4st) \, dt \, ds =0 \end{aligned}\]
+                </p></li></ol>
+          </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>
+            \(\vF=\langle{z,y-x,(y-x)^2-z^2}\rangle\) with \(D\) given by \(0\leq x,y\leq 2\)
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            <ol><li><p>
+                  For \(\vF = \langle{z,y-x,(y-x)^2-z^2}\rangle\) with \(D\) given by \(0\leq x,y\leq 2\) over the surface given by \(z=x^2+y^2\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^2 \int_0^2 \langle s^2+t^2,t-x,(t-s)^2-s^2 \rangle \cdot \langle -2s,2t,1 \rangle \,ds \, dt  \\
+ &amp; = \int_0^2 \int_0^2 -2s^3-2st^2-t^2 \, ds \, dt =-32 \end{aligned}\]
+                </p></li><li><p>
+                  For \(\vF = \langle{z,y-x,(y-x)^2-z^2}\rangle\) with \(D\) given by \(0\leq x,y\leq 2\) over the surface given by \(z=-4-x-2y\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^2 \int_0^2 \langle -4-s-2t,t-s,(t-s)-(-4-s-2t)^2 \rangle \cdot \langle -2s,2t,1 \rangle \,ds \, dt  \\
+ &amp; = \int_0^2 \int_0^2 -16+2s^2-4st-16t-t^2 \, ds \, dt =-\frac{416}{3} \end{aligned}\]
+                </p></li><li><p>
+                  For \(\vF = \langle{z,y-x,(y-x)^2-z^2}\rangle\) with \(D\) given by \(0\leq x,y\leq 2\) over the surface given by \(z=x^2-y^2\), we get the following flux integral:
+                  \[\begin{aligned} \iint_S \vF \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^2 \int_0^2 \langle s^2-t^2,t-s,(t-s)^2-(s^2-t^2)^2 \rangle \cdot \langle -2s,2t,1 \rangle \,ds \, dt  \\
+ &amp; = \int_0^2 \int_0^2 -2s^3-s^4+3t^2-t^4+s^2+2s^2t^2-4st+2st^2\, ds \, dt =-\frac{512}{45} \end{aligned}\]
+                </p></li></ol>
+          </p></div></div></div></div></div></div><div class="exercise" id="act_Vector_FluxInt_Sphere"><div class="n">10</div><div class="body"><p>
+        For this activity, let \(S_R\) be the sphere of radius \(R\) centered at the origin.
+      </p><div class="part"><span class="part-label">a)</span> <p>
+                Parametrize \(S_R\) using spherical coordinates. Give your parametrization as \(\vr(s,t)\), and be sure to state the bounds of your parametrization.
+              </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\vr(s,t)=\langle R \cos(t) \sin(s), R \sin(t) \sin(s), R \cos(s) \rangle\) for \( t \in [0,2\pi], s \in [0,\pi]\)
+        </p></div></div></div><div class="part" id="task_act_Vector_FluxInt_Sphere_Normal"><span class="part-label">b)</span> <p>
+        Use your parametrization of \(S_R\) to compute \(\vr_s \times \vr_t\).
+      </p></div><div class="part"><span class="part-label">c)</span> <p>
+          Your result for \(\vr_s \times \vr_t\) should be a scalar expression times \(\vr(s,t)\). Explain why the outward pointing orthogonal vector on the sphere is a multiple of \(\vr(s,t)\) and what that scalar expression means.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The outward pointing normal vector for the sphere or radius \(R\) will be parallel to the position vector because both point radially away from the origin. 
+        </p></div></div></div><div class="part" id="task_act_Vector_FluxInt_Sphere_Calculate"><span class="part-label">d)</span> <p>
+                Use your parametrization of \(S_2\) and the results of
+                <a href="#task_act_Vector_FluxInt_Sphere_Normal">part</a> to calculate the
+                flux through \(S_2\) for each of the three following
+                vector fields.
+        </p><div class="part"><span class="part-label">i)</span> <p>\(\vF_1=\langle{x,y,z}\rangle\)</p><div class="answer"><button>Show answer</button><div class="a"><p>
+            For \(\vF_1=\langle{x,y,z}\rangle\), we get the following flux integral:
+            \[\begin{aligned}\iint_{S_R} \vF_1 \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^{2\pi} \int_0^{\pi} \vr \cdot (R \sin(t) \vr) \,dt \, ds  \\
+ &amp; = \int_0^{2\pi} \int_0^{\pi} R^3 \sin(t) \,dt \, ds  = 4 \pi R^3\end{aligned}\]
+            So for \(R=2\), the flux integral will be \(32\pi\).
+          </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>\(\vF_2=\langle{-y,x,-1}\rangle\)</p><div class="answer"><button>Show answer</button><div class="a"><p>
+            For \(\vF_2=\langle{-y,x,1}\rangle\), we get the following flux integral:
+            \[\begin{aligned} \iint_{S_R} \vF_2 \cdot (\vr_s \times \vr_t) \, dA &amp; = \int_0^{2\pi} \int_0^{\pi} \langle{-R\sin(s)\sin(t),R\cos(s) \sin(t),1} \rangle \cdot (R \sin(t) \langle R\cos(s)\sin(t),R\sin(s)\sin(t),R\cos(t)\rangle) \,dt \, ds \\
+
+                &amp; = \int_0^{2\pi} \int_0^{\pi} R^2 \sin(t) \cos(t)\,dt \, ds  = 0
+              \end{aligned}\]
+            So for \(R=2\), the flux integral will be \(0\).
+          </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>\(\vF_3=\langle{x-y,y+x,z-1}\rangle\)</p><div class="answer"><button>Show answer</button><div class="a"><p>
+            For \(\vF_3=\langle{x-y,y+x,z-1}\rangle\) and because \(\vF_3=\vF_1+\vF_2\), we get the following flux integral:
+            \[
+              \iint_{S_R} \vF_3 \cdot (\vr_s \times \vr_t) \, dA = \iint_{S_R} \vF_1 \cdot (\vr_s \times \vr_t) \, dA +\iint_{S_R} \vF_2 \cdot (\vr_s \times \vr_t) \, dA = 4\pi R^3 + 0 = 4\pi R^3
+            \]
+            So for \(R=2\), the flux integral will be \(32\pi \).
+          </p></div></div></div></div><div class="part"><span class="part-label">e)</span> <p>
+        Use computer software to plot each of the vector fields from
+        <a href="#task_act_Vector_FluxInt_Sphere_Calculate">part</a> and interpret the results of your flux integral calculations.
+      </p></div><div class="part"><span class="part-label">f)</span> <p>
+          If we used the sphere of radius 4 instead of \(S_2\),  explain how each of the flux integrals from <a href="#task_act_Vector_FluxInt_Sphere_Calculate">part</a> would change. You do not need to calculate these new flux integrals, but rather explain if the result would be different and how the result would be different.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          <ol><li><p>
+                The flux integral would increase for the sphere of radius 4 because both the surface area and the length of the output of the vector field \(\vF_1=\langle x,y,z\rangle \) increase  (as R goes from 2 to 4).
+              </p></li><li><p>
+                The flux integral result would not change for the sphere of radius 4. Exactly as much of the vector field will go out of the top hemisphere as will go into the bottom hemisphere. The x and y components of the vector field will rotate tangent to the sphere, so the constant z-component of 1 will give a net flux of 0. 
+              </p></li><li><p>
+                Since \(\vF_3=\vF_1+\vF_2\) and \(\iint_{S_R} \vF_3 \cdot (\vr_s \times \vr_t) \, dA = \iint_{S_R} \vF_1 \cdot (\vr_s \times \vr_t) \, dA +\iint_{S_R} \vF_2 \cdot (\vr_s \times \vr_t) \, dA \), then the flux integral will increase as we go to radius 4.
+              </p></li></ol>
+        </p></div></div></div></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

@@ -470,7 +470,13 @@ const MANUAL_WEBWORK_IMAGES = {
 // from, so found by hand instead: loaded the live page and read its actual <img src>. Keyed
 // by the enclosing <figure>'s own xml:id.
 const MANUAL_SAGEPLOT_IMAGES = {
-  "fig_Vector_VectorFields_circle": "https://activecalculus.com/multi1e/generated/sageplot/fig_12_1_circle.svg",
+  "fig_Vector_VectorFields_circle": "https://activecalculus.org/multi1e/generated/sageplot/fig_12_1_circle.svg",
+  // 12.2's fig_line_int_defn3: the nested <image> has a "label" attribute instead of an
+  // "xml:id" (no id for the generic hotlink rule to key off of). Confirmed against the live
+  // page's actual <img src> -- unlike its four sibling figures (line_int_defn1/2/4/5, all
+  // underscored), the live site spells this ONE file with hyphens (line-int-defn3.svg), an
+  // inconsistency in the upstream site itself, not a naming pattern to replicate elsewhere.
+  "fig_line_int_defn3": "https://activecalculus.org/multi1e/generated/sageplot/line-int-defn3.svg",
 };
 
 // The vector-calculus repo (chapter 12) writes WeBWorK source paths with a
@@ -672,9 +678,27 @@ const stripArrayColSep = tex => tex.replace(/@\{[^}]*\}/g, "");
 // not a warning. \text{...} is KaTeX's own equivalent and takes the same {argument} syntax,
 // so a straight rename is a safe, lossless fix.
 const mboxToText = tex => tex.replace(/\\mbox\{/g, "\\text{");
+// KaTeX's parser occasionally mis-tokenizes a "'" immediately following a "\," thin-space
+// command as an internal token type instead of an ordinary prime, throwing "Got group of
+// unknown type: 'internal'" (found in 12.3's WeBWorK-rendered "\vec{r}\,'(t)"). Dropping the
+// thin space changes nothing mathematically -- it's just cosmetic spacing -- and avoids the
+// parse error entirely.
+const fixThinSpacePrime = tex => tex.replace(/\\,'/g, "'");
+// The source's own XML pretty-printing indents every line of a <slate>/<program><input> block
+// to match its nesting depth -- meaningless to Sage/plain code but breaks Python (where
+// indentation IS syntax): left in place this produced a real "IndentationError: unexpected
+// indent" the moment a student clicked "Run interactive" against the real Sage Cell backend,
+// not just a build-time check. Strips the common leading whitespace shared by every non-blank
+// line, same idea as Python's own textwrap.dedent.
+const dedent = text => {
+  const lines = text.split("\n");
+  const indents = lines.filter(l => l.trim()).map(l => l.match(/^[ \t]*/)[0].length);
+  const min = indents.length ? Math.min(...indents) : 0;
+  return lines.map(l => l.slice(min)).join("\n");
+};
 function displayMath(n) {
-  const rows = qda(n, "mrow").map(r => mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(r))))));
-  const body = rows.length ? rows.join(" \\\\\n") : mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(n)))));
+  const rows = qda(n, "mrow").map(r => fixThinSpacePrime(mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(r)))))));
+  const body = rows.length ? rows.join(" \\\\\n") : fixThinSpacePrime(mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(n))))));
   const core = rows.length ? `\\begin{aligned}${body}\\end{aligned}` : body;
   // <men>/<mdn> (numbered equations, see indexAndNumber) get a right-margin number via
   // KaTeX's native \tag{} -- and need their own anchor so an <xref> elsewhere on the page can
@@ -691,7 +715,7 @@ function inline(n) {
   if (n.tag === "#text") return esc(n.text);
   const kids = () => (n.children || []).map(inline).join("");
   switch (n.tag) {
-    case "m": return `\\(${esc(mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(n))))))}\\)`;
+    case "m": return `\\(${esc(fixThinSpacePrime(mboxToText(stripArrayColSep(deAmp(normalizeAngleBrackets(textOf(n)))))))}\\)`;
     case "me": case "men": case "md": case "mdn": return displayMath(n);
     case "term": case "em": case "alert": return `<em>${kids()}</em>`;
     case "q": return `&ldquo;${kids()}&rdquo;`;
@@ -749,7 +773,23 @@ function inline(n) {
       // one rendered so far shows an unnumbered chip, by design) -- so there's no label to
       // substitute, but the target still has a real anchor on this same page. A bare "see
       // Definition" with no link is worse than the unnumbered word linked to where it lives.
-      if (target && target.attrs.id) return `<a href="#${anchorId(target)}">${kids()}</a>`;
+      // kids() is often empty here too -- chapter 12 has several genuinely self-closing
+      // <xref ref="..."/> (no inner text at all) pointing straight at a <definition>, which
+      // produced an invisible, textless <a></a> link (found: 12.2's "guarantee the limit in
+      // <a href="#def_..."></a> exists" reading as a dangling gap). Fall back to a generic
+      // label named after the target's own tag when there's truly no text to reuse.
+      // text="title" explicitly asks for the target's own <title> instead of a generic word
+      // (e.g. "the biggest difference between <xref ref="..." text="title"/>" resolving to
+      // "Properties of Scalar Line Integrals") -- previously ignored entirely, falling through
+      // to the generic "Callout" filler below regardless of what text="title" actually asked for.
+      if (target && target.attrs.id && n.attrs.text === "title") {
+        const t = titleOf(target);
+        if (t) return `<a href="#${anchorId(target)}">${esc(t)}</a>`;
+      }
+      if (target && target.attrs.id) {
+        const text = kids() || { definition: "Definition", assemblage: "Callout", callout: "Callout", theorem: "Theorem" }[target.tag] || "here";
+        return `<a href="#${anchorId(target)}">${text}</a>`;
+      }
       return kids(); // truly unresolvable (e.g. no ref, or target not on this page) — bare text
     }
     case "url": return `<a href="${esc(n.attrs.href || "")}">${kids() || esc(n.attrs.href || "")}</a>`;
@@ -804,7 +844,7 @@ function idAttr(n) { const id = anchorId(n); return id ? ` id="${id}"` : ""; }
 // resolved via findLeafImages() never got a chance to use it at all.
 function resolveImageSrc(n) {
   let src = n.attrs.source && /^(data|https?):/.test(n.attrs.source) ? n.attrs.source : n.attrs.source && resolveImageUrl(n.attrs.source);
-  if (!src && n.attrs.id && qd(n, "sageplot")) src = `https://activecalculus.com/multi1e/generated/sageplot/${n.attrs.id}.svg`;
+  if (!src && n.attrs.id && qd(n, "sageplot")) src = `https://activecalculus.org/multi1e/generated/sageplot/${n.attrs.id}.svg`;
   return src;
 }
 function renderFigureImages(n) {
@@ -829,16 +869,34 @@ function renderFigureImages(n) {
   return `<div class="card flag"><span class="chip">Figure not available statically — Sage-only, needs its own integration</span></div>`;
 }
 
+// Lowercase roman numerals for nested task sub-parts (i, ii, iii, ...) -- plenty for how many
+// sub-parts any one task actually has; extend the table if a source ever needs more than 15.
+const ROMAN = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii", "xiii", "xiv", "xv"];
+
 // Shared by activities AND plain (non-WeBWorK) exercises built from <task> sub-parts --
 // chapter 12 uses this structure in both places. Each task gets its own lettered part and,
-// if present, a "Show answer" reveal (same convention as WeBWorK's own answer box).
-function renderTaskParts(tasks) {
+// if present, a "Show answer" reveal (same convention as WeBWorK's own answer box). `nested`
+// switches the label scheme to lowercase roman numerals, for a <task> whose own children are
+// further <task>s instead of a <statement> (a "part with sub-parts" group, e.g. 12.6's
+// task_act_Vector_Div_Graphical_-x-y) -- previously such a group had no case here at all, so
+// its inner tasks' statement/answer/solution all flattened into plain visible paragraphs with
+// no reveal button, and the outer part's own intro/figure got silently dropped too.
+function renderTaskParts(tasks, nested = false) {
   return tasks.map((task, i) => {
     const tIntro = qd(task, "introduction");
     const tIntroHtml = tIntro ? renderMixed(tIntro.children) : "";
     const stmt = qd(task, "statement");
-    const stmtHtml = stmt ? renderMixed(stmt.children) : "";
-    const lbl = tasks.length > 1 ? `<span class="part-label">${String.fromCharCode(97 + i)})</span> ` : "";
+    const subtasks = qda(task, "task");
+    // Most tasks wrap their prompt in <statement>, but some (12.5's sli_pm example) put <p>/
+    // <figure> children directly on the <task> with no <statement> wrapper at all -- that
+    // previously rendered as a totally empty part (just the lettered label, no content),
+    // silently dropping real figures/prose. Fall back to the task's own non-intro/non-answer/
+    // non-solution/non-task children, same idea as renderActivity's non-task branch; if there
+    // are nested <task>s instead, recurse into them as roman-numeraled sub-parts.
+    const stmtHtml = stmt ? renderMixed(stmt.children)
+      : subtasks.length ? renderTaskParts(subtasks, true)
+      : renderMixed((task.children || []).filter(c => c.tag !== "introduction" && c.tag !== "answer" && c.tag !== "solution" && c.tag !== "task"));
+    const lbl = tasks.length > 1 ? `<span class="part-label">${nested ? (ROMAN[i] || i + 1) : String.fromCharCode(97 + i)})</span> ` : "";
     // Prefer <solution> over <answer> when a task has both (seen in 12.1's exercise 4): in
     // practice they're near-duplicate text, but <answer> had a genuine copy-paste typo ("As x
     // increases" repeated, never mentioning y) that <solution> gets right.
@@ -874,7 +932,24 @@ function block(n) {
   if (!n) return "";
   if (isInstructorOnly(n)) return "";
   switch (n.tag) {
-    case "p": return `<p>${inline(n)}</p>`;
+    // A <p> can have a block-level <interactive>/<program> nested directly inside it
+    // (rather than as its own sibling -- both shapes occur in this source, e.g.
+    // exercise-testing9's <solution> has them as siblings of <p>, but
+    // exercise-testing10's has them nested inside a single wrapping <p>). inline()
+    // has no case for either tag, so its default kids() fallback used to recurse
+    // straight into <slate>/<input>'s raw Sage source and dump it as plain escaped
+    // text inside the paragraph -- found as literal duplicated Sage code appearing
+    // as running prose in 12.9's Preview Activity part (e). Route those specific
+    // children through block() (which does know how to render them) and keep any
+    // remaining text content in its own <p>.
+    case "p": {
+      const blockKids = (n.children || []).filter(c => c.tag === "interactive" || c.tag === "program");
+      if (blockKids.length) {
+        const textHtml = (n.children || []).filter(c => !blockKids.includes(c)).map(inline).join("").trim();
+        return (textHtml ? `<p>${textHtml}</p>` : "") + blockKids.map(block).join("");
+      }
+      return `<p>${inline(n)}</p>`;
+    }
     case "me": case "men": case "md": case "mdn": return displayMath(n);
     case "ul": case "ol": {
       const tag = n.tag === "ul" ? "ul" : "ol";
@@ -884,10 +959,15 @@ function block(n) {
       // to plain numbers.
       const m = /^([A-Za-z])\./.exec(n.attrs.label || "");
       const type = m ? ` type="${m[1] === m[1].toUpperCase() ? "A" : "a"}"` : "";
-      const items = qda(n, "li").map(li => `<li>${renderMixed(li.children)}</li>`).join("");
+      const items = qda(n, "li").map(li => `<li${idAttr(li)}>${renderMixed(li.children)}</li>`).join("");
       return `<${tag}${type}>${items}</${tag}>`;
     }
-    case "li": return `<li>${renderMixed(n.children)}</li>`;
+    // idAttr(n) -- an <li> can carry its own xml:id (a same-page <xref> can target one
+    // specific list item, e.g. "the opposite of <xref>part</xref>" pointing at one bullet in a
+    // properties list), which previously never reached the HTML at all (found: 12.5's
+    // li_asm_ScalarLineInt_Properties_opp, a dangling link to an item that existed on the page
+    // but had no anchor to land on).
+    case "li": return `<li${idAttr(n)}>${renderMixed(n.children)}</li>`;
     // <cd> is a literal code display (e.g. Postscript commands) -- plain text, not LaTeX, and
     // the source's own indentation/line breaks are meaningful, so render verbatim in a <pre>
     // rather than falling through to kids() and having them collapsed into one run-on line.
@@ -896,11 +976,22 @@ function block(n) {
       const indent = Math.min(...lines.filter(l => l.trim()).map(l => l.match(/^\s*/)[0].length));
       return `<pre class="code">${esc(lines.map(l => l.slice(indent)).join("\n"))}</pre>`;
     }
+    // <program><input>CODE</input></program> -- chapter 12 sometimes pairs a live <interactive>
+    // Sage cell with a separate, deliberately-visible code listing of the exact same source
+    // (both genuinely present in the source, not a duplication bug). With no case here this
+    // fell through to the default handler's per-child dispatch, and the xi:include-resolved
+    // code (now a bare #text node) got wrapped as an ordinary, unstyled <p> -- readable but
+    // looked like broken running prose instead of a code listing.
+    case "program": {
+      const input = qd(n, "input") || n;
+      const code = dedent(textOf(input)).trim();
+      return code ? `<pre class="code">${esc(code)}</pre>` : "";
+    }
     // <var form="buttons"><li>...</li>...</var> is a WeBWorK multiple-choice/matching
     // question's set of options — without a case here it fell through to the "kids()"
     // default and every choice ran together as one continuous sentence with no separation.
     case "var": {
-      const items = qda(n, "li").map(li => `<li>${renderMixed(li.children)}</li>`).join("");
+      const items = qda(n, "li").map(li => `<li${idAttr(li)}>${renderMixed(li.children)}</li>`).join("");
       return items ? `<ol type="a">${items}</ol>` : `<span class="blank">${"_".repeat(15)}</span>`;
     }
     case "figure": {
@@ -938,18 +1029,6 @@ function block(n) {
     // would nest a <figure> inside a <figure>.
     case "interactive": {
       const slate = qd(n, "slate");
-      // The source's own XML pretty-printing indents every line of a <slate> to match its
-      // nesting depth -- meaningless to Sage but NOT to Python, whose indentation IS syntax.
-      // Left in place, this produced a real "IndentationError: unexpected indent" the moment
-      // a student actually ran the cell (caught by clicking "Run interactive" against the
-      // real Sage Cell backend, not just a build-time check). Strip the common leading
-      // whitespace shared by every non-blank line first, same idea as Python's textwrap.dedent.
-      const dedent = text => {
-        const lines = text.split("\n");
-        const indents = lines.filter(l => l.trim()).map(l => l.match(/^[ \t]*/)[0].length);
-        const min = indents.length ? Math.min(...indents) : 0;
-        return lines.map(l => l.slice(min)).join("\n");
-      };
       const code = slate ? dedent(textOf(slate)).trim() : "";
       if (!code) return `<div class="card flag"><span class="chip">Sage interactive — no code found</span>` +
         `<p>Flagged for follow-up (id: <code>${esc(n.attrs.label || n.attrs.id || "")}</code>).</p></div>`;
@@ -1022,7 +1101,14 @@ function block(n) {
       else if (tasks.length) {
         const intro = qd(n, "introduction");
         body = (intro ? renderMixed(intro.children) : "") + renderTaskParts(tasks);
-      } else body = "";
+      } else {
+        // No <statement>, no <webwork>, no <task> -- some plain exercises just have a bare <p>
+        // (or <p>+<me>) directly on <exercise> with no wrapper at all. This previously fell to
+        // body="" and vanished completely (found: 12.5's exercise 3, a whole worked-integral
+        // prompt silently dropped -- exerciseCounter had already incremented past it, which is
+        // why the visible numbering skipped straight from 2 to 4).
+        body = renderMixed((n.children || []).filter(c => c.tag !== "title"));
+      }
       if (!body) return "";
       return `<div class="exercise"${idAttr(n)}><div class="n">${exerciseCounter}</div><div class="body">${body}</div></div>`;
     }
@@ -1069,16 +1155,57 @@ function block(n) {
       const caption = label || capHtml ? `<p class="tablecap">${label}${label && capHtml ? " — " : ""}${capHtml}</p>` : "";
       return `<div class="tablewrap-outer"${idAttr(n)}>${(n.children || []).filter(c => c.tag !== "title").map(block).join("")}${caption}</div>`;
     }
+    // Same statement-optional fallback as <theorem> above -- guards against the same class of
+    // bug (a <definition> with bare <p> children instead of a <statement> wrapper) even though
+    // it hasn't been observed yet, since <task>/<example>/<theorem> all turned out to have it.
     case "definition": {
       const stmt = qd(n, "statement");
-      return `<div class="card definition"${idAttr(n)}><span class="chip">Definition</span>${stmt ? renderMixed(stmt.children) : ""}</div>`;
+      const body = stmt ? renderMixed(stmt.children) : renderMixed((n.children || []).filter(c => c.tag !== "title"));
+      return `<div class="card definition"${idAttr(n)}><span class="chip">Definition</span>${body}</div>`;
+    }
+    // <theorem> (same <statement>-wrapped shape as <definition>) -- new to chapter 12, never
+    // seen in chapters 9-11's source. Without a case here it fell through to the default
+    // (bare children, no case at all) and rendered as unstyled plain paragraphs with no
+    // "Theorem" box at all (found: 12.3's parametrized-line-integral theorem). Unnumbered,
+    // same as this book's definitions/callouts.
+    // Some theorems have no <statement> wrapper at all -- just bare <p>/<me> children directly
+    // on <theorem> (found: 12.5's scalarlineint_param_thm rendered as a totally empty box,
+    // same underlying gap as <example>/<task> without <statement> above). Fall back to the
+    // theorem's own non-title children when there's no <statement> to pull from.
+    case "theorem": {
+      const stmt = qd(n, "statement");
+      const body = stmt ? renderMixed(stmt.children) : renderMixed((n.children || []).filter(c => c.tag !== "title"));
+      return `<div class="card definition"${idAttr(n)}><span class="chip">Theorem</span>${body}</div>`;
     }
     case "assemblage": return `<div class="card callout"${idAttr(n)}><span class="chip">${esc(titleOf(n))}</span>${renderMixed((n.children || []).filter(c => c.tag !== "title"))}</div>`;
+    // <aside> (a sidebar note, e.g. "Alternative Notation for Divergence") -- new to chapter
+    // 12, same <title>+flat-content shape as <assemblage>. Without a case here it fell through
+    // to the default handler: content rendered but with no box/chip at all, and the <title>
+    // itself vanished completely (case "title" => "", found: 12.6's own aside had no visible
+    // heading at all, just its body text blending into the surrounding paragraphs).
+    // Not every <aside> has its own <title> (this one, e.g., is a bare <p> with no heading) --
+    // esc(titleOf(n)) on a titleless aside used to render a blank, chip-shaped box with no
+    // label text at all. "Note" matches this book's own generic fallback wording elsewhere
+    // (definition/theorem boxes with no numbering get an unnumbered chip too).
+    case "aside": return `<div class="card callout"${idAttr(n)}><span class="chip">${esc(titleOf(n) || "Note")}</span>${renderMixed((n.children || []).filter(c => c.tag !== "title"))}</div>`;
     // A plain narrative worked example -- unlike OpenStax's examples, no statement/solution
     // split or sol-hint is needed (this book just walks through the example directly), so
     // reuse the same .card.example/.ex-head/.ex-body shell without the .solution toggle.
-    case "example": return `<div class="card example"${idAttr(n)}><div class="ex-head"><span class="num">${exampleLabels.get(n) || "Example"}</span></div>` +
-      `<div class="ex-body">${renderMixed(n.children)}</div></div>`;
+    // An <example> is usually flat prose (renderMixed(n.children) below handles that fine),
+    // but chapter 12 sometimes structures one from <task> sub-parts instead (an <introduction>
+    // followed by several <task>s), the same shape <activity> uses -- renderMixed()'s default
+    // per-child block() dispatch has no case for a bare <task>, so each one's own id/lettered
+    // label silently vanished while its inner content (paragraphs/figures) still rendered
+    // (found: 12.5's sli_pm example, where <xref ref="task1_sli_pm"> had no anchor to land on
+    // even though the task's own text was visibly on the page).
+    case "example": {
+      const tasks = qda(n, "task");
+      const exBody = tasks.length
+        ? (() => { const intro = qd(n, "introduction"); return (intro ? renderMixed(intro.children) : "") + renderTaskParts(tasks); })()
+        : renderMixed(n.children);
+      return `<div class="card example"${idAttr(n)}><div class="ex-head"><span class="num">${exampleLabels.get(n) || "Example"}</span></div>` +
+        `<div class="ex-body">${exBody}</div></div>`;
+    }
     case "exploration": case "activity": return renderActivity(n);
     case "objectives": return `<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span>${(n.children || []).map(block).join("")}</div>`;
     case "sidebyside": {

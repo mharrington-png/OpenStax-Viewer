@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Line Integrals of Scalar Functions · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Line Integrals of Scalar Functions</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.5</span>Line Integrals of Scalar Functions</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+            How can you measure the accumulation of a scalar function over a curve in space?
+          </p></li><li><p>
+            How can you efficiently calculate the scalar line integral over a curve in space?
+          </p></li></ul></div>
+<p>
+    In <a href="12-2.html">Section 12.2</a>, the idea of a line integral was introduced by looking at the work done by a vector field when traveling along \(C\), a path in space. In particular, the line integral measured the accumulated amount of the vector field that is along the path \(C\) (in the direction of travel.) <a href="12-2.html#def_Vector_IdeaLineIntegral_LineIntegral">Definition</a> shows how to use a Riemann sum to measure the accumulation of the vector field in the direction of travel along the given curve. Additionally, <a href="12-3.html#thm_LineIntParam">Theorem</a> shows how the line integral \(\int_C \vF\cdot d\vr \) can be efficently calculated in terms of the vector field and the derivative of <em>any</em> paramaterization of \(C\). Philosophically, the Riemann sum in <a href="12-2.html#def_Vector_IdeaLineIntegral_LineIntegral">Definition</a> is adding up the scalar function given by the dot product of the vector field and the unit vector in the direction of travel (along the curve).
+  </p><p>
+    We will devote the rest of this section to answering these questions about generalizing the ideas of line integrals as fully as possible.
+  </p><p>
+    <ul><li><p>
+        How can we measure the accumulation of a scalar valued function along a curve in space?
+      </p></li><li><p>
+        What would that accumulation measure physically?
+      </p></li><li><p>
+        What is the most efficent way to calculate this accumulation?
+      </p></li></ul>
+  </p><div class="card activity preview" id="PA_ScalarLI"><div class="ex-head"><span class="num">Preview Activity 12.5.1</span></div><div class="ex-body"><p>
+        In order to pay for tutition, you take a job driving a mining machine that collects a very valuable mineral called copium. Copium is only produced on the surface and is mined by scooping up the soil at the front of your machine, so the amount of copium ore collected depends on the density of the ore and the distance driven by the mining machine. The plot of land you are mining has been surveyed for the density of copium ore and is presented in the contour plot below.
+      </p><figure class="plot" id="CopiumPlot"><img src="https://activecalculus.org/multi1e/generated/sageplot/CopiumMinePlot.svg" alt=""><figcaption>Figure 12.5.1 — A plot of land with density of copium deposits </figcaption></figure><div class="part" id="task_PA_ScalarLI_1"><span class="part-label">a)</span> <p>
+          Estimate the amount of copium that would be mined from driving along the left side of plot. You should write a few sentences about how you got your estimate based on the copium density and length of the path. (Did you use more than one piece?)
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary but the calculuation should be done by multipling the density at some point(s) along the side by the length of the side. For instance, you might estimate the density to be about 2.5 on the left side of the plot and length to be about 500, so this would give an estimated 1250 in Copium mined along the left side of the plot.</p></div></div></div><div class="part" id="task_PA_ScalarLI_2"><span class="part-label">b)</span> <p>
+          Estimate the amount of copium that would be mined by driving along the entire outer edge of the plot. You should write a few sentences about how you got your estimate based on the copium density and length of the paths.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary but the calculuation should be done by multipling the density at some point(s) along the side by the length of the side. For instance, you might estimate the density to be about 2.5 on the left side of the plot and length to be about 500, so this would give an estimated 1250 in Copium mined along the left side of the plot. Doing this type of estimation around each side will give an estimate around 3000. </p></div></div></div><div class="part" id="task_PA_ScalarLI_3"><span class="part-label">c)</span> <p>
+          Estimate the amount of copium that would be mined from the scraping the curved path shown below. You should use at least 3 segments in your estimate. You should write a few sentences about how you got your estimate based on the copium density and length of the paths.
+        </p><figure class="plot"><img src="https://activecalculus.org/multi1e/generated/sageplot/CopiumPlotwithPath.svg" alt=""><figcaption>Figure 12.5.2 — A plot of land with copium Density and a path plotted in blue</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary but the calculuation should be done by multipling the density at some point(s) along the side by the length of the side. For instance, you might estimate the lengths and density using a linear approximation of the left side, the top, and the right side separately. You could estimate the left side to have a length of 150 and density of 2.5, the top to have a length of 100 and density of 1.5, and the right side to have a length of 100 and density of 1. This would give an estimate of 625 Copium mined.</p></div></div></div><div class="part" id="task_PA_ScalarLI_4"><span class="part-label">d)</span> <p>
+          Estimate the amount of copium that would be mined from the scraping the curved path shown below. You should use at least 3 segments in your estimate. You should also explain how and why your answer to this question is different or similar to the previous task.
+        </p><figure class="plot"><img src="https://activecalculus.org/multi1e/generated/sageplot/CopiumPlotwithPath2.svg" alt=""><figcaption>Figure 12.5.3 — A plot of land with copium density and a path plotted in blue</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>Answers will vary but likely to be around 600. The difference with the last problem is the direction traveled, which would not change any of the estimations of length or density. In other words, the direction of travel does not affect the result of these estimates.</p></div></div></div></div></div>
+<h2 id="defining-line-integrals-of-scalar-functions">Defining line integrals of scalar functions</h2>
+<p>
+  In <a href="#PA_ScalarLI">Preview Activity 12.5.1</a>, you approximated the distance traveled for various paths and multiplied by the density of the copium on each piece of the path. In contrast to the line integral of a vector field, the calculations of the ore mined does not depend on what direction the path was traveled. We will now use these same ideas to give precise meaning to the measurement of the acculumation of a scalar function's output over a path in space.
+</p><p>
+  Let \(f\) be a contiunuous function of \(x\), \(y\), and \(z\) for some open set around \(C\), a curve from a point \(P\) to a point \(Q\). We will begin to approximate the acculumlation of the output of \(f\) over \(C\) by breaking \(C\) into pieces with boundary points \(P=\vr_0, \vr_1, \dots, \vr_n-1, \vr_n=Q\). The curve \(C_i\) is the part of \(C\) that goes from \(\vr_{i-1}\) to \(\vr_i\) and \(\Delta \vr_i\) is the displacement vector from \(\vr_{i-1}\) to \(\vr_i\)
+</p><figure class="plot"><img src="https://activecalculus.org/multi1e/generated/sageplot/scalar_line_int_segments.svg" alt=""><figcaption>Figure 12.5.4 — A curve in space with segments given by \(\mathbf{r}_i\)</figcaption></figure><p>
+  We can approximate the accumulation of \(f\) over \(C\) with the following sum
+  \[ \sum_{i=1}^{n} f(\vr_i^*) |{\vr_{i}-\vr_{i-1}}|\],
+  where \(f(r_i^{*})\) is the output of \(f\) for some \(\vr_i^{*} \in C_i\). As this sum uses more pieces and all of the lengths of the pieces goes to zero (i.e. \(|{\Delta \vr_i}| \rightarrow 0\)), we would expect that the sum will approach the actual acculumation of \(f\) over \(C\). Notice that it won't matter how we select the point \(\vr_i^*\) that is used in each piece to evaluate the output of \(f\) since evaluating the limit as the length of \(C_i\) gets smaller will ensure that the output value choosen will be within a shrinking error from the average value on each piece. Evaluating the limit of the sum above as the size of all of the pieces goes to zero will transform our Riemann sum into an integral that will measure the accumulation of the output of \(f\) over \(C\).
+</p><div class="card definition" id="ScalarLineIntegral_def"><span class="chip">Definition</span><p>
+    Let \(C\) be a curve from a point \(P\) to a point \(Q\) in space. Let \(f\) be a contiunuous function of \(x\), \(y\), and \(z\) for some open set around \(C\).  The <em>line integral of \(f\) over \(C\)</em> is defined as
+    \[\int_C f ds =\lim_{n\rightarrow \infty} \sum_{i=1}^{n} f(\vr_i^{*}) |{\vr_{i}-\vr_{i-1}}|\]
+    where \(\vr_i\) are points such that \(P=\vr_0, \vr_1, \dots, \vr_n-1, \vr_n=Q\) and as \(n\rightarrow \infty\) the distance between \(\vr_{i-1}\) and \(\vr_i\) goes to zero.
+  </p><p>The integral
+    \[\int_C f \, ds \]
+    is called the <em>scalar line integral of \(f\) over the curve \(C\)</em>.
+  </p></div><p>
+  The notation for a scalar line integral (\(\int_C f \, ds \)) may not immediately make sense. As with the other types of integration we have done (single variable integration, double integrals, line integrals of vector fields, etc.), the subscript of the integral symbol denotes the region of integration. In the case of a scalar line integral, the region of integration is a collection of points given by a curve in space. The function we are integrating is \(f\), a scalar-valued functiton of multiple variables. The differential \(ds\) may seem unusual to you. If you remember from <a href="9-8.html">Section 9.8</a>, \(s\) is the arc length of a curve in space. So the differential \(ds\) in the scalar line integral notation means that we are adding up the output of \(f\) over steps in arc length. This should make sense in terms of how we set up our Riemann sums. We did not set up the pieces of our curve as steps in \(x\), \(y\), or \(z\), but rather as steps in arc length (estimated by \(|{\vr_{i+1}-\vr_{i}}|\)). This may feel similar to situations such as double integrals, where we generically used \(dA\) for the differential, but the different contexts called for different values of \(dA\). For instance, in polar coordinates, we use \(dA = r\, dr\, d\theta\)
+</p><div class="card example" id="sli_pm"><div class="ex-head"><span class="num">Example 12.5.1</span></div><div class="ex-body"><p>
+      Before getting into the details of computing line integrals of scalar functions, we will first make arguments about when the line integral of a scalar function is positive, negative, or zero. For all of this example, we will use the curve \(C\) given by \(y=x^2\) for \(-1\leq x \leq 2\). We also will define the following three scalar-valued functions on \(\R^2\).
+      <ul><li><p>\(f(x,y)=x\)</p></li><li><p>\(g(x,y)=-y\)</p></li><li><p>\(h(x,y)=y-x^2\)</p></li></ul>
+    </p><figure class="plot" id="fig_sli_pm1"><img src="https://activecalculus.org/multi1e/generated/sageplot/fig_scalarlineint_pmexample1.svg" alt=""><figcaption>Figure 12.5.5 — The curve \(C\) used in the line integral for <a href="#sli_pm">Example 12.5.1</a></figcaption></figure><div class="part" id="task1_sli_pm"><span class="part-label">a)</span> <p>
+      For our first case, we will consider the line integral \[ \int_C f \, ds \]. Remember that the line integral of \(f\) over \(C\) will measure the accumulation of the output of \(f\) over the points on the curve \(C\). <a href="#fig_sli_pm3">Figure 12.5.6</a> shows that the blue branch of the curve \(C\) (for \(0\leq x\leq 2\)) will yield positive output values for \(f\), while the magenta part, which has \(-1\leq x\leq 0\), will produce negative output values for \(f\). Intuitively, there is more of the curve with positive \(f\) outputs than negative \(f\) outputs, so we would expect \(\int_C f \, ds\) to be positive. However, the magnitude of the \(f\)-values produced must also be accounted for.
+    </p><figure class="plot" id="fig_sli_pm3"><img src="https://activecalculus.org/multi1e/generated/sageplot/fig_scalarlineint_pmexample3.svg" alt=""><figcaption>Figure 12.5.6 — The curve \(C\) split into regions with positive (blue) and negative (magenta) outputs of \(f\)</figcaption></figure><p>
+      If we break our curve \(C\) into three pieces by dividing at \(x=0\) and \(x=1\) as shown in <a href="#fig_sli_pm2">Figure 12.5.7</a>, we can make a rigourous argument about why the result of \(\int_C f \, ds\) will be positive. We will call the magenta, green, and blue sections of <a href="#fig_sli_pm2">Figure 12.5.7</a> \(C_1\), \(C_2\), and \(C_3\), respectively. Using the notation of , we have \(C = C_1+C_2+C_3\). No matter how we break up the curve \(C_1\) to set up a Riemann sum used in <a href="#ScalarLineIntegral_def">Definition</a> we can do the symmetric version on curve \(C_2\). The only difference between the Riemann sums and thier associated line integrals for \(C_1\) and \(C_2\) will be the sign on the output of \(f\). This means that \[ \int_{C_1} f \, ds = -\int_{C_2} f \, ds\] and thus
+      \[\begin{aligned} \int_C f \, ds &amp;= \int_{C_1} f \, ds + \int_{C_2} f \, ds +\int_{C_3} f \, ds  \\
+&amp; =-\int_{C_2} f \, ds + \int_{C_2} f \, ds +\int_{C_3} f \, ds \\
+&amp; = \int_{C_3} f \, ds\end{aligned}\].
+    </p><figure class="plot" id="fig_sli_pm2"><img src="https://activecalculus.org/multi1e/generated/sageplot/fig_scalarlineint_pmexample2.svg" alt=""><figcaption>Figure 12.5.7 — The curve \(C\) split into three regions with positive (blue and green) and negative (magenta) outputs of \(f\)</figcaption></figure><p>
+      The argument for why \(\int_{C_1} f \, ds = -\int_{C_2} f \, ds\) requires that both the points on the curves \(C_1\) and \(C_2\) and the output of \(f\) on those parts is symmetric. In <a href="#act_Vector_ScalarLineIntegral_caution">Activity 12.5.3</a> you will see examples where having only one part of this symmetry is not sufficent to make this type of argument.
+    </p><p>
+      We have shown that \(\int_C f \, ds =  \int_{C_3} f \, ds \) and want to demonstrate why \(\int_{C_3} f \, ds \) will be positive. Because the output of \(f\) is positive for all of the points on the curve \(C_3\), all elements of the associated Riemann sum in <a href="#ScalarLineIntegral_def">Definition</a> will be positive (the length of the displacement vectors and corresponding arc lengths are always positive). Thus \(\int_C f \, ds =  \int_{C_3} f \, ds \gt 0\). 
+    </p></div><div class="part"><span class="part-label">b)</span> <p>
+      We now want to consider whether \(\int_C g \, ds \) will be positive, negative, or zero. This is a simpler argument than in the previous case because the output of \(g\) will be negative for all points in \(C\) (execept for the origin). Each term in the Riemann sum used to define the scalar line integral will be the product of a negative value (\(g(\vr_i^{*})\)) and a positive value (\( |{\vr_{i}-\vr_{i-1}}|\)). Therefore the Riemann sums will be negative and the limit as you take more terms in this sum will also be negative. Thus, \(\int_C g \, ds \lt 0\).
+    </p></div><div class="part"><span class="part-label">c)</span> <p>
+      Finally, we want to make an argument whether \( \int_C h \, ds\) will be positive, negative, or zero. While we cannot lean on the intuitive nature of the where coordinates are positive or negative, we can make a very precise argument about the output of \(h\) for the points on \(C\). While \(g(x,y)=y-x^2\) will have a range that includes all real numbers, the output of \(g\) is <em>always</em> zero for the points on our curve \(C\) because for points on \(C\), the \(y\)-coordinate is equal to the \(x\)-coordinate squared. This means that no matter how we break up our segments for the Riemann sum, the \(h(\vr_i^{*})\) terms will always be zero. No matter how many terms are used the Reimann sum will be zero, and the limit of the Riemann sums will also be zero. Thus, \( \int_C h \, ds=0\).
+    </p></div></div></div><p>
+  Before delving into the exact computation of line integrals of scalar-valued functions, here is an activity that allows you to practice arguments similar to <a href="#sli_pm">Example 12.5.1</a>.
+</p><div class="card activity" id="Act_ScalarLI1"><div class="ex-head"><span class="num">Activity 12.5.2</span></div><div class="ex-body"><p>
+        In this activity, we will be making sense of scalar line integrals by examining a few common functions and justifying whether the scalar line integrals given are positive, negative, or zero. Let the functions \(f_1\), \(f_2\), \(f_3\), and \(f_4\) be defined as
+        <ul><li><p>
+              \(f_1(x,y,z)=y\)
+            </p></li><li><p>
+              \(f_2(x,y,z)=z\)
+            </p></li><li><p>
+              \(f_3(x,y,z)=x^2\)
+            </p></li><li><p>
+              \(f_4(x,y,z)=x-y\)
+            </p></li></ul>
+      </p><div class="part" id="Act_ScalarLI1_part1"><span class="part-label">a)</span> <p>
+           For each of the paths given below, sketch (in either 2D or 3D) the curve and label at least three points on the curve including the end points (if they exist).
+           <ol><li><p>
+              \(C_1\) is the part of the unit circle in the \(xy\)-plane centered at the origin that is above the line \(y=-x\)
+            </p></li><li><p>
+              \(C_2\) is the part of the curve at the intersection of the cylinder given by \(x^2+y^2=1\) and the plane \(z=x\) such that \(y \geq -x\); You may want to consider the circle that is the intersection of \(x^2+y^2=1\) and \(z=x\), then think about which half of this circle satisfies the inequality \(y \geq -x\)
+            </p></li><li><p>
+              \(C_3\) is the part of the helix given by \(\vr(t)=\langle \cos(t),\sin(t),\frac{t}{2 \pi}\rangle\) with \(t \in [0,\pi]\)
+            </p></li></ol>
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          <ol><li><div class="sage-interactive" id="exercise-testing1"><div class="sage-embed"><script type="text/x-sage">var('t')
+plot22 = parametric_plot((t,-t),(t,-2,2),color='black',linestyle="--",axes_labels=["$x$","$y$"])
+plot22 += parametric_plot((cos(t),sin(t)),(t,-pi/4,3*pi/4),color='red')
+plot22 += point((-sqrt(2)/2,sqrt(2)/2),color="black",size=30)
+plot22 += point((sqrt(2)/2,-sqrt(2)/2),color="black",size=30)
+plot22</script></div></div><pre class="code">var('t')
+plot22 = parametric_plot((t,-t),(t,-2,2),color='black',linestyle="--",axes_labels=["$x$","$y$"])
+plot22 += parametric_plot((cos(t),sin(t)),(t,-pi/4,3*pi/4),color='red')
+plot22 += point((-sqrt(2)/2,sqrt(2)/2),color="black",size=30)
+plot22 += point((sqrt(2)/2,-sqrt(2)/2),color="black",size=30)
+plot22</pre></li><li><div class="sage-interactive" id="exercise-testing2"><div class="sage-embed"><script type="text/x-sage">var('t,s')
+plot23 = parametric_plot3d((t,s,t),(t,-2,2),(s,-2,2),color='gray',opacity=.3,axes_labels=["$x$","$y$","$z$"],axes_frame=False)
+plot23 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,-pi/4,3*pi/4),color='red')
+plot23 += point3d((-sqrt(2)/2,sqrt(2)/2,-sqrt(2)/2),color="black",size=10)
+plot23 += point3d((sqrt(2)/2,-sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot23 += parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black")
+plot23</script></div></div><pre class="code">var('t,s')
+plot23 = parametric_plot3d((t,s,t),(t,-2,2),(s,-2,2),color='gray',opacity=.3,axes_labels=["$x$","$y$","$z$"],axes_frame=False)
+plot23 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,-pi/4,3*pi/4),color='red')
+plot23 += point3d((-sqrt(2)/2,sqrt(2)/2,-sqrt(2)/2),color="black",size=10)
+plot23 += point3d((sqrt(2)/2,-sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot23 += parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black")
+plot23</pre></li><li><div class="sage-interactive" id="exercise-testing3"><div class="sage-embed"><script type="text/x-sage">var('s,t')
+plot24=parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black",axes_labels=["$x$","$y$","$z$"])
+plot24+= parametric_plot3d((cos(t),sin(t),t/(2*pi)),(t,0,pi),color='red')
+plot24 += point3d((1,0,0),color="black",size=10)
+plot24 += point3d((-1,0,1/2),color="black",size=10)
+show(plot24)</script></div></div><pre class="code">var('s,t')
+plot24=parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black",axes_labels=["$x$","$y$","$z$"])
+plot24+= parametric_plot3d((cos(t),sin(t),t/(2*pi)),(t,0,pi),color='red')
+plot24 += point3d((1,0,0),color="black",size=10)
+plot24 += point3d((-1,0,1/2),color="black",size=10)
+show(plot24)</pre></li></ol>
+       </p></div></div></div><div class="part" id="Act_ScalarLI1_part2"><span class="part-label">b)</span> <p>
+          For each of the functions \(f_1\), \(f_2\), and \(f_3\) defined above, state whether \( \int_{C_1} f_i \, ds \) is positive, negative, or zero. Be sure to justify your answer in terms of the function being integrated <em>and</em> the particulars of the curve of integration.
+        </p><div class="answer"><button>Show answer</button><div class="a"><div class="sage-interactive" id="exercise-testing4"><div class="sage-embed"><script type="text/x-sage">var('x,y,t')
+plot1 = parametric_plot((t,-t),(t,-2,2),color='black',linestyle="--")
+plot1 += parametric_plot((cos(t),sin(t)),(t,-pi/4,0),color='#1E88E5',thickness=2)
+plot1 += parametric_plot((cos(t),sin(t)),(t,0,pi/4),color='#D81B60',thickness=2)
+plot1 += parametric_plot((cos(t),sin(t)),(t,pi/4,3*pi/4),color='#004D40',thickness=2)
+plot1 += point((1,0),color="black",size=30)
+plot1 += point((sqrt(2)/2,sqrt(2)/2),color="black",size=30)
+plot1 += point((-sqrt(2)/2,sqrt(2)/2),color="black",size=30)
+plot1 += point((sqrt(2)/2,-sqrt(2)/2),color="black",size=30)
+plot1</script></div></div><pre class="code">var('x,y,t')
+plot1 = parametric_plot((t,-t),(t,-2,2),color='black',linestyle="--")
+plot1 += parametric_plot((cos(t),sin(t)),(t,-pi/4,0),color='#1E88E5',thickness=2)
+plot1 += parametric_plot((cos(t),sin(t)),(t,0,pi/4),color='#D81B60',thickness=2)
+plot1 += parametric_plot((cos(t),sin(t)),(t,pi/4,3*pi/4),color='#004D40',thickness=2)
+plot1 += point((1,0),color="black",size=30)
+plot1 += point((sqrt(2)/2,sqrt(2)/2),color="black",size=30)
+plot1 += point((-sqrt(2)/2,sqrt(2)/2),color="black",size=30)
+plot1 += point((sqrt(2)/2,-sqrt(2)/2),color="black",size=30)
+plot1</pre><p>
+          The scalar line integal of \(f_1\) on the blue and the magenta paths will cancel each other out exactly since the paths are symmetric and the output of \(f_1\) will be opposite in sign on the blue and magenta. This means that \(\int_{C_1} f_1 \, ds\) will be the same as the line integral of \(f_1(x,y,z)=y\) on the green path. Since the output of \(f_1\) is positive on the green path, our result for the scalar line integral should be positive.
+        </p><p>
+          The line integral \(\int_{C_1} f_2 \, ds\) will be zero since the output of \(f_2(x,y,z)=z\) will be zero for all points on \(C_1\).
+        </p><p>
+          The line integral \(\int_{C_1} f_3 \, ds\) will be positive since the output of \(f_3(x,y,z)=x^2\) will be positive for all points on \(C_1\).
+        </p></div></div></div><div class="part" id="Act_ScalarLI1_part3"><span class="part-label">c)</span> <p>
+          For each of the functions \(f_1\), \(f_2\), and \(f_3\), defined above, state whether \( \int_{C_2} f_i \, ds \) is positive, negative, or zero. Be sure to justify your answer in terms of the function being integrated <em>and</em> the particulars of the curve of integration.
+        </p><div class="answer"><button>Show answer</button><div class="a"><div class="sage-interactive" id="exercise-testing5"><div class="sage-embed"><script type="text/x-sage">var('s,t')
+plot1 = parametric_plot3d((t,s,t),(t,-2,2),(s,-2,2),color='gray',opacity=.2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,-pi/4,0),color='#1E88E5',thickness=2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,0,pi/4),color='#D81B60',thickness=2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,pi/4,3*pi/4),color='#004D40',thickness=2)
+plot1 += point3d((1,0,1),color="black",size=10)
+plot1 += point3d((sqrt(2)/2,sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot1 += point3d((-sqrt(2)/2,sqrt(2)/2,-sqrt(2)/2),color="black",size=10)
+plot1 += point3d((sqrt(2)/2,-sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot1+=parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black")
+plot1</script></div></div><pre class="code">var('s,t')
+plot1 = parametric_plot3d((t,s,t),(t,-2,2),(s,-2,2),color='gray',opacity=.2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,-pi/4,0),color='#1E88E5',thickness=2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,0,pi/4),color='#D81B60',thickness=2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,pi/4,3*pi/4),color='#004D40',thickness=2)
+plot1 += point3d((1,0,1),color="black",size=10)
+plot1 += point3d((sqrt(2)/2,sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot1 += point3d((-sqrt(2)/2,sqrt(2)/2,-sqrt(2)/2),color="black",size=10)
+plot1 += point3d((sqrt(2)/2,-sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot1+=parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black")
+plot1</pre><p>
+          The scalar line integal of \(f_1\) on the blue and the magenta paths will cancel each other out exactly since the paths are symmetric and the output of \(f_1\) will be opposite in sign on the blue and magenta. This means that \(\int_{C_2} f_1 \, ds\) will be the same as the line integral of \(f_1(x,y,z)=y\) on the green path. Since the output of \(f_1\) is positive on the green path, our result for the scalar line integral should be positive.
+        </p><div class="sage-interactive" id="exercise-testing6"><div class="sage-embed"><script type="text/x-sage">var('s,t')
+plot1 = parametric_plot3d((t,s,t),(t,-2,2),(s,-2,2),color='gray',opacity=.2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,pi/4,pi/2),color='#1E88E5',thickness=2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,pi/2,3*pi/4),color='#D81B60',thickness=2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,-pi/4,pi/4),color='#004D40',thickness=2)
+plot1 += point3d((0,1,0),color="black",size=10)
+plot1 += point3d((sqrt(2)/2,sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot1 += point3d((-sqrt(2)/2,sqrt(2)/2,-sqrt(2)/2),color="black",size=10)
+plot1 += point3d((sqrt(2)/2,-sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot1 += parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black")
+plot1</script></div></div><pre class="code">var('s,t')
+plot1 = parametric_plot3d((t,s,t),(t,-2,2),(s,-2,2),color='gray',opacity=.2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,pi/4,pi/2),color='#1E88E5',thickness=2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,pi/2,3*pi/4),color='#D81B60',thickness=2)
+plot1 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,-pi/4,pi/4),color='#004D40',thickness=2)
+plot1 += point3d((0,1,0),color="black",size=10)
+plot1 += point3d((sqrt(2)/2,sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot1 += point3d((-sqrt(2)/2,sqrt(2)/2,-sqrt(2)/2),color="black",size=10)
+plot1 += point3d((sqrt(2)/2,-sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot1 += parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black")
+plot1</pre><p>
+          The scalar line integal of \(f_2\) on the blue and the magenta paths will cancel each other out exactly since the paths are symmetric and the output of \(f_2\) will be opposite in sign on the blue and magenta. This means that \(\int_{C_2} f_2 \, ds\) will be the same as the line integral of \(f_2(x,y,z)=z\) on the green path. Since the output of \(f_2\) is positive on the green path, our result for the scalar line integral should be positive.
+        </p><p>
+          The line integral \(\int_{C_2} f_3 \, ds\) will be positive since the output of \(f_3(x,y,z)=x^2\) will be positive for all points on \(C_2\).
+        </p></div></div></div><div class="part" id="Act_ScalarLI1_part4"><span class="part-label">d)</span> <p>
+          For each of the functions \(f_1\), \(f_2\), and \(f_3\), defined above, state whether \( \int_{C_3} f_i \, ds \) is positive, negative, or zero. Be sure to justify your answer in terms of the function being integrated <em>and</em> the particulars of the curve of integration.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The line integral \(\int_{C_3} f_1 \, ds\) will be positive since the output of \(f_1(x,y,z)=y\) will be positive for all points on \(C_3\).
+        </p><p>
+          The line integral \(\int_{C_3} f_2 \, ds\) will be positive since the output of \(f_2(x,y,z)=z\) will be positive for all points on \(C_3\).
+        </p><p>
+          The line integral \(\int_{C_3} f_3 \, ds\) will be positive since the output of \(f_3(x,y,z)=x^2\) will be positive for all points on \(C_3\).
+        </p></div></div></div><div class="part"><span class="part-label">e)</span> <p>
+          For the function \(f_4\), defined above, state each of the following integrals is positive, negative, or zero. Be sure to justify your answer in terms of the function being integrated <em>and</em> the particulars of the curve of integration. You should consider which parts of the curve being integrated will have positive/negative/zero output for the function \(f_4\). 
+          \[\begin{aligned} \int_{C_1} f_4 \, ds  \\
+ \int_{C_2} f_4 \, ds  \\
+ \int_{C_3} f_4 \, ds \end{aligned}\], 
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          An important idea to determining whether these line integrals will be positive/negative/zero, is understanding when the output of \(f_4=x-y\) will be positive/negative/zero. In the plot below. The points in red will correspond to the output of \(f_4\) being zero, the points in blue will correspond to the output of \(f_4\) being positive, and the points in green will correspond to the output of \(f_4\) being negative.
+        </p><div class="card flag"><span class="chip">Image not available statically</span></div><p>
+          Now we will look at the individual line integrals.
+        </p><div class="card flag"><span class="chip">Image not available statically</span></div><p>
+          The scalar line integal on the blue and the magenta paths will cancel each other out exactly since the paths are symmetric and the output of \(f_4\) will be opposite in sign on the blue and magenta. Thus the line integral of \(f_4\) over \(C_1\) will be zero.
+        </p><div class="sage-interactive" id="exercise-testing7"><div class="sage-embed"><script type="text/x-sage">var('t')
+plot2 = parametric_plot3d((t,t,t),(t,0,2),color='orange',linestyle="--",axes_labels=["$x$","$y$","$z$"])
+plot2 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,-pi/4,pi/4),color='#1E88E5')
+plot2 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,pi/4,3*pi/4),color='#D81B60')
+plot2 += point3d((sqrt(2)/2,sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot2 += point3d((-sqrt(2)/2,sqrt(2)/2,-sqrt(2)/2),color="black",size=10)
+plot2 += point3d((sqrt(2)/2,-sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot2 += parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")
+plot2 += parametric_plot3d((0,0,t),(t,-2,2),color="black")
+plot2</script></div></div><pre class="code">var('t')
+plot2 = parametric_plot3d((t,t,t),(t,0,2),color='orange',linestyle="--",axes_labels=["$x$","$y$","$z$"])
+plot2 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,-pi/4,pi/4),color='#1E88E5')
+plot2 += parametric_plot3d((cos(t),sin(t),cos(t)),(t,pi/4,3*pi/4),color='#D81B60')
+plot2 += point3d((sqrt(2)/2,sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot2 += point3d((-sqrt(2)/2,sqrt(2)/2,-sqrt(2)/2),color="black",size=10)
+plot2 += point3d((sqrt(2)/2,-sqrt(2)/2,sqrt(2)/2),color="black",size=10)
+plot2 += parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")
+plot2 += parametric_plot3d((0,0,t),(t,-2,2),color="black")
+plot2</pre><p>
+          The scalar line integal on the blue and the magenta paths will cancel each other out exactly since the paths are symmetric and the output of \(f_4\) will be opposite in sign on the blue and magenta. Thus the line integral of \(f_4\) over \(C_2\) will be zero.
+        </p><div class="sage-interactive" id="exercise-testing8"><div class="sage-embed"><script type="text/x-sage">var('s,t')
+plot24=parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black",axes_labels=["$x$","$y$","$z$"])
+plot24+= parametric_plot3d((cos(t),sin(t),t/(2*pi)),(t,0,pi/4),color='#1E88E5',thickness=2)
+plot24 += parametric_plot3d((cos(t),sin(t),t/(2*pi)),(t,pi/4,pi/2),color='#D81B60',thickness=2)
+plot24 += parametric_plot3d((cos(t),sin(t),t/(2*pi)),(t,pi/2,pi),color='#004D40',thickness=2)
+plot24 += point3d((1,0,0),color="black",size=10)
+plot24 += point3d((0,1,1/4),color="black",size=10)
+plot24 += point3d((sqrt(2)/2,sqrt(2)/2,sqrt(2)/(4*pi)),color="black",size=10)
+plot24 += point3d((-1,0,1/2),color="black",size=10)
+show(plot24)</script></div></div><pre class="code">var('s,t')
+plot24=parametric_plot3d((t,0,0),(t,-2,2),color="black")+parametric_plot3d((0,t,0),(t,-2,2),color="black")+parametric_plot3d((0,0,t),(t,-2,2),color="black",axes_labels=["$x$","$y$","$z$"])
+plot24+= parametric_plot3d((cos(t),sin(t),t/(2*pi)),(t,0,pi/4),color='#1E88E5',thickness=2)
+plot24 += parametric_plot3d((cos(t),sin(t),t/(2*pi)),(t,pi/4,pi/2),color='#D81B60',thickness=2)
+plot24 += parametric_plot3d((cos(t),sin(t),t/(2*pi)),(t,pi/2,pi),color='#004D40',thickness=2)
+plot24 += point3d((1,0,0),color="black",size=10)
+plot24 += point3d((0,1,1/4),color="black",size=10)
+plot24 += point3d((sqrt(2)/2,sqrt(2)/2,sqrt(2)/(4*pi)),color="black",size=10)
+plot24 += point3d((-1,0,1/2),color="black",size=10)
+show(plot24)</pre><p>
+          The scalar line integal of \(f_4\) on the blue and the magenta paths will cancel each other out exactly since the paths are symmetric and the output of \(f_4\) will be opposite in sign on the blue and magenta. This means that \(\int_{C_3} f_4 \, ds\) will be the same as the line integral of \(f_4(x,y,z)=x-y\) on the green path. Since the output of \(f_4\) is positive on the green path, our result for the scalar line integral should be positive.
+        </p></div></div></div></div></div>
+<h2 id="using-parameterizations-to-calculate-scalar-line-integrals">Using Parameterizations to Calculate Scalar Line Integrals</h2>
+<p>
+    <a href="#ScalarLineIntegral_def">Definition</a> defined \(\int_C f \, ds\) in terms of a limit of a Riemann sum which is often useful for understanding what is being measured and not very useful when it comes to efficiently calculating the value of a given integral. A scalar line integral is presented algebraically in terms of three variables because the curve is given in terms of points in three coordinates and the function to be integrated is dependent on those same coordinate values. Geometrically, the scalar line integral is a one dimensional problem because we only have one dimension to travel; namely, we can travel along the curve in steps of arc length. Remember that a parameterization of a curve in space is a description of how to travel through the points (given as three coordinates) of the curve in terms of a parameter (usually given as \(t\).) Parameterizations are very useful converting the three-variable algebra of a scalar line integral problem into a one dimensional integral. Once we have done that, we can use all of the tools of single-variable calculus to evaluate the scalar line integral.
+  </p><p>
+    Let's look at applying a parameterization for \(C\) given by a vector-valued function of one variable \(\vr(t)=\langle f(t), g(t), h(t)\rangle\) for \(t\) in some interval \([a,b]\) to <a href="#ScalarLineIntegral_def">Definition</a>. Instead of thinking in terms of pieces of the curve \(C\), the parameterization allows us to break the interval \([a,b]\) into pieces \(a=t_0, t_1, \dots ,t_n=b\) where \(t_i=a+i(\Delta{t})\) and \(\Delta{t}=\frac{b-a}{n}\). While these pieces will be equally spaced in terms of the parameter \(t\), the corresponding points on the curve \(C\) given by \(r(t_i)\) may not be equally spaced.
+  </p><figure class="plot" id="scalar_int_param_seg"><img src="https://activecalculus.org/multi1e/generated/sageplot/scalar_line_int_segments_param.svg" alt=""><figcaption>Figure 12.5.8 — The curve \(C\) split into segments defined by equally spaced parameter values</figcaption></figure><p>
+    To simplify the notation of our function evaluation, we will use the following:
+      \[f(\vr_i^{*})=f(\vr(t_i^{*}))=f(t_i^{*})\]
+    where \(t_{i-1}\leq t_i^{*}\leq t_i \). Remember that the parameterization will allow us to write all parts of the scalar line integral as a function of \(t\), so we will simplify \(|\Delta \vr_i|\) as
+      \[|{\vr_{i}-\vr_{i-1}}| =|{\vr(t_{i})-\vr(t_{i-1})}|= \frac{|{\vr(t_{i})-\vr(t_{i-1})}|}{\Delta{t}}\Delta{t}\]
+    Applying our parameterization and corresponding points to <a href="#ScalarLineIntegral_def">Definition</a> gives 
+      \[\begin{aligned}\int_C f \, ds &amp; =\lim_{n\rightarrow \infty} \sum_{i=1}^{n} f(\vr_i^{*}) |{\vr_{i}-\vr_{i-1}}| \\
+&amp; =\lim_{n\rightarrow \infty} \sum_{i=1}^{n} f(t_i^{*}) \frac{|{r(t_{i-1}+\Delta t)-r(t_{i-1})}|}{\Delta{t}}\Delta{t} \end{aligned}\].
+    This Riemann sum correponds to the definite integral of a scalar function of \(t\), specifically \(f(t) v(t)\) where \(v(t)=|\vr'(t)|\). We may think of \(v(t)\) is the speed of the parameterization \(\vr\).
+  </p><div class="card definition" id="scalarlineint_param_thm"><span class="chip">Theorem</span><p>
+      Let \(C\) be a curve in space parameterized by \(r(t)\) for \(a\leq t\leq b\). If \(f(x,y,z)\) is a multivariable function that is continuous for a region around \(C\), then
+      \[ \int_C f \, ds =\int_a^b f\left(\vr\left(t\right)\right) |{\vr'(t)}| \, dt\].
+    </p></div><p>
+    With <a href="#scalarlineint_param_thm">Theorem</a> established, we now consider a couple of examples that allow us to find the exact value of line integrals of scalar functions considered in <a href="#Act_ScalarLI1">Activity 12.5.2</a>.
+  </p><div class="card example" id="ScalarLineInt_Example1"><div class="ex-head"><span class="num">Example 12.5.2</span></div><div class="ex-body"><p> Let us return to some of the problems from <a href="#Act_ScalarLI1">Activity 12.5.2</a>. Specifically, let \(C_1\) be part of the unit circle on the \(xy\)-plane that is centered at the origin and is above the line given by \(y=-x\). We will also consider \(f_1(x,y,z)=y\). We can parameterize \(C_1\) by \(\vr(t)=\langle \cos(t), \sin(t), 0 \rangle\) with \(-\frac{\pi}{4} \leq t\leq \frac{3\pi}{4}\). Note here that \(|{\vr'(t)}| =|{\langle -\sin(t),\cos(t),0\rangle}|=1\). We can rewrite the value of \(f_1\) along \(C_1\) using the parameterization as \(f_1(x(t),y(t),z(t))=f_1(\cos(t),\sin(t),0)=\sin(t)\). Applying <a href="#scalarlineint_param_thm">Theorem</a>, we have
+      \[ \int_{C_1} f_1 \, ds = \int_{-\frac{\pi}{4}}^{\frac{3\pi}{4}} \sin(t) (1) \, dt = -\cos\left(\frac{3\pi}{4}\right) - \left(-\cos\left(-\frac{\pi}{4}\right))\right)=\sqrt{2}\].
+    </p><p>
+      This result should make sense from your earlier work in <a href="#Act_ScalarLI1_part2">here</a>. Specifically, we can break the line integral of \(f_1\) along \(C_1\) into three parts according to the plot shown in <a href="#fig_Vector_ScalarLineIntegral_example1">Figure 12.5.9</a>.
+    </p><figure class="plot" id="fig_Vector_ScalarLineIntegral_example1"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_ScalarLinInt_Example1.svg" alt=""><figcaption>Figure 12.5.9 —  A subdivided plot of \(C_1\)</figcaption></figure><p>
+      The scalar line integal on the blue and the magenta paths will cancel each other out exactly since the paths are symmetric about \(x\)-axis and the output of \(f_1\) will be opposite in sign on the blue and magenta portions. This means that \(\int_{C_1} f_1 \, ds\) will be the same as the line integral of \(f_1(x,y,z)=y\) on the green path. Since the output of \(f_1\) is positive on the green path, our result for the scalar line integral should be positive.
+    </p></div></div><p>
+    When working through <a href="#Act_ScalarLI1">Activity 12.5.2</a>, you may have found the line integrals involving \(f_3(x,y,z)=x-y\) to be more challenging to reason through without computational tools. We next work through the details of evaluating the line integral of this function along the same curve as in the previous example.
+  </p><div class="card example" id="ScalarLineInt_Example2"><div class="ex-head"><span class="num">Example 12.5.3</span></div><div class="ex-body"><p> Let \(C_1\) be part of the unit circle on the \(xy\)-plane that is centered at the origin and is above the line given by \(y=-x\). We will also consider \(f_4(x,y,z)=x-y\). We can parameterize \(C_1\) by \(\vr(t)=\langle \cos(t), \sin(t), 0 \rangle\) with \(-\frac{\pi}{4}\leq t\leq \frac{3\pi}{4}]\). Note here that \(|{\vr'(t)}| =|{\langle -\sin(t),\cos(t),0\rangle}|=1\). We can write the value of \(f_4\) along \(C_1\) using the parameterization as \(f_4(x(t),y(t),z(t)) = f_4(\cos(t),\sin(t),0) = \cos(t)-\sin(t)\). Applying <a href="#scalarlineint_param_thm">Theorem</a>, we have
+      \[\begin{aligned}\int_{C_1} f_4 \, ds &amp; = \int_{-\frac{\pi}{4}}^{\frac{3\pi}{4}}\left(\cos(t)-\sin(t)\right) (1) dt \\
+&amp; = \sin(\frac{3\pi}{4})-\cos(\frac{3\pi}{4}) - \left(\sin(-\frac{\pi}{4})-\cos(-\frac{\pi}{4})\right)=0\end{aligned}\]
+    </p><p>
+      This result should make sense from your earlier work in <a href="#Act_ScalarLI1_part2">part</a>. Specifically, we can break the line integral of \(f_4\) into two parts according to the plot in <a href="#fig_Vector_ScalarLineInt_example2">Figure 12.5.10</a>.
+    </p><figure class="plot" id="fig_Vector_ScalarLineInt_example2"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_ScalarLinInt_Example2.svg" alt=""><figcaption>Figure 12.5.10 —  A subdivided plot of \(C_1\)</figcaption></figure><p>
+      The scalar line integal on the blue and the magenta paths will cancel each other out exactly since the paths are symmetric and the output of \(f_4\) will be opposite in sign on the blue and magenta. Thus the line integral of \(f_4\) over \(C_1\) will be zero.
+    </p></div></div><div class="card activity" id="act_Vector_ScalarLineIntegral_caution"><div class="ex-head"><span class="num">Activity 12.5.3</span></div><div class="ex-body"><p>
+        In this activity, we will examine why we must be careful when using symmetry to make arguments about scalar line integral. Let \(C_1\) and \(C_2\) be the paths shown in <a href="#fig_sli_caution">Figure 12.5.11</a>. We will consider the function \(f(x,y)=x\) for this activity.
+      </p><figure class="plot" id="fig_sli_caution"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_sli_caution_plot.svg" alt=""><figcaption>Figure 12.5.11 —  A plot of paths \(C_1\) and \(C_2\)</figcaption></figure><div class="part"><span class="part-label">a)</span> <p>
+          Parameterize \(C_1\) and \(C_2\) as \(\vr_1(t)\) and \(\vr_2(t)\). (It is fine to have \(0\leq t\leq 1\) for both of your parameterizations.)
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          We parameterize \(C_1\) with \(\vr_1(t)= \langle -1=t,2-2t\rangle\) and parameterize \(C_2\) with \( \vr_2(t) =\langle t,t\rangle \). Both parameterizations use parameter values in the interval \([0,1]\). These are not the only ways to parameterize these segments.
+        </p></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+          Use <a href="#scalarlineint_param_thm">Theorem</a> to compute \(\displaystyle\int_{C_1} f\, ds\) and \(\displaystyle\int_{C_2} f\, ds\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          We can calculate \(|{\vr_1}| = \sqrt{5}\) and \(|{\vr_2}| = \sqrt{2}\). Thus we can evaluate our scalar line integral as
+          \[\begin{aligned} \int_{C_1} x \, ds = \int_0^1 (-1+t) \sqrt{5} \, dt = -\sqrt{5}+\frac{\sqrt{5}}{2} \\
+ \int_{C_2} x \, ds = \int_0^1 (t) \sqrt{2} \, dt = \frac{\sqrt{2}}{2}\end{aligned}\]
+        </p></div></div></div><div class="part"><span class="part-label">c)</span> <p>
+          As with line integrals of vector fields, we have that \(\displaystyle\int_{C_1+C_2} f\, ds = \int_{C_1} f\, ds + \int_{C_2} f\, ds\). Use this property to compute \(\displaystyle\int_{C_1+C_2} f\, ds\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+           We can evaluate our scalar line integral as
+            \[\begin{aligned}\int_{C_1+C_2} x \, ds &amp; = \int_{C_1} x \, ds +\int_{C_2} x \, ds \\
+&amp; = \int_0^1 (-1+t) \sqrt{5} \, dt + \int_0^1 (t) \sqrt{2} \, dt \\
+&amp; = -\sqrt{5}+\frac{\sqrt{5}}{2}+\frac{\sqrt{2}}{2} \neq 0 \end{aligned}\]
+            In the calculation above, you can see how the difference in displacements manifests differently in the two integrals (as \(\sqrt{5}\) and \(\sqrt{2}\)) which makes the final result not quite cancel out to zero.      
+        </p></div></div></div></div></div><p>
+      In <a href="#act_Vector_ScalarLineIntegral_caution">Activity 12.5.3</a>, it may have been tempting to note that output of the function being integrated is simply the \(x\)-coordinate of the points on the curve to try to make an argument by symmetry. Since we are adding up the \(x\)-values of the points on \(C_1\) and \(C_2\) and the \(x\)-coordinates on \(C_1\) go from \(-1\) to \(0\) and the \(x\)-coordinates on \(C_2\) go from \(0\) to \(1\), you may have wanted to argue that the values of \(\int_{C_1} x \, ds \) and \(\int_{C_2} x \, ds \) will cancel out to zero. However, as you found, this is not correct because the scalar line integrals are not just adding up the output of our scalar function. The Riemann sum used in the scalar line integral is adding up the product of the scalar function's output with the displacement of the segment used. Because the displacement used in \(C_1\) and \(C_2\) will not be symmetric, we cannot make the geometric cancelation argument as in <a href="#task1_sli_pm">part</a>.
+    </p>
+<h2 id="properties-of-scalar-line-integrals">Properties of Scalar Line Integrals</h2>
+<p>
+     Before stating some useful properties of scalar line integrals, we will recall some convenient notation from <a href="12-2.html#asm_Vector_IdeaLineIntegral_Properties">Properties of Line Integrals</a>. If \(C_1\) and \(C_2\) are oriented curves, with \(C_1\) from a point \(P\) to a point \(Q\) and \(C_2\) from \(Q\) to a point \(R\), we denote by \(C_1+C_2\) the oriented curve from \(P\) to \(R\) that follows \(C_1\) to \(Q\) and then continues along \(C_2\) to \(R\).  Also, if \(C\) is an oriented curve, \(-C\) denotes the same curve but with the opposite orientation. The list below summarizes some other properties of line integrals, each of which has a familiar in definite integrals.
+  </p><div class="card callout" id="asm_ScalarLineInt_Properties"><span class="chip">Properties of Scalar Line Integrals</span><p>
+          For a constant scalar \(k\), scalar valued functions\(f\) and \(g\), and oriented curves \(C\), \(C_1\), and \(C_2\), the following properties hold:
+          <ol><li><p>
+                \(\displaystyle \int_C (k f) \, ds = k \int_C f \, ds\)
+              </p></li><li><p>
+                \(\displaystyle \int_C (f+g) \, ds = \int_C f \, ds + \int_C g \, ds \)
+              </p></li><li id="li_asm_ScalarLineInt_Properties_opp"><p>
+                \(\displaystyle \int_{-C} f \, ds = \int_C f \, ds\)
+              </p></li><li><p>
+                \(\displaystyle \int_{C_1+C_2} f \, ds = \int_{C_1} f \, ds + \int_{C_2} f \, ds\)
+              </p></li></ol>
+        </p></div><p>
+  The biggest difference bewteen <a href="12-2.html#asm_Vector_IdeaLineIntegral_Properties">Properties of Line Integrals</a> and <a href="#asm_ScalarLineInt_Properties">Properties of Scalar Line Integrals</a> is <a href="#li_asm_ScalarLineInt_Properties_opp">part</a>. The orientation of the curve does not change the value of the scalar line integral. <a href="#Explain_LineInt_Properties">Activity 12.5.4</a> will have you make sense of these properties for scalar line integrals.
+</p><div class="card activity" id="Explain_LineInt_Properties"><div class="ex-head"><span class="num">Activity 12.5.4</span></div><div class="ex-body"><p>
+      In this activity, we will be explaining each of the Properties from <a href="#asm_ScalarLineInt_Properties">Properties of Scalar Line Integrals</a> in the context of our copium mining analogy from <a href="#PA_ScalarLI">Preview Activity 12.5.1</a>. Remember that the curve in our scalar line integral coresponds to the path the mining rig will take and the function in the scalar line integral measures the density of copium at that point on the surface.
+    </p><div class="part"><span class="part-label">a)</span> <p>
+       Explain in your own words what \(\displaystyle\int_C f \, ds\) means in the copium analogy and what exactly would be measured by this scalar line integral.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        The scalar line integral \(\int_C f \, ds\) would calculate the accumulation of copium mined along the path given by \(C\) where \(f\) gives the density of copium at each location in the area. In particular, \(\int_C f \, ds\) measures the total copium mined along the path \(C\).
+      </p></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+        Explain in your own words what \(\displaystyle \int_C (k f) \, ds = k \int_C f \, ds\) means in the copium analogy. It may be helpful to describe each side of the equation separately and say why they are equal in the analogy.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        The scalar line integral \(\int_C (k f) \, ds\) would calculate the accumulation of copium mined along the path given by \(C\) where \((k f)\) gives the density of copium at each location in the area. If we have \(k\)-times the density of copium as before (the left side of our equation), the total amount of mined Copium will be \(k\)-times as much (the right side of the equation).
+      </p></div></div></div><div class="part"><span class="part-label">c)</span> <p>
+        Explain in your own words what \(\displaystyle\int_C (f+g) \, ds = \int_C f \, ds + \int_C g \, ds\) means in the copium analogy. It may be helpful to describe each side of the equation separately and say why they are equal in the analogy.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        If \(f\) is the density of mineral 1 and \(g\) is the density of mineral 2, then the total amount of minerals that is harvested (the left side of the equation) will be the sum of the amount harvested for minearl 1 and mineral 2 (the right side of the equation).
+      </p></div></div></div><div class="part"><span class="part-label">d)</span> <p>
+        Explain in your own words what \(\displaystyle\int_{-C} f \, ds = \int_C f \, ds\) means in the copium analogy. It may be helpful to describe each side of the equation separately and say why they are equal in the analogy.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        The amount of Copium that is harvested does not depend on the direction of the path taken. The amount of Copium harvested would be the same if you drove a path from point A to point B as if you took the same path from point B to point A.
+      </p></div></div></div><div class="part"><span class="part-label">e)</span> <p>
+        Explain in your own words what \(\displaystyle\int_{C_1+C_2} f \, ds = \int_{C_1} f \, ds + \int_{C_2} f \, ds\) means in the copium analogy. It may be helpful to describe each side of the equation separately and say why they are equal in the analogy.
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        The amount of Copium mined from taking the path given by \(C_1\) then \(C_2\) will be the same as the amount of Copium mined on \(C_1\) plus the amount of Copium mined on the path \(C_2\). 
+      </p></div></div></div></div></div>
+<h2 id="SS_Vector_ScalarLineIntegral_Visualizations">Visualizations of Scalar Line Integrals as Area Under a Curve</h2>
+<p>
+  We will spend the last part of this section talking about a way to try to visualize the scalar line integral as an area under a curve, much as we visualized integrals when we first encountered them. Let's return to our copium analogy from <a href="#PA_ScalarLI">Preview Activity 12.5.1</a>. In particular, we can look the left side of the mining area.
+</p><figure class="plot"><img src="https://activecalculus.org/multi1e/generated/sageplot/CopiumMinePlot2.svg" alt=""><figcaption>Figure 12.5.12 — A plot of land with density of copium deposits </figcaption></figure><p>
+  We could visualize the linear density of copium along the left side of the area using a plot like <a href="#LeftSideofCopiumMine">Figure 12.5.13</a>.
+</p><figure class="plot" id="LeftSideofCopiumMine"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_leftsideplot.svg" alt=""><figcaption>Figure 12.5.13 —  A plot of the copium density on the left side of the
+  mine shown above </figcaption></figure><p>
+  In <a href="#LeftSideofCopiumMine">Figure 12.5.13</a>, the horizontal axis gives the distance traveled along the left side of <a href="#CopiumPlot">Figure 12.5.1</a>. Because this is a stright path, we could plot the density above the path of the copium mining plot. In fact, we could plot the density above the plot for all of the sides of the mining plot.
+</p><figure class="plot" id="CopiumMinewithSides"><div class="sage-interactive" id="sage_copium_mine_sides"><div class="sage-embed"><script type="text/x-sage">var('t,s,x,y')
+f=-x^2/2-3*y^3/3+0.5
+@interact
+def _():
+  f(x,y)=(550-y+x)*.002+cos((x^2/700+sin(y*(250-x)))/50)+0.5
+  plot8=polygon3d([[212.5,425,0],[512.5,525,0],[300,100,0],[0,0,0]],color='grey',opacity=.5)
+  plot11=parametric_plot3d((t,2*t,0),(t,0,212.5),color='#D81B60',thickness=4)+parametric_plot3d((t,2*t,f(t,2*t)),(t,0,212.5),color='#004D40',thickness=4)+parametric_plot3d((t,2*t,s*f(t,2*t)),(t,0,212.5),(s,0,1),color='#FFC107',thickness=4)
+  plot11+=parametric_plot3d((212.5+3*t,425+t,0),(t,0,100),color='#D81B60',thickness=4)+parametric_plot3d((212.5+3*t,425+t,f(212.5+3*t,425+t)),(t,0,100),color='#004D40',thickness=4)+parametric_plot3d((212.5+3*t,425+t,s*f(212.5+3*t,425+t)),(t,0,100),(s,0,1),color='#FFC107',thickness=4)
+  plot11+=parametric_plot3d((300+t,100+2*t,0),(t,0,212.5),color='#D81B60',thickness=4)+parametric_plot3d((300+t,100+2*t,f(300+t,100+2*t)),(t,0,212.5),color='#004D40',thickness=4)+parametric_plot3d((300+t,100+2*t,s*f(300+t,100+2*t)),(t,0,212.5),(s,0,1),color='#FFC107',thickness=4)
+  plot11+=parametric_plot3d((3*t,t,0),(t,0,100),color='#D81B60',thickness=4)+parametric_plot3d((3*t,t,f(3*t,t)),(t,0,100),color='#004D40',thickness=4)+parametric_plot3d((3*t,t,s*f(3*t,t)),(t,0,100),(s,0,1),color='#FFC107',thickness=4)
+  show(plot11+plot8,aspect_ratio=(1,1,40))</script></div></div><figcaption>Figure 12.5.14 — A three-dimensional plot of the copium Density plotted for the edges of the mining area</figcaption></figure><p>
+  <a href="#CopiumMinewithSides">Figure 12.5.14</a> shows the copium mine plot (in gray) and the paths that are the boundary of the plot in magenta. The curve in green shows the copium Density at each point on the boundary of the mine plot. The area in yellow would be the scalar line integral for the path that is the boundary of the mine plot. In particular, the area in yellow would give the total copium mined from driving our mining machine around the boundary of the mine plot.
+</p><p>
+  Because the curve we are looking at in <a href="#CopiumMinewithSides">Figure 12.5.14</a> involves straight lines and simple heights, there is no confusion when looking at this plot and using an area under the curve analogy. However, what if we looked at the scalar line integral of a function like \(f(x,y,z)=x-y\) along the helix given below?
+</p><figure class="plot" id="HelixPlot"><div class="sage-interactive" id="helixplot1"><div class="sage-embed"><script type="text/x-sage">var('t,s')
+@interact
+def _():
+  plot1=parametric_plot3d((cos(t),sin(t),t/8),(t,0,11),color='#004D40',thickness=4)#+parametric_plot3d((cos(t),sin(t),t/8+cos(t)-sin(t)),(t,0,11),color='#1E88E5',thickness=4)
+  show(plot1,aspect_ratio=(1,1,1))</script></div></div><figcaption>Figure 12.5.15 — A three-dimensional plot of a helix</figcaption></figure><p>
+  Suppose now that above the points of our green helix we try to plot a second blue curve where the position of the point on the blue curve is \(f(x,y,z)=x-y\) units above or below the position of the point on the helix. This would be the analogous idea to what we did in <a href="#CopiumMinewithSides">Figure 12.5.14</a>, but for a three-dimensional curve. Here we run into issues, however, as our area might intersect other parts of the curve. The plot below shows the confusing plot we would have if we looked at as the height above our curve in blue.
+</p><figure class="plot" id="HelixPlot2"><div class="sage-interactive" id="helixplot2"><div class="sage-embed"><script type="text/x-sage">var('t,s')
+@interact
+def _():
+  plot6=parametric_plot3d((cos(t),sin(t),t/8),(t,0,11),color='#004D40',thickness=4)+parametric_plot3d((cos(t),sin(t),t/8+cos(t)-sin(t)),(t,0,11),color='#1E88E5',thickness=4)
+  plot7=parametric_plot3d((cos(t),sin(t),t/8+s*(cos(t)-sin(t))),(t,0,11),(s,0,1),color='#FFC107')
+  show(plot6+plot7, aspect_ratio=(1,1,1))</script></div></div><figcaption>Figure 12.5.16 — A three-dimensional plot of a helix with height given by \(f(x,y,z)=x-y\)</figcaption></figure>
+<h2 id="summary">Summary</h2>
+<p>
+    <ul><li><p>
+          The scalar line integral, denoted by \(\int_C f \, ds \), measures the acculumation of the output of \(f\) over the points on the curve \(C\).
+        </p></li><li><p>
+          Parameterizing the curve used in a scalar line integral allows you to compute the scalar line integral as a definite integral of one variable.
+        </p></li><li><p>
+          Scalar line integrals can be split into pieces of the curve or along linear combinations of the scalar valued function being integrated.
+        </p></li></ul>
+  </p>
+<div id="exercise-panel-content"><h2 id="exercises-5">Exercises</h2><div class="exercise"><div class="n">1</div><div class="body"><p>Find the line integral with respect to arc length 
+\(\displaystyle \int_C (3 x + 9 y) ds\), where \(C\) is
+the line segment in the \(xy\)-plane with endpoints \(P = \left(2,0\right)\) 
+and \(Q = \left(0,8\right)\).</p><p>(a) Find a vector parametric equation \(\vec{r}(t)\) for the line 
+segment \(C\) so that points \(P\) and \(Q\) correspond
+to \(t = 0\) and \(t = 1\), respectively.</p><p>\(\vec{r}(t) =\) <span class="blank">______________________________</span></p><p>(b) Using the parametrization in part (a), the line
+integral with respect to arc length is</p><p>\(\displaystyle \int_C (3 x + 9 y) ds = \int_a^b\)
+<span class="blank">________________________________________</span>
+\(dt\)</p><p>with limits of integration 
+\(a =\) <span class="blank">__________</span> and
+\(b =\) <span class="blank">__________</span></p><p>(c) Evaluate the line integral with respect to arc length in part (b).</p><p>\(\displaystyle \int_C (3 x + 9 y) ds =\) 
+<span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\left(2,0\right)+t\mathopen{}\left\langle -2,8\right\rangle\), \(\left(3\mathopen{}\left(2-2t\right)+9\cdot 8t\right)\sqrt{2^{2}+8^{2}}\), \(0\), \(1\), \(321.602\)</p></div></div></div></div><div class="exercise"><div class="n">2</div><div class="body"><p>If \(C\) is the
+part of the circle \(\displaystyle \left( \frac{x}{2} \right)^2 + 
+\left( \frac{y}{2} \right)^2 = 1\) in the first
+quadrant, find the following line integral with respect to arc length.</p><p>\(\displaystyle \int_C (8x-3y) ds =\)
+<span class="blank">____________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(8\cdot 2^{2}-3\cdot 2^{2}\)</p></div></div></div></div><div class="exercise"><div class="n">3</div><div class="body"><p>
+      Compute \[\int_C f ds\] where \(f(x,y)=\frac{y^3}{x^7}\) and \(C\) is the curve given by \(y=\frac{1}{4} x^4\) for \(1 \leq x\leq 2\).
+    </p></div></div><div class="exercise"><div class="n">4</div><div class="body"><p>
+        Let \(C\) be the path given below from \(P\) to \(Q\) with pieces \(C_1\), \(C_2\), and \(C_3\) as labeled. Let \(f\) be a scalar-valued function such that \(\int_C f \, ds = 13\), \(\int_{C_1} f \, ds = 5\),and \(\int_{C_3} f \, ds = 9\).
+        </p><figure class="plot"><img src="https://activecalculus.org/multi1e/generated/sageplot/scalarlineint_exercise2.svg" alt=""><figcaption>Figure 12.5.17 — An oriented path broken into three parts</figcaption></figure><p>
+          Find the following:
+          <ol><li><p> \(\int_{-C_3} f \, ds \)</p></li><li><p> \(\int_{C_2} f \, ds \)</p></li><li><p> \(\int_{-C_1-C_3} f \, ds \)</p></li></ol>
+        </p></div></div><div class="exercise"><div class="n">5</div><div class="body"><p>
+        Calculate the following line integral where \(C\) is the path on \(x=y\) with \( -1 \geq y \geq 2 \):
+        \[ \int_C (y^2-2x) \, ds \]
+      </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

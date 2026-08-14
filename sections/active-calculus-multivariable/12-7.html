@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Curl of a Vector Field · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">The Curl of a Vector Field</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.7</span>The Curl of a Vector Field</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+      What is meant by rotation of a vector field in a plane?
+      </p></li><li><p>
+        How can a two-dimensional measurement of rotation be generalized to work in three dimensions?
+      </p></li><li><p>
+        How can the rotational strength of a vector field be measured?
+      </p></li></ul></div>
+<p>
+    In <a href="12-6.html">Section 12.6</a>, we examined how the strength of a
+    vector field in two (or more) dimensions changed in different
+    regions. In particular, we developed the divergence of a vector field as a local (or
+    density) measurement for how the strength of the vector field
+    changes. The key ideas when interpreting divergence are:
+    <ul><li><p>A positive divergence means that the vector field is growing in strength.</p></li><li><p>A negative divergence means that the vector field is decreasing in strength.</p></li><li><p>A zero divergence means that the vector field is not changing in strength.</p></li></ul>
+  </p><p>
+    In many physical settings, it is also useful to measure the rotational strength of a vector field at a local scale. For instance, the vector field on the left of <a href="#fig_Vector_Curl_intro_vfs">Figure 12.7.1</a> shows a vector field which flows in a counterclockwise fashion around the origin. The vector field on the right of <a href="#fig_Vector_Curl_intro_vfs">Figure 12.7.1</a> shows a vector field which does not have a rotational aspect to its flow.
+  </p><figure class="plot" id="fig_Vector_Curl_intro_vfs"><div class="figrow"><div class="figitem"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_curl_vf1.svg" alt=""></div><div class="figitem"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Div_activity_-x-y2.svg" alt=""></div></div><figcaption>Figure 12.7.1 — Examples of vector fields with global rotation properties (left) and without rotation in either the global or local sense (right)</figcaption></figure><p>
+    These global ideas of rotation are nice, but are not always visually apparent or may only appear in some regions. For instance, the vector field on the left of <a href="#fig_Vector_Curl_intro_vfs2">Figure 12.7.2</a> seems to have rotation around at least a couple of different points. In each quadrant, the vector field on the right of <a href="#fig_Vector_Curl_intro_vfs2">Figure 12.7.2</a> has different rotational patterns.
+  </p><figure class="plot" id="fig_Vector_Curl_intro_vfs2"><div class="figrow"><div class="figitem"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Curl_activity_xy1x.svg" alt=""></div><div class="figitem"><img src="https://activecalculus.org/multi1e/generated/sageplot/fig_Vector_Curl_vf1.svg" alt=""></div></div><figcaption>Figure 12.7.2 — Examples of vector fields with varying rotation properties</figcaption></figure><div class="card activity preview" id="PA_Vector_Curl"><div class="ex-head"><span class="num">Preview Activity 12.7.1</span></div><div class="ex-body"><p>
+        We would like to understand and measure rotation of a vector field near a particular point. In order to investigate this concept, we will look at some two-dimensional vector fields and think about whether the vector field shown will rotate a small pinwheel or spinner placed at a particular location. The sort of
+        spinner we imagine is illustrated in <a href="#fig_Vector_Curl_Spinner">Figure 12.7.3</a>. It consists of a central axis
+        with a four-bladed paddle placed at one end of the axis. We imagine that the spinner is anchored at a point and
+        the vector field, perhaps thought of as a fluid flow or wind velocity vector field, pushes against the blades of the spinner's paddle. In this activity, we will be trying to assess how the the spinner will rotate around the black axel (as an axis of rotation).
+      </p><figure class="plot" id="fig_Vector_Curl_Spinner"><div class="sage-interactive" id="sage_spinner_interact1"><div class="sage-embed"><script type="text/x-sage">var('t,s')
+@interact
+def _():
+  a=2
+  b=1
+  plot5=parametric_plot3d((s,0,t),(s,-a,a),(t,0,b),color='gray',opacity=.75)
+  plot5+=parametric_plot3d((0,s,t),(s,-a,a),(t,0,b),color='gray',opacity=.75)
+  plot5+=parametric_plot3d((0,0,t),(t,-1/4*b,3*b),color='black',thickness=6)
+  show(plot5,aspect_ratio=1,frame=False)</script></div></div><figcaption>Figure 12.7.3 — A paddle-bladed spinner</figcaption></figure><p>
+        To begin our investigation of the rotation of a spinner in a vector field, we will look at the vector field \(\vF\) in <a href="#fig_Vector_Curl_PA_0x">Figure 12.7.4</a>. As you think about these questions, draw an &ldquo;X&rdquo; at each of the points about which you are asked and consider the vector field as being the pattern of a wind blowing across the plane.
+      </p><figure class="plot" id="fig_Vector_Curl_PA_0x"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_Curl_0x_field.svg" alt=""><figcaption>Figure 12.7.4 — The vector field \(\vF\)</figcaption></figure><div class="part"><span class="part-label">a)</span> <p>
+          Draw an X at the origin to act as your spinner. Draw a vector on the top right blade of your spinner that represents how the wind will push on that blade. Next, draw a vector on each of the other blades of your spinner that represents how the wind will push on that blade.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The vector on the top right blade will be vertical, going up. The vector on the top left blade will be vertical, going down. The vector on the bottom right blade will be vertical, going up. The vector on the bottom left blade will be vertical, going down.
+        </p></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+          Use your vector representations from the previous part to describe if a small spinner placed at the origin would spin clockwise, counterclockwise, or not spin at all.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The spinner will move counterclockwise because the left side will move down and the right side will move up.
+        </p></div></div></div><div class="part"><span class="part-label">c)</span> <p>
+          Now we would like to look at the rotational strength of \(\vF\) at the point \((1,1)\). As before, draw a spinner at this point and draw vectors on each of the blades to represent how the wind will push on that blade. It is important at this stage to draw the relative lengths of the vectors on each blade to scale so you can see which blades have a larger force due to the wind.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The vector on the top right blade will be vertical, going up. The vector on the top left blade will be vertical, going up but not as long as the top right. The vector on the bottom right blade will be vertical, going up. The vector on the bottom left blade will be vertical, going up but not as long as on the bottom right.
+        </p></div></div></div><div class="part"><span class="part-label">d)</span> <p>
+          Use your vector representations from the previous part to describe if a small spinner placed at at \((1,1)\) would spin clockwise, counterclockwise, or not spin at all. You should pay attention to which blades will have a stronger force (in comparison to the blade on the other side).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The spinner will move counterclockwise because the force exerted on the right blades to go up will be stronger than the upward force on the left blades.
+        </p></div></div></div><div class="part"><span class="part-label">e)</span> <p>
+          Would a small spinner placed at \((-2,1)\) spin clockwise, counterclockwise, or not spin at all? Draw a representation of a spinner if necessary to demonstrate your ideas.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The spinner will move counterclockwise because the force exerted on the left blades to go down will be stronger than the downward force on the right blades.
+        </p></div></div></div><div class="part"><span class="part-label">f)</span> <p>
+          Are there any points on the \(xy\)-plane where the spinner would not turn counterclockwise?
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          There are no points at which a spinner would not turn counterclockwise under the force of this vector field.
+        </p></div></div></div></div></div>
+<h2 id="SS_Vector_Curl_Development">Measuring the Circulation Density of Vector Field in \(\R^2\)</h2>
+<p>
+    In this subsection, we will develop the measurement of the circulation density for a two-dimensional vector field. We will use this measurement to generalize to a notion of rotational strength in higher dimensional cases in the next subsection.
+  </p><p>
+    We will start by measuring the circulation of a vector field on a path around the point \((a,b)\) and use this measurement to define circulation density. Specifically, we will measure the circulation of a vector field as we move around a square centered at \((a,b)\). Using this measurement, we will calculate the circulation density by dividing our measurement by the area enclosed. This will allow us to compare our measurement across regions of different sizes. By taking the limit of this circulation density as the square's side length goes to zero, we
+    will have the circulation density at the point \((a,b)\). Just as in our discussion of <a href="12-6.html#SS_Vector_Div_Development">Measuring the Change in Strength of a Vector Field</a>, we will look at a two dimensional setting first, then examine how our argument can be generalized to higher dimensions.
+  </p><p>
+    Let's start by measuring the circulation around a square with side length \(2h\) centered at a point \((a,b)\). Namely, we will look at the line integral of our vector field as we move along the square curve shown in <a href="#fig_Vector_Curl_DevSquare">Figure 12.7.5</a>.
+  </p><figure class="plot" id="fig_Vector_Curl_DevSquare"><img src="https://activecalculus.org/multi1e/generated/sageplot/Square_with_arrows.svg" alt=""><figcaption>Figure 12.7.5 — A square centered at the point \((a,b)\) with side lengths \(2h\) traveled counterclockwise</figcaption></figure><p>
+    We can parametrize the top edge of the square using the parametrization
+    \[ \vr_{\text{top}}(t) = \langle a-t,b+h\rangle
+    \]
+    for \(-h\leq t\leq h\). Similarly, the bottom, right, and left can be parametrized (over the same range of values for \(t\)) as follows:
+    \[\begin{aligned}\vr_{\text{bottom}}(t) &amp;= \langle a+t,b-h\rangle \\
+\vr_{\text{right}}(t) &amp;= \langle a+h,b+t\rangle \\
+\vr_{\text{left}}(t) &amp;= \langle a-h,b-t\rangle\end{aligned}\]
+  </p><p>
+    In order to measure the circulation around the square, we want to know how much of the vector field \(\vF = \langle F_1,F_2\rangle\) is parallel to the direction of travel. Thus, along each of the sides of the box, we only need to look at one of the components of the vector field. The only contribution to the circulation on the top and bottom comes from the horizontal component \(F_1\). Similarly, the vertical component, \(F_2\), is all that contributes to the circulation on the right and left sides. This means that we can simplify our line integrals considerably once we apply <a href="12-3.html#thm_LineIntParam">Theorem</a>. For instance, the circulation on the top can be written as
+    \[
+      \int_{\text{top}} \vF \cdot d\vr=\int_{-h}^h \langle F_1,F_2\rangle \cdot \langle -1,0\rangle \, dt = \int_{-h}^h -F_1( a-t,b+h) \, dt
+    \]
+    Similarly, we can simplify the appropriate line integrals on the other sides (ordered below as top, left, bottom, right) to get the total circulation around the square to be
+    \[\begin{aligned}
+      \text{Total Circulation} =&amp; \int_{\text{Square}} \vF \cdot d\vr 
+       \\
+
+      =&amp; \int_{-h}^h -F_1(a-t,b+h) \, dt +  \int_{-h}^h -F_2(a-h,b-t) \, dt
+       \\
+
+     &amp; + \int_{-h}^h F_1(a+t,b-h) \, dt + \int_{-h}^h
+     F_2(a+h,b+t) \, dt
+      \end{aligned}\]
+    Note that on the top and the left sides, we must switch the sign because the direction of travel on these sides is in the negative coordinate direction. It is important to note that by convention, we talk about &ldquo;positive&rdquo; rotation being counterclockwise and &ldquo;negative&rdquo; rotation being clockwise when looking at these planar graphs. This will be discussed more fully in <a href="#SS_Vector_Curl_Development3D">here</a>.
+  </p><p>
+    As with our development of divergence, we apply the Mean Value Theorem for Integrals to the four integrals above to simplify future calculations. Specifically, the Mean Value Theorem for Integrals applied to the first integral tells us that there is a value, \(t_{\text{top}}^*\), in the interval \((a-h,a+h)\) such that
+    \[
+      \int_{-h}^h -F_1( a-t,b+h) \, dt=  -2h \left(F_1(t_{\text{top}}^*,b+h)\right)
+    \]
+    Applying the same arguments to the other three integrals in our Total Circulation calculation gives
+    \[\begin{aligned}
+      \text{Total Circulation} =&amp; \int_{\text{Square}} \vF \cdot d\vr
+       \\
+
+        =&amp; \int_{-h}^h -F_1(a-t,b+h) \, dt +  \int_{-h}^h -F_2(a-h,b-t) \, dt
+       \\
+
+        &amp; + \int_{-h}^h F_1(a+t,b-h) \, dt + \int_{-h}^h F_2(a+h,b+t) \, dt
+       \\
+
+        =&amp; -2h F_1(t_{\text{top}}^*,b+h) -2h F_2(a-h,t_{\text{left}}^*) 
+       \\
+
+        &amp; + 2h F_1(t_{\text{bottom}}^*,b-h)+2h F_2(a+h,t_{\text{right}}^*)
+      \end{aligned}\]
+    Here we have \(t_{\text{top}}^*,t_{\text{bottom}}^* \in (a-h,a+h)\) and \(t_{\text{left}}^*,t_{\text{right}}^* \in (b-h,b+h)\). We can regroup these terms to get the following expression for the total circulation around our square:
+    \[\begin{aligned}2h\left(F_2(a+h,b_{\text{right}}^*)-F_2(a-h,b_{\text{left}}^*)\right)  \\
+ \quad -2h\left(F_1(a_{\text{top}}^*,b+h)-F_1(a_{\text{bottom}}^*,b-h)\right)\end{aligned}\]
+  </p><p>
+    A larger square is likely to have a larger total circulation since there is more distance to accumulate how much the vector field is moving in the same direction as our path. This is why the side length \(2h\) of the square appears as a factor in the formula for our total circulation. In order to compare our rotational or circulation ideas over different sizes of squares, we will now look at the <em>circulation density</em> (strength of rotation per unit area), which can be computed directly from our total circulation measurement. We can
+    take the limit of the circulation density as we shrink the square to the central point \((a,b)\) and get a measurement rotational strength of our vector field at a point.
+  </p><p>
+    We will compute our circulation density as
+    \[
+      \text{Circulation Density}=\lim_{h\rightarrow 0} \frac{\text{Total Circulation}}{\text{Area of Square}}
+    \].
+    Since the area of the square is \((2h)^2 = 4h^2\), this gives us that the circulation density is
+    \[
+      \lim_{h\rightarrow 0} \frac{F_2(a+h,t_{\text{right}}^*)-F_2(a-h,t_{\text{left}}^*)}{2h} -
+      \frac{F_1(t_{\text{top}}^*,b+h)-F_1(t_{\text{bottom}}^*,b-h)}{2h}
+    \].
+    Recall the central difference method of estimating derivatives from <a href="https://activecalculus.org/single/sec-1-5-units.html#VjW">Section 1.5.2</a> and notice that as \(h\to 0\), \(t_{\text{top}}^*,t_{\text{bottom}}^*\) must go to \(a\) and \(t_{\text{left}}^*,t_{\text{right}}^*\) must go to \(b\). Therefore, our circulation density measurement at a point is
+    \[ 
+      \text{Circulation Density at the point }(a,b)= \frac{\partial F_2}{\partial x} (a,b)-\frac{\partial F_1}{\partial y} (a,b)
+    \]
+  </p><p>
+    You may have noticed that this argument had a similar flow to the development of divergence in <a href="12-6.html">Section 12.6</a>. However, the result here is different because the property of the vector field we were trying to measure was different. Because divergence was developed to measure the change in the <em>strength</em> of the vector field (without regard to the direction), divergence is computed using the partial derivatives of the horizontal component of the vector field with respect to the horizontal variable and the vertical component of the vector field with respect to the vertical variable. The circulation density we just developed measures how
+    the <em>direction</em> of the vector field is changing, and thus uses partial derivatives of the components with respect to the transverse variable. In other words, the rotational aspects of the vector field depend on how the horizontal component of the vector field changes when we move vertically (and vice versa).
+  </p><p>
+    We could have used a shape other than a square in the development of the circulation density, but a square allows for calculations that are easier to understand as the area of the shape decreases. 
+  </p><div class="card activity" id="act_Vector_Curl_2D"><div class="ex-head"><span class="num">Activity 12.7.2</span></div><div class="ex-body"><p>
+      Remember that the circulation density of a vector field \(\vF=\langle F_1,F_2\rangle\) at a point \((a,b)\) is calculated as
+      \[ 
+        \text{Circulation Density at the point }(a,b)= \frac{\partial F_2}{\partial x} (a,b)-\frac{\partial F_1}{\partial y} (a,b)
+      \].
+      The circulation density will be positive when a small spinner placed at \((a,b)\) will spin counterclockwise, negative when the spinner will move clockwise, and zero when the spinner does not rotate.
+    </p><p>
+      For each of the vector fields given below, answer the following questions:
+      <ol><li><p>What is the formula for the circulation density of the vector field?</p></li><li><p>For what points will you have a positive circulation density?</p></li><li><p>For what points will you have a negative circulation density?</p></li><li><p>For what points will you have a zero circulation density?</p></li></ol>
+    </p><div class="part" id="task_act_Vector_Curl_2D_-yx"><span class="part-label">a)</span> <p> \(\langle -y,x\rangle\) </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        <ol><li><p>The circulation density of the vector field is \(1-(-1)=2\)</p></li><li><p>All points will have a positive circulation density</p></li><li><p>There are no points with negative circulation density</p></li><li><p>There are no points with zero circulation density</p></li></ol>
+      </p></div></div></div><div class="part" id="task_act_Vector_Curl_2D_xy"><span class="part-label">b)</span> <p>\(\langle x,y\rangle\) </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        <ol><li><p>The circulation density of the vector field is \(0-0=0\)</p></li><li><p>There are no points with positive circulation density</p></li><li><p>There are no points with negative circulation density</p></li><li><p>All points have a zero circulation density</p></li></ol>
+      </p></div></div></div><div class="part" id="task_act_Vector_Curl_2D_1-xxy"><span class="part-label">c)</span> <p> \(\langle 1-x,xy\rangle\) </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        <ol><li><p>The circulation density of the vector field is \(y-(0)=y\)</p></li><li><p>Points above the \(x\)-axis (with a positive \(y\)-coordinate) will have a positive circulation density</p></li><li><p>Points below the \(x\)-axis (with a negative \(y\)-coordinate) will have a negative circulation density</p></li><li><p>Points on the \(x\)-axis (with a zero \(y\)-coordinate) will have a zero circulation density</p></li></ol>
+      </p></div></div></div></div></div>
+<h2 id="SS_Vector_Curl_Development3D">Measuring Rotation in Three Dimensions</h2>
+<p>
+    The previous subsection showed how we can measure the circulation density, or strength of rotation, at a point for a two-dimensional vector field. In this subsection, we will look at how this two-dimensional measurement can be used to define circulation density for three dimensional vector fields.
+  </p><figure class="plot" id="fig_Vector_Curl_RotIn3D"><div class="sage-interactive" id="vec_rotation"><div class="sage-embed"><script type="text/x-sage">var('t,s')
+a=4
+b=5
+@interact
+def _():
+  plot1=sphere((1,2,0),size=.15,color="black",frame=False,aspect_ratio=1,ticks=[[],[]])+parametric_plot3d((t,s,0),(t,-a,a),(s,-a,a),color="red",opacity=.2)
+  plot1+=arrow3d((1,2,0),(1,2,2),color="blue",width=3)+parametric_plot3d((t,0,0),(t,-b,b),color="black")
+  plot1+=parametric_plot3d((0,t,0),(t,-b,b),color="black")+parametric_plot3d((0,0,t),(t,-b,b),color="black")
+  plot1+=text3d("x",(5.5,0,0))+text3d("y",(0,5.5,0))+text3d("z",(0,0,5.5))+text3d("(a,b,c)",(1,3,0.25))
+  plot1+=parametric_plot3d((1+cos(t),2+sin(t),1),(t,0,5.5),color="blue",thickness=3)
+  plot1+=arrow3d((1+cos(5.5),2+sin(5.5),1),(1+cos(5.75),2+sin(5.75),1),width=5,color="blue")
+  show(plot1)</script></div></div><figcaption>Figure 12.7.6 — Rotation as a vector on the \(xy\)-plane</figcaption></figure><p>
+    We first need to consider how we want to represent and measure rotation in three dimensions. When we developed the
+    circulation density on the \(xy\)-plane, we measured the rotational strength at a point \((a,b)\) with an axis of rotation coming out of the \(xy\)-plane. This corresponds to the axis of rotation being given by the blue vector in <a href="#fig_Vector_Curl_RotIn3D">Figure 12.7.6</a>. Remember that &ldquo;positive&rdquo; rotation corresponds to counterclockwise rotation in the \(xy\)-plane. We can generalize this idea to think of rotation in three dimensions as being represented by a vector where
+    <ul><li><p>the direction of the vector represents the axis of rotation and </p></li><li><p>the magnitude of the vector represents the strength of the rotation.</p></li></ul>
+    By convention, we consider positive &ldquo;rotation&rdquo; to correspond to counterclockwise rotation when the vector field is viewed looking from the terminal point of the vector to its initial point.  In <a href="#fig_Vector_Curl_3DRotations">Figure 12.7.7</a>, you can see that each vector corresponds to the rotation displayed and is consistent with the conventions described above.
+  </p><figure class="plot" id="fig_Vector_Curl_3DRotations"><div class="sage-interactive" id="vec_rotations"><div class="sage-embed"><script type="text/x-sage">var('t,s')
+a=4
+b=5
+@interact
+def _():
+  plot1=sphere((1,2,0),size=.15,color="black",frame=False,aspect_ratio=1,ticks=[[],[]])+parametric_plot3d((t,s,0),(t,-a,a),(s,-a,a),color="red",opacity=.2)
+  plot1+=sphere((-2,0,1),size=.15,color="black",frame=False,aspect_ratio=1,ticks=[[],[]])+parametric_plot3d((t,0,s),(t,-a,a),(s,-a,a),color="green",opacity=.2)
+  plot1+=sphere((0,-2,2),size=.15,color="black",frame=False,aspect_ratio=1,ticks=[[],[]])+parametric_plot3d((0,t,s),(t,-a,a),(s,-a,a),color="yellow",opacity=.2)
+  plot1+=arrow3d((1,2,0),(1,2,2),color="#648FFF",width=3)
+  plot1+=arrow3d((-2,0,1),(-2,2,1),color="#DC267F",width=3)
+  plot1+=arrow3d((0,-2,2),(2,-2,2),color="#FFB000",width=3)
+  plot1+=parametric_plot3d((0,t,0),(t,-b,b),color="black")+parametric_plot3d((0,0,t),(t,-b,b),color="black")+parametric_plot3d((t,0,0),(t,-b,b),color="black")
+  plot1+=text3d("x",(5.5,0,0))+text3d("y",(0,5.5,0))+text3d("z",(0,0,5.5))
+  plot1+=parametric_plot3d((1+cos(t),2+sin(t),1),(t,0,5.5),color="#648FFF",size=50)+arrow3d((1+cos(5.5),2+sin(5.5),1),(1+cos(5.75),2+sin(5.75),1),width=10,color="#648FFF")
+  plot1+=parametric_plot3d((-2+cos(-t),2,1+sin(-t)),(t,0,5.5),color="#DC267F",size=50)+arrow3d((-2+cos(-5.5),2,1+sin(-5.5)),(-2+cos(-5.75),2,1+sin(-5.75)),width=10,color="#DC267F")
+  plot1+=parametric_plot3d((2,-2+cos(t),2+sin(t)),(t,0,5.5),color="#FFB000",size=50)+arrow3d((2,-2+cos(5.5),2+sin(5.5)),(2,-2+cos(5.75),2+sin(5.75)),width=10,color="#FFB000")
+  show(plot1)</script></div></div><figcaption>Figure 12.7.7 — Rotation as a vector on each coordinate plane</figcaption></figure><p>
+    If you look carefully at <a href="#fig_Vector_Curl_3DRotations">Figure 12.7.7</a>, you can see that the vector shown in blue will be parallel to \(\vk\) and will represent rotations on planes of the form \(z=c\). Similarly, the vector shown in yellow will be parallel to \(\vi\) and will represent rotations on planes of the form \(x=a\). When looking down the blue and yellow vectors (from the terminal to the initial point), you can see the positive coordinate axes as pointing to the right and up<sup id="fnref-1"><a href="#fn-1">1</a></sup> (as we would expect on a two-dimensional plot). In contrast, when you look down the magenta vector (from the terminal to the initial point), the positive coordinate axes (the \(x\) and \(z\) axes) point to the left and up.<sup id="fnref-2"><a href="#fn-2">2</a></sup> In fact, when we look down the magenta vector the \(xz\)-plane is flipped. A positive rotation on a plane of the form \(y=b\) will correspond to a rotation vector that is in the direction of \(-\vj\). This is a consequence of the right-handed coordinate system and our right-handed idea of rotation, as reflected in the relationships amongst the vectors \(\vi,\vj\,vk\) recalled below:
+    \[
+      \vi \times \vj = \vk \quad \quad  \vi \times \vk = -\vj \quad \quad  \vj \times \vk = \vi 
+    \]
+    
+  </p><p>
+    By using a vector to represent the rotation of some element, we have enabled all of the tools that vectors allow, especially the ideas of projection and linear combinations. Remember that the projection of a vector \(\vv\) onto a vector \(\vu\) will give the vector component of \(\vv\) that is parallel to \(\vu\). In other words, the projection of \(\vv\) onto \(\vu\) is how much of \(\vv\) is parallel to \(\vu\). The projection formula will allow us to take a vector representation of rotation and determine how much rotation happens around a given axis of rotation.
+  </p><p>
+    Recall that we have used a set of coordinate vectors (namely \(\vi\), \(\vj\), and \(\vk\)) to write other vectors as a linear combination of our base vectors. In other words, a vector \(\langle a,b,c\rangle\) in \(\R^3\) can be written in the form \(a\vi+b\vj+c\vk\).
+  </p><figure class="plot" id="ijk_vector_sum"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">d=5
+var('t,s')
+@interact
+def _(a=slider(-5,5,1,default=1),b=slider(-5,5,1,default=2),c=slider(-5,5,1,default=-1)):
+    base=vector([0,0,0])
+    plot3=arrow3d(base,base+vector([a,b,c]),width=2,color="black",frame=False,aspect_ratio=1,ticks=[[],[]])
+    plot3+=parametric_plot3d((t,0,0),(t,-d,d),color="black")
+    plot3+=parametric_plot3d((0,t,0),(t,-d,d),color="black")+parametric_plot3d((0,0,t),(t,-d,d),color="black")
+    plot3+=text3d("x",(5.5,0,0))+text3d("y",(0,5.5,0))+text3d("z",(0,0,5.5))
+    plot3+=arrow3d(base,base+vector([a,0,0]),width=2,color="#D81B60")+arrow3d(base,base+vector([0,b,0]),width=2,color="#004D40")
+    plot3+=arrow3d(base,base+vector([0,0,c]),width=2,color="#1E88E5")
+    plot3+= arrow3d(base+vector([0,b,0]),base+vector([a,b,0]),width=2,color="#D81B60") + arrow3d(base+vector([a,0,0]),base+vector([a,b,0]),width=2,color="#004D40")
+    plot3+=arrow3d(base+vector([a,b,0]),base+vector([a,b,c]),width=2,color="#1E88E5")
+    show(plot3)</script></div></div><figcaption>Figure 12.7.8 — The black vector, \(\langle a,b,c \rangle\), is decomposed into parts parallel to \(\vi\), \(\vj\), and \(\vk\).</figcaption></figure><p>
+    The linear combination of vectors will allow us to build the total rotation vector by measuring the rotational strength in the direction of three coordinate direction vectors. Just as in <a href="#ijk_vector_sum">Figure 12.7.8</a>, we will build our total rotation vector as a sum of \(\vi\), \(\vj\), and \(\vk\), but we will think of the initial point of the black vector as being at our point of interest \((u,v,w)\). A rotation vector in the direction of \(\vk\) at a point \((u,v,w)\) will measure the circulation density at our point restricted to the trace plane \(z=w\). Similarly the rotation vectors in the directions \(\vi\) and \(\vj\) will measure the circulation density on the trace planes \(x=u\) and \(y=v\), respectively.
+  </p>
+<h2 id="circulation-density-in-three-dimensions">Circulation Density in Three Dimensions</h2>
+<p>
+    The previous subsection discussed how we can view the amount of rotation of a three-dimensional vector field in a plane parallel to the \(xy\)-, \(xz\)-, or \(yz\)-plane and recalled that vectors in \(\R^3\) can be written as a linear combination of the vectors \(\vi\), \(\vj\), and \(\vk\). We use our definition of curl for a two-dimensional vector field to measure the amount of rotation in the appropriate planes, which leads to the following definition.
+  </p><div class="card definition" id="Curl_defn"><span class="chip">Definition</span><p>
+      Let \(\vF=\langle F_1,F_2,F_3\rangle\) be a three-dimensional vector field. The <em>curl</em> of \(\vF\) is given by
+      \[
+        \curl(\vF)= \left(\frac{\partial F_3}{\partial y}-\frac{\partial F_2}{\partial z}\right)\vi- \left(\frac{\partial F_3}{\partial x}-\frac{\partial F_1}{\partial z}\right)\vj + \left(\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y}\right)\vk
+      \].
+     </p></div><div class="card callout"><span class="chip">Alternate Notation for Curl</span><p>
+      As with divergence, there is an alternate notation for curl that uses the del operator \(\nabla = \langle \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \rangle\). Specifically, for a three-dimensional vector field \(\vF\), \(\curl(\vF) = \nabla\times \vF\).
+    </p></div><p>
+    The curl is exactly the rotational description described at the end of <a href="#SS_Vector_Curl_Development3D">here</a>. When evaluated at a point \((u,v,w)\), the first component of the curl will measure the circulation density of the vector field restricted to the plane \(x=u\). Similarly, the second and third components of the curl will measure the circulation density of the vector field restricted to the planes \(y=v\) and \(z=w\), respectively.
+  </p><div class="card example"><div class="ex-head"><span class="num">Example 12.7.1</span></div><div class="ex-body"><p>
+      In this example, we will look at \(\vF=\langle 0,x,0\rangle \). Applying <a href="#Curl_defn">Definition</a>,
+      \[
+        \curl(\vF)= \left\langle \frac{\partial}{\partial y}(0) -\frac{\partial}{\partial z}(x), - \left( \frac{\partial}{\partial x}(0)-\frac{\partial}{\partial z}(0) \right) , \frac{\partial}{\partial x} (x)-\frac{\partial}{\partial y}(0) \right\rangle
+      \]
+      Thus, \(\curl(\vF)=\langle 0,0,1\rangle\). This means that \(\vF\) will have a rotational aspect only with an axis parallel to the \(z\)-axis. This should not be suprising since the plot of \(\vF\) will be the same as <a href="#fig_Vector_Curl_PA_0x">Figure 12.7.4</a> copied on each plane \(z=c\). As you saw in <a href="#PA_Vector_Curl">Preview Activity 12.7.1</a>, this vector field will have constant rotational strength at every point with axis of rotation in the \(\vk\) direction.
+    </p></div></div><p>
+    We next consider an example where the trace of the vector field in planes parallel to coordinate planes is not as easy to visualize as in the previous example.
+  </p><div class="card example"><div class="ex-head"><span class="num">Example 12.7.2</span></div><div class="ex-body"><p>
+      In this example, we will look at \(\vG=\langle x,y,z\rangle \). If we apply <a href="#Curl_defn">Definition</a>, we obtain
+      \[
+        \curl(\vG)= \left\langle \frac{\partial}{\partial y}(z) -\frac{\partial}{\partial z}(y), - \left( \frac{\partial}{\partial x}(z)-\frac{\partial}{\partial z}(x) \right) , \frac{\partial}{\partial x} (y)-\frac{\partial}{\partial y}(x) \right\rangle
+      \]
+      Therefore, we have \(\curl(\vG)=\langle 0,0,0\rangle\). Thus, \(\vG\) will have no rotational strength anywhere. In <a href="#fig_xyz_plot">Figure 12.7.9</a> we  have a plot of \(\vG\), which illustrates that dropping a spinner at any point in space will not have the spinner rotate. No matter what orientation the spinner will have, there will be equal force on each side of the spinner, and thus the spinner will not rotate.
+    </p><figure class="plot" id="fig_xyz_plot"><div class="sage-interactive" id="xyz_vf"><div class="sage-embed"><script type="text/x-sage">var('x,y,z')
+@interact
+def _():
+  show(plot_vector_field3d((x,y,z),(x,-2,2),(y,-2,2),(z,-2,2),plot_points=7))</script></div></div><figcaption>Figure 12.7.9 — A plot of the vector field \(\vG=\langle x,y,z\rangle\), which has zero curl everywhere.</figcaption></figure></div></div><div class="card example"><div class="ex-head"><span class="num">Example 12.7.3</span></div><div class="ex-body"><p>
+      In this example, we will look at \(\vH=\langle x-y,y+2z,x^2\rangle \). By <a href="#Curl_defn">Definition</a>, 
+      \[\begin{aligned}
+        \curl(\vH)= &amp; \left\langle \frac{\partial}{\partial y}(x^2) -\frac{\partial}{\partial z}(y+2z), - \left(\frac{\partial}{\partial x}(x^2)-\frac{\partial}{\partial z}(x-y)\right) ,\right. \\
+ &amp; \left.\frac{\partial}{\partial x} (y+2z)-\frac{\partial}{\partial y}(x-y) \right\rangle\end{aligned}\]
+      Therefore, \(\curl(\vH)=\langle 0,2x,-1\rangle\). This tells us that the vector field \(\vH\) will have a non-zero curl for every point. However, it will be quite difficult to &ldquo;see&rdquo; the curl at a particular point. The next activity will take you through the process of trying to visualize and understand the output of curl in three dimensions.
+    </p></div></div><div class="card activity" id="act_Vector_Curl_3DEstimate"><div class="ex-head"><span class="num">Activity 12.7.3</span></div><div class="ex-body"><div class="part" id="task_act_Vector_Curl_3DEstimate_Eyeball"><span class="part-label">a)</span> <p>
+        Consider the vector field \(\vF\) plotted in <a href="#fig_Vector_Curl_3DVFPatch">Figure 12.7.10</a>. You can adjust the size of the region around \((1,1,-2)\) over which the vector field is plotted using the &ldquo;Zoom&rdquo; slider. The &ldquo;Density&rdquo; slider allows you to adjust the number of vectors plotted. Try to identify any rotation in the three dimensional vector field plot at the point \((1,1,-2)\). Write a sentence describing how a spinner placed at \((1,1,-2)\) would rotate, including along which axis it would rotate. Try to state your answer as a vector representing the rotational strength of the vector field at \((1,1,-2)\).
+      </p><figure class="plot" id="fig_Vector_Curl_3DVFPatch"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('x,y,z,t,s')
+a=1
+b=1 
+c=-1
+d=3
+@interact
+def _(zoom=slider(0,3,1,0,label="Zoom"),vectors_to_plot=slider(2,5,1,4,label="Density")):
+  plot1=parametric_plot3d((t,0,0),(t,-d,d),color="black")
+  plot1+=parametric_plot3d((0,t,0),(t,-d,d),color="black")+parametric_plot3d((0,0,t),(t,-d,d),color="black")
+  plot1+=sphere((a,b,c),size=.10,color="black",frame=False, aspect_ratio=1,ticks=[[],[]])
+  plot1+=text3d("x",(d+.5,0,0))+text3d("y",(0,d+.5,0))+text3d("z",(0,0,d+.5))
+  w=(1/2)^zoom
+  plot1+=plot_vector_field3d((x-y,y+2*z,x^2),(x,a-w,a+w),(y,b-w,b+w),(z,c-w,c+w),plot_points=(vectors_to_plot))
+  show(plot1)</script></div></div><figcaption>Figure 12.7.10 — A vector field plotted in a region around the point \((1,1,-2)\)</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+          The best way to estimate this rotation is to look at the planar approaches described in the next several parts.
+        </p></div></div></div><div class="part" id="task_act_Vector_Curl_3DEstimate_ZTrace"><span class="part-label">b)</span> <p>
+        You likely found it difficult to decide how you thought a spinner might rotate in this new, three-dimensional setting. Let's look at the vector field in the plane \(z=-2\), as displayed in <a href="#fig_Vector_Curl_3Dxy">Figure 12.7.11</a>. Do you think a spinner placed on the red point would rotate clockwise, counterclockwise, or not rotate? If the spinner will rotate, you should think about what the axis of rotation would be and whether the rotation should be positive or negative. Summarize your result as a vector representing the rotational strength of \(\vF\) in the plane \(z=-2\).
+      </p><figure class="plot" id="fig_Vector_Curl_3Dxy"><img src="https://activecalculus.org/multi1e/generated/sageplot/curl_3d_xy.svg" alt=""><figcaption>Figure 12.7.11 — The trace of \(\vF\) in the plane \(z=-2\)</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+          This figure shows that the forces on the blades of a spinner at the red point would be almost balanced. An important difference is going to be that arrow on the right side do not have quite as large of a vertical component as the vectors on the left. This will cause a spinner to rotate counterclockwise, so the rotational strength at this point will be negative. A representative form would be \( c \langle 0,0,1 \rangle\) where \(c\) represents the rotational strength at the point. So we will use \(  \langle 0,0,-c \rangle\) with \(c\gt0\).
+        </p></div></div></div><div class="part" id="task_act_Vector_Curl_3DEstimate_YTrace"><span class="part-label">c)</span> <p>
+        Next we will look at the vector field in the plane \(y=1\), as displayed in <a href="#fig_Vector_Curl_3Dxz">Figure 12.7.12</a>. Do you think a spinner placed on the red point would rotate clockwise, counterclockwise, or not rotate? If the spinner will rotate, you should think about what the axis of rotation would be and whether the rotation should be positive or negative. Summarize your result as a vector representing the rotational strength of your vector field in the plane \(y=1\). Do you think the rotation in this figure is stronger or weaker than in <a href="#fig_Vector_Curl_3Dxy">Figure 12.7.11</a>?
+      </p><figure class="plot" id="fig_Vector_Curl_3Dxz"><img src="https://activecalculus.org/multi1e/generated/sageplot/curl_3d_xz.svg" alt=""><figcaption>Figure 12.7.12 — The trace of \(\vF\) in the plane \(y=1\)</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+          This figure shows that the forces on the blades of a spinner at the red point would cause the spinner to rotate counterclockwise, so the rotational strength at this point will be positive. Your answer should be of the form \( b \langle 0,-1,0 \rangle\) where \(b\) represents the rotational strength at the point. Note that the vector coming out of the page would be in the \( \langle 0,-1,0 \rangle\) direction. The strength of the rotation in this example is definitely larger than in part (b), so we will have an estimate of \( \langle 0,-2c,0 \rangle \).
+        </p></div></div></div><div class="part" id="task_act_Vector_Curl_3DEstimate_XTrace"><span class="part-label">d)</span> <p>
+          Finally, consider the trace of \(\vF\) in the plane \(x=1\), as displayed in <a href="#fig_Vector_Curl_3Dyz">Figure 12.7.13</a>. Do you think a spinner placed on the red point would rotate clockwise, counterclockwise, or not rotate? If the spinner will rotate, you should think about what the axis of rotation would be and whether the rotation should be positive or negative. Summarize your result as a vector representing the rotational strength of your vector field in the plane \(x=1\). How do you think the rotation in this figure compares (i.e., stronger or weaker) to that in <a href="#fig_Vector_Curl_3Dxy">Figure 12.7.11</a> and <a href="#fig_Vector_Curl_3Dxy">Figure 12.7.11</a>?
+        </p><figure class="plot" id="fig_Vector_Curl_3Dyz"><img src="https://activecalculus.org/multi1e/generated/sageplot/curl_3d_yz.svg" alt=""><figcaption>Figure 12.7.13 — The trace of \(\vF\) in the plane \(x=1\)</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+          This figure shows that the forces on the blades of a spinner at the red point would cause the spinner to rotate clockwise, so the rotational strength at this point will be negative. Your answer should be of the form \( a \langle 1,0,0 \rangle\) where \(a\) represents the rotational strength at the point. Note that the vector coming out of the page would be in the \( \langle 1,0,0 \rangle\) direction. The difference in the forces on the blades in this figure are are about the same as those involved in part (c), so we would estimate that this rotation will about the same as in part (c), thus we estimate the rotation vector to be \( \langle -2c,0,0 \rangle \).
+        </p></div></div></div><div class="part" id="task_act_Vector_Curl_3DEstimate_Summarize"><span class="part-label">e)</span> <p>
+          Summarize your prediction to what you think the three-dimensional rotational strength of the vector field will be at the point \((1,1,-2)\) in the form of three-dimensional vector.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \( \langle -2c,-2c,c \rangle \)
+        </p></div></div></div><div class="part" id="task_act_Vector_Curl_3DEstimate_Compute"><span class="part-label">f)</span> <p>
+          Compute the curl of \(\vF=\langle x-y,y+2z,x^2\rangle\). Specifically, what is \(\curl(\vF)\) at the point \((1,1,-2)\)?
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\curl(\vF)= (0-2)\vi -(2x-0)\vj+(0-1)\vk = \langle -2,-2x,-1 \rangle \), so \(\curl(\vF)(1,1,-2)=\langle -2,-2,-1 \rangle \)
+        </p></div></div></div><div class="part" id="curl_act_task7"><span class="part-label">g)</span> <p>
+          Compare the result of the curl calculation in <a href="#task_act_Vector_Curl_3DEstimate_Compute">part</a> to your prediction from <a href="#task_act_Vector_Curl_3DEstimate_Summarize">part</a>. You likely found it difficult to estimate the magnitude, so your answer there may be incorrect. Hopefully, you did get the signs of the components and their relative strengths (i.e., which is biggest) correct. If you did not, go back and review the previous parts and explain why the calculated components match with the rotational strength for each of the three figures.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          The most likely parts to have missed are the slight rotation involved in part (b) and guessing the relative strengths of the rotations. There are subtle signs of the rotation in for part (b) so you may have said this had zero rotational strength.
+        </p></div></div></div></div></div>
+<h2 id="SS_Vector_Curl_Interpretation">Interpretation and Usage of Curl</h2>
+<p>
+    It is worth making explicit a fact that we have used implicitly throughout this section: the curl of a vector field is itself a vector field! That is, evaluating \(\curl(\vF)\) at a point gives a vector. As we saw earlier in this section, the vector output of \(\curl(\vF)\) represents the rotational strength of the vector field \(\vF\) as a linear combination of rotational strengths (or circulation densities) from two-dimensional planar descriptions. From our description of vectors as a representation of rotations, We can think of rotation in three dimensions as being represented by a vector where
+    <ul><li><p>the direction of the vector represents the axis of rotation and</p></li><li><p>the magnitude of the vector represents the strength of the rotation.</p></li></ul>
+    By convention, we consider positive &ldquo;rotation&rdquo; to correspond to counterclockwise rotation when the vector field is viewed looking from the end of the vector to the base.
+  </p><p>
+    With these conventions, the output vector of the curl evaluated at a point \(P\), written as \(\curl(\vF)(P)\), will have the following properties:
+    <ol><li><p>The direction of \(\curl(\vF)(P)\) will be the axis of rotation that has the strongest positive rotational strength.</p></li><li><p>The magnitude of \(\curl(\vF)(P)\) will be the circulation density of the vector field in the plane through \(P\) with normal vector \(\curl(\vF)(P)\). </p></li></ol>
+  </p><p>
+    The following theorem allows us to use \(\curl(\vF)\) to measure the rotational strength of \(\vF\) around an arbitrary axis. This will be particularly useful to us in later sections.
+  </p><div class="card definition" id="thm_Vector_Curl_rot_strength"><span class="chip">Theorem</span><p>
+        The rotational strength of a vector field \(\vF\) around an axis given by a unit vector \(\vv\) at a point \(P=(a,b,c)\) can be computed by \( \left(\curl(\vF)(a,b,c)\right)\cdot \vv\).
+      </p></div><div class="card activity" id="act_Vector_Curl_Calculate"><div class="ex-head"><span class="num">Activity 12.7.4</span></div><div class="ex-body"><p>In this activity, we will work on calculating curl algebraically and interpreting it.
+      </p><div class="part"><span class="part-label">a)</span> <p>
+        Consider the vector field \(\vF=\langle x,y,z\rangle\). If we plot this vector field in any plane through the origin, we will see the vector field shown in <a href="#fig_Vector_Curl_xy">Figure 12.7.14</a>. This two-dimensional vector field has no rotation. The projection of \(\curl(\vF)(0,0,0)\) onto any direction therefore must give the zero vector. The only vector that has a zero projection in every direction is the zero vector. Verify this geometric argument for the curl of \(\vF\) by doing the calculations necessary to show that
+        \(\curl(\langle{x,y,z}\rangle)=\vzero\).
+      </p><figure class="plot" id="fig_Vector_Curl_xy"><img src="https://activecalculus.org/multi1e/generated/sageplot/img_curl_xy_noticks.svg" alt=""><figcaption>Figure 12.7.14 — The vector field \(\langle{x,y,z}\rangle\) on every plane through the origin</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\curl(\vF) = (0-0)\vi - (0-0)\vj +(0-0)\vk=\vec{0}\)
+        </p></div></div></div><div class="part"><span class="part-label">b)</span> <p>
+        Now consider the vector field \(\vF=\langle{-y,x,0}\rangle\), which is shown in <a href="#fig_Vector_Curl_-yx">Figure 12.7.15</a>. The figure includes both an interactive three-dimensional plot of \(\vF\) as well as a two-dimensional plot of \(\vF\) in the yellow plane, which can be adjusted using the &ldquo;Angle of Plane&rdquo;
+        slider.
+      </p><figure class="plot" id="fig_Vector_Curl_-yx"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('x,y,z,t,s')
+a=0
+b=0
+c=0
+d=3
+w=d
+F=(-y,x,0)
+@interact
+def _(beta=slider(0,1.5,0.25,0,label="Angle of Plane"),vectors_to_plot=slider(5,10,1,7,label="Density")):
+  plot1=parametric_plot3d((t,0,0),(t,-d,d),color="black")
+  plot1+=parametric_plot3d((0,t,0),(t,-d,d),color="black")+parametric_plot3d((0,0,t),(t,-d,d),color="black",frame=False, aspect_ratio=1,ticks=[[],[]])
+  plot1+=text3d("x",(d+.5,0,0))+text3d("y",(0,d+.5,0))+text3d("z",(0,0,d+.5))
+  alpha=tan(beta)
+  plot1+=plot_vector_field3d(F,(x,a-w,a+w),(y,b-w,b+w),(z,c-w,c+w),plot_points=(vectors_to_plot))
+  plot1+=plot3d(alpha*y,(x,-d,d),(y,-d,d),opacity=.4,color="yellow")
+  plot1+=arrow3d((1,1,alpha),(1,-alpha+1,1+alpha))
+  show(plot1)
+  plot2=plot_vector_field(((t),-s*(1/(1+alpha^2))),(s,-d,d),(t,-d,d),frame=False,aspect_ratio=1,color="blue",ticks=[[],[]])
+  show(plot2)</script></div></div><figcaption>Figure 12.7.15 — Two views of the vector field \(\langle -y,x,0\rangle\)</figcaption></figure><div class="part"><span class="part-label">i)</span> <p>
+          Based on the figure, would you estimate the components of \(\curl(\vF)\) to be positive, negative, or zero at the origin? Does your answer change if you pick a different point? 
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          All points would have positive components of curl since there will be counterclockwise rotation on every plane (not containing the z-axis). 
+        </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>
+          Calculate \(\curl(\vF)\) algebraically. Does the curl of this vector field vary depending on the point at which the curl is measured?
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\curl(\vF)=\langle 0,0,2 \rangle \), so the curl of the vector field does not depend on the point. 
+        </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>Explain why the rotational strength of the vector field on a titled plane through the origin will be given by \(2\cos(\theta)\), where \(\theta\) is the angle between \(\vk\) and the normal vector of the tilted
+        plane.</p><div class="answer"><button>Show answer</button><div class="a"><p>
+          By <a href="#thm_Vector_Curl_rot_strength">Theorem</a>, the rotational strength of the vector field in a plane will be given by the dot product of the curl and the unit normal vector of the plane. Since the dot product of two vectors can be calculated by taking the product of the vector lengths and the cosine of the angle between the vectors, the rotational strength will be given by \(\curl(\vF) \cdot \vec{v} = |\curl(\vF)| |v| \cos(\theta) = 2 \cos(\theta) \).
+        </p></div></div></div></div><div class="part"><span class="part-label">c)</span> <p>
+      In <a href="#fig_Vector_Curl_General">Figure 12.7.16</a> you can plot a vector field in a region around a point of your choosing in order to look at the rotational properties of the vector field. The check box in <a href="#fig_Vector_Curl_General">Figure 12.7.16</a> will show the curl vector at the base point specified so you can make sense of your vector field and its curl.
+    </p><figure class="plot" id="fig_Vector_Curl_General"><div class="sage-interactive"><div class="sage-embed"><script type="text/x-sage">var('x,y,z,t,s')
+d=3
+w=2
+plot1=parametric_plot3d((t,0,0),(t,-d,d),color="black")
+plot1+=parametric_plot3d((0,t,0),(t,-d,d),color="black")+parametric_plot3d((0,0,t),(t,-d,d),color="black",frame=False, aspect_ratio=1,ticks=[[],[]])
+plot1+=text3d("x",(d+.5,0,0))+text3d("y",(0,d+.5,0))+text3d("z",(0,0,d+.5))
+@interact
+def _(F1=input_box(default=x-z,width=15),F2=input_box(default=z+x^2,width=15),F3=input_box(default=x+sin(y),width=15),p=("Point", input_grid(1, 3, default=[1,2,-1])),vectors_to_plot=slider(3,7,1,5,label="Density"),ct=checkbox(default=False,label="Show Curl Vector")):
+    a=p[0][0]
+    b=p[0][1]
+    c=p[0][2]
+    cd1=(diff(F3,y)-diff(F2,z))(x=a,y=b,z=c)
+    cd2=(diff(F1,z)-diff(F3,x))(x=a,y=b,z=c)
+    cd3=(diff(F2,x)-diff(F1,y))(x=a,y=b,z=c)
+    plot2=plot_vector_field3d((F1,F2,F3),(x,a-w,a+w),(y,b-w,b+w),(z,c-w,c+w),plot_points=(vectors_to_plot))
+    plot2+=sphere((a,b,c),size=.15,color="black")
+    plot3=arrow3d((a,b,c),(a+cd1,b+cd2,c+cd3))
+    if(ct):
+        plot2+=plot3
+    show(plot1+plot2)</script></div></div><figcaption>Figure 12.7.16 — A plot of the vector field \(\langle{F_1,F_2,F_3}\rangle\)</figcaption></figure><p>
+      Use the figure to estimate the direction of \(\curl(\langle x-z,x^2+z,x+\sin(y)\rangle)\) at the point \((1,2,-1)\). Confirm your estimate by calculating the curl at this point algebraically. Is there any point at which the direction of greatest rotational strength of this vector field has negative \(x\)-component? If there is, find such a point. If not, explain why not.
+    </p><div class="answer"><button>Show answer</button><div class="a"><p>
+        \(\curl(\langle x-z,x^2+z,x+\sin(y)\rangle)= \langle(\cos(y)-0),-(1-(-1)),(2x-0)\rangle =\langle \cos(y),-2,2x\rangle\). You should be able to rotate to view the point \((1,2,-1)\) from a direction parallel to each axis to estimate the rotational strength that will correspond to the components of \(\curl(\langle x-z,x^2+z,x+\sin(y)\rangle)(1,2,-1)=\langle \cos(2),-2,2 \rangle \). 
+      </p></div></div></div></div></div>
+<h2 id="summary">Summary</h2>
+<p>
+    <ul><li><p>
+          The circulation of a vector field on a closed path measures how strong the vector field moves in the direction of travel for the path. The circulation density of a two-dimensional vector field \(\vF=\langle{F_1,F_2}\rangle\) is given by 
+          \[
+            \text{Circulation Density at the point }(a,b)= \frac{\partial F_2}{\partial x} (a,b)-\frac{\partial F_1}{\partial y} (a,b) 
+          \].
+          The circulation density can be visualized in terms of how fast a very small spinner anchored to \((a,b)\) will rotate as a result of the force of \(\vF\).
+        </p></li><li><p>
+          By considering the circulation density of a three-dimensional vector field \(\vF = \langle F_1,F_2,F_2\rangle\) in planes parallel to the coordinate planes, we can calculate the curl of \(\vF\) as
+          \[
+            \curl(\vF)= \left(\frac{\partial F_3}{\partial
+            y}-\frac{\partial F_2}{\partial z}\right)\vi-
+            \left(\frac{\partial F_3}{\partial x}-\frac{\partial
+            F_1}{\partial z}\right)\vj + \left(\frac{\partial
+            F_2}{\partial x}-\frac{\partial F_1}{\partial y}\right)\vk
+          \].
+        </p></li><li><p>
+          For a three-dimensional vector field \(\vF\), the vector \(\curl(\vF)(a,b,c)\) points along the axis of rotation with the greatest rotational strength at the point \((a,b,c)\). The magnitude of \(\curl(\vF)(a,b,c)\) measures the strength of the rotation in this maximal direction. The strength of rotation around an axis determined by a unit vector \(\vv\) is found by calculating \(\left(\curl(\vF)(a,b,c)\right)\cdot \vv\)
+        </p></li></ul>
+  </p>
+<h2 id="footnotes">Footnotes</h2><ol class="footnotes"><li id="fn-1">When placing the \(x\)-axis horizontally for the blue vector and placing the \(y\)-axis horizontally for the yellow vector <a href="#fnref-1">&#8617;</a></li><li id="fn-2">When placing the \(x\)-axis horizontally. <a href="#fnref-2">&#8617;</a></li></ol>
+<div id="exercise-panel-content"><h2 id="exercises-7">Exercises</h2><div class="exercise"><div class="n">1</div><div class="body"><p>Compute the curl of the vector field
+\(\vec F = -7z\,\mathit{\vec i}+4y\,\mathit{\vec j}-5x\,\mathit{\vec k}\).</p><p>curl = <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-2\,\mathit{\vec j}\)</p></div></div></div></div><div class="exercise"><div class="n">2</div><div class="body"><p>Compute the curl of the vector field 
+\(\vec{F} =  \left\langle  x^{2},y^{5},z^{2}\right\rangle\).</p><p>\(\mathrm{curl}(\vec{F}(x,y,z))\) = 
+<span class="blank">______________________________</span></p><p>What is the curl at the point \(\left(4,4,-1\right)\)?</p><p>\(\mathrm{curl}(\vec{F}\left(4,4,-1\right))\) = 
+<span class="blank">______________________________</span></p><p>Is this vector field irrotational or not?
+<span class="blank">_______________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\left\langle 0,0,0\right\rangle\), \(\left\langle 0,0,0\right\rangle\), irrotational</p></div></div></div></div><div class="exercise"><div class="n">3</div><div class="body"><p>A)</p><p>Consider the vector field 
+\(F(x,y,z) = (-7yz, 5xz, -6xy)\).</p><p>Find the divergence and curl of \(F\).</p><p>\(\textrm{div}(F) = \nabla \cdot F =\) <span class="blank">____________________</span>.</p><p>\(\textrm{curl}(F) = \nabla \times F =  (\) 
+<span class="blank">____________________</span>, <span class="blank">____________________</span>,<span class="blank">____________________</span>\()\).</p><p>B)</p><p>Consider the vector field 
+\(F(x,y,z) = (8x^2, 7(x+y)^2, -2(x+y+z)^2)\).</p><p>Find the divergence and curl of \(F\).</p><p>\(\textrm{div}(F) = \nabla \cdot F =\) <span class="blank">____________________</span>.</p><p>\(\textrm{curl}(F) = \nabla \times F =  (\) 
+<span class="blank">____________________</span>, <span class="blank">____________________</span>,<span class="blank">____________________</span>\()\).</p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(-11x\), \(-1y\), \(12z\), \(16x+14\mathopen{}\left(x+y\right)+\left(-4\right)\mathopen{}\left(x+y+z\right)\), \(-4\mathopen{}\left(x+y+z\right)\), \(4\mathopen{}\left(x+y+z\right)\), \(14\mathopen{}\left(x+y\right)\)</p></div></div></div></div><div class="exercise"><div class="n">4</div><div class="body"><p>The figure below gives a sketch of a velocity vector field
+\(\vec F = (-x-y)\vec i + (-x)\vec j\)
+in the \(xy\)-plane.  Note that vectors are given with a dot at the
+<em>tail</em> of each arrow.</p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6BAMAAAENxXeYAAAAIVBMVEX///8AAAD///8AAAD/AAAA/wAAAP///wD/ZAC0tLT+/v7qp7WnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAHIElEQVR4nO2cAY7jIAxFI43EeSpV6nm+tFLuf4SdaacJBn/bBEg7u4NG3ST29yOUBBzSXf5cr59/j3L7/Fsuy1awLGnJDzxK8ACyA/l2aojxDgege6A88CzpECV5HsiQqaRUbaodQKAeeEixxXj0jK2XVIKRBdWRslW6g0KjVJhWrBLyaImiiR+GVoaR1n2z7PwQIihdLCtQItSlugIrBxHPcnAjPEsqdswIOISoHNJOVr/d6vrW6iEdUm6or/9UBhtwFl4PLiKgckBWp4TKwOuwgfvOAt0RagelTWgEfH86Dm6EHoeFOKB02IaH7fOWfV5L9wH38yMF0+xpcnzsn0aQzMtrYphEiH9pKKMqzV5DokzrV15ghKLkXrGqxuIeDfIwnHox4jXRUZm9sx5pB7OnynUo3/I5OLdFyKtyExMQGgTZp9E0i2ca5RAt6JMPuRXEzJC7hXnN6iMr5ed7qwgp1IjomTiYHBDx80R781V3zu3qd9UxfS+/U5+JDulR6aH5UX22vfEbIpDzD59Kjir79nZ8zZ0gnLz+J9zrtLPn+rmXBr2bcx4po/WtfdBNYBr1rUWmw9l2sCKSD3XT1DO/oD53Y/2fG2LtB7bjPXdReGXx9FJdn0jT9496592un1foe6ZbF+WemBVE+NTfVZvPHgNq6USHiY7x46Hhpla9uwzh6LHI7XPrXwc6zE+d+ha+US5O/Ige+YHGWNXaltzF4pTcIYnUONN2jh9Wzh1t/z3CMf0eAeJQ+/cPsdmjb54/lvwfqZdlwPUj1X6Xl3olp91jrYtXtrX5z7Jm27fMcGOGq1vXS1kHsQc3eylOQDZOYPSSDjIaGtcnim8GVXhbr80sji8DwTa7+pD5FL158ZzAx4v1PQ7V3eN8fq8e5TEUDs3h4TnkZq35kDsc0PNXd2q9XuA5bGboBmwODfr89vj91PVSGYr8gelTpl+VwHUsUsH6pp3t+P2vGECk3O2/q5XeRWZf9PFKcPYkHGCbPb2Uo1nfbnZfpeD6WHr07+lxQA/F0qC3Vgkj+hy/bfe2X8xh9PgPzcHWjxx/mx8vmE+f2vXNDnz8yO//veOHtf7hFHuCGRg/1EXDZ1Ui7VdkdzKWr7fXqV39Te6iDO/Ik3SoKnPu9Ytqpy1/W6qd3/xriJ530pgenfq8NL1eoJhlXW61Q0P48vpR9cbyg3uDqfJPsePfIMzxKzBBvZQ3xHLn+PgVukD7xx+n1Pxkm119jvS6hwcIjV+8hMavEhkPH3A4XQ+53cNvz9/qqrTqEQ+vObx4/H5fPfr0Uo7awdYbj/Db8zfUDh6fy72fxtjjT/38xONLeWT84kt79xv9m4wfbJCN6lmAeP/Xk/yG60ddw265/rQAx+fv99I5/vXeP46MnyP5vfpI/jmR3/78dCz/jfR0En5K/mUsQLePP835lzV8BcYfmXNI9+TdIC5W9rUugfqzFXa69C4MH9vBFUyxrswQuP+Y5ePONRy4cf1Sd9DTig/TwajXvTm66Mve8m3o59c9i25/G7t62rm77BfQRfd/wbn/BDpOozsL5pPpGuk0urPWP5mugv4Puj6/OYuuc06ik6nd+9DpK4b9dOgmeZjwu+nRlF3ld9NLCqOrU4YT6co7PL102qE0+p2fGwRdVxgGTmeTcGn4YIZYqEGzi8SnkfyNK4yY2xhki536Z1Ym2XzT7MvSl8vA7vMG+9ETJs4qDfbTNI1uvd03PZcx2Fm9zp/Py7vFm2YTrIgx8R+nl+P/HHp0ljGFHl6VmEKvKAprGp3AleMT6A2rQePpDO4mt9My6BI0ja5Clkh6OS2LpE0ylt7W7oPpFB65DnrpADGF0ozfbOKrGBN3Zkmj5jbWBJYZMGhmZU1gqQlj5nUW20jilhF082c5/GrGMoBu/ySIGr9r1UmHdbcx09cRdDOP8y3z6AhYXpDL7PCfl0kNpV9fWd6o5fFKOofTa3d6FrkY05zpWeRifiGD6IH7omrECDpvW275Yk9bCX0Ubrmf98xMymr15/ygm07hvNX3Z52ddOO3ZB573sqI8a4R9p0PYWgONehNp6P0gaMMiBM7PiyXsSg8mTmBPj2TMun60WGZlM1h8LScQDefxU2na8ee8Ol0Av8+PpnuPHiaS/eees2lVwceZU4WWcLMOdl0ekD9Sz+u7ymC7vaSmXRwN5o0nJBJGQnLoDUpDjCTpSF0f+LOzPZbHxH6gYfbT3L/udMTN9+deL410kdnTUfbNOW/RHinbIJIzskmFtZ9cRJd5zP6nwnP62o+oY/NpCif0MdmUpSv09PEp8Q5/3x6XnT64CyyjT7g3cIOOl5JH57DNtHx/9LH5+8tdLyUvpxH5+r3oVsrAbPpJnvW7yYCbD65HUM32Ob/iD2CbsR33lCnL/KE6cfSqAe4O5sgy8O3lVhuq/x/xXMDVRDDXxhSgIXaFphKAAAAAElFTkSuQmCC" alt=""><p><em>(a)</em>
+What is the direction of rotation of a thin twig placed at the
+origin along the \(x\)-axis?</p><p><span class="blank">_______________</span></p><p><em>(b)</em>
+What is the direction of rotation of a thin twig placed at the
+origin along the \(y\)-axis?</p><p><span class="blank">_______________</span></p><p><em>(c)</em>
+If we put a paddle wheel at the origin, instead of a twig, in what
+direction would you expect that to rotate?</p><p><span class="blank">_______________</span></p><p><em>(d)</em>
+Compute curl \(\vec F\).</p><p>\(\text{curl}\vec F =\)<span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>clockwise, counterclockwise, it won't rotate, \(\boldsymbol{0}\)</p></div></div></div></div><div class="exercise"><div class="n">5</div><div class="body"><p>For each of the vector fields below, decide if they have a
+nonzero or zero curl at the origin.  Each vector field is shown in the
+\(xy\)-plane; they have no \(z\)-component and are independent of \(z\).
+Note that the vector fields are shown with a dot at the <em>tail</em>
+of each vector.</p><div class="tablewrap"><table class="data gridlines"><tr><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6BAMAAAENxXeYAAAAIVBMVEX///8AAAD///8AAAD/AAAA/wAAAP///wD/ZAC0tLT+/v7qp7WnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD+0lEQVR4nO1dDa6zIBAkecme5yVNPM8kTfb+R/g+QGWwqFir1sduDLIswyB/W6RN3bN7PB9RfLRzv24iLwkQB4pKHYTyo5BjFuJFijlunBAfLrSECrQSAopuafUR/Uar+4HRPcZR8gKYEeH6Vkl8KLcRN2SVpUz3lNAekvVIFQTbWbYKUawOiHczYC3DCXW4WQYMrSbDlVJxPwo3mdZD6jc09f0yIISpw+QjFN45PLxviFdHl9fX4BcK+sYQR+NXeGDjsrptEoRLx5rDX33STQQUl5T2Z5w65lbNmwjuX/9R/sygIsE4/8Pkl9hHiqvrVSO3X3/dlvkxZpvLcImA4vn8qN3vzUnreIQwemKJilBStAuPB2SD4+r6t4jvOyD0EFwKY7pwki4b7vn834SHDyS2ZvRnQqHLDPqSF5fX/+54UFg5/kMPqFP9BL/h9wkotPXrfDx8IKVlKihxkmhQJNwyg61fNv7vjQeFxZe5i4Yl/qzMXkEK+x68+vnvjgeF8/MnKNkqp/oZ/tbx4dS1i2evSmFXZcDO6u09HzB8U3iZ3kr4LBOQlMlbEITig5Jv9lxKWjNgW/23mg1v+APwaR6Uxn8+8sMtOlsJaf3+Af3+oYCnUtY+BeOt+lebDW/4zeb1XYQGgx/Iq/7j9SNrZuDiqytYbza84Q/Gw9+2rf8S54+fFOY/DN82Hv62Y/zvxa/I17ef4f8afstb3OLnr5iUn4IghDomyXD+sSI3bD/Dt4SHv33Wf8SkfoMSFI07fxfnT5w5YRphd/0Nb/jP4nf7D5eSSo4lhqv798j2m58fUtGh0G9sP8O3hIe/HeE/OKkwc4bvz63VP5s/4BrE929r+F1mwzeI3+Y/lOzqZhT+ocQnDevPvyg/O9HGbuzGbuxLAmbnhSxTBKzk2bRH1620c7lyg7IBbAAZkiK2zhu7sRu7sR/ODtI4vvBZnNyHsGMBKR4xLqoghxAMOrBnnsGVFeHFudIwU25uaLrfjd3Yjd3Yz2Gv3E2ADLw3AO0NlFb0/8ljPlHCKJJiuwljN3ZjN/bj2UEax+t+H7rPMNlNoKzMv3RiRVXTjiUoSAZGJFfUdL8bu7Ebu7Gfww7SOH6Sl3mMovosKx0rSkrHSnAsZBhNqsnU9UowmZcxdmM3dmM/nv3at0YnsY87GG8Ytjn2zsrYjd3Y22AHaRz/pndWmYGKyg+6lQ1KBi6KX3+d1vITF4aIbnnUGbuxG3s77F+0m8CMsuBy5jwL8tOQsuG8ls+/yoyIbnnUGbuxG/uZ7CCN4xfsJlxZeef7tFWGvOVRpVBhP7U/WMmUIduh/Z5RTv6ITQ9nr0Abu7EbezvsdAbdUTxX+HD6k4Z/+VDG0tOB46UAAAAASUVORK5CYII=" alt=""></td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6BAMAAAENxXeYAAAAIVBMVEX///8AAAD///8AAAD/AAAA/wAAAP///wD/ZAC0tLT+/v7qp7WnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD4UlEQVR4nO1aAY6rIBAl2YTzNGnieV6yifc/wt+W1g4CCgyC/r6J6wrD400RZhjV/E7337uTx+VkbjC+3FZlA2sgLm3YIgbx0UUQY6MtTlQhjS38cVnjYWOjjk1IBUsA+ZPHxJjuyywJAAmx0t4CSKl4FGVw7LZYSbl1KqkYjwGjftsblt0Zk2xglwaHUQQNcDBFqn81Bdyf69++D7PUwvWwwZ9lQwbFjuRTGLnkRG3D2x2RT6zZmnUtbOiwcGp7yG7wCA73R2xwxySOR3kPfgJ5DBbeh5UTG7LJCMG2OrI41qtST9JFIK7Xxo8a/JYCxf05g2Db/iusj3UtwlZVJKMEq4IrX3B+Zfjf0wv+v/XxqpUbIeR0upKb0f383HzzrHiIsw0VJlTMIb9iPQv7a+DDx68eDx0e8p87u9tgZdW8rWjz+6HEa/k74xEUXiP7GuywKqmA43dVVW7oguP3EqvDR3x+m/mPIjO+PX6U4/1gAXFW3j8Um2KuOH5vQRP+Zy9t/FeVMH58zsr5z/hRDi/a/7qqvf0vTIkwfpQK40cbPHR4BzfPt66Te/c6i/OUpYDsMbYMdszz1NhrUKwm/kA8dPj4Jxf5eKTU6SggC/OrewjNzmYpopA9xij73L+N+JOFhw6veI155fk/DA8d3nrqZ2d+/mBE1Y4Carz4Vx0/Nh5fnvH+Ef8U6PCMH/tqxg/iQ4EOz/iRrSb+C+NHGo+I+lnXdP3MYbO89bNrf0rN+PFVeOjw0tuW7b+k4oD9F59ffRUeOjzjh2H8uPL8H4aHDs/4ka0mnvFjDVmpn3WMHxo840dfPHR4u63O/IoEL7z4msTKL0usp0CilVIh7E9avSE/ec2S6IW9hrwZe93XN43YKz/9aTbyZO/DjpHsWNB92OPLuRN7wpf8ZHlarUNNe9qx7Ak/n+l3j/Hzua6vGTvq8G3Yq8iv6evIPoj9vaKGsC/LuRc7YuR/aCTapJ/l5CmkBogrvCgze/44tZ9vqZAjL+o3fqEn7eZ8knwT34id2cQY9mo82QsFI9mxoJlNuDbMJsICTEqYTejZq8iv6evIzmyiAzti5MwmFhMFObOJbuzMJsh+ODtGsmNBf1s20SPKeP2KwirK3BeZxbVXmObfYxSpKOPbblJyTJRhNtGPvRZP9iuxM5s4kj29Sf0UrvDMil86HcnObILsh7NjJDsWNLMJJ/K6UzbxKZznmRWziW7sVeTX9HVkZzbRgR0xcmYTu+zMJo5kZzZB9sPZMZIdC5rZhBN5zWwiVPjCbELPXkV+TV9HdmYTHdgRIx+RTaTeQU/yHbRXkC+OWyr+AZfatGYqUwWKAAAAAElFTkSuQmCC" alt=""></td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6BAMAAAENxXeYAAAAIVBMVEX///8AAAD///8AAAD/AAAA/wAAAP///wD/ZAC0tLT+/v7qp7WnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAE80lEQVR4nO1ci86zIAwlWcLzLDHxeZp8Ce//CP+4OE4FBNR5+W1jugocD8Nabm7qbxz+Bi/WHNVbzSRJIK0ITN0G4eguiNLZEjdOWNceBOavW12HVreOMQ5fL0kABdFY3w5Ir/RR3EpWtEdvq+vgSu3iCwPFe7pS1FyqHtNUYLGOO1Dopa+wD4Vx7UY/pDBkjw+FNkqTPRQee1BMVwrxQWPqXhTeJXVgYdxtV2j1qLJT7UFBSv2Y4uuxv3NaVXn0bOcw2L7BHyMc9hwchmpcJ4n9egSPZnRsUgoqTxOA1OWESk8lezSZfSkhsHWSlT1uIj4Mf6IykQvMxAPzTYTK/nV1cdUlnnAnWeymJqHr3p9q/Svx92yp1J9KlVfXqb+qupCBasOcUflRqy8wvxYlWqeF3ACCGmpQktb55lXxBDo7mF3M+LZ/pmkp0ShJ+6+Us9vvbLydT01am6hV5rlwhUJrm534n45Pm9w3c2jsSgadXv+74wl00c3F/y+LJ9By/47Hs/hF8STXi1DUEr92wpOJemp5sh+sYwfNbsn59b87nlyreq0xtpC3nQ4tr2MuG79uEcGT+5ziSdTpxDA3f8sgMEn6jyoeWz5t4dr03O26jn7v1YAemzKoNkEPXw8L8drnnkrQ7+X6v2tfsdK8WzcwBH89fM8qyJv1D/2zQMrGKdCsggQ61h+DW8n/SwL+v1Bgdbbg/3s82Q/m5j29sH8fgA952+YfUfuEwjJwi/9vKCB4wc9lc/8BSQ39R24FMup3LNda/54Cghf8NjzZjw39Bxm7N0juoTG+M3HFNcEsPvNIod5Sf8EL/kw82Y8tz89GfEUu336Cvz3eD4Bo0n3jr8xkg63FY4biREr8X/AXwKdL5x145+3T/Nv7vN8LCUkq6uz4CdOk/xD8CXjvVwS6B58snGq8FNsFRCQFvM/xZ6vWf6sV3JAt+CfgyZn4FPTgM/EYdHX9KPP+COjaW4jSfwh+M55UXjfiS3Cd4LPbcwkw87JIgKccYfwV8sHmJzyDShnAhYXKGe75x0tQoWTma3zkxQFo67r9Co1b5+HpEb9FXnXfq+CFXdiF/T7spVC5Im6uiLQ8zhOeAOSgOF+MuS1xvri+VrBzcR6JkBOLRPwWOdvrhF3Yhf1IdoIztGt7AXtksF7GsMjaFtq3ZdiWZ/0JZDaM7V/FvqAnzuPFa2N4lHt7nbALu7A/h/3k2UScNmgDfcAn2QAknvAMNv+AC5d7Fsb+TqpXmk/k5N73XdiFXdifw05whvZBswkM2mxqETGz0F7YT1g5m+AFNKNVy3Lv+y7swi7swn4MO8EZ2kf1Ml7sb7SDuJ9nx+RhGGNyyAh/yj7GZJfxtUewB7RHsAfz6Psu7MIu7MJ+DLtxkd6daGeTCiewJf0xIANG/4bYOtPXXlhOAlufvGL25Psu7MIu7M9hJxWDMuE6EMFqjp0CfEMkwbK9xl1bApv9TTmY89lEzDLlhaZtS1O1Nau1cu/7LuzCLuwPY29Zns++hvOqv3q5yG4Ku8uzuUHTfoRqyYAaymxC2IVd2A9mZ+9QHsxeCnLF1/eBHQfo1MtOEPsIqQn4WEAuTxrA1lipUmd1gfdpN8h/4fPCLuxPY+95bX1v9hI3+wkW2N/4OovzbO+3kb3+U7D57wgAn+18sIILtp1NwP5wtGebxX+YMeyW8Q+vjP4f28JrqQAAAABJRU5ErkJggg==" alt=""><p></p></td></tr><tr><td><p><em>(a)</em></p></td><td><p><em>(b)</em></p></td><td><p><em>(c)</em></p></td></tr></table></div><p>Vector field <em>(a)</em> has <span class="blank">_______________</span> curl
+at the origin.</p><p>Vector field <em>(b)</em> has <span class="blank">_______________</span> curl
+at the origin.</p><p>Vector field <em>(c)</em> has <span class="blank">_______________</span> curl
+at the origin.</p><div class="answer"><button>Show answer</button><div class="a"><p>zero, zero, zero</p></div></div></div></div><div class="exercise"><div class="n">6</div><div class="body"><p>For each of the following vector fields, find its curl and determine
+if it is a gradient field.</p><p><em>(a)</em>
+\(\vec F = \left(xy+yz\right)\,\mathit{\vec i}+\left(4x^{2}+z^{2}\right)\,\mathit{\vec j}+xz\,\mathit{\vec k}\):</p><p>\(\text{curl }\vec F =\) <span class="blank">___________________________________</span></p><p>\(\vec F\) <span class="blank">_______________</span></p><p><em>(b)</em>
+\(\vec G = \left(xy+z^{2}\right)\,\mathit{\vec i}+2\mathopen{}\left(x^{2}+yz\right)\,\mathit{\vec j}+2\mathopen{}\left(xz+y^{2}\right)\,\mathit{\vec k}\):</p><p>\(\text{curl }\vec G =\) <span class="blank">___________________________________</span></p><p>\(\vec G\) <span class="blank">_______________</span></p><p><em>(c)</em>
+\(\vec H = \left(2xy+4x^{3}\right)\,\mathit{\vec i}+\left(x^{2}+z^{2}\right)\,\mathit{\vec j}+\left(2yz-z\right)\,\mathit{\vec k}\):</p><p>\(\text{curl }\vec H =\) <span class="blank">___________________________________</span></p><p>\(\vec H\) <span class="blank">_______________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-2z\,\mathit{\vec i}+\left(y-z\right)\,\mathit{\vec j}+\left(7x-z\right)\,\mathit{\vec k}\), is not a gradient field, \(2y\,\mathit{\vec i}+3x\,\mathit{\vec k}\), is not a gradient field, \(\boldsymbol{0}\), is a gradient field</p></div></div></div></div><div class="exercise"><div class="n">7</div><div class="body"><p>Let \(\mathbf{F} = (2 xy, 8 y, 3 z)\).</p><p>The curl of \(\mathbf{F} = (\)
+<span class="blank">____________________</span>,<span class="blank">____________________</span>,<span class="blank">____________________</span> \()\).</p><p>Is there a function \(f\) such that \(\mathbf{F} = \nabla f\)? 
+<span class="blank">__________</span> (y/n)</p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(0\), \(-2x\), n</p></div></div></div></div><div class="exercise"><div class="n">8</div><div class="body"><p>Three small squares, \(S_1, S_2,\) and \(S_3\), each with side 0.01 and
+centered at the point \((7, 2, 8)\), lie parallel to the
+\(xy\)-, \(yz\)- and \(xz\)-planes, respectively.  The squares are
+oriented counterclockwise when viewed from the positive \(z\)-, \(x\)-,
+and \(y\)-axes, respectively.  A vector field \(\vec G\) has circulation
+around \(S_1\) of \(0.04\), around \(S_2\) of \(-0.0001\),
+and around \(S_3\) of \(0.04\).
+Estimate curl \(\vec G\) at the point \((7, 2, 8)\)</p><p>\(\text{curl }\vec G \approx\) <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-\,\mathit{\vec i}+400\,\mathit{\vec j}+400\,\mathit{\vec k}\)</p></div></div></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stokes' Theorem · Active Calculus — Multivariable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<link rel="stylesheet" href="../../assets/style.css">
+<script defer src="../../assets/app.js"></script>
+</head>
+<body data-book="active-calculus-multivariable">
+<header class="topbar">
+  <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
+  <span class="crumb">Stokes' Theorem</span>
+  <span class="spacer"></span>
+  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <div id="progressbar"></div>
+</header>
+<div class="layout">
+<nav class="sidebar" aria-label="Book navigation"></nav>
+<main>
+<h1><span class="kicker">Section 12.11</span>Stokes' Theorem</h1>
+<div class="card objectives"><span class="chip" style="background:var(--accent-soft);color:var(--accent-ink)">Motivating Questions</span><ul><li><p>
+	      What is the relationship between the circulation of a vector field \(\vF\) along a simple closed curve \(C\) in	three-dimensional space and the flux integral of \(\curl(\vF)\) through a surface with \(C\) as	its boundary?
+      </p></li><li><p>
+        Why does the flux integral of \(\curl(\vF)\) through a surface with boundary only depend on the boundary of the surface and not the shape of the surface's interior?
+      </p></li></ul></div>
+<p>
+    When we studied <a href="12-8.html#thm_Green">Green's Theorem</a> in <a href="12-8.html">Section 12.8</a>, we saw how integrating the circulation density over a region in the plane bounded by a simple closed curve is equivalent to calculating the circulation along the boundary curve. When we consider simple closed curves in \(\R^3\), the situation gets more complicated. However, there is an interesting, and perhaps surprising, generalization of <a href="12-8.html#thm_Green">Green's Theorem</a> for us to examine.
+  </p><div class="card activity preview" id="PA_Vector_StokesThm"><div class="ex-head"><span class="num">Preview Activity 12.11.1</span></div><div class="ex-body"><p>
+       In this activity, we will look at how we can apply the ideas about circulation along overlapping curves from the beginning of <a href="12-8.html#SS_Vector_GreensTheorem_Circulation">Circulation</a> to curves in space.
+      </p><div class="part" id="Stokes_PA_task1"><span class="part-label">a)</span> <p>
+        For this part, consider the curves in <a href="#fig_Vector_StokesThm_curves_high_line">Figure 12.11.1</a>, where the yellow curve is \(Y\), the blue curve is \(B\), and the magenta curve is	\(M\). 
+      </p><figure class="plot" id="fig_Vector_StokesThm_curves_high_line"><div class="sage-interactive" id="int_Vector_StokesThm_curves_high_line"><div class="sage-embed"><script type="text/x-sage">var('t,s,x,y,z,r,theta')
+@interact
+def _():
+  plot1=parametric_plot3d((cos(t),sin(t),cos(2*t)),(t,0,pi),color="#D81B60",thickness=3)+parametric_plot3d((cos(t),sin(t),cos(2*t)),(t,pi,2*pi),color="#FFC107",thickness=3)+parametric_plot3d((t,0,1),(t,-1,1),color="#1E88E5",thickness=3)+arrow3d((-.1,0,1),(.1,0,1),color="#1E88E5")+arrow3d((cos(pi/2),sin(pi/2),cos(2*pi/2)),((cos(pi/2+0.2),sin(pi/2+0.2),cos(2*(pi/2+0.2)))),color="#D81B60")+arrow3d((cos(3*pi/2),sin(3*pi/2),cos(2*3*pi/2)),((cos(3*pi/2+0.2),sin(3*pi/2+0.2),cos(2*(3*pi/2+0.2)))),color="#FFC107")
+  show(plot1+text3d("B",(0.1,0,.9),color="#1E88E5")+text3d("Y",(-0.8,-0.6,0.5),color="#FFC107")+text3d("M",(0.5,0.7,-0.5),color="#D81B60"))</script></div></div><figcaption>Figure 12.11.1 — Three curves in space</figcaption></figure><p>
+        You should also go back and refamiliarize yourself with our notation for combining paths (as used in line integrals) from <a href="12-2.html">Section 12.2</a>. In our convention, \(Y+M\) would be closed loop, but \(Y-M\) would not make sense because the segment \(-M\) does not begin where \(Y\) begins. 
+      </p><div class="part"><span class="part-label">i)</span> <p>
+            Using the three segments in <a href="#fig_Vector_StokesThm_curves_high_line">Figure 12.11.1</a>, write out at least four different closed curves in terms of \(B\), \(Y\), and \(M\). (Remember to consider orientation!)
+	        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            There are many different curves you can make including \(B+M, B+(-Y), Y+(-B), Y+M, (-M)+(-Y), B+(-Y)+(-M)+(-B), \ldots\)
+          </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>
+            Let \(C_1=M+B\) and \(C_2=Y-B\). Describe the curve given by \(C_1+C_2\).
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            Travel M, then B, then Y, then B backwards
+          </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>
+            Write a couple of sentences explaining how the circulation around \(C_1+C_2\) would compare to the circulation around \(C_1\) and the circulation around \(C_2\). Write an equation in terms of \(\int_{C_1} \vF \cdot d\vr \), \(\int_{C_2} \vF \cdot d\vr \), and \(\int_{C_1+C_2} \vF \cdot d\vr \).
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            Because we could separate the circulation into line integrals across each segment, the line integrals across \(B\) and \(-B\) would cancel out. Thus we would only have the circulation on \(M+Y\) left. 
+          </p></div></div></div><div class="part"><span class="part-label">iv)</span> <p>
+            Explain how your arguments or equations from any of the parts above would or would not change if you considered the curves depicted in <a href="#fig_Vector_StokesThm_curves_low_line">Figure 12.11.2</a>.</p><figure class="plot" id="fig_Vector_StokesThm_curves_low_line"><div class="sage-interactive" id="int_Vector_StokesThm_curves_low_line"><div class="sage-embed"><script type="text/x-sage">var('t,s,x,y,z,r,theta')
+@interact
+def _():
+  plot1=parametric_plot3d((cos(t),sin(t),cos(2*t)),(t,pi/4,5*pi/4),color="#D81B60",thickness=3)+parametric_plot3d((cos(t),sin(t),cos(2*t)),(t,5*pi/4,9*pi/4),color="#FFC107",thickness=3)+parametric_plot3d((t,t,0),(t,-sqrt(2)/2,sqrt(2)/2),color="#1E88E5",thickness=3)+arrow3d((-.1,-.1,0),(.1,.1,0),color="#1E88E5")+arrow3d((cos(pi/2),sin(pi/2),cos(2*pi/2)),((cos(pi/2+0.2),sin(pi/2+0.2),cos(2*(pi/2+0.2)))),color="#D81B60")+arrow3d((cos(3*pi/2),sin(3*pi/2),cos(2*3*pi/2)),((cos(3*pi/2+0.2),sin(3*pi/2+0.2),cos(2*(3*pi/2+0.2)))),color="#FFC107")
+  show(plot1+text3d("B",(0.1,0,0),color="#1E88E5")+text3d("M",(-0.8,-0.6,0.5),color="#D81B60")+text3d("Y",(0.5,-0.7,-0.5),color="#FFC107"))</script></div></div><figcaption>Figure 12.11.2 — Three slightly different curves in space</figcaption></figure><div class="answer"><button>Show answer</button><div class="a"><p>
+            The line integral along \(B\) would still cancel out with the line integral along \(-B\). 
+          </p></div></div></div></div><div class="part" id="Stokes_PA_task2"><span class="part-label">b)</span> <p>
+          Let \(C\) be the simple closed curve consisting of the yellow and magenta curves in <a href="#fig_Vector_StokesThm_curves_high_line">Figure 12.11.1</a>. You can see \(C\) plotted in red in <a href="#fig_Vector_StokesThm_fill_in_surfaces">Figure 12.11.3</a>. The drop-down allows you to select three different surfaces. You can visually verify that each of the three surfaces contains \(C\). Notice that the scale on the \(z\)-axis changes as you select different surfaces.
+        </p><figure class="plot" id="fig_Vector_StokesThm_fill_in_surfaces"><div class="sage-interactive" id="int_Vector_StokesThm_pringle_surfaces"><div class="sage-embed"><script type="text/x-sage">var('t,s,x,y,z,r,theta')
+@interact
+def _(s=selector(['Surface1', 'Surface2','Surface3'],label="Surface Selection:")):
+  plot1=parametric_plot3d((cos(t),sin(t),cos(2*t)),(t,0,2*pi),color="red",thickness=5)
+  if s=='Surface1':
+    surface=parametric_plot3d((r*cos(t),r*sin(t),r^2*(cos(t)^2-sin(t)^2)),(t,0,2*pi),(r,0,2),color="gray",opacity=.75)
+  if s=='Surface2':
+    surface=parametric_plot3d((r*cos(t),r*sin(t),(-cos(pi*r))*(cos(t)^2-sin(t)^2)),(t,0,2*pi),(r,0,2),color="gray",opacity=.75)
+  if s=='Surface3':
+    surface=parametric_plot3d((r*cos(t),r*sin(t),(r^6)*(cos(t)^2-sin(t)^2)),(t,0,2*pi),(r,0,1.5), color="gray",opacity=.75,aspect_ratio=(1,1,.1))
+  show(plot1+surface)</script></div></div><figcaption>Figure 12.11.3 — Surfaces containing a common simple closed curve</figcaption></figure><p></p><p>
+        The simple closed curve consisting of the yellow and magenta curves in <a href="#fig_Vector_StokesThm_curves_high_line">Figure 12.11.1</a> can be parameterized by \(\langle \cos(t), \sin(t), \cos(2t)\rangle \) with \(0\leq t\leq 2 \pi\). Let \(C_3 = Y+M\). Use the given parameterization of \(C_3\) to show that \(C_3\) is on each of the following surfaces:
+        <ul><li><p>\(x^2-y^2=z\)</p></li><li><p>\(z=x^4-y^4\)</p></li><li><p>\(z=1-2y^2\)</p></li><li><p>\(z=-\cos(\pi \sqrt{x^2+y^2})(x^2-y^2)\)</p></li></ul>
+      </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          Substituting \(x= \cos(t),  y=\sin(t), z=\cos(2t) \) gives the following equations:
+          <ul><li><p>\(x^2-y^2=(\cos(t))^2-(\sin(t))^2= \cos(2t) =z\) by trig identity</p></li><li><p>\(x^4-y^4 = (x^2-y^2)(x^2+y^2)=[(\cos(t))^2-(\sin(t))^2]((\cos(t))^2+(\sin(t))^2)= \cos(2t) (1) =z\)</p></li><li><p>\(1-2y^2= (\cos(t))^2+(\sin(t))^2 -2(\sin(t)^2)= (\cos(t))^2-(\sin(t))^2= \cos(2t) =z \)</p></li><li><p>\(-\cos(\pi \sqrt{x^2+y^2})(x^2-y^2) = -\cos(\pi \sqrt{(\cos(t))^2+(\sin(t))^2}) (\cos(t))^2-(\sin(t))^2= -\cos(\pi) \cos(2t) =z\)</p></li></ul>
+        </p></div></div></div></div></div>
+<h2 id="SS_Vector_StokesThm_Development">Circulation in three dimensions and Stokes' Theorem</h2>
+<p>
+    In <a href="#Stokes_PA_task2">here</a>, we saw that a simple closed curve in \(\R^3\) can bound many different surfaces. For now, however, we want to focus on a smooth surface \(S\) in \(\R^3\) that has a well-defined normal vector \(\vn\) at every point and a boundary curve \(C\). We will use the normal vector to define an orientation of \(C\) so that if a person were to walk along \(C\) in the direction of the orientation with the top of their head pointing in the direction of \(\vn\), their left arm would be over the surface \(S\). Notice that this is the same convention that we used with <a href="12-8.html#thm_Green">Green's Theorem</a> if we assume that the
+    normal vector being used is \(\vk\).
+  </p><p>
+    In <a href="#fig_Vector_StokesThm_surface_boundary">Figure 12.11.4</a>, we show the curve \(C\) from <a href="#PA_Vector_StokesThm">Preview Activity 12.11.1</a> in magenta as well as a surface \(S\) that has \(C\) as its boundary. The chosen normal vector \(\vn\) to \(S\) is shown, as is the orientation of \(C\) that matches \(\vn\).
+  </p><figure class="plot" id="fig_Vector_StokesThm_surface_boundary"><div class="sage-interactive" id="int_Vector_StokesThm_surface_boundary"><div class="sage-embed"><script type="text/x-sage">var('t,s,x,y,z,r,theta')
+@interact
+def asdf2():
+  surface=vector((r*cos(t),r*sin(t),r^2*(cos(t)^2-sin(t)^2)))
+  curve=vector((cos(t),sin(t),cos(2*t)))
+  rtan=surface.diff(r)
+  ttan=surface.diff(t)
+  normal=rtan.cross_product(ttan)
+  unit_normal = normal/normal.norm()
+  pos=(0,0,0)
+  plot1=parametric_plot3d(curve,(t,0,2*pi),color="#D81B60",thickness=3)+parametric_plot3d(surface,(t,0,2*pi),(r,0,1),color="gray",opacity=.75)+arrow3d(surface(r=0.5,t=pi/3),unit_normal(r=0.5,t=pi/3),color="#1E88E5")+arrow3d(curve(t=0.5),curve(t=0.55),color="#D81B60")
+  show(plot1)</script></div></div><figcaption>Figure 12.11.4 — A surface \(S\) (and normal vector) bounded by an
+    oriented simple closed curve \(C\)</figcaption></figure><p>
+    Thinking back to <a href="12-8.html#thm_Green">Green's Theorem</a>, our main idea was that we could calculate the circulation around a simple closed curve in \(\R^2\) by taking the double integral of the circulation density over the region bounded by the curve. As we saw in <a href="#PA_Vector_StokesThm">Preview Activity 12.11.1</a>, we can break up \(\oint_C\vF\cdot d\vr\) into line integrals around other simple closed curves so that overlapping portions are oriented oppositely just as we did with the square grid for Green's Theorem. To find a three-dimensional analog of Green's Theorem, we require that a simple closed curve \(C\) in three dimensions bound a smooth surface \(S\) with a normal vector \(\vn\). In doing this, we can choose our &ldquo;smaller&rdquo; curves similar to the squares we used in Green's Theorem to lie on the surface \(S\). This gives us almost all the ingredients used in Green's Theorem, but we still need to find a suitable replacement for the circulation density.
+  </p><p>
+    As we saw in <a href="12-7.html">Section 12.7</a>, the curl of a vector field in \(\R^3\) measures the rotation of the vector field. <a href="12-7.html#thm_Vector_Curl_rot_strength">Theorem</a> says that for a unit vector \(\vv\), the scalar \((\curl(\vF)(a,b,c))\cdot \vv\) measures the rotational strength of \(\vF\) at the point \((a,b,c)\) around the axis defined by \(\vv\). When \(\vv\) is the normal vector to the surface \(S\) at the point \((a,b,c)\), we have the appropriate analog for the circulation density of \(\vF\) on \(S\) at \((a,b,c)\). Thus, the equivalent idea to integrating the circulation density of a two-dimensional vector field over a region in the plane is calculating the flux integral \(\iint_D \curl(\vF)\cdot (\vr_s\times \vr_t)\, dA\), where \(\vr(s,t)\) on the domain \(D\) that gives a parameterization of the smooth surface \(S\).
+  </p><p>
+    A rigorous proof of the following theorem is beyond the scope of this text. However, <a href="#Stokes_PA_task1">here</a> and our discussion of <a href="12-8.html#thm_Green">Green's Theorem</a> provide an intuitive description of why this theorem is true.
+  </p><div class="card definition" id="thm_Stokes"><span class="chip">Theorem</span><p>
+        Let \(S\) be a smooth surface in \(\R^3\) with a simple closed curve \(C\) as its boundary. Let \(\vF\) be a vector field that is smooth on \(S\) and \(C\). Suppose that \(\vr(s,t)\) on the domain \(D\) gives a parametrization of \(S\) for which \(C\) is oriented so that a person walking along \(C\) in the direction of its orientation and head pointing in the direction of the normal vector \(\vr_s\times \vr_t\) would have their left hand above \(S\). In this setting, the circulation of \(\vF\) along \(C\) is equal to the flux of \(\curl(\vF)\) through \(S\). That is,
+        \[
+          \oint\limits_C \vF\cdot d\vr = \iint\limits_{D} (\curl(\vF))\cdot	(\vr_s\times\vr_t)\, dA
+        \].
+      </p></div>
+<h2 id="SS_Vector_StokesThm_Verify">Verifying and Applying Stokes' Theorem</h2>
+<p>
+      In this subsection, we will look at some examples and activities that will verify Stokes' Theorem by calculation both side for a few different situations.
+    </p><div class="card example" id="verifyStokes"><div class="ex-head"><span class="num">Example 12.11.1</span></div><div class="ex-body"><p>
+        In this example, we will verify Stoke's Theorem for the curve used in <a href="#PA_Vector_StokesThm">Preview Activity 12.11.1</a> using the parameterization and surfaces from <a href="#Stokes_PA_task2">here</a>. We will use the vector field \(\vF=\langle z-x, y+z, xy \rangle \) throughout this problem. 
+      </p><div class="part" id="verifyStokespart1"><span class="part-label">a)</span> <p>
+          We first calculate the circulation of \(\vF=\langle z-x, y+z, xy \rangle \) around the curve \(C\) with parameterization given by \(\vr(t)= \langle \cos(t), \sin(t), \cos(2t)\rangle \) with \(0\leq t\leq 2 \pi\). Note here that \(\vr'(t)= \langle -\sin(t), \cos(t), -2 \sin(2t) \rangle \). Applying <a href="12-3.html#thm_LineIntParam">Theorem</a> to calculate the circulation, we have
+          \[\begin{aligned}
+              \int_C \vF \cdot d\vr = &amp; \int_0^{2\pi} \langle \cos(2t)-\cos(t),\sin(t)+\cos(2t),\cos(t)\sin(t) \rangle
+             \\
+
+              &amp; \quad \cdot \langle -\sin(t), \cos(t), -2 \sin(2t) \rangle \, dt
+            \end{aligned}\]
+          If you were to write out this dot product and combine like terms, then you would be left with four terms. Each of these can be evaluated using a few trig identities and substitutions. In fact, three of the four terms will correspond to functions that have as much area below the axis as above and thus will have integrals of zero.
+          \[\begin{aligned}\int_C \vF \cdot d\vr = &amp; \int_0^{2\pi} 2\cos(t)\sin(t) \, dt  \\
+ &amp; - \int_0^{2\pi} \cos(2t)\sin(t) \, dt  \\
+ &amp; + \int_0^{2\pi} \cos(2t)\cos(t) \, dt  \\
+ &amp; - \int_0^{2\pi} 2\cos(t)\sin(t)\sin(2t) \, dt  \\
+ &amp; = 0 -0 + 0 -\pi = -\pi \end{aligned}\]
+          The circulation of \(\vF\) around \(C_3\) is \(-\pi\). This result being negative means that more of the vector field moves opposite the direction of travel given by the parameterization. 
+        </p></div><div class="part" id="verifyStokespart2"><span class="part-label">b)</span> <p>
+          In this part, we will calculate the flux of \(\curl(\vF) \) through a surface with boundary \(C\). As demonstrated by <a href="#Stokes_PA_task2">here</a>, there are several different surfaces that we can use in this problem. For our first case, we will use the part of the surface \(z=1-2y^2\) that is bounded by \(C\) as shown in <a href="#fig_stokes_example_12y2">Figure 12.11.5</a>. This surface can be parameterized by \(\vr(s,t)=\langle s\cos(t),s\sin(t), 1-2 s^2 \sin(t)^2 \rangle \) with \(0\leq s\leq 1\) and \(0\leq t\leq 2\pi\). 
+        </p><figure class="plot" id="fig_stokes_example_12y2"><div class="sage-interactive" id="int_Vector_StokesThm_verify1"><div class="sage-embed"><script type="text/x-sage">var('t,s,x,y,z,r,theta')
+@interact
+def asdf2():
+  plot1=parametric_plot3d((cos(t),sin(t),cos(2*t)),(t,0,2*pi),color="red",thickness=5)
+  surface=parametric_plot3d((r*cos(t),r*sin(t),1-2*r^2*sin(t)^2),(t,0,2*pi),(r,0,1),color="gray",opacity=.75)
+  show(plot1+surface)</script></div></div><figcaption>Figure 12.11.5 — A portion of the surface \(z=1-2y^2\) bounded by \(C\)</figcaption></figure><p> Using our parameterization, we have the following for the partial derivative functions and the corresponding normal vector:
+          \[\begin{aligned}\vr_s(s,t) &amp; =\langle \cos(t), \sin(t),-4s\sin(t)^2\rangle  \\
+\vr_r(s,t) &amp; =\langle -s\sin(t), s\cos(t),-4s^2\sin(t)\cos(t)\rangle  \\
+\vw=\vr_s \times \vr_t &amp; =\langle -4s^2\sin(t)^2\cos(t)+4s^2\sin(t)^2\cos(t) ,  \\
+ &amp; \quad \quad  4s^2\cos(t)^2\sin(t)+4s^2\sin(t)^2\sin(t), s \cos(t)^2 + s \sin(t)^2 \rangle  \\
+ &amp; = \langle 0, 4s^2\sin(t), s \rangle \end{aligned}\]
+          
+          In particular, our parameterization yields \(\vr_s \times \vr_t \, dA = \langle 0,4s\sin(t), 1 \rangle s \, ds dt\). Since we used polar coordinates as our parameter, \( dA = s ds dt\).
+        </p><div class="card callout"><span class="chip">Note</span><p>
+          If you completed  of , you may recognize our cacluation of \(\vr_s \times \vr_t\) as fitting the following form: If \(z=f(x,y)\), then \(\vr_s \times \vr_t \, dA\) is of the form \( \langle -\dfrac{\partial f}{\partial x},-\dfrac{\partial f}{\partial y}, 1 \rangle \, dA\). 
+          </p></div><p>
+          The next step in setting up the flux integral on the right side of Stokes' Theorem is calculating the curl of \(\vF\). Since \(\vF=\langle z-x, y+z, xy \rangle \), \(\curl(\vF)=\langle x-1,1-y,0 \rangle \) and converting to \(s\) and \(t\) gives \(\curl(\vF) (s,t)=\langle s\cos(t)-1,1-s\sin(t),0 \rangle \). Now we are able to apply <a href="12-9.html#thm_flux_int_calc">Theorem</a>, which give the following iterated integral:
+          \[
+            \int_0^1 \int_0^{2\pi} \langle s\cos(t)-1,1-s\sin(t),0 \rangle \cdot \langle 0,4s\sin(t), 1 \rangle s \, dt\, ds
+          \].
+          Evaluating this dot product and computing each integral gives 
+          \[
+            \int_0^1 \int_0^{2\pi} -4s^3 \sin(t)^2 + 4s^2 \sin(t) \, dt ds = -\pi
+          \],
+          which matches our result for the calculation of the circulation around \(C\). 
+        </p></div><div class="part" id="verifyStokespart3"><span class="part-label">c)</span> <p>
+          As we saw in <a href="#Stokes_PA_task2">here</a> there is more than one surface that has \(C\) as a boundary. We will calculate the flux integral (the right side of Stokes' Theorem) for a different surface to help motivate why it will not matter which surface we use (as long as we have the correct orientation and boundary). For this part we will use the surface \(z=x^2-y^2\), which will be parameterized by \(\vr(s,t)=\langle s\cos(t),s\sin(t),  s^2 (\cos(t)^2-\sin(t)^2) \rangle \) with \(0\leq s\leq 1\) and \(0\leq t\leq 2\pi\). Additionally, we will use the trig identity \(\cos(2t)=\cos(t)^2-\sin(t)^2 \) to write the last component of our parameterization as \(s^2 \cos(2t)\). 
+        </p><p>
+          Using our parameterization, we have the following for the partial derivative functions and the corresponding normal vector:
+          \[\begin{aligned}\vr_s(s,t) &amp; =\langle \cos(t), \sin(t),2s\cos(2t)\rangle  \\
+\vr_r(s,t) &amp; =\langle -s\sin(t), s\cos(t),-2s^2\sin(2t)\rangle  \\
+\vw=\vr_s \times \vr_t &amp; =\langle -2s^2\sin(2t)\sin(t)-2s^2\cos(2t)\cos(t) ,  \\
+ &amp; \quad \quad  2s^2\cos(t)\sin(2t)-2s^2\sin(t)\cos(2t), s \cos(t)^2 + s \sin(t)^2 \rangle  \\
+ &amp; = \langle -2s^2 \cos(t), 2s^2 \sin(t), s \rangle \end{aligned}\]
+          (There are a number of equivalent algebraic simpmlifications that can be done here by choosing different trigonometric identities.)
+        </p><p>
+          Now we are ready to set up the flux integral as the following iterated integral:
+          \[
+            \int_0^1 \int_0^{2\pi} \langle s\cos(t)-1,1-s\sin(t),0 \rangle \cdot \langle -2s^2 \cos(t), 2s^2 \sin(t), s \rangle  \, dt\, ds
+          \]
+          You probably noticed that this integral looks slightly more complicated than our work in the previous part, but if we are consistent, we should get the same result. Evaluating this dot product and computing each integral gives
+          \[\begin{aligned}&amp; \int_0^1 \int_0^{2\pi} (-2s^2 \cos(t))(s\cos(t)-1) + (2s^2 \sin(t))(1-s\sin(t)) \, dt\, ds  \\
+=&amp; \int_0^1 \int_0^{2\pi} -2s^3 \cos(t)^2 + 2s^2 \cos(t) + 2s^2 \sin(t) -2s^3\sin(t)^2 \, dt\, ds  \\
+=&amp; \int_0^1 \int_0^{2\pi} -2s^3  + 2s^2 \cos(t) + 2s^2 \sin(t)  \, dt\, ds \end{aligned}\].
+          Because both sine and cosine will integrate to zero over the interval from \(0\) to \(2\pi\), we only need to evaluate 
+          \[2 \pi \int_0^1  -2s^3  \, ds= -\pi\],
+          which gives exactly the same result as our circulation integral <em>and</em> our flux integral with the other surface. 
+        </p></div></div></div><p>
+    We close this subsection with a pair of activities. The first focuses on calculating both of the integrals in <a href="#thm_Stokes">Stokes' Theorem</a>. The second asks you to calculate some line integrals along simple closed curves and gives you the discretion to choose the best method to use for this (as well as the best surface to use, if you choose Stokes' Theorem).
+    </p><div class="card activity" id="act_Vector_StokesThm_verify"><div class="ex-head"><span class="num">Activity 12.11.2</span></div><div class="ex-body"><p>
+          In this activity, we will verify <a href="#thm_Stokes">Stokes' Theorem</a> by calculating both a line integral and a flux integral.
+        </p><div class="part" id="task_Vector_StokesThm_verify_sphere"><span class="part-label">a)</span> <p>
+            Consider the vector field \(\vF = \langle x^2 ,y^2 ,z^2 \rangle\) and the circle \(C_1\) parameterized as \(\vr(t) =\langle \sqrt{2}\cos(t), \sqrt{2}\cos(t), 2\sin(t)\rangle\) for \(0\leq t\leq 2\pi\).
+          </p><div class="part"><span class="part-label">i)</span> <p>
+              Calculate \(\oint_{C_1} \vF\cdot d\vr\) directly using the given parametrization.
+            </p><div class="answer"><button>Show answer</button><div class="a"><p>
+              Using the vector field and the given parameterization, we get the following circulation calculation:
+              \[\begin{aligned}\int_{C_1} \vF \cdot d\vr &amp; = \int_0^{2\pi} \langle 2 (\cos(t))^2, 2 (\cos(t))^2, 4 (\sin(t))^2 \rangle \cdot \langle -\sqrt{2}\sin(t),-\sqrt{2} \sin(t),2 \cos(t) \rangle \, dt \\
+ &amp; = 4\sqrt{2} \cos(t)^2\sin(t)+8\sin(t)^2 \cos(t) \, dt = 0\end{aligned}\]
+            </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>
+              Let \(S_1\) be the hemisphere of the sphere of radius \(2\) centered at the origin with \(y\leq x\). Calculate the flux of \(\curl(\vF)\) through \(S_1\).
+            </p><div class="answer"><button>Show answer</button><div class="a"><p>
+              Because the curl of \(\vF\) is \(\vec{0}\), the flux of the curl through \(S_2\) will be zero.
+            </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>
+              What could you have observed about \(\vF\) that would have gotten you the same answer without doing either of the above calculations?
+            </p><div class="answer"><button>Show answer</button><div class="a"><p>
+              The vector field \(\vF\) is conservative because \( \vF = \nabla f\) where \(f(x,y,z)=x^3/3+y^3/3+z^3/3 +C\). The circulation of a conservative vector field over a closed loop is always zero.
+            </p></div></div></div></div><div class="part" id="task_Vector_StokesThm_verify_triangle"><span class="part-label">b)</span> <p>
+            Consider the vector field \(\vG = x\vi + y^2z\vj + x^2\vk\) and the curve \(C_2\), which is the triangle with vertices \((1,0,0)\), \((0,1,0)\), and \((0,0,1)\) with orientation corresponding to the order the points are listed here.
+          </p><div class="part"><span class="part-label">i)</span> <p>
+              Find the circulation of \(\vG\) along \(C_2\) by calculating the appropriate line integrals.
+            </p><div class="answer"><button>Show answer</button><div class="a"><p>
+              We parameterize the boundary triangle with the following elements:
+              <ul><li><p>
+                  \(\vr_1(t)=\langle 1-t,t,0\rangle\)
+                </p></li><li><p>
+                  \(\vr_2(t)=\langle 0,1-t,t\rangle\)
+                </p></li><li><p>
+                  \(\vr_1(t)=\langle t,0,1-t\rangle\)
+                </p></li></ul>
+              with \(t \in [0,1]\). These parameterizations have derivatives of \(\vr_1'=\langle -1,1,0 \rangle\), \(\vr_2'=\langle 0,-1,1 \rangle\), and \(\vr_3'=\langle 1,0,-1 \rangle\). This gives the circulation integral as 
+              \[
+                \int_0^1 \langle 1-t,0,(1-t)^2 \rangle \cdot \langle -1,1,0 \rangle +  \int_0^1 \langle 0,t(1-t)^2,0 \rangle \cdot \langle 0,-1,1 \rangle + \int_0^1 \langle t,0,t^2 \rangle \cdot \langle 1,0,-1 \rangle
+              \]
+              which will simplify to \(\int_0^1 t-1+t^2-t^3 dt\) which evaluates to \(-\frac{5}{12}\). 
+            </p></div></div></div><div class="part"><span class="part-label">ii)</span> <p>
+              The vertices of \(C_2\) lie in a plane. Let \(S_2\) be the portion of this plane lying in the first octant, i.e., the portion with \(x,y,z\geq 0\). Find the flux of \(\curl(\vG)\) through \(S_2\).
+            </p><div class="answer"><button>Show answer</button><div class="a"><p>
+              The curl of \(\vG\) is \(\langle 0-y^2, 0-2x,0-0 \rangle\) and the surface \(S_2\) is parameterized by \(\vr(s,t)=\langle s,t,1-s-t\rangle \) with \( s \in [0,1]\) and \(t \in [0,1-s]\). This give the flux integral of 
+              \[
+                \int_0^1 \int_0^{1-s} \langle -t^2,-2s,0\rangle \cdot \langle 1,1,1 \rangle \, dt \, ds = \int_0^1 \int_0^{1-s} -t^2-2s \, dt \, ds = -\frac{5}{12}
+              \]
+            </p></div></div></div><div class="part"><span class="part-label">iii)</span> <p>
+              Write a sentence to explain why the sign of your answer to the previous two parts makes sense.
+            </p><div class="answer"><button>Show answer</button><div class="a"><p>
+              The flux is negative because the curl of \(\vG \) is pointing in the opposite direction of the outward pointing normal vector for \(S_2\).
+            </p></div></div></div></div></div></div><div class="card activity" id="act_Vector_StokesThm_use"><div class="ex-head"><span class="num">Activity 12.11.3</span></div><div class="ex-body"><div class="part" id="task_act_Vector_StokesThm_use_cylinder"><span class="part-label">a)</span> <p>
+            Find the circulation of \(\vF = \langle 3yz, xz, -xy\rangle\) along the curve \(C\) consisting of (given in order of the orientation) the quarter-circle of radius \(1\) centered at \((0,-2,0)\) in the plane \(y=-2\) from \((0,-2,1)\) to \((1,-2,0)\), the line segment from \((1,-2,0)\) to \((1,5,0)\), the quarter-circle of radius \(1\) centered at \((0,5,0)\) in the plane \(y=5\) from \((1,5,0)\) to \((0,5,1)\), and the line segment from \((0,5,1)\) to \((0,-2,1)\).
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            For the vector field \(\vF = \langle 3yz, xz, -xy\rangle\), we get a curl of \(\langle -x-x,y-3y,z-3z \rangle = -3 \langle 0,y,z\rangle \). The surface we will use is parameterized by \(\vr(s,t)=\langle \cos(t),s,\sin(t) \rangle\) with \(s \in [-2,5]\) and \(t \in [0,2\pi)\). So the flux integral of the curl of \(\vF\) through our surface is given by 
+            \[
+              \int_{-2}^5 \int_0^{\frac{\pi}{2}} \langle 0 ,-3s,-3\sin(t)\rangle \cdot \langle \cos(t),0,\sin(t)\rangle \, dt \, ds = 
+              \int_{-2}^5 \int_0^{\frac{\pi}{2}} -3 \sin(t)^2 \, dt \, ds = -\frac{21\pi}{4}
+            \]
+          </p></div></div></div><div class="part" id="task_act_Vector_StokesThm_use_circle"><span class="part-label">b)</span> <p>
+            Find the circulation of \(\vG = 3z^2 \vi -(z^2 + 2x) \vj +zy \vk\) along the circle in the \(xy\)-plane of radius \(3\) centered at the origin. Assume the counterclockwise orientation of the circle.
+          </p><div class="answer"><button>Show answer</button><div class="a"><p>
+            For the vector field \(\vG = 3z^2\vi -(z^2 + 2x) \vj+zy\vk\), the curl is given by \(\langle z+2z,6z-0,2-0\rangle\). We will use the disc of radius 3 in the xy-plane centered at the origin for our surface, with normal vector \( s \langle 0,0,1\rangle \). Thus the flux through our surface will be two times the area of the surface, \(2 (9\pi)=18\pi\).
+          </p></div></div></div></div></div><p>
+      In part <a href="#task_act_Vector_StokesThm_use_circle">here</a>, there are two &ldquo;reasonable&rdquo; choices for the surface bounded by the circle. If you did not do so while doing the activity, we encourage you to identify both of them and compare which one makes doing the flux integral easier. In general, this will vary depending on the curl of the vector field in question, so we cannot give a rule for determining what surface or coordinate system to use. However, we do encourage you to think about which surface will make evaluating the flux integral easiest.
+    </p>
+<h2 id="surfaceboundaries">Practice with Surfaces and their Boundaries</h2>
+<p>
+    When we looked at <a href="12-8.html#thm_Green">Green's Theorem</a>, it was generally most useful when we were given a line integral and we calculated it using a double integral. In fact, except in the circumstances described in <a href="12-8.html#ez_Vector_GreensTheorem_AreaViaLineInt">Exercise 6</a> and <a href="12-8.html#ez_Vector_GreensTheorem_centroid">Exercise 8</a> of <a href="12-8.html">Section 12.8</a>, we did not use Green's Theorem to rewrite a double integral as a line integral because of the difficulty of finding a suitable vector field. The situation for <a href="#thm_Stokes">Stokes' Theorem</a> will be similar, with the exception of <a href="#ez_Vector_StokesThm_potential">Exercise 4</a> in this section. However, Stokes' Theorem gives us an interesting additional piece of freedom: selecting the surface \(S\) through which we calculate the flux of \(\curl(\vF)\) from amongst possibly several reasonable surfaces with boundary \(C\). The next two activities focus on the relationships between surfaces and their boundary.
+  </p><div class="card activity" id="act_Vector_StokesThm_boundary"><div class="ex-head"><span class="num">Activity 12.11.4</span></div><div class="ex-body"><p>
+	      Because <a href="#thm_Stokes">Stokes' Theorem</a> requires us to consider a surface (with normal vector) and the boundary of	the surface, this activity will give you a chance to practice	identifying the boundary of some surfaces in \(\R^3\). For	each surface below:
+        <ol><li><p>Describe the boundary in words.</p></li><li><p>Find a parametrization for the boundary.</p></li><li><p>Ensure that a person walking along the boundary in the direction of your parametrization with head pointing in the direction of the surface's normal vector would hold their left hand over the surface.</p></li></ol>
+      </p><div class="part" id="task_Vector_StokesThm_boundary_sphere"><span class="part-label">a)</span> <p>
+          The surface \(S_1\) is the portion of the sphere \(x^2+y^2+z^2=4\) with \(z\geq x\). Assume the outward orientation on the sphere.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          <ol><li><p>
+              The boundary is the circle on the plane \(z=x\) of radius 2, centered at the origin.
+            </p></li><li><p>
+              \(\vr(t) = \langle 2 \cos(t),2\sin(t),2\cos(t) \rangle\) with \(t \in [0,2\pi)\)
+            </p></li><li><p>Using the right hand rule on this orientation will show that the circulation on the boundary will be measured  with the positive z-component (corresponding to the outward normal of the sphere)</p></li></ol>
+        </p></div></div></div><div class="part" id="task_Vector_StokesThm_boundary_sphere2"><span class="part-label">b)</span> <p>
+          The surface \(S_2\) is the portion of the sphere \(x^2+y^2+z^2=4\) with \(z\geq 0\). Assume the outward orientation on the sphere.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          <ol><li><p>
+              The boundary is the circle on the plane \(z=0\) of radius 2, centered at the origin.
+            </p></li><li><p>
+              \(\vr(t) = \langle 2 \cos(t),2\sin(t),0 \rangle\) with \(t \in [0,2\pi)\)
+            </p></li><li><p>Using the right hand rule on this orientation will show that the circulation on the boundary will be measured with the positive z-component (corresponding to the outward normal of the disc in the xy-plane)</p></li></ol>
+        </p></div></div></div><div class="part" id="task_Vector_StokesThm_boundary_hyppar"><span class="part-label">c)</span> <p>
+          The surface \(S_3\) is the portion of the hyperbolic	paraboloid \(z=x^2-y^2\) with \(x^2+y^2\leq 1\). Assume	the &ldquo;upward&rdquo; orientation, e.g., the normal vector at	\((0,0,0)\) is \(\vk\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          <ol><li><p>
+              The boundary is the path that sits above the circle of radius 1 in the xy-plane centered at the origin, but has z-coordinate given by \(\cos(2 \theta)\).
+            </p></li><li><p>
+              \(\vr(t) = \langle  \cos(t),\sin(t),\cos(2t) \rangle\) with \(t \in [0,2\pi)\)
+            </p></li><li><p>Using the right hand rule on this orientation will show that the circulation on the boundary will be measured  with the positive z-component (corresponding to the outward normal of the saddle surface)</p></li></ol>
+        </p></div></div></div><div class="part" id="task_Vector_StokesThm_boundary_cylinder"><span class="part-label">d)</span> <p>The surface \(S_4\) is the portion of the cylinder \(x^2+y^2=4\) for which \(-2\leq z\leq 2\), assuming the	outward orientation.</p><div class="answer"><button>Show answer</button><div class="a"><p>
+          <ol><li><p>
+              The boundary is given by the curve \(C\) consisting of (given in order of the orientation) the quarter-circle of radius \(2\) centered at \((2,0,-2)\) in the plane \(z=-2\) from \((2,0,-2)\) to \((0,2,-2)\), the line segment from \((0,2,-2)\) to \((0,2,2)\), the quarter-circle of radius \(2\) centered at \((0,0,2)\) in the plane \(z=2\) from \((0,2,2)\) to \((2,0,2)\), and the line segment from \((2,0,2)\) to \((2,0,-2)\).
+            </p></li><li><p>
+              \[\begin{aligned} \vr(t) &amp; = \langle  2\cos(t),2\sin(t),-2 \rangle  \\
+ \vr(t) &amp; = \langle  2,0,4-t \rangle  \\
+ \vr(t) &amp; = \langle  2\cos(-t),2\sin(-t),2 \rangle  \\
+ \vr(t) &amp; = \langle  2,0,-2+t \rangle \end{aligned}\]
+              with the first and third having \(t\in[0,\pi/2]\) and the second and fourth having \(t\in[0,4]\). 
+            </p></li><li><p>Using the right hand rule on this orientation will show that the circulation on the boundary will be measured in the radially outward direction (away from the z-axis</p></li></ol>
+        </p></div></div></div></div></div><div class="card activity" id="act_Vector_StokesThm_surface"><div class="ex-head"><span class="num">Activity 12.11.5</span></div><div class="ex-body"><p>In some sense, this activity considers the reverse problem of that considered in <a href="#act_Vector_StokesThm_boundary">Activity 12.11.4</a>. Here, each part of the activity gives you an oriented simple closed curve \(C\) in \(\R^3\), and your task is to find
+      <ul><li><p>a surface \(S\) so that \(C\) is the boundary of \(S\) and</p></li><li><p>a normal vector for the \(S\) so that a person walking along \(C\) in the direction of the given orientation with head pointing in the direction of your chosen normal vector would have their left hand over \(S\).</p></li></ul>
+      You are encouraged to think about multiple possible answers, since as we saw in <a href="#PA_Vector_StokesThm">Preview Activity 12.11.1</a>, there may be more than one reasonable choice of a surface with a particular boundary.</p><div class="part" id="task_Vector_StokesThm_surface_triangle"><span class="part-label">a)</span> <p>
+          The curve \(C\) is the triangle with vertices \((1,0,0)\), \((0,1,0)\), and \((0,0,1)\) with orientation corresponding to the order the points are listed here. 
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          A surface with given boundary could be \(x+y+z=1\) and the normal vector would be \(1/\sqrt{3} \langle 1,1,1 \rangle \).
+        </p></div></div></div><div class="part" id="task_Vector_StokesThm_surface_circle"><span class="part-label">b)</span> <p>
+	        The curve \(C\) is the circle parameterized as \(\vr(t) =\langle \sqrt{2}\cos(t), \sqrt{2}\cos(t), 2\sin(t)\rangle\) for \(0\leq t\leq 2\pi\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          A surface with given boundary could be \(x^2+y^2+z^2=4\) (for \(\pi/4 \leq \theta \leq 5\pi/4\)) the normal vector would be radially outward from the origin.
+        </p></div></div></div><div class="part" id="task_Vector_StokesThm_surface_cylinder"><span class="part-label">c)</span> <p>
+	        The curve \(C\) consists of (given in order of the	orientation)
+          <ul><li><p>the quarter-circle \(C_1\)of radius \(2\) centered at the origin in the \(xy\)-plane from \((2,0,0)\) to \((0,2,0)\),</p></li><li><p>the line segment \(C_2\) from \((0,2,0)\) to \((0,2,2)\),</p></li><li><p>the quarter-circle \(C_3\) of radius \(2\) centered at \((0,0,2)\) in the plane \(z=2\) from \((0,2,2)\) to \((2,0,2)\), and</p></li><li><p>the line segment \(C_4\) from \((2,0,2)\) to \((2,0,0)\). </p></li></ul>
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(x^2+y^2=4\) for \(-2\leq z \leq 2\) with normal vector pointing away from the z-axis.
+        </p></div></div></div></div></div>
+<h2 id="summary">Summary</h2>
+<p>
+    <ul><li><p>
+          <a href="#thm_Stokes">Stokes' Theorem</a> tells us that we can calculate the circulation of a smooth vector field along a simple closed curve in \(\R^3\) that bounds a surface (with normal vector) on which the vector field is also smooth by calculating the flux of the curl of the vector field through the surface.
+        </p></li><li><p>
+	        Given two surfaces \(S_1\) and \(S_2\) with the same boundary \(C\) (and assuming normal vectors that give the same orientation on \(C\)), the flux of \(\curl(\vF)\) through \(S_1\) and through \(S_2\) is the same because <a href="#thm_Stokes">Stokes' Theorem</a> tells us that this flux is equal to the circulation of \(\vF\) along \(C\).
+        </p></li></ul>
+  </p>
+<div id="exercise-panel-content"><h2 id="exercises-11">Exercises</h2><div class="exercise"><div class="n">1</div><div class="body"><p>Find \(\int_C\vec F\cdot d\vec r\) where \(C\)
+is a circle of radius \(1\) in the plane \(x+y+z=8\), centered at
+\((1,4,3)\) and oriented clockwise when viewed from the origin,
+if
+\(\vec F = 5y\vec i - 2x\vec j + 3\mathopen{}\left(y-x\right)\vec k\)</p><p>\(\int_C\vec F\cdot d\vec r =\) <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{\left(2\cdot 3-5-2\right)\pi \cdot 1\cdot 1}{\sqrt{3}}\)</p></div></div></div></div><div class="exercise"><div class="n">2</div><div class="body"><p>Use Stokes' Theorem to evaluate 
+\(\displaystyle \int_{C} \mathbf{F} \cdot d\mathbf{r}\) where 
+\(\mathbf{F}(x, y, z) = x\mathbf{i} + y\mathbf{j} + 
+  7\!(x^{2} + y^{2})\mathbf{k}\) 
+and \(C\) is the boundary of the part of the paraboloid where 
+\(z = 1 - x^{2} - y^{2}\) which lies above the xy-plane and 
+\(C\) is oriented counterclockwise when viewed from above.</p><p><span class="blank">________________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\)</p></div></div></div></div><div class="exercise"><div class="n">3</div><div class="body"><p>Verify Stokes' theorem for the helicoid \(\Psi(r,\theta) = \langle r\cos \theta, r\sin \theta, \theta \rangle\) where \((r,\theta)\) lies in the rectangle
+\([0,1] \times [0,\pi/2]\), and \(\mathbf{F}\) is the vector field
+\(\mathbf{F} = \langle 2 z, 8 x, 3 y \rangle\).</p><p>First, compute the surface integral:</p><p>\(\iint_M (\nabla \times \mathbf{F})\cdot d\mathbf{S}=
+\int_a^b\int_c^d f(r, \theta) dr\,d\theta\), where</p><p>\(a =\)<span class="blank">__________</span>, \(b =\)<span class="blank">__________</span>, 
+\(c =\)<span class="blank">__________</span>, \(d =\)<span class="blank">__________</span>, and</p><p>\(f(r, \theta) =\) <span class="blank">__________________________________________________</span> (use "t" for theta).</p><p>Finally, the value of the surface integral is <span class="blank">______________________________</span>.</p><p>Next compute the line integral on that part of the boundary from
+\((1,0,0)\) to \((0,1,\pi/2)\).</p><p>\(\int_C \mathbf{F}\cdot d\mathbf{r} = \int_a^b g(\theta)\,d\theta\), where</p><p>\(a =\)<span class="blank">__________</span>, \(b =\)<span class="blank">__________</span>, and</p><p>\(g(\theta) =\) <span class="blank">__________________________________________________</span> (use "t" for theta).</p><div class="answer"><button>Show answer</button><div class="a"><p>\(0\), \(1.5707963267949\), \(0\), \(1\), \(3\sin\mathopen{}\left(t\right)-2\cos\mathopen{}\left(t\right)+8r\), \(7.28318530717959\), \(0\), \(1.5707963267949\), \(-2t\sin\mathopen{}\left(t\right)+8\cos^{2}\mathopen{}\left(t\right)+3\sin\mathopen{}\left(t\right)\)</p></div></div></div></div><div class="exercise" id="ez_Vector_StokesThm_potential"><div class="n">4</div><div class="body"><p><a href="#thm_Stokes">Stokes' Theorem</a> is generally used to
+      turn a line integral into a flux integral. Sometimes it is
+      possible to be given a flux integral and recognize that the
+      given vector field \(\vF\) is \(\curl(\vG)\) for some
+      vector field \(\vG\), however. When this is the case, we call
+      \(\vG\) a <em>vector potential</em> for the vector field
+      \(\vF\), much like a function \(f\) so that \(\vF =
+      \grad(f)\) is called a potential function for \(\vF\).</p><div class="part" id="task_Vector_StokesThm_potential_find"><span class="part-label">a)</span> <p>Find a vector field \(\vF\) so that \(\curl(\vF) = \langle x-y^2,4xy-y-4,-4xz\rangle\).</p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\vF=\langle -4xyz+f(x), -zy^2+g(y),-xy-4x+h(z) \rangle \)
+        </p></div></div></div><div class="part" id="task_Vector_StokesThm_potential_find2"><span class="part-label">b)</span> <p>
+          When finding an anti-derivative of a function of a single variable, you know that there is an infinite family of anti-derivatives, but that any two anti-derivatives differ by a constant. This is why we write expressions such as \(\displaystyle\int\cos(x)\, dx = \sin(x) + C\). A similar phenomenon occurs with (scalar) potential functions for gradient vector fields. Find a <em>second</em> vector field \(\vG\) with the same curl as in <a href="#task_Vector_StokesThm_potential_find">part</a>, and do so in a way that \(\vF-\vG\) is <em>not</em> a constant vector. That is, after simplifying fully, \(\vF-\vG\) must contain at least one of the variables \(x,y,z\).
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          \(\vF=\langle -4xyz+x, -zy^2+y,-xy-4x+z \rangle \)
+        </p></div></div></div><div class="part" id="task_Vector_StokesThm_potential_gradient"><span class="part-label">c)</span> <p>
+          Verify that for the vector fields you found above, \(\vF-\vG\) is a gradient vector field. Explain why for <em>every</em> pair \(\vF, \vG\) of vector potentials for a vector field \(\vH\), you must have that \(\vF-\vG\) is a gradient vector field.
+        </p><div class="answer"><button>Show answer</button><div class="a"><p>
+          If \(\vH = \curl(\vF)\), then \(\vH=\langle \frac{\partial F_2}{\partial z}-\frac{\partial F_3}{\partial y}, \frac{\partial F_3}{\partial x}-\frac{\partial F_1}{\partial z}, \frac{\partial F_1}{\partial y}-\frac{\partial F_2}{\partial x} \rangle\). So, \(\divg(\vH)= \frac{\partial^2 F_2}{\partial z \partial x}-\frac{\partial^2 F_3}{\partial y \partial x} + \frac{\partial^2 F_3}{\partial x \partial y}-\frac{\partial^2 F_1}{\partial z \partial y} + \frac{\partial^2 F_1}{\partial y \partial z}-\frac{\partial^2 F_2}{\partial x \partial z}= 0\).
+        </p></div></div></div><div class="part" id="task_Vector_StokesThm_potential_div"><span class="part-label">d)</span> <p>Explain why if \(\vH\) is a vector field with a vector potential \(\vF\), \(\divg(\vH) = 0\). Such a vector	field is called a <em>solenoidal vector field</em> or	<em>divergence-free vector field</em>.</p><div class="answer"><button>Show answer</button><div class="a"><p>
+          If \(\vH = \curl(\vF)\), then \(\vH=\langle \frac{\partial F_2}{\partial z}-\frac{\partial F_3}{\partial y}, \frac{\partial F_3}{\partial x}-\frac{\partial F_1}{\partial z}, \frac{\partial F_1}{\partial y}-\frac{\partial F_2}{\partial x} \rangle\). So, \(\divg(\vH)= \frac{\partial^2 F_2}{\partial z \partial x}-\frac{\partial^2 F_3}{\partial y \partial x} + \frac{\partial^2 F_3}{\partial x \partial y}-\frac{\partial^2 F_1}{\partial z \partial y} + \frac{\partial^2 F_1}{\partial y \partial z}-\frac{\partial^2 F_2}{\partial x \partial z}= 0\).
+        </p></div></div></div></div></div><div class="exercise"><div class="n">5</div><div class="body"><p>For each of the following vector fields,
+determine whether a vector potential exists. If so, find one.</p><p><em>For this problem, enter your vectors with angle-bracket
+notation: \(\langle a, b, c \rangle\), not in \(ijk\)-notation.</em></p><p><em>(a)</em>
+\(\vec F = x\,\mathit{\vec i}+\left(7y-z^{2}\right)\,\mathit{\vec j}+\left(2x+8z\right)\,\mathit{\vec k}\)</p><p>\(\vec F\) <span class="blank">_______________</span> \(\vec H\),
+\(\vec H =\)
+<span class="blank">___________________________________</span></p><p><em>(If there is no potential function, enter <em>none</em>
+for the function.)</em></p><p><em>(b)</em>
+\(\vec F = x\,\mathit{\vec i}+\left(7y-z^{2}\right)\,\mathit{\vec j}+\left(2x-8z\right)\,\mathit{\vec k}\)</p><p>\(\vec F\) <span class="blank">_______________</span> \(\vec H\),
+\(\vec H =\)<span class="blank">___________________________________</span></p><p><em>(If there is no potential function, enter <em>none</em>
+for the function.)</em></p><div class="answer"><button>Show answer</button><div class="a"><p>does not have a vector potential, none, has a vector potential, \(\left(-2xy+8yz\right)\,\mathit{\vec i}+\left(1xy+xz^{2}\right)\,\mathit{\vec k}\)</p></div></div></div></div><div class="exercise"><div class="n">6</div><div class="body"><p>
+        Repeat the steps of <a href="#verifyStokespart2">here</a> and <a href="#verifyStokespart3">here</a> with the surface \(z=x^4-y^4\) to verify Stokes' Theorem for another different surface. Your flux integral should calculate to \(-\pi\) as in <a href="#verifyStokes">Example 12.11.1</a>.
+      </p></div></div></div>
+<footer class="attribution"></footer>
+</main>
+</div>
+</body>
+</html>
