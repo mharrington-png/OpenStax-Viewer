@@ -175,6 +175,37 @@ body {
 .plqueue-url { flex: 1; min-width: 0; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-soft); border-radius: 10px; padding: 6px 10px; font-family: var(--sans); font-size: .8rem; }
 @media (max-width: 800px) { .plbuild { grid-template-columns: 1fr; } .plqueue { position: static; } }
 
+/* ---------- Focus Tools + in-page assignment builder ---------- */
+.focusbox { position: relative; }
+.focus-menu {
+  position: absolute; top: calc(100% + 8px); right: 0; width: max-content; min-width: 220px;
+  z-index: 60; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 6px;
+}
+.focus-item {
+  display: block; width: 100%; text-align: left; padding: 8px 12px; border-radius: 9px;
+  text-decoration: none; font-family: var(--sans); font-size: .88rem; color: var(--ink);
+  background: none; border: none; cursor: pointer; white-space: nowrap;
+}
+.focus-item:hover { background: var(--surface-2); }
+/* pinned to the top of the exercise column specifically (not full page width like
+   .playlistbar) — sticky within #exercise-panel-content's own scroll box when the split
+   panel is open (top:0, since the panel already starts below the topbar), or under the
+   page's own sticky topbar when it isn't (top:57px). */
+.assign-bar {
+  position: sticky; top: 57px; z-index: 45;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 14px; margin: 0 0 14px;
+  background: var(--accent-soft); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); font-family: var(--sans); font-size: .85rem;
+}
+body.split .assign-bar { top: 0; }
+.assign-bar .assign-count { color: var(--accent-ink); }
+.assign-bar .spacer { flex: 1; }
+.assign-bar .iconbtn:disabled { opacity: .5; cursor: default; }
+.exercise.pickable { grid-template-columns: 22px 44px 1fr; }
+.exercise.pickable .ex-pick { align-self: start; margin-top: 8px; }
+
 /* ---------- layout ---------- */
 .layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); max-width: 1240px; margin: 0 auto; }
 .layout.no-sidebar { grid-template-columns: minmax(0, 1fr); }
@@ -391,6 +422,14 @@ figure.plot figcaption { font-family: var(--sans); font-size: .86rem; color: var
   display: grid; grid-template-columns: 44px 1fr; gap: 4px 14px;
   padding: 18px 0; border-bottom: 1px solid var(--line);
 }
+/* .exercise's own `display: grid` above beats the browser's default [hidden]{display:none}
+   rule on a specificity tie (same weight, but this author rule comes later in the
+   cascade) — so a plain `el.hidden = true` silently does nothing here. Assignment
+   filtering (initAssignment in app.js) toggles this class instead — applied not just to
+   filtered-out .exercise elements but also to a subheading/intro paragraph whose
+   exercises were *all* filtered out, so a filtered page doesn't show a bare "Algebraic"
+   heading or "For the following exercises…" line with nothing left under it. */
+#exercise-panel-content .assign-hidden { display: none; }
 .exercise.unnumbered { grid-template-columns: 1fr; } /* no .n number badge — see build-section.mjs's be-prepared handling */
 .exercise .n {
   font-family: var(--sans); font-weight: 800; color: var(--ink-faint);

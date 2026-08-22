@@ -595,7 +595,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-theme-toggle]").forEach(b => b.addEventListener("click", toggleTheme));
 
   // split practice panel
-  setupSplit();
+  const splitApi = setupSplit();
+
+  // Focus Tools (playlist + in-page assignment builder) and reading an ?assign= link —
+  // both need splitApi to force the practice panel open, so they're wired after it.
+  initFocusTools(root, splitApi);
+  initAssignment(splitApi);
 
   // reading progress
   const bar = document.getElementById("progressbar");
@@ -1065,6 +1070,199 @@ function initPlaylistBuilder(root) {
   render();
 }
 
+/* ---------- Focus Tools: playlist + in-page assignment builder ----------
+   One persistent header button (same slot/pattern as the theme toggle) that opens a
+   two-item menu: "Build a playlist" (links out to playlist.html, unchanged) and "Build
+   tonight's assignment" (section pages only) — deliberately tucked behind a single entry
+   point rather than adding always-visible teacher-facing controls to the reading page
+   every student sees. Assignments are single-section, unlike playlists: pick exercises
+   on the section a teacher is already looking at, copy a link, done — no ordering, no
+   cross-book resolution needed, since the reader is already on the right page. */
+function initFocusTools(root, splitApi) {
+  const themeBtn = document.querySelector("[data-theme-toggle]");
+  if (!themeBtn) return;
+  const exercisePanel = document.getElementById("exercise-panel-content");
+
+  const box = document.createElement("div");
+  box.className = "focusbox";
+  box.innerHTML =
+    `<button class="iconbtn" data-focus-toggle title="Playlist and assignment tools">🎯 Focus Tools</button>` +
+    `<div class="focus-menu" hidden>` +
+      `<a class="focus-item" href="${root}/playlist.html">📑 Build a playlist</a>` +
+      (exercisePanel ? `<button class="focus-item" data-focus-assign>📝 Build tonight's assignment</button>` : "") +
+    `</div>`;
+  themeBtn.parentElement.insertBefore(box, themeBtn);
+
+  const menu = box.querySelector(".focus-menu");
+  const toggleBtn = box.querySelector("[data-focus-toggle]");
+  toggleBtn.addEventListener("click", () => { menu.hidden = !menu.hidden; });
+  document.addEventListener("click", ev => { if (!box.contains(ev.target)) menu.hidden = true; });
+
+  const assignBtn = box.querySelector("[data-focus-assign]");
+  if (assignBtn) {
+    const exit = () => {
+      teardownAssignmentBuilder(exercisePanel);
+      toggleBtn.classList.remove("on");
+    };
+    assignBtn.addEventListener("click", () => {
+      menu.hidden = true;
+      if (exercisePanel.dataset.building === "1") { exit(); return; }
+      setupAssignmentBuilder(exercisePanel, splitApi, exit);
+      toggleBtn.classList.add("on");
+    });
+  }
+}
+
+// #exercise-panel-content (the split-view/practice-panel container) only ever wraps one
+// section's own "Section Exercises" — on a chapter's last section, the bundled Chapter
+// Review Exercises/Practice Test (CLAUDE.md) render as ordinary page content *outside*
+// this container (it closes right before their <h2>s), so they never show up in the
+// practice panel and this never sees them either. In practice that means there's always
+// exactly one heading group in here, but this stays generic (grouping by whichever <h2>
+// precedes each exercise, matched against the current #hash) rather than assuming that,
+// so it degrades sensibly instead of silently mis-scoping if that ever changes.
+function currentExerciseGroup(panel) {
+  const hashId = location.hash.slice(1);
+  const groups = []; let cur = null;
+  [...panel.children].forEach(el => {
+    if (el.tagName === "H2") { cur = { id: el.id, items: [] }; groups.push(cur); return; }
+    if (cur && el.classList.contains("exercise")) cur.items.push(el);
+  });
+  if (!groups.length) return [];
+  return (groups.find(g => g.id === hashId) || groups[0]).items;
+}
+
+// A stable identifier for one exercise, used both to encode ?assign= links and to filter
+// exercises back out when reading one. `.exercise` elements DON'T reliably carry an id
+// attribute — some sections' exercises have id="ex341" etc. (needed for Key Concepts
+// cross-links), most don't — so an empty ex.id would collapse every exercise on those
+// pages onto the same key (found: checking any exercise beyond the first never moved the
+// "selected" count, because every one of them was silently adding "" to the Set). The
+// number in the ".n" badge is always present and is exactly what's printed on the page,
+// so it's both reliable and legible in the generated link. Falls back to the DOM id, then
+// a 1-based position, only for the rare unnumbered exercise (build-section.mjs's
+// "be-prepared" case) that has neither.
+function exerciseKey(ex, index) {
+  const n = ex.querySelector(":scope > .n");
+  if (n && n.textContent.trim()) return n.textContent.trim();
+  if (ex.id) return ex.id;
+  return String(index + 1);
+}
+
+function setupAssignmentBuilder(panel, splitApi, onDone) {
+  panel.dataset.building = "1";
+  if (splitApi) splitApi.forceOpen();
+
+  const items = currentExerciseGroup(panel);
+  // Defensive unhide: a stale ?assign= filter (or a previous builder session) may have
+  // left exercises AND their now-empty headings/intro paragraphs hidden — building a
+  // fresh assignment should always start from the full panel, regardless of how the page
+  // happened to load.
+  panel.querySelectorAll(".assign-hidden").forEach(el => el.classList.remove("assign-hidden"));
+  const selected = new Set();
+
+  const bar = document.createElement("div");
+  bar.className = "assign-bar";
+  bar.innerHTML =
+    `<strong class="assign-count">0 selected</strong>` +
+    `<span class="spacer"></span>` +
+    `<button class="iconbtn assign-copy" disabled>Copy link</button>` +
+    `<button class="iconbtn assign-done">Done</button>`;
+  panel.insertBefore(bar, panel.firstChild);
+
+  const countEl = bar.querySelector(".assign-count");
+  const copyBtn = bar.querySelector(".assign-copy");
+  const update = () => {
+    countEl.textContent = `${selected.size} selected`;
+    copyBtn.disabled = selected.size === 0;
+  };
+
+  items.forEach((ex, i) => {
+    ex.classList.add("pickable");
+    const key = exerciseKey(ex, i);
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.className = "ex-pick";
+    cb.setAttribute("aria-label", "Include this exercise in tonight's assignment");
+    ex.insertBefore(cb, ex.firstChild);
+    cb.addEventListener("change", () => {
+      if (cb.checked) selected.add(key); else selected.delete(key);
+      update();
+    });
+  });
+
+  copyBtn.addEventListener("click", () => {
+    if (!selected.size) return;
+    // Keeps the current #hash (e.g. "#chapter-review-exercises") so a student opening the
+    // link also lands scrolled to the right heading, same as any other section link.
+    const url = `${location.origin}${location.pathname}?assign=${[...selected].join(",")}${location.hash}`;
+    navigator.clipboard.writeText(url).then(() => {
+      const orig = copyBtn.textContent;
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => { copyBtn.textContent = orig; }, 1500);
+    }).catch(() => {});
+  });
+
+  bar.querySelector(".assign-done").addEventListener("click", onDone);
+}
+
+function teardownAssignmentBuilder(panel) {
+  panel.dataset.building = "";
+  const bar = panel.querySelector(".assign-bar");
+  if (bar) bar.remove();
+  panel.querySelectorAll(".exercise.pickable").forEach(ex => {
+    ex.classList.remove("pickable");
+    const cb = ex.querySelector(":scope > input.ex-pick");
+    if (cb) cb.remove();
+  });
+}
+
+// A heading (h2/h3) or loose intro paragraph ("For the following exercises...") is a
+// direct child of #exercise-panel-content, same level as the .exercise divs — an h2/h3
+// governs every .exercise up to the next heading of equal-or-higher rank, a <p> governs
+// just the run of .exercise up to whatever direct-child element comes next. Grouping this
+// way (rather than assuming one heading per page) means it stays correct even where a
+// section has several h3 subheadings each with their own intro line, like 2.7's "Verbal"/
+// "Algebraic"/"Graphical" split.
+function exercisePanelGroups(panel) {
+  const groups = []; let openH2 = null, openH3 = null, openP = null;
+  [...panel.children].forEach(el => {
+    if (el.tagName === "H2") { openH2 = { el, exercises: [] }; groups.push(openH2); openH3 = null; openP = null; return; }
+    if (el.tagName === "H3") { openH3 = { el, exercises: [] }; groups.push(openH3); openP = null; return; }
+    if (el.tagName === "P") { openP = { el, exercises: [] }; groups.push(openP); return; }
+    if (el.classList.contains("exercise")) {
+      [openH2, openH3, openP].forEach(g => { if (g) g.exercises.push(el); });
+    }
+  });
+  return groups;
+}
+
+// Reading side of an assignment link: hides every exercise on the page not in the
+// selected set (prose/examples/Try Its are untouched — only #exercise-panel-content is
+// touched), then hides any heading/intro paragraph whose exercises were *all* filtered
+// out, so a filtered page doesn't show a bare "Algebraic" heading or instruction line
+// with nothing left under it. Forces the practice panel open, same as the builder does,
+// so a student opening the link lands looking at exactly what's assigned.
+function initAssignment(splitApi) {
+  const raw = new URLSearchParams(location.search).get("assign");
+  if (!raw) return;
+  const panel = document.getElementById("exercise-panel-content");
+  if (!panel) return;
+  const ids = new Set(raw.split(","));
+  [...panel.querySelectorAll(".exercise")].forEach((ex, i) => { if (!ids.has(exerciseKey(ex, i))) ex.classList.add("assign-hidden"); });
+  // Array.every() on an empty array is vacuously true, which is exactly what's wanted
+  // for a heading with zero exercises under it (e.g. Intermediate Algebra's trailing
+  // "Self Check" reflection checklist, which is a heading + image, no .exercise at all)
+  // — assignment mode means "only the selected exercises," so a non-exercise heading like
+  // that should always be hidden, not skipped for having nothing to check.
+  exercisePanelGroups(panel).forEach(g => {
+    if (g.exercises.every(ex => ex.classList.contains("assign-hidden"))) {
+      g.el.classList.add("assign-hidden");
+    }
+  });
+  if (splitApi) splitApi.forceOpen();
+}
+
 /* ---------- page outline: collapsible groups per section heading ---------- */
 function buildOutline(container) {
   const main = document.querySelector("main");
@@ -1187,11 +1385,15 @@ function buildOutline(container) {
 }
 
 /* ---------- split view: content left, section exercises right ---------- */
+// Returns a small API ({ forceOpen }) instead of nothing so other features (the
+// assignment builder, and reading an ?assign= link) can force the panel open without
+// reaching into this closure's private `on` state or duplicating the toggle logic.
+// Returns null wherever there's no exercise panel/theme button to attach to.
 function setupSplit() {
   const panel = document.getElementById("exercise-panel-content");
-  if (!panel) return;
+  if (!panel) return null;
   const themeBtn = document.querySelector("[data-theme-toggle]");
-  if (!themeBtn) return;
+  if (!themeBtn) return null;
   const btn = document.createElement("button");
   btn.className = "iconbtn splitbtn";
   btn.title = "Show exercises beside the reading";
@@ -1202,6 +1404,16 @@ function setupSplit() {
   let on = localStorage.getItem(key) === "1" && matchMedia("(min-width: 1100px)").matches;
   apply(on);
   btn.addEventListener("click", () => { on = !on; localStorage.setItem(key, on ? "1" : "0"); apply(on); });
+  return {
+    // Session-only force (never writes localStorage) — a teacher building tonight's
+    // assignment, or a student opening one, shouldn't have their own saved practice-panel
+    // preference silently overwritten. No-ops below 1100px, matching .splitbtn's own
+    // display:none there — the split layout isn't usable on a narrow screen anyway.
+    forceOpen: () => {
+      if (!matchMedia("(min-width: 1100px)").matches) return;
+      on = true; apply(on);
+    },
+  };
 }
 
 /* ---------- tiny SVG function plotter ----------
