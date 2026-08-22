@@ -123,6 +123,58 @@ body {
 .search-subhit .search-main { font-size: .88rem; }
 @media (max-width: 640px) { .searchbox { display: none; } }
 
+/* ---------- shareable playlists ---------- */
+.playlistbar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 20px; background: var(--accent-soft);
+  border-bottom: 1px solid var(--line); font-family: var(--sans); font-size: .88rem;
+}
+.playlistbar .pl-chip { font-weight: 800; color: var(--accent-ink); text-transform: uppercase; font-size: .72rem; letter-spacing: .08em; }
+.playlistbar .pl-status { color: var(--ink-soft); }
+.playlistbar .pl-status strong { color: var(--ink); }
+.playlistbar .iconbtn { background: var(--surface); }
+.playlistbar .iconbtn:disabled { opacity: .4; cursor: default; }
+.playlistbar .iconbtn:disabled:hover { border-color: var(--line); color: var(--ink-soft); }
+.playlistbar .spacer { flex: 1; }
+.pl-listbox { position: relative; }
+.pl-list {
+  position: absolute; top: calc(100% + 8px); left: 0; width: min(360px, 90vw);
+  max-height: 60vh; overflow-y: auto; z-index: 60;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 6px;
+}
+.pl-item {
+  display: block; padding: 8px 10px; border-radius: 9px; text-decoration: none;
+  font-size: .88rem; color: var(--ink);
+}
+.pl-item:hover { background: var(--surface-2); }
+.pl-item.active { background: var(--accent-soft); color: var(--accent-ink); font-weight: 700; }
+@media (max-width: 640px) { .playlistbar .pl-status { display: none; } }
+
+/* ---------- playlist builder (playlist.html) ---------- */
+.plbuild { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: start; }
+.plbook { margin: 0 0 18px; }
+.plbook summary { font-family: var(--sans); font-weight: 800; font-size: 1.05rem; cursor: pointer; padding: 6px 0; }
+.plbook h4 { margin: 14px 0 4px; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-faint); font-family: var(--sans); }
+.plsec { display: flex; align-items: center; gap: 8px; padding: 5px 4px; border-radius: 8px; font-family: var(--sans); font-size: .92rem; cursor: pointer; }
+.plsec:hover { background: var(--surface-2); }
+/* capped height + own scrollbar, same technique .sidebar uses — a sticky panel that's
+   allowed to run taller than the viewport has to "unstick" once it hits the bottom of its
+   (very tall) grid sibling, and right at that unstick boundary some browsers visibly
+   stutter/vibrate for a frame or two. Keeping it permanently shorter than the viewport
+   means it never reaches that boundary at all. */
+.plqueue { position: sticky; top: 77px; max-height: calc(100vh - 97px); overflow-y: auto; }
+.plqueue h3 { margin-top: 0; }
+.plqueue-list { list-style: none; margin: 0 0 12px; padding: 0; }
+.plqueue-list li { display: flex; align-items: center; gap: 6px; padding: 7px 0; border-bottom: 1px solid var(--line); font-family: var(--sans); font-size: .86rem; }
+.plqueue-n { color: var(--ink-faint); font-weight: 700; }
+.plqueue-t { flex: 1; }
+.plqueue-list .iconbtn { padding: 3px 8px; font-size: .78rem; }
+.plqueue-empty { color: var(--ink-faint); font-family: var(--sans); font-size: .88rem; }
+.plqueue-link { display: flex; gap: 8px; margin-top: 10px; }
+.plqueue-url { flex: 1; min-width: 0; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-soft); border-radius: 10px; padding: 6px 10px; font-family: var(--sans); font-size: .8rem; }
+@media (max-width: 800px) { .plbuild { grid-template-columns: 1fr; } .plqueue { position: static; } }
+
 /* ---------- layout ---------- */
 .layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); max-width: 1240px; margin: 0 auto; }
 .layout.no-sidebar { grid-template-columns: minmax(0, 1fr); }

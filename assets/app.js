@@ -513,6 +513,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookId = (document.body.dataset.book && BOOKS[document.body.dataset.book]) ? document.body.dataset.book : DEFAULT_BOOK;
   const BOOK = BOOKS[bookId];
 
+  // A live playlist (see initPlaylist below) should survive ordinary book/sidebar
+  // navigation — a student browsing off-sequence and back shouldn't lose their teacher's
+  // playlist — so every same-origin nav link this handler generates gets `pl` reattached.
+  // Only the playlist bar's own "Exit playlist" button (or manually editing the URL)
+  // actually drops it. In-page anchors (outline links, "#example1", …) need no help: a
+  // bare "#foo" href already resolves against the current URL, keeping the query as-is.
+  const plRaw = new URLSearchParams(location.search).get("pl");
+
   /* sidebar: collapsible book contents + auto-generated page outline */
   const sb = document.querySelector(".sidebar");
   if (sb) {
@@ -534,7 +542,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const pathMatches = location.pathname.endsWith("/" + BOOK.sectionsDir + "/" + sPath);
           const hashMatches = sHash ? location.hash === "#" + sHash : !location.hash;
           const active = (pathMatches && hashMatches) ? " class=\"active\"" : "";
-          book += `<a href="${root}/${BOOK.sectionsDir}/${s.file}"${active}>${s.title}</a>`;
+          book += `<a href="${withPlaylist(`${root}/${BOOK.sectionsDir}/${s.file}`, plRaw)}"${active}>${s.title}</a>`;
         } else {
           book += `<a class="soon">${s.title}</a>`;
         }
@@ -545,7 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // so it's always visible regardless of the Book contents fold state, and reads
     // above "Book contents" as the sidebar's top-level escape hatch.
     sb.innerHTML =
-      `<a class="allbooks" href="${root}/index.html">← All books</a>` +
+      `<a class="allbooks" href="${withPlaylist(`${root}/index.html`, plRaw)}">← All books</a>` +
       `<details class="booknav"${isSection ? "" : " open"}><summary>Book contents</summary>${book}</details>` +
       `<div class="outline"></div>`;
     if (isSection) buildOutline(sb.querySelector(".outline"));
@@ -566,10 +574,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // brand link is hand-authored per page (not generated here like the sidebar), so it
+  // needs its own rewrite to keep carrying `pl` forward.
+  if (plRaw) {
+    const brand = document.querySelector(".topbar .brand");
+    if (brand) brand.setAttribute("href", withPlaylist(brand.getAttribute("href"), plRaw));
+  }
+
   // site-wide search — independent of the sidebar so it also appears on the top-level
   // book-picker page (index.html), which has a topbar but no .sidebar nav.
   const topbarEl = document.querySelector(".topbar");
   if (topbarEl) initSearch(root, topbarEl);
+
+  // shareable playlists: no-op unless the page carries a ?pl= param (any section page)
+  // or is the builder page itself (playlist.html).
+  initPlaylist(root);
+  initPlaylistBuilder(root);
 
   // theme button
   document.querySelectorAll("[data-theme-toggle]").forEach(b => b.addEventListener("click", toggleTheme));
@@ -865,6 +885,184 @@ function initSearch(root, topbar) {
   });
   input.addEventListener("focus", () => { if (resultsEl.innerHTML) resultsEl.hidden = false; });
   document.addEventListener("click", ev => { if (!box.contains(ev.target)) resultsEl.hidden = true; });
+}
+
+/* ---------- shareable playlists ----------
+   A teacher builds an ordered sequence of sections (any book, any order) on playlist.html
+   and shares one link — the whole playlist lives in a `?pl=` query param, e.g.
+   "?pl=college-algebra-2e:6-1,calculus-v1:2-1" — no backend, no accounts, matching this
+   site's static/no-build-step constraint. Any section page that loads with a `pl` param
+   present renders a small prev/next bar (initPlaylist); playlist.html itself renders the
+   builder UI (initPlaylistBuilder). Both share the entry-resolving/URL-building helpers
+   below so the two can't drift out of sync on the encoding format. */
+function resolvePlaylistEntry(bookId, sectionId) {
+  const book = BOOKS[bookId];
+  if (!book) return null;
+  for (const ch of book.chapters) {
+    const s = ch.sections.find(x => x.id === sectionId && x.ready);
+    if (s) return { bookId, bookTitle: book.title, sectionsDir: book.sectionsDir, id: sectionId, title: s.title, file: s.file };
+  }
+  return null;
+}
+// file may carry a "#anchor" (chapter-review/practice-test sections share their parent
+// section's file) — the query string has to land before the hash, not after it.
+function playlistUrlFor(root, entry, raw) {
+  const [filePath, hash] = entry.file.split("#");
+  return `${root}/${entry.sectionsDir}/${filePath}?pl=${raw}${hash ? "#" + hash : ""}`;
+}
+// Reattaches an active playlist to a plain (non-playlist-aware) href generated elsewhere
+// on the page — the sidebar's section links, "All books", the brand link — so browsing
+// off-sequence and back doesn't silently lose the teacher's playlist. No-ops if no
+// playlist is active. Same "query before hash" ordering as playlistUrlFor above.
+function withPlaylist(href, plRaw) {
+  if (!plRaw) return href;
+  const [path, hash] = href.split("#");
+  return `${path}?pl=${plRaw}${hash ? "#" + hash : ""}`;
+}
+
+function initPlaylist(root) {
+  const raw = new URLSearchParams(location.search).get("pl");
+  if (!raw) return;
+  const entries = raw.split(",").map(pair => {
+    const [bookId, sectionId] = pair.split(":");
+    return resolvePlaylistEntry(bookId, sectionId);
+  }).filter(Boolean);
+  if (!entries.length) return;
+
+  // same path+hash matching convention the sidebar uses for chapter-review/practice-test
+  // anchors sharing a file with their parent section.
+  const idx = entries.findIndex(e => {
+    const [filePath, hash] = e.file.split("#");
+    const pathMatches = location.pathname.endsWith("/" + e.sectionsDir + "/" + filePath);
+    const hashMatches = hash ? location.hash === "#" + hash : !location.hash;
+    return pathMatches && hashMatches;
+  });
+
+  const topbar = document.querySelector(".topbar");
+  if (!topbar) return;
+
+  const here = idx === -1 ? null : entries[idx];
+  const status = here
+    ? `${idx + 1} of ${entries.length} &middot; <strong>${here.bookTitle}: ${here.title}</strong>`
+    : `${entries.length} sections in this playlist`;
+  const bar = document.createElement("div");
+  bar.className = "playlistbar";
+  bar.innerHTML =
+    `<span class="pl-chip">&#9654; Playlist</span>` +
+    `<button class="iconbtn pl-prev" ${idx <= 0 ? "disabled" : ""}>&larr; Prev</button>` +
+    `<span class="pl-status">${status}</span>` +
+    `<button class="iconbtn pl-next" ${(idx === -1 || idx >= entries.length - 1) ? "disabled" : ""}>Next &rarr;</button>` +
+    `<span class="spacer"></span>` +
+    `<div class="pl-listbox"><button class="iconbtn pl-toggle">&#9776; List</button><div class="pl-list" hidden></div></div>` +
+    `<button class="iconbtn pl-exit" title="Exit playlist">&times;</button>`;
+  topbar.insertAdjacentElement("afterend", bar);
+
+  const goto = i => { if (entries[i]) location.href = playlistUrlFor(root, entries[i], raw); };
+  bar.querySelector(".pl-prev").addEventListener("click", () => goto(idx - 1));
+  bar.querySelector(".pl-next").addEventListener("click", () => goto(idx + 1));
+  bar.querySelector(".pl-exit").addEventListener("click", () => { location.href = location.pathname + location.hash; });
+
+  const listEl = bar.querySelector(".pl-list");
+  listEl.innerHTML = entries.map((e, i) =>
+    `<a class="pl-item${i === idx ? " active" : ""}" href="${playlistUrlFor(root, e, raw)}">${i + 1}. ${e.bookTitle}: ${e.title}</a>`
+  ).join("");
+  bar.querySelector(".pl-toggle").addEventListener("click", () => { listEl.hidden = !listEl.hidden; });
+  document.addEventListener("click", ev => { if (!bar.contains(ev.target)) listEl.hidden = true; });
+}
+
+function initPlaylistBuilder(root) {
+  const picker = document.querySelector("[data-playlist-picker]");
+  if (!picker) return;
+  const queueList = document.querySelector("[data-playlist-queue]");
+  const emptyMsg = document.querySelector("[data-playlist-empty]");
+  const urlInput = document.querySelector("[data-playlist-url]");
+  const copyBtn = document.querySelector("[data-playlist-copy]");
+
+  let queue = []; // ordered [{bookId, id}], order = the order a teacher checked things
+
+  // Course-catalog order (roughly Middlesex's own sequence), not BOOKS' declaration
+  // order — falls back to declaration order for any future book not listed here.
+  const BOOK_ORDER = ["intermediate-algebra-2e", "college-algebra-2e", "precalculus-2e", "calculus-v1", "calculus-v3", "active-calculus-multivariable"];
+  const bookIds = [...BOOK_ORDER, ...Object.keys(BOOKS).filter(id => !BOOK_ORDER.includes(id))];
+
+  let html = "";
+  for (const bookId of bookIds) {
+    const book = BOOKS[bookId];
+    if (!book) continue;
+    const readyChapters = book.chapters
+      .map(ch => ({ n: ch.n, title: ch.title, sections: ch.sections.filter(s => s.ready) }))
+      .filter(ch => ch.sections.length);
+    if (!readyChapters.length) continue;
+    html += `<details class="plbook"><summary>${book.title}</summary>`;
+    for (const ch of readyChapters) {
+      html += `<h4>Chapter ${ch.n} &middot; ${ch.title}</h4>`;
+      for (const s of ch.sections) {
+        html += `<label class="plsec"><input type="checkbox" data-book="${bookId}" data-id="${s.id}"> ${s.title}</label>`;
+      }
+    }
+    html += `</details>`;
+  }
+  picker.innerHTML = html;
+
+  function render() {
+    if (!queue.length) {
+      queueList.innerHTML = "";
+      emptyMsg.hidden = false;
+      urlInput.value = "";
+      return;
+    }
+    emptyMsg.hidden = true;
+    queueList.innerHTML = queue.map((q, i) => {
+      const e = resolvePlaylistEntry(q.bookId, q.id);
+      return `<li>` +
+        `<span class="plqueue-n">${i + 1}.</span>` +
+        `<span class="plqueue-t">${e.bookTitle}: ${e.title}</span>` +
+        `<button class="iconbtn plq-up" data-i="${i}" ${i === 0 ? "disabled" : ""} title="Move up">&uarr;</button>` +
+        `<button class="iconbtn plq-down" data-i="${i}" ${i === queue.length - 1 ? "disabled" : ""} title="Move down">&darr;</button>` +
+        `<button class="iconbtn plq-remove" data-i="${i}" title="Remove">&times;</button>` +
+        `</li>`;
+    }).join("");
+    const raw = queue.map(q => `${q.bookId}:${q.id}`).join(",");
+    const first = resolvePlaylistEntry(queue[0].bookId, queue[0].id);
+    urlInput.value = new URL(playlistUrlFor(root, first, raw), location.href).href;
+  }
+
+  picker.addEventListener("change", ev => {
+    const cb = ev.target;
+    if (cb.tagName !== "INPUT") return;
+    const bookId = cb.dataset.book, id = cb.dataset.id;
+    if (cb.checked) queue.push({ bookId, id });
+    else queue = queue.filter(q => !(q.bookId === bookId && q.id === id));
+    render();
+  });
+
+  queueList.addEventListener("click", ev => {
+    const btn = ev.target.closest("button");
+    if (!btn) return;
+    const i = Number(btn.dataset.i);
+    if (btn.classList.contains("plq-up") && i > 0) {
+      [queue[i - 1], queue[i]] = [queue[i], queue[i - 1]];
+    } else if (btn.classList.contains("plq-down") && i < queue.length - 1) {
+      [queue[i + 1], queue[i]] = [queue[i], queue[i + 1]];
+    } else if (btn.classList.contains("plq-remove")) {
+      const removed = queue[i];
+      queue.splice(i, 1);
+      const cb = picker.querySelector(`input[data-book="${removed.bookId}"][data-id="${removed.id}"]`);
+      if (cb) cb.checked = false;
+    }
+    render();
+  });
+
+  copyBtn.addEventListener("click", () => {
+    if (!urlInput.value) return;
+    navigator.clipboard.writeText(urlInput.value).then(() => {
+      const orig = copyBtn.textContent;
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => { copyBtn.textContent = orig; }, 1500);
+    }).catch(() => { urlInput.select(); });
+  });
+
+  render();
 }
 
 /* ---------- page outline: collapsible groups per section heading ---------- */
