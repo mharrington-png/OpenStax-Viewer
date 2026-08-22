@@ -31,20 +31,20 @@
 <p>We can define a rectangular box \(B\) in \({ℝ}^{3}\) as \(B=\{(x,y,z)|a\le x\le b,c\le y\le d,e\le z\le f\}.\) We follow a similar procedure to what we did in Double Integrals over Rectangular Regions. We divide the interval \([a,b]\) into \(l\) subintervals \([{x}_{i-1},{x}_{i}]\) of equal length \(\Delta x=\frac{b-a}{l},\) divide the interval \([c,d]\) into \(m\) subintervals \([{y}_{j-1},{y}_{j}]\) of equal length \(\Delta y=\frac{d-c}{m},\) and divide the interval \([e,f]\) into \(n\) subintervals \([{z}_{k-1},{z}_{k}]\) of equal length \(\Delta z=\frac{f-e}{n}.\) Then the rectangular box \(B\) is subdivided into \(lmn\) subboxes \({B}_{ijk}=[{x}_{i-1},{x}_{i}]\,\times \,[{y}_{j-1},{y}_{j}]\,\times \,[{z}_{k-1},{z}_{k}],\) as shown in <a href="#fig1">Figure 1</a>.</p>
 <figure class="plot" id="fig1"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_001.jpg" alt="In x y z space, there is a box B with a subbox Bijk with sides of length Delta x, Delta y, and Delta z." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 1 — A rectangular box in \({ℝ}^{3}\) divided into subboxes by planes parallel to the coordinate planes.</figcaption></figure>
 <p>For each \(i,j,\,\text{and}\,k,\) consider a sample point \(({x}_{ijk}^{*},{y}_{ijk}^{*},{z}_{ijk}^{*})\) in each sub-box \({B}_{ijk}.\) We see that its volume is \(\Delta V=\Delta x\Delta y\Delta z.\) Form the triple Riemann sum</p>
-<p>\[∑i=1l∑j=1m∑k=1nf({x}_{ijk}^{*},{y}_{ijk}^{*},{z}_{ijk}^{*})\Delta x\Delta y\Delta z.\]</p>
+<p>\[\sum_{i=1}^{l}\sum_{j=1}^{m}\sum_{k=1}^{n}f({x}_{ijk}^{*},{y}_{ijk}^{*},{z}_{ijk}^{*})\Delta x\Delta y\Delta z.\]</p>
 <p>We define the triple integral in terms of the limit of a triple Riemann sum, as we did for the double integral in terms of a double Riemann sum.</p>
 <div class="card definition"><span class="chip">Definition</span><p>The <strong>triple integral</strong> of a function \(f(x,y,z)\) over a rectangular box \(B\) is defined as</p>
-<p>\[\underset{l,m,n\to \infty }{\text{lim}}∑i=1l∑j=1m∑k=1nf({x}_{ijk}^{*},{y}_{ijk}^{*},{z}_{ijk}^{*})\Delta x\Delta y\Delta z=\underset{B}{∭}f(x,y,z)dV\]</p>
+<p>\[\underset{l,m,n\to \infty }{\text{lim}}\sum_{i=1}^{l}\sum_{j=1}^{m}\sum_{k=1}^{n}f({x}_{ijk}^{*},{y}_{ijk}^{*},{z}_{ijk}^{*})\Delta x\Delta y\Delta z=\underset{B}{∭}f(x,y,z)dV\]</p>
 <p>if this limit exists.</p>
 </div>
 <p>When the triple integral exists on \(B,\) the function \(f(x,y,z)\) is said to be integrable on \(B.\) Also, the triple integral exists if \(f(x,y,z)\) is continuous on \(B.\) Therefore, we will use continuous functions for our examples. However, continuity is sufficient but not necessary; in other words, \(f\) is bounded on \(B\) and continuous except possibly on the boundary of \(B.\) The sample point \(({x}_{ijk}^{*},{y}_{ijk}^{*},{z}_{ijk}^{*})\) can be any point in the rectangular sub-box \({B}_{ijk}\) and all the properties of a double integral apply to a triple integral. Just as the double integral has many practical applications, the triple integral also has many applications, which we discuss in later sections.</p>
 <p>Now that we have developed the concept of the triple integral, we need to know how to compute it. Just as in the case of the double integral, we can have an iterated triple integral, and consequently, a version of <strong>Fubini’s thereom</strong> for triple integrals exists.</p>
 <div class="card definition"><span class="chip">Fubini’s Theorem for Triple Integrals</span><p>If \(f(x,y,z)\) is continuous on a rectangular box \(B=[a,b]\,\times \,[c,d]\,\times \,[r,s],\) then</p>
-<p>\[\underset{B}{∭}f(x,y,z)dV=∫rs\,∫cd\,∫abf(x,y,z)dx\,dy\,dz.\]</p>
+<p>\[\underset{B}{∭}f(x,y,z)dV=\int_{r}^{s}\,\int_{c}^{d}\,\int_{a}^{b}f(x,y,z)dx\,dy\,dz.\]</p>
 <p>This integral is also equal to any of the other five possible orderings for the iterated triple integral.</p>
 </div>
-<p>For \(a,b,c,d,e,\) and \(f\) real numbers, the iterated triple integral can be expressed in six different orderings:</p>
-<p>\[\begin{array}{ll}∫rs\,∫cd\,∫abf(x,y,z)dx\,dy\,dz &amp; =∫rs(∫cd(∫abf(x,y,z)dx)dy)dz=∫cd(∫rs(∫abf(x,y,z)dx)dz)dy \\ &amp; =∫ab(∫rs(∫cdf(x,y,z)dy)dz)dx=∫rs(∫ab(∫cdf(x,y,z)dy)dx)dz \\ &amp; =∫ce(∫ab(∫rsf(x,y,z)dz)dx)dy=∫ab(∫ce(∫rsf(x,y,z)dz)dy)dx.\end{array}\]</p>
+<p>For \(a,b,c,d,r,\) and \(s\) real numbers, the iterated triple integral can be expressed in six different orderings:</p>
+<p>\[\begin{array}{ll}\int_{r}^{s}\,\int_{c}^{d}\,\int_{a}^{b}f(x,y,z)dx\,dy\,dz &amp; =\int_{r}^{s}\int_{c}^{d}\int_{a}^{b}f(x,y,z)dx\,dy\,dz=\int_{c}^{d}\int_{r}^{s}\int_{a}^{b}f(x,y,z)dx\,dz\,dy \\ &amp; =\int_{a}^{b}\int_{r}^{s}\int_{c}^{d}f(x,y,z)dy\,dz\,dx=\int_{r}^{s}\int_{a}^{b}\int_{c}^{d}f(x,y,z)dy\,dx\,dz \\ &amp; =\int_{c}^{d}\int_{a}^{b}\int_{r}^{s}f(x,y,z)dz\,dx\,dy=\int_{a}^{b}\int_{c}^{d}\int_{r}^{s}f(x,y,z)dz\,dy\,dx.\end{array}\]</p>
 <p>For a rectangular box, the order of integration does not make any significant difference in the level of difficulty in computation. We compute triple integrals using Fubini’s Theorem rather than using the Riemann sum definition. We follow the order of integration in the same way as we did for double integrals (that is, from inside to outside).</p>
 <div class="card example" id="example1"><div class="ex-head"><span class="num">Example 1</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the triple integral \({∫}_{z=0}^{z=1}{∫}_{y=2}^{y=4}{∫}_{x=-1}^{x=5}(x+y{z}^{2})dx\,dy\,dz.\)</p>
 <p class="sol-hint">Integrate innermost with respect to x first as specified, holding y and z fixed, then work outward.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The order of integration is specified in the problem, so integrate with respect to \(x\) first, then <strong>y</strong>, and then \(z.\)</p>
@@ -53,9 +53,9 @@
 <div class="card example" id="example2"><div class="ex-head"><span class="num">Example 2</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the triple integral \(\underset{B}{∭}{x}^{2}yz\,dV\) where \(B=\{(x,y,z)|-2\le x\le 1,0\le y\le 3,1\le z\le 5\}\) as shown in the following figure.</p>
 <figure class="plot" id="fig2"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_002.jpg" alt="In x y z space, there is a box given with corners (1, 0, 5), (1, 0, 1), (1, 3, 1), (1, 3, 5), (negative 2, 0, 5), (negative 2, 0, 1), (negative 2, 3, 1), and (negative 2, 3, 5)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 2 — Evaluating a triple integral over a given rectangular box.</figcaption></figure>
 <p class="sol-hint">Since the order isn't specified, pick any convenient order — integrate with respect to y first, then x, then z.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The order is not specified, but we can use the iterated integral in any order without changing the level of difficulty. Choose, say, to integrate <strong>y</strong> first, then <strong>x</strong>, and then <strong>z</strong>.</p>
-<p>\(\begin{array}{ll}\underset{B}{∭}{x}^{2}yz\,dV &amp; =∫15\,∫-21\,∫03[{x}^{2}yz]dy\,dx\,dz=∫15\,∫-21[{{x}^{2}\frac{{y}^{2}}{2}z|}_{0}^{3}]dx\,dz \\ &amp; =∫15\,∫-21\frac{9}{2}{x}^{2}z\,dx\,dz=∫15[{\frac{9}{2}\frac{{x}^{3}}{3}z|}_{-2}^{1}]dz=∫15\frac{27}{2}z\,dz={\frac{27}{2}\frac{{z}^{2}}{2}|}_{1}^{5}=162.\end{array}\)</p>
+<p>\(\begin{array}{ll}\underset{B}{∭}{x}^{2}yz\,dV &amp; =\int_{1}^{5}\,\int_{-2}^{1}\,\int_{0}^{3}[{x}^{2}yz]dy\,dx\,dz=\int_{1}^{5}\,\int_{-2}^{1}[{{x}^{2}\frac{{y}^{2}}{2}z|}_{0}^{3}]dx\,dz \\ &amp; =\int_{1}^{5}\,\int_{-2}^{1}\frac{9}{2}{x}^{2}z\,dx\,dz=\int_{1}^{5}[{\frac{9}{2}\frac{{x}^{3}}{3}z|}_{-2}^{1}]dz=\int_{1}^{5}\frac{27}{2}z\,dz={\frac{27}{2}\frac{{z}^{2}}{2}|}_{1}^{5}=162.\end{array}\)</p>
 <p>Now try to integrate in a different order just to see that we get the same answer. Choose to integrate with respect to \(x\) first, then \(z,\) and then \(y.\)</p>
-<p>\[\begin{array}{ll}\underset{B}{∭}{x}^{2}yz\,dV &amp; =∫03\,∫15\,∫-21[{x}^{2}yz]dx\,dz\,dy=∫03\,∫15[{\frac{{x}^{3}}{3}yz|}_{-2}^{1}]dz\,dy \\ &amp; =∫03\,∫153yz\,dz\,dy=∫03[{3y\frac{{z}^{2}}{2}|}_{1}^{5}]dy=∫0336y\,dy={36\frac{{y}^{2}}{2}|}_{0}^{3}=18(9-0)=162.\end{array}\]</p>
+<p>\[\begin{array}{ll}\underset{B}{∭}{x}^{2}yz\,dV &amp; =\int_{0}^{3}\,\int_{1}^{5}\,\int_{-2}^{1}[{x}^{2}yz]dx\,dz\,dy=\int_{0}^{3}\,\int_{1}^{5}[{\frac{{x}^{3}}{3}yz|}_{-2}^{1}]dz\,dy \\ &amp; =\int_{0}^{3}\,\int_{1}^{5}3yz\,dz\,dy=\int_{0}^{3}[{3y\frac{{z}^{2}}{2}|}_{1}^{5}]dy=\int_{0}^{3}36y\,dy={36\frac{{y}^{2}}{2}|}_{0}^{3}=18(9-0)=162.\end{array}\]</p>
 </div></div></div>
 <div class="tryit" id="tryit-1"><div class="ex-head"><span class="num">Try It #1</span></div><div class="ex-body"><p>Evaluate the triple integral \(\underset{B}{∭}z\,\text{sin}\,x\,\text{cos}\,y\,dV\) where \(B=\{(x,y,z)|0\le x\le \pi ,\frac{3\pi }{2}\le y\le 2\pi ,1\le z\le 3\}.\)</p>
 </div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\underset{B}{∭}z\,\text{sin}\,x\,\text{cos}\,y\,dV=8\)</p>
@@ -68,21 +68,21 @@
 <div class="card definition"><span class="chip">Triple Integral over a General Region</span><p>The triple integral of a continuous function \(f(x,y,z)\) over a general three-dimensional region</p>
 <p>\[E=\{(x,y,z)|(x,y)\in D,{u}_{1}(x,y)\le z\le {u}_{2}(x,y)\}\]</p>
 <p>in \({ℝ}^{3},\) where \(D\) is the projection of \(E\) onto the \(xz\) -plane, is</p>
-<p>\[\underset{E}{∭}f(x,y,z)dV=\underset{D}{∬}[∫{u}_{1}(x,y){u}_{2}(x,y)f(x,y,z)dz]dA.\]</p>
+<p>\[\underset{E}{∭}f(x,y,z)dV=\underset{D}{∬}[\int_{{u}_{1}(x,y)}^{{u}_{2}(x,y)}f(x,y,z)dz]dA.\]</p>
 </div>
 <p>Similarly, we can consider a general bounded region \(D\) in the \(xy\) -plane and two functions \(y={u}_{1}(x,z)\) and \(y={u}_{2}(x,z)\) such that \({u}_{1}(x,z)\le {u}_{2}(x,z)\) for all \((x,z)\) in \(D.\) Then we can describe the solid region \(E\) in \({ℝ}^{3}\) as</p>
 <p>\[E=\{(x,y,z)|(x,z)\in D,{u}_{1}(x,z)\le y\le {u}_{2}(x,z)\}\]</p>
 <p>where \(D\) is the projection of \(E\) onto the \(xz\) -plane and the triple integral is</p>
-<p>\[\underset{E}{∭}f(x,y,z)dV=\underset{D}{∬}[∫{u}_{1}(x,z){u}_{2}(x,z)f(x,y,z)dy]dA.\]</p>
+<p>\[\underset{E}{∭}f(x,y,z)dV=\underset{D}{∬}[\int_{{u}_{1}(x,z)}^{{u}_{2}(x,z)}f(x,y,z)dy]dA.\]</p>
 <p>Finally, if \(D\) is a general bounded region in the \(yz\) -plane and we have two functions \(x={u}_{1}(y,z)\) and \(x={u}_{2}(y,z)\) such that \({u}_{1}(y,z)\le {u}_{2}(y,z)\) for all \((y,z)\) in \(D,\) then the solid region \(E\) in \({ℝ}^{3}\) can be described as</p>
 <p>\[E=\{(x,y,z)|(y,z)\in D,{u}_{1}(y,z)\le x\le {u}_{2}(y,z)\}\]</p>
 <p>where \(D\) is the projection of \(E\) onto the \(yz\) -plane and the triple integral is</p>
-<p>\[\underset{E}{∭}f(x,y,z)dV=\underset{D}{∬}[∫{u}_{1}(y,z){u}_{2}(y,z)f(x,y,z)dx]dA.\]</p>
+<p>\[\underset{E}{∭}f(x,y,z)dV=\underset{D}{∬}[\int_{{u}_{1}(y,z)}^{{u}_{2}(y,z)}f(x,y,z)dx]dA.\]</p>
 <p>Note that the region \(D\) in any of the planes may be of Type I or Type II as described in Double Integrals over General Regions. If \(D\) in the \(xy\) -plane is of Type I (<a href="#fig4">Figure 4</a>), then</p>
 <p>\[E=\{(x,y,z)|a\le x\le b,{g}_{1}(x)\le y\le {g}_{2}(x),{u}_{1}(x,y)\le z\le {u}_{2}(x,y)\}.\]</p>
 <figure class="plot" id="fig4"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_004.jpg" alt="In x y z space, there is a complex shape E with top surface z = u2(x, y) and bottom surface z = u1(x, y). The bottom projects onto the xy plane as region D with boundaries x = a, x = b, y = g1(x), and y = g2(x)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 4 — A box \(E\) where the projection \(D\) in the \(xy\) -plane is of Type I.</figcaption></figure>
 <p>Then the triple integral becomes</p>
-<p>\[\underset{E}{∭}f(x,y,z)dV=∫ab\,∫{g}_{1}(x){g}_{2}(x)\,∫{u}_{1}(x,y){u}_{2}(x,y)f(x,y,z)dz\,dy\,dx.\]</p>
+<p>\[\underset{E}{∭}f(x,y,z)dV=\int_{a}^{b}\,\int_{{g}_{1}(x)}^{{g}_{2}(x)}\,\int_{{u}_{1}(x,y)}^{{u}_{2}(x,y)}f(x,y,z)dz\,dy\,dx.\]</p>
 <p>If \(D\) in the \(xy\) -plane is of Type II (<a href="#fig5">Figure 5</a>), then</p>
 <p>\[E=\{(x,y,z)|c\le y\le d,{h}_{1}(y)\le x\le {h}_{2}(y),{u}_{1}(x,y)\le z\le {u}_{2}(x,y)\}.\]</p>
 <figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_005.jpg" alt="In x y z space, there is a complex shape E with top surface z = u2(x, y) and bottom surface z = u1(x, y). The bottom projects onto the xy plane as region D with boundaries y = c, y = d, x = h1(y), and x = h2(y)." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — A box \(E\) where the projection \(D\) in the \(xy\) -plane is of Type II.</figcaption></figure>
@@ -119,28 +119,28 @@
 <h2 id="changing-the-order-of-integration">Changing the Order of Integration</h2>
 <p>As we have already seen in double integrals over general bounded regions, changing the order of the integration is done quite often to simplify the computation. With a triple integral over a rectangular box, the order of integration does not change the level of difficulty of the calculation. However, with a triple integral over a general bounded region, choosing an appropriate order of integration can simplify the computation quite a bit. Sometimes making the change to polar coordinates can also be very helpful. We demonstrate two examples here.</p>
 <div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Consider the iterated integral</p>
-<p>\[∫x=0x=1\,∫y=0y={x}^{2}\,∫z=0z={y}^{2}f(x,y,z)dz\,dy\,dx.\]</p>
+<p>\[\int_{x=0}^{x=1}\,\int_{y=0}^{y={x}^{2}}\,\int_{z=0}^{z={y}^{2}}f(x,y,z)dz\,dy\,dx.\]</p>
 <p>The order of integration here is first with respect to <strong>z</strong>, then <strong>y</strong>, and then <strong>x</strong>. Express this integral by changing the order of integration to be first with respect to <strong>x</strong>, then <strong>z</strong>, and then \(y.\) Verify that the value of the integral is the same if we let \(f(x,y,z)=xyz.\)</p>
 <p class="sol-hint">Sketch the solid's projections onto each coordinate plane to rewrite the same region with x as the innermost variable.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>The best way to do this is to sketch the region \(E\) and its projections onto each of the three coordinate planes. Thus, let</p>
 <p>\[E=\{(x,y,z)|0\le x\le 1,0\le y\le {x}^{2},0\le z\le {y}^{2}\}.\]</p>
 <p>and</p>
-<p>\[∫x=0x=1\,∫y=0y={x}^{2}\,∫z=0z={y}^{2}f(x,y,z)dz\,dy\,dx=\underset{E}{∭}f(x,y,z)dV.\]</p>
+<p>\[\int_{x=0}^{x=1}\,\int_{y=0}^{y={x}^{2}}\,\int_{z=0}^{z={y}^{2}}f(x,y,z)dz\,dy\,dx=\underset{E}{∭}f(x,y,z)dV.\]</p>
 <p>We need to express this triple integral as</p>
-<p>\[∫y=cy=d\,∫z={v}_{1}(y)z={v}_{2}(y)\,∫x={u}_{1}(y,z)x={u}_{2}(y,z)f(x,y,z)dx\,dz\,dy.\]</p>
+<p>\[\int_{y=c}^{y=d}\,\int_{z={v}_{1}(y)}^{z={v}_{2}(y)}\,\int_{x={u}_{1}(y,z)}^{x={u}_{2}(y,z)}f(x,y,z)dx\,dz\,dy.\]</p>
 <p>Knowing the region \(E\) we can draw the following projections (<a href="#fig8">Figure 8</a>):</p>
 <p>on the \(xy\) -plane is \({D}_{1}=\{(x,y)|0\le x\le 1,0\le y\le {x}^{2}\}=\{(x,y)|0\le y\le 1,\sqrt{y}\le x\le 1\},\)</p>
 <p>on the \(yz\) -plane is \({D}_{2}=\{(y,z)|0\le y\le 1,0\le z\le {y}^{2}\},\) and</p>
 <p>on the \(xz\) -plane is \({D}_{3}=\{(x,z)|0\le x\le 1,0\le z\le {x}^{4}\}.\)</p>
 <figure class="plot" id="fig8"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_008.jpg" alt="Three similar versions of the following graph are shown: In the x y plane, a region D1 is bounded by the x axis, the line x = 1, and the curve y = x squared. In the second version, region D2 on the z y plane is shown with equation z = y squared. And in the third version, region D3 on the x z plane is shown with equation z = x cubed." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 8 — The three cross sections of \(E\) on the three coordinate planes.</figcaption></figure>
 <p>Now we can describe the same region \(E\) as \(\{(x,y,z)|0\le y\le 1,0\le z\le {y}^{2},\sqrt{y}\le x\le 1\},\) and consequently, the triple integral becomes</p>
-<p>\[∫y=cy=d\,∫z={v}_{1}(y)z={v}_{2}(y)\,∫x={u}_{1}(y,z)x={u}_{2}(y,z)f(x,y,z)dx\,dz\,dy=∫y=0y=1\,∫z=0z={y}^{2}\,∫x=\sqrt{y}x=1f(x,y,z)dx\,dz\,dy.\]</p>
+<p>\[\int_{y=c}^{y=d}\,\int_{z={v}_{1}(y)}^{z={v}_{2}(y)}\,\int_{x={u}_{1}(y,z)}^{x={u}_{2}(y,z)}f(x,y,z)dx\,dz\,dy=\int_{y=0}^{y=1}\,\int_{z=0}^{z={y}^{2}}\,\int_{x=\sqrt{y}}^{x=1}f(x,y,z)dx\,dz\,dy.\]</p>
 <p>Now assume that \(f(x,y,z)=xyz\) in each of the integrals. Then we have</p>
-<p>\[\begin{array}{l} \\ \\ \\ \\ \\ \,∫x=0x=1\,∫y=0y={x}^{2}\,∫z=0z={y}^{2}xyz\,dz\,dy\,dx \\ =∫x=0x=1\,∫y=0y={x}^{2}[{xy\frac{{z}^{2}}{2}|}_{z=0}^{z={y}^{2}}]dy\,dx=∫x=0x=1\,∫y=0y={x}^{2}(x\frac{{y}^{5}}{2})dy\,dx=∫x=0x=1[{x\frac{{y}^{6}}{12}|}_{y=0}^{y={x}^{2}}]dx=∫x=0x=1\frac{{x}^{13}}{12}dx=\frac{1}{168}, \\ \,∫y=0y=1\,∫z=0z={y}^{2}\,∫x=\sqrt{y}x=1xyz\,dx\,dz\,dy \\ =∫y=0y=1\,∫z=0z={y}^{2}[{yz\frac{{x}^{2}}{2}|}_{\sqrt{y}}^{1}]dz\,dy \\ =∫y=0y=1\,∫z=0z={y}^{2}(\frac{yz}{2}-\frac{{y}^{2}z}{2})dz\,dy=∫y=0y=1[{\frac{y{z}^{2}}{4}-\frac{{y}^{2}{z}^{2}}{4}|}_{z=0}^{z={y}^{2}}]dy=∫y=0y=1(\frac{{y}^{5}}{4}-\frac{{y}^{6}}{4})dy=\frac{1}{168}.\end{array}\]</p>
+<p>\[\begin{array}{l} \\ \\ \\ \\ \\ \,\int_{x=0}^{x=1}\,\int_{y=0}^{y={x}^{2}}\,\int_{z=0}^{z={y}^{2}}xyz\,dz\,dy\,dx \\ =\int_{x=0}^{x=1}\,\int_{y=0}^{y={x}^{2}}[{xy\frac{{z}^{2}}{2}|}_{z=0}^{z={y}^{2}}]dy\,dx=\int_{x=0}^{x=1}\,\int_{y=0}^{y={x}^{2}}(x\frac{{y}^{5}}{2})dy\,dx=\int_{x=0}^{x=1}[{x\frac{{y}^{6}}{12}|}_{y=0}^{y={x}^{2}}]dx=\int_{x=0}^{x=1}\frac{{x}^{13}}{12}dx=\frac{1}{168}, \\ \,\int_{y=0}^{y=1}\,\int_{z=0}^{z={y}^{2}}\,\int_{x=\sqrt{y}}^{x=1}xyz\,dx\,dz\,dy \\ =\int_{y=0}^{y=1}\,\int_{z=0}^{z={y}^{2}}[{yz\frac{{x}^{2}}{2}|}_{\sqrt{y}}^{1}]dz\,dy \\ =\int_{y=0}^{y=1}\,\int_{z=0}^{z={y}^{2}}(\frac{yz}{2}-\frac{{y}^{2}z}{2})dz\,dy=\int_{y=0}^{y=1}[{\frac{y{z}^{2}}{4}-\frac{{y}^{2}{z}^{2}}{4}|}_{z=0}^{z={y}^{2}}]dy=\int_{y=0}^{y=1}(\frac{{y}^{5}}{4}-\frac{{y}^{6}}{4})dy=\frac{1}{168}.\end{array}\]</p>
 <p>The answers match.</p>
 </div></div></div>
 <div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Write five different iterated integrals equal to the given integral</p>
-<p>\[∫z=0z=4\,∫y=0y=4-z\,∫x=0x=\sqrt{y}f(x,y,z)dx\,dy\,dz.\]</p>
-</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>(i) \(∫z=0z=4\,∫x=0x=\sqrt{4-z}\,∫y={x}^{2}y=4-zf(x,y,z)dy\,dx\,dz,\) (ii) \(∫y=0y=4\,∫z=0z=4-y\,∫x=0x=\sqrt{y}f(x,y,z)dx\,dz\,dy,\) (iii) \(∫y=0y=4\,∫x=0x=\sqrt{y}\,∫z=0z=4-yf(x,y,z)dz\,dx\,dy,\) (iv) \(∫x=0x=2\,∫y={x}^{2}y=4\,∫z=0z=4-yf(x,y,z)dz\,dy\,dx,\) (v) \(∫x=0x=2\,∫z=0z=4-{x}^{2}\,∫y={x}^{2}y=4-zf(x,y,z)dy\,dz\,dx\)</p>
+<p>\[\int_{z=0}^{z=4}\,\int_{y=0}^{y=4-z}\,\int_{x=0}^{x=\sqrt{y}}f(x,y,z)dx\,dy\,dz.\]</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>(i) \(\int_{z=0}^{z=4}\,\int_{x=0}^{x=\sqrt{4-z}}\,\int_{y={x}^{2}}^{y=4-z}f(x,y,z)dy\,dx\,dz,\) (ii) \(\int_{y=0}^{y=4}\,\int_{z=0}^{z=4-y}\,\int_{x=0}^{x=\sqrt{y}}f(x,y,z)dx\,dz\,dy,\) (iii) \(\int_{y=0}^{y=4}\,\int_{x=0}^{x=\sqrt{y}}\,\int_{z=0}^{z=4-y}f(x,y,z)dz\,dx\,dy,\) (iv) \(\int_{x=0}^{x=2}\,\int_{y={x}^{2}}^{y=4}\,\int_{z=0}^{z=4-y}f(x,y,z)dz\,dy\,dx,\) (v) \(\int_{x=0}^{x=2}\,\int_{z=0}^{z=4-{x}^{2}}\,\int_{y={x}^{2}}^{y=4-z}f(x,y,z)dy\,dz\,dx\)</p>
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the triple integral \(\underset{E}{∭}\sqrt{{x}^{2}+{z}^{2}}dV,\) where \(E\) is the region bounded by the paraboloid \(y={x}^{2}+{z}^{2}\) (<a href="#fig9">Figure 9</a>) and the plane \(y=4.\)</p>
 <figure class="plot" id="fig9"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_009.jpg" alt="The paraboloid y = x squared + z squared is shown opening up along the y axis to y = 4." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 9 — Integrating a triple integral over a paraboloid.</figcaption></figure>
@@ -149,13 +149,13 @@
 <p>Thus, we have</p>
 <p>\[E=\{(x,y,z)|-2\le x\le 2,{x}^{2}\le y\le 4,\text{-}\sqrt{y-{x}^{2}}\le z\le \sqrt{y-{x}^{2}}\}.\]</p>
 <p>The triple integral becomes</p>
-<p>\[\underset{E}{∭}\sqrt{{x}^{2}+{z}^{2}}dV=∫x=-2x=2\,∫y={x}^{2}y=4\,∫z=\text{-}\sqrt{y-{x}^{2}}z=\sqrt{y-{x}^{2}}\sqrt{{x}^{2}+{z}^{2}}dz\,dy\,dx.\]</p>
+<p>\[\underset{E}{∭}\sqrt{{x}^{2}+{z}^{2}}dV=\int_{x=-2}^{x=2}\,\int_{y={x}^{2}}^{y=4}\,\int_{z=\text{-}\sqrt{y-{x}^{2}}}^{z=\sqrt{y-{x}^{2}}}\sqrt{{x}^{2}+{z}^{2}}dz\,dy\,dx.\]</p>
 <p>This expression is difficult to compute, so consider the projection of \(E\) onto the \(xz\) -plane. This is a circular disc \({x}^{2}+{z}^{2}\le 4.\) So we obtain</p>
-<p>\[\underset{E}{∭}\sqrt{{x}^{2}+{z}^{2}}dV=∫x=-2x=2\,∫y={x}^{2}y=4\,∫z=\text{-}\sqrt{y-{x}^{2}}z=\sqrt{y-{x}^{2}}\sqrt{{x}^{2}+{z}^{2}}dz\,dy\,dx=∫x=-2x=2\,∫z=\text{-}\sqrt{4-{x}^{2}}z=\sqrt{4-{x}^{2}}\,∫y={x}^{2}+{z}^{2}y=4\sqrt{{x}^{2}+{z}^{2}}dy\,dz\,dx.\]</p>
+<p>\[\underset{E}{∭}\sqrt{{x}^{2}+{z}^{2}}dV=\int_{x=-2}^{x=2}\,\int_{y={x}^{2}}^{y=4}\,\int_{z=\text{-}\sqrt{y-{x}^{2}}}^{z=\sqrt{y-{x}^{2}}}\sqrt{{x}^{2}+{z}^{2}}dz\,dy\,dx=\int_{x=-2}^{x=2}\,\int_{z=\text{-}\sqrt{4-{x}^{2}}}^{z=\sqrt{4-{x}^{2}}}\,\int_{y={x}^{2}+{z}^{2}}^{y=4}\sqrt{{x}^{2}+{z}^{2}}dy\,dz\,dx.\]</p>
 <p>Here the order of integration changes from being first with respect to \(z,\) then \(y,\) and then \(x\) to being first with respect to \(y,\) then to \(z,\) and then to \(x.\) It will soon be clear how this change can be beneficial for computation. We have</p>
-<p>\[∫x=-2x=2\,∫z=\text{-}\sqrt{4-{x}^{2}}z=\sqrt{4-{x}^{2}}\,∫y={x}^{2}+{z}^{2}y=4\sqrt{{x}^{2}+{z}^{2}}dy\,dz\,dx=∫x=-2x=2\,∫z=\text{-}\sqrt{4-{x}^{2}}z=\sqrt{4-{x}^{2}}(4-{x}^{2}-{z}^{2})\sqrt{{x}^{2}+{z}^{2}}dz\,dx.\]</p>
+<p>\[\int_{x=-2}^{x=2}\,\int_{z=\text{-}\sqrt{4-{x}^{2}}}^{z=\sqrt{4-{x}^{2}}}\,\int_{y={x}^{2}+{z}^{2}}^{y=4}\sqrt{{x}^{2}+{z}^{2}}dy\,dz\,dx=\int_{x=-2}^{x=2}\,\int_{z=\text{-}\sqrt{4-{x}^{2}}}^{z=\sqrt{4-{x}^{2}}}(4-{x}^{2}-{z}^{2})\sqrt{{x}^{2}+{z}^{2}}dz\,dx.\]</p>
 <p>Now use the polar substitution \(x=r\,\text{cos}\,θ,z=r\,\text{sin}\,θ,\) and \(dz\,dx=r\,dr\,dθ\) in the \(xz\) -plane. This is essentially the same thing as when we used polar coordinates in the \(xy\) -plane, except we are replacing \(y\) by \(z.\) Consequently the limits of integration change and we have, by using \({r}^{2}={x}^{2}+{z}^{2},\)</p>
-<p>\[\begin{array}{ll}∫x=-2x=2\,∫z=\text{-}\sqrt{4-{x}^{2}}z=\sqrt{4-{x}^{2}}(4-{x}^{2}-{z}^{2})\sqrt{{x}^{2}+{z}^{2}}dz\,dx &amp; =∫θ=0θ=2\pi \,∫r=0r=2(4-{r}^{2})rr\,dr\,dθ \\ &amp; =∫02\pi [{\frac{4{r}^{3}}{3}-\frac{{r}^{5}}{5}|}_{0}^{2}]dθ=∫02\pi \frac{64}{15}dθ=\frac{128\pi }{15}.\end{array}\]</p>
+<p>\[\begin{array}{ll}\int_{x=-2}^{x=2}\,\int_{z=\text{-}\sqrt{4-{x}^{2}}}^{z=\sqrt{4-{x}^{2}}}(4-{x}^{2}-{z}^{2})\sqrt{{x}^{2}+{z}^{2}}dz\,dx &amp; =\int_{θ=0}^{θ=2\pi} \,\int_{r=0}^{r=2}(4-{r}^{2})rr\,dr\,dθ \\ &amp; =\int_{0}^{2\pi} [{\frac{4{r}^{3}}{3}-\frac{{r}^{5}}{5}|}_{0}^{2}]dθ=\int_{0}^{2\pi} \frac{64}{15}dθ=\frac{128\pi }{15}.\end{array}\]</p>
 </div></div></div>
 <h2 id="average-value-of-a-function-of-three-variables">Average Value of a Function of Three Variables</h2>
 <p>Recall that we found the average value of a function of two variables by evaluating the double integral over a region on the plane and then dividing by the area of the region. Similarly, we can find the average value of a function in three variables by evaluating the triple integral over a solid region and then dividing by the volume of the solid.</p>
@@ -167,20 +167,20 @@
 <p class="sol-hint">Compute the triple integral of the temperature over E and the volume V(E) separately, then divide to get the average.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>Use the theorem given above and the triple integral to find the numerator and the denominator. Then do the division. Notice that the plane \(x+y+z=1\) has intercepts \((1,0,0),(0,1,0),\) and \((0,0,1).\) The region \(E\) looks like</p>
 <p>\[E=\{(x,y,z)|0\le x\le 1,0\le y\le 1-x,0\le z\le 1-x-y\}.\]</p>
 <p>Hence the triple integral of the temperature is</p>
-<p>\[\underset{E}{∭}f(x,y,z)dV=∫x=0x=1\,∫y=0y=1-x\,∫z=0z=1-x-y(xy+8z+20)dz\,dy\,dx=\frac{147}{40}.\]</p>
-<p>The volume evaluation is \(V(E)=\underset{E}{∭}1dV=∫x=0x=1\,∫y=0y=1-x\,∫z=0z=1-x-y1dz\,dy\,dx=\frac{1}{6}.\)</p>
+<p>\[\underset{E}{∭}f(x,y,z)dV=\int_{x=0}^{x=1}\,\int_{y=0}^{y=1-x}\,\int_{z=0}^{z=1-x-y}(xy+8z+20)dz\,dy\,dx=\frac{147}{40}.\]</p>
+<p>The volume evaluation is \(V(E)=\underset{E}{∭}1dV=\int_{x=0}^{x=1}\,\int_{y=0}^{y=1-x}\,\int_{z=0}^{z=1-x-y}1dz\,dy\,dx=\frac{1}{6}.\)</p>
 <p>Hence the average value is \({T}_{\text{ave}}=\frac{147\text{/}40}{1\text{/}6}=\frac{6(147)}{40}=\frac{441}{20}\) degrees Celsius.</p>
 </div></div></div>
 <div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Find the average value of the function \(f(x,y,z)=xyz\) over the cube with sides of length \(4\) units in the first octant with one vertex at the origin and edges parallel to the coordinate axes.</p>
 </div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\({f}_{\text{ave}}=8\)</p>
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <h2 id="key-concepts">Key Concepts</h2>
-<ul class="tight"><li>To compute a triple integral we use Fubini’s theorem, which states that if \(f(x,y,z)\) is continuous on a rectangular box \(B=[a,b]\,\times \,[c,d]\,\times \,[e,f],\) then<br> <br> and is also equal to any of the other five possible orderings for the iterated triple integral.<p>\[\underset{B}{∭}f(x,y,z)dV=∫ef\,∫cd\,∫abf(x,y,z)dx\,dy\,dz\]</p>
+<ul class="tight"><li>To compute a triple integral we use Fubini’s theorem, which states that if \(f(x,y,z)\) is continuous on a rectangular box \(B=[a,b]\,\times \,[c,d]\,\times \,[e,f],\) then<br> <br> and is also equal to any of the other five possible orderings for the iterated triple integral.<p>\[\underset{B}{∭}f(x,y,z)dV=\int_{e}^{f}\,\int_{c}^{d}\,\int_{a}^{b}f(x,y,z)dx\,dy\,dz\]</p>
  (See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.)</li><li>To compute the volume of a general solid bounded region \(E\) we use the triple integral<br><p>\[V(E)=\underset{E}{∭}1dV.\]</p>
  (See <a href="#example4">Example 4</a>.)</li><li>Interchanging the order of the iterated integrals does not change the answer. As a matter of fact, interchanging the order of integration can help simplify the computation. (See <a href="#example5">Example 5</a> and <a href="#example6">Example 6</a>.)</li><li>To compute the average value of a function over a general three-dimensional region, we use<br><p>\[{f}_{\text{ave}}=\frac{1}{V(E)}\underset{E}{∭}f(x,y,z)dV.\]</p>
  (See <a href="#example7">Example 7</a>.)</li></ul>
 <h2 id="key-equations">Key Equations</h2>
-<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Triple integral</strong></td><td>\(\underset{l,m,n\to \infty }{\text{lim}}∑i=1l∑j=1m∑k=1nf({x}_{ijk}^{*},{y}_{ijk}^{*},{z}_{ijk}^{*})\Delta x\Delta y\Delta z=\underset{B}{∭}f(x,y,z)dV\)</td></tr></tbody></table></div>
+<div class="tablewrap" id="tab1"><table class="data"><caption>Table 1</caption><tbody><tr><td><strong>Triple integral</strong></td><td>\(\underset{l,m,n\to \infty }{\text{lim}}\sum_{i=1}^{l}\sum_{j=1}^{m}\sum_{k=1}^{n}f({x}_{ijk}^{*},{y}_{ijk}^{*},{z}_{ijk}^{*})\Delta x\Delta y\Delta z=\underset{B}{∭}f(x,y,z)dV\)</td></tr></tbody></table></div>
 <div id="exercise-panel-content">
 <h2 id="exercises">Section Exercises</h2>
 <p>In the following exercises, evaluate the triple integrals over the rectangular solid box \(B.\)</p>
@@ -195,21 +195,21 @@
 <div class="exercise" id="ex184"><div class="n">184</div><div class="body"><p>\(\underset{B}{∭}(z\,\text{sin}\,x+{y}^{2})dV,\) where \(B=\{(x,y,z)|0\le x\le \pi ,0\le y\le 1,-1\le z\le 2\}\)</p>
 </div></div>
 <p>In the following exercises, change the order of integration by integrating first with respect to \(z,\) then \(x,\) then \(y.\)</p>
-<div class="exercise" id="ex185"><div class="n">185</div><div class="body"><p>\(∫01\,∫12\,∫23({x}^{2}+\text{ln}\,y+z)dx\,dy\,dz\)</p>
-<div class="answer"><button>Show answer</button><div class="a"><p>\(∫12\,∫23\,∫01({x}^{2}+\text{ln}\,y+z)dz\,dx\,dy=\frac{35}{6}+2\,\text{ln}\,2\)</p>
+<div class="exercise" id="ex185"><div class="n">185</div><div class="body"><p>\(\int_{0}^{1}\,\int_{1}^{2}\,\int_{2}^{3}({x}^{2}+\text{ln}\,y+z)dx\,dy\,dz\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\int_{1}^{2}\,\int_{2}^{3}\,\int_{0}^{1}({x}^{2}+\text{ln}\,y+z)dz\,dx\,dy=\frac{35}{6}+2\,\text{ln}\,2\)</p>
 </div></div></div></div>
-<div class="exercise" id="ex186"><div class="n">186</div><div class="body"><p>\(∫-11\,∫03\,∫01(z{e}^{x}+2y)dx\,dy\,dz\)</p>
+<div class="exercise" id="ex186"><div class="n">186</div><div class="body"><p>\(\int_{-1}^{1}\,\int_{0}^{3}\,\int_{0}^{1}(z{e}^{x}+2y)dx\,dy\,dz\)</p>
 </div></div>
-<div class="exercise" id="ex187"><div class="n">187</div><div class="body"><p>\(∫-12\,∫13\,∫04({x}^{2}z+\frac{1}{y})dx\,dy\,dz\)</p>
-<div class="answer"><button>Show answer</button><div class="a"><p>\(∫13\,∫04\,∫-12({x}^{2}z+\frac{1}{y})dz\,dx\,dy=64+12\,\text{ln}\,3\)</p>
+<div class="exercise" id="ex187"><div class="n">187</div><div class="body"><p>\(\int_{-1}^{2}\,\int_{1}^{3}\,\int_{0}^{4}({x}^{2}z+\frac{1}{y})dx\,dy\,dz\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\int_{1}^{3}\,\int_{0}^{4}\,\int_{-1}^{2}({x}^{2}z+\frac{1}{y})dz\,dx\,dy=64+12\,\text{ln}\,3\)</p>
 </div></div></div></div>
-<div class="exercise" id="ex188"><div class="n">188</div><div class="body"><p>\(∫12\,∫-2-1\,∫01\frac{x+y}{z}dx\,dy\,dz\)</p>
+<div class="exercise" id="ex188"><div class="n">188</div><div class="body"><p>\(\int_{1}^{2}\,\int_{-2}^{-1}\,\int_{0}^{1}\frac{x+y}{z}dx\,dy\,dz\)</p>
 </div></div>
 <div class="exercise" id="ex189"><div class="n">189</div><div class="body"><p>Let \(F,G,\,\text{and}\,H\) be continuous functions on \([a,b],[c,d],\) and \([e,f],\) respectively, where \(a,b,c,d,e,\,\text{and}\,f\) are real numbers such that \(a&lt;b,c&lt;d,\,\text{and}\,e&lt;f.\) Show that</p>
-<p>\[∫ab\,∫cd\,∫efF(x)G(y)H(z)dz\,dy\,dx=(∫abF(x)dx)(∫cdG(y)dy)(∫efH(z)dz).\]</p>
+<p>\[\int_{a}^{b}\,\int_{c}^{d}\,\int_{e}^{f}F(x)G(y)H(z)dz\,dy\,dx=(\int_{a}^{b}F(x)dx)(\int_{c}^{d}G(y)dy)(\int_{e}^{f}H(z)dz).\]</p>
 </div></div>
 <div class="exercise" id="ex190"><div class="n">190</div><div class="body"><p>Let \(F,G,\,\text{and}\,H\) be differential functions on \([a,b],[c,d],\) and \([e,f],\) respectively, where \(a,b,c,d,e,\,\text{and}\,f\) are real numbers such that \(a&lt;b,c&lt;d,\,\text{and}\,e&lt;f.\) Show that</p>
-<p>\[∫ab\,∫cd\,∫ef{F}^{\prime }(x){G}^{\prime }(y){H}^{\prime }(z)dz\,dy\,dx=[F(b)-F(a)]\,[G(d)-G(c)]\,[H(f)-H(e)].\]</p>
+<p>\[\int_{a}^{b}\,\int_{c}^{d}\,\int_{e}^{f}{F}^{\prime }(x){G}^{\prime }(y){H}^{\prime }(z)dz\,dy\,dx=[F(b)-F(a)]\,[G(d)-G(c)]\,[H(f)-H(e)].\]</p>
 </div></div>
 <p>In the following exercises, evaluate the triple integrals over the bounded region \(E=\{(x,y,z)|a\le x\le b,{h}_{1}(x)\le y\le {h}_{2}(x),e\le z\le f\}.\)</p>
 <div class="exercise" id="ex191"><div class="n">191</div><div class="body"><p>\(\underset{E}{∭}(2x+5y+7z)dV,\) where \(E=\{(x,y,z)|0\le x\le 1,0\le y\le -x+1,1\le z\le 2\}\)</p>
@@ -258,42 +258,42 @@
 </div></div>
 <p>In the following exercises, evaluate the triple integrals over the bounded region</p>
 <p>\(E=\{(x,y,z)|(x,y)\in D,{u}_{1}(x,y)\le z\le {u}_{2}(x,y)\},\) where \(D\) is the projection of \(E\) onto the \(xy\) -plane.</p>
-<div class="exercise" id="ex207"><div class="n">207</div><div class="body"><p>\(\underset{D}{∬}(∫12(x+z)dz)dA,\) where \(D=\{(x,y)|{x}^{2}+{y}^{2}\le 1\}\)</p>
+<div class="exercise" id="ex207"><div class="n">207</div><div class="body"><p>\(\underset{D}{∬}(\int_{1}^{2}(x+z)dz)dA,\) where \(D=\{(x,y)|{x}^{2}+{y}^{2}\le 1\}\)</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{3\pi }{2}\)</p>
 </div></div></div></div>
-<div class="exercise" id="ex208"><div class="n">208</div><div class="body"><p>\(\underset{D}{∬}(∫13x(z+1)dz)dA,\) where \(D=\{(x,y)|{x}^{2}-{y}^{2}\ge 1,1\le x\le \sqrt{5}\}\)</p>
+<div class="exercise" id="ex208"><div class="n">208</div><div class="body"><p>\(\underset{D}{∬}(\int_{1}^{3}x(z+1)dz)dA,\) where \(D=\{(x,y)|{x}^{2}-{y}^{2}\ge 1,1\le x\le \sqrt{5}\}\)</p>
 </div></div>
-<div class="exercise" id="ex209"><div class="n">209</div><div class="body"><p>\(\underset{D}{∬}(∫010-x-y(x+2z)dz)dA,\) where \(D=\{(x,y)|y\ge 0,x\ge 0,x+y\le 10\}\)</p>
+<div class="exercise" id="ex209"><div class="n">209</div><div class="body"><p>\(\underset{D}{∬}(\int_{0}^{10-x-y}(x+2z)dz)dA,\) where \(D=\{(x,y)|y\ge 0,x\ge 0,x+y\le 10\}\)</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>\(1250\)</p>
 </div></div></div></div>
-<div class="exercise" id="ex210"><div class="n">210</div><div class="body"><p>\(\underset{D}{∬}(∫04{x}^{2}+4{y}^{2}y\,dz)dA,\) where \(D=\{(x,y)|{x}^{2}+{y}^{2}\le 4,y\ge 1,x\ge 0\}\)</p>
+<div class="exercise" id="ex210"><div class="n">210</div><div class="body"><p>\(\underset{D}{∬}(\int_{0}^{4{x}^{2}+4{y}^{2}}y\,dz)dA,\) where \(D=\{(x,y)|{x}^{2}+{y}^{2}\le 4,y\ge 1,x\ge 0\}\)</p>
 </div></div>
 <div class="exercise" id="ex211"><div class="n">211</div><div class="body"><p>The solid \(E\) bounded by \({y}^{2}+{z}^{2}=9,z=0,x=0,\) and \(x=5\) is shown in the following figure. Evaluate the integral \(\underset{E}{∭}z\,dV\) by integrating first with respect to \(z,\) then \(y,\,\text{and then}\,x.\)</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_201.jpg" alt="A solid arching shape that reaches its maximum along the y axis with z = 3. The shape reach zero at y = plus or minus 3, and the graph is truncated at x = 0 and 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
-<div class="answer"><button>Show answer</button><div class="a"><p>\(∫05\,∫-33\,∫0\sqrt{9-{y}^{2}}z\,dz\,dy\,dx=90\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\int_{0}^{5}\,\int_{-3}^{3}\,\int_{0}^{\sqrt{9-{y}^{2}}}z\,dz\,dy\,dx=90\)</p>
 </div></div></div></div>
 <div class="exercise" id="ex212"><div class="n">212</div><div class="body"><p>The solid \(E\) bounded by \(y=\sqrt{x},\) \(x=4,\) \(y=0,\) \(z=-2\) , and \(z=1\) is given in the following figure. Evaluate the integral \(\underset{E}{∭}xyz\,dV\) by integrating first with respect to \(x,\) then \(y,\) and then \(z.\)</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_202.jpg" alt="A quarter section of an oval cylinder with z from negative 2 to positive 1. The solid is bounded by y = 0 and x = 4, and the top of the shape runs from (0, 0, 1) to (4, 2, 1) in a gentle arc." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 </div></div>
-<div class="exercise" id="ex213"><div class="n">213</div><div class="body"><p><strong>[T]</strong> The volume of a solid \(E\) is given by the integral \(∫-20\,∫x0\,∫0{x}^{2}+{y}^{2}dz\,dy\,dx.\) Use a computer algebra system (CAS) to graph \(E\) and find its volume. Round your answer to two decimal places.</p>
+<div class="exercise" id="ex213"><div class="n">213</div><div class="body"><p><strong>[T]</strong> The volume of a solid \(E\) is given by the integral \(\int_{-2}^{0}\,\int_{x}^{0}\,\int_{0}^{{x}^{2}+{y}^{2}}dz\,dy\,dx.\) Use a computer algebra system (CAS) to graph \(E\) and find its volume. Round your answer to two decimal places.</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>\(V=5.33\) <br></p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_203.jpg" alt="A complex shape that starts at the origin and reaches its maximum at (negative 2, negative 2, 8). The shape is truncated by the x = y plane, the x = 0 plane, the y = negative 2 plane, the z = 0 plane, and a complex triangular-like shape with curved edges and sides (negative 2, negative 2, 8), (0, 0, 0), and (0, negative 2, 4)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 </div></div></div></div>
-<div class="exercise" id="ex214"><div class="n">214</div><div class="body"><p><strong>[T]</strong> The volume of a solid \(E\) is given by the integral \(∫-10\,∫\text{-}{x}^{2}0\,∫01+\sqrt{{x}^{2}+{y}^{2}}dz\,dy\,dx.\) Use a CAS to graph \(E\) and find its volume \(V.\) Round your answer to two decimal places.</p>
+<div class="exercise" id="ex214"><div class="n">214</div><div class="body"><p><strong>[T]</strong> The volume of a solid \(E\) is given by the integral \(\int_{-1}^{0}\,\int_{\text{-}{x}^{2}}^{0}\,\int_{0}^{1+\sqrt{{x}^{2}+{y}^{2}}}dz\,dy\,dx.\) Use a CAS to graph \(E\) and find its volume \(V.\) Round your answer to two decimal places.</p>
 </div></div>
 <p>In the following exercises, use two circular permutations of the variables \(x,y,\,\text{and}\,z\) to write new integrals whose values equal the value of the original integral. A circular permutation of \(x,y,\,\text{and}\,z\) is the arrangement of the numbers in one of the following orders: \(y,z,\,\text{and}\,x\,\text{or}\,z,x,\,\text{and}\,y.\)</p>
-<div class="exercise" id="ex215"><div class="n">215</div><div class="body"><p>\(∫01\,∫13\,∫24({x}^{2}{z}^{2}+1)dx\,dy\,dz\)</p>
-<div class="answer"><button>Show answer</button><div class="a"><p>\(∫01\,∫13\,∫24({y}^{2}{z}^{2}+1)dz\,dx\,dy;\) \(∫01\,∫13\,∫24({x}^{2}{y}^{2}+1)dy\,dz\,dx\)</p>
+<div class="exercise" id="ex215"><div class="n">215</div><div class="body"><p>\(\int_{0}^{1}\,\int_{1}^{3}\,\int_{2}^{4}({x}^{2}{z}^{2}+1)dx\,dy\,dz\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\int_{0}^{1}\,\int_{1}^{3}\,\int_{2}^{4}({y}^{2}{z}^{2}+1)dz\,dx\,dy;\) \(\int_{0}^{1}\,\int_{1}^{3}\,\int_{2}^{4}({x}^{2}{y}^{2}+1)dy\,dz\,dx\)</p>
 </div></div></div></div>
-<div class="exercise" id="ex216"><div class="n">216</div><div class="body"><p>\(∫13\,∫01\,∫0\text{-y}+1(2y+5z+7x)dz\,dy\,dx\)</p>
+<div class="exercise" id="ex216"><div class="n">216</div><div class="body"><p>\(\int_{1}^{3}\,\int_{0}^{1}\,\int_{0}^{\text{-y}+1}(2y+5z+7x)dz\,dy\,dx\)</p>
 </div></div>
-<div class="exercise" id="ex217"><div class="n">217</div><div class="body"><p>\(∫01\,∫\text{-}yy\,∫01-{x}^{4}-{y}^{4}{e}^{x}\,dz\,dx\,dy\)</p>
-<div class="answer"><button>Show answer</button><div class="a"><p>\(∫01\,∫\text{-z}z\,∫01-{y}^{4}-{z}^{4}{e}^{x}\,dx\,dy\,dz; ∫01\,∫\text{-x}x\,∫01-{z}^{4}-{x}^{4}ln z\,dy\,dz\,dx\)</p>
+<div class="exercise" id="ex217"><div class="n">217</div><div class="body"><p>\(\int_{0}^{1}\,\int_{\text{-}y}^{y}\,\int_{0}^{1-{x}^{4}-{y}^{4}}{e}^{x}\,dz\,dx\,dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(\int_{0}^{1}\,\int_{\text{-z}}^{z}\,\int_{0}^{1-{y}^{4}-{z}^{4}}{e}^{x}\,dx\,dy\,dz; \int_{0}^{1}\,\int_{\text{-x}}^{x}\,\int_{0}^{1-{z}^{4}-{x}^{4}}ln z\,dy\,dz\,dx\)</p>
 </div></div></div></div>
-<div class="exercise" id="ex218"><div class="n">218</div><div class="body"><p>\(∫-11\,∫01\,∫\text{-}{y}^{6}\sqrt{y}(x+yz)dx\,dy\,dz\)</p>
+<div class="exercise" id="ex218"><div class="n">218</div><div class="body"><p>\(\int_{-1}^{1}\,\int_{0}^{1}\,\int_{\text{-}{y}^{6}}^{\sqrt{y}}(x+yz)dx\,dy\,dz\)</p>
 </div></div>
 <div class="exercise" id="ex219"><div class="n">219</div><div class="body"><p>Set up the integral that gives the volume of the solid \(E\) bounded by \({y}^{2}={x}^{2}+{z}^{2}\) and \(y=a,\) where \(a&gt;0\) and \(y \ge 0\)</p>
-<div class="answer"><button>Show answer</button><div class="a"><p>\(V=∫-aa\,∫-\sqrt{{a}^{2}-{z}^{2}}\sqrt{{a}^{2}-{z}^{2}}∫\sqrt{{x}^{2}+{z}^{2}}{a}^{2}dy\,dx\,dz\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>\(V=\int_{-a}^{a}\,\int_{-\sqrt{{a}^{2}-{z}^{2}}}^{\sqrt{{a}^{2}-{z}^{2}}}\int_{\sqrt{{x}^{2}+{z}^{2}}}^{{a}^{2}}dy\,dx\,dz\)</p>
 </div></div></div></div>
 <div class="exercise" id="ex220"><div class="n">220</div><div class="body"><p>Set up the integral that gives the volume of the solid \(E\) bounded by \(x={y}^{2}+{z}^{2}\) and \(x={a}^{2},\) where \(a&gt;0.\)</p>
 </div></div>
@@ -317,7 +317,7 @@
 <div class="exercise" id="ex227"><div class="n">227</div><div class="body"><p>The solid \(E\) bounded by the sphere of equation \({x}^{2}+{y}^{2}+{z}^{2}={r}^{2}\) with \(r&gt;0\) and located in the first octant is represented in the following figure.</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_205.jpg" alt="The eighth of a sphere of radius 2 with center at the origin for positive x, y, and z." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 <ul class="tight"><li>Write the triple integral that gives the volume of \(E\) by integrating first with respect to \(z,\) then with \(y,\) and then with \(x.\)</li><li>Rewrite the integral in part a. as an equivalent integral in five other orders.</li></ul>
-<div class="answer"><button>Show answer</button><div class="a"><p>a. \(∫0r\,∫0\sqrt{{r}^{2}-{x}^{2}}\,∫0\sqrt{{r}^{2}-{x}^{2}-{y}^{2}}dz\,dy\,dx;\) b. \(∫0r\,∫0\sqrt{{r}^{2}-{y}^{2}}\,∫0\sqrt{{r}^{2}-{x}^{2}-{y}^{2}}dz\,dx\,dy,\) \(∫0r\,∫0\sqrt{{r}^{2}-{z}^{2}}\,∫0\sqrt{{r}^{2}-{x}^{2}-{z}^{2}}dy\,dx\,dz,\) \(∫0r\,∫0\sqrt{{r}^{2}-{x}^{2}}\,∫0\sqrt{{r}^{2}-{x}^{2}-{z}^{2}}dy\,dz\,dx,\) \(∫0r\,∫0\sqrt{{r}^{2}-{z}^{2}}\,∫0\sqrt{{r}^{2}-{y}^{2}-{z}^{2}}dx\,dy\,dz,\) \(∫0r\,∫0\sqrt{{r}^{2}-{y}^{2}}\,∫0\sqrt{{r}^{2}-{y}^{2}-{z}^{2}}dx\,dz\,dy\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(\int_{0}^{r}\,\int_{0}^{\sqrt{{r}^{2}-{x}^{2}}}\,\int_{0}^{\sqrt{{r}^{2}-{x}^{2}-{y}^{2}}}dz\,dy\,dx;\) b. \(\int_{0}^{r}\,\int_{0}^{\sqrt{{r}^{2}-{y}^{2}}}\,\int_{0}^{\sqrt{{r}^{2}-{x}^{2}-{y}^{2}}}dz\,dx\,dy,\) \(\int_{0}^{r}\,\int_{0}^{\sqrt{{r}^{2}-{z}^{2}}}\,\int_{0}^{\sqrt{{r}^{2}-{x}^{2}-{z}^{2}}}dy\,dx\,dz,\) \(\int_{0}^{r}\,\int_{0}^{\sqrt{{r}^{2}-{x}^{2}}}\,\int_{0}^{\sqrt{{r}^{2}-{x}^{2}-{z}^{2}}}dy\,dz\,dx,\) \(\int_{0}^{r}\,\int_{0}^{\sqrt{{r}^{2}-{z}^{2}}}\,\int_{0}^{\sqrt{{r}^{2}-{y}^{2}-{z}^{2}}}dx\,dy\,dz,\) \(\int_{0}^{r}\,\int_{0}^{\sqrt{{r}^{2}-{y}^{2}}}\,\int_{0}^{\sqrt{{r}^{2}-{y}^{2}-{z}^{2}}}dx\,dz\,dy\)</p>
 </div></div></div></div>
 <div class="exercise" id="ex228"><div class="n">228</div><div class="body"><p>The solid \(E\) bounded by the equation \(9{x}^{2}+4{y}^{2}+{z}^{2}=1\) and located in the first octant is represented in the following figure.</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_206.jpg" alt="In the first octant, a complex shape is shown that is roughly a solid ovoid with center the origin, height 1, width 0.5, and length 0.35." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
@@ -335,7 +335,7 @@
 <div class="exercise" id="ex232"><div class="n">232</div><div class="body"><p>The solid \(E\) bounded by \(z=1-{x}^{2}\) and \(y=5\) and situated in the first octant is given in the following figure. Find the volume of the solid.</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_04_208.jpg" alt="A complex shape in the first octant with height 1, width 5, and length 1. The shape appears to be a slightly deformed quarter of a cylinder of radius 1 and width 5." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 </div></div>
-<div class="exercise" id="ex233"><div class="n">233</div><div class="body"><p>The midpoint rule for the triple integral \(\underset{B}{∭}f(x,y,z)dV\) over the rectangular solid box \(B\) is a generalization of the midpoint rule for double integrals. The region \(B\) is divided into subboxes of equal sizes and the integral is approximated by the triple Riemann sum \(∑i=1l∑j=1m∑k=1nf(\bar{{x}_{i}},\bar{{y}_{j}},\bar{{z}_{k}})\Delta V,\) where \((\bar{{x}_{i}},\bar{{y}_{j}},\bar{{z}_{k}})\) is the center of the box \({B}_{ijk}\) and \(\Delta V\) is the volume of each subbox. Apply the midpoint rule to approximate \(\underset{B}{∭}{x}^{2}dV\) over the solid \(B=\{(x,y,z)|0\le x\le 1,0\le y\le 1,0\le z\le 1\}\) by using a partition of eight cubes of equal size. Round your answer to three decimal places.</p>
+<div class="exercise" id="ex233"><div class="n">233</div><div class="body"><p>The midpoint rule for the triple integral \(\underset{B}{∭}f(x,y,z)dV\) over the rectangular solid box \(B\) is a generalization of the midpoint rule for double integrals. The region \(B\) is divided into subboxes of equal sizes and the integral is approximated by the triple Riemann sum \(\sum_{i=1}^{l}\sum_{j=1}^{m}\sum_{k=1}^{n}f(\bar{{x}_{i}},\bar{{y}_{j}},\bar{{z}_{k}})\Delta V,\) where \((\bar{{x}_{i}},\bar{{y}_{j}},\bar{{z}_{k}})\) is the center of the box \({B}_{ijk}\) and \(\Delta V\) is the volume of each subbox. Apply the midpoint rule to approximate \(\underset{B}{∭}{x}^{2}dV\) over the solid \(B=\{(x,y,z)|0\le x\le 1,0\le y\le 1,0\le z\le 1\}\) by using a partition of eight cubes of equal size. Round your answer to three decimal places.</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{5}{16}\approx 0.313\)</p>
 </div></div></div></div>
 <div class="exercise" id="ex234"><div class="n">234</div><div class="body"><p><strong>[T]</strong></p>

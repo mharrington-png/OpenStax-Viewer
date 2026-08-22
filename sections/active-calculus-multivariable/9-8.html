@@ -190,11 +190,11 @@
       <span id="eq_9_8_arc_length_prime">\[
         \frac{ds}{dt} =
           L'(t)=
-          \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} = \lvert \vr'(t) \rvert
+          \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} = \text{|} \vr'(t) \text{|}
       \tag{9.8.2}\]</span>
       and so
       \[
-        L(t) = \int_a^t \left| \frac{d}{dw}\vr(w)\right| \,dw.
+        L(t) = \int_a^t \left\lvert \frac{d}{dw}\vr(w)\right\rvert \,dw.
       \]
     </p><p>
       If we assume that \(\vr'(t)\) is never 0, then \(L'(t) &gt; 0\) for all \(t\)
@@ -238,16 +238,16 @@
         </p></div></div><p>
       Notice that equation <a href="#eq_9_8_arc_length_prime">(9.8.2)</a> shows that
       \[
-        \frac{d\vr}{dt} = \frac{d\vr}{ds}\frac{ds}{dt} = \frac{d\vr}{ds}\lvert \vr'(t) \rvert,
+        \frac{d\vr}{dt} = \frac{d\vr}{ds}\frac{ds}{dt} = \frac{d\vr}{ds}\text{|} \vr'(t) \text{|},
       \]
       so
       \[
-        \left| \frac{d\vr}{ds} \right| = \left|\frac{1}{\lvert \vr'(t) \rvert}\frac{d\vr}{dt} \right| = 1,
+        \left\lvert \frac{d\vr}{ds} \right\rvert = \left\lvert\frac{1}{\text{|} \vr'(t) \text{|}}\frac{d\vr}{dt} \right\rvert = 1,
       \]
       which means that we move along the curve with unit speed when we parameterize by arc length. This is clearly seen in <a href="#ex_9_8_circle_arc_length">Example 9.8.1</a> where \(|\vr'(s)| = 1\). It follows that the parameter \(s\)
       is the distance traveled along the curve, as shown by:
       \[
-        L(s) = \int_0^s\left|\frac{d}{ds}\vr(w)\right|~dw = \int_0^s1~dw = s.
+        L(s) = \int_0^s\left\lvert\frac{d}{ds}\vr(w)\right\rvert~dw = \int_0^s1~dw = s.
       \]
     </p><div class="card activity" id="A_9_8_4"><div class="ex-head"><span class="num">Activity 9.8.4</span></div><div class="ex-body"><p>
         In this activity we parameterize a
@@ -335,9 +335,9 @@
     </p><p>
       Therefore
       \[
-        \left|\frac{d\vT}{ds}\right| =  \left|\langle -\sin(\phi(s)),~
-        \cos(\phi(s)) \rangle\right| ~\left|\frac{d\phi}{ds}\right| = 
-        \left|\frac{d\phi}{ds}\right|
+        \left\lvert\frac{d\vT}{ds}\right\rvert =  \left\lvert\langle -\sin(\phi(s)),~
+        \cos(\phi(s)) \rangle\right\rvert ~\left\lvert\frac{d\phi}{ds}\right\rvert = 
+        \left\lvert\frac{d\phi}{ds}\right\rvert
       \]
     </p><p>
       This observation leads us to adopt the following definition. 
@@ -390,7 +390,7 @@
       \[\begin{aligned}\kappa &amp; = \left\lvert \frac{d \vT}{ds} \right\rvert \\
 &amp; = \left\lvert \frac{d \vT}{dt} \frac{dt}{ds} \right\rvert \\
 &amp; = \frac{\left\lvert \frac{d \vT}{dt} \right\rvert}{ \left\lvert \frac{ds}{dt} \right\rvert } \\
-&amp; = \frac{\left\lvert \vT'(t) \right\rvert}{ \left\lvert \vr'(t) \right\rvert}.\end{aligned}\]
+&amp; = \frac{\text{|} \vT'(t) \text{|}}{ \text{|} \vr'(t) \text{|}}.\end{aligned}\]
     </p><p>
       This last formula allows us to use any parameterization of a curve to
       calculate its curvature. There is another useful formula, given
@@ -401,9 +401,9 @@
       zero and if \(\vr''(t)\) exists, then the curvature \(\kappa\) of \(C\)
       satisfies
       <ul><li><p>
-            \(\kappa = \kappa(t) = \frac{\left\lvert \vT'(t) \right\rvert}{ \left\lvert \vr'(t) \right\rvert}\)
+            \(\kappa = \kappa(t) = \frac{\text{|} \vT'(t) \text{|}}{ \text{|} \vr'(t) \text{|}}\)
           </p></li><li><p>
-            \(\kappa = \frac{\lvert \vr'(t) \times \vr''(t) \rvert}{\lvert \vr'(t) \rvert^3}\).
+            \(\kappa = \frac{\text{|} \vr'(t) \times \vr''(t) \text{|}}{\text{|} \vr'(t) \text{|}^3}\).
           </p></li></ul>
     </p></div><div class="card activity" id="A_9_8_6"><div class="ex-head"><span class="num">Activity 9.8.6</span></div><div class="ex-body"><p>
         Use one of the two formulas for \(\kappa\) in terms of \(t\) to help you answer the following questions.
@@ -487,11 +487,11 @@ second. How long does it take to bend a straight wire into a circle of radius
                 </p></li><li><p>
                   Use the formula
                   \[
-                    \kappa = \frac{\lvert \vr'(t) \times \vr''(t) \rvert}{\lvert \vr'(t) \rvert^3}
+                    \kappa = \frac{\text{|} \vr'(t) \times \vr''(t) \text{|}}{\text{|} \vr'(t) \text{|}^3}
                   \]
                   to show that
                   \[
-                    \kappa = \frac{\lvert f''(x) \rvert}{\left[1+(f'(x))^2\right]^{3/2}}.
+                    \kappa = \frac{\text{|} f''(x) \text{|}}{\left[1+(f'(x))^2\right]^{3/2}}.
                   \]
                 </p></li></ol>
           </p></div></div><div class="exercise" id="Ez_9_8_3"><div class="n">13</div><div class="body"><p>
@@ -525,15 +525,15 @@ second. How long does it take to bend a straight wire into a circle of radius
           </p></div></div><div class="exercise" id="Ez_9_8_5"><div class="n">15</div><div class="body"><p>
             In this exercise we verify the curvature formula
             \[
-              \kappa = \frac{\lvert \vr'(t) \times \vr''(t) \rvert}{\lvert \vr'(t) \rvert^3}.
+              \kappa = \frac{\text{|} \vr'(t) \times \vr''(t) \text{|}}{\text{|} \vr'(t) \text{|}^3}.
             \]
             <ol type="a"><li><p>
                   Explain why
                   \[
-                    \lvert \vr'(t) \rvert = \frac{ds}{dt}.
+                    \text{|} \vr'(t) \text{|} = \frac{ds}{dt}.
                   \]
                 </p></li><li><p>
-                  Use the fact that \(\vT(t) = \frac{\vr'(t)}{\lvert \vr'(t) \rvert}\) and \(\lvert \vr'(t) \rvert = \frac{ds}{dt}\) to explain why
+                  Use the fact that \(\vT(t) = \frac{\vr'(t)}{\text{|} \vr'(t) \text{|}}\) and \(\text{|} \vr'(t) \text{|} = \frac{ds}{dt}\) to explain why
                   \[
                     \vr'(t) = \frac{ds}{dt} \vT(t).
                   \]
@@ -547,14 +547,14 @@ second. How long does it take to bend a straight wire into a circle of radius
                     \vr'(t) \times \vr''(t) = \left(\frac{ds}{dt}\right)^2 (\vT(t) \times \vT'(t)).
                   \]
                 </p></li><li><p>
-                  In <a href="#Ez_9_8_4">Exercise 14</a> we showed that \(\lvert \vT(t) \rvert = 1\) implies that \(\vT(t)\) is orthogonal to \(\vT'(t)\) for every value of \(t\). Explain what this tells us about \(\lvert \vT(t) \times \vT'(t) \rvert\) and conclude that
+                  In <a href="#Ez_9_8_4">Exercise 14</a> we showed that \(\text{|} \vT(t) \text{|} = 1\) implies that \(\vT(t)\) is orthogonal to \(\vT'(t)\) for every value of \(t\). Explain what this tells us about \(\text{|} \vT(t) \times \vT'(t) \text{|}\) and conclude that
                   \[
-                    \lvert \vr'(t) \times \vr''(t) \rvert = \left(\frac{ds}{dt}\right)^2 \lvert \vT'(t) \rvert.
+                    \text{|} \vr'(t) \times \vr''(t) \text{|} = \left(\frac{ds}{dt}\right)^2 \text{|} \vT'(t) \text{|}.
                   \]
                 </p></li><li><p>
-                  Finally, use the fact that \(\kappa = \frac{\lvert \vT'(t) \rvert }{\lvert \vr'(t) \rvert}\) to verify that
+                  Finally, use the fact that \(\kappa = \frac{\text{|} \vT'(t) \text{|} }{\text{|} \vr'(t) \text{|}}\) to verify that
                   \[
-                    \kappa = \frac{\lvert \vr'(t) \times \vr''(t) \rvert}{\lvert \vr'(t) \rvert^3}.
+                    \kappa = \frac{\text{|} \vr'(t) \times \vr''(t) \text{|}}{\text{|} \vr'(t) \text{|}^3}.
                   \]
                 </p></li></ol>
           </p></div></div><div class="exercise" id="Ez_9_8_6"><div class="n">16</div><div class="body"><p>

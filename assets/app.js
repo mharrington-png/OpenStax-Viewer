@@ -615,11 +615,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // collapsible solutions
   document.querySelectorAll(".solution .sol-toggle").forEach(btn => {
+    btn.setAttribute("aria-expanded", "false");
     btn.addEventListener("click", () => {
       const sol = btn.closest(".solution");
-      sol.classList.toggle("open");
+      const open = sol.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(open));
+      // toggles just the Show/Hide prefix so it works for both "Show solution" and
+      // "Show answer" wording without hardcoding which noun this particular button uses
+      btn.textContent = btn.textContent.replace(open ? "Show" : "Hide", open ? "Hide" : "Show");
       const tryit = btn.closest(".tryit");
-      if (tryit && sol.classList.contains("open")) tryit.classList.add("answered");
+      if (tryit && open) tryit.classList.add("answered");
     });
   });
 
@@ -644,12 +649,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const mark = saved[id];
     if (mark) { t.classList.add("answered"); }
     t.querySelectorAll(".selfcheck button").forEach(b => {
+      b.setAttribute("aria-pressed", String(mark === b.dataset.mark));
       if (mark === b.dataset.mark) b.classList.add(b.dataset.mark === "right" ? "on-right" : "on-wrong");
       b.addEventListener("click", () => {
         saved[id] = b.dataset.mark;
         localStorage.setItem(pageKey, JSON.stringify(saved));
-        t.querySelectorAll(".selfcheck button").forEach(x => x.classList.remove("on-right", "on-wrong"));
+        t.querySelectorAll(".selfcheck button").forEach(x => {
+          x.classList.remove("on-right", "on-wrong");
+          x.setAttribute("aria-pressed", "false");
+        });
         b.classList.add(b.dataset.mark === "right" ? "on-right" : "on-wrong");
+        b.setAttribute("aria-pressed", "true");
         updateScore();
       });
     });
@@ -755,14 +765,21 @@ function initSearch(root, topbar) {
   const box = document.createElement("div");
   box.className = "searchbox";
   box.innerHTML =
-    `<input type="search" class="search-input" placeholder="Search topics, skills, or objectives…" aria-label="Search all books" autocomplete="off">` +
-    `<div class="search-results" hidden></div>`;
+    `<input type="search" class="search-input" placeholder="Search topics, skills, or objectives…" aria-label="Search all books" autocomplete="off" ` +
+    `role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-controls="search-listbox" aria-autocomplete="list">` +
+    `<div class="search-results" id="search-listbox" role="listbox" hidden></div>` +
+    `<div class="sr-only" aria-live="polite"></div>`;
   const spacer = topbar.querySelector(".spacer");
   if (spacer) spacer.after(box); else topbar.appendChild(box);
 
   const input = box.querySelector(".search-input");
   const resultsEl = box.querySelector(".search-results");
+  const liveEl = box.querySelector(".sr-only");
   let indexPromise = null, activeIdx = -1, indexError = false;
+
+  // Keeps aria-expanded in sync with visibility everywhere resultsEl.hidden is toggled —
+  // screen readers use this to announce whether the listbox is currently open.
+  const setOpen = open => { resultsEl.hidden = !open; input.setAttribute("aria-expanded", String(open)); };
 
   // fetch() of a local assets/search-index.json fails under file:// (browsers block it as
   // cross-origin, "null" origin) — surface that as a visible message rather than silently
@@ -792,44 +809,52 @@ function initSearch(root, topbar) {
     activeIdx = -1;
     if (!chapters.length) {
       resultsEl.innerHTML = `<div class="search-empty">No matches for “${esc(q)}”.</div>`;
-      resultsEl.hidden = false;
+      setOpen(true);
+      liveEl.textContent = `No results for ${q}.`;
       return;
     }
+    // Every .search-hit gets role="option" and a unique id here so aria-activedescendant
+    // (set in updateActive below) can point a screen reader at whichever one is highlighted
+    // — without this, arrow-key navigation moves the visual highlight but leaves the
+    // input's accessible content unchanged, so a screen reader just re-reads the typed query.
+    let n = 0;
     resultsEl.innerHTML = chapters.map(hits => {
       const top = hits[0];
       const topHref = `${root}/${top.path}#${top.anchor}`;
       if (hits.length === 1) {
         const eyebrow = `<div class="search-eyebrow">${esc(top.bookTitle)} · ${esc(top.sectionTitle)}</div>`;
         const detail = top.detail ? `<div class="search-detail">${esc(top.detail)}</div>` : "";
-        return `<a class="search-hit" href="${topHref}">${eyebrow}` +
+        return `<a class="search-hit" role="option" id="search-opt-${n++}" href="${topHref}">${eyebrow}` +
           `<div class="search-main">${highlight(top.text, q)}</div>${detail}</a>`;
       }
       const head = `<div class="search-eyebrow">${esc(top.bookTitle)}</div>` +
         `<div class="search-main">Chapter ${esc(String(top.chapterN))} · ${esc(top.chapterTitle)}</div>`;
+      const headId = `search-opt-${n++}`;
       const subs = hits.map(e => {
         const href = `${root}/${e.path}#${e.anchor}`;
         const detail = e.detail ? `<div class="search-detail">${esc(e.detail)}</div>` : "";
-        return `<a class="search-hit search-subhit" href="${href}">` +
+        return `<a class="search-hit search-subhit" role="option" id="search-opt-${n++}" href="${href}">` +
           `<div class="search-eyebrow">${esc(e.sectionTitle)}</div>` +
           `<div class="search-main">${highlight(e.text, q)}</div>${detail}</a>`;
       }).join("");
       return `<div class="search-section">` +
-        `<a class="search-hit search-section-head" href="${topHref}">${head}</a>` +
+        `<a class="search-hit search-section-head" role="option" id="${headId}" href="${topHref}">${head}</a>` +
         `<div class="search-subhits">${subs}</div></div>`;
     }).join("");
-    resultsEl.hidden = false;
+    setOpen(true);
+    liveEl.textContent = `${n} result${n === 1 ? "" : "s"} for ${q}.`;
   }
 
   let debounceT;
   input.addEventListener("input", () => {
     clearTimeout(debounceT);
     const q = input.value.trim().toLowerCase();
-    if (q.length < 2) { resultsEl.hidden = true; resultsEl.innerHTML = ""; return; }
+    if (q.length < 2) { setOpen(false); resultsEl.innerHTML = ""; return; }
     debounceT = setTimeout(async () => {
       const data = await loadIndex();
       if (indexError) {
         resultsEl.innerHTML = `<div class="search-empty">Search index couldn't load. If you opened this page directly from a file (a file:// address), browsers block that fetch — run a local server (e.g. <code>npx serve .</code>) instead, or use the hosted site.</div>`;
-        resultsEl.hidden = false;
+        setOpen(true);
         return;
       }
       const scored = [];
@@ -879,18 +904,27 @@ function initSearch(root, topbar) {
   });
 
   const updateActive = items => {
-    items.forEach((el, i) => el.classList.toggle("active", i === activeIdx));
-    if (items[activeIdx]) items[activeIdx].scrollIntoView({ block: "nearest" });
+    items.forEach((el, i) => {
+      const on = i === activeIdx;
+      el.classList.toggle("active", on);
+      el.setAttribute("aria-selected", String(on));
+    });
+    if (items[activeIdx]) {
+      items[activeIdx].scrollIntoView({ block: "nearest" });
+      input.setAttribute("aria-activedescendant", items[activeIdx].id);
+    } else {
+      input.removeAttribute("aria-activedescendant");
+    }
   };
   input.addEventListener("keydown", ev => {
     const items = resultsEl.querySelectorAll(".search-hit");
-    if (ev.key === "Escape") { resultsEl.hidden = true; input.blur(); }
+    if (ev.key === "Escape") { setOpen(false); input.blur(); }
     else if (ev.key === "ArrowDown" && items.length) { ev.preventDefault(); activeIdx = Math.min(activeIdx + 1, items.length - 1); updateActive(items); }
     else if (ev.key === "ArrowUp" && items.length) { ev.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); updateActive(items); }
     else if (ev.key === "Enter") { const target = items[activeIdx] || items[0]; if (target) { ev.preventDefault(); target.click(); } }
   });
-  input.addEventListener("focus", () => { if (resultsEl.innerHTML) resultsEl.hidden = false; });
-  document.addEventListener("click", ev => { if (!box.contains(ev.target)) resultsEl.hidden = true; });
+  input.addEventListener("focus", () => { if (resultsEl.innerHTML) setOpen(true); });
+  document.addEventListener("click", ev => { if (!box.contains(ev.target)) setOpen(false); });
 }
 
 /* ---------- shareable playlists ----------
@@ -1338,8 +1372,9 @@ function buildOutline(container) {
     if (g && !g.open && !userClick) a = g.querySelector("summary a.lvl1") || a;
     if (a === current) return;
     current = a;
-    links.forEach(x => x.classList.remove("active"));
+    links.forEach(x => { x.classList.remove("active"); x.removeAttribute("aria-current"); });
     a.classList.add("active");
+    a.setAttribute("aria-current", "true");
     if (sbEl) {                                           // keep visible by scrolling the sidebar only
       const r = a.getBoundingClientRect(), s = sbEl.getBoundingClientRect();
       if (r.top < s.top + 60 || r.bottom > s.bottom - 20) sbEl.scrollTop += r.top - s.top - 110;

@@ -28,7 +28,7 @@
 <h1><span class="kicker">Section 5.7</span>Change of Variables in Multiple Integrals</h1>
 <p>Recall from Substitution Rule the method of integration by substitution. When evaluating an integral such as \({∫}_{2}^{3}x{({x}^{2}-4)}^{5}dx,\) we substitute \(u=g(x)={x}^{2}-4.\) Then \(du=2x\,dx\) or \(x\,dx=\frac{1}{2}du\) and the limits change to \(u=g(2)={2}^{2}-4=0\) and \(u=g(3)=9-4=5.\) Thus the integral becomes \({∫}_{0}^{5}\frac{1}{2}{u}^{5}du\) and this integral is much simpler to evaluate. In other words, when solving integration problems, we make appropriate substitutions to obtain an integral that becomes much simpler than the original integral.</p>
 <p>We also used this idea when we transformed double integrals in rectangular coordinates to polar coordinates and transformed triple integrals in rectangular coordinates to cylindrical or spherical coordinates to make the computations simpler. More generally,</p>
-<p>\[∫abf(x)dx=∫cdf(g(u))g\prime (u)du,\]</p>
+<p>\[\int_{a}^{b}f(x)dx=\int_{c}^{d}f(g(u))g\prime (u)du,\]</p>
 <p>Where \(x=g(u),dx=g\prime (u)du,\) and \(u=c\) and \(u=d\) satisfy \(c={g}^{-1}(a)\) and \(d={g}^{-1}(b).\)</p>
 <p>A similar result occurs in double integrals when we substitute \(x=h(r,θ)=r\,\text{cos}\,θ,\) \(y=g(r,θ)=r\,\text{sin}\,θ,\) and \(dA=dx\,dy=r\,dr\,dθ.\) Then we get</p>
 <p>\[\underset{R}{∬}f(x,y)dA=\underset{S}{∬}f(r\,\text{cos}\,θ,r\,\text{sin}\,θ)r\,dr\,dθ\]</p>
@@ -100,11 +100,11 @@
 <p>We have already seen that, under the change of variables \(T(u,v)=(x,y)\) where \(x=g(u,v)\) and \(y=h(u,v),\) a small region \(\Delta A\) in the \(xy\text{-plane}\) is related to the area formed by the product \(\Delta u\Delta v\) in the \(uv\text{-plane}\) by the approximation</p>
 <p>\[\Delta A\approx J(u,v)\Delta u,\Delta v.\]</p>
 <p>Now let’s go back to the definition of double integral for a minute:</p>
-<p>\[\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({x}_{ij},{y}_{ij})\Delta A.\]</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}\sum_{i=1}^{m}\sum_{j=1}^{n}f({x}_{ij},{y}_{ij})\Delta A.\]</p>
 <p>Referring to <a href="#fig5">Figure 5</a>, observe that we divided the region \(S\) in the \(uv\text{-plane}\) into small subrectangles \({S}_{ij}\) and we let the subrectangles \({R}_{ij}\) in the \(xy\text{-plane}\) be the images of \({S}_{ij}\) under the transformation \(T(u,v)=(x,y).\)</p>
 <figure class="plot" id="fig5"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_005.jpg" alt="On the left-hand side of this figure, there is a rectangle S with an inscribed red oval and a subrectangle with lower right corner point (u sub ij, v sub ij), height Delta v, and length Delta u given in the Cartesian u v-plane. Then there is an arrow from this graph to the right-hand side of the figure marked with T. On the right-hand side of this figure there is a region R with inscribed (deformed) red oval and a subrectangle R sub ij with corner point (x sub ij, y sub ij) given in the Cartesian x y-plane. The subrectangle is blown up and shown with vectors pointing along the edge from the corner point." style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 5 — The subrectangles \({S}_{ij}\) in the \(uv\text{-plane}\) transform into subrectangles \({R}_{ij}\) in the \(xy\text{-plane}\text{.}\)</figcaption></figure>
 <p>Then the double integral becomes</p>
-<p>\[\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf({x}_{ij},{y}_{ij})\Delta A=\underset{m,n\to \infty }{\text{lim}}∑i=1m∑j=1nf(g({u}_{ij},{v}_{ij}),h({u}_{ij},{v}_{ij}))|J({u}_{ij},{v}_{ij})|\Delta u\Delta v.\]</p>
+<p>\[\underset{R}{∬}f(x,y)dA=\underset{m,n\to \infty }{\text{lim}}\sum_{i=1}^{m}\sum_{j=1}^{n}f({x}_{ij},{y}_{ij})\Delta A=\underset{m,n\to \infty }{\text{lim}}\sum_{i=1}^{m}\sum_{j=1}^{n}f(g({u}_{ij},{v}_{ij}),h({u}_{ij},{v}_{ij}))|J({u}_{ij},{v}_{ij})|\Delta u\Delta v.\]</p>
 <p>Notice this is exactly the double Riemann sum for the integral</p>
 <p>\[\underset{S}{∬}f(g(u,v),h(u,v))|\frac{∂(x,y)}{∂(u,v)}|du\,dv.\]</p>
 <div class="card definition"><span class="chip">Change of Variables for Double Integrals</span><p>Let \(T(u,v)=(x,y)\) where \(x=g(u,v)\) and \(y=h(u,v)\) be a one-to-one \({C}^{1}\) transformation, with a nonzero Jacobian on the interior of the region \(S\) in the \(uv\text{-plane;}\) it maps \(S\) into the region \(R\) in the \(xy\text{-plane}\text{.}\) If \(f\) is continuous on \(R,\) then</p>
@@ -114,17 +114,17 @@
 <p>\[dA=dx\,dy=|\frac{∂(x,y)}{∂(u,v)}|du\,dv\]</p>
 <p>when we use the substitutions \(x=g(u,v)\) and \(y=h(u,v)\) and then change the limits of integration accordingly. This change of variables often makes any computations much simpler.</p>
 <div class="card example" id="example5"><div class="ex-head"><span class="num">Example 5</span><span class="t"></span></div><div class="ex-body"><p>Consider the integral</p>
-<p>\[∫02\,∫0\sqrt{2x-{x}^{2}}\sqrt{{x}^{2}+{y}^{2}}\,dy\,dx.\]</p>
+<p>\[\int_{0}^{2}\,\int_{0}^{\sqrt{2x-{x}^{2}}}\sqrt{{x}^{2}+{y}^{2}}\,dy\,dx.\]</p>
 <p>Use the change of variables \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ,\) and find the resulting integral.</p>
 <p class="sol-hint">Identify the region as the upper half of a circle, rewrite its boundary in polar form, then substitute the Jacobian r for dA.</p></div><div class="solution"><button class="sol-toggle">Show solution</button><div class="sol-body"><p>First we need to find the region of integration. This region is bounded below by \(y=0\) and above by \(y=\sqrt{2x-{x}^{2}}\) (see the following figure).</p>
 <figure class="plot" id="fig6"><img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_006.jpg" alt="A semicircle in the first quadrant of the xy plane with radius 1 and center (1, 0). The equation for this curve is given as y = the square root of (2x minus x squared)" style="max-width:100%;border:1px solid var(--line);border-radius:14px"><figcaption>Figure 6 — Changing a region from rectangular to polar coordinates.</figcaption></figure>
 <p>Squaring and collecting terms, we find that the region is the upper half of the circle \({x}^{2}+{y}^{2}-2x=0,\) that is, \({y}^{2}+{(x-1)}^{2}=1.\) In polar coordinates, the circle is \(r=2\,\text{cos}\,θ\) so the region of integration in polar coordinates is bounded by \(0\le r\le 2 \text{cos}\,θ\) and \(0\le θ\le \frac{\pi }{2}.\)</p>
 <p>The Jacobian is \(J(r,θ)=r,\) as shown in <a href="#example3">Example 3</a>. Since \(r\ge 0,\) we have \(|J(r,θ)|=r.\)</p>
 <p>The integrand \(\sqrt{{x}^{2}+{y}^{2}}\) changes to \(r\) in polar coordinates, so the double iterated integral is</p>
-<p>\[∫02\,∫0\sqrt{2x-{x}^{2}}\sqrt{{x}^{2}+{y}^{2}}dy\,dx=∫0\pi \text{/}2\,∫02\,\text{cos}\,θr|J(r,θ)|dr\,dθ=∫0\pi \text{/}2\,∫02\,\text{cos}\,θ{r}^{2}dr\,dθ.\]</p>
+<p>\[\int_{0}^{2}\,\int_{0}^{\sqrt{2x-{x}^{2}}}\sqrt{{x}^{2}+{y}^{2}}dy\,dx=\int_{0}^{\pi \text{/}2}\,\int_{0}^{2\,\text{cos}\,θ}r|J(r,θ)|dr\,dθ=\int_{0}^{\pi \text{/}2}\,\int_{0}^{2\,\text{cos}\,θ}{r}^{2}dr\,dθ.\]</p>
 </div></div></div>
-<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Considering the integral \(∫01\,∫0\sqrt{1-{x}^{2}}({x}^{2}+{y}^{2})dy\,dx,\) use the change of variables \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ,\) and find the resulting integral.</p>
-</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(∫0\pi \text{/}2\,∫01{r}^{3}dr\,dθ\)</p>
+<div class="tryit" id="tryit-3"><div class="ex-head"><span class="num">Try It #3</span></div><div class="ex-body"><p>Considering the integral \(\int_{0}^{1}\,\int_{0}^{\sqrt{1-{x}^{2}}}({x}^{2}+{y}^{2})dy\,dx,\) use the change of variables \(x=r\,\text{cos}\,θ\) and \(y=r\,\text{sin}\,θ,\) and find the resulting integral.</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\int_{0}^{\pi \text{/}2}\,\int_{0}^{1}{r}^{3}dr\,dθ\)</p>
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <p>Notice in the next example that the region over which we are to integrate may suggest a suitable transformation for the integration. This is a common and important situation.</p>
 <div class="card example" id="example6"><div class="ex-head"><span class="num">Example 6</span><span class="t"></span></div><div class="ex-body"><p>Consider the integral \(\underset{R}{∬}(x-y)dy\,dx,\) where \(R\) is the parallelogram joining the points \((1,2),\) \((3,4),(4,3),\) and \((6,5)\) (<a href="#fig7">Figure 7</a>). Make appropriate changes of variables, and write the resulting integral.</p>
@@ -141,11 +141,11 @@
 <p>Therefore, \(|J(u,v)|=\frac{1}{2}.\) Also, the original integrand becomes</p>
 <p>\[x-y=\frac{1}{2}[3u-v-u+v]=\frac{1}{2}[3u-u]=\frac{1}{2}[2u]=u.\]</p>
 <p>Therefore, by the use of the transformation \(T,\) the integral changes to</p>
-<p>\[\underset{R}{∬}(x-y)dy\,dx=∫-9-5\,∫-11J(u,v)u\,du\,dv=∫-9-5\,∫-11(\frac{1}{2})u\,du\,dv,\]</p>
+<p>\[\underset{R}{∬}(x-y)dy\,dx=\int_{-9}^{-5}\,\int_{-1}^{1}J(u,v)u\,du\,dv=\int_{-9}^{-5}\,\int_{-1}^{1}(\frac{1}{2})u\,du\,dv,\]</p>
 <p>which is much simpler to compute. In fact, it is easily found to be zero. And this is just one example of why we transform integrals like this.</p>
 </div></div></div>
 <div class="tryit" id="tryit-4"><div class="ex-head"><span class="num">Try It #4</span></div><div class="ex-body"><p>Make appropriate changes of variables in the integral \(\underset{R}{∬}\frac{4}{{(x-y)}^{2}}dy\,dx,\) where \(R\) is the trapezoid bounded by the lines \(x-y=2,x-y=4,x=0,\text{and}\,y=0.\) Write the resulting integral.</p>
-</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=\frac{1}{2}(v+u)\) and \(y=\frac{1}{2}(v-u)\) and \(∫24\,∫-uu\frac{4}{{u}^{2}}(\frac{1}{2})dv\,du.\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(x=\frac{1}{2}(v+u)\) and \(y=\frac{1}{2}(v-u)\) and \(\int_{2}^{4}\,\int_{-u}^{u}\frac{4}{{u}^{2}}(\frac{1}{2})dv\,du.\)</p>
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <p>We are ready to give a problem-solving strategy for change of variables.</p>
 <div class="card definition"><span class="chip">Change of Variables</span><ul class="tight"><li>Sketch the region given by the problem in the \(xy\text{-plane}\) and then write the equations of the curves that form the boundary.</li><li>Depending on the region or the integrand, choose the transformations \(x=g(u,v)\) and \(y=h(u,v).\)</li><li>Determine the new limits of integration in the \(uv\text{-plane}\text{.}\)</li><li>Find the Jacobian \(J(u,v).\)</li><li>In the integrand, replace the variables to obtain the new integrand.</li><li>Replace \(dy\,dx\) or \(dx\,dy,\) whichever occurs, by \(J(u,v)du\,dv.\)</li></ul>
@@ -162,9 +162,9 @@
 <p>The Jacobian for this transformation is</p>
 <p>\[J(u,v)=\frac{∂(x,y)}{∂(u,v)}=|\begin{array}{lll}\frac{∂x}{∂u} &amp; &amp; \frac{∂x}{∂v} \\ \frac{∂y}{∂u} &amp; &amp; \frac{∂y}{∂v}\end{array}|=|\begin{array}{lll}1\text{/}2 &amp; &amp; -1\text{/}2 \\ 1\text{/}2 &amp; &amp; 1\text{/}2\end{array}|=\frac{1}{2}.\]</p>
 <p>Therefore, by using the transformation \(T,\) the integral changes to</p>
-<p>\[\underset{R}{∬}(x-y){e}^{{x}^{2}-{y}^{2}}dA=\frac{1}{2}∫13\,∫-1\text{/}v1\text{/}vu{e}^{uv}du\,dv.\]</p>
+<p>\[\underset{R}{∬}(x-y){e}^{{x}^{2}-{y}^{2}}dA=\frac{1}{2}\int_{1}^{3}\,\int_{-1\text{/}v}^{1\text{/}v}u{e}^{uv}du\,dv.\]</p>
 <p>Doing the evaluation, we have</p>
-<p>\[\frac{1}{2}∫13\,∫-1\text{/}v1\text{/}vu{e}^{uv}du\,dv=\frac{2}{3e}\approx 0.245.\]</p>
+<p>\[\frac{1}{2}\int_{1}^{3}\,\int_{-1\text{/}v}^{1\text{/}v}u{e}^{uv}du\,dv=\frac{2}{3e}\approx 0.245.\]</p>
 </div></div></div>
 <div class="tryit" id="tryit-5"><div class="ex-head"><span class="num">Try It #5</span></div><div class="ex-body"><p>Using the substitutions \(x=v\) and \(y=\sqrt{u+v},\) evaluate the integral \(\underset{R}{∬}y\,\text{sin}({y}^{2}-x)dA\) where \(R\) is the region bounded by the lines \(y=\sqrt{x},x=2,\text{and}\,y=0.\)</p>
 </div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\frac{1}{2}(\text{sin}\,2-2)\)</p>
@@ -200,7 +200,7 @@
 </div></div></div>
 <p>Let’s try another example with a different substitution.</p>
 <div class="card example" id="example9"><div class="ex-head"><span class="num">Example 9</span><span class="t"></span></div><div class="ex-body"><p>Evaluate the triple integral</p>
-<p>\[∫03\,∫04\,∫y\text{/}2(y\text{/}2)+1(x+\frac{z}{3})dx\,dy\,dz\]</p>
+<p>\[\int_{0}^{3}\,\int_{0}^{4}\,\int_{y\text{/}2}^{(y\text{/}2)+1}(x+\frac{z}{3})dx\,dy\,dz\]</p>
 <p>in \(xyz\text{-space}\) by using the transformation</p>
 <p>\[u=(2x-y)\text{/}2,v=y\text{/}2,\text{and}\,w=z\text{/}3.\]</p>
 <p>Then integrate over an appropriate region in \(uvw\text{-space}\text{.}\)</p>
@@ -213,11 +213,11 @@
 <p>The function to be integrated becomes</p>
 <p>\[f(x,y,z)=x+\frac{z}{3}=u+v+\frac{3w}{3}=u+v+w.\]</p>
 <p>We are now ready to put everything together and complete the problem.</p>
-<p>\[\begin{array}{l} \\ \\ \\ \\ \,∫03\,∫04\,∫y\text{/}2(y\text{/}2)+1(x+\frac{z}{3})dx\,dy\,dz \\ \\ =∫01\,∫02\,∫01(u+v+w)|J(u,v,w)|du\,dv\,dw=∫01\,∫02\,∫01(u+v+w)|6|du\,dv\,dw \\ =6∫01\,∫02\,∫01(u+v+w)du\,dv\,dw=6{∫01\,∫02[\frac{{u}^{2}}{2}+vu+wu]}_{0}^{1}dv\,dw \\ =6∫01\,∫02(\frac{1}{2}+v+w)dv\,dw=6{∫01[\frac{1}{2}v+\frac{{v}^{2}}{2}+wv]}_{0}^{2}dw \\ =6∫01(3+2w)dw=6{[3w+{w}^{2}]}_{0}^{1}=24.\end{array}\]</p>
+<p>\[\begin{array}{l} \\ \\ \\ \\ \,\int_{0}^{3}\,\int_{0}^{4}\,\int_{y\text{/}2}^{(y\text{/}2)+1}(x+\frac{z}{3})dx\,dy\,dz \\ \\ =\int_{0}^{1}\,\int_{0}^{2}\,\int_{0}^{1}(u+v+w)|J(u,v,w)|du\,dv\,dw=\int_{0}^{1}\,\int_{0}^{2}\,\int_{0}^{1}(u+v+w)|6|du\,dv\,dw \\ =6\int_{0}^{1}\,\int_{0}^{2}\,\int_{0}^{1}(u+v+w)du\,dv\,dw=6{\int_{0}^{1}\,\int_{0}^{2}[\frac{{u}^{2}}{2}+vu+wu]}_{0}^{1}dv\,dw \\ =6\int_{0}^{1}\,\int_{0}^{2}(\frac{1}{2}+v+w)dv\,dw=6{\int_{0}^{1}[\frac{1}{2}v+\frac{{v}^{2}}{2}+wv]}_{0}^{2}dw \\ =6\int_{0}^{1}(3+2w)dw=6{[3w+{w}^{2}]}_{0}^{1}=24.\end{array}\]</p>
 </div></div></div>
 <div class="tryit" id="tryit-6"><div class="ex-head"><span class="num">Try It #6</span></div><div class="ex-body"><p>Let \(D\) be the region in \(xyz\text{-space}\) defined by \(1\le x\le 2,0\le xy\le 2,\text{and}\,0\le z\le 1.\)</p>
 <p>Evaluate \(\underset{D}{∭}({x}^{2}y+3xyz)dx\,dy\,dz\) by using the transformation \(u=x,v=xy,\) and \(w=3z.\)</p>
-</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(∫03\,∫02\,∫12(\frac{v}{3}+\frac{vw}{3u})du\,dv\,dw=2+\text{ln}\,8\)</p>
+</div><div class="solution"><button class="sol-toggle">Show answer</button><div class="sol-body"><p>\(\int_{0}^{3}\,\int_{0}^{2}\,\int_{1}^{2}(\frac{v}{3}+\frac{vw}{3u})du\,dv\,dw=2+\text{ln}\,8\)</p>
 </div></div><div class="selfcheck"><span>Did you get it?</span><button data-mark="right">I got it ✓</button><button data-mark="wrong">Not yet — review</button></div></div>
 <h2 id="key-concepts">Key Concepts</h2>
 <ul class="tight"><li>A transformation \(T\) is a function that transforms a region \(G\) in one plane (space) into a region \(R\) in another plane (space) by a change of variables. (See <a href="#example1">Example 1</a> and <a href="#example2">Example 2</a>.)</li><li>A transformation \(T:G\to R\) defined as \(T(u,v)=(x,y)\) \((\text{or}\,T(u,v,w)=(x,y,z))\) is said to be a one-to-one transformation if no two points map to the same image point. (See <a href="#example1">Example 1</a>.)</li><li>If \(f\) is continuous on \(R,\) then \(\underset{R}{∬}f(x,y)dA=\underset{S}{∬}f(g(u,v),h(u,v))|\frac{∂(x,y)}{∂(u,v)}|du\,dv.\) (See <a href="#example5">Example 5</a>, <a href="#example6">Example 6</a>, and <a href="#example7">Example 7</a>.)</li><li>If \(F\) is continuous on \(R,\) then<br><p>\[\begin{array}{ll}\underset{R}{∭}F(x,y,z)dV &amp; =\underset{G}{∭}F(g(u,v,w),h(u,v,w),k(u,v,w))|\frac{∂(x,y,z)}{∂(u,v,w)}|du\,dv\,dw \\ &amp; =\underset{G}{∭}H(u,v,w)|J(u,v,w)|du\,dv\,dw.\end{array}\]</p>
@@ -320,7 +320,7 @@
 <div class="exercise" id="ex389"><div class="n">389</div><div class="body"><p>The triangular region \(R\) with the vertices \((0,0),(2,0),\text{and}\,(1,3)\) is shown in the following figure.</p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_207.jpg" alt="A triangle with corners at the origin, (2, 0), and (1, 3)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 <ul class="tight"><li>Find a transformation \(T:S\to R,\) \(T(u,v)=(x,y)=(au+bv,cu+dv),\) where \(a,b,c\) and \(d\) are real numbers with \(ad-bc\ne 0\) such that \({T}^{-1}(0,0)=(0,0),\) \({T}^{-1}(2,0)=(1,0),\) and \({T}^{-1}(1,3)=(0,1).\)</li><li>Use the transformation \(T\) to find the area \(A(R)\) of the region \(R.\)</li></ul>
-<div class="answer"><button>Show answer</button><div class="a"><p>a. \(T(u,v)=(2u+v,3v);\) b. The area of \(R\) is<br> \(A(R)=∫03\,∫y\text{/}3(6-y)\text{/}3dx\,dy=∫01\,∫01-u|\frac{∂(x,y)}{∂(u,v)}|dv\,du=∫01\,∫01-u6dv\,du=3.\)</p>
+<div class="answer"><button>Show answer</button><div class="a"><p>a. \(T(u,v)=(2u+v,3v);\) b. The area of \(R\) is<br> \(A(R)=\int_{0}^{3}\,\int_{y\text{/}3}^{(6-y)\text{/}3}dx\,dy=\int_{0}^{1}\,\int_{0}^{1-u}|\frac{∂(x,y)}{∂(u,v)}|dv\,du=\int_{0}^{1}\,\int_{0}^{1-u}6dv\,du=3.\)</p>
 </div></div></div></div>
 <p>In the following exercises, use the transformation \(u=y-x,v=y,\) to evaluate the integrals on the parallelogram \(R\) of vertices \((0,0),(1,0),(2,1),\text{and}\,(1,1)\) shown in the following figure.<br></p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_208.jpg" alt="A rhombus with corners at the origin, (1, 0), (1, 1), and (2, 1)." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
@@ -357,9 +357,9 @@
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_214.jpg" alt="A quarter of a cylinder with height 1 and radius 3. The center axis is the z axis." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 <div class="answer"><button>Show answer</button><div class="a"><p>\(T(r,θ,z)=(r\,\text{cos}\,θ,r\,\text{sin}\,θ,z);S=[0,3]\,\times \,[0,\frac{\pi }{2}]\,\times \,[0,1]\) in the \(rθz\text{-space}\)</p>
 </div></div></div></div>
-<div class="exercise" id="ex400"><div class="n">400</div><div class="body"><p>Show that \(\underset{R}{∬}f(\sqrt{\frac{{x}^{2}}{3}+\frac{{y}^{2}}{3}})dA=2\pi \sqrt{15}∫01f(ρ)ρ\,dρ,\) where \(f\) is a continuous function on \([0,1]\) and \(R\) is the region bounded by the ellipse \(5{x}^{2}+3{y}^{2}=15.\)</p>
+<div class="exercise" id="ex400"><div class="n">400</div><div class="body"><p>Show that \(\underset{R}{∬}f(\sqrt{\frac{{x}^{2}}{3}+\frac{{y}^{2}}{3}})dA=2\pi \sqrt{15}\int_{0}^{1}f(ρ)ρ\,dρ,\) where \(f\) is a continuous function on \([0,1]\) and \(R\) is the region bounded by the ellipse \(5{x}^{2}+3{y}^{2}=15.\)</p>
 </div></div>
-<div class="exercise" id="ex401"><div class="n">401</div><div class="body"><p>Show that \(\underset{R}{∭}f(\sqrt{16{x}^{2}+4{y}^{2}+{z}^{2}})dV=\frac{\pi }{2}∫01f(ρ){ρ}^{2}dρ,\) where \(f\) is a continuous function on \([0,1]\) and \(R\) is the region bounded by the ellipsoid \(16{x}^{2}+4{y}^{2}+{z}^{2}=1.\)</p>
+<div class="exercise" id="ex401"><div class="n">401</div><div class="body"><p>Show that \(\underset{R}{∭}f(\sqrt{16{x}^{2}+4{y}^{2}+{z}^{2}})dV=\frac{\pi }{2}\int_{0}^{1}f(ρ){ρ}^{2}dρ,\) where \(f\) is a continuous function on \([0,1]\) and \(R\) is the region bounded by the ellipsoid \(16{x}^{2}+4{y}^{2}+{z}^{2}=1.\)</p>
 </div></div>
 <div class="exercise" id="ex402"><div class="n">402</div><div class="body"><p><strong>[T]</strong> Find the area of the region bounded by the curves \(xy=1,xy=3,y=2x,\) and \(y=3x\) by using the transformation \(u=xy\) and \(v=\frac{y}{x}.\) Use a computer algebra system (CAS) to graph the boundary curves of the region \(R.\)</p>
 </div></div>
@@ -367,9 +367,9 @@
 <div class="answer"><button>Show answer</button><div class="a"><p>The area of the region is \(\frac{ln2}{2}.\) A graph of the region is:<br></p>
 <img src="https://raw.githubusercontent.com/openstax/osbooks-calculus-bundle/main/media/CNX_Calc_Figure_15_07_216.jpg" alt="Four lines are drawn, namely, y = 3, y = 2, y = 3/(x squared), and y = 2/(x squared). The lines y = 3 and y = 2 are parallel to each other. The lines y = 3/(x squared) and y = 2/(x squared) are curves that run somewhat parallel to each other." style="max-width:100%;border:1px solid var(--line);border-radius:14px;display:block;margin:.8em 0">
 </div></div></div></div>
-<div class="exercise" id="ex404"><div class="n">404</div><div class="body"><p>Evaluate the triple integral \(∫01\,∫12\,∫zz+1(y+1)dx\,dy\,dz\) by using the transformation \(u=x-z,\) \(v=3y,\text{and}\,w=\frac{z}{2}.\)</p>
+<div class="exercise" id="ex404"><div class="n">404</div><div class="body"><p>Evaluate the triple integral \(\int_{0}^{1}\,\int_{1}^{2}\,\int_{z}^{z+1}(y+1)dx\,dy\,dz\) by using the transformation \(u=x-z,\) \(v=3y,\text{and}\,w=\frac{z}{2}.\)</p>
 </div></div>
-<div class="exercise" id="ex405"><div class="n">405</div><div class="body"><p>Evaluate the triple integral \(∫02\,∫46\,∫3z3z+2(5-4y)dx\,dz\,dy\) by using the transformation \(u=x-3z,v=4y,\text{and}\,w=z.\)</p>
+<div class="exercise" id="ex405"><div class="n">405</div><div class="body"><p>Evaluate the triple integral \(\int_{0}^{2}\,\int_{4}^{6}\,\int_{3z}^{3z+2}(5-4y)dx\,dz\,dy\) by using the transformation \(u=x-3z,v=4y,\text{and}\,w=z.\)</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>\(8\)</p>
 </div></div></div></div>
 <div class="exercise" id="ex406"><div class="n">406</div><div class="body"><p>A transformation \(T:{ℝ}^{2}\to {ℝ}^{2},T(u,v)=(x,y)\) of the form \(x=au+bv,y=cu+dv,\) where \(a,b,c,\text{and}\,d\) are real numbers, is called linear. Show that a linear transformation for which \(ad-bc\ne 0\) maps parallelograms to parallelograms.</p>
@@ -406,12 +406,12 @@
 </div>
 <h2 id="chapter-review-exercises">Chapter Review Exercises</h2>
 <p><strong>True or False?</strong> Justify your answer with a proof or a counterexample.</p>
-<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\(∫ab\,∫cdf(x,y)dy\,dx=∫cd\,∫abf(x,y)dy\,dx\)</p>
+<div class="exercise" id="reviewex1"><div class="n">1</div><div class="body"><p>\(\int_{a}^{b}\,\int_{c}^{d}f(x,y)dy\,dx=\int_{c}^{d}\,\int_{a}^{b}f(x,y)dy\,dx\)</p>
 </div></div>
 <div class="exercise" id="reviewex2"><div class="n">2</div><div class="body"><p>Fubini’s theorem can be extended to three dimensions, as long as \(f\) is continuous in all variables.</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>True.</p>
 </div></div></div></div>
-<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>The integral \(∫02\pi \,∫01\,∫r1dz\,dr\,dθ\) represents the volume of a right cone.</p>
+<div class="exercise" id="reviewex3"><div class="n">3</div><div class="body"><p>The integral \(\int_{0}^{2\pi }\,\int_{0}^{1}\,\int_{r}^{1}dz\,dr\,dθ\) represents the volume of a right cone.</p>
 </div></div>
 <div class="exercise" id="reviewex4"><div class="n">4</div><div class="body"><p>The Jacobian of the transformation \(x={u}^{2}-2v,y=3v-2uv\) is given by \(-4{u}^{2}+6u+4v.\)</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>False.</p>
@@ -424,20 +424,20 @@
 </div></div></div></div>
 <div class="exercise" id="reviewex7"><div class="n">7</div><div class="body"><p>\(\underset{D}{∬}\text{sin}({x}^{2}+{y}^{2})dA\) where \(D\) is a disk of radius \(2\) centered at the origin</p>
 </div></div>
-<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(∫01\,∫y1xy{e}^{{x}^{2}}dx\,dy\)</p>
+<div class="exercise" id="reviewex8"><div class="n">8</div><div class="body"><p>\(\int_{0}^{1}\,\int_{y}^{1}xy{e}^{{x}^{2}}dx\,dy\)</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{1}{4}\)</p>
 </div></div></div></div>
-<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>\(∫-11\,∫0z\,∫0x-z6dy\,dx\,dz\)</p>
+<div class="exercise" id="reviewex9"><div class="n">9</div><div class="body"><p>\(\int_{-1}^{1}\,\int_{0}^{z}\,\int_{0}^{x-z}6dy\,dx\,dz\)</p>
 </div></div>
 <div class="exercise" id="reviewex10"><div class="n">10</div><div class="body"><p>\(\underset{R}{∭}3y\,dV,\) where \(R=\{(x,y,z)|0\le x\le 1,0\le y\le x,0\le z\le \sqrt{9-{y}^{2}}\}\)</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>1.475</p>
 </div></div></div></div>
-<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>\(∫02\,∫02\pi \,∫r1r\,dz\,dθ\,dr\)</p>
+<div class="exercise" id="reviewex11"><div class="n">11</div><div class="body"><p>\(\int_{0}^{2}\,\int_{0}^{2\pi }\,\int_{r}^{1}r\,dz\,dθ\,dr\)</p>
 </div></div>
-<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(∫02\pi \,∫0\pi \text{/}2\,∫13{ρ}^{2}\text{sin}(φ)dρ\,dφ\,dθ\)</p>
+<div class="exercise" id="reviewex12"><div class="n">12</div><div class="body"><p>\(\int_{0}^{2\pi }\,\int_{0}^{\pi \text{/}2}\,\int_{1}^{3}{ρ}^{2}\text{sin}(φ)dρ\,dφ\,dθ\)</p>
 <div class="answer"><button>Show answer</button><div class="a"><p>\(\frac{52}{3}\pi\)</p>
 </div></div></div></div>
-<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(∫01\,∫\text{-}\sqrt{1-{x}^{2}}\sqrt{1-{x}^{2}}\,∫\text{-}\sqrt{1-{x}^{2}-{y}^{2}}\sqrt{1-{x}^{2}-{y}^{2}}dz\,dy\,dx\)</p>
+<div class="exercise" id="reviewex13"><div class="n">13</div><div class="body"><p>\(\int_{0}^{1}\,\int_{\text{-}\sqrt{1-{x}^{2}}}^{\sqrt{1-{x}^{2}}}\,\int_{\text{-}\sqrt{1-{x}^{2}-{y}^{2}}}^{\sqrt{1-{x}^{2}-{y}^{2}}}dz\,dy\,dx\)</p>
 </div></div>
 <p>For the following problems, find the specified area or volume.</p>
 <div class="exercise" id="reviewex14"><div class="n">14</div><div class="body"><p>The area of region enclosed by one petal of \(r=\text{cos}(4θ).\)</p>

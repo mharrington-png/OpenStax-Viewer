@@ -130,17 +130,17 @@
 &amp; = \left\langle 0, \ 0, \ \frac{\partial x}{\partial s}(a,b) \frac{\partial y}{\partial t}(a,b) - \frac{\partial x}{\partial t}(a,b) \frac{\partial y}{\partial s}(a,b) \right\rangle \Delta s \, \Delta t.\end{aligned}\]
     </p><p>
       Finally, by computing the magnitude of the cross product, we see that
-      \[\begin{aligned}|\vv \times \vw| &amp; \approx \left|\left\langle 0,0, \frac{\partial x}{\partial s}(a,b) \frac{\partial y}{\partial t}(a,b) - \frac{\partial x}{\partial t}(a,b) \frac{\partial y}{\partial s}(a,b) \right\rangle \Delta s \, \Delta t\right| \\
-&amp; = \left|\frac{\partial x}{\partial s}(a,b) \frac{\partial y}{\partial t}(a,b) - \frac{\partial x}{\partial t}(a,b) \frac{\partial y}{\partial s}(a,b)\right| \Delta s \, \Delta t.\end{aligned}\]
+      \[\begin{aligned}|\vv \times \vw| &amp; \approx \left\lvert\left\langle 0,0, \frac{\partial x}{\partial s}(a,b) \frac{\partial y}{\partial t}(a,b) - \frac{\partial x}{\partial t}(a,b) \frac{\partial y}{\partial s}(a,b) \right\rangle \Delta s \, \Delta t\right\rvert \\
+&amp; = \left\lvert\frac{\partial x}{\partial s}(a,b) \frac{\partial y}{\partial t}(a,b) - \frac{\partial x}{\partial t}(a,b) \frac{\partial y}{\partial s}(a,b)\right\rvert \Delta s \, \Delta t.\end{aligned}\]
     </p><p>
       Therefore, as the number of subdivisions increases without bound in each direction, \(\Delta s\) and \(\Delta t\) both go to zero, and we have
       <span id="E_Area_Element">\[
-        dA = \left|\frac{\partial x}{\partial s} \frac{\partial y}{\partial t} - \frac{\partial x}{\partial t} \frac{\partial y}{\partial s} \right| ds \, dt.
+        dA = \left\lvert\frac{\partial x}{\partial s} \frac{\partial y}{\partial t} - \frac{\partial x}{\partial t} \frac{\partial y}{\partial s} \right\rvert ds \, dt.
       \tag{11.9.3}\]</span>
     </p><p>
       Equation&nbsp;<a href="#E_Area_Element">(11.9.3)</a> hence determines the general change of variable formula in a double integral, and we can now say that
       \[
-        \iint_T f(x,y) \, dy \, dx = \iint_{T'} f(x(s,t),y(s,t)) \left|\frac{\partial x}{\partial s} \frac{\partial y}{\partial t} - \frac{\partial x}{\partial t} \frac{\partial y}{\partial s}\right| ds \, dt.
+        \iint_T f(x,y) \, dy \, dx = \iint_{T'} f(x(s,t),y(s,t)) \left\lvert\frac{\partial x}{\partial s} \frac{\partial y}{\partial t} - \frac{\partial x}{\partial t} \frac{\partial y}{\partial s}\right\rvert ds \, dt.
       \]
     </p><p>
       The quantity
@@ -155,13 +155,13 @@
         \(\left[ \begin{array}{cc} \frac{\partial x}{\partial s} &amp;  \frac{\partial x}{\partial t}  \\ \frac{\partial y}{\partial s} &amp;  \frac{\partial y}{\partial t} 
         \end{array}  \right] \).
       Note that, as discussed in <a href="9-4.html">Section 9.4</a>, the absolute value of the determinant of \(\left[ \begin{array}{cc} \frac{\partial x}{\partial s} &amp;  \frac{\partial x}{\partial t}  \\ \frac{\partial y}{\partial s} &amp;  \frac{\partial y}{\partial t} 
-        \end{array}  \right]\) is the area of the parallelogram determined by the vectors \(\vv\) and \(\vw\), and so the area element \(dA\) in \(xy\)-coordinates is also represented by the area element \(\left| \frac{\partial (x,y)}{\partial (s,t)} \right| \, ds \, dt\) in \(st\)-coordinates, and \(\left| \frac{\partial (x,y)}{\partial (s,t)} \right|\) is the factor by which the transformation magnifies area. 
+        \end{array}  \right]\) is the area of the parallelogram determined by the vectors \(\vv\) and \(\vw\), and so the area element \(dA\) in \(xy\)-coordinates is also represented by the area element \(\left\lvert \frac{\partial (x,y)}{\partial (s,t)} \right\rvert \, ds \, dt\) in \(st\)-coordinates, and \(\left\lvert \frac{\partial (x,y)}{\partial (s,t)} \right\rvert\) is the factor by which the transformation magnifies area. 
     </p><p>
       To summarize, the preceding change of variable formula that we have derived now follows.
     </p><div class="card callout" id="Change-of-variable"><span class="chip">Change of Variables in a Double Integral</span><p>
       Suppose a change of variables \(x = x(s,t)\) and \(y = y(s,t)\) transforms a closed and bounded region \(R\) in the \(st\)-plane into a closed and bounded region \(R'\) in the \(xy\)-plane. Under modest conditions (that are studied in advanced calculus), it follows that
       \[
-        \iint_{R'} f(x,y) \, dA = \iint_{R} f(x(s,t), y(s,t)) \left|\frac{\partial (x,y)}{\partial (s,t)}\right| \, ds \, dt.
+        \iint_{R'} f(x,y) \, dA = \iint_{R} f(x(s,t), y(s,t)) \left\lvert\frac{\partial (x,y)}{\partial (s,t)}\right\rvert \, ds \, dt.
       \]
     </p></div><div class="card activity" id="A_11_9_2"><div class="ex-head"><span class="num">Activity 11.9.3</span></div><div class="ex-body"><p>
         Find the Jacobian when changing from rectangular to polar coordinates. That is, for the transformation given by \(x = r\cos(\theta)\), \(y = r\sin(\theta)\), determine a simplified expression for the quantity
@@ -211,7 +211,7 @@
     <div class="card callout" id="Change-of-variable-3D"><span class="chip">Change of Variables in a Triple Integral</span><p>
       Suppose a change of variables \(x = x(s,t,u)\), \(y = y(s,t,u)\), and \(z = z(s,t,u)\) transforms a closed and bounded region \(S\) in \(stu\)-coordinates into a closed and bounded region \(S'\) in \(xyz\)-coordinates. Under modest conditions (that are studied in advanced calculus), the triple integral \(\iiint_{S'} f(x,y,z) \, dV \) is equal to 
       \[
-        \iiint_{S} f(x(s,t,u),y(s,t,u),z(s,t,u)) \ \left| \frac{\partial(x,y,z)}{\partial(s,t,u)} \right| \, ds \, dt \, du.
+        \iiint_{S} f(x(s,t,u),y(s,t,u),z(s,t,u)) \ \left\lvert \frac{\partial(x,y,z)}{\partial(s,t,u)} \right\rvert \, ds \, dt \, du.
       \]
     </p></div>
     </p><div class="card activity" id="A_11_9_3"><div class="ex-head"><span class="num">Activity 11.9.5</span></div><div class="ex-body"><p>
@@ -229,7 +229,7 @@
               Find the Jacobian \(\frac{\partial(x,y,z)}{\partial(s,t,u)}\). 
             </p></li><li><p>
               Use the transformation to perform a change of variables and evaluate \(\iiint_{S'} f(x,y,z) \, dV\) by evaluating 
-              \[\iiint_{S} f(x(s,t,u),y(s,t,u),z(s,t,u)) \ \left| \frac{\partial(x,y,z)}{\partial(s,t,u)} \right| \, ds \, dt \, du\].
+              \[\iiint_{S} f(x(s,t,u),y(s,t,u),z(s,t,u)) \ \left\lvert \frac{\partial(x,y,z)}{\partial(s,t,u)} \right\rvert \, ds \, dt \, du\].
             </p></li></ol>
     </p></div></div>
 <h2 id="summary">Summary</h2>
@@ -240,9 +240,9 @@
         </p></li></ul>
 <h2 id="footnotes">Footnotes</h2><ol class="footnotes"><li id="fn-1">A <em>transformation</em> is another name for function:  here, the equations \(x = r\cos(\theta)\) and \(y = r\sin(\theta)\) define a function \(T\) by \(T(r, \theta) = (r\cos(\theta), r\sin(\theta))\) so that \(T\) is a function (transformation) from \(\R^2\) to \(\R^2\).  We view this transformation as mapping a version of the \(xy\)-plane where the axes are viewed as representing \(r\) and \(\theta\) (the \(r \theta\)-plane) to the familiar \(xy\)-plane. <a href="#fnref-1">&#8617;</a></li></ol>
 <div id="exercise-panel-content"><h2 id="exercises-9">Exercises</h2><div class="exercise" id="ex-11-9-WW-Jacobian-2"><div class="n">1</div><div class="body"><p>Find the absolute value of the Jacobian,
-\(\left|\frac{\partial (x,y)}{\partial (s,t)}\right|\),
+\(\left\lvert\frac{\partial (x,y)}{\partial (s,t)}\right\rvert\),
 for the change of variables given by
-\(x = s+7t, y = 2s+8t\)</p><p>\(\left|\frac{\partial(x,y)}{\partial(s,t)}\right| =\)<span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\left|1\cdot 8-7\cdot 2\right|\)</p></div></div></div></div><div class="exercise" id="ex-11-9-WW-Jacobian-3"><div class="n">2</div><div class="body"><p>Find the Jacobian.
+\(x = s+7t, y = 2s+8t\)</p><p>\(\left\lvert\frac{\partial(x,y)}{\partial(s,t)}\right\rvert =\)<span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(\text{|}1\cdot 8-7\cdot 2\text{|}\)</p></div></div></div></div><div class="exercise" id="ex-11-9-WW-Jacobian-3"><div class="n">2</div><div class="body"><p>Find the Jacobian.
 \(\frac{\partial (x,y,z)}{\partial (s,t,u)}\),
 where \(x = 3t-4s-4u, y = 4s+4t-u, z = 2t-3s-3u\).</p><p>\(\frac{\partial (x,y,z)}{\partial (s,t,u)} =\)
 <span class="blank">___________________________________</span></p><div class="answer"><button>Show answer</button><div class="a"><p>\(-4\cdot \left(4\cdot \left(-3\right)--1\cdot 2\right)-3\cdot \left(4\cdot \left(-3\right)--1\cdot \left(-3\right)\right)+-4\cdot \left(4\cdot 2-4\cdot \left(-3\right)\right)\)</p></div></div></div></div><div class="exercise" id="ex-11-9-WW-square"><div class="n">3</div><div class="body"><p>Consider the transformation
@@ -281,7 +281,7 @@ use the change of variables \(x=2 s + t\),
 \(y = s -  t\) to compute the integral
 \(\int_R (x+y)\,dA\), where \(R\) is the parallelogram with vertices
 \((x,y)=(0,0)\), \((4,2)\), \((7,-1)\), and \((3,-3)\).</p><p>First find the magnitude of the Jacobian,
-\(\left|\frac{\partial(x,y)}{\partial(s,t)}\right| =\)
+\(\left\lvert\frac{\partial(x,y)}{\partial(s,t)}\right\rvert =\)
 <span class="blank">_______________</span>.</p><p>Then, with
 \(a =\) <span class="blank">_______________</span>,
 \(b =\) <span class="blank">_______________</span>,</p><p>\(c =\) <span class="blank">_______________</span>, and
