@@ -1288,16 +1288,17 @@ ${needsSageCell ? `<script defer src="https://sagecell.sagemath.org/static/embed
 <script defer src="../../assets/app.js"></script>
 </head>
 <body data-book="active-calculus-multivariable">
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header class="topbar">
   <a class="brand" href="../../books/active-calculus-multivariable/index.html">MX <span>Calculus</span></a>
   <span class="crumb">${esc(sectionTitle)}</span>
   <span class="spacer"></span>
-  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <button class="iconbtn" data-theme-toggle title="Toggle light/dark theme" aria-label="Toggle light/dark theme">☀ / ☾</button>
   <div id="progressbar"></div>
 </header>
 <div class="layout">
 <nav class="sidebar" aria-label="Book navigation"></nav>
-<main>
+<main id="main-content">
 <h1><span class="kicker">Section ${CHAPTER}.${SECTION}</span>${esc(sectionTitle)}</h1>
 ${bodyParts.join("\n")}
 <footer class="attribution"></footer>

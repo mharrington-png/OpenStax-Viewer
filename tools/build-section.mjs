@@ -758,17 +758,18 @@ const page = `<!DOCTYPE html>
 <script defer src="${rootUp}assets/app.js"></script>
 </head>
 <body data-book="${bookId}">
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header class="topbar">
   <a class="brand" href="${bookHome}">${brandLabel}</a>
   <span class="crumb">${esc(title)}</span>
   <span class="spacer"></span>
   <span class="crumb" id="tryit-score"></span>
-  <button class="iconbtn" data-theme-toggle>☀ / ☾</button>
+  <button class="iconbtn" data-theme-toggle title="Toggle light/dark theme" aria-label="Toggle light/dark theme">☀ / ☾</button>
   <div id="progressbar"></div>
 </header>
 <div class="layout">
 <nav class="sidebar" aria-label="Book navigation"></nav>
-<main>
+<main id="main-content">
 <h1><span class="kicker">Section ${esc(slug.replace("-", "."))}</span>${esc(title)}</h1>
 ${body}
 <footer class="attribution">

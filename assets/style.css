@@ -9,7 +9,7 @@
   --surface-2: #f0eeee;
   --ink: #151313;
   --ink-soft: #4d4a4a;
-  --ink-faint: #8b8686;
+  --ink-faint: #6b6767;
   --accent: #cf003d;
   --accent-soft: #fae5eb;
   --accent-ink: #a50232;
@@ -32,7 +32,7 @@
   --surface-2: #272425;
   --ink: #eceae9;
   --ink-soft: #b6b1b1;
-  --ink-faint: #7f7a7a;
+  --ink-faint: #918c8c;
   --accent: #ff4d76;
   --accent-soft: #3c0e1c;
   --accent-ink: #ff8aa6;
@@ -58,6 +58,15 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
+
+/* ---------- skip link ---------- */
+.skip-link {
+  position: absolute; top: -100px; left: 12px; z-index: 1000;
+  background: var(--accent); color: var(--surface); font-family: var(--sans); font-weight: 700;
+  padding: 12px 20px; border-radius: 0 0 10px 10px; text-decoration: none;
+  transition: top .15s ease;
+}
+.skip-link:focus { top: 0; }
 
 /* ---------- top bar ---------- */
 .topbar {

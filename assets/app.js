@@ -564,6 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = document.createElement("button");
       btn.className = "iconbtn navbtn";
       btn.title = "Show or hide the contents sidebar";
+      btn.setAttribute("aria-label", "Show or hide the contents sidebar");
       btn.textContent = "☰";
       topbar.insertBefore(btn, topbar.firstChild);
       const key = "mxalg-nav";
@@ -959,7 +960,7 @@ function initPlaylist(root) {
     `<button class="iconbtn pl-next" ${(idx === -1 || idx >= entries.length - 1) ? "disabled" : ""}>Next &rarr;</button>` +
     `<span class="spacer"></span>` +
     `<div class="pl-listbox"><button class="iconbtn pl-toggle">&#9776; List</button><div class="pl-list" hidden></div></div>` +
-    `<button class="iconbtn pl-exit" title="Exit playlist">&times;</button>`;
+    `<button class="iconbtn pl-exit" title="Exit playlist" aria-label="Exit playlist">&times;</button>`;
   topbar.insertAdjacentElement("afterend", bar);
 
   const goto = i => { if (entries[i]) location.href = playlistUrlFor(root, entries[i], raw); };
@@ -1022,9 +1023,9 @@ function initPlaylistBuilder(root) {
       return `<li>` +
         `<span class="plqueue-n">${i + 1}.</span>` +
         `<span class="plqueue-t">${e.bookTitle}: ${e.title}</span>` +
-        `<button class="iconbtn plq-up" data-i="${i}" ${i === 0 ? "disabled" : ""} title="Move up">&uarr;</button>` +
-        `<button class="iconbtn plq-down" data-i="${i}" ${i === queue.length - 1 ? "disabled" : ""} title="Move down">&darr;</button>` +
-        `<button class="iconbtn plq-remove" data-i="${i}" title="Remove">&times;</button>` +
+        `<button class="iconbtn plq-up" data-i="${i}" ${i === 0 ? "disabled" : ""} title="Move up" aria-label="Move item ${i + 1} up">&uarr;</button>` +
+        `<button class="iconbtn plq-down" data-i="${i}" ${i === queue.length - 1 ? "disabled" : ""} title="Move down" aria-label="Move item ${i + 1} down">&darr;</button>` +
+        `<button class="iconbtn plq-remove" data-i="${i}" title="Remove" aria-label="Remove item ${i + 1}">&times;</button>` +
         `</li>`;
     }).join("");
     const raw = queue.map(q => `${q.bookId}:${q.id}`).join(",");
