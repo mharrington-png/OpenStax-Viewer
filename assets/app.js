@@ -1262,9 +1262,20 @@ function teardownAssignmentBuilder(panel) {
 function exercisePanelGroups(panel) {
   const groups = []; let openH2 = null, openH3 = null, openP = null;
   [...panel.children].forEach(el => {
-    if (el.tagName === "H2") { openH2 = { el, exercises: [] }; groups.push(openH2); openH3 = null; openP = null; return; }
-    if (el.tagName === "H3") { openH3 = { el, exercises: [] }; groups.push(openH3); openP = null; return; }
-    if (el.tagName === "P") { openP = { el, exercises: [] }; groups.push(openP); return; }
+    if (el.tagName === "H2") { openH2 = { els: [el], exercises: [] }; groups.push(openH2); openH3 = null; openP = null; return; }
+    if (el.tagName === "H3") { openH3 = { els: [el], exercises: [] }; groups.push(openH3); openP = null; return; }
+    if (el.tagName === "P") {
+      // A run of intro paragraphs with no exercises between them (e.g. "For the following
+      // exercises, evaluate the expressions, given functions f, g, and h:" immediately
+      // followed by the f/g/h definitions themselves) is one shared intro, not two — fold
+      // it into the still-open paragraph instead of starting a fresh (permanently-empty,
+      // permanently-hidden) group. Found via ?assign= links where a section's very first
+      // instruction line never reappeared no matter what was selected, because its "real"
+      // group had already been superseded by the next paragraph before any exercise
+      // arrived to claim it.
+      if (openP && openP.exercises.length === 0) { openP.els.push(el); return; }
+      openP = { els: [el], exercises: [], isP: true }; groups.push(openP); return;
+    }
     if (el.classList.contains("exercise")) {
       [openH2, openH3, openP].forEach(g => { if (g) g.exercises.push(el); });
     }
@@ -1291,8 +1302,23 @@ function initAssignment(splitApi) {
   // — assignment mode means "only the selected exercises," so a non-exercise heading like
   // that should always be hidden, not skipped for having nothing to check.
   exercisePanelGroups(panel).forEach(g => {
-    if (g.exercises.every(ex => ex.classList.contains("assign-hidden"))) {
-      g.el.classList.add("assign-hidden");
+    // An intro paragraph's DOM scope runs to the next heading/paragraph, but some of the
+    // exercises inside that scope restate their own setup (a lead-in sentence immediately
+    // followed by a lettered <ul class="tight"> sub-part list, e.g. "Given the function
+    // f(x)=8-3x:") and never actually depended on the shared instruction — e.g. 3.1's
+    // "For the following exercises, evaluate f(-3),f(2),..." really only governs #27-31,
+    // but #32-39 are self-contained and just happen to fall in the same DOM run, so
+    // assigning only #35 left that unrelated instruction showing above it. Detected only
+    // when the group is a *mix* of both kinds — a paragraph whose exercises are ALL
+    // self-restating already behaves correctly under the plain rule, and forcing the same
+    // exclusion there would risk hiding an instruction that every one of them still needs.
+    let exercises = g.exercises;
+    if (g.isP) {
+      const plain = exercises.filter(ex => !ex.querySelector(":scope > .body > ul.tight"));
+      if (plain.length > 0 && plain.length < exercises.length) exercises = plain;
+    }
+    if (exercises.every(ex => ex.classList.contains("assign-hidden"))) {
+      g.els.forEach(el => el.classList.add("assign-hidden"));
     }
   });
   if (splitApi) splitApi.forceOpen();
