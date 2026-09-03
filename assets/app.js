@@ -1196,6 +1196,22 @@ function setupAssignmentBuilder(panel, splitApi, onDone) {
   panel.querySelectorAll(".assign-hidden").forEach(el => el.classList.remove("assign-hidden"));
   const selected = new Set();
 
+  // Rather than guess whether an instruction paragraph still applies to whatever subset
+  // of exercises got picked (see exerciseHasSubParts — no wording-based heuristic covers
+  // every case, e.g. a bare true/false statement has no sub-parts but still depends on its
+  // header), let the teacher decide directly: one checkbox per instruction paragraph,
+  // defaulting to shown, scoped to the H2 section actually being built right now. hdrIdx
+  // is the same 0-based, in-document-order index initAssignment uses to read hdr= back.
+  const h2El = currentH2Element(panel);
+  const headerGroups = [];
+  let hdrIdx = -1;
+  exercisePanelGroups(panel).forEach(g => {
+    if (!g.isP) return;
+    hdrIdx++;
+    if (g.h2El === h2El) headerGroups.push({ group: g, idx: hdrIdx });
+  });
+  const selectedHeaders = new Set(headerGroups.map(h => h.idx));
+
   const bar = document.createElement("div");
   bar.className = "assign-bar";
   bar.innerHTML =
@@ -1226,11 +1242,29 @@ function setupAssignmentBuilder(panel, splitApi, onDone) {
     });
   });
 
+  headerGroups.forEach(({ group, idx }) => {
+    const firstEl = group.els[0];
+    firstEl.classList.add("hdr-pickable");
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.className = "hdr-pick";
+    cb.checked = true;
+    cb.setAttribute("aria-label", "Show this instruction line in tonight's assignment");
+    firstEl.insertBefore(cb, firstEl.firstChild);
+    cb.addEventListener("change", () => {
+      if (cb.checked) selectedHeaders.add(idx); else selectedHeaders.delete(idx);
+    });
+  });
+
   copyBtn.addEventListener("click", () => {
     if (!selected.size) return;
     // Keeps the current #hash (e.g. "#chapter-review-exercises") so a student opening the
-    // link also lands scrolled to the right heading, same as any other section link.
-    const url = `${location.origin}${location.pathname}?assign=${[...selected].join(",")}${location.hash}`;
+    // link also lands scrolled to the right heading, same as any other section link. hdr=
+    // is only worth sending if this section actually has instruction paragraphs to choose
+    // from — omitting it (rather than sending an empty list) lets initAssignment fall
+    // back cleanly for sections built before this feature existed.
+    const hdrParam = headerGroups.length ? `&hdr=${[...selectedHeaders].sort((a, b) => a - b).join(",")}` : "";
+    const url = `${location.origin}${location.pathname}?assign=${[...selected].join(",")}${hdrParam}${location.hash}`;
     navigator.clipboard.writeText(url).then(() => {
       const orig = copyBtn.textContent;
       copyBtn.textContent = "Copied!";
@@ -1250,6 +1284,29 @@ function teardownAssignmentBuilder(panel) {
     const cb = ex.querySelector(":scope > input.ex-pick");
     if (cb) cb.remove();
   });
+  panel.querySelectorAll(".hdr-pickable").forEach(el => {
+    el.classList.remove("hdr-pickable");
+    const cb = el.querySelector(":scope > input.hdr-pick");
+    if (cb) cb.remove();
+  });
+}
+
+// True if an exercise restates its own setup well enough that it doesn't depend on a
+// preceding shared instruction — detected narrowly as "has its own lettered ⓐ/ⓑ sub-parts"
+// (a <ul class="tight"> right in the problem body, e.g. "Given the function k(t)=2t-1:
+// ⓐ Evaluate k(2). ⓑ Solve k(t)=7."), NOT "contains any prose at all." A broader prose
+// check sounds more complete but isn't reliable: a bare true/false statement ("Every
+// one-to-one function has an inverse.") has plenty of words yet still depends on its
+// header to know what action to take, and tightening to a leading-verb allowlist just
+// trades that false positive for a false negative elsewhere (College Algebra 4.1's "use a
+// calculator..." group has one exercise phrased as "Table 12 shows the input w and output
+// k...," no leading verb, which would wrongly split an otherwise-uniform group). This
+// narrower rule has no known false positive — the tradeoff is it misses exercises that
+// restate their setup in a single sentence with no sub-parts (e.g. college-algebra-2e 3-1's
+// #32, "Given the function g(x)=5-x^2, evaluate (g(x+h)-g(x))/h") — that residual class
+// needs a human hand-pass call, not a heuristic, same as sol-hints/Key-Concepts-links.
+function exerciseHasSubParts(ex) {
+  return !!ex.querySelector(":scope > .body > ul.tight");
 }
 
 // A heading (h2/h3) or loose intro paragraph ("For the following exercises...") is a
@@ -1273,14 +1330,29 @@ function exercisePanelGroups(panel) {
       // instruction line never reappeared no matter what was selected, because its "real"
       // group had already been superseded by the next paragraph before any exercise
       // arrived to claim it.
+      // h2El records which H2 this instruction paragraph lives under, so the assignment
+      // builder can scope its "show this instruction?" checkboxes to only the section
+      // currently being built (see currentH2Element).
       if (openP && openP.exercises.length === 0) { openP.els.push(el); return; }
-      openP = { els: [el], exercises: [], isP: true }; groups.push(openP); return;
+      openP = { els: [el], exercises: [], isP: true, h2El: openH2 ? openH2.els[0] : null }; groups.push(openP); return;
     }
     if (el.classList.contains("exercise")) {
       [openH2, openH3, openP].forEach(g => { if (g) g.exercises.push(el); });
     }
   });
   return groups;
+}
+
+// Same H2-matching rule as currentExerciseGroup (match #hash, else the first H2) but
+// returns the element itself — used to scope which instruction-paragraph checkboxes the
+// assignment builder shows, and which paragraphs a teacher's explicit hdr= choices apply
+// to, for the (currently hypothetical, per currentExerciseGroup's own note) case of more
+// than one H2 in the panel.
+function currentH2Element(panel) {
+  const hashId = location.hash.slice(1);
+  const h2s = [...panel.children].filter(el => el.tagName === "H2");
+  if (!h2s.length) return null;
+  return h2s.find(el => el.id === hashId) || h2s[0];
 }
 
 // Reading side of an assignment link: hides every exercise on the page not in the
@@ -1290,31 +1362,57 @@ function exercisePanelGroups(panel) {
 // with nothing left under it. Forces the practice panel open, same as the builder does,
 // so a student opening the link lands looking at exactly what's assigned.
 function initAssignment(splitApi) {
-  const raw = new URLSearchParams(location.search).get("assign");
+  const params = new URLSearchParams(location.search);
+  const raw = params.get("assign");
   if (!raw) return;
   const panel = document.getElementById("exercise-panel-content");
   if (!panel) return;
   const ids = new Set(raw.split(","));
   [...panel.querySelectorAll(".exercise")].forEach((ex, i) => { if (!ids.has(exerciseKey(ex, i))) ex.classList.add("assign-hidden"); });
+
+  // A teacher can explicitly show/hide each instruction paragraph in the assignment
+  // builder (checkbox next to it, defaulting to shown) rather than leaving it to a
+  // guess — see setupAssignmentBuilder. hdr= lists the (0-based, in-document-order) index
+  // of every instruction paragraph the teacher left checked; its absence (an older link,
+  // or one built before this feature) falls back to the auto-detection heuristic below.
+  // hdr= only ever covers paragraphs under the H2 the builder was scoped to, so a
+  // paragraph under any *other* H2 (see currentExerciseGroup's note — currently
+  // hypothetical, since #exercise-panel-content only ever wraps one) still falls back to
+  // the heuristic even when hdr= is present, rather than being force-hidden as "not
+  // mentioned."
+  const hdrRaw = params.get("hdr");
+  const explicitHdrs = hdrRaw === null ? null : new Set(hdrRaw === "" ? [] : hdrRaw.split(",").map(Number));
+  const h2El = currentH2Element(panel);
+  let hdrIdx = -1;
+
   // Array.every() on an empty array is vacuously true, which is exactly what's wanted
   // for a heading with zero exercises under it (e.g. Intermediate Algebra's trailing
   // "Self Check" reflection checklist, which is a heading + image, no .exercise at all)
   // — assignment mode means "only the selected exercises," so a non-exercise heading like
   // that should always be hidden, not skipped for having nothing to check.
   exercisePanelGroups(panel).forEach(g => {
-    // An intro paragraph's DOM scope runs to the next heading/paragraph, but some of the
-    // exercises inside that scope restate their own setup (a lead-in sentence immediately
-    // followed by a lettered <ul class="tight"> sub-part list, e.g. "Given the function
-    // f(x)=8-3x:") and never actually depended on the shared instruction — e.g. 3.1's
-    // "For the following exercises, evaluate f(-3),f(2),..." really only governs #27-31,
-    // but #32-39 are self-contained and just happen to fall in the same DOM run, so
-    // assigning only #35 left that unrelated instruction showing above it. Detected only
-    // when the group is a *mix* of both kinds — a paragraph whose exercises are ALL
-    // self-restating already behaves correctly under the plain rule, and forcing the same
-    // exclusion there would risk hiding an instruction that every one of them still needs.
     let exercises = g.exercises;
     if (g.isP) {
-      const plain = exercises.filter(ex => !ex.querySelector(":scope > .body > ul.tight"));
+      hdrIdx++;
+      if (explicitHdrs !== null && g.h2El === h2El) {
+        if (!explicitHdrs.has(hdrIdx)) g.els.forEach(el => el.classList.add("assign-hidden"));
+        return; // teacher's explicit choice is authoritative either way — skip the heuristic below
+      }
+      // An intro paragraph's DOM scope runs to the next heading/paragraph, but some of
+      // the exercises inside that scope restate their own setup in words (see
+      // exerciseHasSubParts) and never actually depended on the shared instruction — e.g.
+      // 3.1's "For the following exercises, evaluate f(-3),f(2),..." really only governs
+      // #27-31, but #34-39 restate their own function and sub-parts and just happen to
+      // fall in the same DOM run, so assigning only #35 left that unrelated instruction
+      // showing above it. Detected only when the group is a *mix* of both kinds — a
+      // paragraph whose exercises ALL have sub-parts already behaves correctly under the
+      // plain rule, and forcing the same exclusion there would risk hiding an instruction
+      // every one of them still needs. Known gap: a self-contained exercise with no
+      // lettered sub-parts (e.g. #32, "Given the function g(x)=5-x^2, evaluate...") isn't
+      // caught by this — see exerciseHasSubParts's comment for why that's a deliberate,
+      // not accidental, limit; a teacher hitting that gap can just uncheck the header by
+      // hand instead.
+      const plain = exercises.filter(ex => !exerciseHasSubParts(ex));
       if (plain.length > 0 && plain.length < exercises.length) exercises = plain;
     }
     if (exercises.every(ex => ex.classList.contains("assign-hidden"))) {
