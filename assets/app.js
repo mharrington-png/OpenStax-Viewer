@@ -1117,6 +1117,10 @@ function initFocusTools(root, splitApi) {
   const themeBtn = document.querySelector("[data-theme-toggle]");
   if (!themeBtn) return;
   const exercisePanel = document.getElementById("exercise-panel-content");
+  // A page already opened via a ?assign= link has something to edit, in addition to
+  // (not instead of) starting a fresh one — a teacher might want to tweak the assignment
+  // they're currently looking at, or just build a new one from this same section.
+  const hasAssignment = new URLSearchParams(location.search).has("assign");
 
   const box = document.createElement("div");
   box.className = "focusbox";
@@ -1125,6 +1129,7 @@ function initFocusTools(root, splitApi) {
     `<div class="focus-menu" hidden>` +
       `<a class="focus-item" href="${root}/playlist.html">📑 Build a playlist</a>` +
       (exercisePanel ? `<button class="focus-item" data-focus-assign>📝 Build tonight's assignment</button>` : "") +
+      (exercisePanel && hasAssignment ? `<button class="focus-item" data-focus-edit-assign>✏️ Edit this assignment</button>` : "") +
     `</div>`;
   themeBtn.parentElement.insertBefore(box, themeBtn);
 
@@ -1133,19 +1138,22 @@ function initFocusTools(root, splitApi) {
   toggleBtn.addEventListener("click", () => { menu.hidden = !menu.hidden; });
   document.addEventListener("click", ev => { if (!box.contains(ev.target)) menu.hidden = true; });
 
+  const exit = () => {
+    teardownAssignmentBuilder(exercisePanel);
+    toggleBtn.classList.remove("on");
+  };
+  const startBuilding = opts => {
+    menu.hidden = true;
+    if (exercisePanel.dataset.building === "1") { exit(); return; }
+    setupAssignmentBuilder(exercisePanel, splitApi, exit, opts);
+    toggleBtn.classList.add("on");
+  };
+
   const assignBtn = box.querySelector("[data-focus-assign]");
-  if (assignBtn) {
-    const exit = () => {
-      teardownAssignmentBuilder(exercisePanel);
-      toggleBtn.classList.remove("on");
-    };
-    assignBtn.addEventListener("click", () => {
-      menu.hidden = true;
-      if (exercisePanel.dataset.building === "1") { exit(); return; }
-      setupAssignmentBuilder(exercisePanel, splitApi, exit);
-      toggleBtn.classList.add("on");
-    });
-  }
+  if (assignBtn) assignBtn.addEventListener("click", () => startBuilding());
+
+  const editBtn = box.querySelector("[data-focus-edit-assign]");
+  if (editBtn) editBtn.addEventListener("click", () => startBuilding({ editFromUrl: true }));
 }
 
 // #exercise-panel-content (the split-view/practice-panel container) only ever wraps one
@@ -1184,24 +1192,18 @@ function exerciseKey(ex, index) {
   return String(index + 1);
 }
 
-function setupAssignmentBuilder(panel, splitApi, onDone) {
+function setupAssignmentBuilder(panel, splitApi, onDone, opts) {
   panel.dataset.building = "1";
   if (splitApi) splitApi.forceOpen();
 
   const items = currentExerciseGroup(panel);
-  // Defensive unhide: a stale ?assign= filter (or a previous builder session) may have
-  // left exercises AND their now-empty headings/intro paragraphs hidden — building a
-  // fresh assignment should always start from the full panel, regardless of how the page
-  // happened to load.
-  panel.querySelectorAll(".assign-hidden").forEach(el => el.classList.remove("assign-hidden"));
-  const selected = new Set();
 
   // Rather than guess whether an instruction paragraph still applies to whatever subset
   // of exercises got picked (see exerciseHasSubParts — no wording-based heuristic covers
   // every case, e.g. a bare true/false statement has no sub-parts but still depends on its
   // header), let the teacher decide directly: one checkbox per instruction paragraph,
-  // defaulting to shown, scoped to the H2 section actually being built right now. hdrIdx
-  // is the same 0-based, in-document-order index initAssignment uses to read hdr= back.
+  // scoped to the H2 section actually being built right now. hdrIdx is the same 0-based,
+  // in-document-order index initAssignment uses to read hdr= back.
   const h2El = currentH2Element(panel);
   const headerGroups = [];
   let hdrIdx = -1;
@@ -1210,14 +1212,36 @@ function setupAssignmentBuilder(panel, splitApi, onDone) {
     hdrIdx++;
     if (g.h2El === h2El) headerGroups.push({ group: g, idx: hdrIdx });
   });
-  const selectedHeaders = new Set(headerGroups.map(h => h.idx));
+
+  // "Edit this assignment" (only offered when the page was opened via a ?assign= link —
+  // see initFocusTools) seeds the checkboxes from what's on screen right now instead of a
+  // blank slate: an exercise/instruction is currently visible (not .assign-hidden) exactly
+  // when initAssignment decided it belongs in the current link, whether that came from an
+  // explicit hdr= choice or the heuristic fallback. This has to run *before* the defensive
+  // unhide below, which erases that signal. "Build tonight's assignment" always starts
+  // fresh (empty exercises, every instruction shown) regardless of the current URL.
+  const editing = !!(opts && opts.editFromUrl);
+  const selected = new Set();
+  const selectedHeaders = new Set();
+  if (editing) {
+    items.forEach((ex, i) => { if (!ex.classList.contains("assign-hidden")) selected.add(exerciseKey(ex, i)); });
+    headerGroups.forEach(({ group, idx }) => { if (!group.els[0].classList.contains("assign-hidden")) selectedHeaders.add(idx); });
+  } else {
+    headerGroups.forEach(({ idx }) => selectedHeaders.add(idx));
+  }
+
+  // Defensive unhide: a stale ?assign= filter (or a previous builder session) may have
+  // left exercises AND their now-empty headings/intro paragraphs hidden — the checkboxes
+  // above already captured whatever that hidden state meant for a pre-populated edit, so
+  // it's safe to clear it and show the full panel to build/edit against.
+  panel.querySelectorAll(".assign-hidden").forEach(el => el.classList.remove("assign-hidden"));
 
   const bar = document.createElement("div");
   bar.className = "assign-bar";
   bar.innerHTML =
-    `<strong class="assign-count">0 selected</strong>` +
+    `<strong class="assign-count">${selected.size} selected</strong>` +
     `<span class="spacer"></span>` +
-    `<button class="iconbtn assign-copy" disabled>Copy link</button>` +
+    `<button class="iconbtn assign-copy"${selected.size ? "" : " disabled"}>Copy link</button>` +
     `<button class="iconbtn assign-done">Done</button>`;
   panel.insertBefore(bar, panel.firstChild);
 
@@ -1234,6 +1258,7 @@ function setupAssignmentBuilder(panel, splitApi, onDone) {
     const cb = document.createElement("input");
     cb.type = "checkbox";
     cb.className = "ex-pick";
+    cb.checked = selected.has(key);
     cb.setAttribute("aria-label", "Include this exercise in tonight's assignment");
     ex.insertBefore(cb, ex.firstChild);
     cb.addEventListener("change", () => {
@@ -1248,7 +1273,7 @@ function setupAssignmentBuilder(panel, splitApi, onDone) {
     const cb = document.createElement("input");
     cb.type = "checkbox";
     cb.className = "hdr-pick";
-    cb.checked = true;
+    cb.checked = selectedHeaders.has(idx);
     cb.setAttribute("aria-label", "Show this instruction line in tonight's assignment");
     firstEl.insertBefore(cb, firstEl.firstChild);
     cb.addEventListener("change", () => {
